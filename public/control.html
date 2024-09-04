@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Control Panel for Match <span id="matchName"></span></h1>
+    <input type="number" id="scoreInput" placeholder="Enter Score" />
+    <button id="updateScoreBtn">Update Score</button>
+
+    <script>
+        const socket = io();
+
+        // Get match name from the URL
+        const pathSegments = window.location.pathname.split('/');
+        const match = pathSegments[2]; // This should be match name
+        const initialScore = pathSegments[3]; // This should be the initial score
+        document.getElementById('matchName').innerText = match;
+
+        // Set initial score in input (optional)
+        document.getElementById('scoreInput').value = initialScore;
+
+        document.getElementById('updateScoreBtn').onclick = function() {
+            const score = document.getElementById('scoreInput').value;
+            socket.emit('updateScore', { match, score });
+        };
+    </script>
+</body>
+</html>

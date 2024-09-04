@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Scoreboard for Match <span id="matchName"></span></h1>
+    <div id="scoreDisplay">Score: 0</div>
+
+    <script>
+        const socket = io();
+
+        // Get match name from the URL
+        const pathSegments = window.location.pathname.split('/');
+        const match = pathSegments[2]; // This should be match name
+        document.getElementById('matchName').innerText = match;
+
+        // Listen for updates on the specific match
+        socket.on(`${match}-update`, (score) => {
+            document.getElementById('scoreDisplay').innerText = 'Score: ' + score;
+        });
+    </script>
+</body>
+</html>
