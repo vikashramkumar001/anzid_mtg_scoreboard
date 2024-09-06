@@ -2,31 +2,401 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control Panel</title>
+    <title>
+    </title>
+    <style>
+
+        * {
+            font-family: ProximaNovaBold, serif;
+        }
+
+        html, body {
+            margin: 0;
+            height: 100%;
+            min-height: 375px;
+        }
+
+        .background {
+            width: 100%;
+            height: 100%;
+            min-height: 375px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .life-totals {
+            flex-grow: 1;
+        }
+
+        .player, .event, .life-totals, .life-total-left, .life-total-right {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .life-totals, .life-total-left, .life-total-right {
+            flex-grow: 1;
+            font-size: 150px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .player-name, .player-archetype, .player-record, .player-wins, .player-poison {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player-left, .life-total-left {
+            background-color: #ff4779;
+        }
+
+        .player-right, .life-total-right {
+            background-color: #ff7b4c;
+        }
+
+        .player-left {
+            transform: rotate(180deg);
+        }
+
+        .life-total-minus, .life-total-plus {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-tap-highlight-color: #ccc;
+        }
+
+        .life-total-minus:active, .life-total-plus:active {
+            background-color: white;
+        }
+
+
+        .life-total-minus {
+            background: rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .life-total-plus {
+            background: rgba(0, 0, 0, 0.4);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+
+        .player-header {
+            font-size: 10px;
+        }
+
+        .player-arrow {
+            font-size: 60px;
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .player-value {
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        .life-total-right {
+            flex-direction: column-reverse;
+        }
+
+        .player-right {
+            flex-direction: row;
+        }
+
+        .player-right .player-name-header {
+            justify-content: flex-end;
+        }
+
+        .player {
+            height: 60px;
+        }
+
+        .player * {
+            text-transform: uppercase;
+        }
+
+        .life-total-overlay {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            pointer-events: none;
+            height: 90%;
+        }
+
+        .life-total-overlay-element {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            transform: rotate(180deg);
+            pointer-events: none;
+        }
+
+        .life-total-overlay-right {
+            transform: rotate(0deg);
+        }
+
+        .player-archetype-value {
+            opacity: 0;
+        }
+
+        .player-archetype-value:focus {
+            opacity: 100;
+        }
+
+        body {
+            background: transparent !important;
+        }
+    </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <h1>Control Panel for Match <span id="matchName"></span></h1>
-    <input type="number" id="scoreInput" placeholder="Enter Score" />
-    <button id="updateScoreBtn">Update Score</button>
 
-    <script>
-        const socket = io();
+<div class="background">
+    <div class="player player-left">
+        <div class="player-name">
+            <div class="player-header player-name-header">Name</div>
+            <div id="player-name-left" class="player-value player-name-value editable dynamic" contenteditable="true">
+            </div>
+        </div>
+        <div class="player-pronouns">
+            <div class="player-header player-name-header">Pronouns</div>
+            <div id="player-pronouns-left" class="player-value player-pronouns-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-archetype">
+            <div class="player-header player-archetype-header">Archetype</div>
+            <div id="player-archetype-left" class="player-value  player-archetype-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-record">
+            <div class="player-header player-record-header">Record</div>
+            <div id="player-record-left" class="player-value  player-record-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-wins">
+            <div class="player-header player-wins-header">Wins</div>
+            <div id="player-wins-left" class="player-value  player-wins-value editable dynamic" contenteditable="true">
+            </div>
+        </div>
+        <div class="player-poison">
+            <div class="player-header player-poison-header">Poison</div>
+            <div id="player-poison-left" class="player-value  player-poison-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+    </div>
+    <div class="life-totals">
+        <div class="life-total-left">
+            <div class="life-total-minus life-total-left-minus" onclick="onLifeTotalChange('player-life-left', -1)">-
+            </div>
+            <div class="life-total-plus  life-total-left-plus" onclick="onLifeTotalChange ('player-life-left', 1)">+
+            </div>
+        </div>
+        <div class="life-total-right">
+            <div class="life-total-minus life-total-right-minus" onclick="onLifeTotalChange('player-life-right', -1)">
+                -
+            </div>
+            <div class="life-total-plus  life-total-right-plus" onclick="onLifeTotalChange ('player-life-right', 1)">+
+            </div>
+        </div>
+        <div class="life-total-overlay">
+            <div id="player-life-left" class="life-total-overlay-element life-total-overlay-left dynamic"></div>
+            <div id="player-life-right" class="life-total-overlay-element life-total-overlay-right dynamic"></div>
+        </div>
+    </div>
+    <div class="player player-right">
+        <div class="player-name">
+            <div class="player-header player-name-header">Name</div>
+            <div id="player-name-right" class="player-value  player-name-value editable dynamic" contenteditable="true">
+            </div>
+        </div>
+        <div class="player-pronouns">
+            <div class="player-header player-name-header">Pronouns</div>
+            <div id="player-pronouns-right" class="player-value player-pronouns-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-archetype">
+            <div class="player-header player-archetype-header">Archetype</div>
+            <div id="player-archetype-right" class="player-value  player-archetype-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-record">
+            <div class="player-header player-record-header">Record</div>
+            <div id="player-record-right" class="player-value  player-record-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-wins">
+            <div class="player-header player-wins-header">Wins</div>
+            <div id="player-wins-right" class="player-value  player-wins-value editable dynamic" contenteditable="true">
+            </div>
+        </div>
+        <div class="player-poison">
+            <div class="player-header player-poison-header">Poison</div>
+            <div id="player-poison-right" class="player-value  player-poison-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+    </div>
+    <div class="event">
+        <div id="event-name" class="event-name editable dynamic" contenteditable="true">
+        </div>
+        <div id="event-round" class="event-round editable dynamic" contenteditable="true">
+        </div>
+        <div id="event-format" class="event-format editable dynamic" contenteditable="true">
+        </div>
+        <div class="buttons">
+            <button onclick="resetLifeTotals()">Reset Life</button>
+        </div>
+    </div>
+</div>
 
-        // Get match name from the URL
-        const pathSegments = window.location.pathname.split('/');
-        const match = pathSegments[2]; // This should be match name
-        const initialScore = pathSegments[3]; // This should be the initial score
-        document.getElementById('matchName').innerText = match;
+<script type="text/javascript">
 
-        // Set initial score in input (optional)
-        document.getElementById('scoreInput').value = initialScore;
+    function scale_element(element, reset = false) {
+        element.style.maxWidth = "";
+        element.style.transform = "scale(1)";
+        let max_width = element.dataset.maxWidth;
+        let current_width = element.scrollWidth;
+        if (current_width > max_width) {
+            let scale = max_width / current_width;
+            // scale = 1 - scale;
+            // scale = scale * 1;
+            // scale = 1 - scale;
+            element.style.transform = "scale(" + scale + ",1)";
+        }
+        if ("maxWidthOrigin" in element.dataset) {
+            element.style.transformOrigin = element.dataset.maxWidthOrigin;
+        }
+        // element.style.maxWidth = max_width + "px";
+    }
 
-        document.getElementById('updateScoreBtn').onclick = function() {
-            const score = document.getElementById('scoreInput').value;
-            socket.emit('updateScore', { match, score });
-        };
-    </script>
+    Array.from(document.getElementsByClassName("has-maximum-width")).forEach((element) => {
+        scale_element(element);
+    });
+
+    // let $_last_updated = "0";
+
+    // Example POST method implementation:
+    async function postData(url = '', data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'GET',
+            cache: 'no-cache',
+        });
+
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    function escapeVal(text) {
+        return text
+            .replace(/ /g, "%20");
+    }
+
+    function onLifeTotalChange(element, modifier) {
+        let div = document.getElementById(element);
+        div.innerHTML = parseInt(div.innerHTML) + modifier;
+        armTimeout();
+    }
+
+    function resetLifeTotals() {
+        ['player-life-left', 'player-life-right'].forEach(e => document.getElementById(e).innerHTML = '20');
+        armTimeout();
+    }
+
+    let current_state = {};
+
+    function sendData() {
+        current_state = {};
+        document.querySelectorAll(".dynamic").forEach(element => {
+            if (element.tagName === "SELECT") {
+                current_state[element.id] = element.value.trim();
+            } else {
+                current_state[element.id] = element.innerHTML.trim();
+            }
+
+        });
+        console.log('emitting updated content', control_id, current_state);
+        // send data to server
+        socket.emit('updateScoreboard', {control_id, current_state});
+    }
+
+    function armTimeout() {
+        console.log('arming timeout - ' + delay_value + ' seconds');
+        clearTimeout(timeout);
+        // delay value seconds after last input change - after timeout then emit data
+        timeout = setTimeout(() => sendData(), delay_value * 1000);
+    }
+
+    document.querySelectorAll(".editable").forEach(editable => editable.addEventListener("input", armTimeout));
+    document.querySelectorAll(".editable").forEach(editable => editable.addEventListener('keypress', (evt) => {
+        if (evt.which === 13) {
+            evt.preventDefault();
+        }
+    }));
+
+    function retrieveState() {
+        console.log('sending request for data');
+        const medium = 'control';
+        socket.emit('getSavedState', {control_id, medium});
+    }
+
+    function loadSavedState(data) {
+        Object.entries(data).forEach((element) => {
+            let [key, value] = element;
+            if (document.getElementById(key) != null) {
+                let el = document.getElementById(key);
+                if (el.tagName === "SELECT") {
+                    el.selectedIndex = [...el.options].findIndex(option => option.text === value);
+                } else {
+                    document.getElementById(key).innerHTML = value;
+                }
+            }
+        });
+    }
+
+    // start
+
+    const socket = io();
+    let timeout = null;
+    // Get match name from the URL
+    const pathSegments = window.location.pathname.split('/');
+    const control_id = pathSegments[2];                 // This should be match name
+    const delay_value = Number(pathSegments[3]) || 10;        // This should be the delay - used for timeout
+
+    // get saved state from server
+    retrieveState();
+
+    console.log('from url', control_id, delay_value);
+
+    // listen for saved state from server
+    socket.on('control-' + control_id + '-saved-state', (data) => {
+        console.log('got saved state from server', data);
+        loadSavedState(data);
+    })
+
+
+</script>
+
 </body>
 </html>

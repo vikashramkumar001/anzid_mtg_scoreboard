@@ -1,27 +1,352 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scoreboard</title>
+    <title>
+    </title>
+    <style>
+
+        * {
+            font-family: BebasNeueBold; /* BebasNeueBold */
+            text-transform: uppercase;
+            color: white;
+        }
+
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        div {
+            z-index: 10;
+        }
+
+        .background {
+            width: 1920px;
+            height: 1080px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: url("/assets/images/overlay.png");
+            z-index: 2;
+        }
+
+        .scorebug {
+            height: 150px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .scorebug-life {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 200px;
+            height: 100px;
+            font-size: 100px;
+        }
+
+        .scorebug-right-life {
+            align-items: flex-end;
+            flex-direction: row-reverse;
+
+        }
+
+        .scorebug-life-score {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            width: 100%;
+            padding-top: 12px;
+        }
+
+        .scorebug-life-wins {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 113px;
+            width: 60px;
+            line-height: 1.0;
+            font-size: 20px;
+        }
+
+        .scorebug-right-life-wins {
+            width: 82px;
+            height: 86px;
+        }
+
+        .scorebug-life-wins-dot {
+            width: 24px;
+            height: 24px;
+            font-size: 23px;
+        }
+
+        .player-record {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            font-size: 42px;
+            height: 100px;
+        }
+
+        .scorebug-name {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 6px;
+            height: 100px;
+            width: 610px;
+            line-height: 1.0;
+        }
+
+        .scorebug-name-title {
+            font-size: 66px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 650px;
+        }
+
+        .scorebug-right-name {
+            align-items: flex-end;
+        }
+
+        .scorebug-name-data, .scorebug-name-data * {
+            font-family: BebasNeueBook, serif;
+            font-size: 34px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .scorebug-vs {
+            width: 130px;
+        }
+
+        .viewport {
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .chyron {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+        }
+
+        .chyron * {
+            font-size: 28px;
+            color: #fff;
+        }
+
+        .poison {
+            z-index: 1;
+            position: absolute;
+            width: 1920px;
+            height: 1080px;
+        }
+
+        .poison-left {
+            background: url("/assets/images/overlay_poison_left.png");
+            font-size: 36px;
+        }
+
+        .poison-right {
+            background: url("/assets/images/overlay_poison_right.png");
+            font-size: 36px;
+        }
+
+        .player-poison-left, .player-poison-right {
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 120px;
+            position: absolute;
+            height: 48px;
+            font-size: 42px;
+        }
+
+        .player-poison-left {
+            left: 50px;
+        }
+
+        .player-poison-right {
+            right: 50px;
+        }
+
+        .player-pronouns {
+            border-radius: 8px;
+            padding: 0px 10px;
+            font-size: .6em;
+            background-image: linear-gradient(to right, #80738088, #19181888);
+        }
+
+        body {
+            background: transparent !important;
+        }
+    </style>
     <script src="/socket.io/socket.io.js"></script>
+
 </head>
 <body>
-    <h1>Scoreboard for Match <span id="matchName"></span></h1>
-    <div id="scoreDisplay">Score: 0</div>
 
-    <script>
-        const socket = io();
+<div class="background">
+    <div class="scorebug">
+        <div class="scorebug-life scorebug-left-life">
+            <div id="player-life-left" class="scorebug-life-score scorebug-left-life-score">-</div>
+            <div id="player-wins-leftw" class="scorebug-life-wins scorebug-left-life-wins">
+                <div id="scorebug-left-life-wins-1" class="scorebug-life-wins-dot"></div>
+                <div id="scorebug-left-life-wins-2" class="scorebug-life-wins-dot"></div>
+            </div>
+        </div>
+        <div class="scorebug-name scorebug-left-name">
+            <div id="player-name-left" class="scorebug-name-title scorebug-left-name-title">-</div>
+            <div class="scorebug-name-data scorebug-left-name-data">
+                <span id="player-archetype-left"></span>
+                &nbsp;&nbsp;
+                <span id="player-pronouns-left" class="player-pronouns"></span>
+            </div>
+        </div>
+        <div id="player-record-left" class="player-record player-record-left"></div>
+        <div class="scorebug-vs"></div>
+        <div id="player-record-right" class="player-record player-record-right"></div>
+        <div class="scorebug-name scorebug-right-name">
+            <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
+            <div class="scorebug-name-data scorebug-right-name-data">
+                <span id="player-pronouns-right" class="player-pronouns"></span>
+                &nbsp;&nbsp;
+                <span id="player-archetype-right"></span>
+            </div>
+        </div>
+        <div class="scorebug-life scorebug-right-life">
+            <div id="player-life-right" class="scorebug-life-score scorebug-right-life-score">-</div>
+            <div id="player-wins-righte" class="scorebug-life-wins scorebug-right-life-wins">
+                <div id="scorebug-right-life-wins-1" class="scorebug-life-wins-dot"></div>
+                <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
+            </div>
+        </div>
+    </div>
+    <div class="viewport"></div>
+    <div class="chyron">
+        <div class="chyron_commentary"></div>
+        <div class="chyron_event"><span id="event-name">-</span>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <span id="event-round">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <span id="event-format">-</span></div>
+    </div>
+    <div id="poison-left" class="poison poison-left">
+        <div id="player-poison-left" class="player-poison-left"></div>
+    </div>
+    <div id="poison-right" class="poison poison-right">
+        <div id="player-poison-right" class="player-poison-right"></div>
+    </div>
+</div>
 
-        // Get match name from the URL
-        const pathSegments = window.location.pathname.split('/');
-        const match = pathSegments[2]; // This should be match name
-        document.getElementById('matchName').innerText = match;
+<script type="text/javascript">
 
-        // Listen for updates on the specific match
-        socket.on(`${match}-update`, (score) => {
-            document.getElementById('scoreDisplay').innerText = 'Score: ' + score;
+    function scale_element(element, reset = false) {
+        element.style.maxWidth = "";
+        element.style.transform = "scale(1)";
+        let max_width = element.dataset.maxWidth;
+        let current_width = element.scrollWidth;
+        if (current_width > max_width) {
+            let scale = max_width / current_width;
+            // scale = 1 - scale;
+            // scale = scale * 1;
+            // scale = 1 - scale;
+            element.style.transform = "scale(" + scale + ",1)";
+        }
+        if ("maxWidthOrigin" in element.dataset) {
+            element.style.transformOrigin = element.dataset.maxWidthOrigin;
+        }
+        // element.style.maxWidth = max_width + "px";
+    }
+
+    Array.from(document.getElementsByClassName("has-maximum-width")).forEach((element) => {
+        scale_element(element);
+    });
+
+    function retrieveState() {
+        console.log('sending request for data');
+        const medium = 'scoreboard';
+        socket.emit('getSavedState', {control_id, medium});
+    }
+
+    function updateState(data) {
+        Object.entries(data).forEach((element) => {
+            let [key, value] = element;
+            if (document.getElementById(key) != null) {
+                if (['player-poison-left', 'player-poison-right'].indexOf(key) >= 0) {
+                    if (value > 0) {
+                        document.getElementById(key).parentElement.style.display = 'inherit';
+                    } else {
+                        document.getElementById(key).parentElement.style.display = 'none';
+                    }
+                }
+                document.getElementById(key).innerHTML = value;
+
+            } else if (['player-wins-left', 'player-wins-right'].indexOf(key) >= 0) {
+                let index = '';
+                if (key === 'player-wins-left') {
+                    index += "scorebug-left-life-wins";
+                } else {
+                    index += "scorebug-right-life-wins";
+                }
+
+                if (value > 1) {
+                    document.getElementById(index + "-1").innerHTML = '&#11044;';
+                    document.getElementById(index + "-2").innerHTML = '&#11044;';
+                } else if (value > 0) {
+                    document.getElementById(index + "-1").innerHTML = '&#11044;';
+                    document.getElementById(index + "-2").innerHTML = '';
+                } else {
+                    document.getElementById(index + "-1").innerHTML = '';
+                    document.getElementById(index + "-2").innerHTML = '';
+                }
+            }
         });
-    </script>
+    }
+
+    // start
+
+    const socket = io();
+    // Get match name from the URL
+    const pathSegments = window.location.pathname.split('/');
+    const control_id = pathSegments[2];                 // This should be match name
+
+    console.log('from url', control_id);
+
+    // get saved state from server on page load
+    retrieveState();
+
+    // listen for updates from server
+    socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
+        console.log('got saved state from server', data);
+        updateState(data);
+    })
+
+    // listen for updates from the control
+    socket.on('scoreboard-' + control_id + '-update', (data) => {
+        console.log('got update from server', data);
+        updateState(data);
+    })
+
+
+</script>
+
 </body>
 </html>
