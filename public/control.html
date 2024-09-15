@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>
     </title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <style>
 
         * {
-            font-family: ProximaNovaBold, serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         html, body {
@@ -342,10 +343,10 @@
     }
 
     function armTimeout() {
-        console.log('arming timeout - ' + delay_value + ' seconds');
+        console.log('arming timeout - ' + delay_value + ' micro seconds');
         clearTimeout(timeout);
         // delay value seconds after last input change - after timeout then emit data
-        timeout = setTimeout(() => sendData(), delay_value * 1000);
+        timeout = setTimeout(() => sendData(), delay_value);
     }
 
     document.querySelectorAll(".editable").forEach(editable => editable.addEventListener("input", armTimeout));
