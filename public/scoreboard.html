@@ -2,8 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>
-    </title>
+    <title>Scoreboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -347,6 +346,14 @@
         console.log('got update from server', data);
         updateState(data);
     })
+
+    // Listen for overlay background image update
+    socket.on('overlayBackgroundUpdate', (newImageUrl) => {
+        console.log('got overlay from server', newImageUrl);
+        const cacheBuster = new Date().getTime(); // Get the current timestamp
+        document.querySelector('.background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+    });
+
 
 
 </script>

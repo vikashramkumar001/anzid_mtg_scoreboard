@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Master Control</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional Bootstrap 5 JS with Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+        }
+
+        #successMessage {
+            color: green;
+            display: none; /* Initially hidden */
+        }
+
+        #currentImage {
+            width: 300px; /* Set the width for the current image display */
+            margin-top: 20px;
+            border: 1px solid #ddd;
+        }
+
+        #uploadImagePreview {
+            display: none;
+        }
+
+        #imagePreview {
+            width: 300px; /* Set the width of the preview */
+            border: 1px solid #ddd;
+        }
+
+        #cancelButton {
+            display: none; /* Initially hidden */
+        }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="container mt-5">
+<h1 class="mb-4">Master Control</h1>
+
+<!-- Current Image Display -->
+<h2>Currently Set Overlay:</h2>
+<img id="currentImage" alt="Currently Set Image" class="img-fluid mb-4"/>
+
+<!-- Upload Header Image Form -->
+<h2>Upload New Overlay:</h2>
+<form id="uploadForm" enctype="multipart/form-data" class="mb-4">
+    <div class="mb-3">
+        <label for="overlayImage" class="form-label">Upload 1920x1080 Overlay Image:</label>
+        <input type="file" id="overlayImage" name="overlay" class="form-control" accept="image/*" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+    <button type="button" id="cancelButton" class="btn btn-secondary">Cancel Upload</button>
+</form>
+
+<div id="uploadImagePreview" class="mb-4">
+    <h4>Upload Preview</h4>
+    <!-- Image Preview -->
+    <img id="imagePreview" alt="Image Preview" class="img-fluid">
+</div>
+
+<!-- Success Message Display -->
+<p id="successMessage" class="alert alert-success"></p>
+
+<script>
+    const socket = io();
+    const currentImage = document.getElementById('currentImage');
+    const preview = document.getElementById('imagePreview'); // Get the preview element
+    const previewContainer = document.getElementById('uploadImagePreview'); // Get the preview element
+    const successMessage = document.getElementById('successMessage');
+    const cancelButton = document.getElementById('cancelButton');
+    const overlayImage = document.getElementById('overlayImage');
+
+    // Listen for background image update
+    socket.on('overlayBackgroundUpdate', (newImageUrl) => {
+        console.log('Overlay background image:', newImageUrl);
+
+        // Update the currently set image
+        currentImage.src = newImageUrl; // Set the src to the new image URL
+        currentImage.style.display = 'block'; // Display the image
+    });
+
+    // Handle the form submission via JavaScript (AJAX)
+    const form = document.getElementById('uploadForm');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        // Create a FormData object to hold the file input data
+        const formData = new FormData();
+        formData.append('overlay', document.getElementById('overlayImage').files[0]);
+
+        // Submit the form via fetch (AJAX)
+        fetch('/upload-overlay', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Image uploaded successfully!');
+                    successMessage.textContent = 'Image uploaded successfully';
+                    successMessage.style.display = 'block'; // Display the success message
+
+                    // Update the currently set image
+                    const cacheBuster = new Date().getTime(); // Get the current timestamp
+                    currentImage.src = data.newImageUrl + '?v=' + cacheBuster; // Set the src to the new image URL
+                    currentImage.style.display = 'block'; // Display the image
+
+                    // stop showing preview container
+                    previewContainer.style.display = 'none';
+
+                    // stop showing cancel button
+                    cancelButton.style.display = 'none';
+
+                    // Clear the file input
+                    overlayImage.value = '';
+                } else {
+                    console.error('Upload failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+            });
+    });
+
+    // Image preview functionality
+    document.getElementById('overlayImage').addEventListener('change', function (event) {
+        const file = event.target.files[0]; // Get the selected file
+        const reader = new FileReader();
+
+        if (file) {
+            reader.readAsDataURL(file); // Read the file as a data URL (base64)
+
+            reader.onload = function (e) {
+                // show cancel button
+                cancelButton.style.display = 'inline';
+                // remove message if exists
+                successMessage.style.display = 'none';
+                // Set the src of the preview image
+                preview.src = e.target.result;
+                // Display the preview image
+                previewContainer.style.display = 'block';
+            };
+        }
+    });
+
+    // Cancel upload functionality
+    document.getElementById('cancelButton').addEventListener('click', function () {
+        // Clear the file input
+        overlayImage.value = '';
+        // Hide the preview image and cancel button
+        previewContainer.style.display = 'none';
+        cancelButton.style.display = 'none';
+    });
+
+</script>
+</body>
+</html>

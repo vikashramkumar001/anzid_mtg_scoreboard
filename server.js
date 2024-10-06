@@ -2,6 +2,8 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
+const multer = require('multer');
+const fs = require('fs');
 
 const app = express();
 const server = http.createServer(app);
@@ -12,6 +14,18 @@ app.use(express.static('public'));
 
 // In-memory storage for scores
 let controlData = {};
+let overlayBackgroundImage = '/assets/images/overlay.png'; // Default image
+
+// Multer setup for file upload
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/assets/images/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, 'overlay.png'); // Always overwrite the overlay image
+    }
+});
+const upload = multer({storage});
 
 io.on('connection', (socket) => {
     console.log('A user connected');
@@ -57,6 +71,9 @@ io.on('connection', (socket) => {
         io.emit(`${medium}-${control_id}-saved-state`, controlData[control_id]); // Emit the existing data to the specific control
     });
 
+    // Send the current overlay background image to the newly connected client
+    socket.emit('overlayBackgroundUpdate', overlayBackgroundImage);
+
     socket.on('disconnect', () => {
         console.log('User disconnected');
     });
@@ -70,6 +87,19 @@ app.get('/control/:match/:delay', (req, res) => {
 app.get('/scoreboard/:match', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'scoreboard.html'));
 });
+
+// Route to upload the overlay image using form submission
+app.post('/upload-overlay', upload.single('overlay'), (req, res) => {
+    overlayBackgroundImage = '/assets/images/overlay.png'; // Set the new overlay image path
+    io.emit('overlayBackgroundUpdate', overlayBackgroundImage); // Emit event to all clients
+    res.json({success: true, newImageUrl: overlayBackgroundImage}); // Send a JSON response instead of redirecting
+});
+
+// Serve the master control HTML page
+app.get('/master-control', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'master-control.html'));
+});
+
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
