@@ -50,7 +50,7 @@ node server.js
 To control a match scoreboard, open the control interface by accessing the following URL:
 
 ```
-http://localhost:5000/control/<match-name>/<delay>
+http://localhost:1378/control/<match-name>/<delay>
 ```
 
 `<match-name>`: The name of the match (e.g., `match1`).  
@@ -59,7 +59,7 @@ http://localhost:5000/control/<match-name>/<delay>
 Example:
 
 ```
-http://localhost:5000/control/match1/10
+http://localhost:1378/control/match1/10
 ```
 
 ### Scoreboard Display
@@ -67,7 +67,7 @@ http://localhost:5000/control/match1/10
 To view the scoreboard for a specific match, open the following URL:
 
 ```
-http://localhost:5000/scoreboard/<match-name>
+http://localhost:1378/scoreboard/<match-name>
 ```
 
 `<match-name>`: The name of the match you want to display (e.g., `match1`).
@@ -75,7 +75,7 @@ http://localhost:5000/scoreboard/<match-name>
 Example:
 
 ```
-http://localhost:5000/scoreboard/match1
+http://localhost:1378/scoreboard/match1
 ```
 
 ### Master Control Interface (New)
@@ -86,7 +86,7 @@ a preview of the currently set overlay.
 To access the Master Control interface, open the following URL:
 
 ```
-http://localhost:5000/master-control
+http://localhost:1378/master-control
 ```
 
 ### Master Control Features
@@ -102,7 +102,7 @@ http://localhost:5000/master-control
 
 - Access the Master Control page:
   ```
-  http://localhost:5000/master-control
+  http://localhost:1378/master-control
   ```
 
 - Upload a new overlay image:
@@ -116,5 +116,5 @@ http://localhost:5000/master-control
 
 ### Additional Information
 
-- Ensure that port `5000` is available and not used by other services when running the server.
+- Ensure that port `1378` is available and not used by other services when running the server.
 - For any issues or contributions, please open a GitHub issue or pull request.

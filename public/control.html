@@ -356,12 +356,6 @@
         }
     }));
 
-    function retrieveState() {
-        console.log('sending request for data');
-        const medium = 'control';
-        socket.emit('getSavedState', {control_id, medium});
-    }
-
     function loadSavedState(data) {
         Object.entries(data).forEach((element) => {
             let [key, value] = element;
@@ -385,9 +379,6 @@
     const control_id = pathSegments[2];                 // This should be match name
     const delay_value = Number(pathSegments[3]) || 10;        // This should be the delay - used for timeout
 
-    // get saved state from server
-    retrieveState();
-
     console.log('from url', control_id, delay_value);
 
     // listen for saved state from server
@@ -395,6 +386,9 @@
         console.log('got saved state from server', data);
         loadSavedState(data);
     })
+
+    // Send the match ID to the server when the client connects - will send back saved data if control already exists
+    socket.emit('registerControl', control_id);
 
 
 </script>

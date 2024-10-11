@@ -41,31 +41,147 @@
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body class="container mt-5">
-<h1 class="mb-4">Master Control</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Master Control</h1>
+        </div>
+        <div class="col-12">
+            <h2>Overlay Control</h2>
+        </div>
+        <div class="col-4">
+            <!-- Current Image Display -->
+            <h3>Current Overlay:</h3>
+            <img id="currentImage" alt="Currently Set Image" class="img-fluid mb-4" src=""/>
+        </div>
+        <div class="col-4">
+            <!-- Upload Header Image Form -->
+            <h3>Upload New Overlay:</h3>
+            <form id="uploadForm" enctype="multipart/form-data" class="mb-4">
+                <div class="mb-3">
+                    <label for="overlayImage" class="form-label">Upload 1920x1080 Overlay Image:</label>
+                    <input type="file" id="overlayImage" name="overlay" class="form-control" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="button" id="cancelButton" class="btn btn-secondary">Cancel Upload</button>
+            </form>
+        </div>
+        <div class="col-4">
+            <div id="uploadImagePreview" class="mb-4">
+                <h3>Upload Preview:</h3>
+                <!-- Image Preview -->
+                <img id="imagePreview" alt="Image Preview" class="img-fluid" src="">
+            </div>
 
-<!-- Current Image Display -->
-<h2>Currently Set Overlay:</h2>
-<img id="currentImage" alt="Currently Set Image" class="img-fluid mb-4"/>
-
-<!-- Upload Header Image Form -->
-<h2>Upload New Overlay:</h2>
-<form id="uploadForm" enctype="multipart/form-data" class="mb-4">
-    <div class="mb-3">
-        <label for="overlayImage" class="form-label">Upload 1920x1080 Overlay Image:</label>
-        <input type="file" id="overlayImage" name="overlay" class="form-control" accept="image/*" required>
+            <!-- Success Message Display -->
+            <p id="successMessage" class="alert alert-success"></p>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Upload</button>
-    <button type="button" id="cancelButton" class="btn btn-secondary">Cancel Upload</button>
-</form>
+    <div class="row">
+        <div class="col-12">
+            <h2>Match Control Center</h2>
+        </div>
+        <div id="matchControlCenter">
 
-<div id="uploadImagePreview" class="mb-4">
-    <h4>Upload Preview</h4>
-    <!-- Image Preview -->
-    <img id="imagePreview" alt="Image Preview" class="img-fluid">
+            <!--            <div class="col-12">-->
+            <!--                <h3 class="match-id-name">Match 1</h3>-->
+            <!--                <div class="card">-->
+            <!--                    <div class="card-body">-->
+            <!--                        <div class="row">-->
+            <!--                            &lt;!&ndash; Event Information &ndash;&gt;-->
+            <!--                            <div class="col-md-4">-->
+            <!--                                <h5 class="card-title">Event Information</h5>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="event-name" class="form-label">Event Name</label>-->
+            <!--                                    <div id="event-name" class="editable form-control" contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="event-round" class="form-label">Event Round</label>-->
+            <!--                                    <div id="event-round" class="editable form-control" contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="event-format" class="form-label">Event Format</label>-->
+            <!--                                    <div id="event-format" class="editable form-control" contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+
+            <!--                            &lt;!&ndash; Left Player Information &ndash;&gt;-->
+            <!--                            <div class="col-md-4">-->
+            <!--                                <h5 class="card-title">Left Player</h5>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-name-left" class="form-label">Player Name</label>-->
+            <!--                                    <div id="player-name-left" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-pronouns-left" class="form-label">Pronouns</label>-->
+            <!--                                    <div id="player-pronouns-left" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-archetype-left" class="form-label">Archetype</label>-->
+            <!--                                    <div id="player-archetype-left" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-record-left" class="form-label">Record</label>-->
+            <!--                                    <div id="player-record-left" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-wins-left" class="form-label">Wins</label>-->
+            <!--                                    <div id="player-wins-left" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-poison-left" class="form-label">Poison</label>-->
+            <!--                                    <div id="player-poison-left" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+
+            <!--                            &lt;!&ndash; Right Player Information &ndash;&gt;-->
+            <!--                            <div class="col-md-4">-->
+            <!--                                <h5 class="card-title">Right Player</h5>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-name-right" class="form-label">Player Name</label>-->
+            <!--                                    <div id="player-name-right" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-pronouns-right" class="form-label">Pronouns</label>-->
+            <!--                                    <div id="player-pronouns-right" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-archetype-right" class="form-label">Archetype</label>-->
+            <!--                                    <div id="player-archetype-right" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-record-right" class="form-label">Record</label>-->
+            <!--                                    <div id="player-record-right" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-wins-right" class="form-label">Wins</label>-->
+            <!--                                    <div id="player-wins-right" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                                <div class="mb-3">-->
+            <!--                                    <label for="player-poison-right" class="form-label">Poison</label>-->
+            <!--                                    <div id="player-poison-right" class="editable form-control"-->
+            <!--                                         contenteditable="true"></div>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+
+        </div>
+    </div>
 </div>
-
-<!-- Success Message Display -->
-<p id="successMessage" class="alert alert-success"></p>
 
 <script>
     const socket = io();
@@ -75,15 +191,8 @@
     const successMessage = document.getElementById('successMessage');
     const cancelButton = document.getElementById('cancelButton');
     const overlayImage = document.getElementById('overlayImage');
-
-    // Listen for background image update
-    socket.on('overlayBackgroundUpdate', (newImageUrl) => {
-        console.log('Overlay background image:', newImageUrl);
-
-        // Update the currently set image
-        currentImage.src = newImageUrl; // Set the src to the new image URL
-        currentImage.style.display = 'block'; // Display the image
-    });
+    const matchContainer = document.getElementById('matchControlCenter');
+    let allControlData = {};
 
     // Handle the form submission via JavaScript (AJAX)
     const form = document.getElementById('uploadForm');
@@ -156,6 +265,183 @@
         // Hide the preview image and cancel button
         previewContainer.style.display = 'none';
         cancelButton.style.display = 'none';
+    });
+
+    // Function to render or update a match card
+    function renderMatch(matchId, matchData) {
+        // Check if a card for this match already exists
+        let matchCard = document.getElementById(`match-card-${matchId}`);
+        if (!matchCard) {
+            // If not, create a new card
+            matchCard = document.createElement('div');
+            matchCard.classList.add('col-12', 'mb-3', 'match-card-container');
+            matchCard.id = `match-card-${matchId}`;
+            matchCard.innerHTML = `
+            <h3 class="match-id-name">${matchId}</h3>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Event Information -->
+                        <div class="col-md-4">
+                            <h5 class="card-title">Event Information</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Event Name</label>
+                                <div id="${matchId}-event-name" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Event Round</label>
+                                <div id="${matchId}-event-round" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Event Format</label>
+                                <div id="${matchId}-event-format" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                        </div>
+
+                        <!-- Left Player Information -->
+                        <div class="col-md-4">
+                            <h5 class="card-title">Left Player</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Player Name</label>
+                                <div id="${matchId}-player-name-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">LifePoints</label>
+                                <div id="${matchId}-player-life-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Pronouns</label>
+                                <div id="${matchId}-player-pronouns-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Archetype</label>
+                                <div id="${matchId}-player-archetype-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Record</label>
+                                <div id="${matchId}-player-record-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Wins</label>
+                                <div id="${matchId}-player-wins-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Poison</label>
+                                <div id="${matchId}-player-poison-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                        </div>
+
+                        <!-- Right Player Information -->
+                        <div class="col-md-4">
+                            <h5 class="card-title">Right Player</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Player Name</label>
+                                <div id="${matchId}-player-name-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">LifePoints</label>
+                                <div id="${matchId}-player-life-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Pronouns</label>
+                                <div id="${matchId}-player-pronouns-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Archetype</label>
+                                <div id="${matchId}-player-archetype-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Record</label>
+                                <div id="${matchId}-player-record-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Wins</label>
+                                <div id="${matchId}-player-wins-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Poison</label>
+                                <div id="${matchId}-player-poison-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+            // Add the new card to the container
+            matchContainer.appendChild(matchCard);
+            // Attach change listeners to all editable fields within this match card
+            attachChangeListeners(matchId);
+        }
+        // Update the fields with the match data
+        Object.keys(matchData).forEach(key => {
+            const fieldElement = document.getElementById(`${matchId}-${key}`);
+            if (fieldElement) {
+                fieldElement.textContent = matchData[key];
+            }
+        });
+    }
+
+    // Function to attach change listeners to all editable fields for a given match ID
+    function attachChangeListeners(matchId) {
+        const editableFields = document.querySelectorAll(`#match-card-${matchId} .editable`);
+        editableFields.forEach(field => {
+            field.addEventListener('input', () => {
+                // Update the local control data when a field changes
+                updateControlData(matchId, field.id.replace(`${matchId}-`, ''), field.textContent);
+                // Emit the updated control data to the backend
+                console.log('updated all data', allControlData);
+                socket.emit('master-control-matches-updated', allControlData);
+            });
+        });
+    }
+
+    // Function to update the control data for a specific match
+    function updateControlData(matchId, key, value) {
+        if (!allControlData[matchId]) {
+            allControlData[matchId] = {};
+        }
+        allControlData[matchId][key] = value;
+    }
+
+    // Function to remove match cards that no longer exist
+    function removeStaleMatches(activeMatchIds) {
+        // Get all existing match cards in the DOM
+        const matchCards = matchContainer.querySelectorAll('.match-card-container');
+        console.log(matchCards)
+        matchCards.forEach(card => {
+            const matchId = card.id.replace('match-card-', '');
+            // If the matchId is not in the activeMatchIds, remove the card
+            if (!activeMatchIds.has(matchId)) {
+                card.remove();
+                console.log(`Removed match card for matchId: ${matchId}`);
+            }
+        });
+    }
+
+    // Listen for background image update
+    socket.on('overlayBackgroundUpdate', (newImageUrl) => {
+        console.log('Overlay background image:', newImageUrl);
+
+        // Update the currently set image
+        currentImage.src = newImageUrl; // Set the src to the new image URL
+        currentImage.style.display = 'block'; // Display the image
+    });
+
+    // Listen for any updates to full control data to update the page
+    socket.on('control-data-updated', (allData) => {
+        console.log('Control data was updated', allData);
+        // save to local object
+        allControlData = allData;
+        // Get the current active match IDs from the incoming data
+        const activeMatchIds = new Set(Object.keys(allControlData));
+
+        // Render or update each match card
+        Object.entries(allControlData).forEach(([matchId, matchData]) => {
+            renderMatch(matchId, matchData);
+        });
+
+        // Remove any match cards that are no longer active
+        removeStaleMatches(activeMatchIds);
     });
 
 </script>
