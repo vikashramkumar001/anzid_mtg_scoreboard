@@ -134,6 +134,27 @@
         <div id="matchControlCenter">
         </div>
     </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2>Deck List Management</h2>
+        </div>
+        <div class="col-6">
+            <h3>Current Deck List</h3>
+            <ul id="deckList" class="list-group">
+                <!-- Deck list items will be dynamically added here -->
+            </ul>
+        </div>
+        <div class="col-6">
+            <h3>Add New Deck(s)</h3>
+            <form id="addDeckForm" class="mb-3">
+                <div class="form-group">
+                    <textarea id="newDeckInput" class="form-control" rows="4" 
+                              placeholder="Enter deck name(s) - separate multiple decks with commas or new lines" required></textarea>
+                </div>
+                <button class="btn btn-primary mt-2" type="submit">Add Deck(s)</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -479,6 +500,82 @@
         currentFooterImage.style.display = 'block';
     });
 
+    // Deck list management
+    const deckList = document.getElementById('deckList');
+    const addDeckForm = document.getElementById('addDeckForm');
+    const newDeckInput = document.getElementById('newDeckInput');
+
+    // Function to render the deck list
+    function renderDeckList(decks) {
+        deckList.innerHTML = '';
+        decks.forEach(deck => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.textContent = deck;
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'btn btn-danger btn-sm';
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = () => deleteDeck(deck);
+            li.appendChild(deleteButton);
+            deckList.appendChild(li);
+        });
+    }
+
+    // Function to add a new deck
+    function addDeck(deckName) {
+        socket.emit('addDeck', deckName);
+    }
+
+    // Function to delete a deck
+    function deleteDeck(deckName) {
+        socket.emit('deleteDeck', deckName);
+    }
+
+    // Function to add new decks
+    function addDecks(deckNames) {
+        // Filter out any deck names that already exist in the current list
+        const newDeckNames = deckNames.filter(name => !currentDeckList.includes(name));
+        if (newDeckNames.length > 0) {
+            socket.emit('addDecks', newDeckNames);
+        }
+    }
+
+    let currentDeckList = []; // Keep track of the current deck list
+
+    // Handle form submission for adding new decks
+    addDeckForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = newDeckInput.value.trim();
+        if (input) {
+            // Split input by commas or newlines, then trim each entry and filter out empty strings and duplicates
+            const deckNames = [...new Set(input.split(/[,\n]+/).map(name => name.trim()).filter(name => name !== ''))];
+            addDecks(deckNames);
+            newDeckInput.value = '';
+        }
+    });
+
+    // Listen for updated deck list from server
+    socket.on('deckListUpdated', (decks) => {
+        currentDeckList = decks; // Update the current deck list
+        renderDeckList(decks);
+    });
+
+    // Request initial deck list when page loads
+    socket.emit('getDeckList');
+
+    // Function to initialize the deck list
+    function initializeDeckList() {
+        socket.emit('getDeckList');
+    }
+
+    // Listen for updated deck list from server
+    socket.on('deckListUpdated', (decks) => {
+        currentDeckList = decks; // Update the current deck list
+        renderDeckList(decks);
+    });
+
+    // Initialize the deck list when the page loads
+    initializeDeckList();
 </script>
 </body>
 </html>

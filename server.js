@@ -3,7 +3,7 @@ const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
 const multer = require('multer');
-const fs = require('fs');
+const fs = require('fs').promises;
 
 const app = express();
 const server = http.createServer(app);
@@ -40,6 +40,9 @@ let defaultData = {
     'event-format': 'Limited'
 }
 
+// Initialize the deck list
+let deckList = [];
+
 // Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -58,6 +61,37 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+const DECK_LIST_FILE = path.join(__dirname, 'deckList.json');
+
+// Function to load the deck list from file
+async function loadDeckList() {
+    try {
+        const data = await fs.readFile(DECK_LIST_FILE, 'utf8');
+        deckList = JSON.parse(data);
+        console.log('Deck list loaded successfully');
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            console.log('Deck list file not found. Starting with an empty list.');
+        } else {
+            console.error('Error loading deck list:', error);
+        }
+        deckList = [];
+    }
+}
+
+// Function to save the deck list to file
+async function saveDeckList() {
+    try {
+        await fs.writeFile(DECK_LIST_FILE, JSON.stringify(deckList, null, 2));
+        console.log('Deck list saved successfully');
+    } catch (error) {
+        console.error('Error saving deck list:', error);
+    }
+}
+
+// Load the deck list when the server starts
+loadDeckList();
 
 io.on('connection', (socket) => {
     console.log('A user connected');
@@ -123,6 +157,41 @@ io.on('connection', (socket) => {
             io.emit(`control-${matchId}-saved-state`, matchData);
             console.log(`Emitting updated data for match ${matchId} to control pages`);
         });
+    });
+
+    // Handle request for initial deck list
+    socket.on('getDeckList', () => {
+        socket.emit('deckListUpdated', deckList);
+    });
+
+    // Handle adding a new deck
+    socket.on('addDeck', (deckName) => {
+        if (!deckList.includes(deckName)) {
+            deckList.push(deckName);
+            io.emit('deckListUpdated', deckList);
+        }
+    });
+
+    // Handle adding multiple new decks
+    socket.on('addDecks', async (deckNames) => {
+        let updated = false;
+        deckNames.forEach(deckName => {
+            if (!deckList.includes(deckName)) {
+                deckList.push(deckName);
+                updated = true;
+            }
+        });
+        if (updated) {
+            await saveDeckList();
+            io.emit('deckListUpdated', deckList);
+        }
+    });
+
+    // Handle deleting a deck
+    socket.on('deleteDeck', async (deckName) => {
+        deckList = deckList.filter(deck => deck !== deckName);
+        await saveDeckList();
+        io.emit('deckListUpdated', deckList);
     });
 
     // When a user disconnects, remove their match data
