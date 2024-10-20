@@ -128,7 +128,6 @@ io.on('connection', (socket) => {
     console.log('A user connected');
 
     // Send the current scores to the newly connected client
-    // socket.emit('getCurrentData', controlData);
 
     socket.on('updateScoreboard', ({control_id, current_state}) => {
         console.log(control_id);
@@ -160,8 +159,8 @@ io.on('connection', (socket) => {
     });
 
     // Send the current overlay background images to the newly connected client
-    socket.emit('overlayHeaderBackgroundUpdate', overlayHeaderBackgroundImage);
-    socket.emit('overlayFooterBackgroundUpdate', overlayFooterBackgroundImage);
+    io.emit('overlayHeaderBackgroundUpdate', overlayHeaderBackgroundImage);
+    io.emit('overlayFooterBackgroundUpdate', overlayFooterBackgroundImage);
 
     // emit full control data
     io.emit('control-data-updated', controlData);
@@ -197,7 +196,8 @@ io.on('connection', (socket) => {
 
     // Handle request for initial deck list
     socket.on('getDeckList', () => {
-        socket.emit('deckListUpdated', deckList);
+        console.log('sending deck list update')
+        io.emit('deckListUpdated', deckList);
     });
 
     // Handle adding a new deck

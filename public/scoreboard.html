@@ -382,7 +382,8 @@
         const deck = deckList.find(d => d.name.toLowerCase() === deckName.toLowerCase());
 
         if (deck && deck.imageUrl) {
-            backgroundElement.style.backgroundImage = `url(${deck.imageUrl})`;
+            const cacheBuster = new Date().getTime(); // Get the current timestamp
+            backgroundElement.style.backgroundImage = `url(${deck.imageUrl}?v=${cacheBuster})`;
             backgroundElement.style.display = 'block';
         } else {
             backgroundElement.style.backgroundImage = 'none';
@@ -433,7 +434,11 @@
 
     // New: Listen for the updated deck list
     socket.on('deckListUpdated', (decks) => {
+        console.log('deck list updated', decks);
         deckList = decks;
+        // get saved state so decks will re-render
+        const medium = 'scoreboard';
+        socket.emit('getSavedState', {control_id, medium});
     })
 
 </script>
