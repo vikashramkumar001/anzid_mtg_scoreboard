@@ -87,6 +87,29 @@
         .custom-dropdown .dropdown-item:hover {
             background-color: #f0f0f0;
         }
+
+        .deck-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .deck-image-preview {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .deck-name {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .deck-actions {
+            display: flex;
+            gap: 5px;
+        }
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -165,7 +188,7 @@
         <div id="matchControlCenter">
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row my-5">
         <div class="col-12">
             <h2>Deck List Management</h2>
         </div>
@@ -551,14 +574,73 @@
         deckList.innerHTML = '';
         decks.forEach(deck => {
             const li = document.createElement('li');
-            li.className = 'list-group-item d-flex justify-content-between align-items-center';
-            li.textContent = deck;
+            li.className = 'list-group-item deck-item';
+            
+            if (deck.imageUrl) {
+                const img = document.createElement('img');
+                const cacheBuster = new Date().getTime();
+                img.className = 'deck-image-preview';
+                img.src = deck.imageUrl + '?v=' + cacheBuster;
+                img.alt = deck.name;
+                li.appendChild(img);
+            }
+            
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'deck-name';
+            nameSpan.textContent = deck.name;
+            
+            const actionsDiv = document.createElement('div');
+            actionsDiv.className = 'deck-actions';
+            
+            const uploadLabel = document.createElement('label');
+            uploadLabel.className = 'btn btn-secondary btn-sm';
+            uploadLabel.textContent = deck.imageUrl ? 'Change Image' : 'Upload Image';
+            
+            const uploadInput = document.createElement('input');
+            uploadInput.type = 'file';
+            uploadInput.accept = 'image/*';
+            uploadInput.style.display = 'none';
+            uploadInput.addEventListener('change', (e) => uploadDeckImage(deck.name, e.target.files[0]));
+            
+            uploadLabel.appendChild(uploadInput);
+            
             const deleteButton = document.createElement('button');
             deleteButton.className = 'btn btn-danger btn-sm';
             deleteButton.textContent = 'Delete';
-            deleteButton.onclick = () => deleteDeck(deck);
-            li.appendChild(deleteButton);
+            deleteButton.onclick = () => deleteDeck(deck.name);
+            
+            actionsDiv.appendChild(uploadLabel);
+            actionsDiv.appendChild(deleteButton);
+            
+            li.appendChild(nameSpan);
+            li.appendChild(actionsDiv);
+            
             deckList.appendChild(li);
+        });
+    }
+
+    function uploadDeckImage(deckName, file) {
+        const formData = new FormData();
+        formData.append('deckName', deckName);
+        formData.append('image', file);
+
+        fetch('/upload-deck-image', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Image uploaded successfully');
+                socket.emit('getDeckList');
+            } else {
+                console.error('Failed to upload image:', data.message);
+                alert('Failed to upload image: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error uploading image:', error);
+            alert('Error uploading image. Please try again.');
         });
     }
 

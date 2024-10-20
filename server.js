@@ -43,6 +43,10 @@ let defaultData = {
 // Initialize the deck list
 let deckList = [];
 
+// Ensure the upload directory exists
+const uploadDir = path.join(__dirname, 'public', 'assets', 'images', 'decks');
+fs.mkdir(uploadDir, { recursive: true }).catch(console.error);
+
 // Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -92,6 +96,33 @@ async function saveDeckList() {
 
 // Load the deck list when the server starts
 loadDeckList();
+
+// Configure multer for deck image uploads
+const deckImageStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, uploadDir);
+    },
+    filename: function (req, file, cb) {
+        const deckName = req.body.deckName || 'unknown_deck';
+        const sanitizedDeckName = deckName.replace(/[^a-z0-9]/gi, '_').toLowerCase() || 'unknown_deck';
+        const fileExtension = path.extname(file.originalname) || '.png'; // Default to .png if no extension
+        const filename = `deck_${sanitizedDeckName}${fileExtension}`;
+        cb(null, filename);
+    }
+});
+
+const uploadDeckImage = multer({ 
+    storage: deckImageStorage,
+    fileFilter: function (req, file, cb) {
+        const filetypes = /jpeg|jpg|png|gif/;
+        const mimetype = filetypes.test(file.mimetype);
+        const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+        if (mimetype && extname) {
+            return cb(null, true);
+        }
+        cb(new Error("Error: File upload only supports the following filetypes - " + filetypes));
+    }
+});
 
 io.on('connection', (socket) => {
     console.log('A user connected');
@@ -166,8 +197,8 @@ io.on('connection', (socket) => {
 
     // Handle adding a new deck
     socket.on('addDeck', (deckName) => {
-        if (!deckList.includes(deckName)) {
-            deckList.push(deckName);
+        if (!deckList.some(deck => deck.name === deckName)) {
+            deckList.push({ name: deckName, imageUrl: null });
             io.emit('deckListUpdated', deckList);
         }
     });
@@ -176,8 +207,8 @@ io.on('connection', (socket) => {
     socket.on('addDecks', async (deckNames) => {
         let updated = false;
         deckNames.forEach(deckName => {
-            if (!deckList.includes(deckName)) {
-                deckList.push(deckName);
+            if (!deckList.some(deck => deck.name === deckName)) {
+                deckList.push({ name: deckName, imageUrl: null });
                 updated = true;
             }
         });
@@ -189,9 +220,19 @@ io.on('connection', (socket) => {
 
     // Handle deleting a deck
     socket.on('deleteDeck', async (deckName) => {
-        deckList = deckList.filter(deck => deck !== deckName);
+        deckList = deckList.filter(deck => deck.name !== deckName);
         await saveDeckList();
         io.emit('deckListUpdated', deckList);
+    });
+
+    // Handle deck image upload
+    socket.on('upload-deck-image', async (deckName, imageUrl) => {
+        const deckIndex = deckList.findIndex(deck => deck.name === deckName);
+        if (deckIndex !== -1) {
+            deckList[deckIndex].imageUrl = imageUrl;
+            await saveDeckList();
+            io.emit('deckListUpdated', deckList);
+        }
     });
 
     // When a user disconnects, remove their match data
@@ -248,6 +289,33 @@ app.get('/master-control', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'master-control.html'));
 });
 
+// Handle deck image upload
+app.post('/upload-deck-image', uploadDeckImage.single('image'), async (req, res) => {
+    if (req.file) {
+        const { deckName } = req.body;
+        const imageUrl = '/assets/images/decks/' + req.file.filename;
+        const deckIndex = deckList.findIndex(deck => deck.name === deckName);
+        if (deckIndex !== -1) {
+            // Update the deck list with the new image URL
+            deckList[deckIndex].imageUrl = imageUrl;
+            
+            try {
+                // Save the updated deck list
+                await saveDeckList();
+                res.json({ success: true, imageUrl: imageUrl });
+            } catch (error) {
+                console.error('Error updating deck image:', error);
+                res.status(500).json({ success: false, message: 'Error updating deck image' });
+            }
+        } else {
+            // If deck not found, delete the uploaded file
+            await fs.unlink(req.file.path).catch(console.error);
+            res.status(404).json({ success: false, message: 'Deck not found' });
+        }
+    } else {
+        res.status(400).json({ success: false, message: 'No file uploaded' });
+    }
+});
 
 const PORT = process.env.PORT || 1378;
 server.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));

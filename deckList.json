@@ -1,6 +1,10 @@
 [
-  "Deck1",
-  "Deck 1",
-  "Deck 4",
-  "deck man 2"
+  {
+    "name": "dec",
+    "imageUrl": "/assets/images/decks/deck_dec.png"
+  },
+  {
+    "name": "decs",
+    "imageUrl": "/assets/images/decks/deck_decs.png"
+  }
 ]
