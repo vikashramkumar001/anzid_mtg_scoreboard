@@ -40,16 +40,24 @@ let defaultData = {
     'event-format': 'Limited'
 }
 
-// Multer setup for file upload
+// Configure multer for file uploads
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/assets/images/');
+    destination: function (req, file, cb) {
+        cb(null, 'public/assets/images/')
     },
-    filename: (req, file, cb) => {
-        cb(null, 'overlay_header.png'); // Always overwrite the overlay image
+    filename: function (req, file, cb) {
+        // Use fixed filenames for header and footer overlays
+        if (file.fieldname === 'overlay_header') {
+            cb(null, 'overlay_header.png')
+        } else if (file.fieldname === 'overlay_footer') {
+            cb(null, 'overlay_footer.png')
+        } else {
+            cb(new Error('Invalid field name'), null)
+        }
     }
 });
-const upload = multer({storage});
+
+const upload = multer({ storage: storage });
 
 io.on('connection', (socket) => {
     console.log('A user connected');
@@ -81,8 +89,9 @@ io.on('connection', (socket) => {
         io.emit('control-data-updated', controlData);
     });
 
-    // Send the current overlay background image to the newly connected client
+    // Send the current overlay background images to the newly connected client
     socket.emit('overlayHeaderBackgroundUpdate', overlayHeaderBackgroundImage);
+    socket.emit('overlayFooterBackgroundUpdate', overlayFooterBackgroundImage);
 
     // emit full control data
     io.emit('control-data-updated', controlData);
@@ -143,11 +152,26 @@ app.get('/scoreboard/:match', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'scoreboard.html'));
 });
 
-// Route to upload the overlay image using form submission
+// Handle header overlay upload
 app.post('/upload-header-overlay', upload.single('overlay_header'), (req, res) => {
-    overlayHeaderBackgroundImage = '/assets/images/overlay_header.png'; // Set the new overlay image path
-    io.emit('overlayHeaderBackgroundUpdate', overlayHeaderBackgroundImage); // Emit event to all clients
-    res.json({success: true, newImageUrl: overlayHeaderBackgroundImage}); // Send a JSON response instead of redirecting
+    if (req.file) {
+        const newImageUrl = '/assets/images/overlay_header.png';
+        io.emit('overlayHeaderBackgroundUpdate', newImageUrl);
+        res.json({ success: true, newImageUrl: newImageUrl });
+    } else {
+        res.status(400).json({ success: false, message: 'No file uploaded' });
+    }
+});
+
+// Handle footer overlay upload
+app.post('/upload-footer-overlay', upload.single('overlay_footer'), (req, res) => {
+    if (req.file) {
+        const newImageUrl = '/assets/images/overlay_footer.png';
+        io.emit('overlayFooterBackgroundUpdate', newImageUrl);
+        res.json({ success: true, newImageUrl: newImageUrl });
+    } else {
+        res.status(400).json({ success: false, message: 'No file uploaded' });
+    }
 });
 
 // Serve the master control HTML page

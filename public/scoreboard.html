@@ -372,13 +372,19 @@
         updateState(data);
     })
 
-    // Listen for overlay background image update
+    // Listen for header overlay background image update
     socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
-        console.log('got overlay from server', newImageUrl);
+        console.log('got header overlay from server', newImageUrl);
         const cacheBuster = new Date().getTime(); // Get the current timestamp
         document.querySelector('.header .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
     });
 
+    // Listen for footer overlay background image update
+    socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
+        console.log('got footer overlay from server', newImageUrl);
+        const cacheBuster = new Date().getTime(); // Get the current timestamp
+        document.querySelector('.footer .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+    });
 
 </script>
 

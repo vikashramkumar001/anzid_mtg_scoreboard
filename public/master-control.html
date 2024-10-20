@@ -37,6 +37,25 @@
         #cancelButton {
             display: none; /* Initially hidden */
         }
+
+        #currentFooterImage {
+            width: 300px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+        }
+
+        #uploadFooterImagePreview {
+            display: none;
+        }
+
+        #footerImagePreview {
+            width: 300px;
+            border: 1px solid #ddd;
+        }
+
+        #cancelFooterButton {
+            display: none;
+        }
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -49,6 +68,8 @@
         <div class="col-12">
             <h2>Overlay Control</h2>
         </div>
+    </div>
+    <div class="row mt-5">
         <div class="col-4">
             <!-- Current Image Display -->
             <h3>Current Header Overlay:</h3>
@@ -75,6 +96,35 @@
 
             <!-- Success Message Display -->
             <p id="successMessage" class="alert alert-success"></p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-4">
+            <!-- Current Footer Image Display -->
+            <h3>Current Footer Overlay:</h3>
+            <img id="currentFooterImage" alt="Currently Set Footer Image" class="img-fluid mb-4" src=""/>
+        </div>
+        <div class="col-4">
+            <!-- Upload Footer Image Form -->
+            <h3>Upload New Footer Overlay:</h3>
+            <form id="uploadFooterForm" enctype="multipart/form-data" class="mb-4">
+                <div class="mb-3">
+                    <label for="overlayFooterImage" class="form-label">Upload 1920x50 Footer Overlay Image:</label>
+                    <input type="file" id="overlayFooterImage" name="overlay_footer" class="form-control" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="button" id="cancelFooterButton" class="btn btn-secondary">Cancel Upload</button>
+            </form>
+        </div>
+        <div class="col-4">
+            <div id="uploadFooterImagePreview" class="mb-4">
+                <h3>Upload Preview:</h3>
+                <!-- Footer Image Preview -->
+                <img id="footerImagePreview" alt="Footer Image Preview" class="img-fluid" src="">
+            </div>
+
+            <!-- Footer Success Message Display -->
+            <p id="footerSuccessMessage" class="alert alert-success" style="display: none;"></p>
         </div>
     </div>
     <div class="row">
@@ -330,6 +380,15 @@
         currentHeaderImage.style.display = 'block'; // Display the image
     });
 
+    // Listen for background image update
+    socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
+        console.log('Overlay header background image:', newImageUrl);
+
+        // Update the currently set image
+        currentHeaderImage.src = newImageUrl; // Set the src to the new image URL
+        currentHeaderImage.style.display = 'block'; // Display the image
+    });
+
     // Listen for any updates to full control data to update the page
     socket.on('control-data-updated', (allData) => {
         console.log('Control data was updated', allData);
@@ -345,6 +404,79 @@
 
         // Remove any match cards that are no longer active
         removeStaleMatches(activeMatchIds);
+    });
+
+    const currentFooterImage = document.getElementById('currentFooterImage');
+    const footerPreview = document.getElementById('footerImagePreview');
+    const footerPreviewContainer = document.getElementById('uploadFooterImagePreview');
+    const footerSuccessMessage = document.getElementById('footerSuccessMessage');
+    const cancelFooterButton = document.getElementById('cancelFooterButton');
+    const overlayFooterImage = document.getElementById('overlayFooterImage');
+
+    // Handle the footer form submission
+    const footerForm = document.getElementById('uploadFooterForm');
+    footerForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const formData = new FormData();
+        formData.append('overlay_footer', overlayFooterImage.files[0]);
+
+        fetch('/upload-footer-overlay', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Footer image uploaded successfully!');
+                    footerSuccessMessage.textContent = 'Footer image uploaded successfully';
+                    footerSuccessMessage.style.display = 'block';
+
+                    const cacheBuster = new Date().getTime();
+                    currentFooterImage.src = data.newImageUrl + '?v=' + cacheBuster;
+                    currentFooterImage.style.display = 'block';
+
+                    footerPreviewContainer.style.display = 'none';
+                    cancelFooterButton.style.display = 'none';
+                    overlayFooterImage.value = '';
+                } else {
+                    console.error('Footer upload failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error uploading footer image:', error);
+            });
+    });
+
+    // Footer image preview functionality
+    overlayFooterImage.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        if (file) {
+            reader.readAsDataURL(file);
+
+            reader.onload = function (e) {
+                cancelFooterButton.style.display = 'inline';
+                footerSuccessMessage.style.display = 'none';
+                footerPreview.src = e.target.result;
+                footerPreviewContainer.style.display = 'block';
+            };
+        }
+    });
+
+    // Cancel footer upload functionality
+    cancelFooterButton.addEventListener('click', function () {
+        overlayFooterImage.value = '';
+        footerPreviewContainer.style.display = 'none';
+        cancelFooterButton.style.display = 'none';
+    });
+
+    // Listen for footer background image update
+    socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
+        console.log('Overlay footer background image:', newImageUrl);
+        currentFooterImage.src = newImageUrl;
+        currentFooterImage.style.display = 'block';
     });
 
 </script>
