@@ -373,10 +373,10 @@
     })
 
     // Listen for overlay background image update
-    socket.on('overlayBackgroundUpdate', (newImageUrl) => {
+    socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
         console.log('got overlay from server', newImageUrl);
         const cacheBuster = new Date().getTime(); // Get the current timestamp
-        document.querySelector('.background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+        document.querySelector('.header .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
     });
 
 

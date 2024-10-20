@@ -17,7 +17,8 @@ let matchIds = {};
 
 // In-memory storage for scores
 let controlData = {};
-let overlayBackgroundImage = '/assets/images/overlay.png'; // Default image
+let overlayHeaderBackgroundImage = '/assets/images/overlay_header.png'; // Default header image
+let overlayFooterBackgroundImage = '/assets/images/overlay_footer.png'; // Default header image
 
 let defaultData = {
     'player-name-left': 'Player name',
@@ -45,7 +46,7 @@ const storage = multer.diskStorage({
         cb(null, 'public/assets/images/');
     },
     filename: (req, file, cb) => {
-        cb(null, 'overlay.png'); // Always overwrite the overlay image
+        cb(null, 'overlay_header.png'); // Always overwrite the overlay image
     }
 });
 const upload = multer({storage});
@@ -81,7 +82,7 @@ io.on('connection', (socket) => {
     });
 
     // Send the current overlay background image to the newly connected client
-    socket.emit('overlayBackgroundUpdate', overlayBackgroundImage);
+    socket.emit('overlayHeaderBackgroundUpdate', overlayHeaderBackgroundImage);
 
     // emit full control data
     io.emit('control-data-updated', controlData);
@@ -143,10 +144,10 @@ app.get('/scoreboard/:match', (req, res) => {
 });
 
 // Route to upload the overlay image using form submission
-app.post('/upload-overlay', upload.single('overlay'), (req, res) => {
-    overlayBackgroundImage = '/assets/images/overlay.png'; // Set the new overlay image path
-    io.emit('overlayBackgroundUpdate', overlayBackgroundImage); // Emit event to all clients
-    res.json({success: true, newImageUrl: overlayBackgroundImage}); // Send a JSON response instead of redirecting
+app.post('/upload-header-overlay', upload.single('overlay_header'), (req, res) => {
+    overlayHeaderBackgroundImage = '/assets/images/overlay_header.png'; // Set the new overlay image path
+    io.emit('overlayHeaderBackgroundUpdate', overlayHeaderBackgroundImage); // Emit event to all clients
+    res.json({success: true, newImageUrl: overlayHeaderBackgroundImage}); // Send a JSON response instead of redirecting
 });
 
 // Serve the master control HTML page
