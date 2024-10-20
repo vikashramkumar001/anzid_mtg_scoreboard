@@ -56,6 +56,37 @@
         #cancelFooterButton {
             display: none;
         }
+
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .custom-dropdown input {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .custom-dropdown .dropdown-list {
+            position: absolute;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            background-color: white;
+            display: none;
+            z-index: 1000;
+        }
+
+        .custom-dropdown .dropdown-item {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .custom-dropdown .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -156,6 +187,13 @@
         </div>
     </div>
 </div>
+
+<template id="custom-dropdown-template">
+    <div class="custom-dropdown">
+        <input type="text" class="form-control">
+        <div class="dropdown-list"></div>
+    </div>
+</template>
 
 <script>
     const socket = io();
@@ -425,6 +463,9 @@
 
         // Remove any match cards that are no longer active
         removeStaleMatches(activeMatchIds);
+
+        // After creating all the inputs, set up the custom dropdowns
+        setupCustomDropdowns();
     });
 
     const currentFooterImage = document.getElementById('currentFooterImage');
@@ -576,6 +617,74 @@
 
     // Initialize the deck list when the page loads
     initializeDeckList();
+
+    function createCustomDropdown(inputId, placeholder) {
+        const template = document.getElementById('custom-dropdown-template');
+        const dropdown = template.content.cloneNode(true);
+        const input = dropdown.querySelector('input');
+        input.id = inputId;
+        input.placeholder = placeholder;
+        return dropdown;
+    }
+
+    function renderDropdownList(dropdownList, items, field) {
+        dropdownList.innerHTML = '';
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.textContent = item;
+            div.classList.add('dropdown-item');
+            div.addEventListener('click', function() {
+                field.textContent = item;
+                dropdownList.style.display = 'none';
+                field.dispatchEvent(new Event('input'));
+                field.dispatchEvent(new Event('change')); // Trigger change event
+            });
+            dropdownList.appendChild(div);
+        });
+        dropdownList.style.display = items.length > 0 ? 'block' : 'none';
+    }
+
+    function setupCustomDropdowns() {
+        const archetypeFields = document.querySelectorAll('[id$="-player-archetype-left"], [id$="-player-archetype-right"]');
+        
+        archetypeFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) {
+                return; // Skip if already set up
+            }
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            field.addEventListener('input', function() {
+                const value = this.textContent.trim().toLowerCase();
+                const filteredDecks = currentDeckList.filter(deck => 
+                    deck.toLowerCase().includes(value)
+                );
+                renderDropdownList(dropdownList, filteredDecks, field);
+            });
+
+            field.addEventListener('focus', function() {
+                renderDropdownList(dropdownList, currentDeckList, field);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!wrapper.contains(e.target)) {
+                    dropdownList.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    // Initial setup when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        setupCustomDropdowns();
+    });
 </script>
 </body>
 </html>
