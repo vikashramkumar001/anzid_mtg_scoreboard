@@ -172,18 +172,26 @@
         .poison {
             z-index: 1;
             position: absolute;
-            width: 1920px;
-            height: 1080px;
         }
 
         .poison-left {
-            background: url("/assets/images/overlay_poison_left.png");
-            font-size: 36px;
+            background: url("/assets/images/poison_left.png");
+            display: block;
+            position: absolute;
+            top: 105px;
+            width: 163px;
+            height: 58px;
+            left: 0px;
         }
 
         .poison-right {
-            background: url("/assets/images/overlay_poison_right.png");
-            font-size: 36px;
+            background: url("/assets/images/poison_right.png");
+            display: block;
+            position: absolute;
+            top: 105px;
+            width: 163px;
+            height: 58px;
+            left: 1757px;
         }
 
         .player-poison-left, .player-poison-right {
@@ -191,7 +199,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            top: 120px;
+            top: 5px;
             position: absolute;
             height: 48px;
             font-size: 42px;
@@ -243,6 +251,12 @@
     </div>
     <div class="background-right">
     </div>
+    <div id="poison-left" class="poison poison-left">
+        <div id="player-poison-left" class="player-poison-left"></div>
+    </div>
+    <div id="poison-right" class="poison poison-right">
+        <div id="player-poison-right" class="player-poison-right"></div>
+    </div>
     <div class="background">
         <div class="scorebug">
             <div class="scorebug-life scorebug-left-life">
@@ -278,12 +292,6 @@
                     <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
                 </div>
             </div>
-        </div>
-        <div id="poison-left" class="poison poison-left">
-            <div id="player-poison-left" class="player-poison-left"></div>
-        </div>
-        <div id="poison-right" class="poison poison-right">
-            <div id="player-poison-right" class="player-poison-right"></div>
         </div>
     </div>
 </div>
