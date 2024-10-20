@@ -19,23 +19,39 @@
             height: 100%;
         }
 
+        body {
+            width: 1920px;
+            height: 1080px;
+        }
+
         div {
             z-index: 10;
         }
 
-        .background {
+        .header .background {
             width: 1920px;
-            height: 1080px;
+            height: 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: url("/assets/images/overlay.png");
+            background: url("/assets/images/overlay_header.png");
             z-index: 2;
         }
 
+        .body .background {
+            width: 1920px;
+            height: 930px;
+            background: url("/assets/images/overlay_body.png");
+        }
+
+        .footer .background {
+            width: 1920px;
+            height: 50px;
+            background: url("/assets/images/overlay_footer.png");
+        }
+
         .scorebug {
-            height: 150px;
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -73,7 +89,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 113px;
+            height: 120px;
             width: 60px;
             line-height: 1.0;
             font-size: 20px;
@@ -81,7 +97,7 @@
 
         .scorebug-right-life-wins {
             width: 82px;
-            height: 86px;
+            height: 81px;
         }
 
         .scorebug-life-wins-dot {
@@ -141,7 +157,6 @@
 
         .chyron {
             height: 50px;
-            width: 100%;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -206,55 +221,65 @@
 </head>
 <body>
 
-<div class="background">
-    <div class="scorebug">
-        <div class="scorebug-life scorebug-left-life">
-            <div id="player-life-left" class="scorebug-life-score scorebug-left-life-score">-</div>
-            <div id="player-wins-leftw" class="scorebug-life-wins scorebug-left-life-wins">
-                <div id="scorebug-left-life-wins-1" class="scorebug-life-wins-dot"></div>
-                <div id="scorebug-left-life-wins-2" class="scorebug-life-wins-dot"></div>
+<div class="header">
+    <div class="background">
+        <div class="scorebug">
+            <div class="scorebug-life scorebug-left-life">
+                <div id="player-life-left" class="scorebug-life-score scorebug-left-life-score">-</div>
+                <div id="player-wins-leftw" class="scorebug-life-wins scorebug-left-life-wins">
+                    <div id="scorebug-left-life-wins-1" class="scorebug-life-wins-dot"></div>
+                    <div id="scorebug-left-life-wins-2" class="scorebug-life-wins-dot"></div>
+                </div>
+            </div>
+            <div class="scorebug-name scorebug-left-name">
+                <div id="player-name-left" class="scorebug-name-title scorebug-left-name-title">-</div>
+                <div class="scorebug-name-data scorebug-left-name-data">
+                    <span id="player-archetype-left"></span>
+                    &nbsp;&nbsp;
+                    <span id="player-pronouns-left" class="player-pronouns"></span>
+                </div>
+            </div>
+            <div id="player-record-left" class="player-record player-record-left"></div>
+            <div class="scorebug-vs"></div>
+            <div id="player-record-right" class="player-record player-record-right"></div>
+            <div class="scorebug-name scorebug-right-name">
+                <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
+                <div class="scorebug-name-data scorebug-right-name-data">
+                    <span id="player-pronouns-right" class="player-pronouns"></span>
+                    &nbsp;&nbsp;
+                    <span id="player-archetype-right"></span>
+                </div>
+            </div>
+            <div class="scorebug-life scorebug-right-life">
+                <div id="player-life-right" class="scorebug-life-score scorebug-right-life-score">-</div>
+                <div id="player-wins-righte" class="scorebug-life-wins scorebug-right-life-wins">
+                    <div id="scorebug-right-life-wins-1" class="scorebug-life-wins-dot"></div>
+                    <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
+                </div>
             </div>
         </div>
-        <div class="scorebug-name scorebug-left-name">
-            <div id="player-name-left" class="scorebug-name-title scorebug-left-name-title">-</div>
-            <div class="scorebug-name-data scorebug-left-name-data">
-                <span id="player-archetype-left"></span>
-                &nbsp;&nbsp;
-                <span id="player-pronouns-left" class="player-pronouns"></span>
-            </div>
+        <div class="viewport"></div>
+        <div id="poison-left" class="poison poison-left">
+            <div id="player-poison-left" class="player-poison-left"></div>
         </div>
-        <div id="player-record-left" class="player-record player-record-left"></div>
-        <div class="scorebug-vs"></div>
-        <div id="player-record-right" class="player-record player-record-right"></div>
-        <div class="scorebug-name scorebug-right-name">
-            <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
-            <div class="scorebug-name-data scorebug-right-name-data">
-                <span id="player-pronouns-right" class="player-pronouns"></span>
-                &nbsp;&nbsp;
-                <span id="player-archetype-right"></span>
-            </div>
-        </div>
-        <div class="scorebug-life scorebug-right-life">
-            <div id="player-life-right" class="scorebug-life-score scorebug-right-life-score">-</div>
-            <div id="player-wins-righte" class="scorebug-life-wins scorebug-right-life-wins">
-                <div id="scorebug-right-life-wins-1" class="scorebug-life-wins-dot"></div>
-                <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
-            </div>
+        <div id="poison-right" class="poison poison-right">
+            <div id="player-poison-right" class="player-poison-right"></div>
         </div>
     </div>
-    <div class="viewport"></div>
-    <div class="chyron">
-        <div class="chyron_commentary"></div>
-        <div class="chyron_event"><span id="event-name">-</span>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <span id="event-round">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
-            <span id="event-format">-</span></div>
+</div>
+<div class="body">
+    <div class="background">
     </div>
-    <div id="poison-left" class="poison poison-left">
-        <div id="player-poison-left" class="player-poison-left"></div>
-    </div>
-    <div id="poison-right" class="poison poison-right">
-        <div id="player-poison-right" class="player-poison-right"></div>
+</div>
+<div class="footer">
+    <div class="background">
+        <div class="chyron">
+            <div class="chyron_commentary"></div>
+            <div class="chyron_event"><span id="event-name">-</span>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <span id="event-round">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <span id="event-format">-</span></div>
+        </div>
     </div>
 </div>
 
@@ -353,7 +378,6 @@
         const cacheBuster = new Date().getTime(); // Get the current timestamp
         document.querySelector('.background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
     });
-
 
 
 </script>
