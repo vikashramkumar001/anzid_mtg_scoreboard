@@ -1,10 +1,14 @@
 [
   {
-    "name": "dec",
-    "imageUrl": "/assets/images/decks/deck_dec.png"
-  },
-  {
     "name": "decs",
     "imageUrl": "/assets/images/decks/deck_decs.png"
+  },
+  {
+    "name": "Deck2",
+    "imageUrl": "/assets/images/decks/deck_deck2.png"
+  },
+  {
+    "name": "Deck3",
+    "imageUrl": "/assets/images/decks/deck_deck3.png"
   }
 ]

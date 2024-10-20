@@ -215,6 +215,23 @@
         body {
             background: transparent !important;
         }
+
+        .background-left {
+            position: absolute;
+            top: 0;
+            width: 960px;
+            height: 100px;
+            left: 0;
+        }
+
+        .background-right {
+            position: absolute;
+            top: 0;
+            width: 960px;
+            height: 100px;
+            left: 960px;
+        }
+
     </style>
     <script src="/socket.io/socket.io.js"></script>
 
@@ -222,6 +239,10 @@
 <body>
 
 <div class="header">
+    <div class="background-left">
+    </div>
+    <div class="background-right">
+    </div>
     <div class="background">
         <div class="scorebug">
             <div class="scorebug-life scorebug-left-life">
@@ -258,7 +279,6 @@
                 </div>
             </div>
         </div>
-        <div class="viewport"></div>
         <div id="poison-left" class="poison poison-left">
             <div id="player-poison-left" class="player-poison-left"></div>
         </div>
@@ -311,6 +331,7 @@
         console.log('sending request for data');
         const medium = 'scoreboard';
         socket.emit('getSavedState', {control_id, medium});
+        socket.emit('getDeckList');
     }
 
     function updateState(data) {
@@ -325,6 +346,13 @@
                     }
                 }
                 document.getElementById(key).innerHTML = value;
+
+                // Update backgrounds based on archetypes
+                if (key === 'player-archetype-left') {
+                    updateBackground('left', value);
+                } else if (key === 'player-archetype-right') {
+                    updateBackground('right', value);
+                }
 
             } else if (['player-wins-left', 'player-wins-right'].indexOf(key) >= 0) {
                 let index = '';
@@ -348,8 +376,23 @@
         });
     }
 
+    // New function to update background
+    function updateBackground(side, deckName) {
+        const backgroundElement = document.querySelector(`.background-${side}`);
+        const deck = deckList.find(d => d.name.toLowerCase() === deckName.toLowerCase());
+
+        if (deck && deck.imageUrl) {
+            backgroundElement.style.backgroundImage = `url(${deck.imageUrl})`;
+            backgroundElement.style.display = 'block';
+        } else {
+            backgroundElement.style.backgroundImage = 'none';
+            backgroundElement.style.display = 'none';
+        }
+    }
+
     // start
 
+    let deckList = [];
     const socket = io();
     // Get match name from the URL
     const pathSegments = window.location.pathname.split('/');
@@ -363,13 +406,15 @@
     // listen for updates from server
     socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
         console.log('got saved state from server', data);
-        updateState(data);
+        deckList = data.deckList;
+        updateState(data.matchData);
     })
 
     // listen for updates from the control
     socket.on('scoreboard-' + control_id + '-update', (data) => {
         console.log('got update from server', data);
-        updateState(data);
+        deckList = data.deckList;
+        updateState(data.matchData);
     })
 
     // Listen for header overlay background image update
@@ -385,6 +430,11 @@
         const cacheBuster = new Date().getTime(); // Get the current timestamp
         document.querySelector('.footer .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
     });
+
+    // New: Listen for the updated deck list
+    socket.on('deckListUpdated', (decks) => {
+        deckList = decks;
+    })
 
 </script>
 

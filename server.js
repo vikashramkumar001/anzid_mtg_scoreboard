@@ -132,13 +132,15 @@ io.on('connection', (socket) => {
 
     socket.on('updateScoreboard', ({control_id, current_state}) => {
         console.log(control_id);
-        // console.log(current_state);
         // Check if the match already exists, if not create it
         if (!controlData.hasOwnProperty(control_id)) {
             controlData[control_id] = {}; // Initialize the score to 0 if match does not exist
         }
         controlData[control_id] = current_state; // Update the data for the specified match
-        io.emit(`scoreboard-${control_id}-update`, controlData[control_id]); // Emit the updated data to the specific control
+        io.emit(`scoreboard-${control_id}-update`, {
+            matchData: controlData[control_id],
+            deckList: deckList
+        }); // Emit the updated data to the specific control
         // emit full control data
         io.emit('control-data-updated', controlData);
     });
@@ -149,7 +151,10 @@ io.on('connection', (socket) => {
         if (!controlData.hasOwnProperty(control_id)) {
             controlData[control_id] = defaultData; // Initialize the scoreboard if match does not exist
         }
-        io.emit(`${medium}-${control_id}-saved-state`, controlData[control_id]); // Emit the existing data to the specific control
+        io.emit(`${medium}-${control_id}-saved-state`, {
+            matchData: controlData[control_id],
+            deckList: deckList
+        }); // Emit the existing data to the specific control
         // emit full control data
         io.emit('control-data-updated', controlData);
     });
@@ -184,7 +189,7 @@ io.on('connection', (socket) => {
         // Iterate through each match in the updated control data
         Object.entries(allControlData).forEach(([matchId, matchData]) => {
             // Emit the updated data to all connected clients related to this match
-            io.emit(`scoreboard-${matchId}-saved-state`, matchData);
+            io.emit(`scoreboard-${matchId}-saved-state`, {matchData:matchData, deckList: deckList});
             io.emit(`control-${matchId}-saved-state`, matchData);
             console.log(`Emitting updated data for match ${matchId} to control pages`);
         });
