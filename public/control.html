@@ -162,6 +162,43 @@
         body {
             background: transparent !important;
         }
+
+        .custom-dropdown {
+            position: relative;
+            min-width: 150px; /* Ensure the dropdown container is at least 150px wide */
+            display: inline-block; /* Allow the container to grow with content */
+        }
+
+        .custom-dropdown [id$="player-archetype-left"],
+        .custom-dropdown [id$="player-archetype-right"] {
+            min-width: 150px; /* Ensure the input field is at least 150px wide */
+            width: 100%; /* Make the input field fill the dropdown container */
+            box-sizing: border-box; /* Include padding and border in the element's total width */
+        }
+
+        .custom-dropdown .dropdown-list {
+            position: absolute;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            background-color: white;
+            display: none;
+            z-index: 1000;
+            bottom: 100%; /* Position the dropdown above the input */
+            left: 0;
+            margin-bottom: 5px; /* Add some space between the input and the dropdown */
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.1); /* Optional: add a shadow for better visibility */
+        }
+
+        .custom-dropdown .dropdown-item {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .custom-dropdown .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -368,6 +405,7 @@
                 }
             }
         });
+        setupCustomDropdowns(); // Set up dropdowns after loading saved state
     }
 
     // start
@@ -390,6 +428,75 @@
     // Send the match ID to the server when the client connects - will send back saved data if control already exists
     socket.emit('registerControl', control_id);
 
+    let currentDeckList = []; // To store the current deck list
+
+    function setupCustomDropdowns() {
+        const archetypeFields = document.querySelectorAll('[id$="player-archetype-left"], [id$="player-archetype-right"]');
+        
+        archetypeFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) {
+                return; // Skip if already set up
+            }
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            field.addEventListener('input', function() {
+                const value = this.textContent.trim().toLowerCase();
+                const filteredDecks = currentDeckList.filter(deck => 
+                    deck.toLowerCase().includes(value)
+                );
+                renderDropdownList(dropdownList, filteredDecks, field);
+            });
+
+            field.addEventListener('focus', function() {
+                renderDropdownList(dropdownList, currentDeckList, field);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!wrapper.contains(e.target)) {
+                    dropdownList.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    function renderDropdownList(dropdownList, items, field) {
+        dropdownList.innerHTML = '';
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.textContent = item;
+            div.classList.add('dropdown-item');
+            div.addEventListener('click', function() {
+                field.textContent = item;
+                dropdownList.style.display = 'none';
+                field.dispatchEvent(new Event('input'));
+                field.dispatchEvent(new Event('change')); // Trigger change event
+            });
+            dropdownList.appendChild(div);
+        });
+        dropdownList.style.display = items.length > 0 ? 'block' : 'none';
+    }
+
+    // Request the deck list from the server when the page loads
+    socket.emit('getDeckList');
+
+    // Listen for the deck list from the server
+    socket.on('deckListUpdated', (decks) => {
+        currentDeckList = decks;
+        setupCustomDropdowns(); // Set up dropdowns after receiving the deck list
+    });
+
+    // Initial setup when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        setupCustomDropdowns();
+    });
 
 </script>
 
