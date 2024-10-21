@@ -43,6 +43,10 @@ let defaultData = {
 // Initialize the deck list
 let deckList = [];
 
+function sortDeckList(deckList) {
+    return deckList.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+}
+
 // Ensure the upload directory exists
 const uploadDir = path.join(__dirname, 'public', 'assets', 'images', 'decks');
 fs.mkdir(uploadDir, { recursive: true }).catch(console.error);
@@ -138,7 +142,7 @@ io.on('connection', (socket) => {
         controlData[control_id] = current_state; // Update the data for the specified match
         io.emit(`scoreboard-${control_id}-update`, {
             matchData: controlData[control_id],
-            deckList: deckList
+            deckList: sortDeckList(deckList),
         }); // Emit the updated data to the specific control
         // emit full control data
         io.emit('control-data-updated', controlData);
@@ -152,7 +156,7 @@ io.on('connection', (socket) => {
         }
         io.emit(`${medium}-${control_id}-saved-state`, {
             matchData: controlData[control_id],
-            deckList: deckList
+            deckList: sortDeckList(deckList),
         }); // Emit the existing data to the specific control
         // emit full control data
         io.emit('control-data-updated', controlData);
@@ -188,7 +192,7 @@ io.on('connection', (socket) => {
         // Iterate through each match in the updated control data
         Object.entries(allControlData).forEach(([matchId, matchData]) => {
             // Emit the updated data to all connected clients related to this match
-            io.emit(`scoreboard-${matchId}-saved-state`, {matchData:matchData, deckList: deckList});
+            io.emit(`scoreboard-${matchId}-saved-state`, {matchData:matchData, deckList: sortDeckList(deckList)});
             io.emit(`control-${matchId}-saved-state`, matchData);
             console.log(`Emitting updated data for match ${matchId} to control pages`);
         });
@@ -204,7 +208,7 @@ io.on('connection', (socket) => {
     socket.on('addDeck', (deckName) => {
         if (!deckList.some(deck => deck.name === deckName)) {
             deckList.push({ name: deckName, imageUrl: null });
-            io.emit('deckListUpdated', deckList);
+            io.emit('deckListUpdated', sortDeckList(deckList));
         }
     });
 
@@ -219,7 +223,7 @@ io.on('connection', (socket) => {
         });
         if (updated) {
             await saveDeckList();
-            io.emit('deckListUpdated', deckList);
+            io.emit('deckListUpdated', sortDeckList(deckList));
         }
     });
 
@@ -227,7 +231,7 @@ io.on('connection', (socket) => {
     socket.on('deleteDeck', async (deckName) => {
         deckList = deckList.filter(deck => deck.name !== deckName);
         await saveDeckList();
-        io.emit('deckListUpdated', deckList);
+        io.emit('deckListUpdated', sortDeckList(deckList));
     });
 
     // Handle deck image upload
@@ -236,7 +240,7 @@ io.on('connection', (socket) => {
         if (deckIndex !== -1) {
             deckList[deckIndex].imageUrl = imageUrl;
             await saveDeckList();
-            io.emit('deckListUpdated', deckList);
+            io.emit('deckListUpdated', sortDeckList(deckList));
         }
     });
 

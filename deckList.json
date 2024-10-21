@@ -1,14 +1,22 @@
 [
   {
-    "name": "decs",
-    "imageUrl": "/assets/images/decks/deck_decs.png"
+    "name": "adec",
+    "imageUrl": "/assets/images/decks/deck_adec.png"
   },
   {
-    "name": "Deck2",
-    "imageUrl": "/assets/images/decks/deck_deck2.png"
+    "name": "StepDeck",
+    "imageUrl": "/assets/images/decks/deck_stepdeck.png"
   },
   {
-    "name": "Deck3",
-    "imageUrl": "/assets/images/decks/deck_deck3.png"
+    "name": "tEST dECK",
+    "imageUrl": "/assets/images/decks/deck_test_deck.png"
+  },
+  {
+    "name": "Test deck 2",
+    "imageUrl": "/assets/images/decks/deck_test_deck_2.png"
+  },
+  {
+    "name": "Zdeck",
+    "imageUrl": "/assets/images/decks/deck_zdeck.png"
   }
 ]

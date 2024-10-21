@@ -188,7 +188,7 @@
             bottom: 100%; /* Position the dropdown above the input */
             left: 0;
             margin-bottom: 5px; /* Add some space between the input and the dropdown */
-            box-shadow: 0 -4px 8px rgba(0,0,0,0.1); /* Optional: add a shadow for better visibility */
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
         }
 
         .custom-dropdown .dropdown-item {
@@ -432,7 +432,7 @@
 
     function setupCustomDropdowns() {
         const archetypeFields = document.querySelectorAll('[id$="player-archetype-left"], [id$="player-archetype-right"]');
-        
+
         archetypeFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
                 return; // Skip if already set up
@@ -447,19 +447,19 @@
             dropdownList.className = 'dropdown-list';
             wrapper.appendChild(dropdownList);
 
-            field.addEventListener('input', function() {
+            field.addEventListener('input', function () {
                 const value = this.textContent.trim().toLowerCase();
-                const filteredDecks = currentDeckList.filter(deck => 
-                    deck.toLowerCase().includes(value)
-                );
+                const filteredDecks = currentDeckList
+                    .filter(deck => deck.name.toLowerCase().includes(value))
+                    .slice(0, 5); // Limit to top 5 results
                 renderDropdownList(dropdownList, filteredDecks, field);
             });
 
-            field.addEventListener('focus', function() {
+            field.addEventListener('focus', function () {
                 renderDropdownList(dropdownList, currentDeckList, field);
             });
 
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!wrapper.contains(e.target)) {
                     dropdownList.style.display = 'none';
                 }
@@ -473,7 +473,7 @@
             const div = document.createElement('div');
             div.textContent = item.name;
             div.classList.add('dropdown-item');
-            div.addEventListener('click', function() {
+            div.addEventListener('click', function () {
                 field.textContent = item.name;
                 dropdownList.style.display = 'none';
                 field.dispatchEvent(new Event('input'));
