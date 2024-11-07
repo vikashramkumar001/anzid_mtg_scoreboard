@@ -1,0 +1,63 @@
+{
+  "1": {
+    "match1": {
+      "player-name-left": "Player name",
+      "player-pronouns-left": "He/Him",
+      "player-archetype-left": "adec",
+      "player-record-left": "0-0",
+      "player-wins-left": "0",
+      "player-poison-left": "0",
+      "player-life-left": "20",
+      "player-life-right": "22",
+      "player-name-right": "Player name",
+      "player-pronouns-right": "He/Him",
+      "player-archetype-right": "Archetype name",
+      "player-record-right": "0-0",
+      "player-wins-right": "0",
+      "player-poison-right": "0",
+      "event-name": "Event name",
+      "event-round": "Round 1 of 15",
+      "event-format": "Limited"
+    }
+  },
+  "2": {
+    "match2": {
+      "player-name-left": "Player name",
+      "player-pronouns-left": "He/Him",
+      "player-archetype-left": "Archetype name",
+      "player-record-left": "0-0",
+      "player-wins-left": "0",
+      "player-poison-left": "0",
+      "player-life-left": "20",
+      "player-life-right": "17",
+      "player-name-right": "Player name",
+      "player-pronouns-right": "He/Him",
+      "player-archetype-right": "adec",
+      "player-record-right": "0-0",
+      "player-wins-right": "0",
+      "player-poison-right": "0",
+      "event-name": "Event name",
+      "event-round": "Round 1 of 15",
+      "event-format": "Limited"
+    },
+    "match1": {
+      "player-name-left": "Player name",
+      "player-pronouns-left": "He/Him",
+      "player-archetype-left": "BASE",
+      "player-record-left": "0-0",
+      "player-wins-left": "0",
+      "player-poison-left": "0",
+      "player-life-left": "23",
+      "player-life-right": "20",
+      "player-name-right": "Player name",
+      "player-pronouns-right": "He/Him",
+      "player-archetype-right": "BASE",
+      "player-record-right": "0-0",
+      "player-wins-right": "0",
+      "player-poison-right": "0",
+      "event-name": "Event name",
+      "event-round": "Round 1 of 15",
+      "event-format": "Limited"
+    }
+  }
+}

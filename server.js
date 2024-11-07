@@ -1,19 +1,24 @@
-const express = require('express');
-const http = require('http');
-const socketIo = require('socket.io');
-const path = require('path');
-const multer = require('multer');
-const fs = require('fs').promises;
+import express from 'express';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import path from 'path';
+import multer from 'multer';
+import { promises as fs } from 'fs';
+import { fileURLToPath } from 'url';
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
+const server = createServer(app);
+const io = new Server(server);
 
 // Serve static files from the public directory
 app.use(express.static('public'));
 
 // Store match IDs using their socket IDs
-let matchIds = {};
+let socketIDs = {};
 
 // In-memory storage for scores
 let controlData = {};
@@ -23,7 +28,7 @@ let overlayFooterBackgroundImage = '/assets/images/overlay_footer.png'; // Defau
 let defaultData = {
     'player-name-left': 'Player name',
     'player-pronouns-left': 'He/Him',
-    'player-archetype-left': 'Deck name',
+    'player-archetype-left': 'Archetype name',
     'player-record-left': '0-0',
     'player-wins-left': '0',
     'player-poison-left': '0',
@@ -31,7 +36,7 @@ let defaultData = {
     'player-life-right': '20',
     'player-name-right': 'Player name',
     'player-pronouns-right': 'He/Him',
-    'player-archetype-right': 'Deck name',
+    'player-archetype-right': 'Archetype name',
     'player-record-right': '0-0',
     'player-wins-right': '0',
     'player-poison-right': '0',
@@ -40,16 +45,16 @@ let defaultData = {
     'event-format': 'Limited'
 }
 
-// Initialize the deck list
-let deckList = [];
+// Initialize the archetype list
+let archetypeList = [];
 
-function sortDeckList(deckList) {
-    return deckList.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+function sortArchetypeList(archetypeList) {
+    return archetypeList.sort((a, b) => a.name.localeCompare(b.name, undefined, {sensitivity: 'base'}));
 }
 
 // Ensure the upload directory exists
-const uploadDir = path.join(__dirname, 'public', 'assets', 'images', 'decks');
-fs.mkdir(uploadDir, { recursive: true }).catch(console.error);
+const uploadDir = path.join(__dirname, 'public', 'assets', 'images', 'archetypes');
+fs.mkdir(uploadDir, {recursive: true}).catch(console.error);
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -68,55 +73,55 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({storage: storage});
 
-const DECK_LIST_FILE = path.join(__dirname, 'deckList.json');
+const ARCHETYPE_LIST_FILE = path.join(__dirname, 'archetypeList.json');
 
-// Function to load the deck list from file
-async function loadDeckList() {
+// Function to load the archetype list from file
+async function loadArchetypeList() {
     try {
-        const data = await fs.readFile(DECK_LIST_FILE, 'utf8');
-        deckList = JSON.parse(data);
-        console.log('Deck list loaded successfully');
+        const data = await fs.readFile(ARCHETYPE_LIST_FILE, 'utf8');
+        archetypeList = JSON.parse(data);
+        console.log('Archetype list loaded successfully');
     } catch (error) {
         if (error.code === 'ENOENT') {
-            console.log('Deck list file not found. Starting with an empty list.');
+            console.log('Archetype list file not found. Starting with an empty list.');
         } else {
-            console.error('Error loading deck list:', error);
+            console.error('Error loading archetype list:', error);
         }
-        deckList = [];
+        archetypeList = [];
     }
 }
 
-// Function to save the deck list to file
-async function saveDeckList() {
+// Function to save the archetype list to file
+async function saveArchetypeList() {
     try {
-        await fs.writeFile(DECK_LIST_FILE, JSON.stringify(deckList, null, 2));
-        console.log('Deck list saved successfully');
+        await fs.writeFile(ARCHETYPE_LIST_FILE, JSON.stringify(archetypeList, null, 2));
+        console.log('Archetype list saved successfully');
     } catch (error) {
-        console.error('Error saving deck list:', error);
+        console.error('Error saving archetype list:', error);
     }
 }
 
-// Load the deck list when the server starts
-loadDeckList();
+// Load the archetype list when the server starts
+loadArchetypeList();
 
-// Configure multer for deck image uploads
-const deckImageStorage = multer.diskStorage({
+// Configure multer for archetype image uploads
+const archetypeImageStorage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, uploadDir);
     },
     filename: function (req, file, cb) {
-        const deckName = req.body.deckName || 'unknown_deck';
-        const sanitizedDeckName = deckName.replace(/[^a-z0-9]/gi, '_').toLowerCase() || 'unknown_deck';
+        const archetypeName = req.body.archetypeName || 'unknown_archetype';
+        const sanitizedArchetypeName = archetypeName.replace(/[^a-z0-9]/gi, '_').toLowerCase() || 'unknown_archetype';
         const fileExtension = path.extname(file.originalname) || '.png'; // Default to .png if no extension
-        const filename = `deck_${sanitizedDeckName}${fileExtension}`;
+        const filename = `archetype_${sanitizedArchetypeName}${fileExtension}`;
         cb(null, filename);
     }
 });
 
-const uploadDeckImage = multer({ 
-    storage: deckImageStorage,
+const uploadArchetypeImage = multer({
+    storage: archetypeImageStorage,
     fileFilter: function (req, file, cb) {
         const filetypes = /jpeg|jpg|png|gif/;
         const mimetype = filetypes.test(file.mimetype);
@@ -128,35 +133,72 @@ const uploadDeckImage = multer({
     }
 });
 
+const CONTROL_DATA_FILE = path.join(__dirname, 'controlData.json');
+
+async function loadControlData() {
+    try {
+        const data = await fs.readFile(CONTROL_DATA_FILE, 'utf8');
+        controlData = JSON.parse(data);
+        console.log('Control data loaded successfully');
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            console.log('Control data file not found. Starting with empty data.');
+            controlData = {};
+        } else {
+            console.error('Error loading control data:', error);
+            controlData = {};
+        }
+    }
+}
+
+async function saveControlData() {
+    try {
+        await fs.writeFile(CONTROL_DATA_FILE, JSON.stringify(controlData, null, 2));
+        console.log('Control data saved successfully');
+    } catch (error) {
+        console.error('Error saving control data:', error);
+    }
+}
+
+// Load control data when server starts
+await loadControlData();
+
 io.on('connection', (socket) => {
     console.log('A user connected');
 
     // Send the current scores to the newly connected client
-
-    socket.on('updateScoreboard', ({control_id, current_state}) => {
-        console.log(control_id);
-        // Check if the match already exists, if not create it
-        if (!controlData.hasOwnProperty(control_id)) {
-            controlData[control_id] = {}; // Initialize the score to 0 if match does not exist
+    socket.on('updateScoreboard', async ({round_id, match_id, current_state}) => {
+        console.log(round_id, match_id);
+        if (!controlData.hasOwnProperty(round_id)) {
+            controlData[round_id] = {};
         }
-        controlData[control_id] = current_state; // Update the data for the specified match
-        io.emit(`scoreboard-${control_id}-update`, {
-            matchData: controlData[control_id],
-            deckList: sortDeckList(deckList),
-        }); // Emit the updated data to the specific control
-        // emit full control data
+        if (!controlData[round_id].hasOwnProperty(match_id)) {
+            controlData[round_id][match_id] = {};
+        }
+        controlData[round_id][match_id] = current_state;
+        // Save the updated control data
+        await saveControlData();
+        io.emit(`scoreboard-${round_id}-${match_id}-update`, {
+            matchData: controlData[round_id][match_id],
+            archetypeList: sortArchetypeList(archetypeList),
+        });
         io.emit('control-data-updated', controlData);
     });
 
-    socket.on('getSavedState', ({control_id, medium}) => {
-        console.log('request for score', control_id, medium);
+    socket.on('getSavedState', async ({round_id, match_id, medium}) => {
+        console.log('request for score', round_id, match_id, medium);
         // Check if the match already exists, if not create it
-        if (!controlData.hasOwnProperty(control_id)) {
-            controlData[control_id] = defaultData; // Initialize the scoreboard if match does not exist
+        if (!controlData.hasOwnProperty(round_id)) {
+            controlData[round_id] = {};
         }
-        io.emit(`${medium}-${control_id}-saved-state`, {
-            matchData: controlData[control_id],
-            deckList: sortDeckList(deckList),
+        if (!controlData[round_id].hasOwnProperty(match_id)) {
+            controlData[round_id][match_id] = defaultData;  // Initialize the scoreboard if match does not exist
+            // Save the updated control data
+            await saveControlData();
+        }
+        io.emit(`${medium}-${round_id}-${match_id}-saved-state`, {
+            matchData: controlData[round_id][match_id],
+            archetypeList: sortArchetypeList(archetypeList),
         }); // Emit the existing data to the specific control
         // emit full control data
         io.emit('control-data-updated', controlData);
@@ -169,106 +211,107 @@ io.on('connection', (socket) => {
     // emit full control data
     io.emit('control-data-updated', controlData);
 
-    // Listen for the 'registerControl' event to store the control ID
-    socket.on('registerControl', (controlID) => {
-        matchIds[socket.id] = controlID;
-        console.log(`Control registered: ${controlID}`);
+    // Listen for the 'registerControl' event to store the match id and control ID
+    socket.on('registerControl', async (round_id, match_id) => {
+        socketIDs[socket.id] = {'round_id': round_id, 'match_id': match_id};
         // Check if the control already exists, if not create it
-        if (!controlData.hasOwnProperty(controlID)) {
-            controlData[controlID] = defaultData; // Initialize the scoreboard if match does not exist
+        if (!controlData.hasOwnProperty(round_id)) {
+            controlData[round_id] = {};
         }
-        io.emit(`control-${controlID}-saved-state`, controlData[controlID]); // Emit the existing data to the specific control
+        if (!controlData[round_id].hasOwnProperty(match_id)) {
+            controlData[round_id][match_id] = defaultData;  // Initialize the scoreboard if match does not exist
+            // Save the updated control data
+            await saveControlData();
+        }
+        io.emit(`control-${round_id}-${match_id}-saved-state`, controlData[round_id][match_id]); // Emit the existing data to the specific control
         // send update of control data change
         io.emit('control-data-updated', controlData);
     });
 
     // Listen for updates from the master control
-    socket.on('master-control-matches-updated', (allControlData) => {
+    socket.on('master-control-matches-updated', async (allControlData) => {
         console.log('Received updated control data from master control');
-
-        // Update the in-memory controlData with the received data
         controlData = allControlData;
 
-        // Iterate through each match in the updated control data
-        Object.entries(allControlData).forEach(([matchId, matchData]) => {
-            // Emit the updated data to all connected clients related to this match
-            io.emit(`scoreboard-${matchId}-saved-state`, {matchData:matchData, deckList: sortDeckList(deckList)});
-            io.emit(`control-${matchId}-saved-state`, matchData);
-            console.log(`Emitting updated data for match ${matchId} to control pages`);
+        // Save the updated control data
+        await saveControlData();
+
+        // Iterate through each round and match in the updated control data
+        Object.entries(allControlData).forEach(([round_id, roundData]) => {
+            Object.entries(roundData).forEach(([match_id, matchData]) => {
+                // Emit the updated data to all connected clients related to this match
+                io.emit(`scoreboard-${round_id}-${match_id}-saved-state`, {
+                    matchData: matchData,
+                    archetypeList: sortArchetypeList(archetypeList)
+                });
+                io.emit(`control-${round_id}-${match_id}-saved-state`, matchData);
+                console.log(`Emitting updated data for round ${round_id} match ${match_id} to control and scoreboard pages`);
+            });
         });
     });
 
-    // Handle request for initial deck list
-    socket.on('getDeckList', () => {
-        console.log('sending deck list update')
-        io.emit('deckListUpdated', deckList);
+    // Handle request for initial archetype list
+    socket.on('getArchetypeList', () => {
+        console.log('sending archetype list update')
+        io.emit('archetypeListUpdated', archetypeList);
     });
 
-    // Handle adding a new deck
-    socket.on('addDeck', (deckName) => {
-        if (!deckList.some(deck => deck.name === deckName)) {
-            deckList.push({ name: deckName, imageUrl: null });
-            io.emit('deckListUpdated', sortDeckList(deckList));
+    // Handle adding a new archetype
+    socket.on('addArchetype', (archetypeName) => {
+        if (!archetypeList.some(archetype => archetype.name === archetypeName)) {
+            archetypeList.push({name: archetypeName, imageUrl: null});
+            io.emit('archetypeListUpdated', sortArchetypeList(archetypeList));
         }
     });
 
-    // Handle adding multiple new decks
-    socket.on('addDecks', async (deckNames) => {
+    // Handle adding multiple new archetypes
+    socket.on('addArchetypes', async (archetypeNames) => {
         let updated = false;
-        deckNames.forEach(deckName => {
-            if (!deckList.some(deck => deck.name === deckName)) {
-                deckList.push({ name: deckName, imageUrl: null });
+        archetypeNames.forEach(archetypeName => {
+            if (!archetypeList.some(archetype => archetype.name === archetypeName)) {
+                archetypeList.push({name: archetypeName, imageUrl: null});
                 updated = true;
             }
         });
         if (updated) {
-            await saveDeckList();
-            io.emit('deckListUpdated', sortDeckList(deckList));
+            await saveArchetypeList();
+            io.emit('archetypeListUpdated', sortArchetypeList(archetypeList));
         }
     });
 
-    // Handle deleting a deck
-    socket.on('deleteDeck', async (deckName) => {
-        deckList = deckList.filter(deck => deck.name !== deckName);
-        await saveDeckList();
-        io.emit('deckListUpdated', sortDeckList(deckList));
+    // Handle deleting a archetype
+    socket.on('deleteArchetype', async (archetypeName) => {
+        archetypeList = archetypeList.filter(archetype => archetype.name !== archetypeName);
+        await saveArchetypeList();
+        io.emit('archetypeListUpdated', sortArchetypeList(archetypeList));
     });
 
-    // Handle deck image upload
-    socket.on('upload-deck-image', async (deckName, imageUrl) => {
-        const deckIndex = deckList.findIndex(deck => deck.name === deckName);
-        if (deckIndex !== -1) {
-            deckList[deckIndex].imageUrl = imageUrl;
-            await saveDeckList();
-            io.emit('deckListUpdated', sortDeckList(deckList));
+    // Handle archetype image upload
+    socket.on('upload-archetype-image', async (archetypeName, imageUrl) => {
+        const archetypeIndex = archetypeList.findIndex(archetype => archetype.name === archetypeName);
+        if (archetypeIndex !== -1) {
+            archetypeList[archetypeIndex].imageUrl = imageUrl;
+            await saveArchetypeList();
+            io.emit('archetypeListUpdated', sortArchetypeList(archetypeList));
         }
     });
 
     // When a user disconnects, remove their match data
-    socket.on('disconnect', () => {
-        const matchId = matchIds[socket.id];
-        if (matchId) {
-            console.log(`Match disconnected: ${matchId}`);
-            // Remove the match data from controlData
-            delete controlData[matchId];
-            console.log(`Removed match ${matchId} from controlData.`);
-
-            // Clean up the stored match ID
-            delete matchIds[socket.id];
-
-            // send update of control data change
-            io.emit('control-data-updated', controlData);
-        }
+    socket.on('disconnect', async () => {
+        const temp = socketIDs[socket.id];
+        // delete round/match from control data based on socket disconnected
+        // if (temp) {
+        //     console.log(`Match ${temp['match_id']} round ${temp['round_id']} disconnected`);
+        //     delete controlData[temp['round_id']][temp['match_id']];
+        //     console.log(`Removed match ${temp['match_id']} round ${temp['round_id']} from controlData.`);
+        //     delete socketIDs[socket.id];
+        //
+        //     // Save the updated control data
+        //     await saveControlData();
+        //
+        //     io.emit('control-data-updated', controlData);
+        // }
     });
-});
-
-// Routes for control and scoreboard pages
-app.get('/control/:match/:delay', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'control.html'));
-});
-
-app.get('/scoreboard/:match', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'scoreboard.html'));
 });
 
 // Handle header overlay upload
@@ -276,9 +319,9 @@ app.post('/upload-header-overlay', upload.single('overlay_header'), (req, res) =
     if (req.file) {
         const newImageUrl = '/assets/images/overlay_header.png';
         io.emit('overlayHeaderBackgroundUpdate', newImageUrl);
-        res.json({ success: true, newImageUrl: newImageUrl });
+        res.json({success: true, newImageUrl: newImageUrl});
     } else {
-        res.status(400).json({ success: false, message: 'No file uploaded' });
+        res.status(400).json({success: false, message: 'No file uploaded'});
     }
 });
 
@@ -287,10 +330,19 @@ app.post('/upload-footer-overlay', upload.single('overlay_footer'), (req, res) =
     if (req.file) {
         const newImageUrl = '/assets/images/overlay_footer.png';
         io.emit('overlayFooterBackgroundUpdate', newImageUrl);
-        res.json({ success: true, newImageUrl: newImageUrl });
+        res.json({success: true, newImageUrl: newImageUrl});
     } else {
-        res.status(400).json({ success: false, message: 'No file uploaded' });
+        res.status(400).json({success: false, message: 'No file uploaded'});
     }
+});
+
+// Routes for control and scoreboard pages
+app.get('/control/:round/:match/:delay', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'control.html'));
+});
+
+app.get('/scoreboard/:round/:match', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'scoreboard.html'));
 });
 
 // Serve the master control HTML page
@@ -298,33 +350,39 @@ app.get('/master-control', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'master-control.html'));
 });
 
-// Handle deck image upload
-app.post('/upload-deck-image', uploadDeckImage.single('image'), async (req, res) => {
+// Handle archetype image upload
+app.post('/upload-archetype-image', uploadArchetypeImage.single('image'), async (req, res) => {
     if (req.file) {
-        const { deckName } = req.body;
-        const imageUrl = '/assets/images/decks/' + req.file.filename;
-        const deckIndex = deckList.findIndex(deck => deck.name === deckName);
-        if (deckIndex !== -1) {
-            // Update the deck list with the new image URL
-            deckList[deckIndex].imageUrl = imageUrl;
-            
+        const {archetypeName} = req.body;
+        const imageUrl = '/assets/images/archetypes/' + req.file.filename;
+        const archetypeIndex = archetypeList.findIndex(archetype => archetype.name === archetypeName);
+        if (archetypeIndex !== -1) {
+            // Update the archetype list with the new image URL
+            archetypeList[archetypeIndex].imageUrl = imageUrl;
+
             try {
-                // Save the updated deck list
-                await saveDeckList();
-                res.json({ success: true, imageUrl: imageUrl });
+                // Save the updated archetype list
+                await saveArchetypeList();
+                res.json({success: true, imageUrl: imageUrl});
             } catch (error) {
-                console.error('Error updating deck image:', error);
-                res.status(500).json({ success: false, message: 'Error updating deck image' });
+                console.error('Error updating archetype image:', error);
+                res.status(500).json({success: false, message: 'Error updating archetype image'});
             }
         } else {
-            // If deck not found, delete the uploaded file
+            // If archetype not found, delete the uploaded file
             await fs.unlink(req.file.path).catch(console.error);
-            res.status(404).json({ success: false, message: 'Deck not found' });
+            res.status(404).json({success: false, message: 'Archetype not found'});
         }
     } else {
-        res.status(400).json({ success: false, message: 'No file uploaded' });
+        res.status(400).json({success: false, message: 'No file uploaded'});
     }
 });
 
 const PORT = process.env.PORT || 1378;
-server.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
+
+async function startServer() {
+    await loadControlData();
+    server.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
+}
+
+startServer();

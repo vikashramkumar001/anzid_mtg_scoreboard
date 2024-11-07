@@ -333,24 +333,6 @@
         scale_element(element);
     });
 
-    // let $_last_updated = "0";
-
-    // Example POST method implementation:
-    async function postData(url = '', data = {}) {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: 'GET',
-            cache: 'no-cache',
-        });
-
-        return response.json(); // parses JSON response into native JavaScript objects
-    }
-
-    function escapeVal(text) {
-        return text
-            .replace(/ /g, "%20");
-    }
-
     function onLifeTotalChange(element, modifier) {
         let div = document.getElementById(element);
         div.innerHTML = parseInt(div.innerHTML) + modifier;
@@ -374,9 +356,9 @@
             }
 
         });
-        console.log('emitting updated content', control_id, current_state);
+        console.log('emitting updated content', match_id, current_state);
         // send data to server
-        socket.emit('updateScoreboard', {control_id, current_state});
+        socket.emit('updateScoreboard', {round_id, match_id, current_state});
     }
 
     function armTimeout() {
@@ -414,21 +396,22 @@
     let timeout = null;
     // Get match name from the URL
     const pathSegments = window.location.pathname.split('/');
-    const control_id = pathSegments[2];                 // This should be match name
-    const delay_value = Number(pathSegments[3]) || 10;        // This should be the delay - used for timeout
+    const round_id = pathSegments[2];                 // This should be match name
+    const match_id = pathSegments[3];                 // This should be match name
+    const delay_value = Number(pathSegments[4]) || 10;        // This should be the delay - used for timeout
 
-    console.log('from url', control_id, delay_value);
+    console.log('from url', match_id, delay_value);
 
     // listen for saved state from server
-    socket.on('control-' + control_id + '-saved-state', (data) => {
+    socket.on('control-' + round_id + '-' + match_id + '-saved-state', (data) => {
         console.log('got saved state from server', data);
         loadSavedState(data);
     })
 
     // Send the match ID to the server when the client connects - will send back saved data if control already exists
-    socket.emit('registerControl', control_id);
+    socket.emit('registerControl', round_id, match_id);
 
-    let currentDeckList = []; // To store the current deck list
+    let currentArchetypeList = []; // To store the current archetype list
 
     function setupCustomDropdowns() {
         const archetypeFields = document.querySelectorAll('[id$="player-archetype-left"], [id$="player-archetype-right"]');
@@ -449,14 +432,14 @@
 
             field.addEventListener('input', function () {
                 const value = this.textContent.trim().toLowerCase();
-                const filteredDecks = currentDeckList
-                    .filter(deck => deck.name.toLowerCase().includes(value))
+                const filteredArchetypes = currentArchetypeList
+                    .filter(archetype => archetype.name.toLowerCase().includes(value))
                     .slice(0, 5); // Limit to top 5 results
-                renderDropdownList(dropdownList, filteredDecks, field);
+                renderDropdownList(dropdownList, filteredArchetypes, field);
             });
 
             field.addEventListener('focus', function () {
-                renderDropdownList(dropdownList, currentDeckList, field);
+                renderDropdownList(dropdownList, currentArchetypeList, field);
             });
 
             document.addEventListener('click', function (e) {
@@ -484,13 +467,13 @@
         dropdownList.style.display = items.length > 0 ? 'block' : 'none';
     }
 
-    // Request the deck list from the server when the page loads
-    socket.emit('getDeckList');
+    // Request the archetype list from the server when the page loads
+    socket.emit('getArchetypeList');
 
-    // Listen for the deck list from the server
-    socket.on('deckListUpdated', (decks) => {
-        currentDeckList = decks;
-        setupCustomDropdowns(); // Set up dropdowns after receiving the deck list
+    // Listen for the archetype list from the server
+    socket.on('archetypeListUpdated', (archetypes) => {
+        currentArchetypeList = archetypes;
+        setupCustomDropdowns(); // Set up dropdowns after receiving the archetype list
     });
 
     // Initial setup when the page loads

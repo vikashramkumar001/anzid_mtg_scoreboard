@@ -334,8 +334,8 @@
     function retrieveState() {
         console.log('sending request for data');
         const medium = 'scoreboard';
-        socket.emit('getSavedState', {control_id, medium});
-        socket.emit('getDeckList');
+        socket.emit('getSavedState', {round_id, match_id, medium});
+        socket.emit('getArchetypeList');
     }
 
     function updateState(data) {
@@ -381,13 +381,13 @@
     }
 
     // New function to update background
-    function updateBackground(side, deckName) {
+    function updateBackground(side, archetypeName) {
         const backgroundElement = document.querySelector(`.background-${side}`);
-        const deck = deckList.find(d => d.name.toLowerCase() === deckName.toLowerCase());
+        const archetype = archetypeList.find(d => d.name.toLowerCase() === archetypeName.toLowerCase());
 
-        if (deck && deck.imageUrl) {
+        if (archetype && archetype.imageUrl) {
             const cacheBuster = new Date().getTime(); // Get the current timestamp
-            backgroundElement.style.backgroundImage = `url(${deck.imageUrl}?v=${cacheBuster})`;
+            backgroundElement.style.backgroundImage = `url(${archetype.imageUrl}?v=${cacheBuster})`;
             backgroundElement.style.display = 'block';
         } else {
             backgroundElement.style.backgroundImage = 'none';
@@ -397,28 +397,29 @@
 
     // start
 
-    let deckList = [];
+    let archetypeList = [];
     const socket = io();
     // Get match name from the URL
     const pathSegments = window.location.pathname.split('/');
-    const control_id = pathSegments[2];                 // This should be match name
+    const round_id = pathSegments[2];                 // This should be match name
+    const match_id = pathSegments[3];                 // This should be match name
 
-    console.log('from url', control_id);
+    console.log('from url', round_id, match_id);
 
     // get saved state from server on page load
     retrieveState();
 
     // listen for updates from server
-    socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
+    socket.on('scoreboard-' + round_id + '-' + match_id + '-saved-state', (data) => {
         console.log('got saved state from server', data);
-        deckList = data.deckList;
+        archetypeList = data.archetypeList;
         updateState(data.matchData);
     })
 
     // listen for updates from the control
-    socket.on('scoreboard-' + control_id + '-update', (data) => {
+    socket.on('scoreboard-' + round_id + '-' + match_id + '-update', (data) => {
         console.log('got update from server', data);
-        deckList = data.deckList;
+        archetypeList = data.archetypeList;
         updateState(data.matchData);
     })
 
@@ -436,13 +437,13 @@
         document.querySelector('.footer .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
     });
 
-    // New: Listen for the updated deck list
-    socket.on('deckListUpdated', (decks) => {
-        console.log('deck list updated', decks);
-        deckList = decks;
-        // get saved state so decks will re-render
+    // New: Listen for the updated archetype list
+    socket.on('archetypeListUpdated', (archetypes) => {
+        console.log('archetype list updated', archetypes);
+        archetypeList = archetypes;
+        // get saved state so archetypes will re-render
         const medium = 'scoreboard';
-        socket.emit('getSavedState', {control_id, medium});
+        socket.emit('getSavedState', {round_id, match_id, medium});
     })
 
 </script>
