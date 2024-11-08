@@ -1,10 +1,10 @@
 import express from 'express';
-import { createServer } from 'http';
-import { Server } from 'socket.io';
+import {createServer} from 'http';
+import {Server} from 'socket.io';
 import path from 'path';
 import multer from 'multer';
-import { promises as fs } from 'fs';
-import { fileURLToPath } from 'url';
+import {promises as fs} from 'fs';
+import {fileURLToPath} from 'url';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -42,7 +42,11 @@ let defaultData = {
     'player-poison-right': '0',
     'event-name': 'Event name',
     'event-round': 'Round 1 of 15',
-    'event-format': 'Limited'
+    'event-format': 'Limited',
+    'player-main-deck-left': '',
+    'player-side-deck-left': '',
+    'player-main-deck-right': '',
+    'player-side-deck-right': ''
 }
 
 // Initialize the archetype list

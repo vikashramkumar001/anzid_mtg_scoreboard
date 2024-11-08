@@ -363,32 +363,42 @@
         if (!matchCard) {
             // Create new card (use your existing card HTML structure)
             matchCard = document.createElement('div');
-            matchCard.classList.add('col-12', 'mb-3', 'match-card-container');
+            matchCard.classList.add('col-6', 'mb-3', 'match-card-container');
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
             <h3 class="match-id-name">${roundId}-${matchId}</h3>
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row mb-4">
                         <!-- Event Information -->
-                        <div class="col-md-4">
-                            <h5 class="card-title">Event Information</h5>
-                            <div class="mb-3">
-                                <label class="form-label">Event Name</label>
-                                <div id="${roundId}-${matchId}-event-name" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Event Round</label>
-                                <div id="${roundId}-${matchId}-event-round" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Event Format</label>
-                                <div id="${roundId}-${matchId}-event-format" class="editable form-control" contenteditable="true"></div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="card-title">Event Information</h5>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Event Name</label>
+                                        <div id="${roundId}-${matchId}-event-name" class="editable form-control" contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Event Round</label>
+                                        <div id="${roundId}-${matchId}-event-round" class="editable form-control" contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Event Format</label>
+                                        <div id="${roundId}-${matchId}-event-format" class="editable form-control" contenteditable="true"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Left Player Information -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <h5 class="card-title">Left Player</h5>
                             <div class="mb-3">
                                 <label class="form-label">Player Name</label>
@@ -421,7 +431,7 @@
                         </div>
 
                         <!-- Right Player Information -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <h5 class="card-title">Right Player</h5>
                             <div class="mb-3">
                                 <label class="form-label">Player Name</label>
@@ -453,6 +463,46 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- New row for deck information -->
+                    <div class="row">
+                        <!-- Left Player Deck Information -->
+                        <div class="col-md-6">
+                            <h5 class="card-title">Left Player Deck</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Main Deck</label>
+                                <textarea id="${roundId}-${matchId}-player-main-deck-left" 
+                                        class="editable form-control" 
+                                        rows="5" 
+                                        placeholder="Enter main deck cards (separated by commas or new lines)"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Side Deck</label>
+                                <textarea id="${roundId}-${matchId}-player-side-deck-left" 
+                                        class="editable form-control" 
+                                        rows="3" 
+                                        placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
+                            </div>
+                        </div>
+                        <!-- Right Player Deck Information -->
+                        <div class="col-md-6">
+                            <h5 class="card-title">Right Player Deck</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Main Deck</label>
+                                <textarea id="${roundId}-${matchId}-player-main-deck-right" 
+                                        class="editable form-control" 
+                                        rows="5" 
+                                        placeholder="Enter main deck cards (separated by commas or new lines)"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Side Deck</label>
+                                <textarea id="${roundId}-${matchId}-player-side-deck-right" 
+                                        class="editable form-control" 
+                                        rows="3" 
+                                        placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
@@ -466,7 +516,18 @@
         Object.keys(matchData).forEach(key => {
             const fieldElement = document.getElementById(`${roundId}-${matchId}-${key}`);
             if (fieldElement) {
-                fieldElement.textContent = matchData[key];
+                if (fieldElement.tagName.toLowerCase() === 'textarea') {
+                    if (key.includes('main-deck') || key.includes('side-deck')) {
+                        // Join array elements with newlines for deck lists
+                        fieldElement.value = Array.isArray(matchData[key]) 
+                            ? matchData[key].join('\n')
+                            : matchData[key];
+                    } else {
+                        fieldElement.value = matchData[key];
+                    }
+                } else {
+                    fieldElement.textContent = matchData[key];
+                }
             }
         });
     }
@@ -476,8 +537,23 @@
         const editableFields = document.querySelectorAll(`#match-card-${roundId}-${matchId} .editable`);
         editableFields.forEach(field => {
             field.addEventListener('input', () => {
+                let value;
+                
+                // Handle deck lists as arrays
+                if (field.tagName.toLowerCase() === 'textarea' && 
+                    (field.id.includes('main-deck') || field.id.includes('side-deck'))) {
+                    // Split by newlines and/or commas, trim whitespace, and filter empty strings
+                    value = field.value
+                        .split(/[\n,]+/)
+                        .map(card => card.trim())
+                        .filter(card => card !== '');
+                } else {
+                    // Handle other fields normally
+                    value = field.tagName.toLowerCase() === 'textarea' ? field.value : field.textContent;
+                }
+                
                 // Update the local control data when a field changes
-                updateControlData(roundId, matchId, field.id.replace(`${roundId}-${matchId}-`, ''), field.textContent);
+                updateControlData(roundId, matchId, field.id.replace(`${roundId}-${matchId}-`, ''), value);
                 // Emit the updated control data to the backend
                 console.log('updated all data', allControlData);
                 socket.emit('master-control-matches-updated', allControlData);
@@ -493,6 +569,7 @@
         if (!allControlData[roundId][matchId]) {
             allControlData[roundId][matchId] = {};
         }
+        console.log(roundId, matchId, key, value)
         allControlData[roundId][matchId][key] = value;
     }
 
@@ -847,7 +924,7 @@
             // Create container for match cards
             const matchContainer = document.createElement('div');
             matchContainer.id = `round-${roundId}-matches`;
-            matchContainer.className = 'mt-3';
+            matchContainer.className = 'mt-3 row';
             content.appendChild(matchContainer);
 
             roundContent.appendChild(content);
