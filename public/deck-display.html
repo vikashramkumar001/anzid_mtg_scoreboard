@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deck Display</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional Bootstrap 5 JS with Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        #deck-display-details {
+            width: 1920px;
+            height: 50px;
+        }
+
+        #deck-display-container {
+            width: 1920px;
+            height: 1030px;
+        }
+
+        #main-deck-container {
+            width: 1710px;
+            height: 1030px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-content: flex-start;
+        }
+
+        #side-deck-container {
+            width: 210px;
+            height: 1030px;
+            position: relative; /* Allow absolute positioning of cards */
+        }
+
+        .main-deck-card {
+            width: 180px;
+            height: 250px;
+            border: 1px solid #ccc;
+            margin: 5px 15px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: #f8f9fa;
+            transition: transform 0.2s; /* Smooth transition for stacking */
+        }
+
+        .side-deck-card {
+            width: 180px;
+            height: 250px;
+            border: 1px solid #ccc;
+            margin: 5px;
+            position: absolute; /* Position cards absolutely */
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: #f8f9fa;
+            transition: transform 0.2s; /* Smooth transition for stacking */
+        }
+
+        .card-name {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .main-deck-card-stack {
+            width: 210px;
+            height: 350px;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+<div class="row" id="deck-display-details">
+
+</div>
+<div class="row" id="deck-display-container">
+    <div id="main-deck-container">
+
+    </div>
+    <div id="side-deck-container">
+
+    </div>
+</div>
+<script>
+    const socket = io();
+    let deckData = {};
+
+    // Listen for deck data to display
+    socket.on('deck-display-update', (data) => {
+        // data : mainDeck, sideDeck, playerName, archetype
+        console.log('deck data from server', data);
+
+        // Save to local object
+        deckData = {
+            playerName: data.playerName,
+            archetype: data.archetype,
+            mainDeck: transformDeck(data.mainDeck),
+            sideDeck: transformDeck(data.sideDeck)
+        };
+        console.log('deck data', deckData);
+
+        // Call a function to render the decks
+        renderDecks();
+    });
+
+    // Function to transform deck data into an object with counts
+    function transformDeck(deckArray) {
+        const deckObject = [];
+        deckArray.forEach(card => {
+            // Split the card string into count and name
+            const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card]; // Default count to 1 if no number is found
+            const count = parseInt(parts[1], 10); // Get the count
+            const name = parts[2]; // Get the card name
+            deckObject.push({
+                'card-name': name,
+                'card-count': count,
+                'card-url': null
+            });
+        });
+        return deckObject;
+    }
+
+    // Function to render the decks on the page
+    function renderDecks() {
+        // Clear previous deck displays
+        document.getElementById('main-deck-container').innerHTML = '';
+        document.getElementById('side-deck-container').innerHTML = '';
+
+        // Render main deck
+        const mainDeckContainer = document.getElementById('main-deck-container');
+        const totalCards = deckData.mainDeck.length;
+
+        if (totalCards <= 24) {
+            // No overlap, display cards normally
+            deckData.mainDeck.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'main-deck-card';
+                cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                mainDeckContainer.appendChild(cardElement);
+            });
+        } else {
+            // Overlapping logic
+            let cardGroups = [];
+            const groupSize = Math.floor(totalCards / 24);
+            const maxGroups = totalCards % 24;
+            const cardHeight = 250;
+            const cardWidth = 180;
+            // 980 / 3 = 326 ; 326 - 250 = 76 -> space to stack top of cards in group
+            // 1030 / 3 = 343 ; 343 - 250 = 93 -> space to stack top of cards in group
+            let spacing = Math.floor(90 / (groupSize));
+            let baseStackHeight = cardHeight + (spacing * (groupSize - 1));
+            if (maxGroups > 0) {
+                spacing = Math.floor(90 / (groupSize + 1));
+                baseStackHeight = cardHeight + (spacing * groupSize);
+            }
+            const extraHeight = Math.floor(1030 - (baseStackHeight * 3)) / 3;
+            console.log(extraHeight)
+
+            let index = 0;
+
+            // Create `maxGroups` with `groupSize + 1` cards
+            for (let i = 0; i < maxGroups; i++) {
+                cardGroups.push(deckData.mainDeck.slice(index, index + groupSize + 1));
+                index += groupSize + 1;
+            }
+
+            // Create remaining groups with `groupSize` cards
+            while (index < totalCards) {
+                cardGroups.push(deckData.mainDeck.slice(index, index + groupSize));
+                index += groupSize;
+            }
+
+            cardGroups.forEach((group, groupIndex) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'main-deck-card-stack';
+                cardElement.style.width = `${cardWidth + 30}px`;
+                cardElement.style.height = `${Math.floor(baseStackHeight + extraHeight)}px`;
+                group.forEach((card, cardIndex) => {
+                    const innerCard = document.createElement('div');
+                    innerCard.className = 'main-deck-card';
+                    innerCard.style.width = `${cardWidth}px`;
+                    innerCard.style.height = `${cardHeight}px`;
+                    innerCard.innerHTML = `${card['card-name']}`;
+                    innerCard.style.position = 'absolute';
+                    innerCard.style.top = `${((extraHeight / 3) + spacing) * cardIndex}px`;
+                    cardElement.appendChild(innerCard);
+                });
+                mainDeckContainer.appendChild(cardElement);
+            });
+        }
+
+        // Render side deck
+        const sideDeckContainer = document.getElementById('side-deck-container');
+        const cardHeight = 250; // Height of each card
+        const totalHeight = 1030; // Total height of the side deck container
+        const spacing = Math.floor((totalHeight - (cardHeight + 10)) / (deckData.sideDeck.length - 1));
+
+        if (deckData.sideDeck.length <= 4) {
+            // No overlap, display cards normally
+            deckData.sideDeck.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'side-deck-card';
+                cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                cardElement.style.top = `${index * spacing}px`; // Adjust the vertical position
+                sideDeckContainer.appendChild(cardElement);
+            });
+        } else {
+            // Calculate the spacing for overlapping cards
+            // + 10 to cater for the margin top/bottom 5px
+            const spacing = Math.floor((totalHeight - (cardHeight + 10)) / (deckData.sideDeck.length - 1));
+            deckData.sideDeck.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'side-deck-card';
+                cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                // Position the card based on its index
+                cardElement.style.top = `${index * spacing}px`; // Adjust the vertical position
+                // cardElement.style.margin = '0px 15px';
+                sideDeckContainer.appendChild(cardElement);
+            });
+        }
+
+        // Optionally, display player name and archetype
+        const detailsElement = document.getElementById('deck-display-details');
+        detailsElement.innerHTML = `<h2>${deckData.playerName} - ${deckData.archetype}</h2>`;
+    }
+</script>
+</body>
+</html>

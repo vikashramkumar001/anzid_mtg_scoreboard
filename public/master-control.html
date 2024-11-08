@@ -113,8 +113,8 @@
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
-<body class="container mt-5">
-<div class="container mt-5">
+<body class="container-fluid mt-5">
+<div class="container-fluid mt-5">
 
     <div class="row">
         <div class="col-12">
@@ -483,6 +483,9 @@
                                         rows="3" 
                                         placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
                             </div>
+                            <div class="my-3">
+                                <button class="btn btn-primary" id="${roundId}-${matchId}-display-deck-left">Display Deck</button>
+                            </div>
                         </div>
                         <!-- Right Player Deck Information -->
                         <div class="col-md-6">
@@ -501,6 +504,9 @@
                                         rows="3" 
                                         placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
                             </div>
+                            <div class="my-3">
+                                <button class="btn btn-primary" id="${roundId}-${matchId}-display-deck-right">Display Deck</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -510,6 +516,8 @@
             matchContainer.appendChild(matchCard);
             // Attach change listeners
             attachChangeListeners(roundId, matchId);
+            // Attach the deck display listeners after rendering
+            attachDeckDisplayListeners(roundId, matchId);
         }
         
         // Update the fields with the match data
@@ -932,6 +940,28 @@
             // Render all matches for this round
             Object.entries(allData[roundId]).forEach(([matchId, matchData]) => {
                 renderMatch(roundId, matchId, matchData);
+            });
+        });
+    }
+
+    // Add click handlers for the Display Deck buttons
+    function attachDeckDisplayListeners(roundId, matchId) {
+        const leftDeckButton = document.querySelector(`#match-card-${roundId}-${matchId} .col-md-6:first-child .btn-primary`);
+        const rightDeckButton = document.querySelector(`#match-card-${roundId}-${matchId} .col-md-6:last-child .btn-primary`);
+        
+        leftDeckButton.addEventListener('click', () => {
+            socket.emit('display-deck', {
+                roundId,
+                matchId,
+                side: 'left'
+            });
+        });
+        
+        rightDeckButton.addEventListener('click', () => {
+            socket.emit('display-deck', {
+                roundId,
+                matchId,
+                side: 'right'
             });
         });
     }

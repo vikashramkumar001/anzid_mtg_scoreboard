@@ -316,6 +316,22 @@ io.on('connection', (socket) => {
         //     io.emit('control-data-updated', controlData);
         // }
     });
+
+    // Handle deck display requests
+    socket.on('display-deck', ({roundId, matchId, side}) => {
+        if (controlData[roundId] && controlData[roundId][matchId]) {
+            const matchData = controlData[roundId][matchId];
+            const deckData = {
+                mainDeck: matchData[`player-main-deck-${side}`] || [],
+                sideDeck: matchData[`player-side-deck-${side}`] || [],
+                playerName: matchData[`player-name-${side}`] || 'Unknown Player',
+                archetype: matchData[`player-archetype-${side}`] || 'Unknown Archetype'
+            };
+            
+            // Emit the deck data to all connected clients
+            io.emit('deck-display-update', deckData);
+        }
+    });
 });
 
 // Handle header overlay upload
@@ -352,6 +368,11 @@ app.get('/scoreboard/:round/:match', (req, res) => {
 // Serve the master control HTML page
 app.get('/master-control', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'master-control.html'));
+});
+
+// Serve the deck display HTML page
+app.get('/deck-display', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'deck-display.html'));
 });
 
 // Handle archetype image upload
