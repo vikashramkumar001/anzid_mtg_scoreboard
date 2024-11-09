@@ -75,6 +75,11 @@
             height: 350px;
             position: relative;
         }
+
+        .card-src {
+            width: 100%;
+        }
+
     </style>
 </head>
 <body class="container-fluid">
@@ -119,10 +124,11 @@
             const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card]; // Default count to 1 if no number is found
             const count = parseInt(parts[1], 10); // Get the count
             const name = parts[2]; // Get the card name
+            const cardNameForURL = name.replace(/ /g, '+'); // Replace spaces with '+'
             deckObject.push({
                 'card-name': name,
                 'card-count': count,
-                'card-url': null
+                'card-url': `https://api.scryfall.com/cards/named?exact=${cardNameForURL}&format=image` // Set card URL
             });
         });
         return deckObject;
@@ -143,7 +149,8 @@
             deckData.mainDeck.forEach((card, index) => {
                 const cardElement = document.createElement('div');
                 cardElement.className = 'main-deck-card';
-                cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src">`;
                 mainDeckContainer.appendChild(cardElement);
             });
         } else {
@@ -188,7 +195,7 @@
                     innerCard.className = 'main-deck-card';
                     innerCard.style.width = `${cardWidth}px`;
                     innerCard.style.height = `${cardHeight}px`;
-                    innerCard.innerHTML = `${card['card-name']}`;
+                    innerCard.innerHTML = `<img src="${card['card-url']}" class="card-src">`;
                     innerCard.style.position = 'absolute';
                     innerCard.style.top = `${((extraHeight / 3) + spacing) * cardIndex}px`;
                     cardElement.appendChild(innerCard);
@@ -208,7 +215,8 @@
             deckData.sideDeck.forEach((card, index) => {
                 const cardElement = document.createElement('div');
                 cardElement.className = 'side-deck-card';
-                cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src">`;
                 cardElement.style.top = `${index * spacing}px`; // Adjust the vertical position
                 sideDeckContainer.appendChild(cardElement);
             });
@@ -219,7 +227,8 @@
             deckData.sideDeck.forEach((card, index) => {
                 const cardElement = document.createElement('div');
                 cardElement.className = 'side-deck-card';
-                cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src">`;
                 // Position the card based on its index
                 cardElement.style.top = `${index * spacing}px`; // Adjust the vertical position
                 // cardElement.style.margin = '0px 15px';

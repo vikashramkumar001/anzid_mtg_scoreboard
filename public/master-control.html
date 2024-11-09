@@ -495,14 +495,14 @@
                                 <textarea id="${roundId}-${matchId}-player-main-deck-right" 
                                         class="editable form-control" 
                                         rows="5" 
-                                        placeholder="Enter main deck cards (separated by commas or new lines)"></textarea>
+                                        placeholder="Enter main deck cards (separated by new lines)"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Side Deck</label>
                                 <textarea id="${roundId}-${matchId}-player-side-deck-right" 
                                         class="editable form-control" 
                                         rows="3" 
-                                        placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
+                                        placeholder="Enter side deck cards (separated by new lines)"></textarea>
                             </div>
                             <div class="my-3">
                                 <button class="btn btn-primary" id="${roundId}-${matchId}-display-deck-right">Display Deck</button>
@@ -552,7 +552,7 @@
                     (field.id.includes('main-deck') || field.id.includes('side-deck'))) {
                     // Split by newlines and/or commas, trim whitespace, and filter empty strings
                     value = field.value
-                        .split(/[\n,]+/)
+                        .split(/\n+/)
                         .map(card => card.trim())
                         .filter(card => card !== '');
                 } else {
