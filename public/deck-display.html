@@ -168,7 +168,7 @@
                 cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
                 mainDeckContainer.appendChild(cardElement);
             });
-        } else {
+        } else if (totalCards > 24 && totalCards < 72) {
             // Overlapping logic
             let cardGroups = [];
             const groupSize = Math.floor(totalCards / 24);
@@ -177,10 +177,60 @@
             const cardWidth = 180;
             // 980 / 3 = 326 ; 326 - 250 = 76 -> space to stack top of cards in group
             // 1030 / 3 = 343 ; 343 - 250 = 93 -> space to stack top of cards in group
-            let spacing = Math.floor(90 / (groupSize));
+            let spacing = Math.floor(90 / (groupSize - 1));
             let baseStackHeight = cardHeight + (spacing * (groupSize - 1));
             if (maxGroups > 0) {
-                spacing = Math.floor(90 / (groupSize + 1));
+                spacing = Math.floor(90 / (groupSize));
+                baseStackHeight = cardHeight + (spacing * groupSize);
+            }
+            const extraHeight = Math.floor(1030 - (baseStackHeight * 3)) / 3;
+            console.log(extraHeight)
+
+            let index = 0;
+
+            // Create `maxGroups` with `groupSize + 1` cards
+            for (let i = 0; i < maxGroups; i++) {
+                cardGroups.push(deckData.mainDeck.slice(index, index + groupSize + 1));
+                index += groupSize + 1;
+            }
+
+            // Create remaining groups with `groupSize` cards
+            while (index < totalCards) {
+                cardGroups.push(deckData.mainDeck.slice(index, index + groupSize));
+                index += groupSize;
+            }
+
+            cardGroups.forEach((group, groupIndex) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'main-deck-card-stack';
+                cardElement.style.width = `${cardWidth + 30}px`;
+                cardElement.style.height = `${Math.floor(baseStackHeight + extraHeight)}px`;
+                group.forEach((card, cardIndex) => {
+                    const innerCard = document.createElement('div');
+                    innerCard.className = 'main-deck-card';
+                    innerCard.style.width = `${cardWidth}px`;
+                    innerCard.style.height = `${cardHeight}px`;
+                    innerCard.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                    innerCard.style.position = 'absolute';
+                    innerCard.style.top = `${((extraHeight / 3) + spacing) * cardIndex}px`;
+                    cardElement.appendChild(innerCard);
+                });
+                mainDeckContainer.appendChild(cardElement);
+            });
+        } else {
+            // > 72 cards
+            // Overlapping logic
+            let cardGroups = [];
+            const groupSize = Math.floor(totalCards / 27);
+            const maxGroups = totalCards % 27;
+            const cardHeight = 209;
+            const cardWidth = 150;
+            // 980 / 3 = 326 ; 326 - 209 = 117 -> space to stack top of cards in group
+            // 1030 / 3 = 343 ; 343 - 209 = 134 -> space to stack top of cards in group
+            let spacing = Math.floor(130 / (groupSize - 1));
+            let baseStackHeight = cardHeight + (spacing * (groupSize - 1));
+            if (maxGroups > 0) {
+                spacing = Math.floor(130 / (groupSize));
                 baseStackHeight = cardHeight + (spacing * groupSize);
             }
             const extraHeight = Math.floor(1030 - (baseStackHeight * 3)) / 3;
