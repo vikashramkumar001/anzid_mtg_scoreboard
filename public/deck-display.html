@@ -33,6 +33,8 @@
             width: 210px;
             height: 1030px;
             position: relative; /* Allow absolute positioning of cards */
+            padding-right: 0px;
+            padding-left: 0px;
         }
 
         .main-deck-card {
@@ -78,6 +80,19 @@
 
         .card-src {
             width: 100%;
+        }
+
+        .card-count {
+            position: absolute;
+            top: 7px;
+            right: -15px;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            line-height: 15px;
+            font-size: 12px;
         }
 
     </style>
@@ -150,7 +165,7 @@
                 const cardElement = document.createElement('div');
                 cardElement.className = 'main-deck-card';
                 // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src">`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
                 mainDeckContainer.appendChild(cardElement);
             });
         } else {
@@ -195,7 +210,7 @@
                     innerCard.className = 'main-deck-card';
                     innerCard.style.width = `${cardWidth}px`;
                     innerCard.style.height = `${cardHeight}px`;
-                    innerCard.innerHTML = `<img src="${card['card-url']}" class="card-src">`;
+                    innerCard.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
                     innerCard.style.position = 'absolute';
                     innerCard.style.top = `${((extraHeight / 3) + spacing) * cardIndex}px`;
                     cardElement.appendChild(innerCard);
@@ -216,8 +231,8 @@
                 const cardElement = document.createElement('div');
                 cardElement.className = 'side-deck-card';
                 // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src">`;
-                cardElement.style.top = `${index * spacing}px`; // Adjust the vertical position
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                cardElement.style.top = `${index * cardHeight}px`; // Adjust the vertical position
                 sideDeckContainer.appendChild(cardElement);
             });
         } else {
@@ -228,7 +243,7 @@
                 const cardElement = document.createElement('div');
                 cardElement.className = 'side-deck-card';
                 // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src">`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
                 // Position the card based on its index
                 cardElement.style.top = `${index * spacing}px`; // Adjust the vertical position
                 // cardElement.style.margin = '0px 15px';
