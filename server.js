@@ -375,6 +375,11 @@ app.get('/deck-display', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'deck-display.html'));
 });
 
+// Serve the side deck display HTML page
+app.get('/side-deck-display', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'side-deck-display.html'));
+});
+
 // Handle archetype image upload
 app.post('/upload-archetype-image', uploadArchetypeImage.single('image'), async (req, res) => {
     if (req.file) {
