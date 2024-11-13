@@ -247,7 +247,7 @@
             <div class="row my-5">
                 <div class="col-12">
                     <h2>Match Control Center</h2>
-                    
+
                     <!-- Add Round Tabs Navigation -->
                     <ul class="nav nav-tabs" id="roundTabs" role="tablist">
                         <!-- Round tabs will be dynamically inserted here -->
@@ -355,18 +355,30 @@
     });
 
     // Function to render or update a match card
-    function renderMatch(roundId ,matchId, matchData) {
+    function renderMatch(roundId, matchId, matchData) {
         // Check if a card for this match already exists
         let matchContainer = document.getElementById(`round-${roundId}-matches`);
         let matchCard = document.getElementById(`match-card-${roundId}-${matchId}`);
-        
+
         if (!matchCard) {
             // Create new card (use your existing card HTML structure)
             matchCard = document.createElement('div');
             matchCard.classList.add('col-6', 'mb-3', 'match-card-container');
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
-            <h3 class="match-id-name">${roundId}-${matchId}</h3>
+            <div class="row">
+                <div class="col-6">
+                    <h3 class="match-id-name">${roundId}-${matchId}</h3>
+                </div>
+                <div class="col-6 d-flex flex-row justify-content-end">
+                    <button id="control-1-${roundId}-${matchId}" class="btn btn-primary control-button me-2" data-match-id="${matchId}"
+                            data-round-id="${roundId}" data-control-id="1">Control 1
+                    </button>
+                    <button id="control-2-${roundId}-${matchId}" class="btn btn-secondary control-button" data-match-id="${matchId}"
+                            data-round-id="${roundId}" data-control-id="2">Control 2
+                    </button>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <div class="row mb-4">
@@ -484,7 +496,7 @@
                                         placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
                             </div>
                             <div class="my-3">
-                                <button class="btn btn-primary" id="${roundId}-${matchId}-display-deck-left">Display Deck</button>
+                                <button class="btn btn-primary" id="display-deck-left-${roundId}-${matchId}">Display Deck</button>
                             </div>
                         </div>
                         <!-- Right Player Deck Information -->
@@ -505,7 +517,7 @@
                                         placeholder="Enter side deck cards (separated by new lines)"></textarea>
                             </div>
                             <div class="my-3">
-                                <button class="btn btn-primary" id="${roundId}-${matchId}-display-deck-right">Display Deck</button>
+                                <button class="btn btn-primary" id="display-deck-right-${roundId}-${matchId}">Display Deck</button>
                             </div>
                         </div>
                     </div>
@@ -518,8 +530,10 @@
             attachChangeListeners(roundId, matchId);
             // Attach the deck display listeners after rendering
             attachDeckDisplayListeners(roundId, matchId);
+            // Attach control mapping listeners
+            attachControlMappingButtonListeners(roundId, matchId);
         }
-        
+
         // Update the fields with the match data
         Object.keys(matchData).forEach(key => {
             const fieldElement = document.getElementById(`${roundId}-${matchId}-${key}`);
@@ -527,7 +541,7 @@
                 if (fieldElement.tagName.toLowerCase() === 'textarea') {
                     if (key.includes('main-deck') || key.includes('side-deck')) {
                         // Join array elements with newlines for deck lists
-                        fieldElement.value = Array.isArray(matchData[key]) 
+                        fieldElement.value = Array.isArray(matchData[key])
                             ? matchData[key].join('\n')
                             : matchData[key];
                     } else {
@@ -546,9 +560,9 @@
         editableFields.forEach(field => {
             field.addEventListener('input', () => {
                 let value;
-                
+
                 // Handle deck lists as arrays
-                if (field.tagName.toLowerCase() === 'textarea' && 
+                if (field.tagName.toLowerCase() === 'textarea' &&
                     (field.id.includes('main-deck') || field.id.includes('side-deck'))) {
                     // Split by newlines and/or commas, trim whitespace, and filter empty strings
                     value = field.value
@@ -559,7 +573,7 @@
                     // Handle other fields normally
                     value = field.tagName.toLowerCase() === 'textarea' ? field.value : field.textContent;
                 }
-                
+
                 // Update the local control data when a field changes
                 updateControlData(roundId, matchId, field.id.replace(`${roundId}-${matchId}-`, ''), value);
                 // Emit the updated control data to the backend
@@ -619,10 +633,10 @@
         console.log('Control data was updated', allData);
         // save to local object
         allControlData = allData;
-        
+
         // Render the round tabs
         renderRoundTabs(allData);
-        
+
         // Set up custom dropdowns after rendering
         setupCustomDropdowns();
     });
@@ -898,11 +912,11 @@
     function renderRoundTabs(allData) {
         const roundTabs = document.getElementById('roundTabs');
         const roundContent = document.getElementById('roundTabsContent');
-        
+
         // Clear existing tabs and content
         roundTabs.innerHTML = '';
         roundContent.innerHTML = '';
-        
+
         // Create tabs and content for each round
         Object.keys(allData).forEach((roundId, index) => {
             // Create tab
@@ -921,14 +935,14 @@
                 </button>
             `;
             roundTabs.appendChild(tab);
-            
+
             // Create content
             const content = document.createElement('div');
             content.className = `tab-pane fade ${index === 0 ? 'show active' : ''}`;
             content.id = `round-${roundId}-content`;
             content.role = 'tabpanel';
             content.setAttribute('aria-labelledby', `round-${roundId}-tab`);
-            
+
             // Create container for match cards
             const matchContainer = document.createElement('div');
             matchContainer.id = `round-${roundId}-matches`;
@@ -945,26 +959,42 @@
     }
 
     // Add click handlers for the Display Deck buttons
-    function attachDeckDisplayListeners(roundId, matchId) {
-        const leftDeckButton = document.querySelector(`#match-card-${roundId}-${matchId} .col-md-6:first-child .btn-primary`);
-        const rightDeckButton = document.querySelector(`#match-card-${roundId}-${matchId} .col-md-6:last-child .btn-primary`);
-        
+    function attachDeckDisplayListeners(round_id, match_id) {
+        const leftDeckButton = document.querySelector(`#display-deck-left-${round_id}-${match_id}`);
+        const rightDeckButton = document.querySelector(`#display-deck-right-${round_id}-${match_id}`);
+
         leftDeckButton.addEventListener('click', () => {
             socket.emit('display-deck', {
-                roundId,
-                matchId,
+                round_id,
+                match_id,
                 side: 'left'
             });
         });
-        
+
         rightDeckButton.addEventListener('click', () => {
             socket.emit('display-deck', {
-                roundId,
-                matchId,
+                round_id,
+                match_id,
                 side: 'right'
             });
         });
     }
+
+
+    // Add event listeners for control buttons
+    function attachControlMappingButtonListeners(round_id, match_id) {
+        const control1 = document.querySelector(`#control-1-${round_id}-${match_id}.control-button`);
+        const control2 = document.querySelector(`#control-2-${round_id}-${match_id}.control-button`);
+        control1.addEventListener('click', () => {
+            console.log('click from', round_id, match_id);
+            socket.emit('control-mapping-update', {controlId: '1', round_id, match_id});
+        })
+        control2.addEventListener('click', () => {
+            console.log('click from', round_id, match_id);
+            socket.emit('control-mapping-update', {controlId: '2', round_id, match_id});
+        })
+    }
+
 </script>
 </body>
 </html>

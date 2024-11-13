@@ -49,6 +49,9 @@ let defaultData = {
     'player-side-deck-right': ''
 }
 
+// object to hold control IDs and tie them to match/round
+let controlsMapper = {};
+
 // Initialize the archetype list
 let archetypeList = [];
 
@@ -86,7 +89,7 @@ async function loadArchetypeList() {
     try {
         const data = await fs.readFile(ARCHETYPE_LIST_FILE, 'utf8');
         archetypeList = JSON.parse(data);
-        console.log('Archetype list loaded successfully');
+        // console.log('Archetype list loaded successfully');
     } catch (error) {
         if (error.code === 'ENOENT') {
             console.log('Archetype list file not found. Starting with an empty list.');
@@ -172,7 +175,7 @@ io.on('connection', (socket) => {
 
     // Send the current scores to the newly connected client
     socket.on('updateScoreboard', async ({round_id, match_id, current_state}) => {
-        console.log(round_id, match_id);
+        // console.log(round_id, match_id);
         if (!controlData.hasOwnProperty(round_id)) {
             controlData[round_id] = {};
         }
@@ -182,6 +185,11 @@ io.on('connection', (socket) => {
         controlData[round_id][match_id] = current_state;
         // Save the updated control data
         await saveControlData();
+        Object.entries(controlsMapper).forEach(([control_id, control]) => {
+            if (control['match_id'] === match_id && control['round_id'] === round_id) {
+                io.emit(`control-${control_id}-saved-state`, {data: controlData[round_id][match_id], round_id, match_id});
+            }
+        })
         io.emit(`scoreboard-${round_id}-${match_id}-update`, {
             matchData: controlData[round_id][match_id],
             archetypeList: sortArchetypeList(archetypeList),
@@ -190,7 +198,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('getSavedState', async ({round_id, match_id, medium}) => {
-        console.log('request for score', round_id, match_id, medium);
+        // console.log('request for score', round_id, match_id, medium);
         // Check if the match already exists, if not create it
         if (!controlData.hasOwnProperty(round_id)) {
             controlData[round_id] = {};
@@ -216,7 +224,7 @@ io.on('connection', (socket) => {
     io.emit('control-data-updated', controlData);
 
     // Listen for the 'registerControl' event to store the match id and control ID
-    socket.on('registerControl', async (round_id, match_id) => {
+    socket.on('registerControl', async (control_id, round_id, match_id) => {
         socketIDs[socket.id] = {'round_id': round_id, 'match_id': match_id};
         // Check if the control already exists, if not create it
         if (!controlData.hasOwnProperty(round_id)) {
@@ -227,14 +235,26 @@ io.on('connection', (socket) => {
             // Save the updated control data
             await saveControlData();
         }
-        io.emit(`control-${round_id}-${match_id}-saved-state`, controlData[round_id][match_id]); // Emit the existing data to the specific control
+
+        // save to control mapper
+        if (!controlsMapper[control_id]) {
+            controlsMapper[control_id] = {
+                'round_id': '1',
+                'match_id': 'match1'
+            };
+        } else {
+            controlsMapper[control_id]['round_id'] = round_id;
+            controlsMapper[control_id]['match_id'] = match_id;
+        }
+        // emit updates
+        io.emit(`control-${control_id}-saved-state`, {data: controlData[round_id][match_id], round_id, match_id}); // Emit the existing data to the specific control
         // send update of control data change
         io.emit('control-data-updated', controlData);
     });
 
     // Listen for updates from the master control
     socket.on('master-control-matches-updated', async (allControlData) => {
-        console.log('Received updated control data from master control');
+        // console.log('Received updated control data from master control');
         controlData = allControlData;
 
         // Save the updated control data
@@ -248,15 +268,19 @@ io.on('connection', (socket) => {
                     matchData: matchData,
                     archetypeList: sortArchetypeList(archetypeList)
                 });
-                io.emit(`control-${round_id}-${match_id}-saved-state`, matchData);
-                console.log(`Emitting updated data for round ${round_id} match ${match_id} to control and scoreboard pages`);
+                Object.entries(controlsMapper).forEach(([control_id, controlDetails]) => {
+                    if (controlDetails['match_id'] === match_id && controlDetails['round_id'] === round_id) {
+                        io.emit(`control-${control_id}-saved-state`, {data: matchData, round_id, match_id});
+                    }
+                })
+                // console.log(`Emitting updated data for round ${round_id} match ${match_id} to control and scoreboard pages`);
             });
         });
     });
 
     // Handle request for initial archetype list
     socket.on('getArchetypeList', () => {
-        console.log('sending archetype list update')
+        // console.log('sending archetype list update')
         io.emit('archetypeListUpdated', archetypeList);
     });
 
@@ -318,19 +342,39 @@ io.on('connection', (socket) => {
     });
 
     // Handle deck display requests
-    socket.on('display-deck', ({roundId, matchId, side}) => {
-        if (controlData[roundId] && controlData[roundId][matchId]) {
-            const matchData = controlData[roundId][matchId];
+    socket.on('display-deck', ({round_id, match_id, side}) => {
+        // console.log(round_id, match_id, side)
+        if (controlData[round_id] && controlData[round_id][match_id]) {
+            const matchData = controlData[round_id][match_id];
             const deckData = {
                 mainDeck: matchData[`player-main-deck-${side}`] || [],
                 sideDeck: matchData[`player-side-deck-${side}`] || [],
                 playerName: matchData[`player-name-${side}`] || 'Unknown Player',
                 archetype: matchData[`player-archetype-${side}`] || 'Unknown Archetype'
             };
-            
+
             // Emit the deck data to all connected clients
             io.emit('deck-display-update', deckData);
         }
+    });
+
+    // listen for updates on control mapping from control master
+    socket.on('control-mapping-update', ({controlId, round_id, match_id}) => {
+        // update control mapping and send updated data to control
+        // save to control mapper
+        if (!controlsMapper[controlId]) {
+            controlsMapper[controlId] = {
+                'round_id': '1',
+                'match_id': 'match1'
+            }
+        } else {
+            controlsMapper[controlId]['round_id'] = round_id;
+            controlsMapper[controlId]['match_id'] = match_id;
+        }
+        // emit updates
+        io.emit(`control-${controlId}-saved-state`, {
+            data: controlData[round_id][match_id], round_id, match_id
+        }); // Emit the existing data to the specific control
     });
 });
 
@@ -357,7 +401,7 @@ app.post('/upload-footer-overlay', upload.single('overlay_footer'), (req, res) =
 });
 
 // Routes for control and scoreboard pages
-app.get('/control/:round/:match/:delay', (req, res) => {
+app.get('/control/:controlID/:delay', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'control.html'));
 });
 
