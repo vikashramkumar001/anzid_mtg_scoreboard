@@ -1,6 +1,106 @@
 [
   {
-    "name": "adec",
-    "imageUrl": "/assets/images/archetypes/archetype_adec.png"
+    "name": "4c control",
+    "imageUrl": "/assets/images/archetypes/archetype_4c_control.png"
+  },
+  {
+    "name": "ad nauseum tendrils",
+    "imageUrl": "/assets/images/archetypes/archetype_ad_nauseum_tendrils.png"
+  },
+  {
+    "name": "bant nadu",
+    "imageUrl": "/assets/images/archetypes/archetype_bant_nadu.png"
+  },
+  {
+    "name": "bug beanstalk",
+    "imageUrl": "/assets/images/archetypes/archetype_bug_beanstalk.png"
+  },
+  {
+    "name": "cephalid breakfast",
+    "imageUrl": "/assets/images/archetypes/archetype_cephalid_breakfast.png"
+  },
+  {
+    "name": "cloudpost",
+    "imageUrl": "/assets/images/archetypes/archetype_cloudpost.png"
+  },
+  {
+    "name": "cradle control",
+    "imageUrl": "/assets/images/archetypes/archetype_cradle_control.png"
+  },
+  {
+    "name": "death & taxes",
+    "imageUrl": "/assets/images/archetypes/archetype_death___taxes.png"
+  },
+  {
+    "name": "Dimir reanimator",
+    "imageUrl": "/assets/images/archetypes/archetype_dimir_reanimator.png"
+  },
+  {
+    "name": "Dimir tempo",
+    "imageUrl": "/assets/images/archetypes/archetype_dimir_tempo.png"
+  },
+  {
+    "name": "doomsday",
+    "imageUrl": "/assets/images/archetypes/archetype_doomsday.png"
+  },
+  {
+    "name": "eldrazi",
+    "imageUrl": "/assets/images/archetypes/archetype_eldrazi.png"
+  },
+  {
+    "name": "elves",
+    "imageUrl": "/assets/images/archetypes/archetype_elves.png"
+  },
+  {
+    "name": "esper stoneblade",
+    "imageUrl": "/assets/images/archetypes/archetype_esper_stoneblade.png"
+  },
+  {
+    "name": "grixis delver",
+    "imageUrl": "/assets/images/archetypes/archetype_grixis_delver.png"
+  },
+  {
+    "name": "lands",
+    "imageUrl": "/assets/images/archetypes/archetype_lands.png"
+  },
+  {
+    "name": "mono red stompy",
+    "imageUrl": "/assets/images/archetypes/archetype_mono_red_stompy.png"
+  },
+  {
+    "name": "mystic forge",
+    "imageUrl": "/assets/images/archetypes/archetype_mystic_forge.png"
+  },
+  {
+    "name": "nadu breakfast",
+    "imageUrl": "/assets/images/archetypes/archetype_nadu_breakfast.png"
+  },
+  {
+    "name": "nadu elves",
+    "imageUrl": "/assets/images/archetypes/archetype_nadu_elves.png"
+  },
+  {
+    "name": "omnitell",
+    "imageUrl": "/assets/images/archetypes/archetype_omnitell.png"
+  },
+  {
+    "name": "oops all spells",
+    "imageUrl": "/assets/images/archetypes/archetype_oops_all_spells.png"
+  },
+  {
+    "name": "painter",
+    "imageUrl": "/assets/images/archetypes/archetype_painter.png"
+  },
+  {
+    "name": "rakdos reanimator",
+    "imageUrl": "/assets/images/archetypes/archetype_rakdos_reanimator.png"
+  },
+  {
+    "name": "sneak & show",
+    "imageUrl": "/assets/images/archetypes/archetype_sneak___show.png"
+  },
+  {
+    "name": "the epic storm",
+    "imageUrl": "/assets/images/archetypes/archetype_the_epic_storm.png"
   }
 ]
