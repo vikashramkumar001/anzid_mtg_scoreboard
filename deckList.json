@@ -1,0 +1,106 @@
+[
+  {
+    "name": "4c control",
+    "imageUrl": "/assets/images/decks/deck_4c_control.png"
+  },
+  {
+    "name": "ad nauseum tendrils",
+    "imageUrl": "/assets/images/decks/deck_ad_nauseum_tendrils.png"
+  },
+  {
+    "name": "bant nadu",
+    "imageUrl": "/assets/images/decks/deck_bant_nadu.png"
+  },
+  {
+    "name": "bug beanstalk",
+    "imageUrl": "/assets/images/decks/deck_bug_beanstalk.png"
+  },
+  {
+    "name": "cephalid breakfast",
+    "imageUrl": "/assets/images/decks/deck_cephalid_breakfast.png"
+  },
+  {
+    "name": "cloudpost",
+    "imageUrl": "/assets/images/decks/deck_cloudpost.png"
+  },
+  {
+    "name": "cradle control",
+    "imageUrl": "/assets/images/decks/deck_cradle_control.png"
+  },
+  {
+    "name": "death & taxes",
+    "imageUrl": "/assets/images/decks/deck_death___taxes.png"
+  },
+  {
+    "name": "Dimir reanimator",
+    "imageUrl": "/assets/images/decks/deck_dimir_reanimator.png"
+  },
+  {
+    "name": "Dimir tempo",
+    "imageUrl": "/assets/images/decks/deck_dimir_tempo.png"
+  },
+  {
+    "name": "doomsday",
+    "imageUrl": "/assets/images/decks/deck_doomsday.png"
+  },
+  {
+    "name": "eldrazi",
+    "imageUrl": "/assets/images/decks/deck_eldrazi.png"
+  },
+  {
+    "name": "elves",
+    "imageUrl": "/assets/images/decks/deck_elves.png"
+  },
+  {
+    "name": "esper stoneblade",
+    "imageUrl": "/assets/images/decks/deck_esper_stoneblade.png"
+  },
+  {
+    "name": "grixis delver",
+    "imageUrl": "/assets/images/decks/deck_grixis_delver.png"
+  },
+  {
+    "name": "lands",
+    "imageUrl": "/assets/images/decks/deck_lands.png"
+  },
+  {
+    "name": "mono red stompy",
+    "imageUrl": "/assets/images/decks/deck_mono_red_stompy.png"
+  },
+  {
+    "name": "mystic forge",
+    "imageUrl": "/assets/images/decks/deck_mystic_forge.png"
+  },
+  {
+    "name": "nadu breakfast",
+    "imageUrl": "/assets/images/decks/deck_nadu_breakfast.png"
+  },
+  {
+    "name": "nadu elves",
+    "imageUrl": "/assets/images/decks/deck_nadu_elves.png"
+  },
+  {
+    "name": "omnitell",
+    "imageUrl": "/assets/images/decks/deck_omnitell.png"
+  },
+  {
+    "name": "oops all spells",
+    "imageUrl": "/assets/images/decks/deck_oops_all_spells.png"
+  },
+  {
+    "name": "painter",
+    "imageUrl": "/assets/images/decks/deck_painter.png"
+  },
+  {
+    "name": "rakdos reanimator",
+    "imageUrl": "/assets/images/decks/deck_rakdos_reanimator.png"
+  },
+  {
+    "name": "sneak & show",
+    "imageUrl": "/assets/images/decks/deck_sneak___show.png"
+  },
+  {
+    "name": "the epic storm",
+    "imageUrl": "/assets/images/decks/deck_the_epic_storm.png"
+  }
+]
