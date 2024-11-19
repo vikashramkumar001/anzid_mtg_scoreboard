@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Broadcast Player Life</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional Bootstrap 5 JS with Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+
+        * {
+            font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+            background-color: transparent;
+        }
+
+        #round-details-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            font-size: 100px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body class="container-fluid">
+<div class="row" id="round-details-container">
+    <div id="player-detail">
+    </div>
+</div>
+<script>
+    const socket = io();
+    let roundData = {};
+    let detailToDisplay = "";
+
+    // Get match name from the URL
+    console.log(window.location.pathname)
+    const pathSegments = window.location.pathname.split('/');
+    const match_id = pathSegments[3];
+    const detail_id = pathSegments[4];
+
+    console.log('match, detail', match_id, detail_id);
+
+    const playerDetail = document.getElementById('player-detail');
+
+    // Listen for deck data to display
+    socket.on('broadcast-round-data', (data) => {
+        // {match1:{}, match2:{},...}}
+        console.log('data', data);
+
+        // Save to local object
+        roundData = data;
+        if (data[match_id] && data[match_id][detail_id]) {
+            detailToDisplay = `${data[match_id][detail_id]}`;
+            // Call a function to render the round details
+            renderDetails();
+        }
+    });
+
+    // Function to render the round details on the page
+    function renderDetails() {
+        // Render player name
+        playerDetail.innerHTML = `${detailToDisplay}`;
+    }
+</script>
+</body>
+</html>

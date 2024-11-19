@@ -187,7 +187,11 @@ io.on('connection', (socket) => {
         await saveControlData();
         Object.entries(controlsMapper).forEach(([control_id, control]) => {
             if (control['match_id'] === match_id && control['round_id'] === round_id) {
-                io.emit(`control-${control_id}-saved-state`, {data: controlData[round_id][match_id], round_id, match_id});
+                io.emit(`control-${control_id}-saved-state`, {
+                    data: controlData[round_id][match_id],
+                    round_id,
+                    match_id
+                });
             }
         })
         io.emit(`scoreboard-${round_id}-${match_id}-update`, {
@@ -324,6 +328,14 @@ io.on('connection', (socket) => {
         }
     });
 
+    // Handle broadcast request from master control
+    socket.on('broadcast-requested', ({round_id}) => {
+        if (controlData[round_id]) {
+            // send data to broadcast listeners
+            io.emit('broadcast-round-data', controlData[round_id]);
+        }
+    })
+
     // When a user disconnects, remove their match data
     socket.on('disconnect', async () => {
         const temp = socketIDs[socket.id];
@@ -422,6 +434,11 @@ app.get('/deck-display', (req, res) => {
 // Serve the side deck display HTML page
 app.get('/side-deck-display', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'side-deck-display.html'));
+});
+
+// Serve the broadcast player names
+app.get('/broadcast/round/:matchID/:detailKey', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'broadcast-round-details.html'));
 });
 
 // Handle archetype image upload

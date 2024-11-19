@@ -943,6 +943,15 @@
             content.role = 'tabpanel';
             content.setAttribute('aria-labelledby', `round-${roundId}-tab`);
 
+            // create container for round actions
+            const roundActions = document.createElement('div');
+            roundActions.className = 'col-12 d-flex flex-row justify-content-center my-3';
+            roundActions.innerHTML = `<button class="btn btn-primary broadcast-button" id="broadcast-${roundId}-player-name" data-round-id="${roundId}">Broadcast</button>`;
+            content.appendChild(roundActions);
+
+            const divider = document.createElement('hr');
+            content.appendChild(divider);
+
             // Create container for match cards
             const matchContainer = document.createElement('div');
             matchContainer.id = `round-${roundId}-matches`;
@@ -950,6 +959,8 @@
             content.appendChild(matchContainer);
 
             roundContent.appendChild(content);
+
+            attachBroadcastButtonListeners(roundId);
 
             // Render all matches for this round
             Object.entries(allData[roundId]).forEach(([matchId, matchData]) => {
@@ -976,6 +987,17 @@
                 round_id,
                 match_id,
                 side: 'right'
+            });
+        });
+    }
+
+    // add event listeners for broadcast buttons
+    function attachBroadcastButtonListeners(round_id) {
+        const broadcast = document.querySelector(`#broadcast-${round_id}-player-name`);
+        broadcast.addEventListener('click', () => {
+            console.log(`broadcast clicked for round ${round_id}`);
+            socket.emit('broadcast-requested', {
+                round_id
             });
         });
     }
