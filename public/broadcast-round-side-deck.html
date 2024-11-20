@@ -115,7 +115,7 @@
             deckObject.push({
                 'card-name': name,
                 'card-count': count,
-                'card-url': `https://api.scryfall.com/cards/named?exact=${cardNameForURL}&format=image` // Set card URL
+                'card-url': `https://api.scryfall.com/cards/named?exact=${cardNameForURL}&format=image&version=border_crop` // Set card URL
             });
         });
         return deckObject;
