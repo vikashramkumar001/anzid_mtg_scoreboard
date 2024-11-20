@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deck Display</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional Bootstrap 5 JS with Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+
+        * {
+            font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+        }
+
+        #deck-display-details {
+            width: 1920px;
+            height: 130px;
+        }
+
+        #deck-display-details h1 {
+            font-size: 100px;
+            height: 100px;
+            position: relative;
+            top: 0px;
+        }
+
+        #deck-display-details h5 {
+            font-size: 40px;
+            font-style: italic;
+            position: relative;
+            top: -20px;
+        }
+
+        #deck-display-container {
+            width: 1920px;
+            height: 950px;
+        }
+
+        #main-deck-container {
+            width: 1920px;
+            height: 930px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: flex-start;
+            padding: 5px;
+        }
+
+        .main-deck-card {
+            width: 180px;
+            height: auto;
+            /*border: 1px solid #ccc;*/
+            margin: 5px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            transition: transform 0.2s; /* Smooth transition for stacking */
+        }
+
+        .card-src {
+            width: 100%;
+        }
+
+        .card-count {
+            top: 0px;
+            right: 0px;
+            width: 25px;
+            height: 25px;
+            background-color: rgba(0, 0, 0, 1);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body class="container-fluid">
+<div class="row" id="deck-display-details">
+
+</div>
+<div class="row" id="deck-display-container">
+    <div id="main-deck-container">
+    </div>
+</div>
+<script>
+    const socket = io();
+    let roundData = {};
+    let deckData = {};
+
+    // Get match name from the URL
+    const pathSegments = window.location.pathname.split('/');
+    const match_id = pathSegments[4];
+    const side_id = pathSegments[5];
+
+    // Listen for deck data to display
+    socket.on('broadcast-round-data', (data) => {
+        // {match1:{}, match2:{},...}}
+        console.log('data', data);
+
+        roundData = data;
+
+        if (data[match_id] && data[match_id][`player-main-deck-${side_id}`]) {
+            deckData = {
+                mainDeck: transformDeck(data[match_id][`player-main-deck-${side_id}`] || []),
+                sideDeck: transformDeck(data[match_id][`player-side-deck-${side_id}`] || []),
+                playerName: data[match_id][`player-name-${side_id}`] || 'Unknown Player',
+                archetype: data[match_id][`player-archetype-${side_id}`] || 'Unknown Archetype'
+            };
+            console.log('deck data', deckData);
+            // Call a function to render the decks
+            renderDecks();
+        } else {
+            console.log('deck data not found for url parameters', match_id, side_id);
+        }
+    });
+
+    // Function to transform deck data into an object with counts
+    function transformDeck(deckArray) {
+        const deckObject = [];
+        deckArray.forEach(card => {
+            // Split the card string into count and name
+            const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card]; // Default count to 1 if no number is found
+            const count = parseInt(parts[1], 10); // Get the count
+            const name = parts[2]; // Get the card name
+            const cardNameForURL = name.replace(/ /g, '+'); // Replace spaces with '+'
+            deckObject.push({
+                'card-name': name,
+                'card-count': count,
+                'card-url': `https://api.scryfall.com/cards/named?exact=${cardNameForURL}&format=image` // Set card URL
+            });
+        });
+        return deckObject;
+    }
+
+    // Function to render the decks on the page
+    function renderDecks() {
+        // Clear previous deck displays
+        document.getElementById('main-deck-container').innerHTML = '';
+
+        // Render main deck
+        const mainDeckContainer = document.getElementById('main-deck-container');
+        const totalCards = deckData.mainDeck.length;
+
+        // No overlap, display cards normally
+        // 3 x 10 rows
+        if (totalCards <= 30) {
+            deckData.mainDeck.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'main-deck-card';
+                // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                mainDeckContainer.appendChild(cardElement);
+            });
+        } else {
+            // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
+            const numberCardsPerRow = Math.ceil(totalCards / 3);
+            // 5px each side on padding on main container -> 10px
+            // 5px each side of card -> 10px
+            const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
+            deckData.mainDeck.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'main-deck-card';
+                // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                cardElement.style.width = `${scalingCardWidth}px`;
+                mainDeckContainer.appendChild(cardElement);
+            });
+        }
+
+        // Optionally, display player name and archetype
+        const detailsElement = document.getElementById('deck-display-details');
+        detailsElement.innerHTML = `<h1 class="player-name">${deckData.playerName}</h1><h5 class="archetype-name">${deckData.archetype}</h5>`;
+    }
+</script>
+</body>
+</html>

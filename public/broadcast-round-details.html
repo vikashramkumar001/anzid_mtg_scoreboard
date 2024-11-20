@@ -37,10 +37,9 @@
     let detailToDisplay = "";
 
     // Get match name from the URL
-    console.log(window.location.pathname)
     const pathSegments = window.location.pathname.split('/');
-    const match_id = pathSegments[3];
-    const detail_id = pathSegments[4];
+    const match_id = pathSegments[4];
+    const detail_id = pathSegments[5];
 
     console.log('match, detail', match_id, detail_id);
 

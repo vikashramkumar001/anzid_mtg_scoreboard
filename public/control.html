@@ -448,29 +448,29 @@
     let current_state = {};
     // Get match name from the URL
     const pathSegments = window.location.pathname.split('/');
-    const myControlID = pathSegments[2];
+    const control_id = pathSegments[2];
     let round_id = '1';
     let match_id = 'match1';
     const delay_value = Number(pathSegments[3]) || 10;        // This should be the delay - used for timeout
 
-    console.log('from url', myControlID, delay_value);
+    console.log('from url - control id - delay', control_id, delay_value);
+
+    // Send the match ID to the server when the client connects - will send back saved data if control already exists
+    socket.emit('getSavedControlState', {control_id});
+
+    let currentArchetypeList = []; // To store the current archetype list
+
+    // Request the archetype list from the server when the page loads
+    socket.emit('getArchetypeList');
 
     // listen for saved state from server
-    socket.on('control-' + myControlID + '-saved-state', (data) => {
+    socket.on('control-' + control_id + '-saved-state', (data) => {
         console.log('got saved state from server', data);
         round_id = data['round_id'];
         match_id = data['match_id'];
         current_state = data['data'];
         loadSavedState(data['data']);
     })
-
-    // Send the match ID to the server when the client connects - will send back saved data if control already exists
-    socket.emit('registerControl', myControlID, round_id, match_id);
-
-    let currentArchetypeList = []; // To store the current archetype list
-
-    // Request the archetype list from the server when the page loads
-    socket.emit('getArchetypeList');
 
     // Listen for the archetype list from the server
     socket.on('archetypeListUpdated', (archetypes) => {

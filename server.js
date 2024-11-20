@@ -50,7 +50,16 @@ let defaultData = {
 }
 
 // object to hold control IDs and tie them to match/round
-let controlsMapper = {};
+let controlsMapper = {
+    '1': {
+        'round_id': '1',
+        'match_id': 'match1'
+    },
+    '2': {
+        'round_id': '1',
+        'match_id': 'match2'
+    }
+};
 
 // Initialize the archetype list
 let archetypeList = [];
@@ -171,7 +180,7 @@ async function saveControlData() {
 await loadControlData();
 
 io.on('connection', (socket) => {
-    console.log('A user connected');
+    console.log('A user connected', socket.id);
 
     // Send the current scores to the newly connected client
     socket.on('updateScoreboard', async ({round_id, match_id, current_state}) => {
@@ -190,34 +199,36 @@ io.on('connection', (socket) => {
                 io.emit(`control-${control_id}-saved-state`, {
                     data: controlData[round_id][match_id],
                     round_id,
-                    match_id
+                    match_id,
+                    archetypeList: sortArchetypeList(archetypeList)
                 });
             }
         })
-        io.emit(`scoreboard-${round_id}-${match_id}-update`, {
-            matchData: controlData[round_id][match_id],
-            archetypeList: sortArchetypeList(archetypeList),
-        });
         io.emit('control-data-updated', controlData);
     });
 
-    socket.on('getSavedState', async ({round_id, match_id, medium}) => {
-        // console.log('request for score', round_id, match_id, medium);
-        // Check if the match already exists, if not create it
-        if (!controlData.hasOwnProperty(round_id)) {
-            controlData[round_id] = {};
+    socket.on('getSavedControlState', async ({control_id}) => {
+        // check if control mapper has saved state for control id
+        let round_id = '1';
+        let match_id = 'match1';
+        if (!controlsMapper[control_id]) {
+            controlsMapper[control_id] = {
+                'round_id': round_id,
+                'match_id': match_id
+            };
+        } else {
+            round_id = controlsMapper[control_id]['round_id'];
+            match_id = controlsMapper[control_id]['match_id'];
         }
-        if (!controlData[round_id].hasOwnProperty(match_id)) {
-            controlData[round_id][match_id] = defaultData;  // Initialize the scoreboard if match does not exist
-            // Save the updated control data
-            await saveControlData();
-        }
-        io.emit(`${medium}-${round_id}-${match_id}-saved-state`, {
-            matchData: controlData[round_id][match_id],
-            archetypeList: sortArchetypeList(archetypeList),
-        }); // Emit the existing data to the specific control
-        // emit full control data
-        io.emit('control-data-updated', controlData);
+        console.log(round_id, match_id)
+        console.log(`control-${control_id}-saved-state`)
+        // Emit the existing data to the specific control
+        io.emit(`control-${control_id}-saved-state`, {
+            data: controlData[round_id][match_id],
+            round_id,
+            match_id,
+            archetypeList: sortArchetypeList(archetypeList)
+        });
     });
 
     // Send the current overlay background images to the newly connected client
@@ -226,35 +237,6 @@ io.on('connection', (socket) => {
 
     // emit full control data
     io.emit('control-data-updated', controlData);
-
-    // Listen for the 'registerControl' event to store the match id and control ID
-    socket.on('registerControl', async (control_id, round_id, match_id) => {
-        socketIDs[socket.id] = {'round_id': round_id, 'match_id': match_id};
-        // Check if the control already exists, if not create it
-        if (!controlData.hasOwnProperty(round_id)) {
-            controlData[round_id] = {};
-        }
-        if (!controlData[round_id].hasOwnProperty(match_id)) {
-            controlData[round_id][match_id] = defaultData;  // Initialize the scoreboard if match does not exist
-            // Save the updated control data
-            await saveControlData();
-        }
-
-        // save to control mapper
-        if (!controlsMapper[control_id]) {
-            controlsMapper[control_id] = {
-                'round_id': '1',
-                'match_id': 'match1'
-            };
-        } else {
-            controlsMapper[control_id]['round_id'] = round_id;
-            controlsMapper[control_id]['match_id'] = match_id;
-        }
-        // emit updates
-        io.emit(`control-${control_id}-saved-state`, {data: controlData[round_id][match_id], round_id, match_id}); // Emit the existing data to the specific control
-        // send update of control data change
-        io.emit('control-data-updated', controlData);
-    });
 
     // Listen for updates from the master control
     socket.on('master-control-matches-updated', async (allControlData) => {
@@ -268,13 +250,14 @@ io.on('connection', (socket) => {
         Object.entries(allControlData).forEach(([round_id, roundData]) => {
             Object.entries(roundData).forEach(([match_id, matchData]) => {
                 // Emit the updated data to all connected clients related to this match
-                io.emit(`scoreboard-${round_id}-${match_id}-saved-state`, {
-                    matchData: matchData,
-                    archetypeList: sortArchetypeList(archetypeList)
-                });
                 Object.entries(controlsMapper).forEach(([control_id, controlDetails]) => {
                     if (controlDetails['match_id'] === match_id && controlDetails['round_id'] === round_id) {
-                        io.emit(`control-${control_id}-saved-state`, {data: matchData, round_id, match_id});
+                        io.emit(`control-${control_id}-saved-state`, {
+                            data: matchData,
+                            round_id,
+                            match_id,
+                            archetypeList: sortArchetypeList(archetypeList)
+                        });
                     }
                 })
                 // console.log(`Emitting updated data for round ${round_id} match ${match_id} to control and scoreboard pages`);
@@ -338,7 +321,8 @@ io.on('connection', (socket) => {
 
     // When a user disconnects, remove their match data
     socket.on('disconnect', async () => {
-        const temp = socketIDs[socket.id];
+        console.log('user disconnected', socket.id);
+        // const temp = socketIDs[socket.id];
         // delete round/match from control data based on socket disconnected
         // if (temp) {
         //     console.log(`Match ${temp['match_id']} round ${temp['round_id']} disconnected`);
@@ -385,7 +369,10 @@ io.on('connection', (socket) => {
         }
         // emit updates
         io.emit(`control-${controlId}-saved-state`, {
-            data: controlData[round_id][match_id], round_id, match_id
+            data: controlData[round_id][match_id],
+            round_id,
+            match_id,
+            archetypeList: sortArchetypeList(archetypeList)
         }); // Emit the existing data to the specific control
     });
 });
@@ -417,7 +404,7 @@ app.get('/control/:controlID/:delay', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'control.html'));
 });
 
-app.get('/scoreboard/:round/:match', (req, res) => {
+app.get('/scoreboard/:controlID', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'scoreboard.html'));
 });
 
@@ -437,8 +424,18 @@ app.get('/side-deck-display', (req, res) => {
 });
 
 // Serve the broadcast player names
-app.get('/broadcast/round/:matchID/:detailKey', (req, res) => {
+app.get('/broadcast/round/details/:matchID/:detailKey', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'broadcast-round-details.html'));
+});
+
+// Serve the broadcast player main decks
+app.get('/broadcast/round/maindeck/:matchID/:sideID', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'broadcast-round-main-deck.html'));
+});
+
+// Serve the broadcast player side decks
+app.get('/broadcast/round/sidedeck/:matchID/:sideID', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'broadcast-round-side-deck.html'));
 });
 
 // Handle archetype image upload

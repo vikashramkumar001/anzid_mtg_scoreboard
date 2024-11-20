@@ -338,7 +338,7 @@
     function retrieveState() {
         console.log('sending request for data');
         const medium = 'scoreboard';
-        socket.emit('getSavedState', {round_id, match_id, medium});
+        socket.emit('getSavedControlState', {control_id});
         socket.emit('getArchetypeList');
     }
 
@@ -405,26 +405,21 @@
     const socket = io();
     // Get match name from the URL
     const pathSegments = window.location.pathname.split('/');
-    const round_id = pathSegments[2];                 // This should be match name
-    const match_id = pathSegments[3];                 // This should be match name
+    const control_id = pathSegments[2];
+    const round_id = '1';
+    const match_id = 'match1';
 
-    console.log('from url', round_id, match_id);
+    console.log('from url - control id', control_id);
 
     // get saved state from server on page load
     retrieveState();
 
     // listen for updates from server
-    socket.on('scoreboard-' + round_id + '-' + match_id + '-saved-state', (data) => {
+    socket.on('control-' + control_id + '-saved-state', (data) => {
+        // {data: {}, round_id: '', match_id: '', archetypeList: []}
         console.log('got saved state from server', data);
-        archetypeList = data.archetypeList;
-        updateState(data.matchData);
-    })
-
-    // listen for updates from the control
-    socket.on('scoreboard-' + round_id + '-' + match_id + '-update', (data) => {
-        console.log('got update from server', data);
-        archetypeList = data.archetypeList;
-        updateState(data.matchData);
+        archetypeList = data['archetypeList'];
+        updateState(data['data']);
     })
 
     // Listen for header overlay background image update
@@ -447,7 +442,7 @@
         archetypeList = archetypes;
         // get saved state so archetypes will re-render
         const medium = 'scoreboard';
-        socket.emit('getSavedState', {round_id, match_id, medium});
+        socket.emit('getSavedControlState', {control_id});
     })
 
 </script>
