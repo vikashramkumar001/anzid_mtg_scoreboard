@@ -1040,7 +1040,7 @@
     socket.on('control-broadcast-trackers', (data) => {
         console.log('control and broadcast tracking update', data);
         // update broadcast and control displays
-        broadcastDisplay.innerText = `Round ${data['broadcastTracker']['round_id'] || 'None'}`;
+        broadcastDisplay.innerText = data['broadcastTracker']['round_id'] ? `Round ${data['broadcastTracker']['round_id']}` : 'None';
         control1Display.innerText = `${data['controlsTracker']['1']['round_id']}-${data['controlsTracker']['1']['match_id']}`;
         control2Display.innerText = `${data['controlsTracker']['2']['round_id']}-${data['controlsTracker']['2']['match_id']}`;
     })
