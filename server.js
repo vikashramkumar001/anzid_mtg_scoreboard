@@ -50,7 +50,7 @@ let defaultData = {
 }
 
 // object to hold control IDs and tie them to match/round
-let controlsMapper = {
+let controlsTracker = {
     '1': {
         'round_id': '1',
         'match_id': 'match1'
@@ -60,6 +60,10 @@ let controlsMapper = {
         'match_id': 'match2'
     }
 };
+
+let broadcastTracker = {
+    'round_id': null
+}
 
 // Initialize the archetype list
 let archetypeList = [];
@@ -194,7 +198,7 @@ io.on('connection', (socket) => {
         controlData[round_id][match_id] = current_state;
         // Save the updated control data
         await saveControlData();
-        Object.entries(controlsMapper).forEach(([control_id, control]) => {
+        Object.entries(controlsTracker).forEach(([control_id, control]) => {
             if (control['match_id'] === match_id && control['round_id'] === round_id) {
                 io.emit(`control-${control_id}-saved-state`, {
                     data: controlData[round_id][match_id],
@@ -211,14 +215,14 @@ io.on('connection', (socket) => {
         // check if control mapper has saved state for control id
         let round_id = '1';
         let match_id = 'match1';
-        if (!controlsMapper[control_id]) {
-            controlsMapper[control_id] = {
+        if (!controlsTracker[control_id]) {
+            controlsTracker[control_id] = {
                 'round_id': round_id,
                 'match_id': match_id
             };
         } else {
-            round_id = controlsMapper[control_id]['round_id'];
-            match_id = controlsMapper[control_id]['match_id'];
+            round_id = controlsTracker[control_id]['round_id'];
+            match_id = controlsTracker[control_id]['match_id'];
         }
         console.log(round_id, match_id)
         console.log(`control-${control_id}-saved-state`)
@@ -250,7 +254,7 @@ io.on('connection', (socket) => {
         Object.entries(allControlData).forEach(([round_id, roundData]) => {
             Object.entries(roundData).forEach(([match_id, matchData]) => {
                 // Emit the updated data to all connected clients related to this match
-                Object.entries(controlsMapper).forEach(([control_id, controlDetails]) => {
+                Object.entries(controlsTracker).forEach(([control_id, controlDetails]) => {
                     if (controlDetails['match_id'] === match_id && controlDetails['round_id'] === round_id) {
                         io.emit(`control-${control_id}-saved-state`, {
                             data: matchData,
@@ -314,6 +318,8 @@ io.on('connection', (socket) => {
     // Handle broadcast request from master control
     socket.on('broadcast-requested', ({round_id}) => {
         if (controlData[round_id]) {
+            // save to broadcast tracker
+            broadcastTracker['round_id'] = round_id;
             // send data to broadcast listeners
             io.emit('broadcast-round-data', controlData[round_id]);
         }
@@ -358,14 +364,14 @@ io.on('connection', (socket) => {
     socket.on('control-mapping-update', ({controlId, round_id, match_id}) => {
         // update control mapping and send updated data to control
         // save to control mapper
-        if (!controlsMapper[controlId]) {
-            controlsMapper[controlId] = {
+        if (!controlsTracker[controlId]) {
+            controlsTracker[controlId] = {
                 'round_id': '1',
                 'match_id': 'match1'
             }
         } else {
-            controlsMapper[controlId]['round_id'] = round_id;
-            controlsMapper[controlId]['match_id'] = match_id;
+            controlsTracker[controlId]['round_id'] = round_id;
+            controlsTracker[controlId]['match_id'] = match_id;
         }
         // emit updates
         io.emit(`control-${controlId}-saved-state`, {
@@ -375,6 +381,13 @@ io.on('connection', (socket) => {
             archetypeList: sortArchetypeList(archetypeList)
         }); // Emit the existing data to the specific control
     });
+
+    socket.on('get-control-broadcast-trackers', () => {
+        // send stored broadcast and control data
+        const data2send = {broadcastTracker, controlsTracker};
+        socket.emit('control-broadcast-trackers', (data2send));
+    })
+
 });
 
 // Handle header overlay upload
