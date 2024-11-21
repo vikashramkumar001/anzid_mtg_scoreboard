@@ -37,6 +37,7 @@
             justify-content: center;
             background: url("/assets/images/overlay_header.png");
             z-index: 2;
+            transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
         }
 
         .body .background {
@@ -49,6 +50,7 @@
             width: 1920px;
             height: 50px;
             background: url("/assets/images/overlay_footer.png");
+            transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
         }
 
         .scorebug {
@@ -229,6 +231,7 @@
             width: 960px;
             height: 100px;
             left: 0;
+            transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
         }
 
         .background-right {
@@ -238,6 +241,7 @@
             height: 100px;
             left: 960px;
             transform: scaleX(-1); /* Add this line to flip the image horizontally */
+            transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
         }
 
     </style>
@@ -391,8 +395,17 @@
 
         if (archetype && archetype.imageUrl) {
             const cacheBuster = new Date().getTime(); // Get the current timestamp
-            backgroundElement.style.backgroundImage = `url(${archetype.imageUrl}?v=${cacheBuster})`;
-            backgroundElement.style.display = 'block';
+            const newImageUrl = `${archetype.imageUrl}?v=${cacheBuster}`;
+
+            // Preload the image
+            const img = new Image();
+            img.src = newImageUrl;
+
+            img.onload = () => {
+                // Only set the background image if the image has loaded
+                backgroundElement.style.backgroundImage = `url(${newImageUrl})`;
+                backgroundElement.style.display = 'block';
+            };
         } else {
             backgroundElement.style.backgroundImage = 'none';
             backgroundElement.style.display = 'none';
