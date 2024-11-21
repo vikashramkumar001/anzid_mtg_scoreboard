@@ -913,60 +913,62 @@
         const roundTabs = document.getElementById('roundTabs');
         const roundContent = document.getElementById('roundTabsContent');
 
-        // Clear existing tabs and content
-        roundTabs.innerHTML = '';
-        roundContent.innerHTML = '';
-
-        // Create tabs and content for each round
-        Object.keys(allData).forEach((roundId, index) => {
-            // Create tab
-            const tab = document.createElement('li');
-            tab.className = 'nav-item';
-            tab.innerHTML = `
-                <button class="nav-link ${index === 0 ? 'active' : ''}" 
-                        id="round-${roundId}-tab" 
-                        data-bs-toggle="tab" 
-                        data-bs-target="#round-${roundId}-content" 
-                        type="button" 
-                        role="tab" 
-                        aria-controls="round-${roundId}" 
+        if (roundTabs.children.length === 0 && roundContent.children.length === 0) {
+            // Create tabs and content for each round
+            Object.keys(allData).forEach((roundId, index) => {
+                // Create tab
+                const tab = document.createElement('li');
+                tab.className = 'nav-item';
+                tab.innerHTML = `
+                <button class="nav-link ${index === 0 ? 'active' : ''}"
+                        id="round-${roundId}-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#round-${roundId}-content"
+                        type="button"
+                        role="tab"
+                        aria-controls="round-${roundId}"
                         aria-selected="${index === 0}">
                     Round ${roundId}
                 </button>
             `;
-            roundTabs.appendChild(tab);
+                roundTabs.appendChild(tab);
 
-            // Create content
-            const content = document.createElement('div');
-            content.className = `tab-pane fade ${index === 0 ? 'show active' : ''}`;
-            content.id = `round-${roundId}-content`;
-            content.role = 'tabpanel';
-            content.setAttribute('aria-labelledby', `round-${roundId}-tab`);
+                // Create content
+                const content = document.createElement('div');
+                content.className = `tab-pane fade ${index === 0 ? 'show active' : ''}`;
+                content.id = `round-${roundId}-content`;
+                content.role = 'tabpanel';
+                content.setAttribute('aria-labelledby', `round-${roundId}-tab`);
 
-            // create container for round actions
-            const roundActions = document.createElement('div');
-            roundActions.className = 'col-12 d-flex flex-row justify-content-center my-3';
-            roundActions.innerHTML = `<button class="btn btn-primary broadcast-button" id="broadcast-${roundId}-player-name" data-round-id="${roundId}">Broadcast</button>`;
-            content.appendChild(roundActions);
+                // create container for round actions
+                const roundActions = document.createElement('div');
+                roundActions.className = 'col-12 d-flex flex-row justify-content-center my-3';
+                roundActions.innerHTML = `<button class="btn btn-primary broadcast-button" id="broadcast-${roundId}-player-name" data-round-id="${roundId}">Broadcast</button>`;
+                content.appendChild(roundActions);
 
-            const divider = document.createElement('hr');
-            content.appendChild(divider);
+                const divider = document.createElement('hr');
+                content.appendChild(divider);
 
-            // Create container for match cards
-            const matchContainer = document.createElement('div');
-            matchContainer.id = `round-${roundId}-matches`;
-            matchContainer.className = 'mt-3 row';
-            content.appendChild(matchContainer);
+                // Create container for match cards
+                const matchContainer = document.createElement('div');
+                matchContainer.id = `round-${roundId}-matches`;
+                matchContainer.className = 'mt-3 row';
+                content.appendChild(matchContainer);
 
-            roundContent.appendChild(content);
+                roundContent.appendChild(content);
 
-            attachBroadcastButtonListeners(roundId);
+                attachBroadcastButtonListeners(roundId);
 
+            });
+        }
+
+        // update content in round / matches
+        Object.keys(allData).forEach((roundId, index) => {
             // Render all matches for this round
             Object.entries(allData[roundId]).forEach(([matchId, matchData]) => {
                 renderMatch(roundId, matchId, matchData);
             });
-        });
+        })
     }
 
     // Add click handlers for the Display Deck buttons
