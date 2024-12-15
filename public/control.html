@@ -199,6 +199,33 @@
         .custom-dropdown .dropdown-item:hover {
             background-color: #f0f0f0;
         }
+
+        /* player poison overwrites */
+        .player-poison {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .player-poison .player-poison-control {
+            display: flex;
+            flex-direction: row;
+            margin-left: 5px;
+        }
+
+        .player-poison .player-poison-control .btn {
+            width: 40px;
+            font-size: 30px;
+            border: none;
+        }
+
+        .player-poison .player-poison-control .btn.plus {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .player-poison .player-poison-control .btn.minus {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -235,9 +262,15 @@
             </div>
         </div>
         <div class="player-poison">
-            <div class="player-header player-poison-header">Poison</div>
-            <div id="player-poison-left" class="player-value  player-poison-value editable dynamic"
-                 contenteditable="true">
+            <div class="player-poison-details">
+                <div class="player-header player-poison-header">Poison</div>
+                <div id="player-poison-left" class="player-value  player-poison-value editable dynamic"
+                     contenteditable="true">
+                </div>
+            </div>
+            <div class="player-poison-control left">
+                <button class="btn plus">+</button>
+                <button class="btn minus">-</button>
             </div>
         </div>
     </div>
@@ -290,9 +323,15 @@
             </div>
         </div>
         <div class="player-poison">
-            <div class="player-header player-poison-header">Poison</div>
-            <div id="player-poison-right" class="player-value  player-poison-value editable dynamic"
-                 contenteditable="true">
+            <div class="player-poison-details">
+                <div class="player-header player-poison-header">Poison</div>
+                <div id="player-poison-right" class="player-value  player-poison-value editable dynamic"
+                     contenteditable="true">
+                </div>
+            </div>
+            <div class="player-poison-control right">
+                <button class="btn plus">+</button>
+                <button class="btn minus">-</button>
             </div>
         </div>
     </div>
@@ -482,6 +521,46 @@
     document.addEventListener('DOMContentLoaded', () => {
         setupCustomDropdowns();
     });
+
+    // player poison controls
+    function attachPoisonControlListeners() {
+        // Select poison controls
+        const poisonControls = {
+            left: {
+                plus: document.querySelector('.player-poison .player-poison-control.left .btn.plus'),
+                minus: document.querySelector('.player-poison .player-poison-control.left .btn.minus'),
+                value: document.querySelector('#player-poison-left')
+            },
+            right: {
+                plus: document.querySelector('.player-poison .player-poison-control.right .btn.plus'),
+                minus: document.querySelector('.player-poison .player-poison-control.right .btn.minus'),
+                value: document.querySelector('#player-poison-right')
+            }
+        };
+
+        // Generic function to update poison value
+        function updatePoisonValue(poisonField, increment) {
+            let value = poisonField.innerText.trim(); // Get the innerText and trim whitespace
+            let numericValue = parseInt(value, 10); // Convert to number
+            if (isNaN(numericValue)) {
+                numericValue = 0; // Default to 0 if invalid
+            }
+            numericValue += increment; // Add or subtract the increment
+            if (numericValue < 0) {
+                numericValue = 0; // Prevent negative values
+            }
+            poisonField.innerText = numericValue; // Update the field
+            // send updated data to server
+            armTimeout();
+        }
+
+        // Attach listeners
+        poisonControls.left.plus.addEventListener('click', () => updatePoisonValue(poisonControls.left.value, 1));
+        poisonControls.left.minus.addEventListener('click', () => updatePoisonValue(poisonControls.left.value, -1));
+        poisonControls.right.plus.addEventListener('click', () => updatePoisonValue(poisonControls.right.value, 1));
+        poisonControls.right.minus.addEventListener('click', () => updatePoisonValue(poisonControls.right.value, -1));
+    }
+    attachPoisonControlListeners();
 
 </script>
 
