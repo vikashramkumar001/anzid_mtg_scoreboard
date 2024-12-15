@@ -460,11 +460,14 @@
             matchCard.classList.add('col-6', 'mb-3', 'match-card-container');
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
-            <div class="row">
-                <div class="col-6">
-                    <h3 class="match-id-name">${roundId}-${matchId}</h3>
+            <div class="row mb-2">
+                <div class="col-6 d-flex flex-row justify-content-start align-items-center">
+                    <h3 class="match-id-name mb-0">${roundId}-${matchId}</h3>
                 </div>
                 <div class="col-6 d-flex flex-row justify-content-end">
+                    <button id="reset-life-${roundId}-${matchId}" class="btn btn-warning reset-life-button me-2" data-match-id="${matchId}"
+                            data-round-id="${roundId}">Reset Life
+                    </button>
                     <button id="control-1-${roundId}-${matchId}" class="btn btn-primary control-button me-2" data-match-id="${matchId}"
                             data-round-id="${roundId}" data-control-id="1">Control 1
                     </button>
@@ -645,6 +648,8 @@
             attachDeckDisplayListeners(roundId, matchId);
             // Attach control mapping listeners
             attachControlMappingButtonListeners(roundId, matchId);
+            // Attach reset life listener
+            attachMatchResetLifeButtonListeners(roundId, matchId);
         }
 
         // Update the fields with the match data
@@ -1147,6 +1152,22 @@
             console.log('click from', round_id, match_id);
             control2Display.innerText = `${round_id}-${match_id}`;
             socket.emit('control-mapping-update', {controlId: '2', round_id, match_id});
+        })
+    }
+
+    // Add event listeners for reset life buttons
+    function attachMatchResetLifeButtonListeners(round_id, match_id) {
+        const resetLifeButton = document.querySelector(`#reset-life-${round_id}-${match_id}.reset-life-button`);
+        resetLifeButton.addEventListener('click', () => {
+            console.log('click reset life', round_id, match_id);
+            // update life points for left and right of round / match
+            document.querySelector(`[id="${round_id}-${match_id}-player-life-left"]`).innerText = '20';
+            document.querySelector(`[id="${round_id}-${match_id}-player-life-right"]`).innerText = '20';
+            // update controlData
+            allControlData[round_id][match_id]['player-life-left'] = '20';
+            allControlData[round_id][match_id]['player-life-right'] = '20';
+            // update server since control data changed
+            socket.emit('master-control-matches-updated', allControlData);
         })
     }
 
