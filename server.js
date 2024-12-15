@@ -65,6 +65,13 @@ let broadcastTracker = {
     'round_id': null
 }
 
+let globalMatchData = {
+    'global-commentator-one': null,
+    'global-commentator-two': null,
+    'global-event-name': null,
+    'global-event-format': null
+}
+
 // Initialize the archetype list
 let archetypeList = [];
 
@@ -325,6 +332,58 @@ io.on('connection', (socket) => {
         }
     })
 
+    // Handle update global data request from master control
+    socket.on('update-commentators-requested', ({commentatorData}) => {
+        // update global data structure
+        Object.entries(globalMatchData).forEach(([globalID, globalDetail]) => {
+            if (globalID in commentatorData) {
+                globalMatchData[globalID] = commentatorData[globalID];
+            }
+        })
+        // send out global data to listeners
+        io.emit('update-match-global-data', {globalData: globalMatchData});
+    })
+
+    socket.on('get-match-global-data', () => {
+        // send global data object
+        io.emit('update-match-global-data', {globalData: globalMatchData});
+    })
+
+    // Handle update global data request from master control - match event information
+    socket.on('update-event-information-requested', ({eventInformationData}) => {
+        // update global data structure
+        Object.entries(globalMatchData).forEach(([globalID, globalDetail]) => {
+            if (globalID in eventInformationData) {
+                globalMatchData[globalID] = eventInformationData[globalID];
+            }
+        });
+        // send out global data to listeners
+        io.emit('update-match-global-data', {globalData: globalMatchData});
+        // match event information was updated - control data needs to be updated for each match
+        Object.entries(controlData).forEach(([round_id, roundData]) => {
+            Object.entries(roundData).forEach(([match_id, matchData]) => {
+                Object.entries(matchData).forEach(([detailID, details]) => {
+                    if (detailID === 'event-name' || detailID === 'event-format') {
+                        matchData[detailID] = eventInformationData[`global-${detailID}`];
+                    }
+                    // Emit the updated data to all connected clients related to this match
+                    Object.entries(controlsTracker).forEach(([control_id, controlDetails]) => {
+                        if (controlDetails['match_id'] === match_id && controlDetails['round_id'] === round_id) {
+                            io.emit(`control-${control_id}-saved-state`, {
+                                data: matchData,
+                                round_id,
+                                match_id,
+                                archetypeList: sortArchetypeList(archetypeList)
+                            });
+                        }
+                    })
+                })
+            })
+        });
+        // emit control data update
+        io.emit('control-data-updated', controlData);
+    })
+
     // When a user disconnects, remove their match data
     socket.on('disconnect', async () => {
         console.log('user disconnected', socket.id);
@@ -439,6 +498,11 @@ app.get('/side-deck-display', (req, res) => {
 // Serve the broadcast player names
 app.get('/broadcast/round/details/:matchID/:detailKey', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'broadcast-round-details.html'));
+});
+
+// Serve the update global data
+app.get('/update/global/details/:detailKey', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'update-global-details.html'));
 });
 
 // Serve the broadcast player main decks
