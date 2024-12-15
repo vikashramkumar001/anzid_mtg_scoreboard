@@ -491,7 +491,7 @@
                                 <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label">Event Round</label>
-                                        <div id="${roundId}-${matchId}-event-round" class="editable form-control" contenteditable="false"></div>
+                                        <div id="${roundId}-${matchId}-event-round" class="editable form-control" contenteditable="true"></div>
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -685,6 +685,22 @@
                 } else {
                     // Handle other fields normally
                     value = field.tagName.toLowerCase() === 'textarea' ? field.value : field.textContent;
+                }
+
+                // check if event round is being updated
+                if (field.id.includes('event-round')) {
+                    // Dynamically select all event-round fields for this round and matches
+                    const eventFields = document.querySelectorAll(`[id^="${roundId}-match"][id$="-event-round"]`);
+                    eventFields.forEach(eventField => {
+                        // Avoid updating the field currently being edited
+                        if (eventField !== field) {
+                            eventField.innerText = value;
+                        }
+                    });
+                    // Update control data for all matches in this round
+                    Object.keys(allControlData[roundId]).forEach(matchId => {
+                        allControlData[roundId][matchId]['event-round'] = value;
+                    });
                 }
 
                 // Update the local control data when a field changes
