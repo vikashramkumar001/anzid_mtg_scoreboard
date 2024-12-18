@@ -68,12 +68,53 @@ let broadcastTracker = {
 let globalMatchData = {
     'global-commentator-one': null,
     'global-commentator-two': null,
-    'global-event-name': null,
-    'global-event-format': null
+    'global-event-name': 'Event',
+    'global-event-format': 'Format'
 }
 
 // Initialize the archetype list
 let archetypeList = [];
+
+// start time for all timers - 50 mins
+const INITIAL_TIME = 1 * 60 * 1000; // 50 minutes in milliseconds
+
+// create object to hold timer states for each match in each round
+const timerState = Array.from({length: 16}, (_, round_id) => ({
+    [round_id + 1]: {
+        match1: {
+            time: INITIAL_TIME,
+            status: 'stopped', // 'running', 'paused', 'stopped'
+        },
+        match2: {
+            time: INITIAL_TIME,
+            status: 'stopped',
+        },
+    },
+})).reduce((acc, round) => ({...acc, ...round}), {});
+
+// {
+//     "1": {
+//         "match1": {
+//             time: INITIAL_TIME,
+//             status: "stopped"
+//         },
+//         "match2": {
+//             time: INITIAL_TIME,
+//             status: "stopped"
+//         }
+//     },
+//     "2": {
+//         "match1": {
+//             time: INITIAL_TIME,
+//             status: "stopped"
+//         },
+//         "match2": {
+//             time: INITIAL_TIME,
+//             status: "stopped"
+//         }
+//     },
+//     // ... up to "16"
+// }
 
 function sortArchetypeList(archetypeList) {
     return archetypeList.sort((a, b) => a.name.localeCompare(b.name, undefined, {sensitivity: 'base'}));
@@ -444,7 +485,49 @@ io.on('connection', (socket) => {
     socket.on('get-control-broadcast-trackers', () => {
         // send stored broadcast and control data
         const data2send = {broadcastTracker, controlsTracker};
-        socket.emit('control-broadcast-trackers', (data2send));
+        io.emit('control-broadcast-trackers', (data2send));
+    })
+
+    // Handle timer updates for specific rounds and matches
+    socket.on('update-timer-state', ({round_id, match_id, action, time}) => {
+        if (!timerState[round_id] || !timerState[round_id][match_id]) return;
+
+        const matchState = timerState[round_id][match_id];
+
+        switch (action) {
+            case 'start':
+                // Ensure the timer resumes from the current time
+                if (matchState.status === 'paused' || matchState.status === 'stopped') {
+                    matchState.status = 'running';
+                }
+                break;
+
+            case 'pause':
+                // Pause the timer without resetting the time
+                matchState.status = 'paused';
+                matchState.time = time;
+                break;
+
+            case 'reset':
+                // Reset the timer to the initial value
+                matchState.status = 'stopped';
+                matchState.time = INITIAL_TIME;
+                break;
+
+            case 'stop':
+                // Stop the timer without resetting the time
+                matchState.status = 'stopped';
+                break;
+        }
+
+        // Broadcast the updated state
+        io.emit('specific-timer-state-update', {round_id, match_id, matchState});
+    });
+
+    // catches all requests for getting all current timer states
+    socket.on('get-all-timer-states', () => {
+        // simple broadcast all timer states
+        io.emit('current-all-timer-states', {timerState});
     })
 
 });
