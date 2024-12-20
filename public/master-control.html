@@ -123,6 +123,25 @@
             cursor: text; /* Text cursor */
         }
 
+        .timer-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timer-container .timer-text {
+            font-size: 25px;
+            margin-right: 25px;
+        }
+
+        .timer-container .timer-buttons {
+            width: 40px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -462,15 +481,6 @@
             matchCard.classList.add('col-6', 'mb-3', 'match-card-container');
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
-            <div class="row my-3">
-                <div class="col-xs-12">
-                    <h2>Match Timer</h2>
-                    <p id="timer-${roundId}-${matchId}">50:00</p>
-                    <button id="timer-start-${roundId}-${matchId}">Start</button>
-                    <button id="timer-pause-${roundId}-${matchId}">Pause</button>
-                    <button id="timer-reset-${roundId}-${matchId}">Reset</button>
-                </div>
-            </div>
             <div class="row mb-2">
                 <div class="col-6 d-flex flex-row justify-content-start align-items-center">
                     <h3 class="match-id-name mb-0">${roundId}-${matchId}</h3>
@@ -493,6 +503,14 @@
                         <!-- Event Information -->
                         <div class="col-12">
                             <div class="row">
+                                <div class="col-12">
+                                    <div class="timer-container">
+                                        <div id="timer-${roundId}-${matchId}" class="timer-text">50:00</div>
+                                        <button id="timer-start-${roundId}-${matchId}" class="btn timer-button">▶</button>
+                                        <button id="timer-pause-${roundId}-${matchId}" class="btn timer-button">⏸</button>
+                                        <button id="timer-reset-${roundId}-${matchId}" class="btn timer-button">⭮</button>
+                                    </div>
+                                </div>
                                 <div class="col-12">
                                     <h5 class="card-title">Event Information</h5>
                                 </div>
@@ -1238,49 +1256,31 @@
     // attach global event information update button listener on start up
     attachGlobalEventInformationUpdateListener();
 
-    // Timer functions
+    // START TIMER FUNCTIONS
 
     // at the start, ask for all timer states from the server
     socket.emit('get-all-timer-states');
 
     // handle getting all timer states
-    socket.on('current-all-timer-states', ({timerState, timerStart}) => {
-        console.log('got all timer states', timerState, timerStart);
+    socket.on('current-all-timer-states', ({timerState}) => {
+        // console.log('got all timer states', timerState);
         // save all timer states
         allTimerStates = timerState;
-        // save starting time
-
-        // create local timer intervals for each match
-        localIntervals = Object.keys(allTimerStates).reduce((rounds, roundId) => {
-            rounds[roundId] = Object.keys(allTimerStates[roundId]).reduce((matches, matchId) => {
-                matches[matchId] = null; // No interval initially
-                return matches;
-            }, {});
-            return rounds;
-        }, {});
         // Iterate through all rounds and matches
         Object.keys(timerState).forEach((roundId) => {
-            const matches = timerState[roundId];
-            Object.keys(matches).forEach((matchId) => {
-                const matchState = matches[matchId];
-                updateRenderedMatchTimer(roundId, matchId, matchState);
+            Object.keys(timerState[roundId]).forEach((matchId) => {
+                const timerElement = document.querySelector(`#timer-${roundId}-${matchId}`);
+                if (timerElement) {
+                    const matchState = timerState[roundId][matchId];
+                    timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'HOLD';
+                }
             });
         });
     });
 
     function updateTimerState(round_id, match_id, action) {
-        const matchState = allTimerStates[round_id][match_id];
-        const time = matchState.time;
-        socket.emit('update-timer-state', {round_id, match_id, action, time});
+        socket.emit('update-timer-state', {round_id, match_id, action});
     }
-
-    socket.on('specific-timer-state-update', ({round_id, match_id, matchState}) => {
-        console.log('got specific update to timer state', round_id, match_id, matchState);
-        // update specific all timer state
-        allTimerStates[round_id][match_id] = matchState;
-        // Update the rendered timer
-        updateRenderedMatchTimer(round_id, match_id, matchState);
-    });
 
     function formatTime(ms) {
         const totalSeconds = Math.floor(ms / 1000);
@@ -1289,70 +1289,26 @@
         return `${minutes}:${seconds}`;
     }
 
-    // Helper function to update a match's timer display
-    function updateRenderedMatchTimer(round_id, match_id, matchState) {
-        console.log('update render match timer', round_id, match_id, matchState)
-        const timerElement = document.querySelector(`#timer-${round_id}-${match_id}`);
-
-        if (timerElement) {
-            if (matchState.status === 'running') {
-                // Start local timer if match is running
-                startLocalTimerForMatch(round_id, match_id, matchState);
-            } else if (matchState.status === 'paused') {
-                // Stop the local timer but keep the current time
-                stopLocalTimerForMatch(round_id, match_id);
-            } else {
-                // Update the timer directly and stop any running interval
-                stopLocalTimerForMatch(round_id, match_id);
-                timerElement.innerText = formatTime(matchState.time);
-                if (matchState.time <= 0) {
-                    timerElement.innerText = 'HOLD';
-                }
-            }
-        }
-    }
-
-    function startLocalTimerForMatch(round_id, match_id, matchState) {
-        console.log(localIntervals, matchState)
-        if (localIntervals[round_id][match_id]) return; // Avoid starting multiple intervals
-
-        const timerElement = document.querySelector(
-            `#timer-${round_id}-${match_id}`
-        );
-
-        localIntervals[round_id][match_id] = setInterval(() => {
-            if (matchState.time > 0) {
-                matchState.time -= 1000;
-                timerElement.innerText = formatTime(matchState.time);
-            } else {
-                stopLocalTimerForMatch(round_id, match_id);
-                timerElement.innerText = 'HOLD';
-            }
-        }, 1000);
-    }
-
-    function stopLocalTimerForMatch(round_id, match_id) {
-        if (localIntervals[round_id][match_id]) {
-            clearInterval(localIntervals[round_id][match_id]);
-            localIntervals[round_id][match_id] = null; // Reset to null after clearing
-        }
-    }
-
     // Add event listeners for reset life buttons
     function attachMatchTimerButtonListeners(round_id, match_id) {
         const startButton = document.querySelector(`#timer-start-${round_id}-${match_id}`);
         const pauseButton = document.querySelector(`#timer-pause-${round_id}-${match_id}`);
         const resetButton = document.querySelector(`#timer-reset-${round_id}-${match_id}`);
         startButton.addEventListener('click', () => {
+            console.log('start clicked', round_id, match_id)
             updateTimerState(round_id, match_id, 'start');
         });
         pauseButton.addEventListener('click', () => {
+            console.log('pause clicked', round_id, match_id)
             updateTimerState(round_id, match_id, 'pause');
         });
         resetButton.addEventListener('click', () => {
+            console.log('reset clicked', round_id, match_id)
             updateTimerState(round_id, match_id, 'reset');
         });
     }
+
+    // END TIMER FUNCTIONS
 
 </script>
 </body>

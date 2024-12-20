@@ -79,7 +79,7 @@ let archetypeList = [];
 const INITIAL_TIME = 1 * 60 * 1000; // 50 minutes in milliseconds
 
 // create object to hold timer states for each match in each round
-const timerState = Array.from({length: 16}, (_, round_id) => ({
+let timerState = Array.from({length: 16}, (_, round_id) => ({
     [round_id + 1]: {
         match1: {
             time: INITIAL_TIME,
@@ -230,6 +230,24 @@ async function saveControlData() {
 
 // Load control data when server starts
 await loadControlData();
+
+// TODO - send all timer states only if a time / state was updated in any of the matches
+// Emit timer updates every second
+setInterval(() => {
+    Object.keys(timerState).forEach((roundId) => {
+        Object.keys(timerState[roundId]).forEach((matchId) => {
+            const match = timerState[roundId][matchId];
+            if (match.status === 'running' && match.time > 0) {
+                match.time -= 1000; // Decrement time by 1 second
+            }
+            if (match.time <= 0 && match.status === 'running') {
+                match.status = 'stopped'; // Automatically stop when timer hits 0
+            }
+        });
+    });
+
+    io.emit('current-all-timer-states', {timerState});
+}, 1000);
 
 io.on('connection', (socket) => {
     console.log('A user connected', socket.id);
@@ -488,40 +506,25 @@ io.on('connection', (socket) => {
         io.emit('control-broadcast-trackers', (data2send));
     })
 
-    // Handle timer updates for specific rounds and matches
-    socket.on('update-timer-state', ({round_id, match_id, action, time}) => {
-        if (!timerState[round_id] || !timerState[round_id][match_id]) return;
-
-        const matchState = timerState[round_id][match_id];
+    // Handle timer control actions from clients
+    socket.on('update-timer-state', ({round_id, match_id, action}) => {
+        const match = timerState[round_id][match_id];
+        if (!match) return;
 
         switch (action) {
             case 'start':
-                // Ensure the timer resumes from the current time
-                if (matchState.status === 'paused' || matchState.status === 'stopped') {
-                    matchState.status = 'running';
+                if (match.status !== 'running') {
+                    match.status = 'running';
                 }
                 break;
-
             case 'pause':
-                // Pause the timer without resetting the time
-                matchState.status = 'paused';
-                matchState.time = time;
+                match.status = 'paused';
                 break;
-
             case 'reset':
-                // Reset the timer to the initial value
-                matchState.status = 'stopped';
-                matchState.time = INITIAL_TIME;
-                break;
-
-            case 'stop':
-                // Stop the timer without resetting the time
-                matchState.status = 'stopped';
+                match.status = 'stopped';
+                match.time = INITIAL_TIME;
                 break;
         }
-
-        // Broadcast the updated state
-        io.emit('specific-timer-state-update', {round_id, match_id, matchState});
     });
 
     // catches all requests for getting all current timer states

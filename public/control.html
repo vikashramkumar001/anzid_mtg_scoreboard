@@ -226,6 +226,33 @@
             background-color: rgba(0, 0, 0, 0.1);
         }
 
+        .timer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: calc(50vh - 25px);     /* 50 view height - half of height of container */
+            width: 300px;
+            height: 50px;
+            transform: rotate(270deg);
+            left: -125px; /* (300 / 2) - (50 / 2) */
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .timer-container #timer {
+            color: white;
+            font-size: 30px;
+            margin-right: 25px;
+        }
+
+        .timer-container .timer-buttons {
+            width: 40px;
+            height: 40px;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -345,6 +372,12 @@
         <div class="buttons">
             <button onclick="resetLifeTotals()">Reset Life</button>
         </div>
+    </div>
+    <div class="timer-container">
+        <div id="timer">00:00</div>
+        <button class="timer-buttons" id="timer-start">▶</button>
+        <button class="timer-buttons" id="timer-pause">⏸</button>
+        <button class="timer-buttons" id="timer-reset">⭮</button>
     </div>
 </div>
 
@@ -490,7 +523,7 @@
     const control_id = pathSegments[2];
     let round_id = '1';
     let match_id = 'match1';
-    const delay_value = Number(pathSegments[3]) || 10;        // This should be the delay - used for timeout
+    const delay_value = Number(pathSegments[3]) || 10;        // This should be the delay - used for timeou
 
     console.log('from url - control id - delay', control_id, delay_value);
 
@@ -560,7 +593,58 @@
         poisonControls.right.plus.addEventListener('click', () => updatePoisonValue(poisonControls.right.value, 1));
         poisonControls.right.minus.addEventListener('click', () => updatePoisonValue(poisonControls.right.value, -1));
     }
+
     attachPoisonControlListeners();
+
+    // START TIMER FUNCTIONS
+
+    // at the start, ask for all timer states from the server
+    socket.emit('get-all-timer-states');
+
+    // handle getting all timer states
+    socket.on('current-all-timer-states', ({timerState}) => {
+        console.log('got all timer states', timerState);
+        const matchState = timerState[round_id][match_id];
+        // console.log(matchState)
+        if (matchState) {
+            const timerElement = document.querySelector(`#timer`);
+            timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'HOLD';
+        }
+    });
+
+    function updateTimerState(round_id, match_id, action) {
+        console.log('update time state', round_id, match_id, action)
+        socket.emit('update-timer-state', {round_id, match_id, action});
+    }
+
+    function formatTime(ms) {
+        const totalSeconds = Math.floor(ms / 1000);
+        const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+        const seconds = String(totalSeconds % 60).padStart(2, '0');
+        return `${minutes}:${seconds}`;
+    }
+
+    // Add event listeners for reset life buttons
+    function attachMatchTimerButtonListeners() {
+        const startButton = document.querySelector(`#timer-start`);
+        const pauseButton = document.querySelector(`#timer-pause`);
+        const resetButton = document.querySelector(`#timer-reset`);
+        startButton.addEventListener('click', () => {
+            updateTimerState(round_id, match_id, 'start');
+        });
+        pauseButton.addEventListener('click', () => {
+            updateTimerState(round_id, match_id, 'pause');
+        });
+        resetButton.addEventListener('click', () => {
+            updateTimerState(round_id, match_id, 'reset');
+        });
+    }
+
+
+    // attach button listeners for timers
+    attachMatchTimerButtonListeners();
+
+    // END TIMER FUNCTIONS
 
 </script>
 

@@ -244,6 +244,16 @@
             transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
         }
 
+        .timer-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            width: 60px;
+            font-size: 25px;
+        }
+
     </style>
     <script src="/socket.io/socket.io.js"></script>
 
@@ -279,7 +289,9 @@
                 </div>
             </div>
             <div id="player-record-left" class="player-record player-record-left"></div>
-            <div class="scorebug-vs"></div>
+            <div class="timer-container">
+                <p id="timer">00:00</p>
+            </div>
             <div id="player-record-right" class="player-record player-record-right"></div>
             <div class="scorebug-name scorebug-right-name">
                 <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
@@ -422,8 +434,8 @@
     // Get match name from the URL
     const pathSegments = window.location.pathname.split('/');
     const control_id = pathSegments[2];
-    const round_id = '1';
-    const match_id = 'match1';
+    let round_id = '1';
+    let match_id = 'match1';
 
     console.log('from url - control id', control_id);
 
@@ -435,6 +447,8 @@
         // {data: {}, round_id: '', match_id: '', archetypeList: []}
         console.log('got saved state from server', data);
         archetypeList = data['archetypeList'];
+        round_id = data['round_id'];
+        match_id = data['match_id'];
         updateState(data['data']);
     })
 
@@ -460,6 +474,31 @@
         const medium = 'scoreboard';
         socket.emit('getSavedControlState', {control_id});
     })
+
+    // START TIMER FUNCTIONS
+
+    // at the start, ask for all timer states from the server
+    socket.emit('get-all-timer-states');
+
+    // handle getting all timer states
+    socket.on('current-all-timer-states', ({timerState}) => {
+        // console.log('got all timer states', timerState);
+        const matchState = timerState[round_id][match_id];
+        // console.log(matchState)
+        if (matchState) {
+            const timerElement = document.querySelector(`#timer`);
+            timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'HOLD';
+        }
+    });
+
+    function formatTime(ms) {
+        const totalSeconds = Math.floor(ms / 1000);
+        const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+        const seconds = String(totalSeconds % 60).padStart(2, '0');
+        return `${minutes}:${seconds}`;
+    }
+
+    // END TIMER FUNCTIONS
 
 </script>
 
