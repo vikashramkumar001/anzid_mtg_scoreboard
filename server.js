@@ -22,6 +22,7 @@ let socketIDs = {};
 
 // In-memory storage for scores
 let controlData = {};
+let standingsData = {};
 let overlayHeaderBackgroundImage = '/assets/images/overlay_header.png'; // Default header image
 let overlayFooterBackgroundImage = '/assets/images/overlay_footer.png'; // Default header image
 
@@ -76,7 +77,7 @@ let globalMatchData = {
 let archetypeList = [];
 
 // start time for all timers - 50 mins
-const INITIAL_TIME = 1 * 60 * 1000; // 50 minutes in milliseconds
+const INITIAL_TIME = 50 * 60 * 1000; // 50 minutes in milliseconds
 
 // create object to hold timer states for each match in each round
 let timerState = Array.from({length: 16}, (_, round_id) => ({
@@ -94,16 +95,6 @@ let timerState = Array.from({length: 16}, (_, round_id) => ({
 
 // {
 //     "1": {
-//         "match1": {
-//             time: INITIAL_TIME,
-//             status: "stopped"
-//         },
-//         "match2": {
-//             time: INITIAL_TIME,
-//             status: "stopped"
-//         }
-//     },
-//     "2": {
 //         "match1": {
 //             time: INITIAL_TIME,
 //             status: "stopped"
@@ -230,6 +221,79 @@ async function saveControlData() {
 
 // Load control data when server starts
 await loadControlData();
+
+const STANDINGS_DATA_FILE = path.join(__dirname, 'standingsData.json');
+
+async function loadStandingsData() {
+    try {
+        const data = await fs.readFile(STANDINGS_DATA_FILE, 'utf8');
+        standingsData = JSON.parse(data);
+        console.log('Standings data loaded successfully');
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            console.log('Standings data file not found. Starting with empty data.');
+            standingsData = {};
+        } else {
+            console.error('Error loading control data:', error);
+            standingsData = {};
+        }
+    }
+}
+
+async function saveStandingsData() {
+    try {
+        await fs.writeFile(STANDINGS_DATA_FILE, JSON.stringify(standingsData, null, 2));
+        console.log('Standings data saved successfully');
+    } catch (error) {
+        console.error('Error saving standings data:', error);
+    }
+}
+
+// Load Standings data when server starts
+await loadStandingsData();
+
+function processStandingsRawData(input) {
+    let ret = {};
+    for (let i = 1; i <= 15; i++) {
+        ret[i.toString()] = {
+            rank: "",
+            name: "",
+            archetype: "",
+            record: ""
+        };
+    }
+
+    // Split the input into lines
+    const lines = input.split('\n');
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+
+        if (!line) continue; // Skip empty lines
+
+        // Check if the line starts with a number (Rank)
+        if (/^\d+/.test(line)) {
+            const rank = line.split(' ')[0]; // The rank is the first part of the line
+            const playerInfo = lines[++i].trim(); // The next line contains the player's name
+            const archetype = lines[++i].trim(); // The next line contains the archetype
+            const record = lines[++i].trim().split(/\s+/)[0]; // First space-delimited entry in the next line
+
+            // Parse the player name (take first two words and format as "First Last")
+            const [lastName, firstName] = playerInfo.replace(',', '').split(' ');
+            const name = `${firstName} ${lastName}`;
+
+            ret[rank] = {
+                rank: parseInt(rank, 10),
+                name: name,
+                archetype: archetype,
+                record: record
+            };
+        }
+    }
+
+    return ret;
+}
+
 
 // TODO - send all timer states only if a time / state was updated in any of the matches
 // Emit timer updates every second
@@ -383,11 +447,19 @@ io.on('connection', (socket) => {
 
     // Handle broadcast request from master control
     socket.on('broadcast-requested', ({round_id}) => {
+        // send control data
         if (controlData[round_id]) {
             // save to broadcast tracker
             broadcastTracker['round_id'] = round_id;
             // send data to broadcast listeners
             io.emit('broadcast-round-data', controlData[round_id]);
+        }
+        // send standings
+        if (standingsData[round_id]) {
+            // parse round data before sending
+            let standings = processStandingsRawData(standingsData[round_id]);
+            // send data to broadcast listeners
+            io.emit('broadcast-round-standings-data', standings);
         }
     })
 
@@ -533,6 +605,27 @@ io.on('connection', (socket) => {
         io.emit('current-all-timer-states', {timerState});
     })
 
+    // STANDINGS DATA HANDLING
+
+    socket.on('get-all-standings', () => {
+        // simple emit all standings
+        io.emit('standings-data', {standingsData});
+    })
+
+    socket.on('standings-updated', async ({round_id, textData}) => {
+        // console.log('standings data sent', round_id, textData);
+        // update standings data object
+        // console.log(round_id, match_id);
+        if (!standingsData.hasOwnProperty(round_id)) {
+            standingsData[round_id] = {};
+        }
+        // format standing base data into desired format and save
+        standingsData[round_id] = textData;
+        await saveStandingsData();
+    })
+
+    // END STANDINGS DATA HANDLING
+
 });
 
 // Handle header overlay upload
@@ -627,6 +720,11 @@ app.post('/upload-archetype-image', uploadArchetypeImage.single('image'), async 
     } else {
         res.status(400).json({success: false, message: 'No file uploaded'});
     }
+});
+
+// Serve the broadcast standings for a given round
+app.get('/broadcast/round/standings/:rankID', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'broadcast-round-standings.html'));
 });
 
 const PORT = process.env.PORT || 1378;

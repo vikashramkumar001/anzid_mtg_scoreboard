@@ -394,7 +394,7 @@
     const matchEventFormat = document.querySelector(`#global-event-format`);
     let allControlData = {};
     let allTimerStates = {};
-    let localIntervals = {};
+    let allStandingsData = {};
 
     // Handle the form submission via JavaScript (AJAX)
     const form = document.getElementById('uploadForm');
@@ -1134,6 +1134,9 @@
                 renderMatch(roundId, matchId, matchData);
             });
         })
+
+        // matches are rendered - now ask server for standings
+        socket.emit('get-all-standings');
     }
 
     // Add click handlers for the Display Deck buttons
@@ -1309,6 +1312,92 @@
     }
 
     // END TIMER FUNCTIONS
+
+    // STANDINGS DATA
+
+    socket.on('standings-data', ({standingsData}) => {
+        console.log('got standings data', standingsData);
+        allStandingsData = standingsData;
+        // populate all standings text boxes per round
+        populateStandingsData();
+    })
+
+    populateStandingsData = () => {
+        Object.keys(allStandingsData).forEach((round_id) => {
+            renderStandings(round_id);
+        })
+    }
+
+    renderStandings = (roundId) => {
+        // Check if a card for this match already exists
+        let standingsContainer = document.getElementById(`round-${roundId}-matches`);
+        let standingsCard = document.getElementById(`standings-card-${roundId}`);
+
+        if (!standingsCard) {
+            // make standings card
+            // Create new card (use your existing card HTML structure)
+            standingsCard = document.createElement('div');
+            standingsCard.classList.add('col-6', 'mb-3', 'standings-card-container');
+            standingsCard.id = `standings-card-${roundId}`;
+            standingsCard.innerHTML = `
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <!-- Event Information -->
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="card-title">Standings</h5>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Round Standings</label>
+                                        <textarea id="standings-${roundId}" class="editable form-control" rows="5"
+                                        placeholder="Paste standings here..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+            // Add the new card to the round's match container
+            standingsContainer.appendChild(standingsCard);
+            // Attach change listeners
+            attachStandingsChangeListeners(roundId);
+        }
+
+        // Update the fields with the match data
+        const standingsTextbox = document.getElementById(`standings-${roundId}`);
+        standingsTextbox.value = allStandingsData[roundId];
+    }
+
+    // Function to attach change listeners to all editable fields for a given match ID
+    function attachStandingsChangeListeners(roundId) {
+        const standingsTextbox = document.querySelector(`#standings-${roundId}.editable`);
+
+        standingsTextbox.addEventListener('input', () => {
+            let value = standingsTextbox.value;
+
+            // Update the local standings data when a field changes
+            updateStandingsData(roundId, value);
+            // Emit the updated standings data to the backend
+            console.log('updated standings data', allStandingsData);
+            socket.emit('standings-updated', {round_id: roundId, textData: value});
+        });
+    }
+
+    function updateStandingsData(roundId, value) {
+        if (!allStandingsData[roundId]) {
+            allStandingsData[roundId] = {};
+        }
+        console.log(roundId, value)
+        allStandingsData[roundId] = value;
+    }
+
+
+    // END STANDINGS DATA
 
 </script>
 </body>
