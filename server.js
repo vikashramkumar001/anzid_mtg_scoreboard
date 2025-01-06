@@ -23,6 +23,7 @@ let socketIDs = {};
 // In-memory storage for scores
 let controlData = {};
 let standingsData = {};
+let bracketData = {};
 let overlayHeaderBackgroundImage = '/assets/images/overlay_header.png'; // Default header image
 let overlayFooterBackgroundImage = '/assets/images/overlay_footer.png'; // Default header image
 
@@ -234,7 +235,7 @@ async function loadStandingsData() {
             console.log('Standings data file not found. Starting with empty data.');
             standingsData = {};
         } else {
-            console.error('Error loading control data:', error);
+            console.error('Error loading Standings data:', error);
             standingsData = {};
         }
     }
@@ -294,6 +295,37 @@ function processStandingsRawData(input) {
     return ret;
 }
 
+// bracket data handling
+
+const BRACKET_DATA_FILE = path.join(__dirname, 'bracketData.json');
+
+async function loadBracketData() {
+    try {
+        const data = await fs.readFile(BRACKET_DATA_FILE, 'utf8');
+        bracketData = JSON.parse(data);
+        console.log('Bracket data loaded successfully');
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            console.log('Bracket data file not found. Starting with empty data.');
+            standingsData = {};
+        } else {
+            console.error('Error loading Bracket data:', error);
+            standingsData = {};
+        }
+    }
+}
+
+async function saveBracketData() {
+    try {
+        await fs.writeFile(BRACKET_DATA_FILE, JSON.stringify(bracketData, null, 2));
+        console.log('Bracket data saved successfully');
+    } catch (error) {
+        console.error('Error saving Bracket data:', error);
+    }
+}
+
+// load bracket data when server starts
+await loadBracketData();
 
 // TODO - send all timer states only if a time / state was updated in any of the matches
 // Emit timer updates every second
@@ -626,6 +658,21 @@ io.on('connection', (socket) => {
 
     // END STANDINGS DATA HANDLING
 
+    // BRACKET DATA HANDLING
+
+    socket.on('get-bracket-data', () => {
+        io.emit('bracket-data', {bracketData})
+    })
+
+    socket.on('bracket-updated', async ({bracketValues}) => {
+        bracketData = bracketValues;
+        await saveBracketData();
+        // we want to send updated data to listeners
+        io.emit('bracket-data', {bracketData});
+    })
+
+    // END BRACKET DATA HANDLING
+
 });
 
 // Handle header overlay upload
@@ -725,6 +772,11 @@ app.post('/upload-archetype-image', uploadArchetypeImage.single('image'), async 
 // Serve the broadcast standings for a given round
 app.get('/broadcast/round/standings/:rankID', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'broadcast-round-standings.html'));
+});
+
+// Serve the updated bracket details
+app.get('/display/bracket/details/:bracketID', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'bracket-individual-display.html'));
 });
 
 const PORT = process.env.PORT || 1378;

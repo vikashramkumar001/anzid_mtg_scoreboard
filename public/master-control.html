@@ -169,9 +169,16 @@
             </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#match-control" type="button"
-                    role="tab" aria-controls="profile" aria-selected="false">
+            <button class="nav-link" id="matches-tab" data-bs-toggle="tab" data-bs-target="#match-control" type="button"
+                    role="tab" aria-controls="matches" aria-selected="false">
                 Matchs
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="bracket-tab" data-bs-toggle="tab" data-bs-target="#bracket-control"
+                    type="button"
+                    role="tab" aria-controls="bracket" aria-selected="false">
+                Bracket
             </button>
         </li>
     </ul>
@@ -179,7 +186,7 @@
     <!-- Tabs Content -->
     <div class="tab-content" id="myTabContent">
         <!-- Overlay Tab Content -->
-        <div class="tab-pane fade active show" id="overlay-control" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade active show" id="overlay-control" role="tabpanel" aria-labelledby="home-tab">
             <div class="row my-5">
                 <div class="col-12">
                     <h2>Overlay Control</h2>
@@ -249,7 +256,7 @@
         </div>
 
         <!-- Archetype Tab Content -->
-        <div class="tab-pane fade" id="archetype-control" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade" id="archetype-control" role="tabpanel" aria-labelledby="archetype-tab">
             <div class="row my-5">
                 <div class="col-12">
                     <h2>Archetype List Management</h2>
@@ -275,7 +282,7 @@
         </div>
 
         <!-- Matches Tab Content -->
-        <div class="tab-pane fade" id="match-control" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="tab-pane fade" id="match-control" role="tabpanel" aria-labelledby="matches-tab">
             <div class="row my-5">
                 <div class="col-12">
                     <h2>Match Control Center</h2>
@@ -364,6 +371,640 @@
                 </div>
             </div>
         </div>
+
+        <!-- Bracket Tab Content -->
+        <div class="tab-pane fade" id="bracket-control" role="tabpanel" aria-labelledby="bracket-tab">
+            <div class="row my-3">
+                <div class="col-12">
+                    <h5>QuarterFinals</h5>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-quarterfinal-1-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-quarterfinal-1-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-quarterfinal-1-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-quarterfinal-1-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-quarterfinal-1-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-quarterfinal-2-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-quarterfinal-2-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-quarterfinal-2-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-quarterfinal-2-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-quarterfinal-2-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-quarterfinal-3-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-quarterfinal-3-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-quarterfinal-3-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-quarterfinal-3-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-quarterfinal-3-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-quarterfinal-4-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-quarterfinal-4-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-quarterfinal-4-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-quarterfinal-4-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-quarterfinal-4-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-quarterfinal-5-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-quarterfinal-5-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-quarterfinal-5-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-quarterfinal-5-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-quarterfinal-5-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-quarterfinal-6-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-quarterfinal-6-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-quarterfinal-6-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-quarterfinal-6-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-quarterfinal-6-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-quarterfinal-7-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-quarterfinal-7-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-quarterfinal-7-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-quarterfinal-7-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-quarterfinal-7-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-quarterfinal-8-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-quarterfinal-8-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-quarterfinal-8-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-quarterfinal-8-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-quarterfinal-8-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-12">
+                    <h5>SemiFinals</h5>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-semifinal-1-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-semifinal-1-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-semifinal-1-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-semifinal-1-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-semifinal-1-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-semifinal-2-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-semifinal-2-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-semifinal-2-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-semifinal-2-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-semifinal-2-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-semifinal-3-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-semifinal-3-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-semifinal-3-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-semifinal-3-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-semifinal-3-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-semifinal-4-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-semifinal-4-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-semifinal-4-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-semifinal-4-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-semifinal-4-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-12">
+                    <h5>Final</h5>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-final-1-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-final-1-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-final-1-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-final-1-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-final-1-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <div id="bracket-final-2-name" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Archetype</label>
+                                        <div id="bracket-final-2-archetype" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Rank</label>
+                                        <div id="bracket-final-2-rank" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Points</label>
+                                        <div id="bracket-final-2-points" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <div class="mb-3">
+                                        <label class="form-label">Win</label>
+                                        <div id="bracket-final-2-win" class="editable form-control"
+                                             contenteditable="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-12 text-center d-flex flex-center align-items-center justify-content-center">
+                    <button class="btn btn-primary update-button" id="bracket-update-button">
+                        Update
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -395,6 +1036,7 @@
     let allControlData = {};
     let allTimerStates = {};
     let allStandingsData = {};
+    let bracketData = {};
 
     // Handle the form submission via JavaScript (AJAX)
     const form = document.getElementById('uploadForm');
@@ -1033,7 +1675,7 @@
     }
 
     function setupCustomDropdowns() {
-        const archetypeFields = document.querySelectorAll('[id$="-player-archetype-left"], [id$="-player-archetype-right"]');
+        const archetypeFields = document.querySelectorAll('[id$="-player-archetype-left"], [id$="-player-archetype-right"], [id^="bracket-"][id$="-archetype"]');
 
         archetypeFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
@@ -1398,6 +2040,64 @@
 
 
     // END STANDINGS DATA
+
+    // BRACKET DATA HANDLING
+
+    // send request for bracket data - we can do this because the html for bracket is hardcoded at start
+    socket.emit('get-bracket-data');
+
+    socket.on('bracket-data', ({bracketData:bracketDataFromServer}) => {
+        console.log('got bracket data', bracketDataFromServer);
+        bracketData = bracketDataFromServer;
+        // populate all standings text boxes per round
+        populateBracketData();
+    })
+
+    populateBracketData = () => {
+        Object.keys(bracketData).forEach((bracket_id) => {
+            renderBracket(bracket_id);
+        })
+    }
+
+    renderBracket = (bracket_id) => {
+        let bracketField = document.getElementById(`${bracket_id}`);
+        bracketField.innerHTML = bracketData[bracket_id];
+    }
+
+    // function to gather bracket data when update is clicked
+    function attachBracketUpdateClickListener() {
+        const bracketUpdateButton = document.querySelector(`#bracket-update-button`);
+
+        bracketUpdateButton.addEventListener('click', () => {
+            const bracketValues = extractBracketData();
+            // send update to server to handle storage
+            socket.emit('bracket-updated', {bracketValues});
+        });
+    }
+
+    // actually call the attach button listener
+    attachBracketUpdateClickListener();
+
+    function extractBracketData() {
+        // Select the parent container
+        const bracketControl = document.querySelector('#bracket-control');
+
+        // Select all child divs within the container with class 'editable' and IDs starting with 'bracket-'
+        const bracketFields = bracketControl.querySelectorAll('[id^="bracket-"].editable');
+
+        // Create a structure to hold the ID-value pairs
+        const bracketValues = {};
+
+        // Loop through each selected element
+        bracketFields.forEach(div => {
+            const id = div.id; // Get the id of the div
+             // Get the content of the div (editable input)
+            bracketValues[id] = div.textContent.trim(); // Add the id-value pair to the structure
+        });
+        return bracketValues
+    }
+
+    // END BRACKET DATA HANDLING
 
 </script>
 </body>
