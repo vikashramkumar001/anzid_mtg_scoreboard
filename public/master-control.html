@@ -307,17 +307,39 @@
                                     <h5 class="card-title">Commentators</h5>
                                 </div>
                                 <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Commentator 1</label>
-                                        <div id="global-commentator-one" class="editable form-control"
-                                             contenteditable="true"></div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Commentator 1</label>
+                                                <div id="global-commentator-one" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Commentator 1 - Subtext</label>
+                                                <div id="global-commentator-one-subtext" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Commentator 2</label>
-                                        <div id="global-commentator-two" class="editable form-control"
-                                             contenteditable="true"></div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Commentator 2</label>
+                                                <div id="global-commentator-two" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Commentator 2 - Subtext</label>
+                                                <div id="global-commentator-two-subtext" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
@@ -326,6 +348,7 @@
                                     </button>
                                 </div>
                             </div>
+                            <hr>
                             <div class="row mb-4">
                                 <div class="col-12">
                                     <h5 class="card-title">Event Information</h5>
@@ -1030,7 +1053,9 @@
     const updateEventInformation = document.querySelector(`#global-update-event-information.update-button`);
     const updateCommentators = document.querySelector(`#global-update-commentators.update-button`);
     const commentator1 = document.querySelector(`#global-commentator-one`);
+    const commentator1_subtext = document.querySelector(`#global-commentator-one-subtext`);
     const commentator2 = document.querySelector(`#global-commentator-two`);
+    const commentator2_subtext = document.querySelector(`#global-commentator-two-subtext`);
     const matchEventName = document.querySelector(`#global-event-name`);
     const matchEventFormat = document.querySelector(`#global-event-format`);
     let allControlData = {};
@@ -1863,7 +1888,9 @@
         updateCommentators.addEventListener('click', () => {
             const data2send = {
                 'global-commentator-one': commentator1.innerText,
-                'global-commentator-two': commentator2.innerText
+                'global-commentator-one-subtext': commentator1_subtext.innerText,
+                'global-commentator-two': commentator2.innerText,
+                'global-commentator-two-subtext': commentator2_subtext.innerText
             }
             console.log(data2send)
             socket.emit('update-commentators-requested', {commentatorData: data2send});
@@ -1881,7 +1908,9 @@
         // update match global fields
         console.log('got global data', data['globalData'])
         commentator1.innerText = data['globalData']['global-commentator-one'] ? data['globalData']['global-commentator-one'] : '';
+        commentator1_subtext.innerText = data['globalData']['global-commentator-one-subtext'] ? data['globalData']['global-commentator-one-subtext'] : '';
         commentator2.innerText = data['globalData']['global-commentator-two'] ? data['globalData']['global-commentator-two'] : '';
+        commentator2_subtext.innerText = data['globalData']['global-commentator-two-subtext'] ? data['globalData']['global-commentator-two-subtext'] : '';
         matchEventName.innerText = data['globalData']['global-event-name'] ? data['globalData']['global-event-name'] : '';
         matchEventFormat.innerText = data['globalData']['global-event-format'] ? data['globalData']['global-event-format'] : '';
     })
@@ -2046,7 +2075,7 @@
     // send request for bracket data - we can do this because the html for bracket is hardcoded at start
     socket.emit('get-bracket-data');
 
-    socket.on('bracket-data', ({bracketData:bracketDataFromServer}) => {
+    socket.on('bracket-data', ({bracketData: bracketDataFromServer}) => {
         console.log('got bracket data', bracketDataFromServer);
         bracketData = bracketDataFromServer;
         // populate all standings text boxes per round
@@ -2091,7 +2120,7 @@
         // Loop through each selected element
         bracketFields.forEach(div => {
             const id = div.id; // Get the id of the div
-             // Get the content of the div (editable input)
+            // Get the content of the div (editable input)
             bracketValues[id] = div.textContent.trim(); // Add the id-value pair to the structure
         });
         return bracketValues

@@ -69,7 +69,9 @@ let broadcastTracker = {
 
 let globalMatchData = {
     'global-commentator-one': null,
+    'global-commentator-one-subtext': null,
     'global-commentator-two': null,
+    'global-commentator-two-subtext': null,
     'global-event-name': 'Event',
     'global-event-format': 'Format'
 }
