@@ -76,7 +76,8 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            background-color: #E9CE89;
+            /*background-color: #E9CE89;*/
+            background-color: #fff;
             clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0 100%);
             left: -150px;
             position: relative;
@@ -103,7 +104,6 @@
 <script>
     const socket = io();
     let bracketData = {};
-    let detailToDisplay = "";
     let win = false;
 
     // Get match name from the URL
@@ -151,11 +151,23 @@
         if (win_key in bracketData) {
             win = bracketData[win_key] === '1';
         }
-        // opacity if win is false
+        // opacity on color if win is false
         if (!win) {
-            bracketContainer.style.opacity = '0.5';
+            playerRank.style.color = 'rgba(0,0,0, 0.5)';
+            playerName.style.color = 'rgba(0,0,0, 0.5)';
+            playerArchetype.style.color = 'rgba(0,0,0, 0.5)';
+            playerPoints.style.color = 'rgba(0,0,0, 0.5)';
         } else {
-            bracketContainer.style.opacity = '1';
+            playerRank.style.color = 'rgba(0,0,0, 1)';
+            playerName.style.color = 'rgba(0,0,0, 1)';
+            playerArchetype.style.color = 'rgba(0,0,0, 1)';
+            playerPoints.style.color = 'rgba(0,0,0, 1)';
+        }
+        // change points background color based on number of points
+        if (bracketData[points_key] === '2') {
+            playerPoints.style.backgroundColor = '#E9CE89';
+        } else {
+            playerPoints.style.backgroundColor = '#fff';
         }
     }
 </script>
