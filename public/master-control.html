@@ -171,7 +171,7 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="matches-tab" data-bs-toggle="tab" data-bs-target="#match-control" type="button"
                     role="tab" aria-controls="matches" aria-selected="false">
-                Matchs
+                Matches
             </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -1178,6 +1178,11 @@
                                         <button id="timer-reset-${roundId}-${matchId}" class="btn timer-button">⭮</button>
                                     </div>
                                 </div>
+                                <div class="col-12 text-center">
+                                    <label>
+                                        <input type="checkbox" id="timer-display-scoreboard-${roundId}-${matchId}"> Show Timer on Scoreboard
+                                    </label>
+                                </div>
                                 <div class="col-12">
                                     <h5 class="card-title">Event Information</h5>
                                 </div>
@@ -1943,10 +1948,14 @@
         // Iterate through all rounds and matches
         Object.keys(timerState).forEach((roundId) => {
             Object.keys(timerState[roundId]).forEach((matchId) => {
+                const matchState = timerState[roundId][matchId];
                 const timerElement = document.querySelector(`#timer-${roundId}-${matchId}`);
                 if (timerElement) {
-                    const matchState = timerState[roundId][matchId];
-                    timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'HOLD';
+                    timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
+                }
+                const timerShowCheck = document.querySelector(`#timer-display-scoreboard-${roundId}-${matchId}`);
+                if (timerShowCheck) {
+                    timerShowCheck.checked = matchState.show;
                 }
             });
         });
@@ -1968,6 +1977,7 @@
         const startButton = document.querySelector(`#timer-start-${round_id}-${match_id}`);
         const pauseButton = document.querySelector(`#timer-pause-${round_id}-${match_id}`);
         const resetButton = document.querySelector(`#timer-reset-${round_id}-${match_id}`);
+        const timerShowCheck = document.querySelector(`#timer-display-scoreboard-${round_id}-${match_id}`);
         startButton.addEventListener('click', () => {
             console.log('start clicked', round_id, match_id)
             updateTimerState(round_id, match_id, 'start');
@@ -1979,6 +1989,14 @@
         resetButton.addEventListener('click', () => {
             console.log('reset clicked', round_id, match_id)
             updateTimerState(round_id, match_id, 'reset');
+        });
+        timerShowCheck.addEventListener('change', function () {
+            console.log('show / no show clicked', round_id, match_id, timerShowCheck.checked);
+            if (timerShowCheck.checked) {
+                updateTimerState(round_id, match_id, 'show');
+            } else {
+                updateTimerState(round_id, match_id, 'no-show');
+            }
         });
     }
 

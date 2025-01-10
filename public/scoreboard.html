@@ -487,7 +487,13 @@
         // console.log(matchState)
         if (matchState) {
             const timerElement = document.querySelector(`#timer`);
-            timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'HOLD';
+            timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
+            // hide / show display based on show value
+            if (matchState.show) {
+                timerElement.style.display = 'block';
+            } else {
+                timerElement.style.display = 'none';
+            }
         }
     });
 

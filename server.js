@@ -87,11 +87,13 @@ let timerState = Array.from({length: 16}, (_, round_id) => ({
     [round_id + 1]: {
         match1: {
             time: INITIAL_TIME,
-            status: 'stopped', // 'running', 'paused', 'stopped'
+            status: 'stopped', // 'running', 'paused', 'stopped',
+            show: true
         },
         match2: {
             time: INITIAL_TIME,
             status: 'stopped',
+            show: true
         },
     },
 })).reduce((acc, round) => ({...acc, ...round}), {});
@@ -630,6 +632,12 @@ io.on('connection', (socket) => {
                 match.status = 'stopped';
                 match.time = INITIAL_TIME;
                 break;
+            case 'show':
+                match.show = true;
+                break;
+            case 'no-show':
+                match.show = false;
+                break;
         }
     });
 
@@ -779,6 +787,10 @@ app.get('/broadcast/round/standings/:rankID', (req, res) => {
 // Serve the updated bracket details
 app.get('/display/bracket/details/:bracketID', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'bracket-individual-display.html'));
+});
+
+app.get('/timer/:controlID', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'timer.html'));
 });
 
 const PORT = process.env.PORT || 1378;
