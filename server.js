@@ -73,7 +73,8 @@ let globalMatchData = {
     'global-commentator-two': null,
     'global-commentator-two-subtext': null,
     'global-event-name': 'Event',
-    'global-event-format': 'Format'
+    'global-event-format': 'Format',
+    'global-event-miscellaneous-details': null
 }
 
 // Initialize the archetype list
@@ -528,22 +529,25 @@ io.on('connection', (socket) => {
         io.emit('update-match-global-data', {globalData: globalMatchData});
         // match event information was updated - control data needs to be updated for each match
         Object.entries(controlData).forEach(([round_id, roundData]) => {
+            // for each round
             Object.entries(roundData).forEach(([match_id, matchData]) => {
+                // for each match
                 Object.entries(matchData).forEach(([detailID, details]) => {
+                    // for each detail
                     if (detailID === 'event-name' || detailID === 'event-format') {
                         matchData[detailID] = eventInformationData[`global-${detailID}`];
                     }
-                    // Emit the updated data to all connected clients related to this match
-                    Object.entries(controlsTracker).forEach(([control_id, controlDetails]) => {
-                        if (controlDetails['match_id'] === match_id && controlDetails['round_id'] === round_id) {
-                            io.emit(`control-${control_id}-saved-state`, {
-                                data: matchData,
-                                round_id,
-                                match_id,
-                                archetypeList: sortArchetypeList(archetypeList)
-                            });
-                        }
-                    })
+                })
+                // Emit the updated data to all connected clients related to this match
+                Object.entries(controlsTracker).forEach(([control_id, controlDetails]) => {
+                    if (controlDetails['match_id'] === match_id && controlDetails['round_id'] === round_id) {
+                        io.emit(`control-${control_id}-saved-state`, {
+                            data: matchData,
+                            round_id,
+                            match_id,
+                            archetypeList: sortArchetypeList(archetypeList)
+                        });
+                    }
                 })
             })
         });

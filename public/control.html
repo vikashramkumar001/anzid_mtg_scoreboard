@@ -603,7 +603,7 @@
 
     // handle getting all timer states
     socket.on('current-all-timer-states', ({timerState}) => {
-        console.log('got all timer states', timerState);
+        // console.log('got all timer states', timerState);
         const matchState = timerState[round_id][match_id];
         // console.log(matchState)
         if (matchState) {

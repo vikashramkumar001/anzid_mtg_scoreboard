@@ -353,18 +353,29 @@
                                 <div class="col-12">
                                     <h5 class="card-title">Event Information</h5>
                                 </div>
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Event Name</label>
-                                        <div id="global-event-name" class="editable form-control"
-                                             contenteditable="true"></div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Event Format</label>
-                                        <div id="global-event-format" class="editable form-control"
-                                             contenteditable="true"></div>
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Event Name</label>
+                                                <div id="global-event-name" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Event Format</label>
+                                                <div id="global-event-format" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Miscellaneous Details</label>
+                                                <div id="global-event-miscellaneous-details" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
@@ -1058,6 +1069,7 @@
     const commentator2_subtext = document.querySelector(`#global-commentator-two-subtext`);
     const matchEventName = document.querySelector(`#global-event-name`);
     const matchEventFormat = document.querySelector(`#global-event-format`);
+    const matchEventMiscDetails = document.querySelector(`#global-event-miscellaneous-details`);
     let allControlData = {};
     let allTimerStates = {};
     let allStandingsData = {};
@@ -1328,12 +1340,6 @@
                             <div class="mb-3">
                                 <label class="form-label">Mulligan</label>
                                 <div id="${roundId}-${matchId}-mulligan-details" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-3">
-                                <label class="form-label">Miscellaneous Details</label>
-                                <div id="${roundId}-${matchId}-miscellaneous-details" class="editable form-control" contenteditable="true"></div>
                             </div>
                         </div>
                     </div>
@@ -1918,6 +1924,7 @@
         commentator2_subtext.innerText = data['globalData']['global-commentator-two-subtext'] ? data['globalData']['global-commentator-two-subtext'] : '';
         matchEventName.innerText = data['globalData']['global-event-name'] ? data['globalData']['global-event-name'] : '';
         matchEventFormat.innerText = data['globalData']['global-event-format'] ? data['globalData']['global-event-format'] : '';
+        matchEventMiscDetails.innerText = data['globalData']['global-event-miscellaneous-details'] ? data['globalData']['global-event-miscellaneous-details'] : '';
     })
 
     // add click handlers for update event name and event format button
@@ -1925,7 +1932,8 @@
         updateEventInformation.addEventListener('click', () => {
             const data2send = {
                 'global-event-name': matchEventName.innerText,
-                'global-event-format': matchEventFormat.innerText
+                'global-event-format': matchEventFormat.innerText,
+                'global-event-miscellaneous-details': matchEventMiscDetails.innerText
             }
             console.log(data2send)
             socket.emit('update-event-information-requested', {eventInformationData: data2send});

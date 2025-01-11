@@ -506,6 +506,24 @@
 
     // END TIMER FUNCTIONS
 
+    // HANDLE GLOBAL DATA
+
+    // request global data on start up
+    socket.emit('get-match-global-data');
+
+    // listen for global event details update from server
+    socket.on('update-match-global-data', (data) => {
+        // let globalMatchData = {'global-commentator-one': null, 'global-commentator-one-subtext': null,...}
+        console.log('got global event data from server', data);
+        // update the miscellaneous details in footer
+        if ('global-event-miscellaneous-details' in data['globalData']){
+            let miscDetailsElement = document.getElementById('miscellaneous-details');
+            miscDetailsElement.innerText = data['globalData']['global-event-miscellaneous-details'] ? data['globalData']['global-event-miscellaneous-details'] : '';
+        }
+    })
+
+    // END HANDLE GLOBAL DATA
+
 </script>
 
 </body>
