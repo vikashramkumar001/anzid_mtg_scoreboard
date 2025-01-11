@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional Bootstrap 5 JS with Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+        }
+
+        html, body {
+            margin: 0;
+            width: 1920px;
+            height: 1080px;
+        }
+
+        .timer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 800px;
+            height: 100px;
+            /*background-color: rgba(0, 0, 0, 0.5);*/
+            z-index: 1000;
+        }
+
+        .timer-container #timer {
+            color: white;
+            font-size: 60px;
+            margin-right: 25px;
+        }
+
+        .timer-container .timer-buttons {
+            width: 60px;
+            height: 60px;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+<div class="row">
+    <div class="col-12 d-flex flex-row justify-content-center">
+        <div class="timer-container">
+            <div id="timer">00:00</div>
+            <button class="timer-buttons" id="timer-start">▶</button>
+            <button class="timer-buttons" id="timer-pause">⏸</button>
+            <button class="timer-buttons" id="timer-reset">⭮</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    // start
+
+    const socket = io();
+    let timeout = null;
+    let current_state = {};
+    // Get match name from the URL
+    const pathSegments = window.location.pathname.split('/');
+    const control_id = pathSegments[2];
+    let round_id = '1';
+    let match_id = 'match1';
+
+    console.log('from url - control id - delay', control_id);
+
+    // Send the match ID to the server when the client connects - will send back saved data if control already exists
+    socket.emit('getSavedControlState', {control_id});
+
+    // listen for saved state from server
+    socket.on('control-' + control_id + '-saved-state', (data) => {
+        console.log('got saved state from server', data);
+        round_id = data['round_id'];
+        match_id = data['match_id'];
+        current_state = data['data'];
+        loadSavedState(data['data']);
+    })
+
+    // START TIMER FUNCTIONS
+
+    // at the start, ask for all timer states from the server
+    socket.emit('get-all-timer-states');
+
+    // handle getting all timer states
+    socket.on('current-all-timer-states', ({timerState}) => {
+        console.log('got all timer states', timerState);
+        const matchState = timerState[round_id][match_id];
+        // console.log(matchState)
+        if (matchState) {
+            const timerElement = document.querySelector(`#timer`);
+            timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
+        }
+    });
+
+    function updateTimerState(round_id, match_id, action) {
+        console.log('update time state', round_id, match_id, action)
+        socket.emit('update-timer-state', {round_id, match_id, action});
+    }
+
+    function formatTime(ms) {
+        const totalSeconds = Math.floor(ms / 1000);
+        const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+        const seconds = String(totalSeconds % 60).padStart(2, '0');
+        return `${minutes}:${seconds}`;
+    }
+
+    // Add event listeners for reset life buttons
+    function attachMatchTimerButtonListeners() {
+        const startButton = document.querySelector(`#timer-start`);
+        const pauseButton = document.querySelector(`#timer-pause`);
+        const resetButton = document.querySelector(`#timer-reset`);
+        startButton.addEventListener('click', () => {
+            updateTimerState(round_id, match_id, 'start');
+        });
+        pauseButton.addEventListener('click', () => {
+            updateTimerState(round_id, match_id, 'pause');
+        });
+        resetButton.addEventListener('click', () => {
+            updateTimerState(round_id, match_id, 'reset');
+        });
+    }
+
+
+    // attach button listeners for timers
+    attachMatchTimerButtonListeners();
+
+    // END TIMER FUNCTIONS
+
+</script>
+
+</body>
+</html>
