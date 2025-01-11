@@ -74,7 +74,8 @@ let globalMatchData = {
     'global-commentator-two-subtext': null,
     'global-event-name': 'Event',
     'global-event-format': 'Format',
-    'global-event-miscellaneous-details': null
+    'global-event-miscellaneous-details': null,
+    'global-event-base-life-points': '20'
 }
 
 // Initialize the archetype list

@@ -353,32 +353,41 @@
                                 <div class="col-12">
                                     <h5 class="card-title">Event Information</h5>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-10">
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Event Name</label>
                                                 <div id="global-event-name" class="editable form-control"
                                                      contenteditable="true"></div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Event Format</label>
                                                 <div id="global-event-format" class="editable form-control"
                                                      contenteditable="true"></div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Miscellaneous Details</label>
                                                 <div id="global-event-miscellaneous-details" class="editable form-control"
                                                      contenteditable="true"></div>
                                             </div>
                                         </div>
+                                        <div class="col-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">
+                                                    Base LifePoints (<span id="global-event-base-life-points-current"></span>)
+                                                </label>
+                                                <div id="global-event-base-life-points" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
+                                <div class="col-2 text-center d-flex flex-center align-items-center justify-content-center">
                                     <button class="btn btn-primary update-button" id="global-update-event-information">
                                         Update
                                     </button>
@@ -1070,10 +1079,13 @@
     const matchEventName = document.querySelector(`#global-event-name`);
     const matchEventFormat = document.querySelector(`#global-event-format`);
     const matchEventMiscDetails = document.querySelector(`#global-event-miscellaneous-details`);
+    const matchEventBaseLifePoints = document.querySelector(`#global-event-base-life-points`);
+    const matchEventBaseLifePointsCurrent = document.querySelector(`#global-event-base-life-points-current`);
     let allControlData = {};
     let allTimerStates = {};
     let allStandingsData = {};
     let bracketData = {};
+    let baseLifePoints = '20';
 
     // Handle the form submission via JavaScript (AJAX)
     const form = document.getElementById('uploadForm');
@@ -1873,11 +1885,11 @@
         resetLifeButton.addEventListener('click', () => {
             console.log('click reset life', round_id, match_id);
             // update life points for left and right of round / match
-            document.querySelector(`[id="${round_id}-${match_id}-player-life-left"]`).innerText = '20';
-            document.querySelector(`[id="${round_id}-${match_id}-player-life-right"]`).innerText = '20';
+            document.querySelector(`[id="${round_id}-${match_id}-player-life-left"]`).innerText = baseLifePoints;
+            document.querySelector(`[id="${round_id}-${match_id}-player-life-right"]`).innerText = baseLifePoints;
             // update controlData
-            allControlData[round_id][match_id]['player-life-left'] = '20';
-            allControlData[round_id][match_id]['player-life-right'] = '20';
+            allControlData[round_id][match_id]['player-life-left'] = baseLifePoints;
+            allControlData[round_id][match_id]['player-life-right'] = baseLifePoints;
             // update server since control data changed
             socket.emit('master-control-matches-updated', allControlData);
         })
@@ -1925,6 +1937,9 @@
         matchEventName.innerText = data['globalData']['global-event-name'] ? data['globalData']['global-event-name'] : '';
         matchEventFormat.innerText = data['globalData']['global-event-format'] ? data['globalData']['global-event-format'] : '';
         matchEventMiscDetails.innerText = data['globalData']['global-event-miscellaneous-details'] ? data['globalData']['global-event-miscellaneous-details'] : '';
+        matchEventBaseLifePoints.innerText = data['globalData']['global-event-base-life-points'] ? data['globalData']['global-event-base-life-points'] : '20';
+        matchEventBaseLifePointsCurrent.innerText = data['globalData']['global-event-base-life-points'] ? data['globalData']['global-event-base-life-points'] : '20';
+        baseLifePoints = data['globalData']['global-event-base-life-points'] ? data['globalData']['global-event-base-life-points'] : '20';
     })
 
     // add click handlers for update event name and event format button
@@ -1933,7 +1948,8 @@
             const data2send = {
                 'global-event-name': matchEventName.innerText,
                 'global-event-format': matchEventFormat.innerText,
-                'global-event-miscellaneous-details': matchEventMiscDetails.innerText
+                'global-event-miscellaneous-details': matchEventMiscDetails.innerText,
+                'global-event-base-life-points': matchEventBaseLifePoints.innerText
             }
             console.log(data2send)
             socket.emit('update-event-information-requested', {eventInformationData: data2send});

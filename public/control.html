@@ -383,6 +383,8 @@
 
 <script type="text/javascript">
 
+    let baseLifePoints = '20';
+
     function scale_element(element, reset = false) {
         element.style.maxWidth = "";
         element.style.transform = "scale(1)";
@@ -412,7 +414,7 @@
     }
 
     function resetLifeTotals() {
-        ['player-life-left', 'player-life-right'].forEach(e => document.getElementById(e).innerHTML = '20');
+        ['player-life-left', 'player-life-right'].forEach(e => document.getElementById(e).innerHTML = baseLifePoints);
         armTimeout();
     }
 
@@ -645,6 +647,23 @@
     attachMatchTimerButtonListeners();
 
     // END TIMER FUNCTIONS
+
+    // HANDLE GLOBAL DATA
+
+    // request global data on start up
+    socket.emit('get-match-global-data');
+
+    // listen for global event details update from server
+    socket.on('update-match-global-data', (data) => {
+        // let globalMatchData = {'global-commentator-one': null, 'global-commentator-one-subtext': null,...}
+        console.log('got global event data from server', data);
+        // update the base life points from server
+        if ('global-event-base-life-points' in data['globalData']){
+            baseLifePoints = data['globalData']['global-event-base-life-points'] ? data['globalData']['global-event-base-life-points'] : '20';
+        }
+    })
+
+    // END HANDLE GLOBAL DATA
 
 </script>
 
