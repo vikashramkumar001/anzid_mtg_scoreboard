@@ -118,7 +118,7 @@
             const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card]; // Default count to 1 if no number is found
             const count = parseInt(parts[1], 10); // Get the count
             const name = parts[2]; // Get the card name
-            const cardNameForURL = name.replace(/ /g, '+'); // Replace spaces with '+'
+            const cardNameForURL = name.replace(/ /g, '+').replace(/&/g, '');
             deckObject.push({
                 'card-name': name,
                 'card-count': count,

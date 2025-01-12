@@ -24,6 +24,7 @@ let socketIDs = {};
 let controlData = {};
 let standingsData = {};
 let bracketData = {};
+let cardListData = {};
 let overlayHeaderBackgroundImage = '/assets/images/overlay_header.png'; // Default header image
 let overlayFooterBackgroundImage = '/assets/images/overlay_footer.png'; // Default header image
 
@@ -332,6 +333,30 @@ async function saveBracketData() {
 
 // load bracket data when server starts
 await loadBracketData();
+
+// card list data handling
+
+const CARDS_LIST_DATA_FILE = path.join(__dirname, 'cardNames.json');
+
+async function loadCardListData() {
+    try {
+        const data = await fs.readFile(CARDS_LIST_DATA_FILE, 'utf8');
+        cardListData = JSON.parse(data);
+        console.log('Cards List data loaded successfully');
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            console.log('Cards List data file not found. Starting with empty data.');
+            cardListData = [];
+        } else {
+            console.error('Error loading Cards List data:', error);
+            cardListData = [];
+        }
+    }
+}
+
+// load card list data when server starts
+loadCardListData();
+
 
 // TODO - send all timer states only if a time / state was updated in any of the matches
 // Emit timer updates every second
@@ -688,6 +713,20 @@ io.on('connection', (socket) => {
 
     // END BRACKET DATA HANDLING
 
+    // CARD LIST DATA HANDLING
+
+    socket.on('get-card-list-data', () => {
+        io.emit('card-list-data', {cardListData})
+    })
+
+    // Handle update global data request from master control - match event information
+    socket.on('card-view-view-card', ({cardSelected}) => {
+        // emit card selected for viewing
+        io.emit('card-view-card-selected', cardSelected);
+    })
+
+    // END CARD LIST DATA HANDLING
+
 });
 
 // Handle header overlay upload
@@ -796,6 +835,10 @@ app.get('/display/bracket/details/:bracketID', (req, res) => {
 
 app.get('/timer/:controlID', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'timer.html'));
+});
+
+app.get('/display/card/view', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'dedicated-card-view.html'));
 });
 
 const PORT = process.env.PORT || 1378;
