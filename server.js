@@ -49,7 +49,9 @@ let defaultData = {
     'player-main-deck-left': '',
     'player-side-deck-left': '',
     'player-main-deck-right': '',
-    'player-side-deck-right': ''
+    'player-side-deck-right': '',
+    'player-mulligan-left': '',
+    'player-mulligan-right': ''
 }
 
 // object to hold control IDs and tie them to match/round
