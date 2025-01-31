@@ -53,7 +53,7 @@
         if (globalData[detail_id]) {
             detailToDisplay = `${globalData[detail_id]}`;
             // Call a function to render the round details
-            renderDetails();
+            renderDetails(detail_id);
         }
     });
 
@@ -61,6 +61,12 @@
     function renderDetails() {
         // Render player name
         globalDetail.innerHTML = `${detailToDisplay}`;
+        if (detail_id === 'global-commentator-one' || detail_id === 'global-commentator-two'){
+            globalDetail.style.fontSize = '70px';
+        }
+        if (detail_id === 'global-commentator-one-subtext' || detail_id === 'global-commentator-two-subtext'){
+            globalDetail.style.fontSize = '30px';
+        }
     }
 </script>
 </body>
