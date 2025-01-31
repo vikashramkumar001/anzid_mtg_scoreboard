@@ -17,20 +17,89 @@
         }
 
         #round-standings-container {
-            font-size: 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            font-size: 28px;
+            color: #000;
+            text-align: center;
+            width: 574px;
+            height: 56px;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        #standings-rank {
+            width: 46px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: #C6C6C6;
+        }
+
+        .player-name-archetype {
+            width: 428px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            clip-path: polygon(0 0, 84% 0%, 84% 100%, 0% 100%);
+            background-color: #C6C6C6;
+        }
+
+        #standings-name {
+            display: block;
+            height: 34px;
+            line-height: 45px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 90%;
+            text-align: start;
+        }
+
+        #standings-archetype {
+            display: block;
+            height: 22px;
+            line-height: 15px;
+            font-style: italic;
+            font-size: 16px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 88%;
+            text-align: start;
+            white-space: nowrap;
+        }
+
+        #standings-record {
+            width: 200px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: #E9CE89;
+            /* background-color: #fff; */
+            clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0 100%);
+            left: -150px;
+            position: relative;
+            text-indent: 50px;
         }
 
     </style>
 </head>
 <body class="container-fluid">
-<div class="row" id="round-standings-container">
-    <div id="standings-rank" class="col-3 d-flex flex-row justify-content-center align-items-center">
-    </div>
-    <div id="standings-name" class="col-3 d-flex flex-row justify-content-center align-items-center">
-    </div>
-    <div id="standings-archetype" class="col-3 d-flex flex-row justify-content-center align-items-center">
-    </div>
-    <div id="standings-record" class="col-3 d-flex flex-row justify-content-center align-items-center">
+<div class="row">
+    <div id="round-standings-container">
+        <div id="standings-rank">
+        </div>
+        <div class="player-name-archetype">
+            <div id="standings-name">
+            </div>
+            <div id="standings-archetype">
+            </div>
+        </div>
+        <div id="standings-record">
+        </div>
     </div>
 </div>
 <script>
