@@ -304,7 +304,9 @@
                         </div>
                         <div class="col-6 my-2 text-end">
                             Control 1: <span id="control-1-round-match-display" class="me-3">1-MATCH1</span>
-                            Control 2: <span id="control-2-round-match-display">1-MATCH2</span>
+                            Control 2: <span id="control-2-round-match-display" class="me-3">1-MATCH2</span>
+                            Control 3: <span id="control-3-round-match-display" class="me-3">1-MATCH3</span>
+                            Control 4: <span id="control-4-round-match-display">1-MATCH4</span>
                         </div>
                     </div>
                     <div class="card">
@@ -1110,6 +1112,8 @@
     const broadcastDisplay = document.getElementById('broadcasting-now-round-display');
     const control1Display = document.getElementById('control-1-round-match-display');
     const control2Display = document.getElementById('control-2-round-match-display');
+    const control3Display = document.getElementById('control-3-round-match-display');
+    const control4Display = document.getElementById('control-4-round-match-display');
     const updateEventInformation = document.querySelector(`#global-update-event-information.update-button`);
     const updateCommentators = document.querySelector(`#global-update-commentators.update-button`);
     const commentator1 = document.querySelector(`#global-commentator-one`);
@@ -1215,18 +1219,24 @@
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
             <div class="row mb-2">
-                <div class="col-6 d-flex flex-row justify-content-start align-items-center">
+                <div class="col-3 d-flex flex-row justify-content-start align-items-center">
                     <h3 class="match-id-name mb-0">${roundId}-${matchId}</h3>
                 </div>
-                <div class="col-6 d-flex flex-row justify-content-end">
+                <div class="col-9 d-flex flex-row justify-content-end">
                     <button id="reset-life-${roundId}-${matchId}" class="btn btn-warning reset-life-button me-2" data-match-id="${matchId}"
                             data-round-id="${roundId}">Reset Life
                     </button>
-                    <button id="control-1-${roundId}-${matchId}" class="btn btn-primary control-button me-2" data-match-id="${matchId}"
+                    <button id="control-1-${roundId}-${matchId}" class="btn btn-secondary control-button me-2" data-match-id="${matchId}"
                             data-round-id="${roundId}" data-control-id="1">Control 1
                     </button>
-                    <button id="control-2-${roundId}-${matchId}" class="btn btn-secondary control-button" data-match-id="${matchId}"
+                    <button id="control-2-${roundId}-${matchId}" class="btn btn-secondary control-button me-2" data-match-id="${matchId}"
                             data-round-id="${roundId}" data-control-id="2">Control 2
+                    </button>
+                    <button id="control-3-${roundId}-${matchId}" class="btn btn-secondary control-button me-2" data-match-id="${matchId}"
+                            data-round-id="${roundId}" data-control-id="3">Control 3
+                    </button>
+                    <button id="control-4-${roundId}-${matchId}" class="btn btn-secondary control-button" data-match-id="${matchId}"
+                            data-round-id="${roundId}" data-control-id="4">Control 4
                     </button>
                 </div>
             </div>
@@ -1905,6 +1915,8 @@
     function attachControlMappingButtonListeners(round_id, match_id) {
         const control1 = document.querySelector(`#control-1-${round_id}-${match_id}.control-button`);
         const control2 = document.querySelector(`#control-2-${round_id}-${match_id}.control-button`);
+        const control3 = document.querySelector(`#control-3-${round_id}-${match_id}.control-button`);
+        const control4 = document.querySelector(`#control-4-${round_id}-${match_id}.control-button`);
         control1.addEventListener('click', () => {
             console.log('click from', round_id, match_id);
             control1Display.innerText = `${round_id}-${match_id}`;
@@ -1914,6 +1926,16 @@
             console.log('click from', round_id, match_id);
             control2Display.innerText = `${round_id}-${match_id}`;
             socket.emit('control-mapping-update', {controlId: '2', round_id, match_id});
+        })
+        control3.addEventListener('click', () => {
+            console.log('click from', round_id, match_id);
+            control3Display.innerText = `${round_id}-${match_id}`;
+            socket.emit('control-mapping-update', {controlId: '3', round_id, match_id});
+        })
+        control4.addEventListener('click', () => {
+            console.log('click from', round_id, match_id);
+            control4Display.innerText = `${round_id}-${match_id}`;
+            socket.emit('control-mapping-update', {controlId: '4', round_id, match_id});
         })
     }
 
@@ -1942,6 +1964,8 @@
         broadcastDisplay.innerText = data['broadcastTracker']['round_id'] ? `Round ${data['broadcastTracker']['round_id']}` : 'None';
         control1Display.innerText = `${data['controlsTracker']['1']['round_id']}-${data['controlsTracker']['1']['match_id']}`;
         control2Display.innerText = `${data['controlsTracker']['2']['round_id']}-${data['controlsTracker']['2']['match_id']}`;
+        control3Display.innerText = `${data['controlsTracker']['3']['round_id']}-${data['controlsTracker']['3']['match_id']}`;
+        control4Display.innerText = `${data['controlsTracker']['4']['round_id']}-${data['controlsTracker']['4']['match_id']}`;
     })
 
     // add click handlers for update global buttons

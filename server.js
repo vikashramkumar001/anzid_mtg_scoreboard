@@ -63,6 +63,14 @@ let controlsTracker = {
     '2': {
         'round_id': '1',
         'match_id': 'match2'
+    },
+    '3': {
+        'round_id': '1',
+        'match_id': 'match3'
+    },
+    '4': {
+        'round_id': '1',
+        'match_id': 'match4'
     }
 };
 
@@ -96,6 +104,16 @@ let timerState = Array.from({length: 16}, (_, round_id) => ({
             show: true
         },
         match2: {
+            time: INITIAL_TIME,
+            status: 'stopped',
+            show: true
+        },
+        match3: {
+            time: INITIAL_TIME,
+            status: 'stopped',
+            show: true
+        },
+        match4: {
             time: INITIAL_TIME,
             status: 'stopped',
             show: true
