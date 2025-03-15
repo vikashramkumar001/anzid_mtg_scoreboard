@@ -44,6 +44,10 @@
             margin-right: 2px;
         }
 
+        .font-40 {
+            font-size: 40px;
+        }
+
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -53,6 +57,8 @@
     <div class="col-12 d-flex flex-row justify-content-center">
         <div class="timer-container">
             <div id="timer">00:00</div>
+            <button class="timer-buttons font-40" id="timer-add">+</button>
+            <button class="timer-buttons font-40" id="timer-minus">-</button>
             <button class="timer-buttons" id="timer-start">▶</button>
             <button class="timer-buttons" id="timer-pause">⏸</button>
             <button class="timer-buttons" id="timer-reset">⭮</button>
@@ -95,7 +101,7 @@
 
     // handle getting all timer states
     socket.on('current-all-timer-states', ({timerState}) => {
-        console.log('got all timer states', timerState);
+        // console.log('got all timer states', timerState);
         const matchState = timerState[round_id][match_id];
         // console.log(matchState)
         if (matchState) {
@@ -119,10 +125,18 @@
     // Add event listeners for reset life buttons
     function attachMatchTimerButtonListeners() {
         const startButton = document.querySelector(`#timer-start`);
+        const addButton = document.querySelector(`#timer-add`);
+        const minusButton = document.querySelector(`#timer-minus`);
         const pauseButton = document.querySelector(`#timer-pause`);
         const resetButton = document.querySelector(`#timer-reset`);
         startButton.addEventListener('click', () => {
             updateTimerState(round_id, match_id, 'start');
+        });
+        addButton.addEventListener('click', () => {
+            updateTimerState(round_id, match_id, 'add');
+        });
+        minusButton.addEventListener('click', () => {
+            updateTimerState(round_id, match_id, 'minus');
         });
         pauseButton.addEventListener('click', () => {
             updateTimerState(round_id, match_id, 'pause');

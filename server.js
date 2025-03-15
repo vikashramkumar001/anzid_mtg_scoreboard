@@ -86,14 +86,15 @@ let globalMatchData = {
     'global-event-name': 'Event',
     'global-event-format': 'Format',
     'global-event-miscellaneous-details': null,
-    'global-event-base-life-points': '20'
+    'global-event-base-life-points': '20',
+    'global-event-base-timer': '50'
 }
 
 // Initialize the archetype list
 let archetypeList = [];
 
 // start time for all timers - 50 mins
-const INITIAL_TIME = 50 * 60 * 1000; // 50 minutes in milliseconds
+let INITIAL_TIME = 50 * 60 * 1000; // 50 minutes in milliseconds
 
 // create object to hold timer states for each match in each round
 let timerState = Array.from({length: 16}, (_, round_id) => ({
@@ -597,6 +598,21 @@ io.on('connection', (socket) => {
                 })
             })
         });
+        // initial base timer update
+        if ((parseInt(eventInformationData['global-event-base-timer']) * 60 * 1000) !== INITIAL_TIME) {
+            // update max / initial time
+            INITIAL_TIME = parseInt(eventInformationData['global-event-base-timer']) * 60 * 1000
+            // update match time for all that is not currently active
+            Object.keys(timerState).forEach((roundId) => {
+                Object.keys(timerState[roundId]).forEach((matchId) => {
+                    const match = timerState[roundId][matchId];
+                    if (match.status !== 'running') {
+                        match.time = INITIAL_TIME;
+                    }
+                });
+            });
+            // send update to all timers - this happens every minute in interval
+        }
         // emit control data update
         io.emit('control-data-updated', controlData);
     })
@@ -673,6 +689,21 @@ io.on('connection', (socket) => {
             case 'start':
                 if (match.status !== 'running') {
                     match.status = 'running';
+                }
+                break;
+            case 'add':
+                match.time += 60000; // simply add 1 minute to time
+                // if (match.time + 60000 <= INITIAL_TIME) {
+                //     match.time += 60000; // Add 1 minute (60000 ms)
+                // } else if (match.time + 60000 >= INITIAL_TIME) {
+                //     match.time = INITIAL_TIME; // sets at max / initial time when trying to go more than max / initial
+                // }
+                break;
+            case 'minus':
+                if (match.time - 60000 >= 0) {
+                    match.time -= 60000; // Subtract 1 minute (60000 ms)
+                } else if (match.time - 60000 <= 0) {
+                    match.time = 0; // set to min if trying to go less than 0
                 }
                 break;
             case 'pause':

@@ -142,6 +142,10 @@
             margin-right: 2px;
         }
 
+        .font-40 {
+            font-size: 40px;
+        }
+
     </style>
     <script src="/socket.io/socket.io.js"></script>
 </head>
@@ -393,6 +397,16 @@
                                                         id="global-event-base-life-points-current"></span>)
                                                 </label>
                                                 <div id="global-event-base-life-points" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">
+                                                    Base Timer (<span
+                                                        id="global-event-base-timer-current"></span>)
+                                                </label>
+                                                <div id="global-event-base-timer" class="editable form-control"
                                                      contenteditable="true"></div>
                                             </div>
                                         </div>
@@ -1125,12 +1139,15 @@
     const matchEventMiscDetails = document.querySelector(`#global-event-miscellaneous-details`);
     const matchEventBaseLifePoints = document.querySelector(`#global-event-base-life-points`);
     const matchEventBaseLifePointsCurrent = document.querySelector(`#global-event-base-life-points-current`);
+    const matchEventBaseTimer = document.querySelector(`#global-event-base-timer`);
+    const matchEventBaseTimerCurrent = document.querySelector(`#global-event-base-timer-current`);
     const cardViewViewCardButton = document.querySelector('#card-view-display-button');
     let allControlData = {};
     let allTimerStates = {};
     let allStandingsData = {};
     let bracketData = {};
     let baseLifePoints = '20';
+    let baseTimer = '50';
     let cardListData = [];
 
     // Handle the form submission via JavaScript (AJAX)
@@ -1249,6 +1266,8 @@
                                 <div class="col-12">
                                     <div class="timer-container">
                                         <div id="timer-${roundId}-${matchId}" class="timer-text">50:00</div>
+                                        <button id="timer-add-${roundId}-${matchId}" class="btn timer-button font-40" >+</button>
+                                        <button id="timer-minus-${roundId}-${matchId}" class="btn timer-button font-40" >-</button>
                                         <button id="timer-start-${roundId}-${matchId}" class="btn timer-button">▶</button>
                                         <button id="timer-pause-${roundId}-${matchId}" class="btn timer-button">⏸</button>
                                         <button id="timer-reset-${roundId}-${matchId}" class="btn timer-button">⭮</button>
@@ -2002,6 +2021,9 @@
         matchEventBaseLifePoints.innerText = data['globalData']['global-event-base-life-points'] ? data['globalData']['global-event-base-life-points'] : '20';
         matchEventBaseLifePointsCurrent.innerText = data['globalData']['global-event-base-life-points'] ? data['globalData']['global-event-base-life-points'] : '20';
         baseLifePoints = data['globalData']['global-event-base-life-points'] ? data['globalData']['global-event-base-life-points'] : '20';
+        matchEventBaseTimer.innerText = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
+        matchEventBaseTimerCurrent.innerText = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
+        baseTimer = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
     })
 
     // add click handlers for update event name and event format button
@@ -2011,7 +2033,8 @@
                 'global-event-name': matchEventName.innerText,
                 'global-event-format': matchEventFormat.innerText,
                 'global-event-miscellaneous-details': matchEventMiscDetails.innerText,
-                'global-event-base-life-points': matchEventBaseLifePoints.innerText
+                'global-event-base-life-points': matchEventBaseLifePoints.innerText,
+                'global-event-base-timer': matchEventBaseTimer.innerText
             }
             console.log(data2send)
             socket.emit('update-event-information-requested', {eventInformationData: data2send});
@@ -2061,12 +2084,22 @@
     // Add event listeners for reset life buttons
     function attachMatchTimerButtonListeners(round_id, match_id) {
         const startButton = document.querySelector(`#timer-start-${round_id}-${match_id}`);
+        const addButton = document.querySelector(`#timer-add-${round_id}-${match_id}`);
+        const minusButton = document.querySelector(`#timer-minus-${round_id}-${match_id}`);
         const pauseButton = document.querySelector(`#timer-pause-${round_id}-${match_id}`);
         const resetButton = document.querySelector(`#timer-reset-${round_id}-${match_id}`);
         const timerShowCheck = document.querySelector(`#timer-display-scoreboard-${round_id}-${match_id}`);
         startButton.addEventListener('click', () => {
             console.log('start clicked', round_id, match_id)
             updateTimerState(round_id, match_id, 'start');
+        });
+        addButton.addEventListener('click', () => {
+            console.log('add clicked', round_id, match_id)
+            updateTimerState(round_id, match_id, 'add');
+        });
+        minusButton.addEventListener('click', () => {
+            console.log('minus clicked', round_id, match_id)
+            updateTimerState(round_id, match_id, 'minus');
         });
         pauseButton.addEventListener('click', () => {
             console.log('pause clicked', round_id, match_id)
