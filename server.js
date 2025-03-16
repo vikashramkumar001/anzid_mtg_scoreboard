@@ -292,8 +292,8 @@ function processStandingsRawData(input) {
         };
     }
 
-    // Split the input into lines
-    const lines = input.split('\n');
+    // Split and remove all blank lines
+    const lines = input.split('\n').map(line => line.trim()).filter(line => line);
 
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i].trim();
