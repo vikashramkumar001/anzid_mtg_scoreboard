@@ -74,9 +74,16 @@ export function parseStandingsRawData(input) {
             const playerInfo = lines[++i].trim(); // The next line contains the player's name
             const archetype = lines[++i].trim(); // The next line contains the archetype
             const record = lines[++i].trim().split(/\s+/)[0]; // First space-delimited entry in the next line
-
-            // Parse the player name (take first two words and format as "First Last")
-            const [lastName, firstName] = playerInfo.replace(',', '').split(' ');
+            let firstName = '', lastName = '';
+            if (playerInfo.includes(',')) {
+                // "Last, First [optional extra]"
+                [lastName, firstName] = playerInfo.split(',').map(part => part.trim());
+                firstName = firstName.split(' ')[0]; // Only take the first word of firstName
+            } else {
+                // "First Last [optional extra]"
+                const parts = playerInfo.trim().split(' ');
+                [firstName, lastName] = parts;
+            }
             const name = `${firstName} ${lastName}`;
 
             ret[rank] = {
