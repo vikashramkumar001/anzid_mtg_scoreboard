@@ -1765,6 +1765,7 @@
 
     // Listen for updated archetype list from server
     socket.on('archetypeListUpdated', (archetypes) => {
+        console.log(archetypes)
         currentArchetypeList = archetypes; // Update the current archetype list
         renderArchetypeList(archetypes);
     });
@@ -2051,7 +2052,6 @@
 
     // handle getting all timer states
     socket.on('current-all-timer-states', ({timerState}) => {
-        // console.log('got all timer states', timerState);
         // save all timer states
         allTimerStates = timerState;
         // Iterate through all rounds and matches

@@ -515,11 +515,28 @@
     socket.on('update-match-global-data', (data) => {
         // let globalMatchData = {'global-commentator-one': null, 'global-commentator-one-subtext': null,...}
         console.log('got global event data from server', data);
-        // update the miscellaneous details in footer
-        if ('global-event-miscellaneous-details' in data['globalData']){
-            let miscDetailsElement = document.getElementById('miscellaneous-details');
-            miscDetailsElement.innerText = data['globalData']['global-event-miscellaneous-details'] ? data['globalData']['global-event-miscellaneous-details'] : '';
+
+        const globalData = data.globalData || {};
+
+        const miscText = globalData['global-event-miscellaneous-details'];
+        const eventFormatText = globalData['global-event-format'];
+        const eventNameText = globalData['global-event-name'];
+
+        const miscElement = document.getElementById('miscellaneous-details');
+        if (miscElement && miscText) {
+            miscElement.innerText = miscText;
         }
+
+        const eventFormatElement = document.getElementById('event-format');
+        if (eventFormatElement && eventFormatText) {
+            eventFormatElement.innerText = eventFormatText;
+        }
+
+        const eventNameElement = document.getElementById('event-name');
+        if (eventNameElement && eventNameText) {
+            eventNameElement.innerText = eventNameText;
+        }
+
     })
 
     // END HANDLE GLOBAL DATA
