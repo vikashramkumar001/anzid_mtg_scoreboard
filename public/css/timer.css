@@ -1,0 +1,36 @@
+* {
+    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+}
+
+html, body {
+    margin: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 100px;
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    z-index: 1000;
+}
+
+.timer-container #timer {
+    color: white;
+    font-size: 60px;
+    margin-right: 25px;
+}
+
+.timer-container .timer-buttons {
+    width: 60px;
+    height: 60px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.font-40 {
+    font-size: 40px;
+}

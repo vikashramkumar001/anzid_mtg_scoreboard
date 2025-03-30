@@ -1,0 +1,135 @@
+* {
+    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+}
+
+#successMessage {
+    color: green;
+    display: none; /* Initially hidden */
+}
+
+#currentHeaderImage {
+    width: 300px; /* Set the width for the current image display */
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+#uploadImagePreview {
+    display: none;
+}
+
+#imagePreview {
+    width: 300px; /* Set the width of the preview */
+    border: 1px solid #ddd;
+}
+
+#cancelButton {
+    display: none; /* Initially hidden */
+}
+
+#currentFooterImage {
+    width: 300px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+#uploadFooterImagePreview {
+    display: none;
+}
+
+#footerImagePreview {
+    width: 300px;
+    border: 1px solid #ddd;
+}
+
+#cancelFooterButton {
+    display: none;
+}
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.custom-dropdown input {
+    width: 100%;
+    padding: 5px;
+}
+
+.custom-dropdown .dropdown-list {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: white;
+    display: none;
+    z-index: 1000;
+}
+
+.custom-dropdown .dropdown-item {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+.archetype-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.archetype-image-preview {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.archetype-name {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.archetype-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.editable[contenteditable="false"] {
+    background-color: #e9ecef; /* Light gray background */
+    opacity: 0.7; /* Slight transparency */
+    cursor: not-allowed; /* Pointer change to indicate non-editable */
+}
+
+.editable[contenteditable="true"] {
+    background-color: #fff; /* White background when editable */
+    opacity: 1; /* Fully opaque */
+    cursor: text; /* Text cursor */
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-container .timer-text {
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.timer-container .timer-buttons {
+    width: 40px;
+    height: 40px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.font-40 {
+    font-size: 40px;
+}

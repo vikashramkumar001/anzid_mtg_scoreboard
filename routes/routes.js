@@ -16,55 +16,55 @@ const uploadArchetypeImage = multer({ storage: archetypeStorage });
 
 // Serve static HTML pages
 router.get('/control/:controlID/:delay', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/control.html'));
+  res.sendFile(path.join(__dirname, '../public/html/control.html'));
 });
 
 router.get('/scoreboard/:controlID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/scoreboard.html'));
+  res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
 });
 
 router.get('/master-control', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/master-control.html'));
+  res.sendFile(path.join(__dirname, '../public/html/master-control.html'));
 });
 
 router.get('/deck-display', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/deck-display.html'));
+  res.sendFile(path.join(__dirname, '../public/html/deck-display.html'));
 });
 
 router.get('/side-deck-display', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/side-deck-display.html'));
+  res.sendFile(path.join(__dirname, '../public/html/side-deck-display.html'));
 });
 
 router.get('/broadcast/round/details/:matchID/:detailKey', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/broadcast-round-details.html'));
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-details.html'));
 });
 
 router.get('/update/global/details/:detailKey', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/update-global-details.html'));
+  res.sendFile(path.join(__dirname, '../public/html/update-global-details.html'));
 });
 
 router.get('/broadcast/round/maindeck/:matchID/:sideID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/broadcast-round-main-deck.html'));
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-main-deck.html'));
 });
 
 router.get('/broadcast/round/sidedeck/:matchID/:sideID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/broadcast-round-side-deck.html'));
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-side-deck.html'));
 });
 
 router.get('/broadcast/round/standings/:rankID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/broadcast-round-standings.html'));
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings.html'));
 });
 
 router.get('/display/bracket/details/:bracketID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/bracket-individual-display.html'));
+  res.sendFile(path.join(__dirname, '../public/html/bracket-individual-display.html'));
 });
 
 router.get('/timer/:controlID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/timer.html'));
+  res.sendFile(path.join(__dirname, '../public/html/timer.html'));
 });
 
 router.get('/display/card/view', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/dedicated-card-view.html'));
+  res.sendFile(path.join(__dirname, '../public/html/dedicated-card-view.html'));
 });
 
 // Upload overlay header image
