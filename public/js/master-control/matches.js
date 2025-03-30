@@ -406,7 +406,7 @@ export function initMatches(socket) {
 
                 // create container for round actions
                 const roundActions = document.createElement('div');
-                roundActions.className = 'col-12 d-flex flex-row justify-content-center my-3';
+                roundActions.className = 'col-12 d-flex flex-row justify-content-center my-3 round-broadcast-container';
                 roundActions.innerHTML = `<button class="btn btn-primary broadcast-button" id="broadcast-${roundId}" data-round-id="${roundId}">Broadcast</button>`;
                 content.appendChild(roundActions);
 
