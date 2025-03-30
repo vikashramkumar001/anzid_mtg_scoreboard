@@ -1,6 +1,6 @@
 const socket = io();
 let bracketData = {};
-let win = false;
+let win = '0';
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
@@ -45,19 +45,19 @@ function renderDetails() {
         playerPoints.innerText = bracketData[points_key];
     }
     if (win_key in bracketData) {
-        win = bracketData[win_key] === '1';
+        win = bracketData[win_key];
     }
+    // default is no opacity
+    playerRank.style.color = 'rgba(0,0,0, 1)';
+    playerName.style.color = 'rgba(0,0,0, 1)';
+    playerArchetype.style.color = 'rgba(0,0,0, 1)';
+    playerPoints.style.color = 'rgba(0,0,0, 1)';
     // opacity on color if win is false
-    if (!win) {
+    if (win === '0') {
         playerRank.style.color = 'rgba(0,0,0, 0.5)';
         playerName.style.color = 'rgba(0,0,0, 0.5)';
         playerArchetype.style.color = 'rgba(0,0,0, 0.5)';
         playerPoints.style.color = 'rgba(0,0,0, 0.5)';
-    } else {
-        playerRank.style.color = 'rgba(0,0,0, 1)';
-        playerName.style.color = 'rgba(0,0,0, 1)';
-        playerArchetype.style.color = 'rgba(0,0,0, 1)';
-        playerPoints.style.color = 'rgba(0,0,0, 1)';
     }
     // change points background color based on number of points
     if (bracketData[points_key] === '2') {
