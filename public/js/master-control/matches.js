@@ -545,8 +545,29 @@ export function initMatches(socket) {
         })
     }
 
-    // attach global event information update button listener on start up
-    attachGlobalEventInformationUpdateListener();
+    // add input / keypress handlers for base timer global update
+    function attachGlobalBaseTimerInputListener() {
+        // Allow only number keys
+        matchEventBaseTimer.addEventListener('keydown', function (e) {
+            const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'];
+            if (!/[0-9]/.test(e.key) && !allowedKeys.includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+
+        // Sanitize pasted input
+        matchEventBaseTimer.addEventListener('paste', function (e) {
+            e.preventDefault();
+            const text = (e.clipboardData || window.clipboardData).getData('text');
+            const digitsOnly = text.replace(/\D/g, '');
+
+            const selection = window.getSelection();
+            if (!selection.rangeCount) return;
+            selection.deleteFromDocument();
+            selection.getRangeAt(0).insertNode(document.createTextNode(digitsOnly));
+        });
+    }
+
 
     // START TIMER FUNCTIONS
 
@@ -683,12 +704,14 @@ export function initMatches(socket) {
     // START UP
 
     // Initial setup when the page loads
-    document.addEventListener('DOMContentLoaded', () => {
-        // setup custom dropdowns
-        setupCustomDropdowns();
-        // attach on startup
-        attachGlobalCommentatorsListener();
-    });
+    // setup custom dropdowns
+    setupCustomDropdowns();
+    // attach on startup
+    attachGlobalCommentatorsListener();
+    // attach global event information update button listener on start up
+    attachGlobalEventInformationUpdateListener();
+    // attach global base timer input listener
+    attachGlobalBaseTimerInputListener();
 
     // setup sockets emitters
 
