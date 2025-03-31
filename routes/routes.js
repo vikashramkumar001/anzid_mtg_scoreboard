@@ -63,7 +63,7 @@ router.get('/timer/:controlID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/timer.html'));
 });
 
-router.get('/display/card/view', (req, res) => {
+router.get('/display/card/view/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/dedicated-card-view.html'));
 });
 

@@ -1,16 +1,22 @@
 const socket = io();
 let cardName = null;
 
+// Get match name from the URL
+const pathSegments = window.location.pathname.split('/');
+const card_id = pathSegments[4];
+
 // Listen for card view to display
 socket.on('card-view-card-selected', (data) => {
     // data : mainDeck, sideDeck, playerName, archetype
     console.log('card to view from server', data);
 
-    cardName = data['card-selected'];
-    console.log('card to display data', cardName);
-
-    // Call a function to render the card
-    renderCard();
+    // check that data was meant for this card id
+    if (card_id === data['card-id'].toString()) {
+        cardName = data['card-selected'];
+        console.log('card to display data', cardName);
+        // Call a function to render the card
+        renderCard();
+    }
 });
 
 // Function to render the card on the page

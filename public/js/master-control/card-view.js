@@ -1,6 +1,7 @@
 export function initCardView(socket) {
 
-    const cardViewViewCardButton = document.querySelector('#card-view-display-button');
+    const cardViewViewCard1Button = document.querySelector('#card-view-1-display-button');
+    const cardViewViewCard2Button = document.querySelector('#card-view-2-display-button');
     let cardListData = [];
 
     function renderDropdownListForCardView(dropdownList, cards, field) {
@@ -21,7 +22,7 @@ export function initCardView(socket) {
     }
 
     function setupCardViewCustomDropdown() {
-        const cardViewFields = document.querySelectorAll('[id="card-view-card-autocomplete"]');
+        const cardViewFields = document.querySelectorAll('[id^="card-view-card-autocomplete"]');
 
         cardViewFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
@@ -71,18 +72,32 @@ export function initCardView(socket) {
         });
     }
 
-    function attachCardViewViewCardClickListener() {
-        cardViewViewCardButton.addEventListener('click', () => {
-            const cardSelectInput = document.getElementById('card-view-card-autocomplete');
+    function attachCardViewViewCard1ClickListener() {
+        cardViewViewCard1Button.addEventListener('click', () => {
+            const cardSelectInput = document.getElementById('card-view-card-autocomplete-1');
             const data2send = {
-                'card-selected': cardSelectInput.innerText
+                'card-selected': cardSelectInput.innerText,
+                'card-id': 1
             }
             console.log(data2send)
             socket.emit('card-view-view-card', {cardSelected: data2send});
         })
     }
 
-    attachCardViewViewCardClickListener();
+    function attachCardViewViewCard2ClickListener() {
+        cardViewViewCard2Button.addEventListener('click', () => {
+            const cardSelectInput = document.getElementById('card-view-card-autocomplete-2');
+            const data2send = {
+                'card-selected': cardSelectInput.innerText,
+                'card-id': 2
+            }
+            console.log(data2send)
+            socket.emit('card-view-view-card', {cardSelected: data2send});
+        })
+    }
+
+    attachCardViewViewCard1ClickListener();
+    attachCardViewViewCard2ClickListener();
 
     // send request for card list data from server
     socket.emit('get-card-list-data');
