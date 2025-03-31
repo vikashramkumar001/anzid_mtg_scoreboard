@@ -6,6 +6,7 @@ export function initMatches(socket) {
     const control3Display = document.getElementById('control-3-round-match-display');
     const control4Display = document.getElementById('control-4-round-match-display');
     const updateEventInformation = document.querySelector(`#global-update-event-information.update-button`);
+    const updateEventInformationBaseTimer = document.querySelector(`#global-update-event-information-base-timer.update-button`);
     const updateCommentators = document.querySelector(`#global-update-commentators.update-button`);
     const commentator1 = document.querySelector(`#global-commentator-one`);
     const commentator1_subtext = document.querySelector(`#global-commentator-one-subtext`);
@@ -545,6 +546,17 @@ export function initMatches(socket) {
         })
     }
 
+    // add click handlers for update event base timer button
+    function attachGlobalBaseTimerUpdateListener() {
+        updateEventInformationBaseTimer.addEventListener('click', () => {
+            const data2send = {
+                'global-event-base-timer': matchEventBaseTimer.innerText
+            }
+            console.log(data2send)
+            socket.emit('update-event-information-base-timer-requested', {eventInformationData: data2send});
+        })
+    }
+
     // add input / keypress handlers for base timer global update
     function attachGlobalBaseTimerInputListener() {
         // Allow only number keys
@@ -712,6 +724,8 @@ export function initMatches(socket) {
     attachGlobalEventInformationUpdateListener();
     // attach global base timer input listener
     attachGlobalBaseTimerInputListener();
+    // attach global base timer update button lister
+    attachGlobalBaseTimerUpdateListener();
 
     // setup sockets emitters
 

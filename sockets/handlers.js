@@ -15,6 +15,7 @@ import {
 
 import {
     emitGlobalMatchData,
+    updateBaseTimerDefault,
     updateCommentators,
     updateEventInformation
 } from '../features/globalData.js';
@@ -133,6 +134,11 @@ export default function registerSocketHandlers(io) {
 
         socket.on('update-event-information-requested', ({eventInformationData}) => {
             updateEventInformation(eventInformationData, io, getTimerState());
+        });
+
+        // Global base timer
+        socket.on('update-event-information-base-timer-requested', ({eventInformationData}) => {
+            updateBaseTimerDefault(eventInformationData, getTimerState());
         });
 
         // Card viewer

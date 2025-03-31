@@ -36,6 +36,25 @@ export function updateCommentators(commentatorData, io) {
     emitGlobalMatchData(io);
 }
 
+export function updateBaseTimerDefault(eventInfo, timerState) {
+    // Update DEFAULT_INITIAL_TIME if base timer changed
+    const baseMinutes = parseInt(eventInfo['global-event-base-timer']);
+    if (!isNaN(baseMinutes) && baseMinutes * 60 * 1000 !== DEFAULT_INITIAL_TIME) {
+
+        const newInitialTime = baseMinutes * 60 * 1000;
+        setInitialTime(newInitialTime);
+
+        // Update non-running timers with new DEFAULT_INITIAL_TIME
+        Object.entries(timerState).forEach(([round_id, roundMatches]) => {
+            Object.entries(roundMatches).forEach(([match_id, timer]) => {
+                if (timer.status !== 'running') {
+                    timer.time = newInitialTime;
+                }
+            });
+        });
+    }
+}
+
 // Update event info (event name, format, base timer), sync with control data
 export async function updateEventInformation(eventInfo, io, timerState) {
     // Update global object
@@ -71,21 +90,7 @@ export async function updateEventInformation(eventInfo, io, timerState) {
     });
 
     // Update DEFAULT_INITIAL_TIME if base timer changed
-    const baseMinutes = parseInt(eventInfo['global-event-base-timer']);
-    if (!isNaN(baseMinutes) && baseMinutes * 60 * 1000 !== DEFAULT_INITIAL_TIME) {
-
-        const newInitialTime = baseMinutes * 60 * 1000;
-        setInitialTime(newInitialTime);
-
-        // Update non-running timers with new DEFAULT_INITIAL_TIME
-        Object.entries(timerState).forEach(([round_id, roundMatches]) => {
-            Object.entries(roundMatches).forEach(([match_id, timer]) => {
-                if (timer.status !== 'running') {
-                    timer.time = newInitialTime;
-                }
-            });
-        });
-    }
+    updateBaseTimerDefault(eventInfo, timerState);
 
     await saveControlData();
     emitControlData(io);

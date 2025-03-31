@@ -143,3 +143,11 @@
     z-index: 1;
     border: 1px solid;
 }
+
+.small-button {
+    font-size: 10px;
+    text-transform: lowercase;
+    background-color: transparent;
+    color: black;
+    width: 50px;
+}
