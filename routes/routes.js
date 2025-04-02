@@ -92,4 +92,14 @@ router.post('/upload-footer-overlay', uploadOverlay.single('overlay_footer'), (r
 // Upload archetype image
 router.post('/upload-archetype-image', uploadArchetypeImage.single('image'), handleArchetypeUpload);
 
+// Vibes master control
+router.get('/vibes-master-control', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/vibes/master-control.html'));
+});
+
+// vibes - dedicated car view
+router.get('/vibes/display/card/view', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/vibes/dedicated-card-view.html'));
+});
+
 export default router;

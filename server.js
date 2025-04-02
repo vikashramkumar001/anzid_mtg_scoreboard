@@ -15,6 +15,8 @@ import { loadCardListData } from './features/cards.js';
 import { loadArchetypeList } from './features/archetypes.js';
 import { startTimerBroadcast } from './features/timers.js';
 
+import {loadCardListData as vibesLoadCardListData} from './features/vibes/cards.js'
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -49,6 +51,7 @@ async function initialize() {
   await loadStandingsData();
   await loadCardListData();
   await loadArchetypeList();
+  await vibesLoadCardListData();
 
   server.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);

@@ -4,6 +4,11 @@ import {
 } from '../features/cards.js';
 
 import {
+    emitCardList as vibesEmitCardList,
+    emitCardView as vibesEmitCardView
+} from '../features/vibes/cards.js';
+
+import {
     updateMatchState,
     emitSavedStateForControl,
     updateControlMapping,
@@ -148,6 +153,15 @@ export default function registerSocketHandlers(io) {
 
         socket.on('card-view-view-card', ({cardSelected}) => {
             emitCardView(io, cardSelected);
+        });
+
+        // Vibes - Card viewer
+        socket.on('vibes-get-card-list-data', () => {
+            vibesEmitCardList(io);
+        });
+
+        socket.on('vibes-card-view-view-card', ({cardSelected}) => {
+            vibesEmitCardView(io, cardSelected);
         });
 
         // Standings
