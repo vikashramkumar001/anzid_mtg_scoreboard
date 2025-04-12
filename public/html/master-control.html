@@ -54,8 +54,7 @@
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="card-view-tab" data-bs-toggle="tab" data-bs-target="#card-view-control"
-                    type="button"
-                    role="tab" aria-controls="card-view" aria-selected="false">
+                    type="button" role="tab" aria-controls="card-view" aria-selected="false">
                 Card View
             </button>
         </li>
@@ -1017,58 +1016,159 @@
 
         <!-- Card View Tab Content -->
         <div class="tab-pane fade" id="card-view-control" role="tabpanel" aria-labelledby="card-view-tab">
-            <div class="row my-3">
-                <div class="col-6 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row my-3">
-                                <div class="col-12">
-                                    <h5>Card View 1</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="mb-3">
-                                        <label class="form-label">Card Select</label>
-                                        <div id="card-view-card-autocomplete-1" class="editable form-control"
-                                             contenteditable="true"></div>
+
+            <!-- Card View Tabs Navigation -->
+            <ul class="nav nav-tabs my-3" id="myCardViewTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="mtg-card-view-tab" data-bs-toggle="tab"
+                            data-bs-target="#mtg-card-view" type="button" role="tab" aria-controls="mtg"
+                            aria-selected="true">
+                        MTG
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="vibes-card-view-tab" data-bs-toggle="tab"
+                            data-bs-target="#vibes-card-view" type="button" role="tab" aria-controls="vibes"
+                            aria-selected="false">
+                        Vibes
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Card View Tabs Content -->
+            <div class="tab-content" id="myCardViewTabContent">
+
+                <!-- MTG Card View Tab Content -->
+                <div class="tab-pane fade active show" id="mtg-card-view" role="tabpanel"
+                     aria-labelledby="mtg-card-view-tab">
+                    <div class="row my-3">
+                        <div class="col-12 my-3">
+                            <h1>MTG Card View</h1>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row my-3">
+                                        <div class="col-12">
+                                            <h5>Card View 1</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Card Select</label>
+                                                <div id="card-view-mtg-input-autocomplete-1" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
+                                            <button class="btn btn-primary update-button"
+                                                    id="card-view-mtg-display-button-1">
+                                                View Card
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
-                                    <button class="btn btn-primary update-button" id="card-view-1-display-button">
-                                        View Card
-                                    </button>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row my-3">
+                                        <div class="col-12">
+                                            <h5>Card View 2</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Card Select</label>
+                                                <div id="card-view-mtg-input-autocomplete-2" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
+                                            <button class="btn btn-primary update-button"
+                                                    id="card-view-mtg-display-button-2">
+                                                View Card
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row my-3">
-                                <div class="col-12">
-                                    <h5>Card View 2</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="mb-3">
-                                        <label class="form-label">Card Select</label>
-                                        <div id="card-view-card-autocomplete-2" class="editable form-control"
-                                             contenteditable="true"></div>
+
+                <!-- Vibes Card View Tab Content -->
+                <div class="tab-pane fade" id="vibes-card-view" role="tabpanel" aria-labelledby="vibes-card-view-tab">
+                    <div class="row my-3">
+                        <div class="col-12 my-3">
+                            <h1>Vibes Card View</h1>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row my-3">
+                                        <div class="col-12">
+                                            <h5>Card View 1</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Card Select</label>
+                                                <div id="card-view-vibes-input-autocomplete-1" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
+                                            <button class="btn btn-primary update-button"
+                                                    id="card-view-vibes-display-button-1">
+                                                View Card
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <div id="card-preview-vibes-1" class="my-3"></div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
-                                    <button class="btn btn-primary update-button" id="card-view-2-display-button">
-                                        View Card
-                                    </button>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row my-3">
+                                        <div class="col-12">
+                                            <h5>Card View</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Card Select</label>
+                                                <div id="card-view-vibes-input-autocomplete-2" class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
+                                            <button class="btn btn-primary update-button"
+                                                    id="card-view-vibes-display-button-2">
+                                                View Card
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <div id="card-preview-vibes-2" class="my-3"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>

@@ -26,12 +26,12 @@ export function getCardListData() {
 }
 
 // Emit full card list to clients
-export function emitCardList(io) {
+export function emitVibesCardList(io) {
     io.emit('vibes-card-list-data', {cardListData});
 }
 
 // Emit selected card for viewing
-export function emitCardView(io, cardSelected) {
+export function emitVibesCardView(io, cardSelected) {
     // check if card selected is in the list
     const cardName = Object.keys(cardListData).find(
         name => name.toLowerCase() === cardSelected['card-selected'].toLowerCase()

@@ -1,11 +1,11 @@
 import {
-    emitCardList,
+    emitMTGCardList,
     emitCardView
 } from '../features/cards.js';
 
 import {
-    emitCardList as vibesEmitCardList,
-    emitCardView as vibesEmitCardView
+    emitVibesCardList,
+    emitVibesCardView
 } from '../features/vibes/cards.js';
 
 import {
@@ -15,7 +15,8 @@ import {
     emitControlTrackers,
     updateFromMaster,
     emitControlData,
-    getControlData, updateBroadcastTracker
+    getControlData,
+    updateBroadcastTracker
 } from '../features/control.js';
 
 import {
@@ -147,21 +148,21 @@ export default function registerSocketHandlers(io) {
         });
 
         // Card viewer
-        socket.on('get-card-list-data', () => {
-            emitCardList(io);
+        socket.on('mtg-get-card-list-data', () => {
+            emitMTGCardList(io);
         });
 
-        socket.on('card-view-view-card', ({cardSelected}) => {
+        socket.on('view-selected-card', ({cardSelected}) => {
             emitCardView(io, cardSelected);
         });
 
         // Vibes - Card viewer
         socket.on('vibes-get-card-list-data', () => {
-            vibesEmitCardList(io);
+            emitVibesCardList(io);
         });
 
         socket.on('vibes-card-view-view-card', ({cardSelected}) => {
-            vibesEmitCardView(io, cardSelected);
+            emitVibesCardView(io, cardSelected);
         });
 
         // Standings

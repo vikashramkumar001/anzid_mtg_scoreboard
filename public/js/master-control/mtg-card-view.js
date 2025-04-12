@@ -1,7 +1,7 @@
-export function initCardView(socket) {
+export function initMTGCardView(socket) {
 
-    const cardViewViewCard1Button = document.querySelector('#card-view-1-display-button');
-    const cardViewViewCard2Button = document.querySelector('#card-view-2-display-button');
+    const cardViewViewCard1Button = document.querySelector('#mtg-card-view #card-view-mtg-display-button-1');
+    const cardViewViewCard2Button = document.querySelector('#mtg-card-view #card-view-mtg-display-button-2');
     let cardListData = [];
 
     function renderDropdownListForCardView(dropdownList, cards, field) {
@@ -22,7 +22,7 @@ export function initCardView(socket) {
     }
 
     function setupCardViewCustomDropdown() {
-        const cardViewFields = document.querySelectorAll('[id^="card-view-card-autocomplete"]');
+        const cardViewFields = document.querySelectorAll('#mtg-card-view [id^="card-view-mtg-input-autocomplete-"]');
 
         cardViewFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
@@ -74,25 +74,27 @@ export function initCardView(socket) {
 
     function attachCardViewViewCard1ClickListener() {
         cardViewViewCard1Button.addEventListener('click', () => {
-            const cardSelectInput = document.getElementById('card-view-card-autocomplete-1');
+            const cardSelectInput = document.querySelector('#mtg-card-view #card-view-mtg-input-autocomplete-1');
             const data2send = {
                 'card-selected': cardSelectInput.innerText,
-                'card-id': 1
+                'card-id': 1,
+                'game-id': 'mtg'
             }
             console.log(data2send)
-            socket.emit('card-view-view-card', {cardSelected: data2send});
+            socket.emit('view-selected-card', {cardSelected: data2send});
         })
     }
 
     function attachCardViewViewCard2ClickListener() {
         cardViewViewCard2Button.addEventListener('click', () => {
-            const cardSelectInput = document.getElementById('card-view-card-autocomplete-2');
+            const cardSelectInput = document.querySelector('#mtg-card-view #card-view-mtg-input-autocomplete-2');
             const data2send = {
                 'card-selected': cardSelectInput.innerText,
-                'card-id': 2
+                'card-id': 2,
+                'game-id': 'mtg'
             }
             console.log(data2send)
-            socket.emit('card-view-view-card', {cardSelected: data2send});
+            socket.emit('view-selected-card', {cardSelected: data2send});
         })
     }
 
@@ -100,10 +102,10 @@ export function initCardView(socket) {
     attachCardViewViewCard2ClickListener();
 
     // send request for card list data from server
-    socket.emit('get-card-list-data');
+    socket.emit('mtg-get-card-list-data');
 
     // handle receiving card list data from server
-    socket.on('card-list-data', ({cardListData: cardListDataFromServer}) => {
+    socket.on('mtg-card-list-data', ({cardListData: cardListDataFromServer}) => {
         // console.log('got card list data from server', cardListDataFromServer);
         // save card list data
         cardListData = cardListDataFromServer;
