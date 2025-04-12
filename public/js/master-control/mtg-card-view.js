@@ -38,6 +38,15 @@ export function initMTGCardView(socket) {
             dropdownList.className = 'dropdown-list';
             wrapper.appendChild(dropdownList);
 
+            function whichToRender(field, match) {
+                if (field.id === 'card-view-mtg-input-autocomplete-1') {
+                    renderCardPreview1(match);
+                }
+                if (field.id === 'card-view-mtg-input-autocomplete-2') {
+                    renderCardPreview2(match);
+                }
+            }
+
             field.addEventListener('input', function () {
                 const value = this.textContent.trim().toLowerCase();
 
@@ -46,8 +55,18 @@ export function initMTGCardView(socket) {
                     const filteredCardsList = cardListData.filter(card => card.toLowerCase().includes(value))
                         .slice(0, 5); // Limit to top 5 results
                     renderDropdownListForCardView(dropdownList, filteredCardsList, field);
+                    // Check for exact match and show preview
+                    const exactMatch = cardListData.find(cardName => cardName.toLowerCase() === value.toLowerCase());
+                    if (exactMatch) {
+                        whichToRender(field, exactMatch);
+                    } else {
+                        // Clear if no match
+                        whichToRender(field, '');
+                    }
                 } else {
                     dropdownList.style.display = 'none'; // Hide dropdown if less than 2 characters
+                    // Clear preview
+                    whichToRender(field, '');
                 }
             });
 
@@ -59,8 +78,18 @@ export function initMTGCardView(socket) {
                     const filteredCardsList = cardListData.filter(card => card.toLowerCase().includes(value))
                         .slice(0, 5); // Limit to top 5 results
                     renderDropdownListForCardView(dropdownList, filteredCardsList, field);
+                    // Check for exact match and show preview
+                    const exactMatch = cardListData.find(cardName => cardName.toLowerCase() === value.toLowerCase());
+                    if (exactMatch) {
+                        whichToRender(field, exactMatch);
+                    } else {
+                        // Clear if no match
+                        whichToRender(field, '');
+                    }
                 } else {
                     dropdownList.style.display = 'none'; // Hide dropdown if less than 2 characters
+                    // Clear if no match
+                    whichToRender(field, '');
                 }
             });
 
@@ -70,6 +99,49 @@ export function initMTGCardView(socket) {
                 }
             });
         });
+    }
+
+    function getURLFromCardName(cardName) {
+        // Replace spaces with '+' and '&' with 'and'
+        const cardNameForURL = cardName.replace(/ /g, '+').replace(/&/g, '');
+        // Set the card URL
+        return `https://api.scryfall.com/cards/named?exact=${cardNameForURL}&format=image`;
+    }
+
+    function renderCardPreview1(cardName) {
+        const previewEl = document.getElementById('card-preview-mtg-1');
+        const url = getURLFromCardName(cardName);
+
+        if (cardName) {
+            previewEl.innerHTML = `
+            <div class="card mt-2">
+                <img src="${url}" alt="${cardName}" class="card-img-top mt-2" style="max-height:300px; object-fit:contain;">
+                <div class="card-body text-center">
+                    <strong>${cardName}</strong>
+                </div>
+            </div>
+        `;
+        } else {
+            previewEl.innerHTML = '';
+        }
+    }
+
+    function renderCardPreview2(cardName) {
+        const previewEl = document.getElementById('card-preview-mtg-2');
+        const url = getURLFromCardName(cardName);
+
+        if (cardName) {
+            previewEl.innerHTML = `
+            <div class="card mt-2">
+                <img src="${url}" alt="${cardName}" class="card-img-top mt-2" style="max-height:300px; object-fit:contain;">
+                <div class="card-body text-center">
+                    <strong>${cardName}</strong>
+                </div>
+            </div>
+        `;
+        } else {
+            previewEl.innerHTML = '';
+        }
     }
 
     function attachCardViewViewCard1ClickListener() {

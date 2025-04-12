@@ -196,7 +196,7 @@ export function initCardView(socket) {
 
     // handle receiving card list data from server
     socket.on('vibes-card-list-data', ({cardListData: cardListDataFromServer}) => {
-        console.log('got card list data from server', cardListDataFromServer);
+        // console.log('got card list data from server', cardListDataFromServer);
         // save card list data
         cardListData = cardListDataFromServer;
         // setup dropdown and autocomplete for card view section
