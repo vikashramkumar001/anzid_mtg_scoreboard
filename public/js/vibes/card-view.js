@@ -17,16 +17,6 @@ export function initCardView(socket) {
                 field.dispatchEvent(new Event('change')); // Trigger change event
             });
             dropdownList.appendChild(div);
-
-            // add event listener for preview
-            div.addEventListener('click', function () {
-                field.textContent = card;
-                dropdownList.style.display = 'none';
-                renderCardPreview(card); // <-- ADD THIS LINE
-                field.dispatchEvent(new Event('input'));
-                field.dispatchEvent(new Event('change'));
-            });
-
         });
         dropdownList.style.display = cards.length > 0 ? 'block' : 'none';
     }
