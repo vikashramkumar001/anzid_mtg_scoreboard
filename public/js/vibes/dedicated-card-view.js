@@ -3,12 +3,18 @@ let cardName = null;
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
+const card_id = pathSegments[5];
 
 // Listen for card view to display
 socket.on('vibes-card-view-card-selected', (data) => {
     // data : mainDeck, sideDeck, playerName, archetype
     console.log('card to view from server', data);
-    if (data) {
+
+    // check that data was meant for this card id
+    if (card_id === data['card-id'].toString()) {
+        cardName = data['name'];
+        console.log('card to display data', cardName);
+        // Call a function to render the card
         renderCard(data);
     }
 });

@@ -1,6 +1,7 @@
 export function initCardView(socket) {
 
-    const cardViewViewCardButton = document.querySelector('#card-view-view-card-button');
+    const cardViewViewCardButton1 = document.querySelector('#card-view-view-card-button-1');
+    const cardViewViewCardButton2 = document.querySelector('#card-view-view-card-button-2');
     let cardListData = [];
 
     function renderDropdownListForCardView(dropdownList, cards, field) {
@@ -61,13 +62,30 @@ export function initCardView(socket) {
                     // Check for exact match and show preview
                     const exactMatch = Object.keys(cardListData).find(cardName => cardName.toLowerCase() === value.toLowerCase());
                     if (exactMatch) {
-                        renderCardPreview(exactMatch);
+                        if (field.id === 'card-view-input-autocomplete-1') {
+                            renderCardPreview1(exactMatch);
+                        }
+                        if (field.id === 'card-view-input-autocomplete-2') {
+                            renderCardPreview2(exactMatch);
+                        }
                     } else {
-                        renderCardPreview(''); // Clear if no match
+                        // Clear if no match
+                        if (field.id === 'card-view-input-autocomplete-1') {
+                            renderCardPreview1('');
+                        }
+                        if (field.id === 'card-view-input-autocomplete-2') {
+                            renderCardPreview2('');
+                        }
                     }
-
                 } else {
                     dropdownList.style.display = 'none';
+                    // Clear preview
+                    if (field.id === 'card-view-input-autocomplete-1') {
+                        renderCardPreview1('');
+                    }
+                    if (field.id === 'card-view-input-autocomplete-2') {
+                        renderCardPreview2('');
+                    }
                 }
             });
 
@@ -85,13 +103,30 @@ export function initCardView(socket) {
                     // Check for exact match and show preview
                     const exactMatch = Object.keys(cardListData).find(cardName => cardName.toLowerCase() === value.toLowerCase());
                     if (exactMatch) {
-                        renderCardPreview(exactMatch);
+                        if (field.id === 'card-view-input-autocomplete-1') {
+                            renderCardPreview1(exactMatch);
+                        }
+                        if (field.id === 'card-view-input-autocomplete-2') {
+                            renderCardPreview2(exactMatch);
+                        }
                     } else {
-                        renderCardPreview(''); // Clear if no match
+                        // Clear if no match
+                        if (field.id === 'card-view-input-autocomplete-1') {
+                            renderCardPreview1('');
+                        }
+                        if (field.id === 'card-view-input-autocomplete-2') {
+                            renderCardPreview2('');
+                        }
                     }
                 } else {
                     dropdownList.style.display = 'none';
-                    renderCardPreview('');
+                    // Clear preview
+                    if (field.id === 'card-view-input-autocomplete-1') {
+                        renderCardPreview1('');
+                    }
+                    if (field.id === 'card-view-input-autocomplete-2') {
+                        renderCardPreview2('');
+                    }
                 }
             });
 
@@ -103,8 +138,8 @@ export function initCardView(socket) {
         });
     }
 
-    function renderCardPreview(cardName) {
-        const previewEl = document.getElementById('card-preview');
+    function renderCardPreview1(cardName) {
+        const previewEl = document.getElementById('card-preview-1');
         const url = cardListData[cardName];
 
         if (url) {
@@ -121,18 +156,50 @@ export function initCardView(socket) {
         }
     }
 
-    function attachViewCardClickListener() {
-        cardViewViewCardButton.addEventListener('click', () => {
-            const cardSelectInput = document.getElementById('card-view-input-autocomplete');
+    function renderCardPreview2(cardName) {
+        const previewEl = document.getElementById('card-preview-2');
+        const url = cardListData[cardName];
+
+        if (url) {
+            previewEl.innerHTML = `
+            <div class="card mt-2">
+                <img src="${url}" alt="${cardName}" class="card-img-top" style="max-height:300px; object-fit:contain;">
+                <div class="card-body text-center">
+                    <strong>${cardName}</strong>
+                </div>
+            </div>
+        `;
+        } else {
+            previewEl.innerHTML = '';
+        }
+    }
+
+    function attachViewCard1ClickListener() {
+        cardViewViewCardButton1.addEventListener('click', () => {
+            const cardSelectInput = document.getElementById('card-view-input-autocomplete-1');
             const data2send = {
-                'card-selected': cardSelectInput.innerText
+                'card-selected': cardSelectInput.innerText,
+                'card-id': 1
             }
             console.log(data2send)
             socket.emit('vibes-card-view-view-card', {cardSelected: data2send});
         })
     }
 
-    attachViewCardClickListener();
+    function attachViewCard2ClickListener() {
+        cardViewViewCardButton2.addEventListener('click', () => {
+            const cardSelectInput = document.getElementById('card-view-input-autocomplete-2');
+            const data2send = {
+                'card-selected': cardSelectInput.innerText,
+                'card-id': 2
+            }
+            console.log(data2send)
+            socket.emit('vibes-card-view-view-card', {cardSelected: data2send});
+        })
+    }
+
+    attachViewCard1ClickListener();
+    attachViewCard2ClickListener();
 
     // send request for card list data from server
     socket.emit('vibes-get-card-list-data');

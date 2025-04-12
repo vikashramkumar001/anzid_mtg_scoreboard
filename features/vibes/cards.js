@@ -39,7 +39,8 @@ export function emitCardView(io, cardSelected) {
     if (cardName) {
         const foundCard = {
             name: cardName,
-            url: cardListData[cardName]
+            url: cardListData[cardName],
+            'card-id': cardSelected['card-id']
         }
         io.emit('vibes-card-view-card-selected', foundCard);
     }

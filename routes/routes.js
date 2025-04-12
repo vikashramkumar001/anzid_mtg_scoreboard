@@ -98,7 +98,7 @@ router.get('/vibes-master-control', (req, res) => {
 });
 
 // vibes - dedicated car view
-router.get('/vibes/display/card/view', (req, res) => {
+router.get('/vibes/display/card/view/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/vibes/dedicated-card-view.html'));
 });
 
