@@ -9,7 +9,7 @@ import {
 } from '../features/vibes/cards.js';
 
 import {
-    updateMatchState,
+    updateFromControl,
     emitSavedStateForControl,
     updateControlMapping,
     emitControlTrackers,
@@ -67,15 +67,16 @@ export default function registerSocketHandlers(io) {
         // emit full control data
         emitControlData(io);
 
-        // Scoreboard: match state updates
-        socket.on('updateScoreboard', ({round_id, match_id, current_state}) => {
-            updateMatchState(round_id, match_id, current_state, io);
+        // Scoreboard: match state updates - comes from control - use to update master-control / scoreboard
+        socket.on('control-data-updated', ({round_id, match_id, current_state}) => {
+            updateFromControl(round_id, match_id, current_state, io);
         });
 
         socket.on('getSavedControlState', ({control_id}) => {
             emitSavedStateForControl(control_id, io);
         });
 
+        // comes from master control - use to update control / scoreboard
         socket.on('master-control-matches-updated', (allControlData) => {
             updateFromMaster(allControlData, io);
         });

@@ -44,7 +44,7 @@ function sendData() {
     });
     console.log('emitting updated content', match_id, current_state);
     // send data to server
-    socket.emit('updateScoreboard', {round_id, match_id, current_state});
+    socket.emit('control-data-updated', {round_id, match_id, current_state});
 }
 
 function armTimeout() {

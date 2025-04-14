@@ -57,20 +57,20 @@ export function updateBroadcastTracker(round_id) {
   broadcastTracker.round_id = round_id;
 }
 
-// Emit control data update
+// Emit control data update - master-control listening to update matches
 export function emitControlData(io) {
   io.emit('control-data-updated', controlData);
 }
 
-// Update scoreboard state
-export async function updateMatchState(round_id, match_id, newState, io) {
+// Update server with control data from control - goes to scoreboard / master-control
+export async function updateFromControl(round_id, match_id, newState, io) {
   if (!controlData[round_id]) controlData[round_id] = {};
   controlData[round_id][match_id] = newState;
   await saveControlData();
 
   Object.entries(controlsTracker).forEach(([control_id, control]) => {
     if (control.round_id === round_id && control.match_id === match_id) {
-      io.emit(`control-${control_id}-saved-state`, {
+      io.emit(`scoreboard-${control_id}-saved-state`, {
         data: controlData[round_id][match_id],
         round_id,
         match_id,
@@ -78,7 +78,7 @@ export async function updateMatchState(round_id, match_id, newState, io) {
       });
     }
   });
-
+  // send update to master-control
   emitControlData(io);
 }
 
@@ -117,7 +117,7 @@ export function emitControlTrackers(io) {
   });
 }
 
-// Emit a full update from master control
+// Emit a full update from master control - goes to control / scoreboard
 export async function updateFromMaster(allControlData, io) {
   controlData = allControlData;
   await saveControlData();
@@ -127,6 +127,12 @@ export async function updateFromMaster(allControlData, io) {
       Object.entries(controlsTracker).forEach(([control_id, ctrl]) => {
         if (ctrl.round_id === round_id && ctrl.match_id === match_id) {
           io.emit(`control-${control_id}-saved-state`, {
+            data: matchData,
+            round_id,
+            match_id,
+            archetypeList: getSortedArchetypes()
+          });
+          io.emit(`scoreboard-${control_id}-saved-state`, {
             data: matchData,
             round_id,
             match_id,

@@ -109,7 +109,7 @@ console.log('from url - control id', control_id);
 retrieveState();
 
 // listen for updates from server
-socket.on('control-' + control_id + '-saved-state', (data) => {
+socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
     // {data: {}, round_id: '', match_id: '', archetypeList: []}
     console.log('got saved state from server', data);
     archetypeList = data['archetypeList'];
