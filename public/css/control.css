@@ -1,0 +1,251 @@
+* {
+    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    min-height: 375px;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    min-height: 375px;
+    display: flex;
+    flex-direction: column;
+}
+
+.life-totals {
+    flex-grow: 1;
+}
+
+.player, .event, .life-totals, .life-total-left, .life-total-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.life-totals, .life-total-left, .life-total-right {
+    flex-grow: 1;
+    font-size: 150px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.player-name, .player-archetype, .player-record, .player-wins, .player-poison {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-left, .life-total-left {
+    background-color: #ff4779;
+}
+
+.player-right, .life-total-right {
+    background-color: #ff7b4c;
+}
+
+.player-left {
+    transform: rotate(180deg);
+}
+
+.life-total-minus, .life-total-plus {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: #ccc;
+}
+
+.life-total-minus:active, .life-total-plus:active {
+    background-color: white;
+}
+
+
+.life-total-minus {
+    background: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.life-total-plus {
+    background: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+.player-header {
+    font-size: 10px;
+}
+
+.player-arrow {
+    font-size: 60px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-value {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.life-total-right {
+    flex-direction: column-reverse;
+}
+
+.player-right {
+    flex-direction: row;
+}
+
+.player-right .player-name-header {
+    justify-content: flex-end;
+}
+
+.player {
+    height: 60px;
+}
+
+.player * {
+    text-transform: uppercase;
+}
+
+.life-total-overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    pointer-events: none;
+    height: 90%;
+}
+
+.life-total-overlay-element {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    transform: rotate(180deg);
+    pointer-events: none;
+}
+
+.life-total-overlay-right {
+    transform: rotate(0deg);
+}
+
+.player-archetype-value {
+    opacity: 0;
+}
+
+.player-archetype-value:focus {
+    opacity: 100;
+}
+
+body {
+    background: transparent !important;
+}
+
+.custom-dropdown {
+    position: relative;
+    min-width: 150px; /* Ensure the dropdown container is at least 150px wide */
+    display: inline-block; /* Allow the container to grow with content */
+}
+
+.custom-dropdown [id$="player-archetype-left"],
+.custom-dropdown [id$="player-archetype-right"] {
+    min-width: 150px; /* Ensure the input field is at least 150px wide */
+    width: 100%; /* Make the input field fill the dropdown container */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+.custom-dropdown .dropdown-list {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: white;
+    display: none;
+    z-index: 1000;
+    bottom: 100%; /* Position the dropdown above the input */
+    left: 0;
+    margin-bottom: 5px; /* Add some space between the input and the dropdown */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
+}
+
+.custom-dropdown .dropdown-item {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* player poison overwrites */
+.player-poison {
+    display: flex;
+    flex-direction: row;
+}
+
+.player-poison .player-poison-control {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
+
+.player-poison .player-poison-control .btn {
+    width: 70px;
+    font-size: 40px;
+    border: none;
+}
+
+.player-poison .player-poison-control .btn.plus {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.player-poison .player-poison-control .btn.minus {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: calc(50vh - 86px);
+    width: 1343px;
+    height: 150px;
+    transform: rotate(270deg);
+    left: -597px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.timer-container #timer {
+    color: white;
+    font-size: 100px;
+    margin-right: 30px;
+}
+
+.timer-container .timer-buttons {
+    width: 80px;
+    height: 80px;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 40px;
+}
+
+.font-30 {
+    font-size: 30px;
+    line-height: 40px;
+}

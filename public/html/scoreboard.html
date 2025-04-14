@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Scoreboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="/css/scoreboard.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="header">
+    <div class="background-left">
+    </div>
+    <div class="background-right">
+    </div>
+    <div id="poison-left" class="poison poison-left">
+        <div id="player-poison-left" class="player-poison-left"></div>
+    </div>
+    <div id="poison-right" class="poison poison-right">
+        <div id="player-poison-right" class="player-poison-right"></div>
+    </div>
+    <div class="background">
+        <div class="scorebug">
+            <div class="scorebug-life scorebug-left-life">
+                <div id="player-life-left" class="scorebug-life-score scorebug-left-life-score">-</div>
+                <div id="player-wins-leftw" class="scorebug-life-wins scorebug-left-life-wins">
+                    <div id="scorebug-left-life-wins-1" class="scorebug-life-wins-dot"></div>
+                    <div id="scorebug-left-life-wins-2" class="scorebug-life-wins-dot"></div>
+                </div>
+            </div>
+            <div class="scorebug-name scorebug-left-name">
+                <div id="player-name-left" class="scorebug-name-title scorebug-left-name-title">-</div>
+                <div class="scorebug-name-data scorebug-left-name-data">
+                    <span id="player-archetype-left"></span>
+                    &nbsp;&nbsp;
+                    <span id="player-pronouns-left" class="player-pronouns"></span>
+                </div>
+            </div>
+            <div id="player-record-left" class="player-record player-record-left"></div>
+            <div class="timer-container">
+                <p id="timer">00:00</p>
+            </div>
+            <div id="player-record-right" class="player-record player-record-right"></div>
+            <div class="scorebug-name scorebug-right-name">
+                <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
+                <div class="scorebug-name-data scorebug-right-name-data">
+                    <span id="player-pronouns-right" class="player-pronouns"></span>
+                    &nbsp;&nbsp;
+                    <span id="player-archetype-right"></span>
+                </div>
+            </div>
+            <div class="scorebug-life scorebug-right-life">
+                <div id="player-life-right" class="scorebug-life-score scorebug-right-life-score">-</div>
+                <div id="player-wins-righte" class="scorebug-life-wins scorebug-right-life-wins">
+                    <div id="scorebug-right-life-wins-1" class="scorebug-life-wins-dot"></div>
+                    <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="body">
+    <div class="background">
+    </div>
+</div>
+<div class="footer">
+    <div class="background">
+        <div class="chyron">
+            <div class="chyron_commentary">
+                <span id="miscellaneous-details"></span>
+            </div>
+            <div class="chyron_event">
+                <span id="event-name">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <span id="event-round">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <span id="event-format">-</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/js/scoreboard.js"></script>
+
+</body>
+</html>

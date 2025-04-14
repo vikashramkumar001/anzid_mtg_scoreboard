@@ -1,0 +1,75 @@
+* {
+    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+    background-color: transparent;
+}
+
+#bracket-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 28px;
+    color: #000;
+    text-align: center;
+    width: 574px;
+    height: 56px;
+    padding: 0;
+    font-weight: bold;
+}
+
+#player-rank {
+    width: 46px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #C6C6C6;
+    padding-top: 3px;
+}
+
+.player-name-archetype {
+    width: 428px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    clip-path: polygon(0% 0, 73% 0%, 64.5% 100%, 0% 100%);
+    background-color: #C6C6C6;
+}
+
+#player-name {
+    display: block;
+    height: 34px;
+    line-height: 45px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90%;
+    text-align: start;
+}
+
+#player-archetype {
+    display: block;
+    height: 22px;
+    line-height: 15px;
+    font-style: italic;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 88%;
+    text-align: start;
+    white-space: nowrap;
+}
+
+#player-points {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #E9CE89;*/
+    background-color: #fff;
+    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 4.25% 100%);
+    left: -150px;
+    position: relative;
+    text-indent: 25px;
+    padding-top: 3px;
+}

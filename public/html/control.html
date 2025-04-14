@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="/css/control.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="background">
+    <div class="player player-left">
+        <div class="player-name">
+            <div class="player-header player-name-header">Name</div>
+            <div id="player-name-left" class="player-value player-name-value editable dynamic" contenteditable="true">
+            </div>
+        </div>
+        <div class="player-pronouns">
+            <div class="player-header player-name-header">Pronouns</div>
+            <div id="player-pronouns-left" class="player-value player-pronouns-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-archetype">
+            <div class="player-header player-archetype-header">Archetype</div>
+            <div id="player-archetype-left" class="player-value  player-archetype-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-record">
+            <div class="player-header player-record-header">Record</div>
+            <div id="player-record-left" class="player-value  player-record-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-wins">
+            <div class="player-header player-wins-header">Wins</div>
+            <div id="player-wins-left" class="player-value  player-wins-value editable dynamic" contenteditable="true">
+            </div>
+        </div>
+        <div class="player-poison">
+            <div class="player-poison-details">
+                <div class="player-header player-poison-header">Poison</div>
+                <div id="player-poison-left" class="player-value  player-poison-value editable dynamic"
+                     contenteditable="true">
+                </div>
+            </div>
+            <div class="player-poison-control left">
+                <button class="btn plus">+</button>
+                <button class="btn minus">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="life-totals">
+        <div class="life-total-left">
+            <div class="life-total-minus life-total-left-minus" onclick="onLifeTotalChange('player-life-left', -1)">-
+            </div>
+            <div class="life-total-plus  life-total-left-plus" onclick="onLifeTotalChange ('player-life-left', 1)">+
+            </div>
+        </div>
+        <div class="life-total-right">
+            <div class="life-total-minus life-total-right-minus" onclick="onLifeTotalChange('player-life-right', -1)">
+                -
+            </div>
+            <div class="life-total-plus  life-total-right-plus" onclick="onLifeTotalChange ('player-life-right', 1)">+
+            </div>
+        </div>
+        <div class="life-total-overlay">
+            <div id="player-life-left" class="life-total-overlay-element life-total-overlay-left dynamic"></div>
+            <div id="player-life-right" class="life-total-overlay-element life-total-overlay-right dynamic"></div>
+        </div>
+    </div>
+    <div class="player player-right">
+        <div class="player-name">
+            <div class="player-header player-name-header">Name</div>
+            <div id="player-name-right" class="player-value  player-name-value editable dynamic" contenteditable="true">
+            </div>
+        </div>
+        <div class="player-pronouns">
+            <div class="player-header player-name-header">Pronouns</div>
+            <div id="player-pronouns-right" class="player-value player-pronouns-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-archetype">
+            <div class="player-header player-archetype-header">Archetype</div>
+            <div id="player-archetype-right" class="player-value  player-archetype-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-record">
+            <div class="player-header player-record-header">Record</div>
+            <div id="player-record-right" class="player-value  player-record-value editable dynamic"
+                 contenteditable="true">
+            </div>
+        </div>
+        <div class="player-wins">
+            <div class="player-header player-wins-header">Wins</div>
+            <div id="player-wins-right" class="player-value  player-wins-value editable dynamic" contenteditable="true">
+            </div>
+        </div>
+        <div class="player-poison">
+            <div class="player-poison-details">
+                <div class="player-header player-poison-header">Poison</div>
+                <div id="player-poison-right" class="player-value  player-poison-value editable dynamic"
+                     contenteditable="true">
+                </div>
+            </div>
+            <div class="player-poison-control right">
+                <button class="btn plus">+</button>
+                <button class="btn minus">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="event">
+        <div id="event-name" class="event-name editable dynamic" contenteditable="true">
+        </div>
+        <div id="event-round" class="event-round editable dynamic" contenteditable="true">
+        </div>
+        <div id="event-format" class="event-format editable dynamic" contenteditable="true">
+        </div>
+        <div class="buttons">
+            <button onclick="resetLifeTotals()">Reset Life</button>
+        </div>
+    </div>
+    <div class="timer-container">
+        <div id="timer">00:00</div>
+        <button class="timer-buttons" id="timer-start">▶</button>
+        <button class="timer-buttons font-30" id="timer-add">+</button>
+        <button class="timer-buttons font-30" id="timer-minus">-</button>
+        <button class="timer-buttons" id="timer-pause">⏸</button>
+        <button class="timer-buttons" id="timer-reset">⭮</button>
+    </div>
+</div>
+
+<script type="module" src="/js/control.js"></script>
+
+</body>
+</html>

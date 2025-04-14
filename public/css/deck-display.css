@@ -1,0 +1,66 @@
+* {
+    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+}
+
+#deck-display-details {
+    width: 1920px;
+    height: 150px;
+}
+
+#deck-display-details h1 {
+    font-size: 100px;
+    height: 100px;
+}
+
+#deck-display-details h5 {
+    font-size: 40px;
+    font-style: italic;
+}
+
+#deck-display-container {
+    width: 1920px;
+    height: 930px;
+}
+
+#main-deck-container {
+    width: 1920px;
+    height: 930px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    padding: 5px;
+}
+
+.main-deck-card {
+    width: 180px;
+    height: auto;
+    border: 1px solid #ccc;
+    margin: 5px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    transition: transform 0.2s; /* Smooth transition for stacking */
+}
+
+.card-src {
+    width: 100%;
+}
+
+.card-count {
+    top: 218px;
+    right: 70px;
+    width: 37px;
+    height: 37px;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
