@@ -136,6 +136,4 @@ export async function updateFromMaster(allControlData, io) {
       });
     });
   });
-
-  emitControlData(io);
 }
