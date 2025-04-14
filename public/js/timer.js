@@ -14,8 +14,8 @@ console.log('from url - control id - delay', control_id);
 // Send the match ID to the server when the client connects - will send back saved data if control already exists
 socket.emit('getSavedControlState', {control_id});
 
-// listen for saved state from server
-socket.on('control-' + control_id + '-saved-state', (data) => {
+// listen for saved state from server - listen for scoreboard update - scoreboard is always updated regardless of source
+socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
     console.log('got saved state from server', data);
     round_id = data['round_id'];
     match_id = data['match_id'];
