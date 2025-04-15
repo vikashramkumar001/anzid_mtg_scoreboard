@@ -33,6 +33,22 @@ function resetLifeTotals() {
     armTimeout();
 }
 
+// Add event listeners after DOM is fully loaded
+function setupLifeUpdateListeners() {
+    // Life Total Buttons (Left)
+    document.querySelector('#control-base .life-total-left-minus')?.addEventListener('click', () => onLifeTotalChange('player-life-left', -1));
+    document.querySelector('#control-base .life-total-left-plus')?.addEventListener('click', () => onLifeTotalChange('player-life-left', 1));
+
+    // Life Total Buttons (Right)
+    document.querySelector('#control-base .life-total-right-minus')?.addEventListener('click', () => onLifeTotalChange('player-life-right', -1));
+    document.querySelector('#control-base .life-total-right-plus')?.addEventListener('click', () => onLifeTotalChange('player-life-right', 1));
+
+    // Reset Button
+    document.querySelector('#control-base .buttons.reset-life-button button')?.addEventListener('click', resetLifeTotals);
+}
+
+setupLifeUpdateListeners();
+
 function sendData() {
     document.querySelectorAll(".dynamic").forEach(element => {
         if (element.tagName === "SELECT") {
