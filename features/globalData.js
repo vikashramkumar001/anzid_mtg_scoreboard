@@ -84,6 +84,12 @@ export async function updateEventInformation(eventInfo, io, timerState) {
                         match_id,
                         archetypeList: getSortedArchetypes()
                     });
+                    io.emit(`scoreboard-${control_id}-saved-state`, {
+                        data: matchData,
+                        round_id,
+                        match_id,
+                        archetypeList: getSortedArchetypes()
+                    });
                 }
             });
         });

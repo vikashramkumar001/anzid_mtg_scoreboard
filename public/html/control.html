@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="background">
+<div class="background" id="control-base">
     <div class="player player-left">
         <div class="player-name">
             <div class="player-header player-name-header">Name</div>
@@ -55,16 +55,16 @@
     </div>
     <div class="life-totals">
         <div class="life-total-left">
-            <div class="life-total-minus life-total-left-minus" onclick="onLifeTotalChange('player-life-left', -1)">-
+            <div class="life-total-minus life-total-left-minus">-
             </div>
-            <div class="life-total-plus  life-total-left-plus" onclick="onLifeTotalChange ('player-life-left', 1)">+
+            <div class="life-total-plus  life-total-left-plus">+
             </div>
         </div>
         <div class="life-total-right">
-            <div class="life-total-minus life-total-right-minus" onclick="onLifeTotalChange('player-life-right', -1)">
+            <div class="life-total-minus life-total-right-minus">
                 -
             </div>
-            <div class="life-total-plus  life-total-right-plus" onclick="onLifeTotalChange ('player-life-right', 1)">+
+            <div class="life-total-plus  life-total-right-plus">+
             </div>
         </div>
         <div class="life-total-overlay">
@@ -121,8 +121,8 @@
         </div>
         <div id="event-format" class="event-format editable dynamic" contenteditable="true">
         </div>
-        <div class="buttons">
-            <button onclick="resetLifeTotals()">Reset Life</button>
+        <div class="buttons reset-life-button">
+            <button>Reset Life</button>
         </div>
     </div>
     <div class="timer-container">

@@ -82,7 +82,7 @@ export async function updateFromControl(round_id, match_id, newState, io) {
   emitControlData(io);
 }
 
-// Emit a control's saved state
+// Emit a control's saved state - called by scoreboard
 export function emitSavedStateForControl(control_id, io) {
   let { round_id = '1', match_id = 'match1' } = controlsTracker[control_id] || {};
   if (!controlsTracker[control_id]) {
@@ -95,6 +95,12 @@ export function emitSavedStateForControl(control_id, io) {
     match_id,
     archetypeList: getSortedArchetypes()
   });
+  io.emit(`scoreboard-${control_id}-saved-state`, {
+    data: controlData[round_id]?.[match_id] || {},
+    round_id,
+    match_id,
+    archetypeList: getSortedArchetypes()
+  });
 }
 
 // Update control mapping
@@ -102,6 +108,12 @@ export function updateControlMapping(controlId, round_id, match_id, io) {
   controlsTracker[controlId] = { round_id, match_id };
 
   io.emit(`control-${controlId}-saved-state`, {
+    data: controlData[round_id]?.[match_id] || {},
+    round_id,
+    match_id,
+    archetypeList: getSortedArchetypes()
+  });
+  io.emit(`scoreboard-${controlId}-saved-state`, {
     data: controlData[round_id]?.[match_id] || {},
     round_id,
     match_id,
