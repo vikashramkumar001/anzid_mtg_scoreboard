@@ -24,7 +24,7 @@ export function initVibesCardView(socket) {
     }
 
     function setupCardViewCustomDropdown() {
-        const cardViewFields = document.querySelectorAll('[id^="card-view-vibes-input-autocomplete"]');
+        const cardViewFields = document.querySelectorAll('#vibes-card-view [id^="card-view-vibes-input-autocomplete"]');
 
         cardViewFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
@@ -110,7 +110,7 @@ export function initVibesCardView(socket) {
     }
 
     function renderCardPreview1(cardName) {
-        const previewEl = document.getElementById('card-preview-vibes-1');
+        const previewEl = document.querySelector('#vibes-card-view #card-preview-vibes-1');
         const url = cardListData[cardName];
 
         if (url) {
@@ -128,7 +128,7 @@ export function initVibesCardView(socket) {
     }
 
     function renderCardPreview2(cardName) {
-        const previewEl = document.getElementById('card-preview-vibes-2');
+        const previewEl = document.querySelector('#vibes-card-view #card-preview-vibes-2');
         const url = cardListData[cardName];
 
         if (url) {
@@ -147,7 +147,7 @@ export function initVibesCardView(socket) {
 
     function attachViewCard1ClickListener() {
         cardViewViewCardButton1.addEventListener('click', () => {
-            const cardSelectInput = document.getElementById('card-view-vibes-input-autocomplete-1');
+            const cardSelectInput = document.querySelector('#vibes-card-view #card-view-vibes-input-autocomplete-1');
             const data2send = {
                 'card-selected': cardSelectInput.innerText,
                 'card-id': 1,
@@ -160,7 +160,7 @@ export function initVibesCardView(socket) {
 
     function attachViewCard2ClickListener() {
         cardViewViewCardButton2.addEventListener('click', () => {
-            const cardSelectInput = document.getElementById('card-view-vibes-input-autocomplete-2');
+            const cardSelectInput = document.querySelector('#vibes-card-view #card-view-vibes-input-autocomplete-2');
             const data2send = {
                 'card-selected': cardSelectInput.innerText,
                 'card-id': 2,
@@ -179,6 +179,12 @@ export function initVibesCardView(socket) {
                 'game-id': 'vibes'
             }
             socket.emit('view-selected-card', {cardSelected: data2send});
+            // reset preview
+            const previewEl = document.querySelector('#vibes-card-view #card-preview-vibes-1');
+            previewEl.innerHTML = '';
+            // reset input
+            const cardSelectInput = document.querySelector('#vibes-card-view #card-view-vibes-input-autocomplete-1');
+            cardSelectInput.innerText = '';
         })
     }
 
@@ -191,6 +197,12 @@ export function initVibesCardView(socket) {
             }
             console.log(data2send)
             socket.emit('view-selected-card', {cardSelected: data2send});
+            // reset preview
+            const previewEl = document.querySelector('#vibes-card-view #card-preview-vibes-2');
+            previewEl.innerHTML = '';
+            // reset input
+            const cardSelectInput = document.querySelector('#vibes-card-view #card-view-vibes-input-autocomplete-2');
+            cardSelectInput.innerText = '';
         })
     }
 

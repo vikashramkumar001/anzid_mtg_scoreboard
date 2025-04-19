@@ -1,5 +1,6 @@
 const socket = io();
 let cardName = null;
+const fallbackUrl = `/assets/images/cards/vibes/vibes-card-back.jpg`;
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
@@ -22,16 +23,28 @@ socket.on('vibes-card-view-card-selected', (data) => {
 // Function to render the card on the page
 function renderCard(data) {
     const mainCardViewContainer = document.getElementById('card-view-container');
-
-    // Clear previous deck displays
     mainCardViewContainer.innerHTML = '';
 
-    // Set the card URL
-    const cardURL = data?.url;
-
-    // Create card element and add it to the container
     const cardElement = document.createElement('div');
     cardElement.className = 'main-card-display';
-    cardElement.innerHTML = `<img src="${cardURL}" class="card-src">`;
+
+    const img = document.createElement('img');
+    img.className = 'card-src';
+    if (data.url) {
+        img.src = data.url;
+    } else {
+        img.src = fallbackUrl;
+    }
+
+    // Handle broken image - case for mtg - url will be broken
+    img.onerror = () => {
+        console.warn('Image failed to load:', data.url);
+        img.src = fallbackUrl;
+    };
+
+    cardElement.appendChild(img);
     mainCardViewContainer.appendChild(cardElement);
 }
+
+// on start - render fallback image
+renderCard({url: ''});

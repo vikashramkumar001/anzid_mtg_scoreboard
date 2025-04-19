@@ -207,6 +207,12 @@ export function initMTGCardView(socket) {
             }
             console.log(data2send)
             socket.emit('view-selected-card', {cardSelected: data2send});
+            // reset preview
+            const previewEl = document.querySelector('#mtg-card-view #card-preview-mtg-2');
+            previewEl.innerHTML = '';
+            // reset input
+            const cardSelectInput = document.querySelector('#mtg-card-view #card-view-mtg-input-autocomplete-2');
+            cardSelectInput.innerText = '';
         })
     }
 
