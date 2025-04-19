@@ -77,7 +77,9 @@ function updateBackground(side, archetypeName) {
                 backgroundElement.style.display = 'block';
                 lastState[`background-${side}`] = newUrl;
             };
-            img.src = finalUrl;
+            // turning off archetypes image change for now
+            // if img src is not set - img.onload is not run
+            // img.src = finalUrl;
         }
     } else {
         if (lastState[`background-${side}`] !== 'none') {
