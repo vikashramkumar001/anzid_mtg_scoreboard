@@ -2,6 +2,8 @@ export function initVibesCardView(socket) {
 
     const cardViewViewCardButton1 = document.querySelector('#vibes-card-view #card-view-vibes-display-button-1');
     const cardViewViewCardButton2 = document.querySelector('#vibes-card-view #card-view-vibes-display-button-2');
+    const cardViewResetCard1Button = document.querySelector('#vibes-card-view #card-view-vibes-reset-button-1');
+    const cardViewResetCard2Button = document.querySelector('#vibes-card-view #card-view-vibes-reset-button-2');
     let cardListData = [];
 
     function renderDropdownListForCardView(dropdownList, cards, field) {
@@ -169,8 +171,33 @@ export function initVibesCardView(socket) {
         })
     }
 
+    function attachCardViewResetCard1ClickListener() {
+        cardViewResetCard1Button.addEventListener('click', () => {
+            const data2send = {
+                'card-selected': '',
+                'card-id': 1,
+                'game-id': 'vibes'
+            }
+            socket.emit('view-selected-card', {cardSelected: data2send});
+        })
+    }
+
+    function attachCardViewResetCard2ClickListener() {
+        cardViewResetCard2Button.addEventListener('click', () => {
+            const data2send = {
+                'card-selected': '',
+                'card-id': 2,
+                'game-id': 'vibes'
+            }
+            console.log(data2send)
+            socket.emit('view-selected-card', {cardSelected: data2send});
+        })
+    }
+
     attachViewCard1ClickListener();
     attachViewCard2ClickListener();
+    attachCardViewResetCard1ClickListener();
+    attachCardViewResetCard2ClickListener();
 
     // send request for card list data from server
     socket.emit('vibes-get-card-list-data');

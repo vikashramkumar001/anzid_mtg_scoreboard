@@ -2,6 +2,8 @@ export function initMTGCardView(socket) {
 
     const cardViewViewCard1Button = document.querySelector('#mtg-card-view #card-view-mtg-display-button-1');
     const cardViewViewCard2Button = document.querySelector('#mtg-card-view #card-view-mtg-display-button-2');
+    const cardViewResetCard1Button = document.querySelector('#mtg-card-view #card-view-mtg-reset-button-1');
+    const cardViewResetCard2Button = document.querySelector('#mtg-card-view #card-view-mtg-reset-button-2');
     let cardListData = [];
 
     function renderDropdownListForCardView(dropdownList, cards, field) {
@@ -38,12 +40,12 @@ export function initMTGCardView(socket) {
             dropdownList.className = 'dropdown-list';
             wrapper.appendChild(dropdownList);
 
-            function whichToRender(field, match) {
+            function whichToRender(field, card) {
                 if (field.id === 'card-view-mtg-input-autocomplete-1') {
-                    renderCardPreview1(match);
+                    renderCardPreview1(card);
                 }
                 if (field.id === 'card-view-mtg-input-autocomplete-2') {
-                    renderCardPreview2(match);
+                    renderCardPreview2(card);
                 }
             }
 
@@ -102,11 +104,20 @@ export function initMTGCardView(socket) {
     }
 
     function getURLFromCardName(cardName) {
-        // Replace spaces with '+' and '&' with 'and'
-        const cardNameForURL = cardName.replace(/ /g, '+').replace(/&/g, '');
-        // Set the card URL
-        return `https://api.scryfall.com/cards/named?exact=${cardNameForURL}&format=image`;
+        // For double-faced cards, use only the first face name before the "//"
+        const singleFace = cardName.includes('//')
+            ? cardName.split('//')[0].trim()
+            : cardName.trim();
+
+        // Remove leading/trailing quotes and sanitize
+        const cleanedName = singleFace.replace(/^"+|"+$/g, '').replace(/&/g, 'and');
+
+        // Encode for URL
+        const encodedName = encodeURIComponent(cleanedName);
+
+        return `https://api.scryfall.com/cards/named?exact=${encodedName}&format=image`;
     }
+
 
     function renderCardPreview1(cardName) {
         const previewEl = document.getElementById('card-preview-mtg-1');
@@ -170,8 +181,39 @@ export function initMTGCardView(socket) {
         })
     }
 
+    function attachCardViewResetCard1ClickListener() {
+        cardViewResetCard1Button.addEventListener('click', () => {
+            const data2send = {
+                'card-selected': '',
+                'card-id': 1,
+                'game-id': 'mtg'
+            }
+            socket.emit('view-selected-card', {cardSelected: data2send});
+            // reset preview
+            const previewEl = document.querySelector('#mtg-card-view #card-preview-mtg-1');
+            previewEl.innerHTML = '';
+            // reset input
+            const cardSelectInput = document.querySelector('#mtg-card-view #card-view-mtg-input-autocomplete-1');
+            cardSelectInput.innerText = '';
+        })
+    }
+
+    function attachCardViewResetCard2ClickListener() {
+        cardViewResetCard2Button.addEventListener('click', () => {
+            const data2send = {
+                'card-selected': '',
+                'card-id': 2,
+                'game-id': 'mtg'
+            }
+            console.log(data2send)
+            socket.emit('view-selected-card', {cardSelected: data2send});
+        })
+    }
+
     attachCardViewViewCard1ClickListener();
     attachCardViewViewCard2ClickListener();
+    attachCardViewResetCard1ClickListener();
+    attachCardViewResetCard2ClickListener();
 
     // send request for card list data from server
     socket.emit('mtg-get-card-list-data');
