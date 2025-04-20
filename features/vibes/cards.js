@@ -36,12 +36,17 @@ export function emitVibesCardView(io, cardSelected) {
     const cardName = Object.keys(cardListData).find(
         name => name.toLowerCase() === cardSelected['card-selected'].toLowerCase()
     )
+    let foundCard = {
+        name: '',
+        url: '',
+        'card-id': cardSelected['card-id']
+    }
     if (cardName) {
-        const foundCard = {
+        foundCard = {
             name: cardName,
             url: cardListData[cardName],
             'card-id': cardSelected['card-id']
         }
-        io.emit('vibes-card-view-card-selected', foundCard);
     }
+    io.emit('vibes-card-view-card-selected', foundCard);
 }
