@@ -102,4 +102,9 @@ router.get('/vibes/display/card/view/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/vibes/dedicated-card-view.html'));
 });
 
+// meta breakdown links
+router.get('/meta/breakdown/details/:detailKey', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/meta-breakdown-details.html'));
+});
+
 export default router;
