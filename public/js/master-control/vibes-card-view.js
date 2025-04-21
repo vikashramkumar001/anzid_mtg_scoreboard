@@ -2,6 +2,8 @@ export function initVibesCardView(socket) {
 
     const cardViewViewCardButton1 = document.querySelector('#vibes-card-view #card-view-vibes-display-button-1');
     const cardViewViewCardButton2 = document.querySelector('#vibes-card-view #card-view-vibes-display-button-2');
+    const cardViewResetCard1Button = document.querySelector('#vibes-card-view #card-view-vibes-reset-button-1');
+    const cardViewResetCard2Button = document.querySelector('#vibes-card-view #card-view-vibes-reset-button-2');
     let cardListData = [];
 
     function renderDropdownListForCardView(dropdownList, cards, field) {
@@ -22,7 +24,7 @@ export function initVibesCardView(socket) {
     }
 
     function setupCardViewCustomDropdown() {
-        const cardViewFields = document.querySelectorAll('[id^="card-view-vibes-input-autocomplete"]');
+        const cardViewFields = document.querySelectorAll('#vibes-card-view [id^="card-view-vibes-input-autocomplete"]');
 
         cardViewFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
@@ -108,7 +110,7 @@ export function initVibesCardView(socket) {
     }
 
     function renderCardPreview1(cardName) {
-        const previewEl = document.getElementById('card-preview-vibes-1');
+        const previewEl = document.querySelector('#vibes-card-view #card-preview-vibes-1');
         const url = cardListData[cardName];
 
         if (url) {
@@ -126,7 +128,7 @@ export function initVibesCardView(socket) {
     }
 
     function renderCardPreview2(cardName) {
-        const previewEl = document.getElementById('card-preview-vibes-2');
+        const previewEl = document.querySelector('#vibes-card-view #card-preview-vibes-2');
         const url = cardListData[cardName];
 
         if (url) {
@@ -145,7 +147,7 @@ export function initVibesCardView(socket) {
 
     function attachViewCard1ClickListener() {
         cardViewViewCardButton1.addEventListener('click', () => {
-            const cardSelectInput = document.getElementById('card-view-vibes-input-autocomplete-1');
+            const cardSelectInput = document.querySelector('#vibes-card-view #card-view-vibes-input-autocomplete-1');
             const data2send = {
                 'card-selected': cardSelectInput.innerText,
                 'card-id': 1,
@@ -158,7 +160,7 @@ export function initVibesCardView(socket) {
 
     function attachViewCard2ClickListener() {
         cardViewViewCardButton2.addEventListener('click', () => {
-            const cardSelectInput = document.getElementById('card-view-vibes-input-autocomplete-2');
+            const cardSelectInput = document.querySelector('#vibes-card-view #card-view-vibes-input-autocomplete-2');
             const data2send = {
                 'card-selected': cardSelectInput.innerText,
                 'card-id': 2,
@@ -169,8 +171,45 @@ export function initVibesCardView(socket) {
         })
     }
 
+    function attachCardViewResetCard1ClickListener() {
+        cardViewResetCard1Button.addEventListener('click', () => {
+            const data2send = {
+                'card-selected': '',
+                'card-id': 1,
+                'game-id': 'vibes'
+            }
+            socket.emit('view-selected-card', {cardSelected: data2send});
+            // reset preview
+            const previewEl = document.querySelector('#vibes-card-view #card-preview-vibes-1');
+            previewEl.innerHTML = '';
+            // reset input
+            const cardSelectInput = document.querySelector('#vibes-card-view #card-view-vibes-input-autocomplete-1');
+            cardSelectInput.innerText = '';
+        })
+    }
+
+    function attachCardViewResetCard2ClickListener() {
+        cardViewResetCard2Button.addEventListener('click', () => {
+            const data2send = {
+                'card-selected': '',
+                'card-id': 2,
+                'game-id': 'vibes'
+            }
+            console.log(data2send)
+            socket.emit('view-selected-card', {cardSelected: data2send});
+            // reset preview
+            const previewEl = document.querySelector('#vibes-card-view #card-preview-vibes-2');
+            previewEl.innerHTML = '';
+            // reset input
+            const cardSelectInput = document.querySelector('#vibes-card-view #card-view-vibes-input-autocomplete-2');
+            cardSelectInput.innerText = '';
+        })
+    }
+
     attachViewCard1ClickListener();
     attachViewCard2ClickListener();
+    attachCardViewResetCard1ClickListener();
+    attachCardViewResetCard2ClickListener();
 
     // send request for card list data from server
     socket.emit('vibes-get-card-list-data');

@@ -2,6 +2,8 @@ export function initCardView(socket) {
 
     const cardViewViewCardButton1 = document.querySelector('#card-view-view-card-button-1');
     const cardViewViewCardButton2 = document.querySelector('#card-view-view-card-button-2');
+    const cardViewResetCardButton1 = document.querySelector('#card-view-reset-button-1');
+    const cardViewResetCardButton2 = document.querySelector('#card-view-reset-button-2');
     let cardListData = [];
 
     function renderDropdownListForCardView(dropdownList, cards, field) {
@@ -186,10 +188,44 @@ export function initCardView(socket) {
             console.log(data2send)
             socket.emit('vibes-card-view-view-card', {cardSelected: data2send});
         })
+    }function attachResetCard1ClickListener() {
+        cardViewResetCardButton1.addEventListener('click', () => {
+            const data2send = {
+                'card-selected': '',
+                'card-id': 1
+            }
+            console.log(data2send)
+            socket.emit('vibes-card-view-view-card', {cardSelected: data2send});
+            // clear preview
+            const previewEl = document.getElementById('card-preview-1');
+            previewEl.innerHTML = '';
+            // clear input
+            const cardSelectInput = document.getElementById('card-view-input-autocomplete-1');
+            cardSelectInput.innerText = '';
+        })
+    }
+
+    function attachResetCard2ClickListener() {
+        cardViewResetCardButton2.addEventListener('click', () => {
+            const data2send = {
+                'card-selected': '',
+                'card-id': 2
+            }
+            console.log(data2send)
+            socket.emit('vibes-card-view-view-card', {cardSelected: data2send});
+            // clear preview
+            const previewEl = document.getElementById('card-preview-2');
+            previewEl.innerHTML = '';
+            // clear input
+            const cardSelectInput = document.getElementById('card-view-input-autocomplete-2');
+            cardSelectInput.innerText = '';
+        })
     }
 
     attachViewCard1ClickListener();
     attachViewCard2ClickListener();
+    attachResetCard1ClickListener();
+    attachResetCard2ClickListener();
 
     // send request for card list data from server
     socket.emit('vibes-get-card-list-data');

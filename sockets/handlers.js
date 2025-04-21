@@ -56,6 +56,9 @@ import {
     deleteArchetype,
     updateArchetypeImage
 } from "../features/archetypes.js";
+import {
+    handleIncomingMetaBreakdownData
+} from "../features/metaBreakdown.js";
 
 export default function registerSocketHandlers(io) {
     io.on('connection', (socket) => {
@@ -197,6 +200,11 @@ export default function registerSocketHandlers(io) {
         // Decks
         socket.on('display-deck', (payload) => {
             updateDeckDisplay(io, payload);
+        });
+
+        // Meta Breakdown
+        socket.on('send-meta-breakdown-data', (payload) => {
+            handleIncomingMetaBreakdownData(io, payload);
         });
 
         // Disconnect

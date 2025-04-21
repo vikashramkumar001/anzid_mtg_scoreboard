@@ -58,15 +58,23 @@
                 Card View
             </button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="meta-breakdown-tab" data-bs-toggle="tab"
+                    data-bs-target="#meta-breakdown-control"
+                    type="button" role="tab" aria-controls="meta-breakdown" aria-selected="false">
+                Meta Breakdown
+            </button>
+        </li>
     </ul>
 
     <!-- Tabs Content -->
     <div class="tab-content" id="myTabContent">
         <!-- Overlay Tab Content -->
         <div class="tab-pane fade active show" id="overlay-control" role="tabpanel" aria-labelledby="home-tab">
-            <div class="row my-5">
+            <div class="row mt-3">
                 <div class="col-12">
                     <h2>Overlay Control</h2>
+                    <hr>
                 </div>
             </div>
             <div class="row mt-5">
@@ -134,10 +142,13 @@
 
         <!-- Archetype Tab Content -->
         <div class="tab-pane fade" id="archetype-control" role="tabpanel" aria-labelledby="archetype-tab">
-            <div class="row my-5">
+            <div class="row mt-3">
                 <div class="col-12">
                     <h2>Archetype List Management</h2>
+                    <hr>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-6">
                     <h3>Current Archetype List</h3>
                     <ul id="archetypeList" class="list-group">
@@ -160,10 +171,12 @@
 
         <!-- Matches Tab Content -->
         <div class="tab-pane fade" id="match-control" role="tabpanel" aria-labelledby="matches-tab">
-            <div class="row my-5">
+            <div class="row mt-3">
                 <div class="col-12">
                     <h2>Match Control Center</h2>
                     <hr>
+                </div>
+                <div class="col-12">
                     <!-- Global -->
                     <div class="row">
                         <div class="col-12 my-3">
@@ -313,6 +326,12 @@
         <!-- Bracket Tab Content -->
         <div class="tab-pane fade" id="bracket-control" role="tabpanel" aria-labelledby="bracket-tab">
             <div class="col-12">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h2>Bracket Setup Center</h2>
+                        <hr>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-4">
                         <div class="row my-3">
@@ -1089,6 +1108,13 @@
         <!-- Card View Tab Content -->
         <div class="tab-pane fade" id="card-view-control" role="tabpanel" aria-labelledby="card-view-tab">
 
+            <div class="row mt-3">
+                <div class="col-12">
+                    <h2>Card View Centre</h2>
+                    <hr>
+                </div>
+            </div>
+
             <!-- Card View Tabs Navigation -->
             <ul class="nav nav-tabs my-3" id="myCardViewTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -1134,10 +1160,14 @@
                                                      contenteditable="true"></div>
                                             </div>
                                         </div>
-                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
-                                            <button class="btn btn-primary update-button"
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
+                                            <button class="btn btn-primary update-button me-2"
                                                     id="card-view-mtg-display-button-1">
                                                 View Card
+                                            </button>
+                                            <button class="btn btn-primary reset-button"
+                                                    id="card-view-mtg-reset-button-1">
+                                                Reset
                                             </button>
                                         </div>
                                         <div class="col-12">
@@ -1164,10 +1194,14 @@
                                                      contenteditable="true"></div>
                                             </div>
                                         </div>
-                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
-                                            <button class="btn btn-primary update-button"
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
+                                            <button class="btn btn-primary update-button me-2"
                                                     id="card-view-mtg-display-button-2">
                                                 View Card
+                                            </button>
+                                            <button class="btn btn-primary reset-button"
+                                                    id="card-view-mtg-reset-button-2">
+                                                Reset
                                             </button>
                                         </div>
                                         <div class="col-12">
@@ -1203,10 +1237,14 @@
                                                      contenteditable="true"></div>
                                             </div>
                                         </div>
-                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
-                                            <button class="btn btn-primary update-button"
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
+                                            <button class="btn btn-primary update-button me-2"
                                                     id="card-view-vibes-display-button-1">
                                                 View Card
+                                            </button>
+                                            <button class="btn btn-primary reset-button"
+                                                    id="card-view-vibes-reset-button-1">
+                                                Reset
                                             </button>
                                         </div>
                                         <div class="col-12">
@@ -1233,10 +1271,14 @@
                                                      contenteditable="true"></div>
                                             </div>
                                         </div>
-                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-center">
-                                            <button class="btn btn-primary update-button"
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
+                                            <button class="btn btn-primary update-button me-2"
                                                     id="card-view-vibes-display-button-2">
                                                 View Card
+                                            </button>
+                                            <button class="btn btn-primary reset-button"
+                                                    id="card-view-vibes-reset-button-2">
+                                                Reset
                                             </button>
                                         </div>
                                         <div class="col-12">
@@ -1252,6 +1294,506 @@
             </div>
 
         </div>
+
+        <!-- Meta Breakdown Tab Content -->
+        <div class="tab-pane fade" id="meta-breakdown-control" role="tabpanel" aria-labelledby="card-view-tab">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <h2>Meta Breakdown</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-1" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-1" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-1" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-1" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-1" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-1" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-1" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-2" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-2" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-2" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-2" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-2" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-2" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-2" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-3" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-3" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-3" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-3" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-3" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-3" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-3" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        4
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-4" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-4" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-4" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-4" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-4" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-4" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-4" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        5
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-5" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-5" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-5" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-5" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-5" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-5" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-5" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        6
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-6" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-6" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-6" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-6" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-6" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-6" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-6" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        7
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-7" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-7" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-7" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-7" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-7" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-7" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-7" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        8
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-8" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-8" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-8" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-8" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-8" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-8" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-8" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        9
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-9" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-9" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-9" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-9" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-9" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-9" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-9" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="meta-breakdown-index">
+                                        10
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Archetype</label>
+                                    <div id="meta-breakdown-archetype-10" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 1</label>
+                                    <div id="meta-breakdown-key-card-1-10" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Key Card 2</label>
+                                    <div id="meta-breakdown-key-card-2-10" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 Count</label>
+                                    <div id="meta-breakdown-day-1-count-10" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 1 %</label>
+                                    <div id="meta-breakdown-day-1-percent-10" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 Count</label>
+                                    <div id="meta-breakdown-day-2-count-10" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                                <div class="col-1">
+                                    <label class="form-label">Day 2 %</label>
+                                    <div id="meta-breakdown-day-2-percent-10" class="editable form-control"
+                                         contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="d-flex flex-row justify-content-center align-items-center">
+                        <button class="btn btn-primary" id="meta-breakdown-display-button">
+                            Display Meta Breakdown
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 

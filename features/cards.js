@@ -49,13 +49,27 @@ export function emitCardView(io, cardSelected) {
                 'game-id': cardSelected['game-id']
             }
             io.emit('card-view-card-selected', cardData);
+        } else {
+            const cardData = {
+                name: '',
+                url: '',
+                'card-id': cardSelected['card-id'],
+                'game-id': cardSelected['game-id']
+            }
+            io.emit('card-view-card-selected', cardData);
         }
     }
     if (cardSelected['game-id'] === 'mtg') {
-        // Replace spaces with '+' and '&' with 'and'
-        const cardNameForURL = cardSelected['card-selected'].replace(/ /g, '+').replace(/&/g, '');
+        // For double-faced cards, use only the first face name before the "//"
+        const singleFace = cardSelected['card-selected'].includes('//')
+            ? cardSelected['card-selected'].split('//')[0].trim()
+            : cardSelected['card-selected'].trim();
+
+        // Remove leading/trailing quotes and sanitize
+        const cleanedName = singleFace.replace(/^"+|"+$/g, '').replace(/&/g, 'and');
+
         // Set the card URL
-        const cardURL = `https://api.scryfall.com/cards/named?exact=${cardNameForURL}&format=image`;
+        const cardURL = `https://api.scryfall.com/cards/named?exact=${cleanedName}&format=image`;
 
         const cardData = {
             name: cardSelected['card-selected'],
