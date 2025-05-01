@@ -33,6 +33,12 @@
                 Card View
             </button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="deck-view-tab" data-bs-toggle="tab" data-bs-target="#deck-view-control"
+                    type="button" role="tab" aria-controls="deck-view" aria-selected="false">
+                Deck View
+            </button>
+        </li>
     </ul>
 
     <!-- Tabs Content -->
@@ -58,7 +64,8 @@
                                     </div>
                                 </div>
                                 <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                    <button class="btn btn-primary update-button me-2" id="card-view-view-card-button-1">
+                                    <button class="btn btn-primary update-button me-2"
+                                            id="card-view-view-card-button-1">
                                         View Card
                                     </button>
                                     <button class="btn btn-primary reset-button" id="card-view-reset-button-1">
@@ -89,7 +96,8 @@
                                     </div>
                                 </div>
                                 <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                    <button class="btn btn-primary update-button me-2" id="card-view-view-card-button-2">
+                                    <button class="btn btn-primary update-button me-2"
+                                            id="card-view-view-card-button-2">
                                         View Card
                                     </button>
                                     <button class="btn btn-primary reset-button" id="card-view-reset-button-2">
@@ -105,6 +113,41 @@
                 </div>
             </div>
         </div>
+
+        <!-- Deck View Tab Content -->
+        <div class="tab-pane fade" id="deck-view-control" role="tabpanel" aria-labelledby="deck-view-tab">
+            <div class="row my-3">
+                <div class="col-3 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row my-3">
+                                <div class="col-12">
+                                    <h5>Deck View</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="card-title">Player Deck</h5>
+                                    <div class="mb-3">
+                                        <label class="form-label">Main Deck</label>
+                                        <textarea id="vibes-deck-view-main-deck-input"
+                                                  class="editable form-control" rows="25"
+                                                  placeholder="Enter main deck cards (separated by commas or new lines)">
+                                        </textarea>
+                                    </div>
+                                    <div class="my-3">
+                                        <button class="btn btn-primary" id="vibes-deck-view-display-deck">
+                                            Display Deck
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -117,7 +160,7 @@
 
 
 <!--scripts-->
-<script type="module" src="/js/vibes/index.js"></script>
+<script type="module" src="/js/vibes/master-control/index.js"></script>
 
 </body>
 </html>
