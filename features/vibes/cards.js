@@ -50,3 +50,34 @@ export function emitVibesCardView(io, cardSelected) {
     }
     io.emit('vibes-card-view-card-selected', foundCard);
 }
+
+// transform incoming deck list data to create deck object
+export function transformDeckData(deckListData) {
+    const deckObject = [];
+    deckListData.forEach(card => {
+        // Split the card string into count and name
+        const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card]; // Default count to 1 if no number is found
+        const cardCount = parseInt(parts[1], 10); // Get the count
+        const _cardName = parts[2]; // Get the card name
+        const cardName = Object.keys(cardListData).find(
+            name => name.toLowerCase() === _cardName.toLowerCase()
+        )
+        if (cardName) {
+            deckObject.push({
+                'card-name': cardName,
+                'card-count': cardCount,
+                'card-url': cardListData[cardName]
+            });
+        }
+    });
+    return deckObject;
+}
+
+// handle incoming deck list data and emit to formatted object to listeners
+export function handleVibesIncomingDeckData(io, deckListData) {
+    const formattedData = transformDeckData(deckListData);
+    // emit deck list data object
+    if (formattedData){
+        io.emit('vibes-deck-data-from-server', formattedData);
+    }
+}

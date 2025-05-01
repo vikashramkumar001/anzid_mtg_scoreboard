@@ -5,7 +5,8 @@ import {
 
 import {
     emitVibesCardList,
-    emitVibesCardView
+    emitVibesCardView,
+    handleVibesIncomingDeckData
 } from '../features/vibes/cards.js';
 
 import {
@@ -160,6 +161,8 @@ export default function registerSocketHandlers(io) {
             emitCardView(io, cardSelected);
         });
 
+        // VIBES
+
         // Vibes - Card viewer
         socket.on('vibes-get-card-list-data', () => {
             emitVibesCardList(io);
@@ -168,6 +171,13 @@ export default function registerSocketHandlers(io) {
         socket.on('vibes-card-view-view-card', ({cardSelected}) => {
             emitVibesCardView(io, cardSelected);
         });
+
+        // Vibes - Deck Display
+        socket.on('vibes-main-deck-display-clicked', (deckListData) => {
+            handleVibesIncomingDeckData(io, deckListData)
+        })
+
+        // END VIBES
 
         // Standings
         socket.on('get-all-standings', () => {

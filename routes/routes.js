@@ -92,6 +92,8 @@ router.post('/upload-footer-overlay', uploadOverlay.single('overlay_footer'), (r
 // Upload archetype image
 router.post('/upload-archetype-image', uploadArchetypeImage.single('image'), handleArchetypeUpload);
 
+// VIBES
+
 // Vibes master control
 router.get('/vibes-master-control', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/vibes/master-control.html'));
@@ -101,6 +103,13 @@ router.get('/vibes-master-control', (req, res) => {
 router.get('/vibes/display/card/view/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/vibes/dedicated-card-view.html'));
 });
+
+// vibes - deck view
+router.get('/vibes/display/main/deck', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/vibes/deck-display.html'))
+});
+
+// END VIBES
 
 // meta breakdown links
 router.get('/meta/breakdown/details/:detailKey', (req, res) => {
