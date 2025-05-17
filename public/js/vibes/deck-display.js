@@ -1,12 +1,18 @@
 const socket = io();
 
+// Get match name from the URL
+const pathSegments = window.location.pathname.split('/');
+const deck_id = pathSegments[5];
+
 let deckData = [];
 
 // Listen for deck data to display
 socket.on('vibes-deck-data-from-server', (data) => {
     console.log('data', data);
-    deckData = data;
-    renderDecks();
+    if (parseInt(deck_id) === data?.index && data?.data.length > 0) {
+        deckData = data?.data;
+        renderDecks();
+    }
 });
 
 // Function to render the decks on the page

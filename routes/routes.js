@@ -105,7 +105,7 @@ router.get('/vibes/display/card/view/:cardID', (req, res) => {
 });
 
 // vibes - deck view
-router.get('/vibes/display/main/deck', (req, res) => {
+router.get('/vibes/display/main/deck/:deckID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/vibes/deck-display.html'))
 });
 

@@ -1,22 +1,22 @@
 export function initDeckView(socket) {
 
-    const mainDeckDisplayButton = document.querySelector('#deck-view-control #vibes-deck-view-display-deck');
-    const mainDeckTextArea = document.querySelector('#deck-view-control #vibes-deck-view-main-deck-input');
+    // Query all buttons and inputs
+    const mainDeckDisplayButtons = document.querySelectorAll('#deck-view-control [id^=vibes-deck-view-display-deck-]');
+    const mainDeckTextAreas = document.querySelectorAll('#deck-view-control [id^=vibes-deck-view-main-deck-input-]');
 
-    mainDeckTextArea.textContent = '';
+    mainDeckTextAreas.forEach((mainDeckTextArea, index) => {
+        mainDeckTextArea.textContent = '';
+        const mainDeckDisplayButton = mainDeckDisplayButtons[index];
 
-    function attachDeckViewDisplayButtonListener() {
         mainDeckDisplayButton.addEventListener('click', function () {
             // get value from input
             const deckList = mainDeckTextArea.value
                 .split(/\n+/)
                 .map(card => card.trim())
                 .filter(card => card !== '');
-            // send socket emit to server
-            socket.emit('vibes-main-deck-display-clicked', deckList)
-        })
-    }
 
-    attachDeckViewDisplayButtonListener();
-
+            // send socket emit to server with index (adjusted to 1-based)
+            socket.emit('vibes-main-deck-display-clicked', {index: index + 1, deckList});
+        });
+    });
 }

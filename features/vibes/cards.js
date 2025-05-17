@@ -75,9 +75,46 @@ export function transformDeckData(deckListData) {
 
 // handle incoming deck list data and emit to formatted object to listeners
 export function handleVibesIncomingDeckData(io, deckListData) {
-    const formattedData = transformDeckData(deckListData);
-    // emit deck list data object
-    if (formattedData){
-        io.emit('vibes-deck-data-from-server', formattedData);
+    try {
+        // Validate deckListData structure
+        if (!deckListData || typeof deckListData !== 'object') {
+            console.error('Invalid deckListData received:', deckListData);
+            return;
+        }
+
+        const deckData = Array.isArray(deckListData['deckList']) ? deckListData['deckList'] : [];
+        const index = typeof deckListData['index'] === 'number' ? deckListData['index'] : null;
+
+        // Validate index and deckData
+        if (index === null) {
+            console.error('Invalid index received:', index);
+            return;
+        }
+
+        if (deckData.length === 0) {
+            console.warn('Empty deck data received for index:', index);
+            return;
+        }
+
+        // Transform deck data
+        const formattedData = transformDeckData(deckData);
+
+        // Validate formatted data
+        if (!formattedData || typeof formattedData !== 'object') {
+            console.error('Failed to transform deck data:', deckData);
+            return;
+        }
+
+        const data2send = {
+            index: index,
+            data: formattedData
+        };
+
+        // Emit only if data is properly formatted
+        io.emit('vibes-deck-data-from-server', data2send);
+        console.log('Deck data sent successfully for index:', index);
+
+    } catch (error) {
+        console.error('Error in handleVibesIncomingDeckData:', error);
     }
 }
