@@ -1,6 +1,6 @@
 const socket = io();
 let cardName = null;
-const fallbackUrl = `/assets/images/cards/vibes/vibes-card-back.jpg`;
+const fallbackUrl = `/assets/images/cards/vibes/vibes-card-back.png`;
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
