@@ -30,3 +30,7 @@ body {
     flex-direction: row;
     justify-content: center;
 }
+
+#meta-breakdown-details-container #meta-breakdown-detail {
+    font-size: 60px;
+}
