@@ -1,6 +1,9 @@
+import {getAllCardsByGenre} from "./indexeddb-init.js";
+
 export function initMetaBreakdown(socket) {
 
     let currentArchetypeList = [];
+    let cards = {};
     let cardListData = [];
     const metaBreakdownDisplayButton = document.querySelector('#meta-breakdown-control #meta-breakdown-display-button');
 
@@ -192,18 +195,17 @@ export function initMetaBreakdown(socket) {
         setupArchetypeDropdowns();
     });
 
-    // send request for card list data from server
-    // - this is called in mtg controller already - no need to call it here
-    // socket.emit('mtg-get-card-list-data');
-
-    // handle receiving card list data from server
-    socket.on('mtg-card-list-data', ({cardListData: cardListDataFromServer}) => {
-        // console.log('got card list data from server', cardListDataFromServer);
-        // save card list data
-        cardListData = cardListDataFromServer;
+    // get card list from indexedDB
+    async function getCardList() {
+        cards = await getAllCardsByGenre('mtg');
+        // get only the card names
+        cardListData = Object.keys(cards);
         // setup dropdown and autocomplete for card view section
         setupCardDropdown();
-    })
+    }
+
+    // get all cards for mtg from indexedDB
+    getCardList().then(r => console.log('got card list from indexedDB'));
 
     // attach all listeners
     attachMetaBreakdownDisplayButtonListener();

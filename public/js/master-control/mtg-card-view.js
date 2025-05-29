@@ -1,10 +1,13 @@
+import {getAllCardsByGenre} from './indexeddb-init.js';
+
 export function initMTGCardView(socket) {
 
     const cardViewViewCard1Button = document.querySelector('#mtg-card-view #card-view-mtg-display-button-1');
     const cardViewViewCard2Button = document.querySelector('#mtg-card-view #card-view-mtg-display-button-2');
     const cardViewResetCard1Button = document.querySelector('#mtg-card-view #card-view-mtg-reset-button-1');
     const cardViewResetCard2Button = document.querySelector('#mtg-card-view #card-view-mtg-reset-button-2');
-    let cardListData = [];
+    let cards = {};
+    let cardNames = [];
 
     function renderDropdownListForCardView(dropdownList, cards, field) {
         dropdownList.innerHTML = '';
@@ -54,11 +57,11 @@ export function initMTGCardView(socket) {
 
                 // Only filter and render the list if input has 2 or more characters
                 if (value.length >= 2) {
-                    const filteredCardsList = cardListData.filter(card => card.toLowerCase().includes(value))
+                    const filteredCardsList = cardNames.filter(card => card.toLowerCase().includes(value))
                         .slice(0, 5); // Limit to top 5 results
                     renderDropdownListForCardView(dropdownList, filteredCardsList, field);
                     // Check for exact match and show preview
-                    const exactMatch = cardListData.find(cardName => cardName.toLowerCase() === value.toLowerCase());
+                    const exactMatch = cardNames.find(cardName => cardName.toLowerCase() === value.toLowerCase());
                     if (exactMatch) {
                         whichToRender(field, exactMatch);
                     } else {
@@ -77,11 +80,11 @@ export function initMTGCardView(socket) {
 
                 // Check the current input value and filter if it has 2 or more characters
                 if (value.length >= 2) {
-                    const filteredCardsList = cardListData.filter(card => card.toLowerCase().includes(value))
+                    const filteredCardsList = cardNames.filter(card => card.toLowerCase().includes(value))
                         .slice(0, 5); // Limit to top 5 results
                     renderDropdownListForCardView(dropdownList, filteredCardsList, field);
                     // Check for exact match and show preview
-                    const exactMatch = cardListData.find(cardName => cardName.toLowerCase() === value.toLowerCase());
+                    const exactMatch = cardNames.find(cardName => cardName.toLowerCase() === value.toLowerCase());
                     if (exactMatch) {
                         whichToRender(field, exactMatch);
                     } else {
@@ -115,9 +118,8 @@ export function initMTGCardView(socket) {
         // Encode for URL
         const encodedName = encodeURIComponent(cleanedName);
 
-        return `https://api.scryfall.com/cards/named?exact=${encodedName}&format=image`;
+        return cards[cleanedName]
     }
-
 
     function renderCardPreview1(cardName) {
         const previewEl = document.getElementById('card-preview-mtg-1');
@@ -216,21 +218,20 @@ export function initMTGCardView(socket) {
         })
     }
 
+    async function getCardList() {
+        cards = await getAllCardsByGenre('mtg');
+        // get only the card names
+        cardNames = Object.keys(cards);
+        // setup dropdown and autocomplete for card view section
+        setupCardViewCustomDropdown();
+    }
+
+    // get card list - this is not async so other functions after gets called while it waits to get cards
+    getCardList().then(r => console.log('got card list data'));
+
     attachCardViewViewCard1ClickListener();
     attachCardViewViewCard2ClickListener();
     attachCardViewResetCard1ClickListener();
     attachCardViewResetCard2ClickListener();
-
-    // send request for card list data from server
-    socket.emit('mtg-get-card-list-data');
-
-    // handle receiving card list data from server
-    socket.on('mtg-card-list-data', ({cardListData: cardListDataFromServer}) => {
-        // console.log('got card list data from server', cardListDataFromServer);
-        // save card list data
-        cardListData = cardListDataFromServer;
-        // setup dropdown and autocomplete for card view section
-        setupCardViewCustomDropdown();
-    })
 
 }

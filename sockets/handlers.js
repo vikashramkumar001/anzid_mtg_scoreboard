@@ -93,6 +93,11 @@ export default function registerSocketHandlers(io) {
             emitControlTrackers(io);
         });
 
+        // Control data
+        socket.on('get-all-control-data', () => {
+            emitControlData(io);
+        })
+
         // Timer control
         socket.on('update-timer-state', ({round_id, match_id, action}) => {
             updateTimerAction(io, round_id, match_id, action);
@@ -101,6 +106,11 @@ export default function registerSocketHandlers(io) {
         socket.on('get-all-timer-states', () => {
             emitTimerState(io);
         });
+
+        // Overlays
+        socket.on('getOverlays', () => {
+            emitOverlayBackgrounds(io);
+        })
 
         // Archetype list
         socket.on('getArchetypeList', () => {

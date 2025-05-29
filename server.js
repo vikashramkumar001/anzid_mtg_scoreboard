@@ -32,6 +32,7 @@ app.use((req, res, next) => {
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/data', express.static(path.join(__dirname, 'data')));
 app.use(express.json());
 
 // Routes

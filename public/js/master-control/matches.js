@@ -729,6 +729,9 @@ export function initMatches(socket) {
 
     // setup sockets emitters
 
+    // call for control data
+    socket.emit('get-all-control-data');
+
     // call for control broadcast trackers data
     socket.emit('get-control-broadcast-trackers');
 

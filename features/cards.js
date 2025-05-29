@@ -68,8 +68,8 @@ export function emitCardView(io, cardSelected) {
         // Remove leading/trailing quotes and sanitize
         const cleanedName = singleFace.replace(/^"+|"+$/g, '').replace(/&/g, 'and');
 
-        // Set the card URL
-        const cardURL = `https://api.scryfall.com/cards/named?exact=${cleanedName}&format=image`;
+        // get card url from json
+        const cardURL = cardListData[cleanedName];
 
         const cardData = {
             name: cardSelected['card-selected'],

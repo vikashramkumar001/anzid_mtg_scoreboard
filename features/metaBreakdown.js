@@ -1,8 +1,12 @@
+import {getCardListData} from "./cards.js";
+
 export function emitMetaBreakdownData(io, data) {
     io.emit('receive-meta-breakdown-data', data);
 }
 
 export function handleMetaBreakdownCard(cardName) {
+    // get card list from server
+    const mtgCardList = getCardListData();
     // For double-faced cards, use only the first face name before the "//"
     const singleFace = cardName.includes('//')
         ? cardName.split('//')[0].trim()
@@ -12,7 +16,7 @@ export function handleMetaBreakdownCard(cardName) {
     const cleanedName = singleFace.replace(/^"+|"+$/g, '').replace(/&/g, 'and');
 
     // Set the card URL
-    const cardURL = `https://api.scryfall.com/cards/named?exact=${cleanedName}&format=image`;
+    const cardURL = mtgCardList[cleanedName];
 
     return {
         name: cardName,

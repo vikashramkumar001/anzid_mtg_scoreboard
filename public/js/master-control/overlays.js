@@ -82,16 +82,7 @@ export function initOverlayUpload(socket) {
 
     // Listen for background image update
     socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
-        console.log('Overlay header background image:', newImageUrl);
-
-        // Update the currently set image
-        currentHeaderImage.src = newImageUrl; // Set the src to the new image URL
-        currentHeaderImage.style.display = 'block'; // Display the image
-    });
-
-    // Listen for background image update
-    socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
-        console.log('Overlay header background image:', newImageUrl);
+        // console.log('Overlay header background image:', newImageUrl);
 
         // Update the currently set image
         currentHeaderImage.src = newImageUrl; // Set the src to the new image URL
@@ -166,9 +157,12 @@ export function initOverlayUpload(socket) {
 
     // Listen for footer background image update
     socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
-        console.log('Overlay footer background image:', newImageUrl);
+        // console.log('Overlay footer background image:', newImageUrl);
         currentFooterImage.src = newImageUrl;
         currentFooterImage.style.display = 'block';
     });
+
+    // ask for overlays on start
+    socket.emit('getOverlays');
 
 }
