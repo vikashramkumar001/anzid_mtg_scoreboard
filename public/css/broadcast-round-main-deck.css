@@ -1,5 +1,9 @@
+:root {
+    --dynamic-font: 'Bebas Neue', sans-serif;
+}
+
 * {
-    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+    font-family: var(--dynamic-font), sans-serif;
 }
 
 #deck-display-details {
@@ -68,4 +72,15 @@
     justify-content: center;
     align-items: center;
     position: absolute;
+}
+
+.mana-symbols-container {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.mana-symbols-container img {
+    height: 24px;
+    margin-right: 4px;
 }

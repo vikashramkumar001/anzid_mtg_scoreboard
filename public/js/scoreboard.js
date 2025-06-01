@@ -71,7 +71,7 @@ function updateState(data) {
             }
             if (key === 'player-mana-symbols-right') {
                 console.log(key, value)
-                renderManaSymbols(value, 'player-mana-symbols-right-symbols', {reverse: true});
+                renderManaSymbols(value, 'player-mana-symbols-right-symbols');
             }
         }
     });
