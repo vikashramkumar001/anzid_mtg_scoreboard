@@ -17,7 +17,9 @@ import {
     updateFromMaster,
     emitControlData,
     getControlData,
-    updateBroadcastTracker
+    updateBroadcastTracker,
+    emitScoreboardState,
+    updateScoreboardSate
 } from '../features/control.js';
 
 import {
@@ -97,6 +99,15 @@ export default function registerSocketHandlers(io) {
         // Control data
         socket.on('get-all-control-data', () => {
             emitControlData(io);
+        })
+
+        // Scoreboard state (wins only for now)
+        socket.on('get-scoreboard-state', () => {
+            emitScoreboardState(io);
+        })
+
+        socket.on('update-scoreboard-state', ({round_id, match_id, action, value}) => {
+            updateScoreboardSate(io, round_id, match_id, action, value);
         })
 
         // Timer control

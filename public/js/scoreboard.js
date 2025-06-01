@@ -92,7 +92,7 @@ function updateBackground(side, archetypeName) {
 
 // INITIAL STATE
 console.log('sending request for data');
-socket.emit('getSavedControlState', { control_id });
+socket.emit('getSavedControlState', {control_id});
 socket.emit('getArchetypeList');
 
 socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
@@ -126,13 +126,13 @@ socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
 socket.on('archetypeListUpdated', (archetypes) => {
     console.log('archetype list updated', archetypes);
     archetypeList = archetypes;
-    socket.emit('getSavedControlState', { control_id });
+    socket.emit('getSavedControlState', {control_id});
 });
 
 // TIMER
 socket.emit('get-all-timer-states');
 
-socket.on('current-all-timer-states', ({ timerState }) => {
+socket.on('current-all-timer-states', ({timerState}) => {
     const matchState = timerState[round_id][match_id];
     if (matchState) {
         const timerElement = document.querySelector(`#timer`);
@@ -164,3 +164,20 @@ socket.on('update-match-global-data', (data) => {
     if (eventFormatText) updateElementText('event-format', eventFormatText);
     if (eventNameText) updateElementText('event-name', eventNameText);
 });
+
+// SCOREBOARD STATE DATA
+
+// call for scoreboard state - for now its wins show check
+socket.emit('get-scoreboard-state');
+
+// Listen for updated scoreboard state from server
+socket.on('scoreboard-state-data', ({scoreboardState}) => {
+    console.log('got server scoreboard state', scoreboardState);
+    const matchState = scoreboardState[round_id][match_id];
+    if (matchState){
+        const winsDisplays = document.querySelectorAll('#scorebug-right-life-wins-1, #scorebug-right-life-wins-2, #scorebug-left-life-wins-1, #scorebug-left-life-wins-2');
+        winsDisplays.forEach(el => {
+            el.style.display = matchState.showWins ? 'block' : 'none';
+        })
+    }
+})

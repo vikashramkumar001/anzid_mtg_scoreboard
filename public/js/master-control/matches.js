@@ -93,6 +93,11 @@ export function initMatches(socket) {
                                         <input type="checkbox" id="timer-display-scoreboard-${roundId}-${matchId}"> Show Timer on Scoreboard
                                     </label>
                                 </div>
+                                <div class="col-12 text-center">
+                                    <label>
+                                        <input type="checkbox" id="wins-display-scoreboard-${roundId}-${matchId}"> Show Wins on Scoreboard
+                                    </label>
+                                </div>
                                 <div class="col-12">
                                     <h5 class="card-title">Event Information</h5>
                                 </div>
@@ -253,6 +258,8 @@ export function initMatches(socket) {
             attachMatchResetLifeButtonListeners(roundId, matchId);
             // Attach timer listeners
             attachMatchTimerButtonListeners(roundId, matchId);
+            // Attach show wins listener
+            attachMatchShowWinsCheckboxListener(roundId, matchId);
         }
 
         // Update the fields with the match data
@@ -686,7 +693,7 @@ export function initMatches(socket) {
             updateTimerState(round_id, match_id, 'reset');
         });
         timerShowCheck.addEventListener('change', function () {
-            console.log('show / no show clicked', round_id, match_id, timerShowCheck.checked);
+            console.log('show / no show timer clicked', round_id, match_id, timerShowCheck.checked);
             if (timerShowCheck.checked) {
                 updateTimerState(round_id, match_id, 'show');
             } else {
@@ -696,6 +703,30 @@ export function initMatches(socket) {
     }
 
     // END TIMER FUNCTIONS
+
+    // HIDE / SHOW WINS
+
+    // attach listener for show wins checkbox on each match
+    function attachMatchShowWinsCheckboxListener(round_id, match_id) {
+        const winsShowCheck = document.querySelector(`#wins-display-scoreboard-${round_id}-${match_id}`);
+        winsShowCheck.addEventListener('change', function () {
+            console.log('show / no show wins clicked', round_id, match_id, winsShowCheck.checked);
+            const data2send = {
+                round_id: round_id,
+                match_id: match_id,
+                action: 'showWins',
+                value: winsShowCheck.checked
+            }
+            console.log('sending scoreboard wins data', data2send);
+            socket.emit('update-scoreboard-state', data2send);
+        });
+    }
+
+    function updateMatchShowWinsCheckBox() {
+
+    }
+
+    // END HIDE / SHOW WINS
 
     // STANDINGS DATA
 
@@ -806,6 +837,9 @@ export function initMatches(socket) {
     // at the start, ask for all timer states from the server
     socket.emit('get-all-timer-states');
 
+    // call for scoreboard state - for now its wins show check
+    socket.emit('get-scoreboard-state');
+
     // end setup socket emitters
 
     // setup sockets listeners
@@ -896,6 +930,20 @@ export function initMatches(socket) {
     socket.on('archetypeListUpdated', (archetypes) => {
         currentArchetypeList = archetypes; // Update the current archetype list
     });
+
+    // Listen for updated scoreboard state from server
+    socket.on('scoreboard-state-data', ({scoreboardState}) => {
+        console.log('got server scoreboard state', scoreboardState);
+        Object.keys(scoreboardState).forEach((roundId) => {
+            Object.keys(scoreboardState[roundId]).forEach((matchId) => {
+                const matchState = scoreboardState[roundId][matchId];
+                const winsShowCheck = document.querySelector(`#wins-display-scoreboard-${roundId}-${matchId}`);
+                if (winsShowCheck) {
+                    winsShowCheck.checked = matchState.showWins;
+                }
+            });
+        });
+    })
 
     // end setup socket listeners
 
