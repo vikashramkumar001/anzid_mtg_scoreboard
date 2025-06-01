@@ -13,6 +13,10 @@ export function initMatches(socket) {
     const commentator1_subtext = document.querySelector(`#global-commentator-one-subtext`);
     const commentator2 = document.querySelector(`#global-commentator-two`);
     const commentator2_subtext = document.querySelector(`#global-commentator-two-subtext`);
+    const commentator3 = document.querySelector(`#global-commentator-three`);
+    const commentator3_subtext = document.querySelector(`#global-commentator-three-subtext`);
+    const commentator4 = document.querySelector(`#global-commentator-four`);
+    const commentator4_subtext = document.querySelector(`#global-commentator-four-subtext`);
     const matchEventName = document.querySelector(`#global-event-name`);
     const matchEventFormat = document.querySelector(`#global-event-format`);
     const matchEventMiscDetails = document.querySelector(`#global-event-miscellaneous-details`);
@@ -562,7 +566,11 @@ export function initMatches(socket) {
                 'global-commentator-one': commentator1.innerText,
                 'global-commentator-one-subtext': commentator1_subtext.innerText,
                 'global-commentator-two': commentator2.innerText,
-                'global-commentator-two-subtext': commentator2_subtext.innerText
+                'global-commentator-two-subtext': commentator2_subtext.innerText,
+                'global-commentator-three': commentator3.innerText,
+                'global-commentator-three-subtext': commentator3_subtext.innerText,
+                'global-commentator-four': commentator4.innerText,
+                'global-commentator-four-subtext': commentator4_subtext.innerText
             }
             console.log(data2send)
             socket.emit('update-commentators-requested', {commentatorData: data2send});
@@ -821,6 +829,10 @@ export function initMatches(socket) {
         commentator1_subtext.innerText = data['globalData']['global-commentator-one-subtext'] ? data['globalData']['global-commentator-one-subtext'] : '';
         commentator2.innerText = data['globalData']['global-commentator-two'] ? data['globalData']['global-commentator-two'] : '';
         commentator2_subtext.innerText = data['globalData']['global-commentator-two-subtext'] ? data['globalData']['global-commentator-two-subtext'] : '';
+        commentator3.innerText = data['globalData']['global-commentator-three'] ? data['globalData']['global-commentator-three'] : '';
+        commentator3_subtext.innerText = data['globalData']['global-commentator-three-subtext'] ? data['globalData']['global-commentator-three-subtext'] : '';
+        commentator4.innerText = data['globalData']['global-commentator-four'] ? data['globalData']['global-commentator-four'] : '';
+        commentator4_subtext.innerText = data['globalData']['global-commentator-four-subtext'] ? data['globalData']['global-commentator-four-subtext'] : '';
         matchEventName.innerText = data['globalData']['global-event-name'] ? data['globalData']['global-event-name'] : '';
         matchEventFormat.innerText = data['globalData']['global-event-format'] ? data['globalData']['global-event-format'] : '';
         matchEventMiscDetails.innerText = data['globalData']['global-event-miscellaneous-details'] ? data['globalData']['global-event-miscellaneous-details'] : '';

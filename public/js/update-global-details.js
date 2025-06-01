@@ -43,10 +43,10 @@ function checkFontFamily(globalFont) {
 function renderDetails() {
     // Render player name
     globalDetail.innerHTML = `${detailToDisplay}`;
-    if (detail_id === 'global-commentator-one' || detail_id === 'global-commentator-two') {
+    if (detail_id === 'global-commentator-one' || detail_id === 'global-commentator-two' || detail_id === 'global-commentator-three' || detail_id === 'global-commentator-four') {
         globalDetail.style.fontSize = '70px';
     }
-    if (detail_id === 'global-commentator-one-subtext' || detail_id === 'global-commentator-two-subtext') {
+    if (detail_id === 'global-commentator-one-subtext' || detail_id === 'global-commentator-two-subtext' || detail_id === 'global-commentator-three-subtext' || detail_id === 'global-commentator-four-subtext') {
         globalDetail.style.fontSize = '30px';
     }
 }

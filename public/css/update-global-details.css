@@ -1,5 +1,9 @@
+:root {
+  --dynamic-font: 'Bebas Neue', sans-serif;
+}
+
 * {
-    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+    font-family: var(--dynamic-font), sans-serif;
     background-color: transparent;
 }
 
