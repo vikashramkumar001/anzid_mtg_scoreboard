@@ -1,5 +1,5 @@
 :root {
-  --dynamic-font: 'Bebas Neue', sans-serif;
+    --dynamic-font: 'Bebas Neue', sans-serif;
 }
 
 * {
@@ -14,4 +14,15 @@
     font-size: 30px;
     color: white;
     text-align: center;
+}
+
+.mana-symbols-container {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.mana-symbols-container img {
+    height: 20px;
+    margin-right: 2px;
 }
