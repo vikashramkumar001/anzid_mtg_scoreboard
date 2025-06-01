@@ -6,6 +6,7 @@ export function initMatches(socket) {
     const control3Display = document.getElementById('control-3-round-match-display');
     const control4Display = document.getElementById('control-4-round-match-display');
     const updateEventInformation = document.querySelector(`#global-update-event-information.update-button`);
+    const updateMiscellaneousInformation = document.querySelector(`#global-update-misc-information.update-button`);
     const updateEventInformationBaseTimer = document.querySelector(`#global-update-event-information-base-timer.update-button`);
     const updateCommentators = document.querySelector(`#global-update-commentators.update-button`);
     const commentator1 = document.querySelector(`#global-commentator-one`);
@@ -19,12 +20,19 @@ export function initMatches(socket) {
     const matchEventBaseLifePointsCurrent = document.querySelector(`#global-event-base-life-points-current`);
     const matchEventBaseTimer = document.querySelector(`#global-event-base-timer`);
     const matchEventBaseTimerCurrent = document.querySelector(`#global-event-base-timer-current`);
+    const miscellaneousFontFamily = document.querySelector(`#global-misc-font-family`);
     let allControlData = {};
     let allTimerStates = {};
     let allStandingsData = {};
     let baseLifePoints = '20';
     let baseTimer = '50';
     let currentArchetypeList = [];
+    const fontFamilies = [
+        {name: "Alverata", value: "'Alverata', sans-serif"},
+        {name: "Alverata Informal", value: "'AlverataInformal', sans-serif"},
+        {name: "Alverata Irregular", value: "'AlverataIrregular', sans-serif"},
+        {name: "Bebas Neue", value: "'Bebas Neue', sans-serif"}
+    ];
 
     // Function to render or update a match card
     function renderMatch(roundId, matchId, matchData) {
@@ -339,7 +347,6 @@ export function initMatches(socket) {
 
     function setupCustomDropdowns() {
         const archetypeFields = document.querySelectorAll('[id$="-player-archetype-left"], [id$="-player-archetype-right"], [id^="bracket-"][id$="-archetype"]');
-
         archetypeFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
                 return; // Skip if already set up
@@ -363,6 +370,37 @@ export function initMatches(socket) {
 
             field.addEventListener('focus', function () {
                 renderDropdownList(dropdownList, currentArchetypeList, field);
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!wrapper.contains(e.target)) {
+                    dropdownList.style.display = 'none';
+                }
+            });
+        });
+
+        const fontFamilyFields = document.querySelectorAll('[id="global-misc-font-family"]');
+        fontFamilyFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) {
+                return; // Skip if already set up
+            }
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            field.addEventListener('input', function () {
+                const value = this.textContent.trim().toLowerCase();
+                renderDropdownList(dropdownList, fontFamilies, field);
+            });
+
+            field.addEventListener('focus', function () {
+                renderDropdownList(dropdownList, fontFamilies, field);
             });
 
             document.addEventListener('click', function (e) {
@@ -580,6 +618,23 @@ export function initMatches(socket) {
         });
     }
 
+    // add click handlers for update event on miscellaneous global information
+    function attachGlobalMiscellaneousInformationUpdateListener() {
+        updateMiscellaneousInformation.addEventListener('click', () => {
+            const fontFamilySelected = miscellaneousFontFamily.innerText;
+            let fontFamilySelectedValue = null;
+            if (fontFamilySelected) {
+                const font = fontFamilies.find(f => f.name === fontFamilySelected);
+                fontFamilySelectedValue = font ? font.value : null;
+            }
+            const data2send = {
+                'global-font-family': fontFamilySelectedValue
+            }
+            console.log(data2send)
+            socket.emit('update-global-miscellaneous-information', {miscellaneousData: data2send});
+        })
+    }
+
 
     // START TIMER FUNCTIONS
 
@@ -726,6 +781,8 @@ export function initMatches(socket) {
     attachGlobalBaseTimerInputListener();
     // attach global base timer update button lister
     attachGlobalBaseTimerUpdateListener();
+    // attach global miscellaneous update button listener
+    attachGlobalMiscellaneousInformationUpdateListener();
 
     // setup sockets emitters
 
@@ -773,6 +830,13 @@ export function initMatches(socket) {
         matchEventBaseTimer.innerText = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
         matchEventBaseTimerCurrent.innerText = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
         baseTimer = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
+        // try to set the font family
+        if (data['globalData']['global-font-family']) {
+            const font = fontFamilies.find(f => f.value === data['globalData']['global-font-family']);
+            miscellaneousFontFamily.innerText = font ? font.name : null;
+        } else {
+            miscellaneousFontFamily.innerText = null;
+        }
     })
 
     // handle getting all timer states

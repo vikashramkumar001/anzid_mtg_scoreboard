@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'AlverataBl';
+    src: url('AlverataBl.woff2') format('woff2'),
+        url('AlverataBl.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alverata';
+    src: url('Alverata-BoldItalic.woff2') format('woff2'),
+        url('Alverata-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataMd';
+    src: url('AlverataMd.woff2') format('woff2'),
+        url('AlverataMd.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataIrregular';
+    src: url('AlverataIrregular.woff2') format('woff2'),
+        url('AlverataIrregular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataSb';
+    src: url('AlverataSb.woff2') format('woff2'),
+        url('AlverataSb.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataInformal';
+    src: url('AlverataInformal-Bold.woff2') format('woff2'),
+        url('AlverataInformal-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataInformalMd';
+    src: url('AlverataInformalMd.woff2') format('woff2'),
+        url('AlverataInformalMd.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataInformal';
+    src: url('AlverataInformal.woff2') format('woff2'),
+        url('AlverataInformal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataIrregular';
+    src: url('AlverataIrregular-Bold.woff2') format('woff2'),
+        url('AlverataIrregular-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataIrregularLt';
+    src: url('AlverataIrregularLt.woff2') format('woff2'),
+        url('AlverataIrregularLt.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataIrregularBl';
+    src: url('AlverataIrregularBl.woff2') format('woff2'),
+        url('AlverataIrregularBl.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataBl';
+    src: url('AlverataBl-Italic.woff2') format('woff2'),
+        url('AlverataBl-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataInformalSb';
+    src: url('AlverataInformalSb.woff2') format('woff2'),
+        url('AlverataInformalSb.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataInformalLt';
+    src: url('AlverataInformalLt.woff2') format('woff2'),
+        url('AlverataInformalLt.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alverata';
+    src: url('Alverata.woff2') format('woff2'),
+        url('Alverata.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataInformalBl';
+    src: url('AlverataInformalBl.woff2') format('woff2'),
+        url('AlverataInformalBl.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataIrregularMd';
+    src: url('AlverataIrregularMd.woff2') format('woff2'),
+        url('AlverataIrregularMd.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alverata';
+    src: url('Alverata-Bold.woff2') format('woff2'),
+        url('Alverata-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataLt';
+    src: url('AlverataLt.woff2') format('woff2'),
+        url('AlverataLt.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataIrregularSb';
+    src: url('AlverataIrregularSb.woff2') format('woff2'),
+        url('AlverataIrregularSb.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataMd';
+    src: url('AlverataMd-Italic.woff2') format('woff2'),
+        url('AlverataMd-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataSb';
+    src: url('AlverataSb-Italic.woff2') format('woff2'),
+        url('AlverataSb-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alverata';
+    src: url('Alverata-Italic.woff2') format('woff2'),
+        url('Alverata-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AlverataLt';
+    src: url('AlverataLt-Italic.woff2') format('woff2'),
+        url('AlverataLt-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+

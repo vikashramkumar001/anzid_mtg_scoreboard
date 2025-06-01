@@ -14,6 +14,9 @@ const playerArchetype = document.getElementById('player-archetype');
 const playerPoints = document.getElementById('player-points');
 const bracketContainer = document.getElementById('bracket-details-container');
 
+// ask for global match data to get font family
+socket.emit('get-match-global-data');
+
 // Listen for deck data to display
 socket.on('bracket-data', (data) => {
     // {"bracket-quarterfinal-1-name": "", "bracket-quarterfinal-1-archetype": "", "bracket-quarterfinal-1-rank": "",...}
@@ -24,6 +27,20 @@ socket.on('bracket-data', (data) => {
     // Call a function to render the round details
     renderDetails();
 });
+
+// Listen for global data update
+socket.on('update-match-global-data', (data) => {
+    console.log('global data', data);
+    // specifically checking for font family change
+    checkFontFamily(data['globalData']['global-font-family']);
+})
+
+// Function to check if font family needs updating
+function checkFontFamily(globalFont) {
+    if (globalFont) {
+        document.documentElement.style.setProperty('--dynamic-font', globalFont);
+    }
+}
 
 // Function to render the round details on the page
 function renderDetails() {

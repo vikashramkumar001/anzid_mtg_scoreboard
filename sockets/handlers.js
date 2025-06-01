@@ -24,7 +24,8 @@ import {
     emitGlobalMatchData,
     updateBaseTimerDefault,
     updateCommentators,
-    updateEventInformation
+    updateEventInformation,
+    updateMiscellaneousInformation
 } from '../features/globalData.js';
 
 import {
@@ -155,6 +156,10 @@ export default function registerSocketHandlers(io) {
 
         socket.on('update-event-information-requested', ({eventInformationData}) => {
             updateEventInformation(eventInformationData, io, getTimerState());
+        });
+
+        socket.on('update-global-miscellaneous-information', ({miscellaneousData}) => {
+            updateMiscellaneousInformation(miscellaneousData, io);
         });
 
         // Global base timer

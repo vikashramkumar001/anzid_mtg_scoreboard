@@ -11,6 +11,9 @@ console.log('detail', detail_id);
 
 const metaBreakdownDetail = document.getElementById('meta-breakdown-detail');
 
+// ask for global match data to get font family
+socket.emit('get-match-global-data');
+
 // Listen for deck data to display
 socket.on('receive-meta-breakdown-data', (data) => {
     // {meta-breakdown-archetype-1:{}, meta-breakdown-key-card-1-1:{},...}}
@@ -23,6 +26,20 @@ socket.on('receive-meta-breakdown-data', (data) => {
         renderDetails(metaBreakdownData);
     }
 });
+
+// Listen for global data update
+socket.on('update-match-global-data', (data) => {
+    console.log('global data', data);
+    // specifically checking for font family change
+    checkFontFamily(data['globalData']['global-font-family']);
+})
+
+// Function to check if font family needs updating
+function checkFontFamily(globalFont) {
+    if (globalFont) {
+        document.documentElement.style.setProperty('--dynamic-font', globalFont);
+    }
+}
 
 // Function to render the card on the page
 function renderCard(data) {

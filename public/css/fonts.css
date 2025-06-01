@@ -1,0 +1,197 @@
+/* Base Alverata Fonts */
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/Alverata.woff2') format('woff2'),
+       url('/fonts/Alverata.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/Alverata-Bold.woff2') format('woff2'),
+       url('/fonts/Alverata-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/Alverata-Italic.woff2') format('woff2'),
+       url('/fonts/Alverata-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/Alverata-BoldItalic.woff2') format('woff2'),
+       url('/fonts/Alverata-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Alverata Bl (Bold Italic?) */
+@font-face {
+  font-family: 'AlverataBl';
+  src: url('/fonts/AlverataBl.woff2') format('woff2'),
+       url('/fonts/AlverataBl.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Alverata Informal */
+@font-face {
+  font-family: 'AlverataInformal';
+  src: url('/fonts/AlverataInformal.woff2') format('woff2'),
+       url('/fonts/AlverataInformal.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlverataInformal';
+  src: url('/fonts/AlverataInformal-Bold.woff2') format('woff2'),
+       url('/fonts/AlverataInformal-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlverataInformal';
+  src: url('/fonts/AlverataInformalBl.woff2') format('woff2'),
+       url('/fonts/AlverataInformalBl.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'AlverataInformal';
+  src: url('/fonts/AlverataInformalLt.woff2') format('woff2'),
+       url('/fonts/AlverataInformalLt.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlverataInformal';
+  src: url('/fonts/AlverataInformalMd.woff2') format('woff2'),
+       url('/fonts/AlverataInformalMd.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlverataInformal';
+  src: url('/fonts/AlverataInformalSb.woff2') format('woff2'),
+       url('/fonts/AlverataInformalSb.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Alverata Regular Variants */
+@font-face {
+  font-family: 'AlverataIrregular';
+  src: url('/fonts/AlverataIrregular.woff2') format('woff2'),
+       url('/fonts/AlverataIrregular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlverataIrregular';
+  src: url('/fonts/AlverataIrregular-Bold.woff2') format('woff2'),
+       url('/fonts/AlverataIrregular-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlverataIrregular';
+  src: url('/fonts/AlverataIrregularBl.woff2') format('woff2'),
+       url('/fonts/AlverataIrregularBl.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'AlverataIrregular';
+  src: url('/fonts/AlverataIrregularLt.woff2') format('woff2'),
+       url('/fonts/AlverataIrregularLt.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlverataIrregular';
+  src: url('/fonts/AlverataIrregularMd.woff2') format('woff2'),
+       url('/fonts/AlverataIrregularMd.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AlverataIrregular';
+  src: url('/fonts/AlverataIrregularSb.woff2') format('woff2'),
+       url('/fonts/AlverataIrregularSb.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Additional Weights */
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/AlverataLt.woff2') format('woff2'),
+       url('/fonts/AlverataLt.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/AlverataLt-Italic.woff2') format('woff2'),
+       url('/fonts/AlverataLt-Italic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/AlverataMd.woff2') format('woff2'),
+       url('/fonts/AlverataMd.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/AlverataMd-Italic.woff2') format('woff2'),
+       url('/fonts/AlverataMd-Italic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/AlverataSb.woff2') format('woff2'),
+       url('/fonts/AlverataSb.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alverata';
+  src: url('/fonts/AlverataSb-Italic.woff2') format('woff2'),
+       url('/fonts/AlverataSb-Italic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Bebas Neue */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/BebasNeue-Regular.woff2') format('woff2'),
+       url('/fonts/BebasNeue-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

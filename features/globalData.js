@@ -11,7 +11,8 @@ let globalMatchData = {
     'global-event-format': 'Format',
     'global-event-miscellaneous-details': null,
     'global-event-base-life-points': '20',
-    'global-event-base-timer': '50'
+    'global-event-base-timer': '50',
+    'global-font-family': "'Bebas Neue', sans-serif"
 };
 
 // Get current global data
@@ -100,4 +101,12 @@ export async function updateEventInformation(eventInfo, io, timerState) {
 
     await saveControlData();
     emitControlData(io);
+}
+
+// Update global miscellaneous data and broadcast it
+export function updateMiscellaneousInformation(miscellaneousData, io) {
+    Object.entries(miscellaneousData).forEach(([key, val]) => {
+        if (key in globalMatchData) globalMatchData[key] = val;
+    });
+    emitGlobalMatchData(io);
 }
