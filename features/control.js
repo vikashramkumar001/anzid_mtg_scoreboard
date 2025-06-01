@@ -176,7 +176,7 @@ export function emitScoreboardState(io) {
 
 // update scoreboard states from incoming data
 export function updateScoreboardSate(io, round_id, match_id, action, value) {
-    console.log(round_id, match_id, action, value);
+    // console.log(round_id, match_id, action, value);
     if (action === 'showWins') {
         scoreboardState[round_id][match_id]['showWins'] = value;
         // emit updated scoreboard state

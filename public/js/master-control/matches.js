@@ -142,6 +142,10 @@ export function initMatches(socket) {
                                 <div id="${roundId}-${matchId}-player-archetype-left" class="editable form-control" contenteditable="true"></div>
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Mana Symbols</label>
+                                <div id="${roundId}-${matchId}-player-mana-symbols-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Record</label>
                                 <div id="${roundId}-${matchId}-player-record-left" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -177,6 +181,10 @@ export function initMatches(socket) {
                             <div class="mb-3">
                                 <label class="form-label">Archetype</label>
                                 <div id="${roundId}-${matchId}-player-archetype-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Mana Symbols</label>
+                                <div id="${roundId}-${matchId}-player-mana-symbols-right" class="editable form-control" contenteditable="true"></div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Record</label>

@@ -208,7 +208,15 @@ div {
     border-radius: 8px;
     padding: 0px 10px;
     font-size: .6em;
-    background-image: linear-gradient(to right, #80738088, #19181888);
+    background-image: linear-gradient(to left, #80738088, #19181888);
+}
+
+#player-pronouns-left {
+    background-image: linear-gradient(to left, #80738088, #19181888);
+}
+
+#player-pronouns-right {
+    background-image: linear-gradient(to left, #19181888, #80738088);
 }
 
 body {
@@ -242,4 +250,21 @@ body {
     height: 100px;
     width: 60px;
     font-size: 25px;
+}
+
+.mana-symbols {
+    height: 16px;
+    margin-right: 3px;
+}
+
+#player-mana-symbols-left-symbols, #player-mana-symbols-right-symbols {
+    display: none;
+}
+
+#player-mana-symbols-left-symbols, #player-archetype-left {
+    margin-right: 5px;
+}
+
+#player-mana-symbols-right-symbols, #player-archetype-right {
+    margin-left: 5px;
 }

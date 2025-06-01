@@ -9,6 +9,16 @@ const control_id = pathSegments[2];
 let round_id = '1';
 let match_id = 'match1';
 
+const MANA_ORDER = ['W', 'U', 'B', 'R', 'G', 'C'];
+const MANA_SYMBOLS = {
+    W: {alt: 'White', src: 'https://svgs.scryfall.io/card-symbols/W.svg'},
+    U: {alt: 'Blue', src: 'https://svgs.scryfall.io/card-symbols/U.svg'},
+    B: {alt: 'Black', src: 'https://svgs.scryfall.io/card-symbols/B.svg'},
+    R: {alt: 'Red', src: 'https://svgs.scryfall.io/card-symbols/R.svg'},
+    G: {alt: 'Green', src: 'https://svgs.scryfall.io/card-symbols/G.svg'},
+    C: {alt: 'Colorless', src: 'https://svgs.scryfall.io/card-symbols/C.svg'}
+};
+
 console.log('from url - control id', control_id);
 
 function updateElementText(id, value) {
@@ -53,6 +63,15 @@ function updateState(data) {
             } else {
                 updateElementText(prefix + "-1", "");
                 updateElementText(prefix + "-2", "");
+            }
+        } else if (["player-mana-symbols-left", "player-mana-symbols-right"].includes(key)) {
+            if (key === 'player-mana-symbols-left') {
+                console.log(key, value)
+                renderManaSymbols(value, 'player-mana-symbols-left-symbols');
+            }
+            if (key === 'player-mana-symbols-right') {
+                console.log(key, value)
+                renderManaSymbols(value, 'player-mana-symbols-right-symbols', {reverse: true});
             }
         }
     });
@@ -174,10 +193,46 @@ socket.emit('get-scoreboard-state');
 socket.on('scoreboard-state-data', ({scoreboardState}) => {
     console.log('got server scoreboard state', scoreboardState);
     const matchState = scoreboardState[round_id][match_id];
-    if (matchState){
+    if (matchState) {
         const winsDisplays = document.querySelectorAll('#scorebug-right-life-wins-1, #scorebug-right-life-wins-2, #scorebug-left-life-wins-1, #scorebug-left-life-wins-2');
         winsDisplays.forEach(el => {
             el.style.display = matchState.showWins ? 'block' : 'none';
-        })
+        });
     }
-})
+});
+
+// MANA SYMBOLS
+
+function renderManaSymbols(inputStr, containerId, scenario = {}) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = ''; // Clear existing symbols
+
+    const presentSymbols = new Set(
+        inputStr.toUpperCase().split('').filter(char => MANA_SYMBOLS[char])
+    );
+
+    // If there are no valid symbols, hide the container and exit early
+    console.log(inputStr)
+    console.log(presentSymbols.size)
+    if (presentSymbols.size === 0) {
+        container.style.display = 'none';
+        return;
+    }
+
+    // Otherwise, make sure it's visible
+    container.style.display = 'flex';
+
+    let symbolsToRender = MANA_ORDER.filter(symbol => presentSymbols.has(symbol));
+    if (scenario.reverse === true) {
+        symbolsToRender.reverse();
+    }
+
+    symbolsToRender.forEach(symbol => {
+        const img = document.createElement('img');
+        img.className = 'mana-symbols';
+        img.src = MANA_SYMBOLS[symbol].src;
+        img.alt = MANA_SYMBOLS[symbol].alt;
+        container.appendChild(img);
+    });
+}
+
