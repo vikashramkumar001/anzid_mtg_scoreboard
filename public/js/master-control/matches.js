@@ -9,14 +9,14 @@ export function initMatches(socket) {
     const updateMiscellaneousInformation = document.querySelector(`#global-update-misc-information.update-button`);
     const updateEventInformationBaseTimer = document.querySelector(`#global-update-event-information-base-timer.update-button`);
     const updateCommentators = document.querySelector(`#global-update-commentators.update-button`);
-    const commentator1 = document.querySelector(`#global-commentator-one`);
-    const commentator1_subtext = document.querySelector(`#global-commentator-one-subtext`);
-    const commentator2 = document.querySelector(`#global-commentator-two`);
-    const commentator2_subtext = document.querySelector(`#global-commentator-two-subtext`);
-    const commentator3 = document.querySelector(`#global-commentator-three`);
-    const commentator3_subtext = document.querySelector(`#global-commentator-three-subtext`);
-    const commentator4 = document.querySelector(`#global-commentator-four`);
-    const commentator4_subtext = document.querySelector(`#global-commentator-four-subtext`);
+    const commentator1 = document.querySelector(`#global-commentator-1`);
+    const commentator1_subtext = document.querySelector(`#global-commentator-1-subtext`);
+    const commentator2 = document.querySelector(`#global-commentator-2`);
+    const commentator2_subtext = document.querySelector(`#global-commentator-2-subtext`);
+    const commentator3 = document.querySelector(`#global-commentator-3`);
+    const commentator3_subtext = document.querySelector(`#global-commentator-3-subtext`);
+    const commentator4 = document.querySelector(`#global-commentator-4`);
+    const commentator4_subtext = document.querySelector(`#global-commentator-4-subtext`);
     const matchEventName = document.querySelector(`#global-event-name`);
     const matchEventFormat = document.querySelector(`#global-event-format`);
     const matchEventMiscDetails = document.querySelector(`#global-event-miscellaneous-details`);
@@ -578,14 +578,14 @@ export function initMatches(socket) {
     function attachGlobalCommentatorsListener() {
         updateCommentators.addEventListener('click', () => {
             const data2send = {
-                'global-commentator-one': commentator1.innerText,
-                'global-commentator-one-subtext': commentator1_subtext.innerText,
-                'global-commentator-two': commentator2.innerText,
-                'global-commentator-two-subtext': commentator2_subtext.innerText,
-                'global-commentator-three': commentator3.innerText,
-                'global-commentator-three-subtext': commentator3_subtext.innerText,
-                'global-commentator-four': commentator4.innerText,
-                'global-commentator-four-subtext': commentator4_subtext.innerText
+                'global-commentator-1': commentator1.innerText,
+                'global-commentator-1-subtext': commentator1_subtext.innerText,
+                'global-commentator-2': commentator2.innerText,
+                'global-commentator-2-subtext': commentator2_subtext.innerText,
+                'global-commentator-3': commentator3.innerText,
+                'global-commentator-3-subtext': commentator3_subtext.innerText,
+                'global-commentator-4': commentator4.innerText,
+                'global-commentator-4-subtext': commentator4_subtext.innerText
             }
             console.log(data2send)
             socket.emit('update-commentators-requested', {commentatorData: data2send});
@@ -867,14 +867,14 @@ export function initMatches(socket) {
     socket.on('update-match-global-data', (data) => {
         // update match global fields
         console.log('got global data', data['globalData'])
-        commentator1.innerText = data['globalData']['global-commentator-one'] ? data['globalData']['global-commentator-one'] : '';
-        commentator1_subtext.innerText = data['globalData']['global-commentator-one-subtext'] ? data['globalData']['global-commentator-one-subtext'] : '';
-        commentator2.innerText = data['globalData']['global-commentator-two'] ? data['globalData']['global-commentator-two'] : '';
-        commentator2_subtext.innerText = data['globalData']['global-commentator-two-subtext'] ? data['globalData']['global-commentator-two-subtext'] : '';
-        commentator3.innerText = data['globalData']['global-commentator-three'] ? data['globalData']['global-commentator-three'] : '';
-        commentator3_subtext.innerText = data['globalData']['global-commentator-three-subtext'] ? data['globalData']['global-commentator-three-subtext'] : '';
-        commentator4.innerText = data['globalData']['global-commentator-four'] ? data['globalData']['global-commentator-four'] : '';
-        commentator4_subtext.innerText = data['globalData']['global-commentator-four-subtext'] ? data['globalData']['global-commentator-four-subtext'] : '';
+        commentator1.innerText = data['globalData']['global-commentator-1'] ? data['globalData']['global-commentator-1'] : '';
+        commentator1_subtext.innerText = data['globalData']['global-commentator-1-subtext'] ? data['globalData']['global-commentator-1-subtext'] : '';
+        commentator2.innerText = data['globalData']['global-commentator-2'] ? data['globalData']['global-commentator-2'] : '';
+        commentator2_subtext.innerText = data['globalData']['global-commentator-2-subtext'] ? data['globalData']['global-commentator-2-subtext'] : '';
+        commentator3.innerText = data['globalData']['global-commentator-3'] ? data['globalData']['global-commentator-3'] : '';
+        commentator3_subtext.innerText = data['globalData']['global-commentator-3-subtext'] ? data['globalData']['global-commentator-3-subtext'] : '';
+        commentator4.innerText = data['globalData']['global-commentator-4'] ? data['globalData']['global-commentator-4'] : '';
+        commentator4_subtext.innerText = data['globalData']['global-commentator-4-subtext'] ? data['globalData']['global-commentator-4-subtext'] : '';
         matchEventName.innerText = data['globalData']['global-event-name'] ? data['globalData']['global-event-name'] : '';
         matchEventFormat.innerText = data['globalData']['global-event-format'] ? data['globalData']['global-event-format'] : '';
         matchEventMiscDetails.innerText = data['globalData']['global-event-miscellaneous-details'] ? data['globalData']['global-event-miscellaneous-details'] : '';

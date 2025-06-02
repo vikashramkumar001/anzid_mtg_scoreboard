@@ -3,14 +3,14 @@ import {getSortedArchetypes} from './archetypes.js';
 import {DEFAULT_INITIAL_TIME, getInitialTime, setInitialTime} from "../config/constants.js";
 
 let globalMatchData = {
-    'global-commentator-one': null,
-    'global-commentator-one-subtext': null,
-    'global-commentator-two': null,
-    'global-commentator-two-subtext': null,
-    'global-commentator-three': null,
-    'global-commentator-three-subtext': null,
-    'global-commentator-four': null,
-    'global-commentator-four-subtext': null,
+    'global-commentator-1': null,
+    'global-commentator-1-subtext': null,
+    'global-commentator-2': null,
+    'global-commentator-2-subtext': null,
+    'global-commentator-3': null,
+    'global-commentator-3-subtext': null,
+    'global-commentator-4': null,
+    'global-commentator-4-subtext': null,
     'global-event-name': 'Event',
     'global-event-format': 'Format',
     'global-event-miscellaneous-details': null,
