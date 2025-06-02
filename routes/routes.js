@@ -116,4 +116,8 @@ router.get('/meta/breakdown/details/:detailKey', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/meta-breakdown-details.html'));
 });
 
+router.get('/meta/breakdown/full/:metaID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/meta-breakdown-full.html'));
+});
+
 export default router;
