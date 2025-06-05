@@ -26,3 +26,8 @@
     height: 20px;
     margin-right: 2px;
 }
+
+.player-sprite {
+    width: 750px;
+    height: 750px;
+}
