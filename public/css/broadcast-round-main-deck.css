@@ -4,6 +4,8 @@
 
 * {
     font-family: var(--dynamic-font), sans-serif;
+    text-transform: uppercase;
+    background-color: transparent;
 }
 
 #deck-display-details {
@@ -83,4 +85,5 @@
 .mana-symbols-container img {
     height: 24px;
     margin-right: 4px;
+    margin-top: 2px;
 }

@@ -5,6 +5,7 @@
 * {
     font-family: var(--dynamic-font), sans-serif;
     background-color: transparent;
+    text-transform: uppercase;
 }
 
 #bracket-details-container {

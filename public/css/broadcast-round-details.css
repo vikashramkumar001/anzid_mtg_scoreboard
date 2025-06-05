@@ -5,6 +5,7 @@
 * {
     font-family: var(--dynamic-font), sans-serif;
     background-color: transparent;
+    text-transform: uppercase;
 }
 
 #round-details-container {
@@ -25,6 +26,7 @@
 .mana-symbols-container img {
     height: 20px;
     margin-right: 2px;
+    margin-top: 3px;
 }
 
 .player-sprite {

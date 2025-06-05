@@ -4,6 +4,7 @@ body {
     background-color: transparent;
     font-family: var(--dynamic-font), sans-serif;
     overflow: hidden;
+    text-transform: uppercase;
 }
 
 #fixed-layout {
