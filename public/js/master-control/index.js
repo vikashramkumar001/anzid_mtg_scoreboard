@@ -4,6 +4,7 @@ import {initMatches} from './matches.js';
 import {initBrackets} from './brackets.js';
 import {initMTGCardView} from './mtg-card-view.js';
 import {initVibesCardView} from './vibes-card-view.js';
+import {initRiftboundCardView} from './riftbound-card-view.js';
 import {initMetaBreakdown} from './meta-breakdown.js';
 import {initCardDB} from './indexeddb-init.js';
 
@@ -25,5 +26,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     initBrackets(socket);
     initMTGCardView(socket);
     initVibesCardView(socket);
+    initRiftboundCardView(socket);
     initMetaBreakdown(socket);
 });

@@ -14,8 +14,8 @@ import { loadStandingsData } from './features/standings.js';
 import { loadCardListData } from './features/cards.js';
 import { loadArchetypeList } from './features/archetypes.js';
 import { startTimerBroadcast } from './features/timers.js';
-
 import {loadCardListData as vibesLoadCardListData} from './features/vibes/cards.js'
+import {loadCardListData as riftboundLoadCardListData} from './features/riftbound/cards.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -53,6 +53,7 @@ async function initialize() {
   await loadCardListData();
   await loadArchetypeList();
   await vibesLoadCardListData();
+  await riftboundLoadCardListData();
 
   server.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);

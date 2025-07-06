@@ -1,6 +1,7 @@
 import {promises as fs} from 'fs';
 import {cardListDataPath} from '../config/constants.js';
 import {getCardListData as vibesGetCardListData} from "./vibes/cards.js";
+import {getCardListData as riftboundGetCardListData} from "./riftbound/cards.js";
 
 let cardListData = [];
 
@@ -48,7 +49,7 @@ export function emitCardView(io, cardSelected) {
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
             }
-            io.emit('card-view-card-selected', cardData);
+            io.emit('vibes-card-view-card-selected', cardData);
         } else {
             const cardData = {
                 name: '',
@@ -56,7 +57,7 @@ export function emitCardView(io, cardSelected) {
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
             }
-            io.emit('card-view-card-selected', cardData);
+            io.emit('vibes-card-view-card-selected', cardData);
         }
     }
     if (cardSelected['game-id'] === 'mtg') {
@@ -78,5 +79,29 @@ export function emitCardView(io, cardSelected) {
             'game-id': cardSelected['game-id']
         }
         io.emit('card-view-card-selected', cardData);
+    }
+    if (cardSelected['game-id'] === 'riftbound') {
+        const riftboundCards = riftboundGetCardListData();
+        // check if card selected is in the list
+        const cardName = Object.keys(riftboundCards).find(
+            name => name.toLowerCase() === cardSelected['card-selected'].toLowerCase()
+        )
+        if (cardName) {
+            const cardData = {
+                name: cardName,
+                url: riftboundCards[cardName],
+                'card-id': cardSelected['card-id'],
+                'game-id': cardSelected['game-id']
+            }
+            io.emit('riftbound-card-view-card-selected', cardData);
+        } else {
+            const cardData = {
+                name: '',
+                url: '',
+                'card-id': cardSelected['card-id'],
+                'game-id': cardSelected['game-id']
+            }
+            io.emit('riftbound-card-view-card-selected', cardData);
+        }
     }
 }

@@ -63,6 +63,11 @@ import {
 import {
     handleIncomingMetaBreakdownData
 } from "../features/metaBreakdown.js";
+import {
+    emitRiftboundCardList,
+    emitRiftboundCardView,
+    handleRiftboundIncomingDeckData
+} from "../features/riftbound/cards.js";
 
 export default function registerSocketHandlers(io) {
     io.on('connection', (socket) => {
@@ -204,6 +209,24 @@ export default function registerSocketHandlers(io) {
         })
 
         // END VIBES
+
+        // RIFTBOUND
+
+        // Vibes - Card viewer
+        socket.on('riftbound-get-card-list-data', () => {
+            emitRiftboundCardList(io);
+        });
+
+        socket.on('riftbound-card-view-view-card', ({cardSelected}) => {
+            emitRiftboundCardView(io, cardSelected);
+        });
+
+        // Vibes - Deck Display
+        socket.on('riftbound-main-deck-display-clicked', (deckListData) => {
+            handleRiftboundIncomingDeckData(io, deckListData)
+        })
+
+        // END RIFTBOUND
 
         // Standings
         socket.on('get-all-standings', () => {

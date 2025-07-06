@@ -111,6 +111,20 @@ router.get('/vibes/display/main/deck/:deckID', (req, res) => {
 
 // END VIBES
 
+// RIFTBOUND
+
+// riftbound - dedicated car view
+router.get('/riftbound/display/card/view/:cardID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/riftbound/dedicated-card-view.html'));
+});
+
+// vibes - deck view
+router.get('/riftbound/display/main/deck/:deckID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/riftbound/deck-display.html'))
+});
+
+// END RIFTBOUND
+
 // meta breakdown links
 router.get('/meta/breakdown/details/:detailKey', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/meta-breakdown-details.html'));
