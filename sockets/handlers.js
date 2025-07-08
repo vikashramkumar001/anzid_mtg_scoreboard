@@ -19,7 +19,7 @@ import {
     getControlData,
     updateBroadcastTracker,
     emitScoreboardState,
-    updateScoreboardSate
+    updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection
 } from '../features/control.js';
 
 import {
@@ -183,6 +183,15 @@ export default function registerSocketHandlers(io) {
             updateBaseTimerDefault(eventInformationData, getTimerState());
         });
 
+        // Global game selection
+        socket.on('update-game-selection', ({gameSelection}) => {
+            updateGameSelection(gameSelection, io);
+        })
+
+        socket.on('get-game-selection', () => {
+            emitCurrentGameSelection(io);
+        })
+
         // Card viewer
         socket.on('mtg-get-card-list-data', () => {
             emitMTGCardList(io);
@@ -212,7 +221,7 @@ export default function registerSocketHandlers(io) {
 
         // RIFTBOUND
 
-        // Vibes - Card viewer
+        // riftbound - Card viewer
         socket.on('riftbound-get-card-list-data', () => {
             emitRiftboundCardList(io);
         });
@@ -221,7 +230,7 @@ export default function registerSocketHandlers(io) {
             emitRiftboundCardView(io, cardSelected);
         });
 
-        // Vibes - Deck Display
+        // riftbound - Deck Display
         socket.on('riftbound-main-deck-display-clicked', (deckListData) => {
             handleRiftboundIncomingDeckData(io, deckListData)
         })

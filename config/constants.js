@@ -16,6 +16,7 @@ export const archetypeListPath   = path.join(rootDir, 'data', 'archetypeList.jso
 
 // === Defaults ===
 export let DEFAULT_INITIAL_TIME = 50 * 60 * 1000; // 50 minutes in ms
+export let DEFAULT_GAME_SELECTION = 'mtg';  // mtg, riftbound
 
 export function getInitialTime() {
   return DEFAULT_INITIAL_TIME;
@@ -23,4 +24,12 @@ export function getInitialTime() {
 
 export function setInitialTime(ms) {
   DEFAULT_INITIAL_TIME = ms;
+}
+
+export function getGameSelection() {
+  return DEFAULT_GAME_SELECTION;
+}
+
+export function setGameSelection(gameType) {
+  DEFAULT_GAME_SELECTION = gameType.toLowerCase();
 }

@@ -1,5 +1,5 @@
 import {promises as fs} from 'fs';
-import {controlDataPath} from '../config/constants.js';
+import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection} from '../config/constants.js';
 import {getSortedArchetypes} from './archetypes.js';
 
 let controlData = {};
@@ -183,3 +183,19 @@ export function updateScoreboardSate(io, round_id, match_id, action, value) {
         emitScoreboardState(io);
     }
 }
+
+// game selection handlers
+export function emitCurrentGameSelection(io) {
+    io.emit('server-current-game-selection', {gameSelection: getGameSelection()})
+}
+
+export function emitUpdatedGameSelection(io) {
+    io.emit('game-selection-updated', {gameSelection: getGameSelection()})
+}
+
+export function updateGameSelection(gameSelection, io) {
+    setGameSelection(gameSelection);
+    emitUpdatedGameSelection(io);
+}
+
+

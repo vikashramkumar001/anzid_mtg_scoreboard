@@ -1,6 +1,9 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 
+const fallbackImageUrl = (cardName) =>
+    `https://api.scryfall.com/cards/named?exact=${encodeURIComponent(cardName)}&format=image&version=border_crop`;
+
 async function fetchAndSaveCardFaceImages() {
     const bulkDataUrl = "https://api.scryfall.com/bulk-data";
     const outputFilePath = "./cardFaceImages.json";
@@ -27,19 +30,21 @@ async function fetchAndSaveCardFaceImages() {
             if (card.card_faces && Array.isArray(card.card_faces)) {
                 for (const face of card.card_faces) {
                     const faceName = face.name?.trim();
-                    const faceImage = face.image_uris?.large;
+                    const faceImage = face.image_uris?.large || fallbackImageUrl(faceName);
 
-                    if (faceName && faceImage) {
+                    if (faceName) {
                         const key = `${faceName} (${identifier})`;
                         nameToImage[key] = faceImage;
                     }
                 }
-            } else if (card.image_uris?.large) {
+            } else {
                 const cardName = card.name?.trim();
+                const image = card.image_uris?.large || fallbackImageUrl(cardName);
                 const key = `${cardName} (${identifier})`;
-                nameToImage[key] = card.image_uris.large;
+                nameToImage[key] = image;
             }
         }
+
 
         const sorted = Object.keys(nameToImage)
             .sort((a, b) => a.localeCompare(b))
