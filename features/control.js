@@ -1,6 +1,7 @@
 import {promises as fs} from 'fs';
 import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection} from '../config/constants.js';
 import {getSortedArchetypes} from './archetypes.js';
+import {emitBroadcastStandings} from "./standings.js";
 
 let controlData = {};
 let controlsTracker = {
@@ -43,7 +44,7 @@ export async function loadControlData() {
 export async function saveControlData() {
     try {
         await fs.writeFile(controlDataPath, JSON.stringify(controlData, null, 2));
-        console.log('Control data saved.');
+        // console.log('Control data saved.');
     } catch (error) {
         console.error('Error saving control data:', error);
     }
@@ -166,6 +167,12 @@ export async function updateFromMaster(allControlData, io) {
                 }
             });
         });
+        // emit round data to live broadcast changes using broadcastTracker
+        if (broadcastTracker.round_id && broadcastTracker.round_id === round_id) {
+            io.emit('broadcast-round-data', roundData);
+            // emit standings as well
+            emitBroadcastStandings(io, round_id);
+        }
     });
 }
 
