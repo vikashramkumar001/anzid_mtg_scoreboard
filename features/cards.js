@@ -32,6 +32,25 @@ export function emitMTGCardList(io) {
     io.emit('mtg-card-list-data', {cardListData});
 }
 
+function createCleanedCardMap(cardsList) {
+    const cleanedMap = {};
+
+    for (const originalName in cardsList) {
+        const cleaned = originalName
+            .replace(/\s*\(.*?\)$/, '') // remove trailing (set info)
+            .replace(/^"+|"+$/g, '')    // remove quotes
+            .replace(/&/g, 'and')       // replace &
+            .trim();
+
+        // Only store the first match for a cleaned name
+        if (!cleanedMap[cleaned]) {
+            cleanedMap[cleaned] = cardsList[originalName];
+        }
+    }
+
+    return cleanedMap;
+}
+
 // Emit selected card for viewing
 export function emitCardView(io, cardSelected) {
     // this should cater for game id being passed - mtg / vibes
@@ -69,8 +88,11 @@ export function emitCardView(io, cardSelected) {
         // Remove leading/trailing quotes and sanitize
         const cleanedName = singleFace.replace(/^"+|"+$/g, '').replace(/&/g, 'and');
 
+        // Clean the card list data
+        const cleanedCardListData = createCleanedCardMap(cardListData);
+
         // get card url from json
-        const cardURL = cardListData[cleanedName];
+        const cardURL = cleanedCardListData[cleanedName];
 
         const cardData = {
             name: cardSelected['card-selected'],
@@ -78,6 +100,7 @@ export function emitCardView(io, cardSelected) {
             'card-id': cardSelected['card-id'],
             'game-id': cardSelected['game-id']
         }
+        console.log(cardData)
         io.emit('card-view-card-selected', cardData);
     }
     if (cardSelected['game-id'] === 'riftbound') {
@@ -89,7 +112,8 @@ export function emitCardView(io, cardSelected) {
         if (cardName) {
             const cardData = {
                 name: cardName,
-                url: riftboundCards[cardName],
+                url: riftboundCards[cardName]?.imageUrl,
+                type: riftboundCards[cardName]?.type,
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
             }
@@ -98,6 +122,7 @@ export function emitCardView(io, cardSelected) {
             const cardData = {
                 name: '',
                 url: '',
+                type: '',
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
             }

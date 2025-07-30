@@ -111,7 +111,7 @@ export function initRiftboundCardView(socket) {
 
     function renderCardPreview1(cardName) {
         const previewEl = document.querySelector('#riftbound-card-view #card-preview-riftbound-1');
-        const url = cardListData[cardName];
+        const url = cardListData[cardName]?.imageUrl;
 
         if (url) {
             previewEl.innerHTML = `
@@ -129,7 +129,7 @@ export function initRiftboundCardView(socket) {
 
     function renderCardPreview2(cardName) {
         const previewEl = document.querySelector('#riftbound-card-view #card-preview-riftbound-2');
-        const url = cardListData[cardName];
+        const url = cardListData[cardName]?.imageUrl;
 
         if (url) {
             previewEl.innerHTML = `

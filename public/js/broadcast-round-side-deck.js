@@ -78,7 +78,11 @@ function getURLFromCardName(cardName, cardsList) {
 
     cleaned = cleaned.replace(/^"+|"+$/g, '').replace(/&/g, 'and').replace(/\s*\(.*?\)$/, '').trim();
 
-    return cardsList[cleaned];
+    if (selectedGame === 'mtg') {
+        return cardsList[cleaned];
+    } else {
+        return cardsList[cleaned]?.imageUrl;
+    }
 }
 
 // Function to transform deck data into an object with counts

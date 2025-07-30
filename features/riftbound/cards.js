@@ -39,12 +39,14 @@ export function emitRiftboundCardView(io, cardSelected) {
     let foundCard = {
         name: '',
         url: '',
+        type: '',
         'card-id': cardSelected['card-id']
     }
     if (cardName) {
         foundCard = {
             name: cardName,
-            url: cardListData[cardName],
+            url: cardListData[cardName]?.imageUrl,
+            type: cardListData[cardName]?.type,
             'card-id': cardSelected['card-id']
         }
     }

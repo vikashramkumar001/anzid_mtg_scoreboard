@@ -14,7 +14,7 @@ socket.on('card-view-card-selected', (data) => {
 
     // check that data was meant for this card id and game id
     if (card_id === data['card-id'].toString() && game_id === data['game-id'].toString()) {
-        cardName = data['card-selected'];
+        cardName = data['name'];
         console.log('card to display data', cardName);
         // Call a function to render the card
         renderCard(data);
