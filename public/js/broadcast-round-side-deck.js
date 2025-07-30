@@ -1,11 +1,34 @@
 const socket = io();
 let roundData = {};
 let deckData = {};
+let selectedGame = '';  // global game type, e.g., 'mtg' or 'rift'
+let mtgCards = {};
+let riftboundCards = {};
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
 const match_id = pathSegments[4];
 const side_id = pathSegments[5];
+
+// send request for card list data from server
+socket.emit('riftbound-get-card-list-data');
+
+// handle receiving card list data from server
+socket.on('riftbound-card-list-data', ({cardListData: cardListDataFromServer}) => {
+    // console.log('got card list data from server', cardListDataFromServer);
+    // save card list data
+    riftboundCards = cardListDataFromServer;
+});
+
+// send request for card list data from server
+socket.emit('mtg-get-card-list-data');
+
+// handle receiving card list data from server
+socket.on('mtg-card-list-data', ({cardListData: cardListDataFromServer}) => {
+    // console.log('got card list data from server', cardListDataFromServer);
+    // save card list data
+    mtgCards = cardListDataFromServer;
+});
 
 // Listen for deck data to display
 socket.on('broadcast-round-data', (data) => {
@@ -29,19 +52,57 @@ socket.on('broadcast-round-data', (data) => {
     }
 });
 
+function createCleanedCardMap(cardsList) {
+    const cleanedMap = {};
+
+    for (const originalName in cardsList) {
+        const cleaned = originalName
+            .replace(/\s*\(.*?\)$/, '') // remove trailing (set info)
+            .replace(/^"+|"+$/g, '')    // remove quotes
+            .replace(/&/g, 'and')       // replace &
+            .trim();
+
+        // Only store the first match for a cleaned name
+        if (!cleanedMap[cleaned]) {
+            cleanedMap[cleaned] = cardsList[originalName];
+        }
+    }
+
+    return cleanedMap;
+}
+
+function getURLFromCardName(cardName, cardsList) {
+    let cleaned = cardName.includes('//')
+        ? cardName.split('//')[0].trim()
+        : cardName.trim();
+
+    cleaned = cleaned.replace(/^"+|"+$/g, '').replace(/&/g, 'and').replace(/\s*\(.*?\)$/, '').trim();
+
+    return cardsList[cleaned];
+}
+
 // Function to transform deck data into an object with counts
 function transformDeck(deckArray) {
     const deckObject = [];
+    let cleanedCardsMap = {};
+    if (selectedGame === 'mtg') {
+        cleanedCardsMap = createCleanedCardMap(mtgCards);
+    }
+    if (selectedGame === 'riftbound') {
+        cleanedCardsMap = createCleanedCardMap(riftboundCards);
+    }
+    console.log(cleanedCardsMap)
     deckArray.forEach(card => {
         // Split the card string into count and name
         const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card]; // Default count to 1 if no number is found
         const count = parseInt(parts[1], 10); // Get the count
         const name = parts[2]; // Get the card name
-        const cardNameForURL = name.replace(/ /g, '+'); // Replace spaces with '+'
+        let url = '';
+        url = getURLFromCardName(name, cleanedCardsMap);
         deckObject.push({
             'card-name': name,
             'card-count': count,
-            'card-url': `https://api.scryfall.com/cards/named?exact=${cardNameForURL}&format=image&version=border_crop` // Set card URL
+            'card-url': url
         });
     });
     return deckObject;
@@ -63,3 +124,32 @@ function renderDecks() {
         sideDeckContainer.appendChild(cardElement);
     });
 }
+
+// game selection logic
+function handleGameSelectionUpdate(gameSelection) {
+    const normalized = gameSelection?.toLowerCase();
+    if (!normalized || normalized === selectedGame) return;
+
+    selectedGame = normalized;
+    console.log('Game selection updated:', selectedGame);
+
+    // Perform actions based on game type
+    if (selectedGame === 'mtg') {
+        console.log('Switching to MTG mode...');
+    } else if (selectedGame === 'rift') {
+        console.log('Switching to Riftbound mode...');
+    }
+}
+
+socket.emit('get-game-selection');
+
+socket.on('game-selection-updated', ({gameSelection}) => {
+    handleGameSelectionUpdate(gameSelection);
+});
+
+// If this is the first time receiving it (like on initial load):
+socket.on('server-current-game-selection', ({gameSelection}) => {
+    handleGameSelectionUpdate(gameSelection);
+});
+
+// end game selection logic
