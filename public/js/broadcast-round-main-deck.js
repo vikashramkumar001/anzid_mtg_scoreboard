@@ -116,87 +116,183 @@ function getURLFromCardName(cardName, cardsList) {
 
 // Function to transform deck data into an object with counts
 function transformDeck(deckArray) {
-    const deckObject = [];
     let cleanedCardsMap = {};
     if (selectedGame === 'mtg') {
         cleanedCardsMap = createCleanedCardMap(mtgCards);
-    }
-    if (selectedGame === 'riftbound') {
+    } else if (selectedGame === 'riftbound') {
         cleanedCardsMap = createCleanedCardMap(riftboundCards);
     }
-    console.log(cleanedCardsMap)
+
+    // --- Riftbound: categorized structure ---
+    if (selectedGame === 'riftbound') {
+        const categorizedDeck = {
+            legend: [],
+            runes: [],
+            battlefields: [],
+            other: []
+        };
+
+        deckArray.forEach(card => {
+            const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
+            const count = parseInt(parts[1], 10);
+            const name = parts[2];
+            const url = getURLFromCardName(name, cleanedCardsMap);
+            const type = cleanedCardsMap[name]?.type || 'Other';
+
+            const cardEntry = {
+                'card-name': name,
+                'card-count': count,
+                'card-url': url
+            };
+
+            if (type === 'Legend') {
+                categorizedDeck.legend.push(cardEntry);
+            } else if (type === 'Rune') {
+                categorizedDeck.runes.push(cardEntry);
+            } else if (type === 'Battlefield') {
+                categorizedDeck.battlefields.push(cardEntry);
+            } else {
+                categorizedDeck.other.push(cardEntry);
+            }
+        });
+
+        return categorizedDeck;
+    }
+
+    // --- MTG and others: flat array structure ---
+    const flatDeck = [];
     deckArray.forEach(card => {
-        // Split the card string into count and name
-        const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card]; // Default count to 1 if no number is found
-        const count = parseInt(parts[1], 10); // Get the count
-        const name = parts[2]; // Get the card name
-        let url = '';
-        url = getURLFromCardName(name, cleanedCardsMap);
-        deckObject.push({
+        const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
+        const count = parseInt(parts[1], 10);
+        const name = parts[2];
+        const url = getURLFromCardName(name, cleanedCardsMap);
+
+        flatDeck.push({
             'card-name': name,
             'card-count': count,
             'card-url': url
         });
     });
-    return deckObject;
+
+    return flatDeck;
 }
+
 
 // Function to render the decks on the page
 function renderDecks() {
-    // Clear previous deck displays
-    document.getElementById('main-deck-container').innerHTML = '';
-
-    // Render main deck
-    const mainDeckContainer = document.getElementById('main-deck-container');
-    const totalCards = deckData.mainDeck.length;
-
-    // No overlap, display cards normally
-    // 3 x 10 rows
-    if (totalCards <= 30) {
-        deckData.mainDeck.forEach((card, index) => {
-            const cardElement = document.createElement('div');
-            cardElement.className = 'main-deck-card';
-            // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-            mainDeckContainer.appendChild(cardElement);
-        });
+    if (selectedGame === 'riftbound') {
+        renderRiftboundDeckSections(deckData.mainDeck);
+        renderManaSymbols('', 'player-mana-symbols');
     } else {
-        // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
-        const numberCardsPerRow = Math.ceil(totalCards / 3);
-        // 5px each side on padding on main container -> 10px
-        // 5px each side of card -> 10px
-        const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
-        deckData.mainDeck.forEach((card, index) => {
-            const cardElement = document.createElement('div');
-            cardElement.className = 'main-deck-card';
-            // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-            cardElement.style.width = `${scalingCardWidth}px`;
-            mainDeckContainer.appendChild(cardElement);
-        });
-    }
+        // existing MTG layout
+        const deckDisplayDetails = document.getElementById('deck-display-details');
+        deckDisplayDetails.style.display = 'flex';
+        // Clear previous deck displays
+        document.getElementById('main-deck-container').innerHTML = '';
 
-    // Optionally, display player name and archetype
-    const detailsElement = document.getElementById('deck-display-details');
-    detailsElement.innerHTML = `
+        // Render main deck
+        const mainDeckContainer = document.getElementById('main-deck-container');
+        const totalCards = deckData.mainDeck.length;
+
+        // No overlap, display cards normally
+        // 3 x 10 rows
+        if (totalCards <= 30) {
+            deckData.mainDeck.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'main-deck-card';
+                // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                mainDeckContainer.appendChild(cardElement);
+            });
+        } else {
+            // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
+            const numberCardsPerRow = Math.ceil(totalCards / 3);
+            // 5px each side on padding on main container -> 10px
+            // 5px each side of card -> 10px
+            const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
+            deckData.mainDeck.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'main-deck-card';
+                // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                cardElement.style.width = `${scalingCardWidth}px`;
+                mainDeckContainer.appendChild(cardElement);
+            });
+        }
+
+        // Optionally, display player name and archetype
+        const detailsElement = document.getElementById('deck-display-details');
+        detailsElement.innerHTML = `
         <h1 class="player-name">${deckData.playerName}</h1>
         <h5 class="archetype-name">
             <span id="player-mana-symbols" class="mana-symbols-container"></span> ${deckData.archetype}
         </h5>
-    `;
+        `;
 
-    // display mana symbols
-    if (selectedGame === 'mtg') {
+        // display mana symbols
         renderManaSymbols(deckData.manaSymbols || '', 'player-mana-symbols');
-    } else {
-        renderManaSymbols('', 'player-mana-symbols');
     }
 }
+
+// RIFTBOUND RENDERING
+function renderRiftboundDeckSections(deckObj) {
+    const deckDisplayDetails = document.getElementById('deck-display-details');
+    deckDisplayDetails.style.display = 'none';
+    const container = document.getElementById('main-deck-container');
+    container.innerHTML = ''; // Clear previous
+
+    const sections = ['legend', 'runes', 'battlefields', 'other'];
+    const sectionTitles = {
+        legend: 'Legend',
+        runes: 'Runes',
+        battlefields: 'Battlefields',
+        other: 'Main Deck'
+    };
+
+    sections.forEach(key => {
+        let cards = deckObj[key];
+        if (!cards || cards.length === 0) return;
+
+        // Apply visual logic per section
+        if (key === 'legend') {
+            cards = [cards[0]]; // Only first legend
+        } else if (key === 'battlefields') {
+            cards = cards.slice(0, 3); // Max 3
+        } else if (key === 'other') {
+            cards = cards.slice(0, 18); // Max 18
+        }
+
+        const sectionWrapper = document.createElement('div');
+        sectionWrapper.className = `deck-section-wrapper ${key}-section`;
+
+        cards.forEach(card => {
+            const cardEl = document.createElement('div');
+            cardEl.className = 'main-deck-card';
+            if (key === 'battlefields') {
+                cardEl.innerHTML = `
+                  <div class="card-rotated-wrapper">
+                    <img src="${card['card-url']}" class="card-src rotated">
+                  </div>
+                  <div class="card-count">${card['card-count']}</div>
+                `;
+            } else {
+                cardEl.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+            }
+            sectionWrapper.appendChild(cardEl);
+        });
+
+        container.appendChild(sectionWrapper);
+    });
+}
+
 
 // MANA SYMBOLS
 
 function renderManaSymbols(inputStr, containerId, scenario = {}) {
     const container = document.getElementById(containerId);
+    if (!container) {
+        return;
+    }
     container.innerHTML = ''; // Clear existing symbols
 
     const presentSymbols = new Set(
