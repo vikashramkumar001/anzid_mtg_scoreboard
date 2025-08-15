@@ -84,11 +84,7 @@ function createCleanedCardMap(cardsList) {
     const cleanedMap = {};
 
     for (const originalName in cardsList) {
-        const cleaned = originalName
-            .replace(/\s*\(.*?\)$/, '') // remove trailing (set info)
-            .replace(/^"+|"+$/g, '')    // remove quotes
-            .replace(/&/g, 'and')       // replace &
-            .trim();
+        const cleaned = normalizeName(originalName);
 
         // Only store the first match for a cleaned name
         if (!cleanedMap[cleaned]) {
@@ -104,7 +100,7 @@ function getURLFromCardName(cardName, cardsList) {
         ? cardName.split('//')[0].trim()
         : cardName.trim();
 
-    cleaned = cleaned.replace(/^"+|"+$/g, '').replace(/&/g, 'and').replace(/\s*\(.*?\)$/, '').trim();
+    cleaned = normalizeName(cleaned);
 
     if (selectedGame === 'mtg') {
         return cardsList[cleaned];
@@ -283,6 +279,16 @@ function renderRiftboundDeckSections(deckObj) {
 
         container.appendChild(sectionWrapper);
     });
+}
+
+function normalizeName(str) {
+    return str
+        .normalize('NFD')                      // separate accents
+        .replace(/[\u0300-\u036f]/g, '')      // remove accents
+        .replace(/\s*\(.*?\)$/, '')           // remove trailing (set info)
+        .replace(/^"+|"+$/g, '')              // remove quotes
+        .replace(/&/g, 'and')                 // replace ampersand
+        .trim();
 }
 
 

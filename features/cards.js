@@ -32,22 +32,27 @@ export function emitMTGCardList(io) {
     io.emit('mtg-card-list-data', {cardListData});
 }
 
+function normalizeName(str) {
+    return str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, '') // strip accents
+        .replace(/\s*\(.*?\)$/, '')     // remove set info
+        .replace(/^"+|"+$/g, '')        // strip quotes
+        .replace(/&/g, 'and')           // replace ampersands
+        .trim();
+}
+
 function createCleanedCardMap(cardsList) {
     const cleanedMap = {};
-
     for (const originalName in cardsList) {
-        const cleaned = originalName
-            .replace(/\s*\(.*?\)$/, '') // remove trailing (set info)
-            .replace(/^"+|"+$/g, '')    // remove quotes
-            .replace(/&/g, 'and')       // replace &
-            .trim();
-
+        const cleaned = normalizeName(originalName);
         // Only store the first match for a cleaned name
         if (!cleanedMap[cleaned]) {
             cleanedMap[cleaned] = cardsList[originalName];
         }
+        // add original name as well
+        cleanedMap[originalName] = cardsList[originalName];
     }
-
     return cleanedMap;
 }
 
@@ -86,7 +91,7 @@ export function emitCardView(io, cardSelected) {
             : cardSelected['card-selected'].trim();
 
         // Remove leading/trailing quotes and sanitize
-        const cleanedName = singleFace.replace(/^"+|"+$/g, '').replace(/&/g, 'and');
+       const cleanedName = normalizeName(singleFace);
 
         // Clean the card list data
         const cleanedCardListData = createCleanedCardMap(cardListData);
@@ -100,7 +105,6 @@ export function emitCardView(io, cardSelected) {
             'card-id': cardSelected['card-id'],
             'game-id': cardSelected['game-id']
         }
-        console.log(cardData)
         io.emit('card-view-card-selected', cardData);
     }
     if (cardSelected['game-id'] === 'riftbound') {

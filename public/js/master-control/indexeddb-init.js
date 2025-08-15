@@ -19,8 +19,29 @@ export async function initCardDB(genre, data) {
     const tx = db.transaction("cards", "readwrite");
     const store = tx.objectStore("cards");
 
+    // Clear all cards of the same genre first
+    const clearRequest = store.openCursor();
+    clearRequest.onsuccess = (event) => {
+        const cursor = event.target.result;
+        if (cursor) {
+            if (cursor.value.genre === genre) {
+                cursor.delete();
+            }
+            cursor.continue();
+        }
+    };
+
+    await new Promise((res, rej) => {
+        tx.oncomplete = res;
+        tx.onerror = rej;
+    });
+
+    // Start a new transaction for adding new data
+    const addTx = db.transaction("cards", "readwrite");
+    const addStore = addTx.objectStore("cards");
+
     for (const name in data) {
-        store.put({
+        addStore.put({
             id: `${genre}::${name}`,
             genre,
             name,
@@ -29,25 +50,12 @@ export async function initCardDB(genre, data) {
     }
 
     await new Promise((res, rej) => {
-        tx.oncomplete = res;
-        tx.onerror = rej;
+        addTx.oncomplete = res;
+        addTx.onerror = rej;
     });
 
     localStorage.setItem(`cardsStored_${genre}`, "true");
-    console.log(`IndexedDB initialized with ${genre} card data`);
-}
-
-export async function getCardByName(genre, name) {
-    if (!dbInstance) dbInstance = await openDatabase();
-    const id = `${genre}::${name}`;
-
-    return new Promise((resolve, reject) => {
-        const tx = dbInstance.transaction("cards", "readonly");
-        const store = tx.objectStore("cards");
-        const request = store.get(id);
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject("Card not found");
-    });
+    console.log(`IndexedDB updated with ${genre} card data`);
 }
 
 export async function getAllCardNamesByGenre(genre) {
