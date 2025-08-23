@@ -196,7 +196,7 @@ socket.on('scoreboard-state-data', ({scoreboardState}) => {
     if (matchState) {
         const winsDisplays = document.querySelectorAll('#scorebug-right-life-wins-1, #scorebug-right-life-wins-2, #scorebug-left-life-wins-1, #scorebug-left-life-wins-2');
         winsDisplays.forEach(el => {
-            el.style.display = matchState.showWins ? 'block' : 'none';
+            el.style.display = matchState.showWins ? 'flex' : 'none';
         });
     }
 });
