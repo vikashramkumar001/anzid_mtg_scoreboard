@@ -10,26 +10,6 @@ const pathSegments = window.location.pathname.split('/');
 const match_id = pathSegments[4];
 const side_id = pathSegments[5];
 
-// send request for card list data from server
-socket.emit('riftbound-get-card-list-data');
-
-// handle receiving card list data from server
-socket.on('riftbound-card-list-data', ({cardListData: cardListDataFromServer}) => {
-    // console.log('got card list data from server', cardListDataFromServer);
-    // save card list data
-    riftboundCards = cardListDataFromServer;
-});
-
-// send request for card list data from server
-socket.emit('mtg-get-card-list-data');
-
-// handle receiving card list data from server
-socket.on('mtg-card-list-data', ({cardListData: cardListDataFromServer}) => {
-    // console.log('got card list data from server', cardListDataFromServer);
-    // save card list data
-    mtgCards = cardListDataFromServer;
-});
-
 // Listen for deck data to display
 socket.on('broadcast-round-data', (data) => {
     // {match1:{}, match2:{},...}}
@@ -37,13 +17,14 @@ socket.on('broadcast-round-data', (data) => {
 
     roundData = data;
 
-    if (data[match_id] && data[match_id][`player-main-deck-${side_id}`]) {
-        deckData = {
-            mainDeck: transformDeck(data[match_id][`player-main-deck-${side_id}`] || []),
-            sideDeck: transformDeck(data[match_id][`player-side-deck-${side_id}`] || []),
-            playerName: data[match_id][`player-name-${side_id}`] || 'Unknown Player',
-            archetype: data[match_id][`player-archetype-${side_id}`] || 'Unknown Archetype'
-        };
+    if (data[match_id] && data[match_id][`player-side-deck-${side_id}`]) {
+        // ask server to transform main deck data
+        socket.emit('transform-side-deck-data', ({
+            deckData: data[match_id][`player-side-deck-${side_id}`] || [],
+            gameType: selectedGame,
+            sideID: side_id,
+            matchID: match_id
+        }));
         console.log('deck data', deckData);
         // Call a function to render the decks
         renderDecks();
@@ -52,65 +33,24 @@ socket.on('broadcast-round-data', (data) => {
     }
 });
 
-function createCleanedCardMap(cardsList) {
-    const cleanedMap = {};
-
-    for (const originalName in cardsList) {
-        const cleaned = originalName
-            .replace(/\s*\(.*?\)$/, '') // remove trailing (set info)
-            .replace(/^"+|"+$/g, '')    // remove quotes
-            .replace(/&/g, 'and')       // replace &
-            .trim();
-
-        // Only store the first match for a cleaned name
-        if (!cleanedMap[cleaned]) {
-            cleanedMap[cleaned] = cardsList[originalName];
-        }
-    }
-
-    return cleanedMap;
-}
-
-function getURLFromCardName(cardName, cardsList) {
-    let cleaned = cardName.includes('//')
-        ? cardName.split('//')[0].trim()
-        : cardName.trim();
-
-    cleaned = cleaned.replace(/^"+|"+$/g, '').replace(/&/g, 'and').replace(/\s*\(.*?\)$/, '').trim();
-
-    if (selectedGame === 'mtg') {
-        return cardsList[cleaned];
+// listen for transformed deck to display
+socket.on('transformed-side-deck-data', (data) => {
+    console.log('transformed side deck data from server', data);
+    if (data.sideID === side_id && data.gameType === selectedGame && data.matchID === match_id) {
+        deckData = {
+            mainDeck: [],
+            sideDeck: data.deckData,
+            playerName: roundData[match_id][`player-name-${side_id}`] || 'Unknown Player',
+            archetype: roundData[match_id][`player-archetype-${side_id}`] || 'Unknown Archetype',
+            manaSymbols: roundData[match_id][`player-mana-symbols-${side_id}`] || ''
+        };
+        console.log('deck data', deckData);
+        // Call a function to render the decks
+        renderDecks();
     } else {
-        return cardsList[cleaned]?.imageUrl;
+        console.log('transformed deck data - not the correct side or game type or match id')
     }
-}
-
-// Function to transform deck data into an object with counts
-function transformDeck(deckArray) {
-    const deckObject = [];
-    let cleanedCardsMap = {};
-    if (selectedGame === 'mtg') {
-        cleanedCardsMap = createCleanedCardMap(mtgCards);
-    }
-    if (selectedGame === 'riftbound') {
-        cleanedCardsMap = createCleanedCardMap(riftboundCards);
-    }
-    console.log(cleanedCardsMap)
-    deckArray.forEach(card => {
-        // Split the card string into count and name
-        const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card]; // Default count to 1 if no number is found
-        const count = parseInt(parts[1], 10); // Get the count
-        const name = parts[2]; // Get the card name
-        let url = '';
-        url = getURLFromCardName(name, cleanedCardsMap);
-        deckObject.push({
-            'card-name': name,
-            'card-count': count,
-            'card-url': url
-        });
-    });
-    return deckObject;
-}
+})
 
 // Function to render the decks on the page
 function renderDecks() {

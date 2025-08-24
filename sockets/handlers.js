@@ -1,6 +1,8 @@
 import {
     emitMTGCardList,
-    emitCardView
+    emitCardView,
+    transformSideDeck,
+    transformMainDeck
 } from '../features/cards.js';
 
 import {
@@ -254,6 +256,15 @@ export default function registerSocketHandlers(io) {
                 io.emit('broadcast-round-data', controlData[round_id]);
             }
             emitBroadcastStandings(io, round_id);
+        });
+
+        // Broadcast deck data to be transformed
+        socket.on('transform-main-deck-data', (data) => {
+            transformMainDeck(data, io);
+        });
+
+        socket.on('transform-side-deck-data', (data) => {
+            transformSideDeck(data, io);
         });
 
         // Bracket

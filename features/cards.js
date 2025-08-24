@@ -91,7 +91,7 @@ export function emitCardView(io, cardSelected) {
             : cardSelected['card-selected'].trim();
 
         // Remove leading/trailing quotes and sanitize
-       const cleanedName = normalizeName(singleFace);
+        const cleanedName = normalizeName(singleFace);
 
         // Clean the card list data
         const cleanedCardListData = createCleanedCardMap(cardListData);
@@ -133,4 +133,140 @@ export function emitCardView(io, cardSelected) {
             io.emit('riftbound-card-view-card-selected', cardData);
         }
     }
+}
+
+// emit card main / side deck
+export function emitTransformedMainDeck(deckData, gameType, sideID, matchID, io) {
+    let data2send = {
+        gameType: gameType,
+        deckData: deckData,
+        sideID: sideID,
+        matchID: matchID
+    }
+    io.emit('transformed-main-deck-data', data2send);
+}
+export function emitTransformedSideDeck(deckData, gameType, sideID, matchID, io) {
+    let data2send = {
+        gameType: gameType,
+        deckData: deckData,
+        sideID: sideID,
+        matchID: matchID
+    }
+    io.emit('transformed-side-deck-data', data2send);
+}
+
+function getURLFromCardName(cardName, cardsList, gameType) {
+    let cleaned = cardName.includes('//')
+        ? cardName.split('//')[0].trim()
+        : cardName.trim();
+
+    cleaned = normalizeName(cleaned);
+
+    if (gameType === 'mtg') {
+        return cardsList[cleaned];
+    } else {
+        return cardsList[cleaned]?.imageUrl;
+    }
+}
+
+
+// use main deck data to get urls, counts and name
+export function transformMainDeck(data, io) {
+    let cleanedCardsMap = {};
+    let gameType = data.gameType;
+    let deckArray = data.deckData;
+    let sideID = data.sideID;
+    let matchID = data.matchID;
+    if (gameType === 'mtg') {
+        cleanedCardsMap = createCleanedCardMap(cardListData);
+    } else if (gameType === 'riftbound') {
+        const riftboundCards = riftboundGetCardListData();
+        cleanedCardsMap = createCleanedCardMap(riftboundCards);
+    }
+
+    // --- Riftbound: categorized structure ---
+    if (gameType === 'riftbound') {
+        const categorizedDeck = {
+            legend: [],
+            runes: [],
+            battlefields: [],
+            other: []
+        };
+
+        deckArray.forEach(card => {
+            const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
+            const count = parseInt(parts[1], 10);
+            const name = parts[2];
+            const url = getURLFromCardName(name, cleanedCardsMap, gameType);
+            const type = cleanedCardsMap[name]?.type || 'Other';
+
+            const cardEntry = {
+                'card-name': name,
+                'card-count': count,
+                'card-url': url
+            };
+
+            if (type === 'Legend') {
+                categorizedDeck.legend.push(cardEntry);
+            } else if (type === 'Rune') {
+                categorizedDeck.runes.push(cardEntry);
+            } else if (type === 'Battlefield') {
+                categorizedDeck.battlefields.push(cardEntry);
+            } else {
+                categorizedDeck.other.push(cardEntry);
+            }
+        });
+
+        emitTransformedMainDeck(categorizedDeck, gameType, sideID, matchID, io);
+    } else {
+        // --- MTG and others: flat array structure ---
+        const flatDeck = [];
+        deckArray.forEach(card => {
+            const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
+            const count = parseInt(parts[1], 10);
+            const name = parts[2];
+            const url = getURLFromCardName(name, cleanedCardsMap, gameType);
+
+            flatDeck.push({
+                'card-name': name,
+                'card-count': count,
+                'card-url': url
+            });
+        });
+
+        emitTransformedMainDeck(flatDeck, gameType, sideID, matchID, io);
+    }
+}
+
+// use side deck data to get urls, counts and name
+export function transformSideDeck(data, io) {
+    let cleanedCardsMap = {};
+    let gameType = data.gameType;
+    let deckArray = data.deckData;
+    let sideID = data.sideID;
+    let matchID = data.matchID;
+    if (gameType === 'mtg') {
+        cleanedCardsMap = createCleanedCardMap(cardListData);
+    } else if (gameType === 'riftbound') {
+        const riftboundCards = riftboundGetCardListData();
+        cleanedCardsMap = createCleanedCardMap(riftboundCards);
+    }
+
+    // same flat structure for side deck regardless of game type
+    // flat array structure ---
+    const flatDeck = [];
+    deckArray.forEach(card => {
+        const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
+        const count = parseInt(parts[1], 10);
+        const name = parts[2];
+        const url = getURLFromCardName(name, cleanedCardsMap, gameType);
+
+        flatDeck.push({
+            'card-name': name,
+            'card-count': count,
+            'card-url': url
+        });
+    });
+
+    emitTransformedSideDeck(flatDeck, gameType, sideID, matchID, io);
 }
