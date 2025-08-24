@@ -1,9 +1,7 @@
 const socket = io();
 let roundData = {};
 let deckData = {};
-let selectedGame = '';  // global game type, e.g., 'mtg' or 'rift'
-let mtgCards = {};
-let riftboundCards = {};
+let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
@@ -25,9 +23,6 @@ socket.on('broadcast-round-data', (data) => {
             sideID: side_id,
             matchID: match_id
         }));
-        console.log('deck data', deckData);
-        // Call a function to render the decks
-        renderDecks();
     } else {
         console.log('deck data not found for url parameters', match_id, side_id);
     }
@@ -80,7 +75,7 @@ function handleGameSelectionUpdate(gameSelection) {
     // Perform actions based on game type
     if (selectedGame === 'mtg') {
         console.log('Switching to MTG mode...');
-    } else if (selectedGame === 'rift') {
+    } else if (selectedGame === 'riftbound') {
         console.log('Switching to Riftbound mode...');
     }
 }

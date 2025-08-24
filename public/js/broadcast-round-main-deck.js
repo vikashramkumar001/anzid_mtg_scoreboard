@@ -1,7 +1,7 @@
 const socket = io();
 let roundData = {};
 let deckData = {};
-let selectedGame = '';  // global game type, e.g., 'mtg' or 'rift'
+let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
@@ -198,17 +198,6 @@ function renderRiftboundDeckSections(deckObj) {
     });
 }
 
-function normalizeName(str) {
-    return str
-        .normalize('NFD')                      // separate accents
-        .replace(/[\u0300-\u036f]/g, '')      // remove accents
-        .replace(/\s*\(.*?\)$/, '')           // remove trailing (set info)
-        .replace(/^"+|"+$/g, '')              // remove quotes
-        .replace(/&/g, 'and')                 // replace ampersand
-        .trim();
-}
-
-
 // MANA SYMBOLS
 
 function renderManaSymbols(inputStr, containerId, scenario = {}) {
@@ -247,7 +236,6 @@ function renderManaSymbols(inputStr, containerId, scenario = {}) {
     });
 }
 
-
 // game selection logic
 function handleGameSelectionUpdate(gameSelection) {
     const normalized = gameSelection?.toLowerCase();
@@ -259,7 +247,7 @@ function handleGameSelectionUpdate(gameSelection) {
     // Perform actions based on game type
     if (selectedGame === 'mtg') {
         console.log('Switching to MTG mode...');
-    } else if (selectedGame === 'rift') {
+    } else if (selectedGame === 'riftbound') {
         console.log('Switching to Riftbound mode...');
     }
 }
