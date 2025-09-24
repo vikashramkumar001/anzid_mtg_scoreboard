@@ -43,6 +43,10 @@ router.get('/update/global/details/:detailKey', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/update-global-details.html'));
 });
 
+router.get('/broadcast/round/maindeck/:orientation/:matchID/:sideID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-main-deck.html'));
+});
+
 router.get('/broadcast/round/maindeck/:matchID/:sideID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-main-deck.html'));
 });

@@ -5,8 +5,18 @@ let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
-const match_id = pathSegments[4];
-const side_id = pathSegments[5];
+let orientation, match_id, side_id;
+
+// Handle both URL patterns: /orientation/matchID/sideID and /matchID/sideID
+if (pathSegments[4] === 'horizontal' || pathSegments[4] === 'vertical') {
+    orientation = pathSegments[4];
+    match_id = pathSegments[5];
+    side_id = pathSegments[6];
+} else {
+    orientation = 'horizontal'; // Default to horizontal
+    match_id = pathSegments[4];
+    side_id = pathSegments[5];
+}
 
 const MANA_ORDER = ['W', 'U', 'B', 'R', 'G', 'C'];
 const MANA_SYMBOLS = {
@@ -80,7 +90,11 @@ function renderDecks() {
     if (selectedGame === 'riftbound') {
         // check that deckData if right type
         if (typeof deckData.mainDeck === 'object' && Object.keys(deckData.mainDeck).length !== 0) {
-            renderRiftboundDeckSections(deckData.mainDeck);
+            if (orientation === 'vertical') {
+                renderRiftboundVerticalDeck(deckData.mainDeck);
+            } else {
+                renderRiftboundDeckSections(deckData.mainDeck);
+            }
             renderManaSymbols('', 'player-mana-symbols');
         } else {
             console.log('riftbound selected but not correct deckData type - clearing');
@@ -96,34 +110,38 @@ function renderDecks() {
             // Clear previous deck displays
             document.getElementById('main-deck-container').innerHTML = '';
 
-            // Render main deck
-            const mainDeckContainer = document.getElementById('main-deck-container');
-            const totalCards = deckData.mainDeck.length;
-
-            // No overlap, display cards normally
-            // 3 x 10 rows
-            if (totalCards <= 30) {
-                deckData.mainDeck.forEach((card, index) => {
-                    const cardElement = document.createElement('div');
-                    cardElement.className = 'main-deck-card';
-                    // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-                    cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-                    mainDeckContainer.appendChild(cardElement);
-                });
+            if (orientation === 'vertical') {
+                renderMTGVerticalDeck();
             } else {
-                // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
-                const numberCardsPerRow = Math.ceil(totalCards / 3);
-                // 5px each side on padding on main container -> 10px
-                // 5px each side of card -> 10px
-                const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
-                deckData.mainDeck.forEach((card, index) => {
-                    const cardElement = document.createElement('div');
-                    cardElement.className = 'main-deck-card';
-                    // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-                    cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-                    cardElement.style.width = `${scalingCardWidth}px`;
-                    mainDeckContainer.appendChild(cardElement);
-                });
+                // Render main deck horizontally
+                const mainDeckContainer = document.getElementById('main-deck-container');
+                const totalCards = deckData.mainDeck.length;
+
+                // No overlap, display cards normally
+                // 3 x 10 rows
+                if (totalCards <= 30) {
+                    deckData.mainDeck.forEach((card, index) => {
+                        const cardElement = document.createElement('div');
+                        cardElement.className = 'main-deck-card';
+                        // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                        cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                        mainDeckContainer.appendChild(cardElement);
+                    });
+                } else {
+                    // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
+                    const numberCardsPerRow = Math.ceil(totalCards / 3);
+                    // 5px each side on padding on main container -> 10px
+                    // 5px each side of card -> 10px
+                    const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
+                    deckData.mainDeck.forEach((card, index) => {
+                        const cardElement = document.createElement('div');
+                        cardElement.className = 'main-deck-card';
+                        // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
+                        cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                        cardElement.style.width = `${scalingCardWidth}px`;
+                        mainDeckContainer.appendChild(cardElement);
+                    });
+                }
             }
 
             // Optionally, display player name and archetype
@@ -195,6 +213,70 @@ function renderRiftboundDeckSections(deckObj) {
         });
 
         container.appendChild(sectionWrapper);
+    });
+}
+
+// VERTICAL RENDERING FUNCTIONS
+function renderMTGVerticalDeck() {
+    const mainDeckContainer = document.getElementById('main-deck-container');
+    mainDeckContainer.className = 'vertical-deck-container';
+    
+    // Calculate spacing for 1080px height screen
+    // Account for header (130px) and some padding
+    const availableHeight = 1080 - 130 - 40; // 40px for padding
+    const cardHeight = 50;
+    const cardSpacing = 10;
+    const maxCards = Math.floor(availableHeight / (cardHeight + cardSpacing));
+    
+    // Limit cards to fit screen
+    const cardsToShow = deckData.mainDeck.slice(0, maxCards);
+    
+    cardsToShow.forEach((card, index) => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'vertical-card';
+        cardElement.innerHTML = `
+            <div class="vertical-card-number">${card['card-count']}</div>
+            <div class="vertical-card-name">${card['card-name']}</div>
+            <div class="vertical-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -60px;background-size: cover;"></div>
+        `;
+        mainDeckContainer.appendChild(cardElement);
+    });
+}
+
+function renderRiftboundVerticalDeck(deckObj) {
+    const mainDeckContainer = document.getElementById('main-deck-container');
+    mainDeckContainer.className = 'vertical-deck-container';
+    
+    // Flatten all cards from different sections
+    const allCards = [];
+    const sections = ['legend', 'runes', 'battlefields', 'other'];
+    
+    sections.forEach(section => {
+        if (deckObj[section] && Array.isArray(deckObj[section])) {
+            deckObj[section].forEach(card => {
+                allCards.push(card);
+            });
+        }
+    });
+    
+    // Calculate spacing for 1080px height screen
+    const availableHeight = 1080 - 130 - 40; // 40px for padding
+    const cardHeight = 200;
+    const cardSpacing = 10;
+    const maxCards = Math.floor(availableHeight / (cardHeight + cardSpacing));
+    
+    // Limit cards to fit screen
+    const cardsToShow = allCards.slice(0, maxCards);
+    
+    cardsToShow.forEach((card, index) => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'vertical-card';
+        cardElement.innerHTML = `
+            <div class="vertical-card-number">${card['card-count']}</div>
+            <div class="vertical-card-name">${card['card-name']}</div>
+            <div class="vertical-card-background" style="background-image: url('${card['card-url']}'); background-position: 0px -100px; background-size: auto 300px;"></div>
+        `;
+        mainDeckContainer.appendChild(cardElement);
     });
 }
 
