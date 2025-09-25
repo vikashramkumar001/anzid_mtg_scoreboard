@@ -38,7 +38,7 @@
     height: 930px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     align-content: flex-start;
     padding: 5px;
 }
@@ -46,7 +46,6 @@
 .main-deck-card {
     width: 180px;
     height: auto;
-    /*border: 1px solid #ccc;*/
     margin: 5px;
     position: relative;
     display: flex;
@@ -94,9 +93,9 @@
     justify-content: center;
 }
 
-.other-section .main-deck-card {
-    /*flex: 0 0 calc(100% / 9 - 10px); !* 9 per row *!*/
-}
+/* .other-section .main-deck-card {
+    flex: 0 0 calc(100% / 9 - 10px);
+} */
 
 .deck-section-wrapper.legend-section {
     position: absolute;
@@ -227,18 +226,19 @@
     align-items: center;
     padding: 20px;
     gap: 10px;
-    overflow-y: auto;
+    overflow: hidden; /* Remove scrolling since all cards fit */
 }
 
 .vertical-card {
     width: 300px;
-    height: 50px;
+    height: 50px; /* Default height, will be overridden by inline styles */
     position: relative;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0; /* Prevent cards from shrinking */
 }
 
 .vertical-card-number {
@@ -268,8 +268,8 @@
     color: white;
     display: flex;
     align-items: center;
-    padding: 0 10px;
-    font-size: 14px;
+    padding: 0 20px;
+    font-size: 20px;
     font-weight: bold;
     z-index: 2;
     white-space: nowrap;

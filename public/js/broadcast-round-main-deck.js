@@ -221,22 +221,32 @@ function renderMTGVerticalDeck() {
     const mainDeckContainer = document.getElementById('main-deck-container');
     mainDeckContainer.className = 'vertical-deck-container';
     
-    // Calculate spacing for 1080px height screen
-    // Account for header (130px) and some padding
-    const availableHeight = 1080 - 130 - 40; // 40px for padding
-    const cardHeight = 50;
+    const totalCards = deckData.mainDeck.length;
+    const availableHeight = 1080 - 130 - 40; // Available height for cards
     const cardSpacing = 10;
-    const maxCards = Math.floor(availableHeight / (cardHeight + cardSpacing));
     
-    // Limit cards to fit screen
-    const cardsToShow = deckData.mainDeck.slice(0, maxCards);
+    let cardHeight, fontScaleFactor;
     
-    cardsToShow.forEach((card, index) => {
+    // Only scale if more than 18 cards
+    if (totalCards > 15) {
+        const totalSpacing = (totalCards - 1) * cardSpacing;
+        const availableForCards = availableHeight - totalSpacing;
+        cardHeight = Math.max(20, availableForCards / totalCards); // Minimum 20px height
+        fontScaleFactor = Math.max(0.4, cardHeight / 50);
+    } else {
+        // Use original sizing for 18 or fewer cards
+        cardHeight = 50;
+        fontScaleFactor = 1;
+    }
+    
+    // Render all cards with conditional sizing
+    deckData.mainDeck.forEach((card, index) => {
         const cardElement = document.createElement('div');
         cardElement.className = 'vertical-card';
+        cardElement.style.height = `${cardHeight}px`;
         cardElement.innerHTML = `
-            <div class="vertical-card-number">${card['card-count']}</div>
-            <div class="vertical-card-name">${card['card-name']}</div>
+            <div class="vertical-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
+            <div class="vertical-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
             <div class="vertical-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -60px;background-size: cover;"></div>
         `;
         mainDeckContainer.appendChild(cardElement);
@@ -259,26 +269,39 @@ function renderRiftboundVerticalDeck(deckObj) {
         }
     });
     
-    // Calculate spacing for 1080px height screen
-    const availableHeight = 1080 - 130 - 40; // 40px for padding
-    const cardHeight = 200;
+    const totalCards = allCards.length;
+    const availableHeight = 1080 - 130 - 40; // Available height for cards
     const cardSpacing = 10;
-    const maxCards = Math.floor(availableHeight / (cardHeight + cardSpacing));
     
-    // Limit cards to fit screen
-    const cardsToShow = allCards.slice(0, maxCards);
+    let cardHeight, fontScaleFactor;
     
-    cardsToShow.forEach((card, index) => {
+    // Only scale if more than 18 cards
+    if (totalCards > 15) {
+        console.log('scaling cards');
+        const totalSpacing = (totalCards - 1) * cardSpacing;
+        const availableForCards = availableHeight - totalSpacing;
+        cardHeight = Math.max(20, availableForCards / totalCards); // Minimum 20px height
+        fontScaleFactor = Math.max(0.4, cardHeight / 50);
+    } else {
+        // Use original sizing for 18 or fewer cards
+        cardHeight = 50;
+        fontScaleFactor = 1;
+    }
+    
+    // Render all cards with conditional sizing
+    allCards.forEach((card, index) => {
         const cardElement = document.createElement('div');
         cardElement.className = 'vertical-card';
+        cardElement.style.height = `${cardHeight}px`;
         cardElement.innerHTML = `
-            <div class="vertical-card-number">${card['card-count']}</div>
-            <div class="vertical-card-name">${card['card-name']}</div>
-            <div class="vertical-card-background" style="background-image: url('${card['card-url']}'); background-position: 0px -100px; background-size: auto 300px;"></div>
+            <div class="vertical-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
+            <div class="vertical-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
+            <div class="vertical-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -60px;background-size: cover;"></div>
         `;
         mainDeckContainer.appendChild(cardElement);
     });
 }
+
 
 // MANA SYMBOLS
 
