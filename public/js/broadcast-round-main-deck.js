@@ -84,6 +84,37 @@ function checkFontFamily(globalFont) {
     }
 }
 
+// Function to create the player name section dynamically
+function createPlayerNameSection(playerName) {
+    // Remove existing player name section if it exists
+    const existingSection = document.getElementById('player-name-section');
+    if (existingSection) {
+        existingSection.remove();
+    }
+
+    // Create the player name section
+    const playerNameSection = document.createElement('div');
+    playerNameSection.id = 'player-name-section';
+
+    // Create the player label
+    const playerLabel = document.createElement('div');
+    playerLabel.className = 'player-label';
+    playerLabel.textContent = 'Player:';
+
+    // Create the player name display
+    const playerNameDisplay = document.createElement('div');
+    playerNameDisplay.className = 'player-name-display';
+    playerNameDisplay.textContent = playerName;
+
+    // Append elements to the section
+    playerNameSection.appendChild(playerLabel);
+    playerNameSection.appendChild(playerNameDisplay);
+
+    // Append the section to the main-deck-container
+    const mainDeckContainer = document.getElementById('main-deck-container');
+    mainDeckContainer.appendChild(playerNameSection);
+}
+
 // Function to render the decks on the page
 function renderDecks() {
     // try to render - clear view regardless
@@ -170,6 +201,9 @@ function renderRiftboundDeckSections(deckObj) {
     const container = document.getElementById('main-deck-container');
     container.innerHTML = ''; // Clear previous
 
+    // Create and populate the player name section dynamically for Riftbound
+    createPlayerNameSection(deckData.playerName);
+
     const sections = ['legend', 'runes', 'battlefields', 'other'];
     const sectionTitles = {
         legend: 'Legend',
@@ -187,6 +221,8 @@ function renderRiftboundDeckSections(deckObj) {
             cards = [cards[0]]; // Only first legend
         } else if (key === 'battlefields') {
             cards = cards.slice(0, 3); // Max 3
+        } else if (key === 'runes') {
+            cards = cards.slice(0, 2); // Max 2
         } else if (key === 'other') {
             cards = cards.slice(0, 18); // Max 18
         }

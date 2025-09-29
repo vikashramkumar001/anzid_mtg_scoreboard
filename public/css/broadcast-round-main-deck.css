@@ -14,6 +14,38 @@
     color: white;
 }
 
+#player-name-section {
+    position: absolute;
+    top: 70px;
+    left: 700px;
+    width: 1200px;
+    height: 105px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.player-label {
+    font-size: 30px;
+    font-weight: normal;
+    height: 20px;
+    line-height: 27px;
+    color: white;
+}
+
+.player-name-display {
+    font-size: 105px;
+    font-weight: normal;
+    height: 85px;
+    line-height: 105px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
 #deck-display-details h1 {
     font-size: 100px;
     height: 100px;
@@ -30,7 +62,7 @@
 
 #deck-display-container {
     width: 1920px;
-    height: 950px;
+    height: 1080px;
 }
 
 #main-deck-container {
@@ -127,10 +159,12 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    top: 900px;
+    top: 920px;
     left: 480px;
-    height: 150px;
+    height: 110px;
     width: 200px;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 .deck-section-wrapper.runes-section .main-deck-card {
@@ -260,25 +294,30 @@
 
 .deck-section-wrapper.other-section {
     position: absolute;
-    top: 60px;
-    left: 380px;
-    /*background-color: blueviolet;*/
-    height: 450px;
-    justify-content: center;
-    align-items: center;
-    width: 1540px;
+    top: 200px;
+    left: 700px;
+    /* background-color: blueviolet; */
+    height: 840px;
+    width: 1200px;
+    justify-content: start;
 }
 
 .deck-section-wrapper.other-section .main-deck-card {
-    width: 152px;
+    width: 180px;
+}
+
+.deck-section-wrapper.other-section .main-deck-card .card-src {
+    border-radius: 10px;
 }
 
 .deck-section-wrapper.other-section .main-deck-card .card-count {
-    top: 200px;
-    right: 66px;
-    width: 24px;
+    top: 240px;
+    right: 68px;
+    width: 45px;
     height: 24px;
     font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid white;
 }
 
 
