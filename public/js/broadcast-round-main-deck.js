@@ -200,11 +200,17 @@ function renderRiftboundDeckSections(deckObj) {
                 cardEl.className = 'main-deck-card';
                 if (key === 'battlefields') {
                     cardEl.innerHTML = `
-                  <div class="card-rotated-wrapper">
-                    <img src="${card['card-url']}" class="card-src rotated">
-                  </div>
-                  <div class="card-count">${card['card-count']}</div>
-                `;
+                        <div class="battlefield-card">
+                            <div class="battlefield-name">${card['card-name']}</div>
+                            <div class="battlefield-background" style="--bg-image: url('${card['card-url']}');"></div>
+                        </div>
+                    `;
+                } else if (key === 'runes') {
+                    cardEl.innerHTML = `
+                        <div class="runes-card">
+                            <div class="runes-background" style="--bg-image: url('${card['card-url']}');"></div>
+                        </div>
+                    `;
                 } else {
                     cardEl.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
                 }

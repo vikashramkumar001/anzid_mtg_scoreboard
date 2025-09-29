@@ -51,7 +51,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    transition: transform 0.2s; /* Smooth transition for stacking */
+    transition: transform 0.2s;
+    /* Smooth transition for stacking */
 }
 
 .card-src {
@@ -98,19 +99,20 @@
 } */
 
 .deck-section-wrapper.legend-section {
+    top: 70px;
+    left: 70px;
+    width: 560px;
+    height: 782px;
     position: absolute;
-    width: 380px;
-    /*background-color: red;*/
-    height: 1080px;
-    align-items: center;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
+    display: block;
 }
 
 .deck-section-wrapper.legend-section .main-deck-card {
-    width: 300px;
+    width: 100%;
+}
+
+.deck-section-wrapper.legend-section .main-deck-card .card-src {
+    border-radius: 30px;
 }
 
 .deck-section-wrapper.legend-section .main-deck-card .card-count {
@@ -119,42 +121,78 @@
 
 .deck-section-wrapper.runes-section {
     position: absolute;
-    /*background-color: blue;*/
+    /* background-color: blue; */
     display: flex;
-    top: 600px;
-    left: 550px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    top: 900px;
+    left: 480px;
+    height: 150px;
+    width: 200px;
 }
 
 .deck-section-wrapper.runes-section .main-deck-card {
-    width: 152px;
+    width: 90px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.deck-section-wrapper.runes-section .main-deck-card .card-count {
-    top: 200px;
-    right: 66px;
-    width: 24px;
-    height: 24px;
-    font-size: 20px;
+.runes-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.runes-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.runes-background::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    width: 125px;
+    transform: translate(-20px, 68px);
 }
 
 .deck-section-wrapper.battlefields-section {
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 600px;
-    left: 920px;
-    /*background-color: chartreuse;*/
-    width: 1000px;
-    height: 225px;
-}
-
-.deck-section-wrapper.battlefields-section {
-    gap: 70px; /* increase space between rotated cards */
+    top: 900px;
+    left: 45px;
+    width: 420px;
+    height: 150px;
+    gap: 5px;
 }
 
 .deck-section-wrapper.battlefields-section .main-deck-card {
-    width: auto;
+    width: 100%;
     height: auto;
     padding: 0;
     margin: 0;
@@ -164,16 +202,60 @@
     align-items: center;
 }
 
-.deck-section-wrapper.battlefields-section .main-deck-card {
-    width: 152px;
+.battlefield-card {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
-.deck-section-wrapper.battlefields-section .main-deck-card .card-count {
-    top: 140px;
-    right: 66px;
-    width: 24px;
-    height: 24px;
-    font-size: 20px;
+.battlefield-name {
+    position: absolute;
+    left: 15px;
+    color: white;
+    font-size: 22px;
+    font-weight: normal;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.battlefield-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.battlefield-background::before {
+    content: '';
+    position: absolute;
+    top: 152px;
+    left: 50%;
+    width: 100%;
+    height: 420px;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -65%) rotate(90deg);
+    z-index: 1;
+}
+
+.battlefield-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+    z-index: 2;
 }
 
 .deck-section-wrapper.other-section {
@@ -199,23 +281,6 @@
     font-size: 20px;
 }
 
-/* Wrapper to control rotated image space */
-.card-rotated-wrapper {
-    width: 214px; /* card height becomes width */
-    height: 152px; /* card width becomes height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible;
-    position: relative;
-}
-
-.card-rotated-wrapper img.rotated {
-    transform: rotate(90deg);
-    transform-origin: center center;
-    width: 100%;
-    height: auto;
-}
 
 /* VERTICAL ORIENTATION STYLES */
 .vertical-deck-container {
@@ -226,19 +291,22 @@
     align-items: center;
     padding: 20px;
     gap: 10px;
-    overflow: hidden; /* Remove scrolling since all cards fit */
+    overflow: hidden;
+    /* Remove scrolling since all cards fit */
 }
 
 .vertical-card {
     width: 300px;
-    height: 50px; /* Default height, will be overridden by inline styles */
+    height: 50px;
+    /* Default height, will be overridden by inline styles */
     position: relative;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    flex-shrink: 0; /* Prevent cards from shrinking */
+    flex-shrink: 0;
+    /* Prevent cards from shrinking */
 }
 
 .vertical-card-number {
