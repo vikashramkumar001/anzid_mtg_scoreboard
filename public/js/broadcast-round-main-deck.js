@@ -355,11 +355,35 @@ function renderRiftboundVerticalDeck(deckObj) {
             const cardElement = document.createElement('div');
             cardElement.className = 'riftbound-vertical-card';
             cardElement.style.height = `${cardHeight}px`;
-            cardElement.innerHTML = `
-                <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
-                <div class="riftbound-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
-                <div class="riftbound-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -60px;background-size: cover;"></div>
-            `;
+            
+            // Use different styling based on section type
+            if (section.key === 'battlefields') {
+                cardElement.innerHTML = `
+                    <div class="riftbound-battlefield-card">
+                        <div class="riftbound-battlefield-name">${card['card-name']}</div>
+                        <div class="riftbound-battlefield-background" style="--bg-image: url('${card['card-url']}');"></div>
+                    </div>
+                `;
+            } else if (section.key === 'legend') {
+                // Legend doesn't show card counts
+                cardElement.innerHTML = `
+                    <div class="riftbound-card-name-no-count" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
+                    <div class="riftbound-card-background-no-count" style="background-image: url('${card['card-url']}');background-position: 0px -60px;background-size: cover;"></div>
+                `;
+            } else if (section.key === 'runes') {
+                // Runes don't show card counts and have different background positioning
+                cardElement.innerHTML = `
+                    <div class="riftbound-card-name-no-count" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
+                    <div class="riftbound-runes-background" style="background-image: url('${card['card-url']}');background-position:-40px -172px;background-size: 120% auto;"></div>
+                `;
+            } else {
+                // Main deck shows card counts
+                cardElement.innerHTML = `
+                    <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
+                    <div class="riftbound-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
+                    <div class="riftbound-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -100px;background-size: 120% auto;"></div>
+                `;
+            }
             cardsContainer.appendChild(cardElement);
         });
         

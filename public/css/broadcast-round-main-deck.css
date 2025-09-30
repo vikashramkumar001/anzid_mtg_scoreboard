@@ -528,3 +528,126 @@
     background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     z-index: 1;
 }
+
+/* RIFTBOUND BATTLEFIELD CARDS IN VERTICAL VIEW */
+.riftbound-battlefield-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.riftbound-battlefield-name {
+    position: absolute;
+    left: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.riftbound-battlefield-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.riftbound-battlefield-background::before {
+    content: '';
+    position: absolute;
+    top: 152px;
+    left: 50%;
+    width: 100%;
+    height: 420px;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translate(-49%, -65%) rotate(90deg);
+    z-index: 1;
+}
+
+.riftbound-battlefield-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+    z-index: 2;
+}
+
+/* RIFTBOUND LEGEND AND RUNES CARDS WITHOUT COUNTS */
+.riftbound-card-name-no-count {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.riftbound-card-background-no-count {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: auto 300px;
+    background-repeat: no-repeat;
+    background-position: 0px -60px;
+    z-index: 1;
+}
+
+.riftbound-card-background-no-count::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    z-index: 1;
+}
+
+/* RIFTBOUND RUNES BACKGROUND */
+.riftbound-runes-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 120% auto;
+    background-repeat: no-repeat;
+    background-position: 0px -142px;
+    z-index: 1;
+}
+
+.riftbound-runes-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    z-index: 1;
+}
