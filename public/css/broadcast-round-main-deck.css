@@ -406,3 +406,125 @@
     background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     z-index: 1;
 }
+
+/* RIFTBOUND VERTICAL COLUMNS LAYOUT */
+.riftbound-vertical-columns-container {
+    width: 1920px;
+    height: 930px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.riftbound-vertical-column {
+    flex: 1;
+    max-width: 450px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.riftbound-section-title {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid white;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.riftbound-cards-container {
+    width: 100%;
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow-y: auto;
+    padding: 0 10px;
+}
+
+.riftbound-vertical-card {
+    width: 100%;
+    height: 50px;
+    /* Default height, will be overridden by inline styles */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+    /* Prevent cards from shrinking */
+}
+
+.riftbound-card-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 2;
+    border-radius: 0 0 8px 0;
+}
+
+.riftbound-card-name {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    right: 0;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.riftbound-card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: auto 300px;
+    background-repeat: no-repeat;
+    background-position: 0px -100px;
+    z-index: 1;
+}
+
+.riftbound-card-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    z-index: 1;
+}

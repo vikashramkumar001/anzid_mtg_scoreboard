@@ -296,51 +296,75 @@ function renderMTGVerticalDeck() {
 }
 
 function renderRiftboundVerticalDeck(deckObj) {
+    const deckDisplayDetails = document.getElementById('deck-display-details');
+    deckDisplayDetails.style.display = 'flex';
+    
     const mainDeckContainer = document.getElementById('main-deck-container');
-    mainDeckContainer.className = 'vertical-deck-container';
+    mainDeckContainer.className = 'riftbound-vertical-columns-container';
     
-    // Flatten all cards from different sections
-    const allCards = [];
-    const sections = ['legend', 'runes', 'battlefields', 'other'];
+    // Clear previous deck displays
+    mainDeckContainer.innerHTML = '';
     
+    // Display player name and archetype in deck-display-details
+    deckDisplayDetails.innerHTML = `
+        <h1 class="player-name">${deckData.playerName}</h1>
+        <h5 class="archetype-name">
+            <span id="player-mana-symbols" class="mana-symbols-container"></span> ${deckData.archetype}
+        </h5>
+    `;
+    
+    // Display mana symbols
+    renderManaSymbols(deckData.manaSymbols || '', 'player-mana-symbols');
+    
+    // Define sections with their titles
+    const sections = [
+        { key: 'legend', title: 'Legend' },
+        { key: 'runes', title: 'Runes' },
+        { key: 'battlefields', title: 'Battlefields' },
+        { key: 'other', title: 'Main Deck' }
+    ];
+    
+    // Create columns for each section that has cards
     sections.forEach(section => {
-        if (deckObj[section] && Array.isArray(deckObj[section])) {
-            deckObj[section].forEach(card => {
-                allCards.push(card);
-            });
-        }
-    });
-    
-    const totalCards = allCards.length;
-    const availableHeight = 1080 - 130 - 40; // Available height for cards
-    const cardSpacing = 10;
-    
-    let cardHeight, fontScaleFactor;
-    
-    // Only scale if more than 18 cards
-    if (totalCards > 15) {
-        console.log('scaling cards');
-        const totalSpacing = (totalCards - 1) * cardSpacing;
-        const availableForCards = availableHeight - totalSpacing;
-        cardHeight = Math.max(20, availableForCards / totalCards); // Minimum 20px height
-        fontScaleFactor = Math.max(0.4, cardHeight / 50);
-    } else {
-        // Use original sizing for 18 or fewer cards
-        cardHeight = 50;
-        fontScaleFactor = 1;
-    }
-    
-    // Render all cards with conditional sizing
-    allCards.forEach((card, index) => {
-        const cardElement = document.createElement('div');
-        cardElement.className = 'vertical-card';
-        cardElement.style.height = `${cardHeight}px`;
-        cardElement.innerHTML = `
-            <div class="vertical-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
-            <div class="vertical-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
-            <div class="vertical-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -60px;background-size: cover;"></div>
-        `;
-        mainDeckContainer.appendChild(cardElement);
+        const cards = deckObj[section.key];
+        if (!cards || cards.length === 0) return; // Skip empty sections
+        
+        // Cap each section to 14 cards maximum
+        const limitedCards = cards.slice(0, 14);
+        
+        // Create column container
+        const columnContainer = document.createElement('div');
+        columnContainer.className = 'riftbound-vertical-column';
+        
+        // Create section title
+        const titleElement = document.createElement('div');
+        titleElement.className = 'riftbound-section-title';
+        titleElement.textContent = section.title;
+        columnContainer.appendChild(titleElement);
+        
+        // Create cards container
+        const cardsContainer = document.createElement('div');
+        cardsContainer.className = 'riftbound-cards-container';
+        
+        // Use fixed card height for all cards
+        const cardHeight = 50;
+        const fontScaleFactor = 1;
+        
+        // Render cards for this section
+        limitedCards.forEach((card, index) => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'riftbound-vertical-card';
+            cardElement.style.height = `${cardHeight}px`;
+            cardElement.innerHTML = `
+                <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
+                <div class="riftbound-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
+                <div class="riftbound-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -60px;background-size: cover;"></div>
+            `;
+            cardsContainer.appendChild(cardElement);
+        });
+        
+        columnContainer.appendChild(cardsContainer);
+        mainDeckContainer.appendChild(columnContainer);
     });
 }
 
