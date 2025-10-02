@@ -75,6 +75,18 @@
     padding: 5px;
 }
 
+body.vertical {
+    #main-deck-container {
+        height: 1080px;
+    }
+}
+
+body.riftbound.horizontal {
+    #main-deck-container {
+        height: 1080px;
+    }
+}
+
 .main-deck-card {
     width: 180px;
     height: auto;
@@ -209,7 +221,18 @@
     background-repeat: no-repeat;
     z-index: 1;
     width: 125px;
-    transform: translate(-20px, 68px);
+    transform: translate(-19px, 68px);
+}
+
+.deck-section-wrapper.runes-section .main-deck-card .card-count {
+    top: 88px;
+    right: 22px;
+    width: 45px;
+    height: 24px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid white;
+    z-index: 2;
 }
 
 .deck-section-wrapper.battlefields-section {
@@ -407,64 +430,38 @@
     z-index: 1;
 }
 
-/* RIFTBOUND VERTICAL COLUMNS LAYOUT */
-.riftbound-vertical-columns-container {
+/* RIFTBOUND VERTICAL SINGLE COLUMN LAYOUT */
+.riftbound-vertical-single-column-container {
     width: 1920px;
     height: 930px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    gap: 20px;
     overflow: hidden;
 }
 
-.riftbound-vertical-column {
-    flex: 1;
-    max-width: 450px;
+.riftbound-single-column-cards-container {
+    width: 100%;
+    max-width: 600px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-}
-
-.riftbound-section-title {
-    width: 100%;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 8px;
-    border: 2px solid white;
-    text-transform: uppercase;
-    flex-shrink: 0;
-}
-
-.riftbound-cards-container {
-    width: 100%;
-    height: calc(100% - 60px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    /* gap: 10px; */
     overflow-y: auto;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 .riftbound-vertical-card {
     width: 100%;
+    max-width: 500px;
     height: 50px;
     /* Default height, will be overridden by inline styles */
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
@@ -483,7 +480,7 @@
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: normal;
     z-index: 2;
     border-radius: 0 0 8px 0;
 }
@@ -499,7 +496,7 @@
     align-items: center;
     padding: 0 20px;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: normal;
     z-index: 2;
     white-space: nowrap;
     overflow: hidden;
@@ -525,7 +522,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     z-index: 1;
 }
 
@@ -534,8 +531,8 @@
     width: 100%;
     height: 100%;
     position: relative;
-    border-radius: 8px;
-    border: 1px solid white;
+    /* border-radius: 8px; */
+    /* border: 1px solid white; */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -543,7 +540,7 @@
 
 .riftbound-battlefield-name {
     position: absolute;
-    left: 15px;
+    left: 20px;
     color: white;
     font-size: 18px;
     font-weight: normal;
@@ -563,10 +560,10 @@
 .riftbound-battlefield-background::before {
     content: '';
     position: absolute;
-    top: 152px;
-    left: 50%;
-    width: 100%;
-    height: 420px;
+    top: 158px;
+    left: 54%;
+    width: 312px;
+    height: 500px;
     background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
@@ -598,7 +595,7 @@
     align-items: center;
     padding: 0 20px;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: normal;
     z-index: 2;
     white-space: nowrap;
     overflow: hidden;
@@ -624,7 +621,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     z-index: 1;
 }
 
@@ -648,6 +645,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     z-index: 1;
 }

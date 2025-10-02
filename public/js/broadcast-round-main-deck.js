@@ -18,6 +18,9 @@ if (pathSegments[4] === 'horizontal' || pathSegments[4] === 'vertical') {
     side_id = pathSegments[5];
 }
 
+// Add orientation class to body for CSS targeting
+document.body.classList.add(orientation);
+
 const MANA_ORDER = ['W', 'U', 'B', 'R', 'G', 'C'];
 const MANA_SYMBOLS = {
     W: {alt: 'White', src: 'https://svgs.scryfall.io/card-symbols/W.svg'},
@@ -137,13 +140,14 @@ function renderDecks() {
         if (Array.isArray(deckData.mainDeck) && deckData.mainDeck.length !== 0) {
             // existing MTG layout
             const deckDisplayDetails = document.getElementById('deck-display-details');
-            deckDisplayDetails.style.display = 'flex';
             // Clear previous deck displays
             document.getElementById('main-deck-container').innerHTML = '';
 
             if (orientation === 'vertical') {
+                deckDisplayDetails.style.display = 'none';
                 renderMTGVerticalDeck();
             } else {
+                deckDisplayDetails.style.display = 'flex';
                 // Render main deck horizontally
                 const mainDeckContainer = document.getElementById('main-deck-container');
                 const totalCards = deckData.mainDeck.length;
@@ -246,6 +250,7 @@ function renderRiftboundDeckSections(deckObj) {
                         <div class="runes-card">
                             <div class="runes-background" style="--bg-image: url('${card['card-url']}');"></div>
                         </div>
+                        <div class="card-count">${card['card-count']}</div>
                     `;
                 } else {
                     cardEl.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
@@ -297,61 +302,46 @@ function renderMTGVerticalDeck() {
 
 function renderRiftboundVerticalDeck(deckObj) {
     const deckDisplayDetails = document.getElementById('deck-display-details');
-    deckDisplayDetails.style.display = 'flex';
+    deckDisplayDetails.style.display = 'none';
     
     const mainDeckContainer = document.getElementById('main-deck-container');
-    mainDeckContainer.className = 'riftbound-vertical-columns-container';
+    mainDeckContainer.className = 'riftbound-vertical-single-column-container';
     
     // Clear previous deck displays
     mainDeckContainer.innerHTML = '';
     
-    // Display player name and archetype in deck-display-details
-    deckDisplayDetails.innerHTML = `
-        <h1 class="player-name">${deckData.playerName}</h1>
-        <h5 class="archetype-name">
-            <span id="player-mana-symbols" class="mana-symbols-container"></span> ${deckData.archetype}
-        </h5>
-    `;
-    
-    // Display mana symbols
-    renderManaSymbols(deckData.manaSymbols || '', 'player-mana-symbols');
-    
-    // Define sections with their titles
+    // Define sections in the required order: legend, battlefields, other cards, then runes
     const sections = [
         { key: 'legend', title: 'Legend' },
-        { key: 'runes', title: 'Runes' },
         { key: 'battlefields', title: 'Battlefields' },
-        { key: 'other', title: 'Main Deck' }
+        { key: 'other', title: 'Main Deck' },
+        { key: 'runes', title: 'Runes' }
     ];
     
-    // Create columns for each section that has cards
+    // Create single cards container
+    const cardsContainer = document.createElement('div');
+    cardsContainer.className = 'riftbound-single-column-cards-container';
+    
+    // Count total cards first to determine card height
+    let totalCards = 0;
+    sections.forEach(section => {
+        const cards = deckObj[section.key];
+        if (cards && cards.length > 0) {
+            totalCards += cards.length; // Count all cards in each section
+        }
+    });
+    
+    // Use dynamic card height based on total card count
+    const cardHeight = totalCards > 21 ? 41 : 50;
+    const fontScaleFactor = totalCards > 21 ? 1 : 1;
+    
+    // Process each section in order and add cards to the single container
     sections.forEach(section => {
         const cards = deckObj[section.key];
         if (!cards || cards.length === 0) return; // Skip empty sections
         
-        // Cap each section to 14 cards maximum
-        const limitedCards = cards.slice(0, 14);
-        
-        // Create column container
-        const columnContainer = document.createElement('div');
-        columnContainer.className = 'riftbound-vertical-column';
-        
-        // Create section title
-        const titleElement = document.createElement('div');
-        titleElement.className = 'riftbound-section-title';
-        titleElement.textContent = section.title;
-        columnContainer.appendChild(titleElement);
-        
-        // Create cards container
-        const cardsContainer = document.createElement('div');
-        cardsContainer.className = 'riftbound-cards-container';
-        
-        // Use fixed card height for all cards
-        const cardHeight = 50;
-        const fontScaleFactor = 1;
-        
         // Render cards for this section
-        limitedCards.forEach((card, index) => {
+        cards.forEach((card, index) => {
             const cardElement = document.createElement('div');
             cardElement.className = 'riftbound-vertical-card';
             cardElement.style.height = `${cardHeight}px`;
@@ -371,9 +361,10 @@ function renderRiftboundVerticalDeck(deckObj) {
                     <div class="riftbound-card-background-no-count" style="background-image: url('${card['card-url']}');background-position: 0px -60px;background-size: cover;"></div>
                 `;
             } else if (section.key === 'runes') {
-                // Runes don't show card counts and have different background positioning
+                // Runes show card counts and card names like main deck cards
                 cardElement.innerHTML = `
-                    <div class="riftbound-card-name-no-count" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
+                    <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
+                    <div class="riftbound-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
                     <div class="riftbound-runes-background" style="background-image: url('${card['card-url']}');background-position:-40px -172px;background-size: 120% auto;"></div>
                 `;
             } else {
@@ -386,10 +377,9 @@ function renderRiftboundVerticalDeck(deckObj) {
             }
             cardsContainer.appendChild(cardElement);
         });
-        
-        columnContainer.appendChild(cardsContainer);
-        mainDeckContainer.appendChild(columnContainer);
     });
+    
+    mainDeckContainer.appendChild(cardsContainer);
 }
 
 
@@ -436,8 +426,16 @@ function handleGameSelectionUpdate(gameSelection) {
     const normalized = gameSelection?.toLowerCase();
     if (!normalized || normalized === selectedGame) return;
 
+    // Remove previous game class if it exists
+    if (selectedGame) {
+        document.body.classList.remove(selectedGame);
+    }
+
     selectedGame = normalized;
     console.log('Game selection updated:', selectedGame);
+
+    // Add game type class to body
+    document.body.classList.add(selectedGame);
 
     // Perform actions based on game type
     if (selectedGame === 'mtg') {
