@@ -268,20 +268,27 @@ function renderMTGVerticalDeck() {
     const mainDeckContainer = document.getElementById('main-deck-container');
     mainDeckContainer.className = 'vertical-deck-container';
     
+    // Clear previous deck displays
+    mainDeckContainer.innerHTML = '';
+    
+    // Create single cards container
+    const cardsContainer = document.createElement('div');
+    cardsContainer.className = 'mtg-single-column-cards-container';
+    
     const totalCards = deckData.mainDeck.length;
-    const availableHeight = 1080 - 130 - 40; // Available height for cards
-    const cardSpacing = 10;
     
+    // Use dynamic card height based on total card count
     let cardHeight, fontScaleFactor;
-    
-    // Only scale if more than 18 cards
-    if (totalCards > 15) {
-        const totalSpacing = (totalCards - 1) * cardSpacing;
-        const availableForCards = availableHeight - totalSpacing;
-        cardHeight = Math.max(20, availableForCards / totalCards); // Minimum 20px height
-        fontScaleFactor = Math.max(0.4, cardHeight / 50);
+    if (totalCards > 35) {
+        cardHeight = 25;
+        fontScaleFactor = 1;
+    } else if (totalCards > 26) {
+        cardHeight = 30;
+        fontScaleFactor = 1;
+    } else if (totalCards > 21) {
+        cardHeight = 41;
+        fontScaleFactor = 1;
     } else {
-        // Use original sizing for 18 or fewer cards
         cardHeight = 50;
         fontScaleFactor = 1;
     }
@@ -294,10 +301,12 @@ function renderMTGVerticalDeck() {
         cardElement.innerHTML = `
             <div class="vertical-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
             <div class="vertical-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
-            <div class="vertical-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -60px;background-size: cover;"></div>
+            <div class="vertical-card-background" style="background-image: url('${card['card-url']}');background-position: 40px -105px;background-size: cover;"></div>
         `;
-        mainDeckContainer.appendChild(cardElement);
+        cardsContainer.appendChild(cardElement);
     });
+    
+    mainDeckContainer.appendChild(cardsContainer);
 }
 
 function renderRiftboundVerticalDeck(deckObj) {

@@ -345,26 +345,35 @@ body.riftbound.horizontal {
 
 
 /* VERTICAL ORIENTATION STYLES */
-.vertical-deck-container {
+body.vertical.mtg .vertical-deck-container {
     width: 1920px;
     height: 930px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    gap: 10px;
     overflow: hidden;
-    /* Remove scrolling since all cards fit */
+}
+
+.mtg-single-column-cards-container {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 0 20px;
 }
 
 .vertical-card {
-    width: 300px;
+    width: 100%;
+    max-width: 500px;
     height: 50px;
     /* Default height, will be overridden by inline styles */
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
@@ -383,7 +392,7 @@ body.riftbound.horizontal {
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: normal;
     z-index: 2;
     border-radius: 0 0 8px 0;
 }
@@ -394,13 +403,12 @@ body.riftbound.horizontal {
     left: 40px;
     right: 0;
     height: 100%;
-    /* background-color: rgba(0, 0, 0, 0.7); */
     color: white;
     display: flex;
     align-items: center;
     padding: 0 20px;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: normal;
     z-index: 2;
     white-space: nowrap;
     overflow: hidden;
@@ -426,7 +434,7 @@ body.riftbound.horizontal {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     z-index: 1;
 }
 
