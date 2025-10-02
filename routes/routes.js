@@ -51,6 +51,10 @@ router.get('/broadcast/round/maindeck/:matchID/:sideID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-main-deck.html'));
 });
 
+router.get('/broadcast/round/sidedeck/:orientation/:matchID/:sideID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-side-deck.html'));
+});
+
 router.get('/broadcast/round/sidedeck/:matchID/:sideID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-side-deck.html'));
 });
