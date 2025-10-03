@@ -561,7 +561,7 @@ body.vertical.mtg .vertical-deck-container {
 
 .riftbound-battlefield-name {
     position: absolute;
-    left: 50px;
+    left: 60px;
     color: white;
     font-size: 18px;
     font-weight: normal;
@@ -621,7 +621,7 @@ body.vertical.mtg .vertical-deck-container {
 .riftbound-card-name-no-count {
     position: absolute;
     top: 0;
-    left: 30px;
+    left: 40px;
     right: 0;
     height: 100%;
     color: white;
