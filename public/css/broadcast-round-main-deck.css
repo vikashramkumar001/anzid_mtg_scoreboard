@@ -546,9 +546,22 @@ body.vertical.mtg .vertical-deck-container {
     align-items: center;
 }
 
+.riftbound-battlefield-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: 100%;
+    background-image: url('/assets/images/riftbound/Battlefield.png');
+    background-size: 60% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 3;
+}
+
 .riftbound-battlefield-name {
     position: absolute;
-    left: 20px;
+    left: 50px;
     color: white;
     font-size: 18px;
     font-weight: normal;
@@ -592,10 +605,23 @@ body.vertical.mtg .vertical-deck-container {
 }
 
 /* RIFTBOUND LEGEND AND RUNES CARDS WITHOUT COUNTS */
-.riftbound-card-name-no-count {
+.riftbound-legend-icon {
     position: absolute;
     top: 0;
     left: 0;
+    width: 45px;
+    height: 100%;
+    background-image: url('/assets/images/riftbound/Legend.png');
+    background-size: 60% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 3;
+}
+
+.riftbound-card-name-no-count {
+    position: absolute;
+    top: 0;
+    left: 30px;
     right: 0;
     height: 100%;
     color: white;

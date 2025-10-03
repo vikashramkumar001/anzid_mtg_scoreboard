@@ -359,6 +359,7 @@ function renderRiftboundVerticalDeck(deckObj) {
             if (section.key === 'battlefields') {
                 cardElement.innerHTML = `
                     <div class="riftbound-battlefield-card">
+                        <div class="riftbound-battlefield-icon"></div>
                         <div class="riftbound-battlefield-name">${card['card-name']}</div>
                         <div class="riftbound-battlefield-background" style="--bg-image: url('${card['card-url']}');"></div>
                     </div>
@@ -366,6 +367,7 @@ function renderRiftboundVerticalDeck(deckObj) {
             } else if (section.key === 'legend') {
                 // Legend doesn't show card counts
                 cardElement.innerHTML = `
+                    <div class="riftbound-legend-icon"></div>
                     <div class="riftbound-card-name-no-count" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
                     <div class="riftbound-card-background-no-count" style="background-image: url('${card['card-url']}');background-position: 0px -60px;background-size: cover;"></div>
                 `;
