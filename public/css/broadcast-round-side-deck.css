@@ -31,15 +31,16 @@
 }
 
 .card-count {
-    top: 225px;
-    right: 70px;
-    width: 37px;
-    height: 37px;
+    top: 240px;
+    right: 68px;
+    width: 45px;
+    height: 24px;
     background-color: rgba(0, 0, 0, 1);
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
-    border-radius: 25px;
+    border-radius: 10px;
+    border: 1px solid white;
     display: flex;
     flex-direction: row;
     justify-content: center;
