@@ -22,7 +22,12 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "*", // Allow all origins for local network
+    methods: ["GET", "POST"]
+  }
+});
 
 // Middleware to expose io to routes (if needed)
 app.use((req, res, next) => {
@@ -37,6 +42,16 @@ app.use(express.json());
 
 // Routes
 app.use('/', routes);
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    port: PORT,
+    host: '0.0.0.0'
+  });
+});
 
 // Sockets
 registerSocketHandlers(io);
@@ -55,8 +70,9 @@ async function initialize() {
   await vibesLoadCardListData();
   await riftboundLoadCardListData();
 
-  server.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running at http://0.0.0.0:${PORT}`);
+    console.log(`Accessible at http://[YOUR_MAC_IP]:${PORT}`);
   });
 }
 
