@@ -12,6 +12,9 @@ import {initGameSelection} from './game-selection.js';
 const socket = io();
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // Initialize Room Manager
+    window.roomManager = new RoomManager(socket);
+    
     // Initialize IndexedDB first
     try {
         // Initialize MTG DB

@@ -1,5 +1,6 @@
 import {promises as fs} from 'fs';
 import {cardListDataPath} from '../../config/vibes/constants.js';
+import { RoomUtils } from '../../utils/room-utils.js';
 
 let cardListData = [];
 
@@ -27,7 +28,7 @@ export function getCardListData() {
 
 // Emit full card list to clients
 export function emitVibesCardList(io) {
-    io.emit('vibes-card-list-data', {cardListData});
+    RoomUtils.emitWithRoomMapping(io, 'vibes-card-list-data', {cardListData});
 }
 
 // Emit selected card for viewing
@@ -48,7 +49,7 @@ export function emitVibesCardView(io, cardSelected) {
             'card-id': cardSelected['card-id']
         }
     }
-    io.emit('vibes-card-view-card-selected', foundCard);
+    RoomUtils.emitWithRoomMapping(io, 'vibes-card-view-card-selected', foundCard);
 }
 
 // transform incoming deck list data to create deck object
@@ -111,7 +112,7 @@ export function handleVibesIncomingDeckData(io, deckListData) {
         };
 
         // Emit only if data is properly formatted
-        io.emit('vibes-deck-data-from-server', data2send);
+        RoomUtils.emitWithRoomMapping(io, 'vibes-deck-data-from-server', data2send);
         console.log('Deck data sent successfully for index:', index);
 
     } catch (error) {

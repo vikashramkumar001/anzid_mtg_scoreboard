@@ -1,5 +1,6 @@
 import {promises as fs} from 'fs';
 import {cardListDataPath} from '../../config/riftbound/constants.js';
+import { RoomUtils } from '../../utils/room-utils.js';
 
 let cardListData = [];
 
@@ -27,7 +28,7 @@ export function getCardListData() {
 
 // Emit full card list to clients
 export function emitRiftboundCardList(io) {
-    io.emit('riftbound-card-list-data', {cardListData});
+    RoomUtils.emitWithRoomMapping(io, 'riftbound-card-list-data', {cardListData});
 }
 
 // Emit selected card for viewing
@@ -50,7 +51,7 @@ export function emitRiftboundCardView(io, cardSelected) {
             'card-id': cardSelected['card-id']
         }
     }
-    io.emit('riftbound-card-view-card-selected', foundCard);
+    RoomUtils.emitWithRoomMapping(io, 'riftbound-card-view-card-selected', foundCard);
 }
 
 // transform incoming deck list data to create deck object
@@ -113,7 +114,7 @@ export function handleRiftboundIncomingDeckData(io, deckListData) {
         };
 
         // Emit only if data is properly formatted
-        io.emit('riftbound-deck-data-from-server', data2send);
+        RoomUtils.emitWithRoomMapping(io, 'riftbound-deck-data-from-server', data2send);
         console.log('Deck data sent successfully for index:', index);
 
     } catch (error) {

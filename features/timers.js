@@ -1,4 +1,5 @@
 import {DEFAULT_INITIAL_TIME} from "../config/constants.js";
+import { RoomUtils } from '../utils/room-utils.js';
 
 // Create timerState structure for 16 rounds with 4 matches each
 let timerState = Array.from({length: 16}, (_, i) => ({
@@ -58,7 +59,7 @@ export function updateTimerAction(io, round_id, match_id, action) {
 
 // Emit full timer state
 export function emitTimerState(io) {
-    io.emit('current-all-timer-states', {timerState});
+    RoomUtils.emitWithRoomMapping(io, 'current-all-timer-states', {timerState});
 }
 
 // Set up timer interval to decrement running timers

@@ -2,6 +2,7 @@ import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import { RoomUtils } from '../utils/room-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -54,8 +55,8 @@ export const archetypeStorage = multer.diskStorage({
 });
 
 export function emitOverlayBackgrounds(io) {
-  io.emit('overlayHeaderBackgroundUpdate', overlayHeaderImageUrl);
-  io.emit('overlayFooterBackgroundUpdate', overlayFooterImageUrl);
+  RoomUtils.emitWithRoomMapping(io, 'overlayHeaderBackgroundUpdate', overlayHeaderImageUrl);
+  RoomUtils.emitWithRoomMapping(io, 'overlayFooterBackgroundUpdate', overlayFooterImageUrl);
 }
 
 export { overlayHeaderImageUrl, overlayFooterImageUrl };

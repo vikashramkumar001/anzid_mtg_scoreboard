@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 import routes from './routes/routes.js';
 import registerSocketHandlers from './sockets/handlers.js';
+import { RoomUtils } from './utils/room-utils.js';
 
 import { loadControlData } from './features/control.js';
 import { loadBracketData } from './features/brackets.js';
@@ -29,9 +30,10 @@ const io = new Server(server, {
   }
 });
 
-// Middleware to expose io to routes (if needed)
+// Middleware to expose io and room utilities to routes (if needed)
 app.use((req, res, next) => {
   req.io = io;
+  req.RoomUtils = RoomUtils;
   next();
 });
 

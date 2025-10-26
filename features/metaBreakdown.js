@@ -1,7 +1,9 @@
 import {getCardListData} from "./cards.js";
 
+import { RoomUtils } from '../utils/room-utils.js';
+
 export function emitMetaBreakdownData(io, data) {
-    io.emit('receive-meta-breakdown-data', data);
+    RoomUtils.emitWithRoomMapping(io, 'receive-meta-breakdown-data', data);
 }
 
 export function handleMetaBreakdownCard(cardName) {

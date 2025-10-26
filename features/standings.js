@@ -1,5 +1,6 @@
 import {promises as fs} from 'fs';
 import {standingsDataPath} from '../config/constants.js';
+import { RoomUtils } from '../utils/room-utils.js';
 
 let standingsData = {};
 
@@ -100,7 +101,7 @@ export function parseStandingsRawData(input) {
 
 // Emit full standings
 export function emitStandings(io) {
-    io.emit('standings-data', {standingsData});
+    RoomUtils.emitWithRoomMapping(io, 'standings-data', {standingsData});
 }
 
 // Emit parsed standings for broadcast
@@ -108,5 +109,5 @@ export function emitBroadcastStandings(io, round_id) {
     const raw = standingsData[round_id];
     // if (!raw) return;
     const parsed = parseStandingsRawData(raw);
-    io.emit('broadcast-round-standings-data', parsed);
+    RoomUtils.emitWithRoomMapping(io, 'broadcast-round-standings-data', parsed);
 }

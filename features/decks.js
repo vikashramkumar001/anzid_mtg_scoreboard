@@ -3,8 +3,10 @@ import {
 } from './control.js';
 
 
+import { RoomUtils } from '../utils/room-utils.js';
+
 export function emitDeckDisplay(io, deckData) {
-    io.emit('deck-display-update', deckData);
+    RoomUtils.emitWithRoomMapping(io, 'deck-display-update', deckData);
 }
 
 export function updateDeckDisplay(io, {round_id, match_id, side}) {

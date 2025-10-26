@@ -2,6 +2,7 @@ import {promises as fs} from 'fs';
 import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection} from '../config/constants.js';
 import {getSortedArchetypes} from './archetypes.js';
 import {emitBroadcastStandings} from "./standings.js";
+import { RoomUtils } from '../utils/room-utils.js';
 
 let controlData = {};
 let controlsTracker = {
@@ -73,7 +74,7 @@ export function updateBroadcastTracker(round_id) {
 
 // Emit control data update - master-control listening to update matches
 export function emitControlData(io) {
-    io.emit('control-data-updated', controlData);
+    RoomUtils.emitWithRoomMapping(io, 'control-data-updated', controlData);
 }
 
 // Update server with control data from control - goes to scoreboard / master-control
@@ -84,7 +85,7 @@ export async function updateFromControl(round_id, match_id, newState, io) {
 
     Object.entries(controlsTracker).forEach(([control_id, control]) => {
         if (control.round_id === round_id && control.match_id === match_id) {
-            io.emit(`scoreboard-${control_id}-saved-state`, {
+            RoomUtils.emitToRoom(io, `scoreboard-${control_id}`, `scoreboard-${control_id}-saved-state`, {
                 data: controlData[round_id][match_id],
                 round_id,
                 match_id,
@@ -103,13 +104,13 @@ export function emitSavedStateForControl(control_id, io) {
         controlsTracker[control_id] = {round_id, match_id};
     }
 
-    io.emit(`control-${control_id}-saved-state`, {
+    RoomUtils.emitToRoom(io, `control-${control_id}`, `control-${control_id}-saved-state`, {
         data: controlData[round_id]?.[match_id] || {},
         round_id,
         match_id,
         archetypeList: getSortedArchetypes()
     });
-    io.emit(`scoreboard-${control_id}-saved-state`, {
+    RoomUtils.emitToRoom(io, `scoreboard-${control_id}`, `scoreboard-${control_id}-saved-state`, {
         data: controlData[round_id]?.[match_id] || {},
         round_id,
         match_id,
@@ -121,13 +122,13 @@ export function emitSavedStateForControl(control_id, io) {
 export function updateControlMapping(controlId, round_id, match_id, io) {
     controlsTracker[controlId] = {round_id, match_id};
 
-    io.emit(`control-${controlId}-saved-state`, {
+    RoomUtils.emitToRoom(io, `control-${controlId}`, `control-${controlId}-saved-state`, {
         data: controlData[round_id]?.[match_id] || {},
         round_id,
         match_id,
         archetypeList: getSortedArchetypes()
     });
-    io.emit(`scoreboard-${controlId}-saved-state`, {
+    RoomUtils.emitToRoom(io, `scoreboard-${controlId}`, `scoreboard-${controlId}-saved-state`, {
         data: controlData[round_id]?.[match_id] || {},
         round_id,
         match_id,
@@ -137,7 +138,7 @@ export function updateControlMapping(controlId, round_id, match_id, io) {
 
 // Emit control & broadcast trackers
 export function emitControlTrackers(io) {
-    io.emit('control-broadcast-trackers', {
+    RoomUtils.emitWithRoomMapping(io, 'control-broadcast-trackers', {
         broadcastTracker,
         controlsTracker
     });
@@ -152,13 +153,13 @@ export async function updateFromMaster(allControlData, io) {
         Object.entries(roundData).forEach(([match_id, matchData]) => {
             Object.entries(controlsTracker).forEach(([control_id, ctrl]) => {
                 if (ctrl.round_id === round_id && ctrl.match_id === match_id) {
-                    io.emit(`control-${control_id}-saved-state`, {
+                    RoomUtils.emitToRoom(io, `control-${control_id}`, `control-${control_id}-saved-state`, {
                         data: matchData,
                         round_id,
                         match_id,
                         archetypeList: getSortedArchetypes()
                     });
-                    io.emit(`scoreboard-${control_id}-saved-state`, {
+                    RoomUtils.emitToRoom(io, `scoreboard-${control_id}`, `scoreboard-${control_id}-saved-state`, {
                         data: matchData,
                         round_id,
                         match_id,
@@ -169,7 +170,7 @@ export async function updateFromMaster(allControlData, io) {
         });
         // emit round data to live broadcast changes using broadcastTracker
         if (broadcastTracker.round_id && broadcastTracker.round_id === round_id) {
-            io.emit('broadcast-round-data', roundData);
+            RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', roundData);
             // emit standings as well
             emitBroadcastStandings(io, round_id);
         }
@@ -178,7 +179,7 @@ export async function updateFromMaster(allControlData, io) {
 
 // emit scoreboardState
 export function emitScoreboardState(io) {
-    io.emit('scoreboard-state-data', {scoreboardState});
+    RoomUtils.emitWithRoomMapping(io, 'scoreboard-state-data', {scoreboardState});
 }
 
 // update scoreboard states from incoming data
@@ -193,11 +194,11 @@ export function updateScoreboardSate(io, round_id, match_id, action, value) {
 
 // game selection handlers
 export function emitCurrentGameSelection(io) {
-    io.emit('server-current-game-selection', {gameSelection: getGameSelection()})
+    RoomUtils.emitWithRoomMapping(io, 'server-current-game-selection', {gameSelection: getGameSelection()})
 }
 
 export function emitUpdatedGameSelection(io) {
-    io.emit('game-selection-updated', {gameSelection: getGameSelection()})
+    RoomUtils.emitWithRoomMapping(io, 'game-selection-updated', {gameSelection: getGameSelection()})
 }
 
 export function updateGameSelection(gameSelection, io) {

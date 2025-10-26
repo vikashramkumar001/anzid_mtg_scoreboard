@@ -71,9 +71,22 @@ import {
     handleRiftboundIncomingDeckData
 } from "../features/riftbound/cards.js";
 
+import { RoomUtils } from '../utils/room-utils.js';
+
 export default function registerSocketHandlers(io) {
     io.on('connection', (socket) => {
         console.log('User connected:', socket.id);
+
+        // Room management handlers
+        socket.on('join-room', (roomName) => {
+            socket.join(roomName);
+            console.log(`[ROOM] Client ${socket.id} joined room: ${roomName}`);
+        });
+        
+        socket.on('leave-room', (roomName) => {
+            socket.leave(roomName);
+            console.log(`[ROOM] Client ${socket.id} left room: ${roomName}`);
+        });
 
         // Send the current overlay background images to the newly connected client
         emitOverlayBackgrounds(io);
@@ -133,33 +146,33 @@ export default function registerSocketHandlers(io) {
 
         // Archetype list
         socket.on('getArchetypeList', () => {
-            io.emit('archetypeListUpdated', getSortedArchetypes());
+            RoomUtils.emitWithRoomMapping(io, 'archetypeListUpdated', getSortedArchetypes());
         });
 
         socket.on('addArchetype', (name) => {
             if (addArchetype(name)) {
-                io.emit('archetypeListUpdated', getSortedArchetypes());
+                RoomUtils.emitWithRoomMapping(io, 'archetypeListUpdated', getSortedArchetypes());
             }
         });
 
         socket.on('addArchetypes', async (names) => {
             if (addMultipleArchetypes(names)) {
                 await saveArchetypeList();
-                io.emit('archetypeListUpdated', getSortedArchetypes());
+                RoomUtils.emitWithRoomMapping(io, 'archetypeListUpdated', getSortedArchetypes());
             }
         });
 
         socket.on('deleteArchetype', async (name) => {
             if (deleteArchetype(name)) {
                 await saveArchetypeList();
-                io.emit('archetypeListUpdated', getSortedArchetypes());
+                RoomUtils.emitWithRoomMapping(io, 'archetypeListUpdated', getSortedArchetypes());
             }
         });
 
         socket.on('upload-archetype-image', async (name, url) => {
             if (updateArchetypeImage(name, url)) {
                 await saveArchetypeList();
-                io.emit('archetypeListUpdated', getSortedArchetypes());
+                RoomUtils.emitWithRoomMapping(io, 'archetypeListUpdated', getSortedArchetypes());
             }
         });
 
@@ -253,7 +266,7 @@ export default function registerSocketHandlers(io) {
             const controlData = getControlData();
             if (controlData[round_id]) {
                 updateBroadcastTracker(round_id);
-                io.emit('broadcast-round-data', controlData[round_id]);
+                RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
             }
             emitBroadcastStandings(io, round_id);
         });

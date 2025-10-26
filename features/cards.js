@@ -2,6 +2,7 @@ import {promises as fs} from 'fs';
 import {cardListDataPath} from '../config/constants.js';
 import {getCardListData as vibesGetCardListData} from "./vibes/cards.js";
 import {getCardListData as riftboundGetCardListData} from "./riftbound/cards.js";
+import { RoomUtils } from '../utils/room-utils.js';
 
 let cardListData = [];
 
@@ -29,7 +30,7 @@ export function getCardListData() {
 
 // Emit full card list to clients
 export function emitMTGCardList(io) {
-    io.emit('mtg-card-list-data', {cardListData});
+    RoomUtils.emitWithRoomMapping(io, 'mtg-card-list-data', {cardListData});
 }
 
 function normalizeName(str) {
@@ -73,7 +74,7 @@ export function emitCardView(io, cardSelected) {
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
             }
-            io.emit('vibes-card-view-card-selected', cardData);
+            RoomUtils.emitWithRoomMapping(io, 'vibes-card-view-card-selected', cardData);
         } else {
             const cardData = {
                 name: '',
@@ -81,7 +82,7 @@ export function emitCardView(io, cardSelected) {
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
             }
-            io.emit('vibes-card-view-card-selected', cardData);
+            RoomUtils.emitWithRoomMapping(io, 'vibes-card-view-card-selected', cardData);
         }
     }
     if (cardSelected['game-id'] === 'mtg') {
@@ -105,7 +106,7 @@ export function emitCardView(io, cardSelected) {
             'card-id': cardSelected['card-id'],
             'game-id': cardSelected['game-id']
         }
-        io.emit('card-view-card-selected', cardData);
+        RoomUtils.emitWithRoomMapping(io, 'card-view-card-selected', cardData);
     }
     if (cardSelected['game-id'] === 'riftbound') {
         const riftboundCards = riftboundGetCardListData();
@@ -121,7 +122,7 @@ export function emitCardView(io, cardSelected) {
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
             }
-            io.emit('riftbound-card-view-card-selected', cardData);
+            RoomUtils.emitWithRoomMapping(io, 'riftbound-card-view-card-selected', cardData);
         } else {
             const cardData = {
                 name: '',
@@ -130,7 +131,7 @@ export function emitCardView(io, cardSelected) {
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
             }
-            io.emit('riftbound-card-view-card-selected', cardData);
+            RoomUtils.emitWithRoomMapping(io, 'riftbound-card-view-card-selected', cardData);
         }
     }
 }
@@ -143,7 +144,7 @@ export function emitTransformedMainDeck(deckData, gameType, sideID, matchID, io)
         sideID: sideID,
         matchID: matchID
     }
-    io.emit('transformed-main-deck-data', data2send);
+    RoomUtils.emitWithRoomMapping(io, 'transformed-main-deck-data', data2send);
 }
 export function emitTransformedSideDeck(deckData, gameType, sideID, matchID, io) {
     let data2send = {
@@ -152,7 +153,7 @@ export function emitTransformedSideDeck(deckData, gameType, sideID, matchID, io)
         sideID: sideID,
         matchID: matchID
     }
-    io.emit('transformed-side-deck-data', data2send);
+    RoomUtils.emitWithRoomMapping(io, 'transformed-side-deck-data', data2send);
 }
 
 function getURLFromCardName(cardName, cardsList, gameType) {

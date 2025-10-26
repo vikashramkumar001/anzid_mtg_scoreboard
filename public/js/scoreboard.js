@@ -3,6 +3,8 @@
 let lastState = {};
 let archetypeList = [];
 const socket = io();
+// Initialize Room Manager
+window.roomManager = new RoomManager(socket);
 
 const pathSegments = window.location.pathname.split('/');
 const control_id = pathSegments[2];

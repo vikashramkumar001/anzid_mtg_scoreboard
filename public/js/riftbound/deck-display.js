@@ -1,4 +1,6 @@
 const socket = io();
+// Initialize Room Manager
+window.roomManager = new RoomManager(socket);
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');

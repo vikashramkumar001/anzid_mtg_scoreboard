@@ -1,4 +1,6 @@
 const socket = io();
+// Initialize Room Manager
+window.roomManager = new RoomManager(socket);
 let deckData = {};
 
 // Listen for deck data to display

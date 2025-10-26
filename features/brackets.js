@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import { bracketDataPath } from '../config/constants.js';
+import { RoomUtils } from '../utils/room-utils.js';
 
 let bracketData = {};
 
@@ -39,9 +40,9 @@ export function getBracketData() {
 export async function handleBracketUpdate(bracketValues, io) {
   bracketData = bracketValues;
   await saveBracketData();
-  io.emit('bracket-data', { bracketData });
+  RoomUtils.emitWithRoomMapping(io, 'bracket-data', { bracketData });
 }
 
 export function emitBracketData(io) {
-  io.emit('bracket-data', { bracketData });
+  RoomUtils.emitWithRoomMapping(io, 'bracket-data', { bracketData });
 }

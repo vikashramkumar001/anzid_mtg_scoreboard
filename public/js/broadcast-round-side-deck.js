@@ -1,4 +1,6 @@
 const socket = io();
+// Initialize Room Manager
+window.roomManager = new RoomManager(socket);
 let roundData = {};
 let deckData = {};
 let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'

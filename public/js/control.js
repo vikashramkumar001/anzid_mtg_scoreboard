@@ -149,6 +149,8 @@ function renderDropdownList(dropdownList, items, field) {
 // start
 
 const socket = io();
+// Initialize Room Manager
+window.roomManager = new RoomManager(socket);
 let timeout = null;
 let current_state = {};
 // Get match name from the URL

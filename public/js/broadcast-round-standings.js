@@ -1,4 +1,6 @@
 const socket = io();
+// Initialize Room Manager
+window.roomManager = new RoomManager(socket);
 let standingsData = {};
 let rankText = document.getElementById('standings-rank');
 let nameText = document.getElementById('standings-name');

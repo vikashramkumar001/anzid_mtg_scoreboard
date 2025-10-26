@@ -1,6 +1,7 @@
 import {getControlData, emitControlData, saveControlData} from './control.js';
 import {getSortedArchetypes} from './archetypes.js';
 import {DEFAULT_INITIAL_TIME, getInitialTime, setInitialTime} from "../config/constants.js";
+import { RoomUtils } from '../utils/room-utils.js';
 
 let globalMatchData = {
     'global-commentator-1': null,
@@ -30,7 +31,7 @@ export function getInitialTimer() {
 
 // Emit global data
 export function emitGlobalMatchData(io) {
-    io.emit('update-match-global-data', {globalData: globalMatchData});
+    RoomUtils.emitWithRoomMapping(io, 'update-match-global-data', {globalData: globalMatchData});
 }
 
 // Update commentator data and broadcast it
@@ -83,13 +84,13 @@ export async function updateEventInformation(eventInfo, io, timerState) {
             // Emit updated match data
             Object.entries(timerState.controlsTracker || {}).forEach(([control_id, ctrl]) => {
                 if (ctrl.round_id === round_id && ctrl.match_id === match_id) {
-                    io.emit(`control-${control_id}-saved-state`, {
+                    RoomUtils.emitToRoom(io, `control-${control_id}`, `control-${control_id}-saved-state`, {
                         data: matchData,
                         round_id,
                         match_id,
                         archetypeList: getSortedArchetypes()
                     });
-                    io.emit(`scoreboard-${control_id}-saved-state`, {
+                    RoomUtils.emitToRoom(io, `scoreboard-${control_id}`, `scoreboard-${control_id}-saved-state`, {
                         data: matchData,
                         round_id,
                         match_id,
