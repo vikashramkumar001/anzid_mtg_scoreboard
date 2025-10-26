@@ -97,6 +97,32 @@ export async function updateFromControl(round_id, match_id, newState, io) {
     emitControlData(io);
 }
 
+// NEW: Update a single field from control - granular updates
+export async function updateFieldFromControl(round_id, match_id, field, value, timestamp, io) {
+    if (!controlData[round_id]) controlData[round_id] = {};
+    if (!controlData[round_id][match_id]) controlData[round_id][match_id] = {};
+    if (!controlData[round_id][match_id]._timestamps) {
+        controlData[round_id][match_id]._timestamps = {};
+    }
+    
+    // Conflict resolution: only update if newer timestamp
+    const currentTimestamp = controlData[round_id][match_id]._timestamps[field] || 0;
+    if (timestamp > currentTimestamp) {
+        controlData[round_id][match_id][field] = value;
+        controlData[round_id][match_id]._timestamps[field] = timestamp;
+        await saveControlData();
+        
+        // Emit granular update to master-control ONLY
+        RoomUtils.emitWithRoomMapping(io, 'field-updated', {
+            round_id,
+            match_id,
+            field,
+            value,
+            timestamp
+        });
+    }
+}
+
 // Emit a control's saved state - called by scoreboard
 export function emitSavedStateForControl(control_id, io) {
     let {round_id = '1', match_id = 'match1'} = controlsTracker[control_id] || {};

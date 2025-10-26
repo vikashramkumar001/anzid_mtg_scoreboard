@@ -13,6 +13,7 @@ import {
 
 import {
     updateFromControl,
+    updateFieldFromControl,
     emitSavedStateForControl,
     updateControlMapping,
     emitControlTrackers,
@@ -97,6 +98,11 @@ export default function registerSocketHandlers(io) {
         // Scoreboard: match state updates - comes from control - use to update master-control / scoreboard
         socket.on('control-data-updated', ({round_id, match_id, current_state}) => {
             updateFromControl(round_id, match_id, current_state, io);
+        });
+
+        // NEW: Granular field updates from control
+        socket.on('field-updated', ({round_id, match_id, field, value, timestamp}) => {
+            updateFieldFromControl(round_id, match_id, field, value, timestamp, io);
         });
 
         socket.on('getSavedControlState', ({control_id}) => {

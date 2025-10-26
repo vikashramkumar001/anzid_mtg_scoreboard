@@ -49,28 +49,55 @@ function setupLifeUpdateListeners() {
 
 setupLifeUpdateListeners();
 
-function sendData() {
-    document.querySelectorAll(".dynamic").forEach(element => {
-        if (element.tagName === "SELECT") {
-            current_state[element.id] = element.value.trim();
+function sendData(eventTarget) {
+    let field, value;
+    
+    if (eventTarget) {
+        // Send individual field update
+        field = eventTarget.id;
+        if (eventTarget.tagName === "SELECT") {
+            value = eventTarget.value.trim();
         } else {
-            current_state[element.id] = element.innerHTML.trim();
+            value = eventTarget.innerHTML.trim();
         }
-
-    });
-    console.log('emitting updated content', match_id, current_state);
-    // send data to server
-    socket.emit('control-data-updated', {round_id, match_id, current_state});
+        
+        const timestamp = Date.now();
+        console.log('emitting field update', field, '=', value);
+        
+        socket.emit('field-updated', {
+            round_id, 
+            match_id, 
+            field: field,
+            value: value,
+            timestamp: timestamp
+        });
+        
+        // Also update local current_state
+        current_state[field] = value;
+    } else {
+        // Fallback: send all data (for compatibility)
+        document.querySelectorAll(".dynamic").forEach(element => {
+            if (element.tagName === "SELECT") {
+                current_state[element.id] = element.value.trim();
+            } else {
+                current_state[element.id] = element.innerHTML.trim();
+            }
+        });
+        console.log('emitting updated content', match_id, current_state);
+        socket.emit('control-data-updated', {round_id, match_id, current_state});
+    }
 }
 
-function armTimeout() {
+function armTimeout(targetElement) {
     console.log('arming timeout - ' + delay_value + ' micro seconds');
     clearTimeout(timeout);
     // delay value seconds after last input change - after timeout then emit data
-    timeout = setTimeout(() => sendData(), delay_value);
+    timeout = setTimeout(() => sendData(targetElement), delay_value);
 }
 
-document.querySelectorAll(".editable").forEach(editable => editable.addEventListener("input", armTimeout));
+document.querySelectorAll(".editable").forEach(editable => 
+    editable.addEventListener("input", (e) => armTimeout(e.target))
+);
 document.querySelectorAll(".editable").forEach(editable => editable.addEventListener('keypress', (evt) => {
     if (evt.which === 13) {
         evt.preventDefault();
@@ -219,7 +246,7 @@ function attachPoisonControlListeners() {
         }
         poisonField.innerText = numericValue; // Update the field
         // send updated data to server
-        armTimeout();
+        armTimeout(poisonField);
     }
 
     // Attach listeners

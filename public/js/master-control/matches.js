@@ -921,7 +921,7 @@ export function initMatches(socket) {
         populateStandingsData();
     })
 
-    // handle updates to full control data to update the page
+    // handle updates to full control data to update the page (initial load)
     socket.on('control-data-updated', (allData) => {
         console.log('Control data was updated', allData);
         // save to local object
@@ -932,6 +932,31 @@ export function initMatches(socket) {
 
         // Set up custom dropdowns after rendering
         setupCustomDropdowns();
+    });
+
+    // NEW: Granular field updates from control pages (real-time editing)
+    socket.on('field-updated', ({round_id, match_id, field, value, timestamp}) => {
+        console.log('Field updated', field, '=', value);
+        
+        // Ensure nested structure exists
+        if (!allControlData[round_id]) allControlData[round_id] = {};
+        if (!allControlData[round_id][match_id]) allControlData[round_id][match_id] = {};
+        if (!allControlData[round_id][match_id]._timestamps) {
+            allControlData[round_id][match_id]._timestamps = {};
+        }
+        
+        // Conflict resolution: only update if newer timestamp
+        const currentTimestamp = allControlData[round_id][match_id]._timestamps[field] || 0;
+        if (timestamp > currentTimestamp) {
+            allControlData[round_id][match_id][field] = value;
+            allControlData[round_id][match_id]._timestamps[field] = timestamp;
+            
+            // Update ONLY the specific field in DOM
+            const fieldElement = document.getElementById(`${round_id}-${match_id}-${field}`);
+            if (fieldElement) {
+                fieldElement.textContent = value;
+            }
+        }
     });
 
     // Listen for updated archetype list from server

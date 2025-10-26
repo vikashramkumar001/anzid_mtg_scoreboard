@@ -45,6 +45,7 @@ export class RoomUtils {
         const eventRoomMapping = {
             // Control events
             'control-data-updated': ['master-control', 'control-1', 'control-2', 'control-3', 'control-4', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
+            'field-updated': ['master-control'],  // NEW granular update event
             'master-control-matches-updated': ['master-control', 'control-1', 'control-2', 'control-3', 'control-4', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
             'control-mapping-update': ['master-control', 'control-1', 'control-2', 'control-3', 'control-4'],
             'control-broadcast-trackers': ['master-control'],
