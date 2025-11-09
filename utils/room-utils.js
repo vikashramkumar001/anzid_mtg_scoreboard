@@ -9,7 +9,7 @@ export class RoomUtils {
      */
     static emitToRoom(io, roomName, eventName, data) {
         io.to(roomName).emit(eventName, data);
-        console.log(`[ROOM] Emitted ${eventName} to room: ${roomName}`);
+        // console.log(`[ROOM] Emitted ${eventName} to room: ${roomName}`);
     }
     
     /**
@@ -33,7 +33,7 @@ export class RoomUtils {
      */
     static emitToGlobal(io, eventName, data) {
         io.emit(eventName, data);
-        console.log(`[ROOM] Emitted ${eventName} to all clients (global)`);
+        // console.log(`[ROOM] Emitted ${eventName} to all clients (global)`);
     }
     
     /**

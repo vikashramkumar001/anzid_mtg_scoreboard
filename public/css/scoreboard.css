@@ -1,10 +1,12 @@
 * {
-    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+    font-family: "Bebas Neue", sans-serif;
+    /* BebasNeueBold */
     text-transform: uppercase;
     color: white;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     height: 100%;
 }
@@ -18,7 +20,8 @@ div {
     z-index: 10;
 }
 
-.header .background {
+/* MTG Scoreboard Styles */
+#scoreboard-mtg .header .background {
     width: 1920px;
     height: 100px;
     display: flex;
@@ -27,23 +30,25 @@ div {
     justify-content: center;
     background: url("/assets/images/overlay_header.png");
     z-index: 2;
-    transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
+    transition: background-image 0.5s ease-in-out;
+    /* Smooth transition for background image */
 }
 
-.body .background {
+#scoreboard-mtg .body .background {
     width: 1920px;
     height: 930px;
     background: url("/assets/images/overlay_body.png");
 }
 
-.footer .background {
+#scoreboard-mtg .footer .background {
     width: 1920px;
     height: 50px;
     background: url("/assets/images/overlay_footer.png");
-    transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
+    transition: background-image 0.5s ease-in-out;
+    /* Smooth transition for background image */
 }
 
-.scorebug {
+#scoreboard-mtg .scorebug {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -51,7 +56,7 @@ div {
     justify-content: center;
 }
 
-.scorebug-life {
+#scoreboard-mtg .scorebug-life {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -61,12 +66,12 @@ div {
     font-size: 100px;
 }
 
-.scorebug-right-life {
+#scoreboard-mtg .scorebug-right-life {
     /* align-items: flex-end; */
     flex-direction: row-reverse;
 }
 
-.scorebug-life-score {
+#scoreboard-mtg .scorebug-life-score {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,20 +80,21 @@ div {
     padding-top: 9px;
 }
 
-.scorebug-life-wins {
+#scoreboard-mtg .scorebug-life-wins {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.scorebug-right-life-wins, .scorebug-left-life-wins {
+#scoreboard-mtg .scorebug-right-life-wins,
+#scoreboard-mtg .scorebug-left-life-wins {
     width: 82px;
     height: 100%;
     padding-top: 5px;
 }
 
-.scorebug-life-wins-dot {
+#scoreboard-mtg .scorebug-life-wins-dot {
     width: 20px;
     height: 20px;
     font-size: 28px;
@@ -100,7 +106,7 @@ div {
     align-items: center;
 }
 
-.player-record {
+#scoreboard-mtg .player-record {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,7 +115,7 @@ div {
     height: 100px;
 }
 
-.scorebug-name {
+#scoreboard-mtg .scorebug-name {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -120,7 +126,7 @@ div {
     line-height: 1.0;
 }
 
-.scorebug-name-title {
+#scoreboard-mtg .scorebug-name-title {
     font-size: 66px;
     white-space: nowrap;
     overflow: hidden;
@@ -129,11 +135,12 @@ div {
     padding-top: 5px;
 }
 
-.scorebug-right-name {
+#scoreboard-mtg .scorebug-right-name {
     align-items: flex-end;
 }
 
-.scorebug-name-data, .scorebug-name-data * {
+#scoreboard-mtg .scorebug-name-data,
+#scoreboard-mtg .scorebug-name-data * {
     font-family: "Bebas Neue", sans-serif;
     font-size: 34px;
     color: #fff;
@@ -142,11 +149,11 @@ div {
     padding-bottom: 2px;
 }
 
-.scorebug-vs {
+#scoreboard-mtg .scorebug-vs {
     width: 130px;
 }
 
-.chyron {
+#scoreboard-mtg .chyron {
     height: 50px;
     display: flex;
     flex-direction: row;
@@ -155,17 +162,17 @@ div {
     padding: 0 12px;
 }
 
-.chyron * {
+#scoreboard-mtg .chyron * {
     font-size: 28px;
     color: #fff;
 }
 
-.poison {
+#scoreboard-mtg .poison {
     z-index: 1;
     position: absolute;
 }
 
-.poison-left {
+#scoreboard-mtg .poison-left {
     background: url("/assets/images/poison_left.png");
     display: block;
     position: absolute;
@@ -175,7 +182,7 @@ div {
     left: 0px;
 }
 
-.poison-right {
+#scoreboard-mtg .poison-right {
     background: url("/assets/images/poison_right.png");
     display: block;
     position: absolute;
@@ -185,7 +192,8 @@ div {
     left: 1757px;
 }
 
-.player-poison-left, .player-poison-right {
+#scoreboard-mtg .player-poison-left,
+#scoreboard-mtg .player-poison-right {
     width: 50px;
     display: flex;
     align-items: center;
@@ -196,26 +204,26 @@ div {
     font-size: 42px;
 }
 
-.player-poison-left {
+#scoreboard-mtg .player-poison-left {
     left: 50px;
 }
 
-.player-poison-right {
+#scoreboard-mtg .player-poison-right {
     right: 50px;
 }
 
-.player-pronouns {
+#scoreboard-mtg .player-pronouns {
     border-radius: 8px;
     padding: 0px 10px;
     font-size: .6em;
     background-image: linear-gradient(to left, #80738088, #19181888);
 }
 
-#player-pronouns-left {
+#scoreboard-mtg #player-pronouns-left {
     background-image: linear-gradient(to left, #80738088, #19181888);
 }
 
-#player-pronouns-right {
+#scoreboard-mtg #player-pronouns-right {
     background-image: linear-gradient(to left, #19181888, #80738088);
 }
 
@@ -223,26 +231,29 @@ body {
     background: transparent !important;
 }
 
-.background-left {
+#scoreboard-mtg .background-left {
     position: absolute;
     top: 0;
     width: 960px;
     height: 100px;
     left: 0;
-    transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
+    transition: background-image 0.5s ease-in-out;
+    /* Smooth transition for background image */
 }
 
-.background-right {
+#scoreboard-mtg .background-right {
     position: absolute;
     top: 0;
     width: 960px;
     height: 100px;
     left: 960px;
-    transform: scaleX(-1); /* Add this line to flip the image horizontally */
-    transition: background-image 0.5s ease-in-out; /* Smooth transition for background image */
+    transform: scaleX(-1);
+    /* Add this line to flip the image horizontally */
+    transition: background-image 0.5s ease-in-out;
+    /* Smooth transition for background image */
 }
 
-.timer-container {
+#scoreboard-mtg .timer-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -252,19 +263,267 @@ body {
     font-size: 25px;
 }
 
-.mana-symbols {
+#scoreboard-mtg .mana-symbols {
     height: 16px;
     margin-right: 3px;
 }
 
-#player-mana-symbols-left-symbols, #player-mana-symbols-right-symbols {
+#scoreboard-mtg #player-mana-symbols-left-symbols,
+#scoreboard-mtg #player-mana-symbols-right-symbols {
     display: none;
 }
 
-#player-mana-symbols-left-symbols, #player-archetype-left {
+#scoreboard-mtg #player-mana-symbols-left-symbols,
+#scoreboard-mtg #player-archetype-left {
     margin-right: 5px;
 }
 
-#player-mana-symbols-right-symbols, #player-archetype-right {
+#scoreboard-mtg #player-mana-symbols-right-symbols,
+#scoreboard-mtg #player-archetype-right {
     margin-left: 5px;
+}
+
+/* Riftbound Scoreboard Styles */
+#scoreboard-riftbound {
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#scoreboard-riftbound .riftbound-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/assets/images/riftbound/scoreboard/frame/1-IGN-frame.png");
+    background-size: 1920px 1080px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#scoreboard-riftbound .riftbound-content {
+    font-size: 120px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Riftbound Player Records */
+#scoreboard-riftbound .riftbound-player-record-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+#scoreboard-riftbound .riftbound-player-record-left {
+    top: 31px;
+    left: 342px;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    width: 69px;
+    height: 34px;
+}
+
+#scoreboard-riftbound .riftbound-player-record-left #player-record-left {
+    color: #1DC9FF;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#scoreboard-riftbound .riftbound-player-record-right {
+    top: 31px;
+    right: 342px;
+    transform: rotate(90deg);
+    transform-origin: center;
+    width: 69px;
+    height: 34px;
+}
+
+#scoreboard-riftbound .riftbound-player-record-right #player-record-right {
+    color: #1DFF47;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Riftbound Player Life */
+#scoreboard-riftbound .riftbound-player-life-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+#scoreboard-riftbound .riftbound-player-life-left {
+    top: 13px;
+    left: 735px;
+    width: 69px;
+    height: 69px;
+}
+
+#scoreboard-riftbound .riftbound-player-life-left #player-life-left {
+    color: #1DC9FF;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#scoreboard-riftbound .riftbound-player-life-right {
+    top: 13px;
+    right: 735px;
+    width: 69px;
+    height: 69px;
+}
+
+#scoreboard-riftbound .riftbound-player-life-right #player-life-right {
+    color: #1DFF47;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+/* Riftbound Player Names */
+#scoreboard-riftbound .riftbound-player-name-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    z-index: 20;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#scoreboard-riftbound .riftbound-player-name-left {
+    top: 13px;
+    left: 392px;
+    width: 326px;
+    height: 69px;
+}
+
+#scoreboard-riftbound .riftbound-player-name-left #player-name-left {
+    color: #000000;
+    font-weight: bold;
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+#scoreboard-riftbound .riftbound-player-name-right {
+    top: 13px;
+    right: 392px;
+    width: 326px;
+    height: 69px;
+}
+
+#scoreboard-riftbound .riftbound-player-name-right #player-name-right {
+    color: #000000;
+    font-weight: bold;
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Riftbound Player Wins */
+#scoreboard-riftbound .riftbound-player-wins-wrapper {
+    position: absolute;
+    z-index: 20;
+}
+
+#scoreboard-riftbound .riftbound-player-wins-left {
+    top: 23px;
+    left: 815px;
+    width: 19px;
+    height: 19px;
+}
+
+#scoreboard-riftbound .riftbound-player-wins-left #riftbound-wins-left-2 {
+    top: 28px
+}
+
+#scoreboard-riftbound .riftbound-player-wins-right {
+    top: 23px;
+    right: 812px;
+    width: 19px;
+    height: 19px;
+}
+
+#scoreboard-riftbound .riftbound-player-wins-right #riftbound-wins-right-2 {
+    top: 28px
+}
+
+#scoreboard-riftbound .riftbound-wins-pip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+
+#scoreboard-riftbound #riftbound-wins-left-1,
+#scoreboard-riftbound #riftbound-wins-left-2 {
+    background-image: url("/assets/images/riftbound/scoreboard/pips/blue_pip.png");
+}
+
+#scoreboard-riftbound #riftbound-wins-right-1,
+#scoreboard-riftbound #riftbound-wins-right-2 {
+    background-image: url("/assets/images/riftbound/scoreboard/pips/green_pip.png");
+}
+
+/* Riftbound Event Round */
+#scoreboard-riftbound .riftbound-event-round-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    top: 940px;
+    left: 20px;
+    height: 30px;
+    width: 320px;
+}
+
+#scoreboard-riftbound .riftbound-event-round {
+    color: #fff;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+/* Riftbound Timer */
+#scoreboard-riftbound .riftbound-timer-wrapper {
+    position: absolute;
+    z-index: 20;
+    top: 975px;
+    left: 20px;
+    width: 320px;
+    height: 57px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreboard-riftbound .timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreboard-riftbound .riftbound-timer {
+    color: #fff;
+    font-weight: normal;
+    font-size: 60px;
 }

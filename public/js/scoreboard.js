@@ -10,6 +10,7 @@ const pathSegments = window.location.pathname.split('/');
 const control_id = pathSegments[2];
 let round_id = '1';
 let match_id = 'match1';
+let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
 
 const MANA_ORDER = ['W', 'U', 'B', 'R', 'G', 'C'];
 const MANA_SYMBOLS = {
@@ -24,10 +25,41 @@ const MANA_SYMBOLS = {
 console.log('from url - control id', control_id);
 
 function updateElementText(id, value) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (lastState[id] !== value) {
-        el.innerHTML = value;
+    // Update element in both MTG and Riftbound sections if they exist
+    // This ensures data is ready when switching between games
+    const mtgContainer = document.getElementById('scoreboard-mtg');
+    const riftboundContainer = document.getElementById('scoreboard-riftbound');
+    
+    let updated = false;
+    
+    // Update MTG section
+    if (mtgContainer) {
+        const mtgEl = mtgContainer.querySelector(`#${id}`);
+        if (mtgEl && lastState[id] !== value) {
+            mtgEl.innerHTML = value;
+            updated = true;
+        }
+    }
+    
+    // Update Riftbound section
+    if (riftboundContainer) {
+        const riftboundEl = riftboundContainer.querySelector(`#${id}`);
+        if (riftboundEl && lastState[id] !== value) {
+            riftboundEl.innerHTML = value;
+            updated = true;
+        }
+    }
+    
+    // Fallback: if not found in containers, try global search (for elements that don't exist in both sections)
+    if (!updated) {
+        const el = document.getElementById(id);
+        if (el && lastState[id] !== value) {
+            el.innerHTML = value;
+            updated = true;
+        }
+    }
+    
+    if (updated) {
         lastState[id] = value;
     }
 }
@@ -54,6 +86,7 @@ function updateState(data) {
                 updateBackground('right', value);
             }
         } else if (["player-wins-left", "player-wins-right"].includes(key)) {
+            // Handle MTG wins display
             const prefix = key === 'player-wins-left' ? "scorebug-left-life-wins" : "scorebug-right-life-wins";
 
             if (value > 1) {
@@ -65,6 +98,42 @@ function updateState(data) {
             } else {
                 updateElementText(prefix + "-1", "");
                 updateElementText(prefix + "-2", "");
+            }
+            
+            // Handle Riftbound wins display with pip images (always update so data is ready when switching)
+            const riftboundContainer = document.getElementById('scoreboard-riftbound');
+            if (riftboundContainer) {
+                if (key === 'player-wins-left') {
+                    const pip1 = riftboundContainer.querySelector('#riftbound-wins-left-1');
+                    const pip2 = riftboundContainer.querySelector('#riftbound-wins-left-2');
+                    if (pip1 && pip2) {
+                        if (value > 1) {
+                            pip1.style.display = 'block';
+                            pip2.style.display = 'block';
+                        } else if (value > 0) {
+                            pip1.style.display = 'block';
+                            pip2.style.display = 'none';
+                        } else {
+                            pip1.style.display = 'none';
+                            pip2.style.display = 'none';
+                        }
+                    }
+                } else if (key === 'player-wins-right') {
+                    const pip1 = riftboundContainer.querySelector('#riftbound-wins-right-1');
+                    const pip2 = riftboundContainer.querySelector('#riftbound-wins-right-2');
+                    if (pip1 && pip2) {
+                        if (value > 1) {
+                            pip1.style.display = 'block';
+                            pip2.style.display = 'block';
+                        } else if (value > 0) {
+                            pip1.style.display = 'block';
+                            pip2.style.display = 'none';
+                        } else {
+                            pip1.style.display = 'none';
+                            pip2.style.display = 'none';
+                        }
+                    }
+                }
             }
         } else if (["player-mana-symbols-left", "player-mana-symbols-right"].includes(key)) {
             if (key === 'player-mana-symbols-left') {
@@ -156,9 +225,28 @@ socket.emit('get-all-timer-states');
 socket.on('current-all-timer-states', ({timerState}) => {
     const matchState = timerState[round_id][match_id];
     if (matchState) {
-        const timerElement = document.querySelector(`#timer`);
-        timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
-        timerElement.style.display = matchState.show ? 'block' : 'none';
+        const timerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
+        const shouldShow = matchState.show;
+        
+        // Update MTG timer
+        const mtgContainer = document.getElementById('scoreboard-mtg');
+        if (mtgContainer) {
+            const mtgTimer = mtgContainer.querySelector('#timer');
+            if (mtgTimer) {
+                mtgTimer.innerText = timerText;
+                mtgTimer.style.display = shouldShow ? 'block' : 'none';
+            }
+        }
+        
+        // Update Riftbound timer
+        const riftboundContainer = document.getElementById('scoreboard-riftbound');
+        if (riftboundContainer) {
+            const riftboundTimer = riftboundContainer.querySelector('#timer');
+            if (riftboundTimer) {
+                riftboundTimer.innerText = timerText;
+                riftboundTimer.style.display = shouldShow ? 'block' : 'none';
+            }
+        }
     }
 });
 
@@ -238,3 +326,50 @@ function renderManaSymbols(inputStr, containerId, scenario = {}) {
     });
 }
 
+// game selection logic
+function handleGameSelectionUpdate(gameSelection) {
+    const normalized = gameSelection?.toLowerCase();
+    if (!normalized || normalized === selectedGame) return;
+
+    // Remove previous game class if it exists
+    if (selectedGame) {
+        document.body.classList.remove(selectedGame);
+    }
+
+    selectedGame = normalized;
+    console.log('Game selection updated:', selectedGame);
+
+    // Add game type class to body
+    document.body.classList.add(selectedGame);
+
+    // Show/hide appropriate scoreboard containers
+    const mtgScoreboard = document.getElementById('scoreboard-mtg');
+    const riftboundScoreboard = document.getElementById('scoreboard-riftbound');
+
+    if (selectedGame === 'mtg') {
+        console.log('Switching to MTG mode...');
+        if (mtgScoreboard) mtgScoreboard.style.display = 'block';
+        if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
+    } else if (selectedGame === 'riftbound') {
+        console.log('Switching to Riftbound mode...');
+        if (mtgScoreboard) mtgScoreboard.style.display = 'none';
+        if (riftboundScoreboard) riftboundScoreboard.style.display = 'block';
+    } else {
+        // Default: hide both if unknown game type
+        if (mtgScoreboard) mtgScoreboard.style.display = 'none';
+        if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
+    }
+}
+
+socket.emit('get-game-selection');
+
+socket.on('game-selection-updated', ({gameSelection}) => {
+    handleGameSelectionUpdate(gameSelection);
+});
+
+// If this is the first time receiving it (like on initial load):
+socket.on('server-current-game-selection', ({gameSelection}) => {
+    handleGameSelectionUpdate(gameSelection);
+});
+
+// end game selection logic

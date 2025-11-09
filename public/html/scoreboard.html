@@ -14,74 +14,120 @@
 </head>
 <body>
 
-<div class="header">
-    <div class="background-left">
-    </div>
-    <div class="background-right">
-    </div>
-    <div id="poison-left" class="poison poison-left">
-        <div id="player-poison-left" class="player-poison-left"></div>
-    </div>
-    <div id="poison-right" class="poison poison-right">
-        <div id="player-poison-right" class="player-poison-right"></div>
-    </div>
-    <div class="background">
-        <div class="scorebug">
-            <div class="scorebug-life scorebug-left-life">
-                <div id="player-life-left" class="scorebug-life-score scorebug-left-life-score">-</div>
-                <div id="player-wins-leftw" class="scorebug-life-wins scorebug-left-life-wins">
-                    <div id="scorebug-left-life-wins-1" class="scorebug-life-wins-dot"></div>
-                    <div id="scorebug-left-life-wins-2" class="scorebug-life-wins-dot"></div>
+<!-- MTG Scoreboard -->
+<div id="scoreboard-mtg" style="display: none;">
+    <div class="header">
+        <div class="background-left">
+        </div>
+        <div class="background-right">
+        </div>
+        <div id="poison-left" class="poison poison-left">
+            <div id="player-poison-left" class="player-poison-left"></div>
+        </div>
+        <div id="poison-right" class="poison poison-right">
+            <div id="player-poison-right" class="player-poison-right"></div>
+        </div>
+        <div class="background">
+            <div class="scorebug">
+                <div class="scorebug-life scorebug-left-life">
+                    <div id="player-life-left" class="scorebug-life-score scorebug-left-life-score">-</div>
+                    <div id="player-wins-leftw" class="scorebug-life-wins scorebug-left-life-wins">
+                        <div id="scorebug-left-life-wins-1" class="scorebug-life-wins-dot"></div>
+                        <div id="scorebug-left-life-wins-2" class="scorebug-life-wins-dot"></div>
+                    </div>
+                </div>
+                <div class="scorebug-name scorebug-left-name">
+                    <div id="player-name-left" class="scorebug-name-title scorebug-left-name-title">-</div>
+                    <div class="scorebug-name-data scorebug-left-name-data">
+                        <span id="player-mana-symbols-left-symbols">
+                        </span>
+                        <span id="player-archetype-left"></span>
+                        <span id="player-pronouns-left" class="player-pronouns"></span>
+                    </div>
+                </div>
+                <div id="player-record-left" class="player-record player-record-left"></div>
+                <div class="timer-container">
+                    <p id="timer">00:00</p>
+                </div>
+                <div id="player-record-right" class="player-record player-record-right"></div>
+                <div class="scorebug-name scorebug-right-name">
+                    <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
+                    <div class="scorebug-name-data scorebug-right-name-data">
+                        <span id="player-pronouns-right" class="player-pronouns"></span>
+                        <span id="player-archetype-right"></span>
+                        <span id="player-mana-symbols-right-symbols">
+                        </span>
+                    </div>
+                </div>
+                <div class="scorebug-life scorebug-right-life">
+                    <div id="player-life-right" class="scorebug-life-score scorebug-right-life-score">-</div>
+                    <div id="player-wins-righte" class="scorebug-life-wins scorebug-right-life-wins">
+                        <div id="scorebug-right-life-wins-1" class="scorebug-life-wins-dot"></div>
+                        <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
+                    </div>
                 </div>
             </div>
-            <div class="scorebug-name scorebug-left-name">
-                <div id="player-name-left" class="scorebug-name-title scorebug-left-name-title">-</div>
-                <div class="scorebug-name-data scorebug-left-name-data">
-                    <span id="player-mana-symbols-left-symbols">
-                    </span>
-                    <span id="player-archetype-left"></span>
-                    <span id="player-pronouns-left" class="player-pronouns"></span>
+        </div>
+    </div>
+    <div class="body">
+        <div class="background">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="background">
+            <div class="chyron">
+                <div class="chyron_commentary">
+                    <span id="miscellaneous-details"></span>
                 </div>
-            </div>
-            <div id="player-record-left" class="player-record player-record-left"></div>
-            <div class="timer-container">
-                <p id="timer">00:00</p>
-            </div>
-            <div id="player-record-right" class="player-record player-record-right"></div>
-            <div class="scorebug-name scorebug-right-name">
-                <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
-                <div class="scorebug-name-data scorebug-right-name-data">
-                    <span id="player-pronouns-right" class="player-pronouns"></span>
-                    <span id="player-archetype-right"></span>
-                    <span id="player-mana-symbols-right-symbols">
-                    </span>
-                </div>
-            </div>
-            <div class="scorebug-life scorebug-right-life">
-                <div id="player-life-right" class="scorebug-life-score scorebug-right-life-score">-</div>
-                <div id="player-wins-righte" class="scorebug-life-wins scorebug-right-life-wins">
-                    <div id="scorebug-right-life-wins-1" class="scorebug-life-wins-dot"></div>
-                    <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
+                <div class="chyron_event">
+                    <span id="event-name">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <span id="event-round">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <span id="event-format">-</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="body">
-    <div class="background">
-    </div>
-</div>
-<div class="footer">
-    <div class="background">
-        <div class="chyron">
-            <div class="chyron_commentary">
-                <span id="miscellaneous-details"></span>
+
+<!-- Riftbound Scoreboard -->
+<div id="scoreboard-riftbound" style="display: none;">
+    <div class="riftbound-container">
+        <div class="riftbound-player-record-wrapper riftbound-player-record-left">
+            <div id="player-record-left" class="riftbound-player-record"></div>
+        </div>
+        <div class="riftbound-player-record-wrapper riftbound-player-record-right">
+            <div id="player-record-right" class="riftbound-player-record"></div>
+        </div>
+        <div class="riftbound-player-life-wrapper riftbound-player-life-left">
+            <div id="player-life-left" class="riftbound-player-life"></div>
+        </div>
+        <div class="riftbound-player-life-wrapper riftbound-player-life-right">
+            <div id="player-life-right" class="riftbound-player-life"></div>
+        </div>
+        <div class="riftbound-player-name-wrapper riftbound-player-name-left">
+            <div id="player-name-left" class="riftbound-player-name"></div>
+        </div>
+        <div class="riftbound-player-name-wrapper riftbound-player-name-right">
+            <div id="player-name-right" class="riftbound-player-name"></div>
+        </div>
+        <div class="riftbound-player-wins-wrapper riftbound-player-wins-left">
+            <div id="riftbound-wins-left-1" class="riftbound-wins-pip"></div>
+            <div id="riftbound-wins-left-2" class="riftbound-wins-pip"></div>
+        </div>
+        <div class="riftbound-player-wins-wrapper riftbound-player-wins-right">
+            <div id="riftbound-wins-right-1" class="riftbound-wins-pip"></div>
+            <div id="riftbound-wins-right-2" class="riftbound-wins-pip"></div>
+        </div>
+        <div class="riftbound-event-round-wrapper">
+            <div id="event-round" class="riftbound-event-round"></div>
+        </div>
+        <div class="riftbound-timer-wrapper">
+            <div class="timer-container">
+                <p id="timer" class="riftbound-timer">00:00</p>
             </div>
-            <div class="chyron_event">
-                <span id="event-name">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <span id="event-round">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <span id="event-format">-</span>
-            </div>
+        </div>
+        <div class="riftbound-content">
+            Riftbound
         </div>
     </div>
 </div>
