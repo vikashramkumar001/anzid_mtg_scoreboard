@@ -1,3 +1,52 @@
+/* Akzidenz-Grotesk Next Font Faces for Riftbound */
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot');
+    src: local('Akzidenz-Grotesk Next Bold'), local('AkzidGrtskNext-Bold'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot');
+    src: local('Akzidenz-Grotesk Next Regular'), local('AkzidGrtskNext-Regular'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.eot');
+    src: local('Akzidenz-Grotesk Next Light'), local('AkzidGrtskNext-Light'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.eot');
+    src: local('Akzidenz-Grotesk Next Black'), local('AkzidGrtskNext-Black'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
 * {
     font-family: "Bebas Neue", sans-serif;
     /* BebasNeueBold */
@@ -21,6 +70,14 @@ div {
 }
 
 /* MTG Scoreboard Styles */
+#scoreboard-mtg {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+#scoreboard-mtg * {
+    font-family: "Bebas Neue", sans-serif;
+}
+
 #scoreboard-mtg .header .background {
     width: 1920px;
     height: 100px;
@@ -291,6 +348,11 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+}
+
+#scoreboard-riftbound * {
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
 }
 
 #scoreboard-riftbound .riftbound-container {
@@ -336,7 +398,7 @@ body {
 #scoreboard-riftbound .riftbound-player-record-left #player-record-left {
     color: #1DC9FF;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 #scoreboard-riftbound .riftbound-player-record-right {
@@ -351,7 +413,7 @@ body {
 #scoreboard-riftbound .riftbound-player-record-right #player-record-right {
     color: #1DFF47;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 /* Riftbound Player Life */
@@ -410,7 +472,7 @@ body {
 #scoreboard-riftbound .riftbound-player-name-left #player-name-left {
     color: #000000;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 25px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -427,7 +489,7 @@ body {
 #scoreboard-riftbound .riftbound-player-name-right #player-name-right {
     color: #000000;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 25px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -568,7 +630,7 @@ body {
 #scoreboard-riftbound .riftbound-player-legend-left #player-legend-left {
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -588,7 +650,7 @@ body {
 #scoreboard-riftbound .riftbound-player-legend-right #player-legend-right {
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -615,7 +677,7 @@ body {
 #scoreboard-riftbound .riftbound-player-champion-left #player-champion-left {
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -635,7 +697,7 @@ body {
 #scoreboard-riftbound .riftbound-player-champion-right #player-champion-right {
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -663,7 +725,7 @@ body {
     gap: 8px;
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -692,7 +754,7 @@ body {
     gap: 8px;
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -743,7 +805,7 @@ body {
 #scoreboard-riftbound .riftbound-player-battlefield-left #player-battlefield-left {
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -763,7 +825,7 @@ body {
 #scoreboard-riftbound .riftbound-player-battlefield-right #player-battlefield-right {
     color: #fff;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -785,7 +847,7 @@ body {
 #scoreboard-riftbound .riftbound-event-round {
     color: #fff;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 /* Riftbound Timer */
@@ -812,5 +874,5 @@ body {
 #scoreboard-riftbound .riftbound-timer {
     color: #fff;
     font-weight: normal;
-    font-size: 60px;
+    font-size: 70px;
 }
