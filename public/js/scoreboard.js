@@ -22,6 +22,108 @@ const MANA_SYMBOLS = {
     C: {alt: 'Colorless', src: 'https://svgs.scryfall.io/card-symbols/C.svg'}
 };
 
+// Riftbound Battlefields Dictionary
+// Maps battlefield names to their left and right side image URLs
+// Files with "180" are for left side, files without "180" are for right side
+const RIFTBOUND_BATTLEFIELDS = {
+    'Altar to Unity': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Altar-to-Unity180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0024_Altar-to-Unity.png'
+    },
+    'Aspirant\'s Climb': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0001_Aspirant_s-Climb180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0025_Aspirant_s-Climb.png'
+    },
+    'Back Alley Bar': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0002_Back-Alley-Bar180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0026_Back-Alley-Bar.png'
+    },
+    'Bandle Tree': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0003_Bandle-Tree180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0027_Bandle-Tree.png'
+    },
+    'Fortified Position': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0004_Fortified-Position180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0028_Fortified-Position.png'
+    },
+    'Grove of the God Willow': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0005_Grove-of-the-God-Willow180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0029_Grove-of-the-God-Willow.png'
+    },
+    'Hallowed Tomb': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0006_Hallowed-Tomb180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0030_Hallowed-Tomb.png'
+    },
+    'Monastery of Hirana': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0007_Monastery-of-Hirana180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0031_Monastery-of-Hirana.png'
+    },
+    'Navori Fighting Pit': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0008_Navori-Fighting-Pit180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0032_Navori-Fighting-Pit.png'
+    },
+    'Obelisk of Power': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0009_Obelisk-of-Power180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0033_Obelisk-of-Power.png'
+    },
+    'Reaver\'s Row': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0010_Reaver_s-Row180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0034_Reaver_s-Row.png'
+    },
+    'Reckoner\'s Arena': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0011_Reckoner_s-Arena180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0035_Reckoner_s-Arena.png'
+    },
+    'Sigil of the Storm': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0012_Sigil-of-the-Storm180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0036_Sigil-of-the-Storm.png'
+    },
+    'Startipped Peak': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0013_Startipped-Peak180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0037_Startipped-Peak.png'
+    },
+    'Targon\'s Peak': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0014_Targon_s-Peak180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0038_Targon_s-Peak.png'
+    },
+    'The Arena\'s Greatest': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0015_The-Arena_s-Greatest180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0039_The-Arena_s-Greatest.png'
+    },
+    'The Dreaming Tree': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0016_The-Dreaming-Tree180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0040_The-Dreaming-Tree.png'
+    },
+    'The Grand Plaza': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0017_The-Grand-Plaza180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0041_The-Grand-Plaza.png'
+    },
+    'Trifarian War Camp': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0018_Trifarian-War-Camp180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0042_Trifarian-War-Camp.png'
+    },
+    'Vilemaw\'s Lair': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0019_Vilemaw_s-Lair180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0043_Vilemaw_s-Lair.png'
+    },
+    'Void Gate': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0020_Void-Gate180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0044_Void-Gate.png'
+    },
+    'Windswept Hillock': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0021_Windswept-Hillock180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0045_Windswept-Hillock.png'
+    },
+    'Zaun Warrens': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0022_Zaun-Warrens180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0046_Zaun-Warrens.png'
+    },
+    'The Candlelit Sanctum': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0023_The-Candlelit-Sanctum180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0047_The-Candlelit-Sanctum.png'
+    }
+};
+
 console.log('from url - control id', control_id);
 
 function updateElementText(id, value) {
@@ -144,6 +246,45 @@ function updateState(data) {
                 console.log(key, value)
                 renderManaSymbols(value, 'player-mana-symbols-right-symbols');
             }
+        } else if (["player-battlefield-left", "player-battlefield-right"].includes(key)) {
+            // Handle Riftbound battlefield background images (always update so images are ready when switching)
+            const riftboundContainer = document.getElementById('scoreboard-riftbound');
+            if (riftboundContainer) {
+                const side = key === 'player-battlefield-left' ? 'left' : 'right';
+                const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-battlefield-background.riftbound-player-battlefield-background-${side}`);
+                
+                if (backgroundDiv) {
+                    if (value && value.trim()) {
+                        const battlefieldName = value.trim();
+                        const battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
+                        
+                        if (battlefieldData && battlefieldData[side]) {
+                            const imageUrl = battlefieldData[side];
+                            const currentBg = lastState[`battlefield-${side}`];
+                            
+                            if (currentBg !== imageUrl) {
+                                backgroundDiv.style.backgroundImage = `url(${imageUrl})`;
+                                lastState[`battlefield-${side}`] = imageUrl;
+                            }
+                        } else {
+                            // Clear background if battlefield name doesn't match
+                            if (lastState[`battlefield-${side}`]) {
+                                backgroundDiv.style.backgroundImage = 'none';
+                                lastState[`battlefield-${side}`] = null;
+                            }
+                        }
+                    } else {
+                        // Clear background if value is empty
+                        if (lastState[`battlefield-${side}`]) {
+                            backgroundDiv.style.backgroundImage = 'none';
+                            lastState[`battlefield-${side}`] = null;
+                        }
+                    }
+                }
+            }
+            
+            // Still update the text content
+            updateElementText(key, value);
         }
     });
 }
@@ -354,6 +495,37 @@ function handleGameSelectionUpdate(gameSelection) {
         console.log('Switching to Riftbound mode...');
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'block';
+        
+        // Apply battlefield images if data already exists
+        const riftboundContainer = document.getElementById('scoreboard-riftbound');
+        if (riftboundContainer) {
+            const battlefieldLeftEl = riftboundContainer.querySelector('#player-battlefield-left');
+            const battlefieldRightEl = riftboundContainer.querySelector('#player-battlefield-right');
+            
+            if (battlefieldLeftEl && battlefieldLeftEl.textContent.trim()) {
+                const battlefieldName = battlefieldLeftEl.textContent.trim();
+                const battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
+                if (battlefieldData && battlefieldData.left) {
+                    const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-battlefield-background.riftbound-player-battlefield-background-left');
+                    if (backgroundDiv) {
+                        backgroundDiv.style.backgroundImage = `url(${battlefieldData.left})`;
+                        lastState['battlefield-left'] = battlefieldData.left;
+                    }
+                }
+            }
+            
+            if (battlefieldRightEl && battlefieldRightEl.textContent.trim()) {
+                const battlefieldName = battlefieldRightEl.textContent.trim();
+                const battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
+                if (battlefieldData && battlefieldData.right) {
+                    const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-battlefield-background.riftbound-player-battlefield-background-right');
+                    if (backgroundDiv) {
+                        backgroundDiv.style.backgroundImage = `url(${battlefieldData.right})`;
+                        lastState['battlefield-right'] = battlefieldData.right;
+                    }
+                }
+            }
+        }
     } else {
         // Default: hide both if unknown game type
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';

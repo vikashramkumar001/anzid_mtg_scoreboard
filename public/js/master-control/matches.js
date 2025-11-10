@@ -1,6 +1,7 @@
 export function initMatches(socket) {
 
     const broadcastDisplay = document.getElementById('broadcasting-now-round-display');
+    let currentGameSelection = 'mtg'; // Default to mtg
     const control1Display = document.getElementById('control-1-round-match-display');
     const control2Display = document.getElementById('control-2-round-match-display');
     const control3Display = document.getElementById('control-3-round-match-display');
@@ -36,6 +37,34 @@ export function initMatches(socket) {
         {name: "Alverata Informal", value: "'AlverataInformal', sans-serif"},
         {name: "Alverata Irregular", value: "'AlverataIrregular', sans-serif"},
         {name: "Bebas Neue", value: "'Bebas Neue', sans-serif"}
+    ];
+    
+    // Riftbound Battlefields List
+    const riftboundBattlefieldsList = [
+        {name: "Altar to Unity"},
+        {name: "Aspirant's Climb"},
+        {name: "Back Alley Bar"},
+        {name: "Bandle Tree"},
+        {name: "Fortified Position"},
+        {name: "Grove of the God Willow"},
+        {name: "Hallowed Tomb"},
+        {name: "Monastery of Hirana"},
+        {name: "Navori Fighting Pit"},
+        {name: "Obelisk of Power"},
+        {name: "Reaver's Row"},
+        {name: "Reckoner's Arena"},
+        {name: "Sigil of the Storm"},
+        {name: "Startipped Peak"},
+        {name: "Targon's Peak"},
+        {name: "The Arena's Greatest"},
+        {name: "The Dreaming Tree"},
+        {name: "The Grand Plaza"},
+        {name: "Trifarian War Camp"},
+        {name: "Vilemaw's Lair"},
+        {name: "Void Gate"},
+        {name: "Windswept Hillock"},
+        {name: "Zaun Warrens"},
+        {name: "The Candlelit Sanctum"}
     ];
 
     // Function to render or update a match card
@@ -161,6 +190,22 @@ export function initMatches(socket) {
                                 <label class="form-label">Mulligan</label>
                                 <div id="${roundId}-${matchId}-player-mulligan-left" class="editable form-control" contenteditable="true"></div>
                             </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Legend</label>
+                                <div id="${roundId}-${matchId}-player-legend-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Champion</label>
+                                <div id="${roundId}-${matchId}-player-champion-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Runes</label>
+                                <div id="${roundId}-${matchId}-player-runes-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Battlefield</label>
+                                <div id="${roundId}-${matchId}-player-battlefield-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
                         </div>
 
                         <!-- Right Player Information -->
@@ -201,6 +246,22 @@ export function initMatches(socket) {
                             <div class="mb-3">
                                 <label class="form-label">Mulligan</label>
                                 <div id="${roundId}-${matchId}-player-mulligan-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Legend</label>
+                                <div id="${roundId}-${matchId}-player-legend-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Champion</label>
+                                <div id="${roundId}-${matchId}-player-champion-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Runes</label>
+                                <div id="${roundId}-${matchId}-player-runes-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Battlefield</label>
+                                <div id="${roundId}-${matchId}-player-battlefield-right" class="editable form-control" contenteditable="true"></div>
                             </div>
                         </div>
                     </div>
@@ -256,6 +317,8 @@ export function initMatches(socket) {
         `;
             // Add the new card to the round's match container
             matchContainer.appendChild(matchCard);
+            // Toggle Riftbound fields visibility based on current game selection
+            toggleRiftboundFields(currentGameSelection === 'riftbound');
             // Attach change listeners
             attachChangeListeners(roundId, matchId);
             // Attach the deck display listeners after rendering
@@ -420,6 +483,40 @@ export function initMatches(socket) {
 
             field.addEventListener('focus', function () {
                 renderDropdownList(dropdownList, fontFamilies, field);
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!wrapper.contains(e.target)) {
+                    dropdownList.style.display = 'none';
+                }
+            });
+        });
+
+        // Setup battlefield autocomplete dropdowns
+        const battlefieldFields = document.querySelectorAll('[id$="-player-battlefield-left"], [id$="-player-battlefield-right"]');
+        battlefieldFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) {
+                return; // Skip if already set up
+            }
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            field.addEventListener('input', function () {
+                const value = this.textContent.trim().toLowerCase();
+                const filteredBattlefields = riftboundBattlefieldsList.filter(battlefield => battlefield.name.toLowerCase().includes(value))
+                    .slice(0, 5); // Limit to top 5 results
+                renderDropdownList(dropdownList, filteredBattlefields, field);
+            });
+
+            field.addEventListener('focus', function () {
+                renderDropdownList(dropdownList, riftboundBattlefieldsList, field);
             });
 
             document.addEventListener('click', function (e) {
@@ -958,6 +1055,28 @@ export function initMatches(socket) {
             }
         }
     });
+
+    // Function to toggle visibility of Riftbound-only fields
+    function toggleRiftboundFields(show) {
+        const riftboundFields = document.querySelectorAll('.riftbound-only-field');
+        riftboundFields.forEach(field => {
+            field.style.display = show ? 'block' : 'none';
+        });
+    }
+
+    // Listen for game selection changes
+    socket.on('game-selection-updated', ({gameSelection}) => {
+        currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
+        toggleRiftboundFields(currentGameSelection === 'riftbound');
+    });
+
+    socket.on('server-current-game-selection', ({gameSelection}) => {
+        currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
+        toggleRiftboundFields(currentGameSelection === 'riftbound');
+    });
+
+    // Initial fetch of game selection
+    socket.emit('get-game-selection');
 
     // Listen for updated archetype list from server
     socket.on('archetypeListUpdated', (archetypes) => {
