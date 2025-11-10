@@ -532,6 +532,32 @@ body {
     right: 27px;
 }
 
+/* Riftbound Player Legend Background */
+#scoreboard-riftbound .riftbound-player-legend-background {
+    position: absolute;
+    z-index: 10;
+}
+
+#scoreboard-riftbound .riftbound-player-legend-background-left {
+    top: 14px;
+    left: 19px;
+    width: 320px;
+    height: 145px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#scoreboard-riftbound .riftbound-player-legend-background-right {
+    top: 14px;
+    right: 17px;
+    width: 320px;
+    height: 145px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 #scoreboard-riftbound .riftbound-player-legend-left {
     top: 111px;
     left: 46px;
@@ -593,7 +619,6 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%;
 }
 
 #scoreboard-riftbound .riftbound-player-champion-wrapper.riftbound-player-champion-right {
@@ -623,24 +648,31 @@ body {
     align-items: center;
     justify-content: start;
     z-index: 20;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 #scoreboard-riftbound .riftbound-player-runes-left {
-    top: 85px;
-    left: 46px;
+    top: 54px;
+    left: 32px;
     width: 274px;
-    height: 20px;
+    height: 50px;
 }
 
 #scoreboard-riftbound .riftbound-player-runes-left #player-runes-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #fff;
     font-weight: bold;
     font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+}
+
+#scoreboard-riftbound .riftbound-rune-icon {
+    width: auto;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 #scoreboard-riftbound .riftbound-player-runes-wrapper.riftbound-player-runes-right {
@@ -648,19 +680,21 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-runes-right {
-    top: 85px;
-    right: 46px;
+    top: 54px;
+    right: 32px;
     width: 274px;
-    height: 20px;
+    height: 50px;
 }
 
 #scoreboard-riftbound .riftbound-player-runes-right #player-runes-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #fff;
     font-weight: bold;
     font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 /* Riftbound Player Battlefield */

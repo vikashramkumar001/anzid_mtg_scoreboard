@@ -124,6 +124,71 @@ const RIFTBOUND_BATTLEFIELDS = {
     }
 };
 
+// Riftbound Legends Dictionary
+// Maps legend names to their left and right side image URLs
+// Files with "180" are for right side, files without "180" are for left side
+const RIFTBOUND_LEGENDS = {
+    'Jinx': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0012_Jinx.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0000_Jinx180.png'
+    },
+    'Kai\'sa': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0013_Kaisa.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0001_Kaisa180.png'
+    },
+    'Volibear': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0014_Volibear.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0002_Volibear180.png'
+    },
+    'Sett': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0015_Sett.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0003_Sett180.png'
+    },
+    'Miss Fortune': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0016_Miss-Fortune.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0004_Miss-Fortune180.png'
+    },
+    'Viktor': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0017_Viktor.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0005_Viktor180.png'
+    },
+    'Teemo': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0018_Teemo.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0006_Teemo180.png'
+    },
+    'Leona': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0019_Leona.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0007_Leona180.png'
+    },
+    'Yas': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0020_Yas.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0008_Yas180.png'
+    },
+    'Lee Sin': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0021_Lee-Sin.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0009_Lee-Sin180.png'
+    },
+    'Ahri': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0022_Ahri.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0010_Ahri180.png'
+    },
+    'Darius': {
+        left: '/assets/images/riftbound/scoreboard/legends/_0023_Darius.png',
+        right: '/assets/images/riftbound/scoreboard/legends/_0011_Darius180.png'
+    }
+};
+
+// Riftbound Runes Dictionary
+// Maps rune letters to their icon image URLs
+const RIFTBOUND_RUNES = {
+    'g': '/assets/images/riftbound/scoreboard/icons/Calm2.png',
+    'p': '/assets/images/riftbound/scoreboard/icons/Chaos2.png',
+    'r': '/assets/images/riftbound/scoreboard/icons/Fury2.png',
+    'b': '/assets/images/riftbound/scoreboard/icons/Mind.png',
+    'y': '/assets/images/riftbound/scoreboard/icons/Order2.png',
+    'o': '/assets/images/riftbound/scoreboard/icons/Body2.png'
+};
+
 console.log('from url - control id', control_id);
 
 function updateElementText(id, value) {
@@ -168,6 +233,54 @@ function updateElementText(id, value) {
 
 function updateState(data) {
     Object.entries(data).forEach(([key, value]) => {
+        // Handle runes first (before general element handling)
+        if (["player-runes-left", "player-runes-right"].includes(key)) {
+            // Handle Riftbound runes display with icons
+            const riftboundContainer = document.getElementById('scoreboard-riftbound');
+            if (riftboundContainer) {
+                const side = key === 'player-runes-left' ? 'left' : 'right';
+                const runesContainer = riftboundContainer.querySelector(`#player-runes-${side}`);
+                
+                console.log(`Processing runes for ${side}:`, { key, value, runesContainer });
+                
+                if (runesContainer) {
+                    // Clear existing content
+                    runesContainer.innerHTML = '';
+                    
+                    if (value && value.trim()) {
+                        const runesString = value.trim().toLowerCase();
+                        console.log(`Runes string: "${runesString}"`);
+                        
+                        // Create icon for each letter in the string
+                        for (let i = 0; i < runesString.length; i++) {
+                            const letter = runesString[i];
+                            const runeUrl = RIFTBOUND_RUNES[letter];
+                            
+                            console.log(`Letter: "${letter}", URL:`, runeUrl);
+                            
+                            if (runeUrl) {
+                                const img = document.createElement('img');
+                                img.src = runeUrl;
+                                img.alt = `Rune ${letter}`;
+                                img.className = 'riftbound-rune-icon';
+                                runesContainer.appendChild(img);
+                                console.log(`Added icon for ${letter}`);
+                            } else {
+                                console.warn(`No rune URL found for letter: "${letter}"`);
+                            }
+                        }
+                    } else {
+                        console.log('No value or empty value for runes');
+                    }
+                } else {
+                    console.warn(`Runes container not found for ${side}`);
+                }
+            } else {
+                console.warn('Riftbound container not found');
+            }
+            return; // Exit early for runes
+        }
+        
         const el = document.getElementById(key);
 
         if (el) {
@@ -261,16 +374,20 @@ function updateState(data) {
                         if (battlefieldData && battlefieldData[side]) {
                             const imageUrl = battlefieldData[side];
                             const currentBg = lastState[`battlefield-${side}`];
+                            const currentValue = lastState[`battlefield-value-${side}`];
                             
-                            if (currentBg !== imageUrl) {
+                            // Update if the value changed or if the background URL changed
+                            if (currentValue !== battlefieldName || currentBg !== imageUrl) {
                                 backgroundDiv.style.backgroundImage = `url(${imageUrl})`;
                                 lastState[`battlefield-${side}`] = imageUrl;
+                                lastState[`battlefield-value-${side}`] = battlefieldName;
                             }
                         } else {
                             // Clear background if battlefield name doesn't match
                             if (lastState[`battlefield-${side}`]) {
                                 backgroundDiv.style.backgroundImage = 'none';
                                 lastState[`battlefield-${side}`] = null;
+                                lastState[`battlefield-value-${side}`] = null;
                             }
                         }
                     } else {
@@ -278,8 +395,70 @@ function updateState(data) {
                         if (lastState[`battlefield-${side}`]) {
                             backgroundDiv.style.backgroundImage = 'none';
                             lastState[`battlefield-${side}`] = null;
+                            lastState[`battlefield-value-${side}`] = null;
                         }
                     }
+                }
+            }
+            
+            // Still update the text content
+            updateElementText(key, value);
+        } else if (["player-legend-left", "player-legend-right"].includes(key)) {
+            // Handle Riftbound legend background images (always update so images are ready when switching)
+            const riftboundContainer = document.getElementById('scoreboard-riftbound');
+            if (riftboundContainer) {
+                const side = key === 'player-legend-left' ? 'left' : 'right';
+                const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-legend-background.riftbound-player-legend-background-${side}`);
+                
+                if (backgroundDiv) {
+                    if (value && value.trim()) {
+                        const legendValue = value.trim();
+                        const legendValueLower = legendValue.toLowerCase();
+                        let matchedLegendKey = null;
+                        
+                        // Check if the value contains any of the legend dictionary keys
+                        for (const legendKey in RIFTBOUND_LEGENDS) {
+                            if (legendValueLower.includes(legendKey.toLowerCase())) {
+                                matchedLegendKey = legendKey;
+                                break;
+                            }
+                        }
+                        
+                        if (matchedLegendKey) {
+                            const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
+                            if (legendData && legendData[side]) {
+                                const imageUrl = legendData[side];
+                                const currentBg = lastState[`legend-${side}`];
+                                const currentValue = lastState[`legend-value-${side}`];
+                                
+                                // Always update the background when there's a match (ensures it updates on data changes)
+                                backgroundDiv.style.backgroundImage = `url(${imageUrl})`;
+                                lastState[`legend-${side}`] = imageUrl;
+                                lastState[`legend-value-${side}`] = legendValue;
+                                
+                                console.log(`Legend ${side} updated:`, {
+                                    legendValue,
+                                    matchedLegendKey,
+                                    imageUrl,
+                                    currentValue,
+                                    currentBg
+                                });
+                            }
+                        } else {
+                            // Clear background if legend name doesn't match
+                            backgroundDiv.style.backgroundImage = 'none';
+                            lastState[`legend-${side}`] = null;
+                            lastState[`legend-value-${side}`] = null;
+                            console.log(`Legend ${side} cleared - no match for:`, legendValue);
+                        }
+                    } else {
+                        // Clear background if value is empty
+                        backgroundDiv.style.backgroundImage = 'none';
+                        lastState[`legend-${side}`] = null;
+                        lastState[`legend-value-${side}`] = null;
+                    }
+                } else {
+                    console.warn(`Legend background div not found for ${side}`);
                 }
             }
             
@@ -522,6 +701,58 @@ function handleGameSelectionUpdate(gameSelection) {
                     if (backgroundDiv) {
                         backgroundDiv.style.backgroundImage = `url(${battlefieldData.right})`;
                         lastState['battlefield-right'] = battlefieldData.right;
+                    }
+                }
+            }
+            
+            // Apply legend images if data already exists
+            const legendLeftEl = riftboundContainer.querySelector('#player-legend-left');
+            const legendRightEl = riftboundContainer.querySelector('#player-legend-right');
+            
+            if (legendLeftEl && legendLeftEl.textContent.trim()) {
+                const legendValue = legendLeftEl.textContent.trim().toLowerCase();
+                let matchedLegendKey = null;
+                
+                // Check if the value contains any of the legend dictionary keys
+                for (const legendKey in RIFTBOUND_LEGENDS) {
+                    if (legendValue.includes(legendKey.toLowerCase())) {
+                        matchedLegendKey = legendKey;
+                        break;
+                    }
+                }
+                
+                if (matchedLegendKey) {
+                    const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
+                    if (legendData && legendData.left) {
+                        const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-legend-background.riftbound-player-legend-background-left');
+                        if (backgroundDiv) {
+                            backgroundDiv.style.backgroundImage = `url(${legendData.left})`;
+                            lastState['legend-left'] = legendData.left;
+                        }
+                    }
+                }
+            }
+            
+            if (legendRightEl && legendRightEl.textContent.trim()) {
+                const legendValue = legendRightEl.textContent.trim().toLowerCase();
+                let matchedLegendKey = null;
+                
+                // Check if the value contains any of the legend dictionary keys
+                for (const legendKey in RIFTBOUND_LEGENDS) {
+                    if (legendValue.includes(legendKey.toLowerCase())) {
+                        matchedLegendKey = legendKey;
+                        break;
+                    }
+                }
+                
+                if (matchedLegendKey) {
+                    const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
+                    if (legendData && legendData.right) {
+                        const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-legend-background.riftbound-player-legend-background-right');
+                        if (backgroundDiv) {
+                            backgroundDiv.style.backgroundImage = `url(${legendData.right})`;
+                            lastState['legend-right'] = legendData.right;
+                        }
                     }
                 }
             }
