@@ -63,11 +63,11 @@ export class RoomUtils {
             'current-all-timer-states': ['master-control', 'control-1', 'control-2', 'control-3', 'control-4', 'timer-1', 'timer-2', 'timer-3', 'timer-4', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
             
             // Card view events
-            'mtg-card-list-data': ['mtg-card-view'],
+            'mtg-card-list-data': ['mtg-card-view', 'master-control'],
             'card-view-card-selected': ['mtg-card-view'],
-            'vibes-card-list-data': ['vibes-card-view'],
+            'vibes-card-list-data': ['vibes-card-view', 'master-control'],
             'vibes-card-view-card-selected': ['vibes-card-view'],
-            'riftbound-card-list-data': ['riftbound-card-view'],
+            'riftbound-card-list-data': ['riftbound-card-view', 'master-control'],
             'riftbound-card-view-card-selected': ['riftbound-card-view'],
             
             // Deck events

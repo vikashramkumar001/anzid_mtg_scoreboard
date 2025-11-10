@@ -2,21 +2,21 @@ import {promises as fs} from 'fs';
 import {cardListDataPath} from '../../config/riftbound/constants.js';
 import { RoomUtils } from '../../utils/room-utils.js';
 
-let cardListData = [];
+let cardListData = {};
 
 // Load card list from file
 export async function loadCardListData() {
     try {
         const data = await fs.readFile(cardListDataPath, 'utf8');
         cardListData = JSON.parse(data);
-        console.log('Riftbound Card list data loaded.');
+        console.log('Riftbound Card list data loaded.', Object.keys(cardListData).length, 'cards');
     } catch (error) {
         if (error.code === 'ENOENT') {
             console.log('Card list file not found. Starting with empty list.');
-            cardListData = [];
+            cardListData = {};
         } else {
             console.error('Error loading card list data:', error);
-            cardListData = [];
+            cardListData = {};
         }
     }
 }

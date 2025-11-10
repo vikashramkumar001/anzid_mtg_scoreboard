@@ -54,6 +54,12 @@ export function initRiftboundCardView(socket) {
 
                 // Only filter and render the list if input has 2 or more characters
                 if (value.length >= 1) {
+                    // Ensure cardListData is an object
+                    if (!cardListData || typeof cardListData !== 'object' || Array.isArray(cardListData)) {
+                        dropdownList.style.display = 'none';
+                        return;
+                    }
+
                     const filteredCardsList = Object.keys(cardListData)
                         .filter(cardName => cardName.toLowerCase().includes(value))
                         .slice(0, 5); // Limit to top 5 results
@@ -80,6 +86,12 @@ export function initRiftboundCardView(socket) {
 
                 // Check the current input value and filter if it has 2 or more characters
                 if (value.length >= 1) {
+                    // Ensure cardListData is an object
+                    if (!cardListData || typeof cardListData !== 'object' || Array.isArray(cardListData)) {
+                        dropdownList.style.display = 'none';
+                        return;
+                    }
+
                     const filteredCardsList = Object.keys(cardListData)
                         .filter(cardName => cardName.toLowerCase().includes(value))
                         .slice(0, 5); // Limit to top 5 results
@@ -216,9 +228,8 @@ export function initRiftboundCardView(socket) {
 
     // handle receiving card list data from server
     socket.on('riftbound-card-list-data', ({cardListData: cardListDataFromServer}) => {
-        // console.log('got card list data from server', cardListDataFromServer);
         // save card list data
-        cardListData = cardListDataFromServer;
+        cardListData = cardListDataFromServer || {};
         // setup dropdown and autocomplete for card view section
         setupCardViewCustomDropdown();
     })
