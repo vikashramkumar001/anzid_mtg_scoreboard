@@ -39,6 +39,62 @@ export function initMatches(socket) {
         {name: "Bebas Neue", value: "'Bebas Neue', sans-serif"}
     ];
     
+    // Riftbound Legends List
+    const riftboundLegendsList = [
+        {name: "Kai'sa, Daughter of the Void"},
+        {name: "Volibear, Relentless Storm"},
+        {name: "Jinx, Loose Cannon"},
+        {name: "Darius, Hand of Noxus"},
+        {name: "Ahri, Nine-Tailed Fox"},
+        {name: "Lee Sin, Blind Monk"},
+        {name: "Yasuo, Unforgiven"},
+        {name: "Leona, Radiant Dawn"},
+        {name: "Teemo, Swift Scout"},
+        {name: "Viktor, Herald of the Arcane"},
+        {name: "Miss Fortune, Bounty Hunter"},
+        {name: "Sett, The Boss"},
+        {name: "Annie, Dark Child"},
+        {name: "Master Yi, Wuju Bladesman"},
+        {name: "Lux, Lady of Luminosity"},
+        {name: "Garen, Might of Demacia"}
+    ];
+    
+    // Riftbound Champions List
+    const riftboundChampionsList = [
+        {name: "Kai'sa, Survivor"},
+        {name: "Volibear, Furious"},
+        {name: "Jinx, Demolitionist"},
+        {name: "Darius, Trifarian"},
+        {name: "Ahri, Alluring"},
+        {name: "Lee Sin, Ascetic"},
+        {name: "Yasuo, Remorseful"},
+        {name: "Leona, Determined"},
+        {name: "Teemo, Strategist"},
+        {name: "Viktor, Innovator"},
+        {name: "Miss Fortune, Captain"},
+        {name: "Sett, Brawler"},
+        {name: "Annie, Fiery"},
+        {name: "Master Yi, Meditative"},
+        {name: "Lux, Illuminated"},
+        {name: "Garen, Rugged"},
+        {name: "Kai'sa, Evolutionary"},
+        {name: "Volibear, Imposing"},
+        {name: "Jinx, Rebel"},
+        {name: "Darius, Executioner"},
+        {name: "Ahri, Inquisitive"},
+        {name: "Lee Sin, Centered"},
+        {name: "Yasuo, Windrider"},
+        {name: "Leona, Zealot"},
+        {name: "Teemo, Scout"},
+        {name: "Viktor, Leader"},
+        {name: "Miss Fortune, Buccaneer"},
+        {name: "Sett, Kingpin"},
+        {name: "Annie, Stubborn"},
+        {name: "Master Yi, Honed"},
+        {name: "Lux, Crownguard"},
+        {name: "Garen, Commander"}
+    ];
+    
     // Riftbound Battlefields List
     const riftboundBattlefieldsList = [
         {name: "Altar to Unity"},
@@ -483,6 +539,74 @@ export function initMatches(socket) {
 
             field.addEventListener('focus', function () {
                 renderDropdownList(dropdownList, fontFamilies, field);
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!wrapper.contains(e.target)) {
+                    dropdownList.style.display = 'none';
+                }
+            });
+        });
+
+        // Setup legend autocomplete dropdowns
+        const legendFields = document.querySelectorAll('[id$="-player-legend-left"], [id$="-player-legend-right"]');
+        legendFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) {
+                return; // Skip if already set up
+            }
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            field.addEventListener('input', function () {
+                const value = this.textContent.trim().toLowerCase();
+                const filteredLegends = riftboundLegendsList.filter(legend => legend.name.toLowerCase().includes(value))
+                    .slice(0, 5); // Limit to top 5 results
+                renderDropdownList(dropdownList, filteredLegends, field);
+            });
+
+            field.addEventListener('focus', function () {
+                renderDropdownList(dropdownList, riftboundLegendsList, field);
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!wrapper.contains(e.target)) {
+                    dropdownList.style.display = 'none';
+                }
+            });
+        });
+
+        // Setup champion autocomplete dropdowns
+        const championFields = document.querySelectorAll('[id$="-player-champion-left"], [id$="-player-champion-right"]');
+        championFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) {
+                return; // Skip if already set up
+            }
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            field.addEventListener('input', function () {
+                const value = this.textContent.trim().toLowerCase();
+                const filteredChampions = riftboundChampionsList.filter(champion => champion.name.toLowerCase().includes(value))
+                    .slice(0, 5); // Limit to top 5 results
+                renderDropdownList(dropdownList, filteredChampions, field);
+            });
+
+            field.addEventListener('focus', function () {
+                renderDropdownList(dropdownList, riftboundChampionsList, field);
             });
 
             document.addEventListener('click', function (e) {
