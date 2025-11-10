@@ -361,11 +361,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+#scoreboard-riftbound .riftbound-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url("/assets/images/riftbound/scoreboard/frame/1-IGN-frame.png");
     background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
+    z-index: 5;
+    pointer-events: none;
 }
 
 #scoreboard-riftbound .riftbound-content {
@@ -597,7 +607,7 @@ body {
 /* Riftbound Player Legend Background */
 #scoreboard-riftbound .riftbound-player-legend-background {
     position: absolute;
-    z-index: 10;
+    z-index: 1;
 }
 
 #scoreboard-riftbound .riftbound-player-legend-background-left {
@@ -762,7 +772,7 @@ body {
 /* Riftbound Player Battlefield */
 #scoreboard-riftbound .riftbound-player-battlefield-background {
     position: absolute;
-    z-index: 10;
+    z-index: 1;
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-background-left {
@@ -847,7 +857,7 @@ body {
 #scoreboard-riftbound .riftbound-event-round {
     color: #fff;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 /* Riftbound Timer */
