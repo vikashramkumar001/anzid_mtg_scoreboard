@@ -232,53 +232,174 @@ function updateElementText(id, value) {
 }
 
 function updateState(data) {
+    console.log('updateState called with keys:', Object.keys(data));
     Object.entries(data).forEach(([key, value]) => {
+        if (key.includes('legend')) {
+            console.log(`Found legend-related key: ${key} = ${value}`);
+        }
         // Handle runes first (before general element handling)
         if (["player-runes-left", "player-runes-right"].includes(key)) {
-            // Handle Riftbound runes display with icons
-            const riftboundContainer = document.getElementById('scoreboard-riftbound');
-            if (riftboundContainer) {
-                const side = key === 'player-runes-left' ? 'left' : 'right';
-                const runesContainer = riftboundContainer.querySelector(`#player-runes-${side}`);
-                
-                console.log(`Processing runes for ${side}:`, { key, value, runesContainer });
-                
-                if (runesContainer) {
-                    // Clear existing content
-                    runesContainer.innerHTML = '';
+            // Handle Riftbound runes display with icons (only update if value changed)
+            const side = key === 'player-runes-left' ? 'left' : 'right';
+            const currentValue = lastState[`runes-value-${side}`];
+            const newValue = value ? value.trim().toLowerCase() : '';
+            
+            // Only update if the value actually changed
+            if (currentValue !== newValue) {
+                const riftboundContainer = document.getElementById('scoreboard-riftbound');
+                if (riftboundContainer) {
+                    const runesContainer = riftboundContainer.querySelector(`#player-runes-${side}`);
                     
-                    if (value && value.trim()) {
-                        const runesString = value.trim().toLowerCase();
-                        console.log(`Runes string: "${runesString}"`);
+                    if (runesContainer) {
+                        // Clear existing content
+                        runesContainer.innerHTML = '';
                         
-                        // Create icon for each letter in the string
-                        for (let i = 0; i < runesString.length; i++) {
-                            const letter = runesString[i];
-                            const runeUrl = RIFTBOUND_RUNES[letter];
-                            
-                            console.log(`Letter: "${letter}", URL:`, runeUrl);
-                            
-                            if (runeUrl) {
-                                const img = document.createElement('img');
-                                img.src = runeUrl;
-                                img.alt = `Rune ${letter}`;
-                                img.className = 'riftbound-rune-icon';
-                                runesContainer.appendChild(img);
-                                console.log(`Added icon for ${letter}`);
-                            } else {
-                                console.warn(`No rune URL found for letter: "${letter}"`);
+                        if (newValue) {
+                            // Create icon for each letter in the string
+                            for (let i = 0; i < newValue.length; i++) {
+                                const letter = newValue[i];
+                                const runeUrl = RIFTBOUND_RUNES[letter];
+                                
+                                if (runeUrl) {
+                                    const img = document.createElement('img');
+                                    img.src = runeUrl;
+                                    img.alt = `Rune ${letter}`;
+                                    img.className = 'riftbound-rune-icon';
+                                    runesContainer.appendChild(img);
+                                }
                             }
                         }
-                    } else {
-                        console.log('No value or empty value for runes');
+                        
+                        // Update the stored value
+                        lastState[`runes-value-${side}`] = newValue;
                     }
-                } else {
-                    console.warn(`Runes container not found for ${side}`);
                 }
-            } else {
-                console.warn('Riftbound container not found');
             }
             return; // Exit early for runes
+        }
+        
+        // Handle legend backgrounds BEFORE general element handling
+        if (["player-legend-left", "player-legend-right"].includes(key)) {
+            // Handle Riftbound legend background images (only update if value changed)
+            const riftboundContainer = document.getElementById('scoreboard-riftbound');
+            if (riftboundContainer) {
+                const side = key === 'player-legend-left' ? 'left' : 'right';
+                const currentValue = lastState[`legend-value-${side}`];
+                const newValue = value ? value.trim() : '';
+                
+                // Only update if the value actually changed
+                if (currentValue !== newValue) {
+                    const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-legend-background.riftbound-player-legend-background-${side}`);
+                    
+                    if (backgroundDiv) {
+                        if (newValue) {
+                            const legendValueLower = newValue.toLowerCase();
+                            let matchedLegendKey = null;
+                            
+                            // First try exact case-insensitive match
+                            for (const legendKey in RIFTBOUND_LEGENDS) {
+                                if (legendKey.toLowerCase() === legendValueLower) {
+                                    matchedLegendKey = legendKey;
+                                    break;
+                                }
+                            }
+                            
+                            // If no exact match, check if the value contains any of the legend dictionary keys
+                            if (!matchedLegendKey) {
+                                for (const legendKey in RIFTBOUND_LEGENDS) {
+                                    if (legendValueLower.includes(legendKey.toLowerCase()) || legendKey.toLowerCase().includes(legendValueLower)) {
+                                        matchedLegendKey = legendKey;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if (matchedLegendKey) {
+                                const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
+                                if (legendData && legendData[side]) {
+                                    const imageUrl = legendData[side];
+                                    // Add cache buster to force browser to reload image
+                                    const cacheBuster = new Date().getTime();
+                                    const finalUrl = `${imageUrl}?v=${cacheBuster}`;
+                                    backgroundDiv.style.backgroundImage = `url(${finalUrl})`;
+                                    backgroundDiv.style.backgroundSize = 'cover';
+                                    backgroundDiv.style.backgroundPosition = 'center';
+                                    backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                                    lastState[`legend-${side}`] = imageUrl;
+                                    lastState[`legend-value-${side}`] = newValue;
+                                }
+                            } else {
+                                // Clear background if legend name doesn't match
+                                backgroundDiv.style.backgroundImage = 'none';
+                                lastState[`legend-${side}`] = null;
+                                lastState[`legend-value-${side}`] = null;
+                            }
+                        } else {
+                            // Clear background if value is empty
+                            backgroundDiv.style.backgroundImage = 'none';
+                            lastState[`legend-${side}`] = null;
+                            lastState[`legend-value-${side}`] = null;
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Handle battlefield backgrounds BEFORE general element handling
+        if (["player-battlefield-left", "player-battlefield-right"].includes(key)) {
+            // Handle Riftbound battlefield background images (only update if value changed)
+            const riftboundContainer = document.getElementById('scoreboard-riftbound');
+            if (riftboundContainer) {
+                const side = key === 'player-battlefield-left' ? 'left' : 'right';
+                const currentValue = lastState[`battlefield-value-${side}`];
+                const newValue = value ? value.trim() : '';
+                
+                // Only update if the value actually changed
+                if (currentValue !== newValue) {
+                    const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-battlefield-background.riftbound-player-battlefield-background-${side}`);
+                    
+                    if (backgroundDiv) {
+                        if (newValue) {
+                            // Try exact match first
+                            let battlefieldData = RIFTBOUND_BATTLEFIELDS[newValue];
+                            
+                            // If no exact match, try case-insensitive match
+                            if (!battlefieldData) {
+                                const battlefieldNameLower = newValue.toLowerCase();
+                                for (const key in RIFTBOUND_BATTLEFIELDS) {
+                                    if (key.toLowerCase() === battlefieldNameLower) {
+                                        battlefieldData = RIFTBOUND_BATTLEFIELDS[key];
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if (battlefieldData && battlefieldData[side]) {
+                                const imageUrl = battlefieldData[side];
+                                // Add cache buster to force browser to reload image
+                                const cacheBuster = new Date().getTime();
+                                const finalUrl = `${imageUrl}?v=${cacheBuster}`;
+                                backgroundDiv.style.backgroundImage = `url(${finalUrl})`;
+                                backgroundDiv.style.backgroundSize = 'cover';
+                                backgroundDiv.style.backgroundPosition = 'center';
+                                backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                                lastState[`battlefield-${side}`] = imageUrl;
+                                lastState[`battlefield-value-${side}`] = newValue;
+                            } else {
+                                // Clear background if battlefield name doesn't match
+                                backgroundDiv.style.backgroundImage = 'none';
+                                lastState[`battlefield-${side}`] = null;
+                                lastState[`battlefield-value-${side}`] = null;
+                            }
+                        } else {
+                            // Clear background if value is empty
+                            backgroundDiv.style.backgroundImage = 'none';
+                            lastState[`battlefield-${side}`] = null;
+                            lastState[`battlefield-value-${side}`] = null;
+                        }
+                    }
+                }
+            }
         }
         
         const el = document.getElementById(key);
@@ -359,111 +480,6 @@ function updateState(data) {
                 console.log(key, value)
                 renderManaSymbols(value, 'player-mana-symbols-right-symbols');
             }
-        } else if (["player-battlefield-left", "player-battlefield-right"].includes(key)) {
-            // Handle Riftbound battlefield background images (always update so images are ready when switching)
-            const riftboundContainer = document.getElementById('scoreboard-riftbound');
-            if (riftboundContainer) {
-                const side = key === 'player-battlefield-left' ? 'left' : 'right';
-                const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-battlefield-background.riftbound-player-battlefield-background-${side}`);
-                
-                if (backgroundDiv) {
-                    if (value && value.trim()) {
-                        const battlefieldName = value.trim();
-                        const battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
-                        
-                        if (battlefieldData && battlefieldData[side]) {
-                            const imageUrl = battlefieldData[side];
-                            const currentBg = lastState[`battlefield-${side}`];
-                            const currentValue = lastState[`battlefield-value-${side}`];
-                            
-                            // Update if the value changed or if the background URL changed
-                            if (currentValue !== battlefieldName || currentBg !== imageUrl) {
-                                backgroundDiv.style.backgroundImage = `url(${imageUrl})`;
-                                lastState[`battlefield-${side}`] = imageUrl;
-                                lastState[`battlefield-value-${side}`] = battlefieldName;
-                            }
-                        } else {
-                            // Clear background if battlefield name doesn't match
-                            if (lastState[`battlefield-${side}`]) {
-                                backgroundDiv.style.backgroundImage = 'none';
-                                lastState[`battlefield-${side}`] = null;
-                                lastState[`battlefield-value-${side}`] = null;
-                            }
-                        }
-                    } else {
-                        // Clear background if value is empty
-                        if (lastState[`battlefield-${side}`]) {
-                            backgroundDiv.style.backgroundImage = 'none';
-                            lastState[`battlefield-${side}`] = null;
-                            lastState[`battlefield-value-${side}`] = null;
-                        }
-                    }
-                }
-            }
-            
-            // Still update the text content
-            updateElementText(key, value);
-        } else if (["player-legend-left", "player-legend-right"].includes(key)) {
-            // Handle Riftbound legend background images (always update so images are ready when switching)
-            const riftboundContainer = document.getElementById('scoreboard-riftbound');
-            if (riftboundContainer) {
-                const side = key === 'player-legend-left' ? 'left' : 'right';
-                const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-legend-background.riftbound-player-legend-background-${side}`);
-                
-                if (backgroundDiv) {
-                    if (value && value.trim()) {
-                        const legendValue = value.trim();
-                        const legendValueLower = legendValue.toLowerCase();
-                        let matchedLegendKey = null;
-                        
-                        // Check if the value contains any of the legend dictionary keys
-                        for (const legendKey in RIFTBOUND_LEGENDS) {
-                            if (legendValueLower.includes(legendKey.toLowerCase())) {
-                                matchedLegendKey = legendKey;
-                                break;
-                            }
-                        }
-                        
-                        if (matchedLegendKey) {
-                            const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
-                            if (legendData && legendData[side]) {
-                                const imageUrl = legendData[side];
-                                const currentBg = lastState[`legend-${side}`];
-                                const currentValue = lastState[`legend-value-${side}`];
-                                
-                                // Always update the background when there's a match (ensures it updates on data changes)
-                                backgroundDiv.style.backgroundImage = `url(${imageUrl})`;
-                                lastState[`legend-${side}`] = imageUrl;
-                                lastState[`legend-value-${side}`] = legendValue;
-                                
-                                console.log(`Legend ${side} updated:`, {
-                                    legendValue,
-                                    matchedLegendKey,
-                                    imageUrl,
-                                    currentValue,
-                                    currentBg
-                                });
-                            }
-                        } else {
-                            // Clear background if legend name doesn't match
-                            backgroundDiv.style.backgroundImage = 'none';
-                            lastState[`legend-${side}`] = null;
-                            lastState[`legend-value-${side}`] = null;
-                            console.log(`Legend ${side} cleared - no match for:`, legendValue);
-                        }
-                    } else {
-                        // Clear background if value is empty
-                        backgroundDiv.style.backgroundImage = 'none';
-                        lastState[`legend-${side}`] = null;
-                        lastState[`legend-value-${side}`] = null;
-                    }
-                } else {
-                    console.warn(`Legend background div not found for ${side}`);
-                }
-            }
-            
-            // Still update the text content
-            updateElementText(key, value);
         }
     });
 }
@@ -726,7 +742,12 @@ function handleGameSelectionUpdate(gameSelection) {
                     if (legendData && legendData.left) {
                         const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-legend-background.riftbound-player-legend-background-left');
                         if (backgroundDiv) {
-                            backgroundDiv.style.backgroundImage = `url(${legendData.left})`;
+                            const cacheBuster = new Date().getTime();
+                            const finalUrl = `${legendData.left}?v=${cacheBuster}`;
+                            backgroundDiv.style.backgroundImage = `url(${finalUrl})`;
+                            backgroundDiv.style.backgroundSize = 'cover';
+                            backgroundDiv.style.backgroundPosition = 'center';
+                            backgroundDiv.style.backgroundRepeat = 'no-repeat';
                             lastState['legend-left'] = legendData.left;
                         }
                     }
@@ -750,7 +771,12 @@ function handleGameSelectionUpdate(gameSelection) {
                     if (legendData && legendData.right) {
                         const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-legend-background.riftbound-player-legend-background-right');
                         if (backgroundDiv) {
-                            backgroundDiv.style.backgroundImage = `url(${legendData.right})`;
+                            const cacheBuster = new Date().getTime();
+                            const finalUrl = `${legendData.right}?v=${cacheBuster}`;
+                            backgroundDiv.style.backgroundImage = `url(${finalUrl})`;
+                            backgroundDiv.style.backgroundSize = 'cover';
+                            backgroundDiv.style.backgroundPosition = 'center';
+                            backgroundDiv.style.backgroundRepeat = 'no-repeat';
                             lastState['legend-right'] = legendData.right;
                         }
                     }
