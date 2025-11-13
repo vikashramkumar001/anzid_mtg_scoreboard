@@ -47,6 +47,42 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next Med';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.eot');
+    src: local('Akzidenz-Grotesk Next Medium'), local('AkzidGrtskNext-Med'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next Med';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.eot');
+    src: local('Akzidenz-Grotesk Next Medium Italic'), local('AkzidGrtskNext-MedIt'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next XBold';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.eot');
+    src: local('Akzidenz-Grotesk Next ExtraBold'), local('AkzidGrtskNext-ExtraBold'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
 * {
     font-family: "Bebas Neue", sans-serif;
     /* BebasNeueBold */
@@ -407,7 +443,8 @@ body {
 
 #scoreboard-riftbound .riftbound-player-record-left #player-record-left {
     color: #1DC9FF;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-weight: 800;
     font-size: 12px;
 }
 
@@ -422,7 +459,8 @@ body {
 
 #scoreboard-riftbound .riftbound-player-record-right #player-record-right {
     color: #1DFF47;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-weight: 800;
     font-size: 12px;
 }
 
@@ -444,7 +482,8 @@ body {
 
 #scoreboard-riftbound .riftbound-player-life-left #player-life-left {
     color: #1DC9FF;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-weight: 800;
     font-size: 40px;
 }
 
@@ -457,7 +496,8 @@ body {
 
 #scoreboard-riftbound .riftbound-player-life-right #player-life-right {
     color: #1DFF47;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-weight: 800;
     font-size: 40px;
 }
 
@@ -481,7 +521,8 @@ body {
 
 #scoreboard-riftbound .riftbound-player-name-left #player-name-left {
     color: #000000;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-weight: 800;
     font-size: 25px;
     white-space: nowrap;
     overflow: hidden;
@@ -498,7 +539,8 @@ body {
 
 #scoreboard-riftbound .riftbound-player-name-right #player-name-right {
     color: #000000;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-weight: 800;
     font-size: 25px;
     white-space: nowrap;
     overflow: hidden;
@@ -639,7 +681,9 @@ body {
 
 #scoreboard-riftbound .riftbound-player-legend-left #player-legend-left {
     color: #fff;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-weight: 500;
+    font-style: italic;
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
@@ -659,7 +703,9 @@ body {
 
 #scoreboard-riftbound .riftbound-player-legend-right #player-legend-right {
     color: #fff;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-weight: 500;
+    font-style: italic;
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
@@ -686,7 +732,9 @@ body {
 
 #scoreboard-riftbound .riftbound-player-champion-left #player-champion-left {
     color: #fff;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-weight: 500;
+    font-style: italic;
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
@@ -706,7 +754,9 @@ body {
 
 #scoreboard-riftbound .riftbound-player-champion-right #player-champion-right {
     color: #fff;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-weight: 500;
+    font-style: italic;
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
@@ -814,7 +864,9 @@ body {
 
 #scoreboard-riftbound .riftbound-player-battlefield-left #player-battlefield-left {
     color: #fff;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-weight: 500;
+    font-style: italic;
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
@@ -834,7 +886,9 @@ body {
 
 #scoreboard-riftbound .riftbound-player-battlefield-right #player-battlefield-right {
     color: #fff;
-    font-weight: bold;
+    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-weight: 500;
+    font-style: italic;
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
@@ -856,6 +910,7 @@ body {
 
 #scoreboard-riftbound .riftbound-event-round {
     color: #fff;
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
     font-weight: normal;
     font-size: 16px;
 }
@@ -883,6 +938,7 @@ body {
 
 #scoreboard-riftbound .riftbound-timer {
     color: #fff;
-    font-weight: normal;
+    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-weight: 800;
     font-size: 70px;
 }
