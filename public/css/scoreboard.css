@@ -650,6 +650,7 @@ body {
 #scoreboard-riftbound .riftbound-player-legend-background {
     position: absolute;
     z-index: 1;
+    display: block;
 }
 
 #scoreboard-riftbound .riftbound-player-legend-background-left {

@@ -126,55 +126,55 @@ const RIFTBOUND_BATTLEFIELDS = {
 
 // Riftbound Legends Dictionary
 // Maps legend names to their left and right side image URLs
-// Files with "180" are for right side, files without "180" are for left side
+// Files with "_F_" are for right side, files without "_F_" are for left side
 const RIFTBOUND_LEGENDS = {
-    'Jinx': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0012_Jinx.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0000_Jinx180.png'
-    },
     'Kai\'sa': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0013_Kaisa.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0001_Kaisa180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0001_Kaisa, Daughter of the Void.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0001_F_Kaisa, Daughter of the Void.png'
     },
     'Volibear': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0014_Volibear.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0002_Volibear180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0002_Volibear, Relentless Storm.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0002_F_Volibear, Relentless Storm.png'
     },
     'Sett': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0015_Sett.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0003_Sett180.png'
-    },
-    'Miss Fortune': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0016_Miss-Fortune.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0004_Miss-Fortune180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0003_Sett, The Boss.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0003_F_Sett, The Boss.png'
     },
     'Viktor': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0017_Viktor.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0005_Viktor180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0004_Viktor, Herald of the Arcane.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0004_F_Viktor, Herald of the Arcane.png'
     },
     'Teemo': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0018_Teemo.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0006_Teemo180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0005_Teemo, Swift Scout.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0005_F_Teemo, Swift Scout.png'
     },
     'Leona': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0019_Leona.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0007_Leona180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0006_Leona, Radiant Dawn.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0006_F_Leona, Radiant Dawn.png'
+    },
+    'Yasuo': {
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_Yasuo, Unforgiven.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_F_Yasuo, Unforgiven.png'
     },
     'Yas': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0020_Yas.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0008_Yas180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_Yasuo, Unforgiven.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_F_Yasuo, Unforgiven.png'
     },
     'Lee Sin': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0021_Lee-Sin.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0009_Lee-Sin180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0008_Lee Sin, Blind Monk.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0008_F_Lee Sin, Blind Monk.png'
     },
     'Ahri': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0022_Ahri.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0010_Ahri180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0009_Ahri, Nine-Tailed Fox.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0009_F_Ahri, Nine-Tailed Fox.png'
     },
     'Darius': {
-        left: '/assets/images/riftbound/scoreboard/legends/_0023_Darius.png',
-        right: '/assets/images/riftbound/scoreboard/legends/_0011_Darius180.png'
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0010_Darius, Hand of Noxus.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0010_F_Darius, Hand of Noxus.png'
+    },
+    'Jinx': {
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0011_Jinx, Loose Cannon.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0011_F_Jinx, Loose Cannon.png'
     }
 };
 
@@ -297,6 +297,10 @@ function updateState(data) {
                 if (currentValue !== newValue) {
                     const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-legend-background.riftbound-player-legend-background-${side}`);
                     
+                    if (!backgroundDiv) {
+                        console.log(`Background div not found for ${side}`);
+                    }
+                    
                     if (backgroundDiv) {
                         if (newValue) {
                             const legendValueLower = newValue.toLowerCase();
@@ -311,9 +315,12 @@ function updateState(data) {
                             }
                             
                             // If no exact match, check if the value contains any of the legend dictionary keys
+                            // This handles cases like "Jinx, Loose Cannon" matching "Jinx"
                             if (!matchedLegendKey) {
                                 for (const legendKey in RIFTBOUND_LEGENDS) {
-                                    if (legendValueLower.includes(legendKey.toLowerCase()) || legendKey.toLowerCase().includes(legendValueLower)) {
+                                    const legendKeyLower = legendKey.toLowerCase();
+                                    // Check if the incoming value contains the legend key (e.g., "jinx, loose cannon" contains "jinx")
+                                    if (legendValueLower.includes(legendKeyLower)) {
                                         matchedLegendKey = legendKey;
                                         break;
                                     }
@@ -324,18 +331,27 @@ function updateState(data) {
                                 const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
                                 if (legendData && legendData[side]) {
                                     const imageUrl = legendData[side];
+                                    // Encode the URL to handle spaces and special characters in filenames
+                                    const encodedUrl = encodeURI(imageUrl);
                                     // Add cache buster to force browser to reload image
                                     const cacheBuster = new Date().getTime();
-                                    const finalUrl = `${imageUrl}?v=${cacheBuster}`;
-                                    backgroundDiv.style.backgroundImage = `url(${finalUrl})`;
+                                    const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                                    backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
                                     backgroundDiv.style.backgroundSize = 'cover';
                                     backgroundDiv.style.backgroundPosition = 'center';
                                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                                    backgroundDiv.style.display = 'block';
                                     lastState[`legend-${side}`] = imageUrl;
                                     lastState[`legend-value-${side}`] = newValue;
+                                    console.log(`Legend background set for ${side}: ${matchedLegendKey} -> ${imageUrl}`);
+                                    console.log(`Final URL: ${finalUrl}`);
+                                    console.log(`Background div computed style:`, window.getComputedStyle(backgroundDiv).backgroundImage);
+                                } else {
+                                    console.log(`Legend data found but no ${side} image for: ${matchedLegendKey}`);
                                 }
                             } else {
                                 // Clear background if legend name doesn't match
+                                console.log(`No legend match found for: ${newValue}`);
                                 backgroundDiv.style.backgroundImage = 'none';
                                 lastState[`legend-${side}`] = null;
                                 lastState[`legend-value-${side}`] = null;
