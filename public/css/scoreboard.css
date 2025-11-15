@@ -406,7 +406,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/images/riftbound/scoreboard/frame/1-IGN-frame.png");
+    background-image: url("/assets/images/riftbound/scoreboard/frame/1-IGN-v3-frame.png");
     background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
@@ -484,7 +484,7 @@ body {
     color: #1DC9FF;
     font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
     font-weight: 800;
-    font-size: 40px;
+    font-size: 45px;
 }
 
 #scoreboard-riftbound .riftbound-player-life-right {
@@ -498,7 +498,7 @@ body {
     color: #1DFF47;
     font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
     font-weight: 800;
-    font-size: 40px;
+    font-size: 45px;
 }
 
 /* Riftbound Player Names */
@@ -523,7 +523,7 @@ body {
     color: #000000;
     font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
     font-weight: 800;
-    font-size: 25px;
+    font-size: 50px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -541,7 +541,7 @@ body {
     color: #000000;
     font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
     font-weight: 800;
-    font-size: 25px;
+    font-size: 50px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -656,24 +656,26 @@ body {
     top: 14px;
     left: 19px;
     width: 320px;
-    height: 145px;
+    height: 69px; /* Reduced to match player name section height */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border-radius: 10px;
 }
 
 #scoreboard-riftbound .riftbound-player-legend-background-right {
     top: 14px;
     right: 17px;
     width: 320px;
-    height: 145px;
+    height: 69px; /* Reduced to match player name section height */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border-radius: 10px;
 }
 
 #scoreboard-riftbound .riftbound-player-legend-left {
-    top: 111px;
+    top: 28px; /* Adjusted to align with reduced legend background height */
     left: 46px;
     width: 274px;
     height: 20px;
@@ -695,7 +697,7 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-legend-right {
-    top: 111px;
+    top: 28px; /* Adjusted to align with reduced legend background height */
     right: 46px;
     width: 274px;
     height: 20px;
@@ -724,7 +726,7 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-champion-left {
-    top: 132px;
+    top: 50px;
     left: 46px;
     width: 274px;
     height: 20px;
@@ -746,7 +748,7 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-champion-right {
-    top: 132px;
+    top: 50px;
     right: 46px;
     width: 274px;
     height: 20px;
@@ -764,9 +766,10 @@ body {
 }
 
 /* Riftbound Player Runes */
+/* COMMENTED OUT FOR LATER USE - Not currently displayed in scoreboard */
 #scoreboard-riftbound .riftbound-player-runes-wrapper {
     position: absolute;
-    display: flex;
+    display: none; /* Hidden - not currently displayed */
     align-items: center;
     justify-content: start;
     z-index: 20;
@@ -826,7 +829,7 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-background-left {
-    top: 180px;
+    top: 105px;
     left: 19px;
     width: 320px;
     height: 35px;
@@ -836,7 +839,7 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-background-right {
-    top: 180px;
+    top: 105px;
     right: 18px;
     width: 319px;
     height: 35px;
@@ -856,7 +859,7 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-left {
-    top: 187px;
+    top: 112px;
     left: 46px;
     width: 274px;
     height: 20px;
@@ -878,7 +881,7 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-right {
-    top: 187px;
+    top: 112px;
     right: 46px;
     width: 274px;
     height: 20px;
@@ -895,6 +898,33 @@ body {
     text-overflow: ellipsis;
 }
 
+/* Riftbound Event Name */
+#scoreboard-riftbound .riftbound-event-name-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    padding-left: 10px;
+    padding-right: 10px;
+    top: 932px;
+    left: 19px;
+    width: 300px;
+    height: 48px;
+}
+
+#scoreboard-riftbound .riftbound-event-name-wrapper #event-name {
+    color: #000000;
+    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: center;
+}
+
 /* Riftbound Event Round */
 #scoreboard-riftbound .riftbound-event-round-wrapper {
     position: absolute;
@@ -902,7 +932,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 20;
-    top: 940px;
+    top: 826px;
     left: 20px;
     height: 30px;
     width: 320px;
@@ -911,15 +941,15 @@ body {
 #scoreboard-riftbound .riftbound-event-round {
     color: #fff;
     font-family: 'Akzidenz-Grotesk Next', sans-serif;
-    font-weight: normal;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 /* Riftbound Timer */
 #scoreboard-riftbound .riftbound-timer-wrapper {
     position: absolute;
     z-index: 20;
-    top: 975px;
+    top: 865px;
     left: 20px;
     width: 320px;
     height: 57px;
@@ -937,8 +967,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-timer {
-    color: #fff;
+    color: #19c8ff;
     font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
     font-weight: 800;
-    font-size: 70px;
+    font-size: 80px;
 }

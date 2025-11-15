@@ -180,6 +180,8 @@ const RIFTBOUND_LEGENDS = {
 
 // Riftbound Runes Dictionary
 // Maps rune letters to their icon image URLs
+// COMMENTED OUT FOR LATER USE - Not currently displayed in scoreboard
+/*
 const RIFTBOUND_RUNES = {
     'g': '/assets/images/riftbound/scoreboard/icons/Calm2.png',
     'p': '/assets/images/riftbound/scoreboard/icons/Chaos2.png',
@@ -188,6 +190,7 @@ const RIFTBOUND_RUNES = {
     'y': '/assets/images/riftbound/scoreboard/icons/Order2.png',
     'o': '/assets/images/riftbound/scoreboard/icons/Body2.png'
 };
+*/
 
 console.log('from url - control id', control_id);
 
@@ -237,7 +240,9 @@ function updateState(data) {
         if (key.includes('legend')) {
             console.log(`Found legend-related key: ${key} = ${value}`);
         }
+        // COMMENTED OUT FOR LATER USE - Runes logic not currently displayed in scoreboard
         // Handle runes first (before general element handling)
+        /*
         if (["player-runes-left", "player-runes-right"].includes(key)) {
             // Handle Riftbound runes display with icons (only update if value changed)
             const side = key === 'player-runes-left' ? 'left' : 'right';
@@ -277,6 +282,7 @@ function updateState(data) {
             }
             return; // Exit early for runes
         }
+        */
         
         // Handle legend backgrounds BEFORE general element handling
         if (["player-legend-left", "player-legend-right"].includes(key)) {
