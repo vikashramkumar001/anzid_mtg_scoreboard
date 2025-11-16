@@ -434,7 +434,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-record-left {
     top: 31px;
-    left: 342px;
+    left: 340px;
     transform: rotate(-90deg);
     transform-origin: center;
     width: 69px;
@@ -445,7 +445,7 @@ body {
     color: #1DC9FF;
     font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
     font-weight: 800;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 #scoreboard-riftbound .riftbound-player-record-right {
@@ -461,7 +461,7 @@ body {
     color: #1DFF47;
     font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
     font-weight: 800;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 /* Riftbound Player Life */
@@ -528,6 +528,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
+    text-align: center;
 }
 
 #scoreboard-riftbound .riftbound-player-name-right {
@@ -546,6 +547,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
+    text-align: center;
 }
 
 /* Riftbound Player Wins */
@@ -971,5 +973,5 @@ body {
     color: #19c8ff;
     font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
     font-weight: 800;
-    font-size: 80px;
+    font-size: 72px;
 }
