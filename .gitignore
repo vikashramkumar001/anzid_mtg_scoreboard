@@ -89,3 +89,6 @@ temp/
 
 # Windows
 Thumbs.db
+
+# Riftbound animations
+public/assets/animations/riftbound/

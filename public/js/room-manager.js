@@ -87,6 +87,13 @@ class RoomManager {
         if (path.includes('/deck-display') || path.endsWith('deck-display.html')) return 'deck-display';
         if (path.includes('/side-deck-display') || path.endsWith('side-deck-display.html')) return 'deck-display';
         
+        // Animation display - check for /riftbound/animation-display/ in path
+        if (path.includes('/riftbound/animation-display/')) {
+            const match = path.match(/\/riftbound\/animation-display\/[^/]+\/[^/]+\/(\d+)/);
+            const animationId = match ? match[1] : '1';
+            return `riftbound-animation-display-${animationId}`;
+        }
+        
         // Broadcast pages - new URL structure
         if (path.includes('/broadcast/round/standings/')) return 'broadcast-standings';
         if (path.includes('/broadcast/round/details/')) return 'broadcast-details';
@@ -149,6 +156,10 @@ class RoomManager {
             'mtg-deck-display': ['deck-display', 'global'],
             'vibes-deck-display': ['vibes-deck-display', 'global'],
             'riftbound-deck-display': ['riftbound-deck-display', 'global'],
+            'riftbound-animation-display-1': ['riftbound-animation-display-1', 'scoreboard-1', 'global'],
+            'riftbound-animation-display-2': ['riftbound-animation-display-2', 'scoreboard-2', 'global'],
+            'riftbound-animation-display-3': ['riftbound-animation-display-3', 'scoreboard-3', 'global'],
+            'riftbound-animation-display-4': ['riftbound-animation-display-4', 'scoreboard-4', 'global'],
             'broadcast-standings': ['broadcast-standings', 'global'],
             'broadcast-details': ['broadcast-details', 'global'],
             'broadcast-main-deck': ['broadcast-main-deck', 'global'],

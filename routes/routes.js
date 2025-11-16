@@ -131,6 +131,11 @@ router.get('/riftbound/display/main/deck/:deckID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/riftbound/deck-display.html'))
 });
 
+// riftbound - animation display
+router.get('/riftbound/animation-display/:orientation/:side/:controlID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/riftbound/animation-display.html'));
+});
+
 // END RIFTBOUND
 
 // meta breakdown links
