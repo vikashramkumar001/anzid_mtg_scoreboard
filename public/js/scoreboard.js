@@ -33,7 +33,7 @@ const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
 
 const RIFTBOUND_BATTLEFIELDS = {
     'default': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png',
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default180.png',
         right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
     },
     'Altar to Unity': {
