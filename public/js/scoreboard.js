@@ -25,7 +25,17 @@ const MANA_SYMBOLS = {
 // Riftbound Battlefields Dictionary
 // Maps battlefield names to their left and right side image URLs
 // Files with "180" are for left side, files without "180" are for right side
+// Default image is used as fallback when a battlefield is not found or empty
+const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
+    left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png',
+    right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+};
+
 const RIFTBOUND_BATTLEFIELDS = {
+    'default': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+    },
     'Altar to Unity': {
         left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Altar-to-Unity180.png',
         right: '/assets/images/riftbound/scoreboard/battlefields/_0024_Altar-to-Unity.png'
@@ -127,6 +137,12 @@ const RIFTBOUND_BATTLEFIELDS = {
 // Riftbound Legends Dictionary
 // Maps legend names to their left and right side image URLs
 // Files with "_F_" are for right side, files without "_F_" are for left side
+// Default images are used as fallback when a legend is not found
+const RIFTBOUND_LEGENDS_DEFAULT = {
+    left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0000_Default.png',
+    right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0000_F_Default.png'
+};
+
 const RIFTBOUND_LEGENDS = {
     'Kai\'sa': {
         left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0001_Kaisa, Daughter of the Void.png',
@@ -175,6 +191,26 @@ const RIFTBOUND_LEGENDS = {
     'Jinx': {
         left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0011_Jinx, Loose Cannon.png',
         right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0011_F_Jinx, Loose Cannon.png'
+    },
+    'Miss Fortune': {
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0012_Miss Fortune, Bounty Hunter.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0012_F_Miss Fortune, Bounty Hunter.png'
+    },
+    'Garen': {
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0013_Garen, Might of Demacia.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0013_F_Garen, Might of Demacia.png'
+    },
+    'Lux': {
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0014_Lux, Lady of Luminosity.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0014_F_Lux, Lady of Luminosity.png'
+    },
+    'Annie': {
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0015_Annie, Dark Child.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0015_F_Annie, Dark Child.png'
+    },
+    'Master Yi': {
+        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0016_Master Yi, Wuju Bladesman.png',
+        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0016_F_Master Yi, Wuju Bladesman.png'
     }
 };
 
@@ -350,17 +386,34 @@ function updateState(data) {
                                     console.log(`Legend data found but no ${side} image for: ${matchedLegendKey}`);
                                 }
                             } else {
-                                // Clear background if legend name doesn't match
-                                console.log(`No legend match found for: ${newValue}`);
-                                backgroundDiv.style.backgroundImage = 'none';
-                                lastState[`legend-${side}`] = null;
-                                lastState[`legend-value-${side}`] = null;
+                                // Use default images if legend name doesn't match
+                                console.log(`No legend match found for: ${newValue}, using default`);
+                                const defaultImageUrl = RIFTBOUND_LEGENDS_DEFAULT[side];
+                                const encodedUrl = encodeURI(defaultImageUrl);
+                                const cacheBuster = new Date().getTime();
+                                const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                                backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                                backgroundDiv.style.backgroundSize = 'cover';
+                                backgroundDiv.style.backgroundPosition = 'center';
+                                backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                                backgroundDiv.style.display = 'block';
+                                lastState[`legend-${side}`] = defaultImageUrl;
+                                lastState[`legend-value-${side}`] = newValue;
                             }
                         } else {
-                            // Clear background if value is empty
-                            backgroundDiv.style.backgroundImage = 'none';
-                            lastState[`legend-${side}`] = null;
-                            lastState[`legend-value-${side}`] = null;
+                            // Show default image if value is empty
+                            console.log(`Legend value is empty for ${side}, using default`);
+                            const defaultImageUrl = RIFTBOUND_LEGENDS_DEFAULT[side];
+                            const encodedUrl = encodeURI(defaultImageUrl);
+                            const cacheBuster = new Date().getTime();
+                            const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                            backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                            backgroundDiv.style.backgroundSize = 'cover';
+                            backgroundDiv.style.backgroundPosition = 'center';
+                            backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                            backgroundDiv.style.display = 'block';
+                            lastState[`legend-${side}`] = defaultImageUrl;
+                            lastState[`legend-value-${side}`] = '';
                         }
                     }
                 }
@@ -398,26 +451,47 @@ function updateState(data) {
                             
                             if (battlefieldData && battlefieldData[side]) {
                                 const imageUrl = battlefieldData[side];
+                                // Encode the URL to handle spaces and special characters in filenames
+                                const encodedUrl = encodeURI(imageUrl);
                                 // Add cache buster to force browser to reload image
                                 const cacheBuster = new Date().getTime();
-                                const finalUrl = `${imageUrl}?v=${cacheBuster}`;
-                                backgroundDiv.style.backgroundImage = `url(${finalUrl})`;
+                                const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                                backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
                                 backgroundDiv.style.backgroundSize = 'cover';
                                 backgroundDiv.style.backgroundPosition = 'center';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                                backgroundDiv.style.display = 'block';
                                 lastState[`battlefield-${side}`] = imageUrl;
                                 lastState[`battlefield-value-${side}`] = newValue;
                             } else {
-                                // Clear background if battlefield name doesn't match
-                                backgroundDiv.style.backgroundImage = 'none';
-                                lastState[`battlefield-${side}`] = null;
-                                lastState[`battlefield-value-${side}`] = null;
+                                // Use default image if battlefield name doesn't match
+                                console.log(`Battlefield not found for: ${newValue}, using default`);
+                                const defaultImageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
+                                const encodedUrl = encodeURI(defaultImageUrl);
+                                const cacheBuster = new Date().getTime();
+                                const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                                backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                                backgroundDiv.style.backgroundSize = 'cover';
+                                backgroundDiv.style.backgroundPosition = 'center';
+                                backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                                backgroundDiv.style.display = 'block';
+                                lastState[`battlefield-${side}`] = defaultImageUrl;
+                                lastState[`battlefield-value-${side}`] = newValue;
                             }
                         } else {
-                            // Clear background if value is empty
-                            backgroundDiv.style.backgroundImage = 'none';
-                            lastState[`battlefield-${side}`] = null;
-                            lastState[`battlefield-value-${side}`] = null;
+                            // Show default image if value is empty
+                            console.log(`Battlefield value is empty for ${side}, using default`);
+                            const defaultImageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
+                            const encodedUrl = encodeURI(defaultImageUrl);
+                            const cacheBuster = new Date().getTime();
+                            const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                            backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                            backgroundDiv.style.backgroundSize = 'cover';
+                            backgroundDiv.style.backgroundPosition = 'center';
+                            backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                            backgroundDiv.style.display = 'block';
+                            lastState[`battlefield-${side}`] = defaultImageUrl;
+                            lastState[`battlefield-value-${side}`] = '';
                         }
                     }
                 }
@@ -713,95 +787,183 @@ function handleGameSelectionUpdate(gameSelection) {
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'block';
         
-        // Apply battlefield images if data already exists
+        // Apply battlefield images - always set a background (use default if empty or not found)
         const riftboundContainer = document.getElementById('scoreboard-riftbound');
         if (riftboundContainer) {
             const battlefieldLeftEl = riftboundContainer.querySelector('#player-battlefield-left');
             const battlefieldRightEl = riftboundContainer.querySelector('#player-battlefield-right');
             
-            if (battlefieldLeftEl && battlefieldLeftEl.textContent.trim()) {
-                const battlefieldName = battlefieldLeftEl.textContent.trim();
-                const battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
-                if (battlefieldData && battlefieldData.left) {
-                    const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-battlefield-background.riftbound-player-battlefield-background-left');
-                    if (backgroundDiv) {
-                        backgroundDiv.style.backgroundImage = `url(${battlefieldData.left})`;
-                        lastState['battlefield-left'] = battlefieldData.left;
+            if (battlefieldLeftEl) {
+                const battlefieldName = battlefieldLeftEl.textContent ? battlefieldLeftEl.textContent.trim() : '';
+                let battlefieldData = null;
+                
+                if (battlefieldName) {
+                    // Try exact match first
+                    battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
+                    
+                    // If no exact match, try case-insensitive match
+                    if (!battlefieldData) {
+                        const battlefieldNameLower = battlefieldName.toLowerCase();
+                        for (const key in RIFTBOUND_BATTLEFIELDS) {
+                            if (key.toLowerCase() === battlefieldNameLower) {
+                                battlefieldData = RIFTBOUND_BATTLEFIELDS[key];
+                                break;
+                            }
+                        }
                     }
+                }
+                
+                const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-battlefield-background.riftbound-player-battlefield-background-left');
+                if (backgroundDiv) {
+                    let imageUrl;
+                    if (battlefieldData && battlefieldData.left) {
+                        imageUrl = battlefieldData.left;
+                    } else {
+                        imageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT.left;
+                    }
+                    const encodedUrl = encodeURI(imageUrl);
+                    const cacheBuster = new Date().getTime();
+                    const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                    backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                    backgroundDiv.style.backgroundSize = 'cover';
+                    backgroundDiv.style.backgroundPosition = 'center';
+                    backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                    backgroundDiv.style.display = 'block';
+                    lastState['battlefield-left'] = imageUrl;
                 }
             }
             
-            if (battlefieldRightEl && battlefieldRightEl.textContent.trim()) {
-                const battlefieldName = battlefieldRightEl.textContent.trim();
-                const battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
-                if (battlefieldData && battlefieldData.right) {
-                    const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-battlefield-background.riftbound-player-battlefield-background-right');
-                    if (backgroundDiv) {
-                        backgroundDiv.style.backgroundImage = `url(${battlefieldData.right})`;
-                        lastState['battlefield-right'] = battlefieldData.right;
+            if (battlefieldRightEl) {
+                const battlefieldName = battlefieldRightEl.textContent ? battlefieldRightEl.textContent.trim() : '';
+                let battlefieldData = null;
+                
+                if (battlefieldName) {
+                    // Try exact match first
+                    battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
+                    
+                    // If no exact match, try case-insensitive match
+                    if (!battlefieldData) {
+                        const battlefieldNameLower = battlefieldName.toLowerCase();
+                        for (const key in RIFTBOUND_BATTLEFIELDS) {
+                            if (key.toLowerCase() === battlefieldNameLower) {
+                                battlefieldData = RIFTBOUND_BATTLEFIELDS[key];
+                                break;
+                            }
+                        }
                     }
+                }
+                
+                const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-battlefield-background.riftbound-player-battlefield-background-right');
+                if (backgroundDiv) {
+                    let imageUrl;
+                    if (battlefieldData && battlefieldData.right) {
+                        imageUrl = battlefieldData.right;
+                    } else {
+                        imageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT.right;
+                    }
+                    const encodedUrl = encodeURI(imageUrl);
+                    const cacheBuster = new Date().getTime();
+                    const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                    backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                    backgroundDiv.style.backgroundSize = 'cover';
+                    backgroundDiv.style.backgroundPosition = 'center';
+                    backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                    backgroundDiv.style.display = 'block';
+                    lastState['battlefield-right'] = imageUrl;
                 }
             }
             
-            // Apply legend images if data already exists
+            // Apply legend images - always set a background (use default if empty)
             const legendLeftEl = riftboundContainer.querySelector('#player-legend-left');
             const legendRightEl = riftboundContainer.querySelector('#player-legend-right');
             
-            if (legendLeftEl && legendLeftEl.textContent.trim()) {
-                const legendValue = legendLeftEl.textContent.trim().toLowerCase();
+            if (legendLeftEl) {
+                const legendValue = legendLeftEl.textContent ? legendLeftEl.textContent.trim().toLowerCase() : '';
                 let matchedLegendKey = null;
                 
-                // Check if the value contains any of the legend dictionary keys
-                for (const legendKey in RIFTBOUND_LEGENDS) {
-                    if (legendValue.includes(legendKey.toLowerCase())) {
-                        matchedLegendKey = legendKey;
-                        break;
+                if (legendValue) {
+                    // First try exact case-insensitive match
+                    for (const legendKey in RIFTBOUND_LEGENDS) {
+                        if (legendKey.toLowerCase() === legendValue) {
+                            matchedLegendKey = legendKey;
+                            break;
+                        }
+                    }
+                    
+                    // If no exact match, check if the value contains any of the legend dictionary keys
+                    if (!matchedLegendKey) {
+                        for (const legendKey in RIFTBOUND_LEGENDS) {
+                            if (legendValue.includes(legendKey.toLowerCase())) {
+                                matchedLegendKey = legendKey;
+                                break;
+                            }
+                        }
                     }
                 }
                 
-                if (matchedLegendKey) {
-                    const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
-                    if (legendData && legendData.left) {
-                        const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-legend-background.riftbound-player-legend-background-left');
-                        if (backgroundDiv) {
-                            const cacheBuster = new Date().getTime();
-                            const finalUrl = `${legendData.left}?v=${cacheBuster}`;
-                            backgroundDiv.style.backgroundImage = `url(${finalUrl})`;
-                            backgroundDiv.style.backgroundSize = 'cover';
-                            backgroundDiv.style.backgroundPosition = 'center';
-                            backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                            lastState['legend-left'] = legendData.left;
-                        }
+                const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-legend-background.riftbound-player-legend-background-left');
+                if (backgroundDiv) {
+                    let imageUrl;
+                    if (matchedLegendKey) {
+                        const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
+                        imageUrl = legendData && legendData.left ? legendData.left : RIFTBOUND_LEGENDS_DEFAULT.left;
+                    } else {
+                        imageUrl = RIFTBOUND_LEGENDS_DEFAULT.left;
                     }
+                    const encodedUrl = encodeURI(imageUrl);
+                    const cacheBuster = new Date().getTime();
+                    const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                    backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                    backgroundDiv.style.backgroundSize = 'cover';
+                    backgroundDiv.style.backgroundPosition = 'center';
+                    backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                    backgroundDiv.style.display = 'block';
+                    lastState['legend-left'] = imageUrl;
                 }
             }
             
-            if (legendRightEl && legendRightEl.textContent.trim()) {
-                const legendValue = legendRightEl.textContent.trim().toLowerCase();
+            if (legendRightEl) {
+                const legendValue = legendRightEl.textContent ? legendRightEl.textContent.trim().toLowerCase() : '';
                 let matchedLegendKey = null;
                 
-                // Check if the value contains any of the legend dictionary keys
-                for (const legendKey in RIFTBOUND_LEGENDS) {
-                    if (legendValue.includes(legendKey.toLowerCase())) {
-                        matchedLegendKey = legendKey;
-                        break;
+                if (legendValue) {
+                    // First try exact case-insensitive match
+                    for (const legendKey in RIFTBOUND_LEGENDS) {
+                        if (legendKey.toLowerCase() === legendValue) {
+                            matchedLegendKey = legendKey;
+                            break;
+                        }
+                    }
+                    
+                    // If no exact match, check if the value contains any of the legend dictionary keys
+                    if (!matchedLegendKey) {
+                        for (const legendKey in RIFTBOUND_LEGENDS) {
+                            if (legendValue.includes(legendKey.toLowerCase())) {
+                                matchedLegendKey = legendKey;
+                                break;
+                            }
+                        }
                     }
                 }
                 
-                if (matchedLegendKey) {
-                    const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
-                    if (legendData && legendData.right) {
-                        const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-legend-background.riftbound-player-legend-background-right');
-                        if (backgroundDiv) {
-                            const cacheBuster = new Date().getTime();
-                            const finalUrl = `${legendData.right}?v=${cacheBuster}`;
-                            backgroundDiv.style.backgroundImage = `url(${finalUrl})`;
-                            backgroundDiv.style.backgroundSize = 'cover';
-                            backgroundDiv.style.backgroundPosition = 'center';
-                            backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                            lastState['legend-right'] = legendData.right;
-                        }
+                const backgroundDiv = riftboundContainer.querySelector('.riftbound-player-legend-background.riftbound-player-legend-background-right');
+                if (backgroundDiv) {
+                    let imageUrl;
+                    if (matchedLegendKey) {
+                        const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
+                        imageUrl = legendData && legendData.right ? legendData.right : RIFTBOUND_LEGENDS_DEFAULT.right;
+                    } else {
+                        imageUrl = RIFTBOUND_LEGENDS_DEFAULT.right;
                     }
+                    const encodedUrl = encodeURI(imageUrl);
+                    const cacheBuster = new Date().getTime();
+                    const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                    backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                    backgroundDiv.style.backgroundSize = 'cover';
+                    backgroundDiv.style.backgroundPosition = 'center';
+                    backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                    backgroundDiv.style.display = 'block';
+                    lastState['legend-right'] = imageUrl;
                 }
             }
         }
