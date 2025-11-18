@@ -8,13 +8,97 @@
     background-color: transparent;
 }
 
-#deck-display-details {
+/* MTG Deck Display Styles */
+#deck-display-mtg {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+}
+
+#deck-display-mtg #deck-display-details {
     width: 1920px;
     height: 130px;
     color: white;
 }
 
-#player-name-section {
+#deck-display-mtg #deck-display-details h1 {
+    font-size: 100px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+}
+
+#deck-display-mtg #deck-display-details h5 {
+    font-size: 40px;
+    font-style: italic;
+    position: relative;
+    top: -20px;
+}
+
+#deck-display-mtg #deck-display-container {
+    width: 1920px;
+    height: 1080px;
+}
+
+#deck-display-mtg #main-deck-container {
+    width: 1920px;
+    height: 930px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: flex-start;
+    padding: 5px;
+}
+
+body.vertical #deck-display-mtg #main-deck-container {
+    height: 1080px;
+}
+
+/* Riftbound Deck Display Styles */
+#deck-display-riftbound {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+}
+
+#deck-display-riftbound #riftbound-background-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+
+#deck-display-riftbound #riftbound-deck-display-details {
+    width: 1920px;
+    height: 130px;
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+#deck-display-riftbound #riftbound-deck-display-container {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    z-index: auto;
+}
+
+#deck-display-riftbound #riftbound-main-deck-container {
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: flex-start;
+    padding: 5px;
+}
+
+#deck-display-riftbound #player-name-section {
     position: absolute;
     top: 70px;
     left: 700px;
@@ -27,7 +111,7 @@
     z-index: 10;
 }
 
-.player-label {
+#deck-display-riftbound .player-label {
     font-size: 30px;
     font-weight: normal;
     height: 20px;
@@ -35,7 +119,7 @@
     color: white;
 }
 
-.player-name-display {
+#deck-display-riftbound .player-name-display {
     font-size: 105px;
     font-weight: normal;
     height: 85px;
@@ -46,51 +130,10 @@
     width: 100%;
 }
 
-#deck-display-details h1 {
-    font-size: 100px;
-    height: 100px;
-    position: relative;
-    top: 0px;
-}
-
-#deck-display-details h5 {
-    font-size: 40px;
-    font-style: italic;
-    position: relative;
-    top: -20px;
-}
-
-#deck-display-container {
-    width: 1920px;
-    height: 1080px;
-}
-
-#main-deck-container {
-    width: 1920px;
-    height: 930px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    align-content: flex-start;
-    padding: 5px;
-}
-
-body.vertical {
-    #main-deck-container {
-        height: 1080px;
-    }
-}
-
-body.riftbound.horizontal {
-    #main-deck-container {
-        height: 1080px;
-    }
-}
-
 .main-deck-card {
     width: 180px;
     height: auto;
-    margin: 5px;
+    margin: 0px;
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -130,42 +173,17 @@ body.riftbound.horizontal {
     margin-top: 2px;
 }
 
-.deck-section-wrapper {
+/* Riftbound Deck Section Wrappers */
+#deck-display-riftbound .deck-section-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
     justify-content: center;
+    row-gap: 13px;
+    column-gap: 12px;
 }
 
-/* .other-section .main-deck-card {
-    flex: 0 0 calc(100% / 9 - 10px);
-} */
-
-.deck-section-wrapper.legend-section {
-    top: 70px;
-    left: 70px;
-    width: 560px;
-    height: 782px;
+#deck-display-riftbound .deck-section-wrapper.runes-section {
     position: absolute;
-    display: block;
-}
-
-.deck-section-wrapper.legend-section .main-deck-card {
-    width: 100%;
-}
-
-.deck-section-wrapper.legend-section .main-deck-card .card-src {
-    border-radius: 30px;
-}
-
-.deck-section-wrapper.legend-section .main-deck-card .card-count {
-    display: none;
-}
-
-.deck-section-wrapper.runes-section {
-    position: absolute;
-    /* background-color: blue; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -179,7 +197,7 @@ body.riftbound.horizontal {
     border-radius: 10px;
 }
 
-.deck-section-wrapper.runes-section .main-deck-card {
+#deck-display-riftbound .deck-section-wrapper.runes-section .main-deck-card {
     width: 90px;
     height: 100px;
     padding: 0;
@@ -190,7 +208,7 @@ body.riftbound.horizontal {
     align-items: center;
 }
 
-.runes-card {
+#deck-display-riftbound .runes-card {
     width: 100%;
     height: 100%;
     position: relative;
@@ -200,7 +218,7 @@ body.riftbound.horizontal {
     align-items: center;
 }
 
-.runes-background {
+#deck-display-riftbound .runes-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -209,7 +227,7 @@ body.riftbound.horizontal {
     z-index: 1;
 }
 
-.runes-background::before {
+#deck-display-riftbound .runes-background::before {
     content: '';
     position: absolute;
     top: -80px;
@@ -224,7 +242,7 @@ body.riftbound.horizontal {
     transform: translate(-19px, 68px);
 }
 
-.deck-section-wrapper.runes-section .main-deck-card .card-count {
+#deck-display-riftbound .deck-section-wrapper.runes-section .main-deck-card .card-count {
     top: 88px;
     right: 22px;
     width: 45px;
@@ -235,107 +253,104 @@ body.riftbound.horizontal {
     z-index: 2;
 }
 
-.deck-section-wrapper.battlefields-section {
+/* Riftbound Battlefields Section */
+#deck-display-riftbound .deck-section-wrapper.battlefields-section {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    top: 900px;
-    left: 45px;
-    width: 420px;
-    height: 150px;
-    gap: 5px;
-}
-
-.deck-section-wrapper.battlefields-section .main-deck-card {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    background: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.battlefield-card {
-    width: 100%;
-    height: 40px;
-    position: relative;
-    border-radius: 8px;
-    border: 1px solid white;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-}
-
-.battlefield-name {
-    position: absolute;
-    left: 15px;
-    color: white;
-    font-size: 22px;
-    font-weight: normal;
-    z-index: 2;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.battlefield-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 893px;
+    left: 82px;
+    width: 320px;
+    height: 134px;
     z-index: 1;
 }
 
-.battlefield-background::before {
-    content: '';
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background {
     position: absolute;
-    top: 152px;
-    left: 50%;
-    width: 100%;
-    height: 420px;
-    background-image: var(--bg-image);
+    z-index: 1;
+    width: 319px;
+    height: 35px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transform: translate(-50%, -65%) rotate(90deg);
-    z-index: 1;
 }
 
-.battlefield-background::after {
-    content: '';
-    position: absolute;
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background.riftbound-battlefield-background-1 {
     top: 0;
+    left: 1px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background.riftbound-battlefield-background-2 {
+    top: 49px;
+    left: 0px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background.riftbound-battlefield-background-3 {
+    top: 98px;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
-    z-index: 2;
 }
 
-.deck-section-wrapper.other-section {
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-wrapper {
     position: absolute;
-    top: 200px;
-    left: 700px;
-    /* background-color: blueviolet; */
-    height: 840px;
-    width: 1200px;
+    display: flex;
+    align-items: center;
     justify-content: start;
+    z-index: 20;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.deck-section-wrapper.other-section .main-deck-card {
-    width: 180px;
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-wrapper-1 {
+    top: 1px;
+    left: 0;
+    width: 318px;
+    height: 34px;
 }
 
-.deck-section-wrapper.other-section .main-deck-card .card-src {
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-wrapper-2 {
+    top: 50px;
+    left: 0;
+    width: 318px;
+    height: 34px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-wrapper-3 {
+    top: 99px;
+    left: 0;
+    width: 318px;
+    height: 34px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-name {
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: normal;
+    font-size: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+#deck-display-riftbound .deck-section-wrapper.other-section {
+    position: absolute;
+    top: 40px;
+    left: 674px;
+    height: 832px;
+    width: 1215px;
+    justify-content: start;
+    z-index: 10;
+}
+
+#deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card {
+    width: 192px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card .card-src {
     border-radius: 10px;
 }
 
-.deck-section-wrapper.other-section .main-deck-card .card-count {
-    top: 240px;
-    right: 68px;
+#deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card .card-count {
+    top: 254px;
+    right: 74px;
     width: 45px;
     height: 24px;
     font-size: 20px;
@@ -344,8 +359,9 @@ body.riftbound.horizontal {
 }
 
 
-/* VERTICAL ORIENTATION STYLES */
-body.vertical.mtg .vertical-deck-container {
+/* MTG VERTICAL ORIENTATION STYLES */
+#deck-display-mtg body.vertical .vertical-deck-container,
+body.vertical #deck-display-mtg .vertical-deck-container {
     width: 1920px;
     height: 930px;
     display: flex;
@@ -355,7 +371,7 @@ body.vertical.mtg .vertical-deck-container {
     overflow: hidden;
 }
 
-.mtg-single-column-cards-container {
+#deck-display-mtg .mtg-single-column-cards-container {
     width: 100%;
     max-width: 600px;
     height: 100%;
@@ -366,21 +382,19 @@ body.vertical.mtg .vertical-deck-container {
     padding: 0 20px;
 }
 
-.vertical-card {
+#deck-display-mtg .vertical-card {
     width: 100%;
     max-width: 500px;
     height: 50px;
-    /* Default height, will be overridden by inline styles */
     position: relative;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
-    /* Prevent cards from shrinking */
 }
 
-.vertical-card-number {
+#deck-display-mtg .vertical-card-number {
     position: absolute;
     top: 0;
     left: 0;
@@ -397,7 +411,7 @@ body.vertical.mtg .vertical-deck-container {
     border-radius: 0 0 8px 0;
 }
 
-.vertical-card-name {
+#deck-display-mtg .vertical-card-name {
     position: absolute;
     top: 0;
     left: 40px;
@@ -415,7 +429,7 @@ body.vertical.mtg .vertical-deck-container {
     text-overflow: ellipsis;
 }
 
-.vertical-card-background {
+#deck-display-mtg .vertical-card-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -427,7 +441,7 @@ body.vertical.mtg .vertical-deck-container {
     z-index: 1;
 }
 
-.vertical-card-background::before {
+#deck-display-mtg .vertical-card-background::before {
     content: '';
     position: absolute;
     top: 0;
@@ -439,7 +453,7 @@ body.vertical.mtg .vertical-deck-container {
 }
 
 /* RIFTBOUND VERTICAL SINGLE COLUMN LAYOUT */
-.riftbound-vertical-single-column-container {
+#deck-display-riftbound .riftbound-vertical-single-column-container {
     width: 1920px;
     height: 930px;
     display: flex;
@@ -449,34 +463,30 @@ body.vertical.mtg .vertical-deck-container {
     overflow: hidden;
 }
 
-.riftbound-single-column-cards-container {
+#deck-display-riftbound .riftbound-single-column-cards-container {
     width: 100%;
     max-width: 600px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap: 10px; */
     overflow-y: auto;
     padding: 0 20px;
 }
 
-.riftbound-vertical-card {
+#deck-display-riftbound .riftbound-vertical-card {
     width: 100%;
     max-width: 500px;
     height: 50px;
-    /* Default height, will be overridden by inline styles */
     position: relative;
     display: flex;
     flex-direction: column;
-    /* border-radius: 8px; */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
-    /* Prevent cards from shrinking */
 }
 
-.riftbound-card-number {
+#deck-display-riftbound .riftbound-card-number {
     position: absolute;
     top: 0;
     left: 0;
@@ -493,7 +503,7 @@ body.vertical.mtg .vertical-deck-container {
     border-radius: 0 0 8px 0;
 }
 
-.riftbound-card-name {
+#deck-display-riftbound .riftbound-card-name {
     position: absolute;
     top: 0;
     left: 40px;
@@ -511,7 +521,7 @@ body.vertical.mtg .vertical-deck-container {
     text-overflow: ellipsis;
 }
 
-.riftbound-card-background {
+#deck-display-riftbound .riftbound-card-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -523,7 +533,7 @@ body.vertical.mtg .vertical-deck-container {
     z-index: 1;
 }
 
-.riftbound-card-background::before {
+#deck-display-riftbound .riftbound-card-background::before {
     content: '';
     position: absolute;
     top: 0;
@@ -535,18 +545,16 @@ body.vertical.mtg .vertical-deck-container {
 }
 
 /* RIFTBOUND BATTLEFIELD CARDS IN VERTICAL VIEW */
-.riftbound-battlefield-card {
+#deck-display-riftbound .riftbound-battlefield-card {
     width: 100%;
     height: 100%;
     position: relative;
-    /* border-radius: 8px; */
-    /* border: 1px solid white; */
     overflow: hidden;
     display: flex;
     align-items: center;
 }
 
-.riftbound-battlefield-icon {
+#deck-display-riftbound .riftbound-battlefield-icon {
     position: absolute;
     top: 0;
     left: 0;
@@ -559,9 +567,9 @@ body.vertical.mtg .vertical-deck-container {
     z-index: 3;
 }
 
-.riftbound-battlefield-name {
+#deck-display-riftbound .riftbound-battlefield-name {
     position: absolute;
-    left: 60px;
+    left: 36px;
     color: white;
     font-size: 18px;
     font-weight: normal;
@@ -569,56 +577,18 @@ body.vertical.mtg .vertical-deck-container {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-.riftbound-battlefield-background {
+#deck-display-riftbound .riftbound-battlefield-background {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 893px;
+    left: 72px;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: -1;
+    width: 317px;
 }
 
-.riftbound-battlefield-background::before {
-    content: '';
-    position: absolute;
-    top: 158px;
-    left: 54%;
-    width: 312px;
-    height: 500px;
-    background-image: var(--bg-image);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: translate(-49%, -65%) rotate(90deg);
-    z-index: 1;
-}
-
-.riftbound-battlefield-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
-    z-index: 2;
-}
-
-/* RIFTBOUND LEGEND AND RUNES CARDS WITHOUT COUNTS */
-.riftbound-legend-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 45px;
-    height: 100%;
-    background-image: url('/assets/images/riftbound/Legend.png');
-    background-size: 60% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 3;
-}
-
-.riftbound-card-name-no-count {
+/* RIFTBOUND CARDS WITHOUT COUNTS */
+#deck-display-riftbound .riftbound-card-name-no-count {
     position: absolute;
     top: 0;
     left: 40px;
@@ -636,7 +606,7 @@ body.vertical.mtg .vertical-deck-container {
     text-overflow: ellipsis;
 }
 
-.riftbound-card-background-no-count {
+#deck-display-riftbound .riftbound-card-background-no-count {
     position: absolute;
     top: 0;
     left: 0;
@@ -648,7 +618,7 @@ body.vertical.mtg .vertical-deck-container {
     z-index: 1;
 }
 
-.riftbound-card-background-no-count::before {
+#deck-display-riftbound .riftbound-card-background-no-count::before {
     content: '';
     position: absolute;
     top: 0;
@@ -660,7 +630,7 @@ body.vertical.mtg .vertical-deck-container {
 }
 
 /* RIFTBOUND RUNES BACKGROUND */
-.riftbound-runes-background {
+#deck-display-riftbound .riftbound-runes-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -672,7 +642,7 @@ body.vertical.mtg .vertical-deck-container {
     z-index: 1;
 }
 
-.riftbound-runes-background::before {
+#deck-display-riftbound .riftbound-runes-background::before {
     content: '';
     position: absolute;
     top: 0;

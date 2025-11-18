@@ -16,12 +16,27 @@
 </head>
 
 <body class="container-fluid">
-    <div class="row" id="deck-display-details">
-    </div>
-    <div class="row" id="deck-display-container">
-        <div id="main-deck-container">
+    <!-- MTG Deck Display -->
+    <div id="deck-display-mtg" style="display: none;">
+        <div class="row" id="deck-display-details">
+        </div>
+        <div class="row" id="deck-display-container">
+            <div id="main-deck-container">
+            </div>
         </div>
     </div>
+
+    <!-- Riftbound Deck Display -->
+    <div id="deck-display-riftbound" style="display: none;">
+        <div id="riftbound-background-parent"></div>
+        <div class="row" id="riftbound-deck-display-details">
+        </div>
+        <div class="row" id="riftbound-deck-display-container">
+            <div id="riftbound-main-deck-container">
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="/js/broadcast-round-main-deck.js"></script>
 </body>
 

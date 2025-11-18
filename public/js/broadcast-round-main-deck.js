@@ -33,6 +33,118 @@ const MANA_SYMBOLS = {
     C: {alt: 'Colorless', src: 'https://svgs.scryfall.io/card-symbols/C.svg'}
 };
 
+// Riftbound Battlefields Dictionary
+// Maps battlefield names to their left and right side image URLs
+// Files with "180" are for left side, files without "180" are for right side
+// Default image is used as fallback when a battlefield is not found or empty
+const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
+    left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png',
+    right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+};
+
+const RIFTBOUND_BATTLEFIELDS = {
+    'default': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+    },
+    'Altar to Unity': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Altar-to-Unity180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0024_Altar-to-Unity.png'
+    },
+    'Aspirant\'s Climb': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0001_Aspirant_s-Climb180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0025_Aspirant_s-Climb.png'
+    },
+    'Back Alley Bar': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0002_Back-Alley-Bar180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0026_Back-Alley-Bar.png'
+    },
+    'Bandle Tree': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0003_Bandle-Tree180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0027_Bandle-Tree.png'
+    },
+    'Fortified Position': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0004_Fortified-Position180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0028_Fortified-Position.png'
+    },
+    'Grove of the God Willow': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0005_Grove-of-the-God-Willow180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0029_Grove-of-the-God-Willow.png'
+    },
+    'Hallowed Tomb': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0006_Hallowed-Tomb180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0030_Hallowed-Tomb.png'
+    },
+    'Monastery of Hirana': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0007_Monastery-of-Hirana180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0031_Monastery-of-Hirana.png'
+    },
+    'Navori Fighting Pit': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0008_Navori-Fighting-Pit180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0032_Navori-Fighting-Pit.png'
+    },
+    'Obelisk of Power': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0009_Obelisk-of-Power180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0033_Obelisk-of-Power.png'
+    },
+    'Reaver\'s Row': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0010_Reaver_s-Row180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0034_Reaver_s-Row.png'
+    },
+    'Reckoner\'s Arena': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0011_Reckoner_s-Arena180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0035_Reckoner_s-Arena.png'
+    },
+    'Sigil of the Storm': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0012_Sigil-of-the-Storm180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0036_Sigil-of-the-Storm.png'
+    },
+    'Startipped Peak': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0013_Startipped-Peak180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0037_Startipped-Peak.png'
+    },
+    'Targon\'s Peak': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0014_Targon_s-Peak180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0038_Targon_s-Peak.png'
+    },
+    'The Arena\'s Greatest': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0015_The-Arena_s-Greatest180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0039_The-Arena_s-Greatest.png'
+    },
+    'The Dreaming Tree': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0016_The-Dreaming-Tree180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0040_The-Dreaming-Tree.png'
+    },
+    'The Grand Plaza': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0017_The-Grand-Plaza180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0041_The-Grand-Plaza.png'
+    },
+    'Trifarian War Camp': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0018_Trifarian-War-Camp180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0042_Trifarian-War-Camp.png'
+    },
+    'Vilemaw\'s Lair': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0019_Vilemaw_s-Lair180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0043_Vilemaw_s-Lair.png'
+    },
+    'Void Gate': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0020_Void-Gate180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0044_Void-Gate.png'
+    },
+    'Windswept Hillock': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0021_Windswept-Hillock180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0045_Windswept-Hillock.png'
+    },
+    'Zaun Warrens': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0022_Zaun-Warrens180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0046_Zaun-Warrens.png'
+    },
+    'The Candlelit Sanctum': {
+        left: '/assets/images/riftbound/scoreboard/battlefields/_0023_The-Candlelit-Sanctum180.png',
+        right: '/assets/images/riftbound/scoreboard/battlefields/_0047_The-Candlelit-Sanctum.png'
+    }
+};
+
 // Listen for deck data to display
 socket.on('broadcast-round-data', (data) => {
     // {match1:{}, match2:{},...}}
@@ -91,8 +203,11 @@ function checkFontFamily(globalFont) {
 
 // Function to create the player name section dynamically
 function createPlayerNameSection(playerName) {
+    const riftboundSection = document.getElementById('deck-display-riftbound');
+    if (!riftboundSection) return;
+    
     // Remove existing player name section if it exists
-    const existingSection = document.getElementById('player-name-section');
+    const existingSection = riftboundSection.querySelector('#player-name-section');
     if (existingSection) {
         existingSection.remove();
     }
@@ -115,15 +230,20 @@ function createPlayerNameSection(playerName) {
     playerNameSection.appendChild(playerLabel);
     playerNameSection.appendChild(playerNameDisplay);
 
-    // Append the section to the main-deck-container
-    const mainDeckContainer = document.getElementById('main-deck-container');
-    mainDeckContainer.appendChild(playerNameSection);
+    // Append the section to the riftbound-main-deck-container
+    const mainDeckContainer = riftboundSection.querySelector('#riftbound-main-deck-container');
+    if (mainDeckContainer) {
+        mainDeckContainer.appendChild(playerNameSection);
+    }
 }
 
 // Function to render the decks on the page
 function renderDecks() {
     // try to render - clear view regardless
     if (selectedGame === 'riftbound') {
+        const riftboundSection = document.getElementById('deck-display-riftbound');
+        if (!riftboundSection) return;
+        
         // check that deckData if right type
         if (typeof deckData.mainDeck === 'object' && Object.keys(deckData.mainDeck).length !== 0) {
             if (orientation === 'vertical') {
@@ -135,86 +255,203 @@ function renderDecks() {
         } else {
             console.log('riftbound selected but not correct deckData type - clearing');
             // Clear previous deck displays
-            document.getElementById('main-deck-container').innerHTML = '';
+            const container = riftboundSection.querySelector('#riftbound-main-deck-container');
+            if (container) container.innerHTML = '';
         }
     }
     if (selectedGame === 'mtg') {
+        const mtgSection = document.getElementById('deck-display-mtg');
+        if (!mtgSection) return;
+        
         if (Array.isArray(deckData.mainDeck) && deckData.mainDeck.length !== 0) {
             // existing MTG layout
-            const deckDisplayDetails = document.getElementById('deck-display-details');
+            const deckDisplayDetails = mtgSection.querySelector('#deck-display-details');
             // Clear previous deck displays
-            document.getElementById('main-deck-container').innerHTML = '';
+            const mainDeckContainer = mtgSection.querySelector('#main-deck-container');
+            if (mainDeckContainer) mainDeckContainer.innerHTML = '';
 
             if (orientation === 'vertical') {
-                deckDisplayDetails.style.display = 'none';
+                if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
                 renderMTGVerticalDeck();
             } else {
-                deckDisplayDetails.style.display = 'flex';
+                if (deckDisplayDetails) deckDisplayDetails.style.display = 'flex';
                 // Render main deck horizontally
-                const mainDeckContainer = document.getElementById('main-deck-container');
-                const totalCards = deckData.mainDeck.length;
+                if (mainDeckContainer) {
+                    const totalCards = deckData.mainDeck.length;
 
-                // No overlap, display cards normally
-                // 3 x 10 rows
-                if (totalCards <= 30) {
-                    deckData.mainDeck.forEach((card, index) => {
-                        const cardElement = document.createElement('div');
-                        cardElement.className = 'main-deck-card';
-                        // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-                        cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-                        mainDeckContainer.appendChild(cardElement);
-                    });
-                } else {
-                    // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
-                    const numberCardsPerRow = Math.ceil(totalCards / 3);
-                    // 5px each side on padding on main container -> 10px
-                    // 5px each side of card -> 10px
-                    const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
-                    deckData.mainDeck.forEach((card, index) => {
-                        const cardElement = document.createElement('div');
-                        cardElement.className = 'main-deck-card';
-                        // cardElement.innerHTML = `<div class="card-name">${card['card-name']}</div>`;
-                        cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-                        cardElement.style.width = `${scalingCardWidth}px`;
-                        mainDeckContainer.appendChild(cardElement);
-                    });
+                    // No overlap, display cards normally
+                    // 3 x 10 rows
+                    if (totalCards <= 30) {
+                        deckData.mainDeck.forEach((card, index) => {
+                            const cardElement = document.createElement('div');
+                            cardElement.className = 'main-deck-card';
+                            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                            mainDeckContainer.appendChild(cardElement);
+                        });
+                    } else {
+                        // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
+                        const numberCardsPerRow = Math.ceil(totalCards / 3);
+                        // 5px each side on padding on main container -> 10px
+                        // 5px each side of card -> 10px
+                        const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
+                        deckData.mainDeck.forEach((card, index) => {
+                            const cardElement = document.createElement('div');
+                            cardElement.className = 'main-deck-card';
+                            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                            cardElement.style.width = `${scalingCardWidth}px`;
+                            mainDeckContainer.appendChild(cardElement);
+                        });
+                    }
                 }
             }
 
             // Optionally, display player name and archetype
-            const detailsElement = document.getElementById('deck-display-details');
-            detailsElement.innerHTML = `
-                <h1 class="player-name">${deckData.playerName}</h1>
-                <h5 class="archetype-name">
-                    <span id="player-mana-symbols" class="mana-symbols-container"></span> ${deckData.archetype}
-                </h5>
-            `;
+            if (deckDisplayDetails) {
+                deckDisplayDetails.innerHTML = `
+                    <h1 class="player-name">${deckData.playerName}</h1>
+                    <h5 class="archetype-name">
+                        <span id="player-mana-symbols" class="mana-symbols-container"></span> ${deckData.archetype}
+                    </h5>
+                `;
 
-            // display mana symbols
-            renderManaSymbols(deckData.manaSymbols || '', 'player-mana-symbols');
+                // display mana symbols
+                renderManaSymbols(deckData.manaSymbols || '', 'player-mana-symbols');
+            }
         } else {
             console.log('mtg selected but not correct deckData type - clearing');
             // Clear previous deck displays
-            document.getElementById('main-deck-container').innerHTML = '';
+            const mainDeckContainer = mtgSection.querySelector('#main-deck-container');
+            if (mainDeckContainer) mainDeckContainer.innerHTML = '';
         }
     }
 }
 
+// Function to render battlefields using scoreboard-style implementation
+function renderBattlefields(battlefields, container) {
+    if (!container) return;
+    
+    // Determine if this is left or right player
+    const isLeft = side_id === '1' || side_id?.toLowerCase() === 'left';
+    const side = isLeft ? 'left' : 'right';
+    
+    // Create battlefields section wrapper
+    const sectionWrapper = document.createElement('div');
+    sectionWrapper.className = 'deck-section-wrapper battlefields-section';
+    
+    // Render up to 3 battlefields
+    for (let i = 0; i < 3; i++) {
+        const battlefieldIndex = i + 1;
+        
+        // Create background div
+        const backgroundDiv = document.createElement('div');
+        backgroundDiv.className = `riftbound-battlefield-background riftbound-battlefield-background-${battlefieldIndex}`;
+        
+        // Create wrapper for name
+        const nameWrapper = document.createElement('div');
+        nameWrapper.className = `riftbound-battlefield-wrapper riftbound-battlefield-wrapper-${battlefieldIndex}`;
+        
+        // Create name div
+        const nameDiv = document.createElement('div');
+        nameDiv.id = `riftbound-battlefield-${battlefieldIndex}`;
+        nameDiv.className = 'riftbound-battlefield-name';
+        
+        nameWrapper.appendChild(nameDiv);
+        
+        if (i < battlefields.length && battlefields[i]) {
+            const battlefield = battlefields[i];
+            const battlefieldName = battlefield['card-name'] ? battlefield['card-name'].trim() : '';
+            
+            // Set battlefield name
+            nameDiv.textContent = battlefieldName;
+            nameDiv.style.display = 'block';
+            
+            // Set battlefield background image
+            let battlefieldData = null;
+            
+            if (battlefieldName) {
+                // Try exact match first
+                battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
+                
+                // If no exact match, try case-insensitive match
+                if (!battlefieldData) {
+                    const battlefieldNameLower = battlefieldName.toLowerCase();
+                    for (const key in RIFTBOUND_BATTLEFIELDS) {
+                        if (key.toLowerCase() === battlefieldNameLower) {
+                            battlefieldData = RIFTBOUND_BATTLEFIELDS[key];
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            let imageUrl;
+            if (battlefieldData && battlefieldData[side]) {
+                imageUrl = battlefieldData[side];
+            } else {
+                // Use default image if battlefield name doesn't match
+                imageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
+            }
+            
+            const encodedUrl = encodeURI(imageUrl);
+            const cacheBuster = new Date().getTime();
+            const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+            backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+            backgroundDiv.style.backgroundSize = 'cover';
+            backgroundDiv.style.backgroundPosition = 'center';
+            backgroundDiv.style.backgroundRepeat = 'no-repeat';
+            backgroundDiv.style.display = 'block';
+        } else {
+            // Show default image for missing battlefield slots
+            nameDiv.textContent = '';
+            nameDiv.style.display = 'none';
+            
+            // Use default image for missing battlefields
+            const defaultImageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
+            const encodedUrl = encodeURI(defaultImageUrl);
+            const cacheBuster = new Date().getTime();
+            const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+            backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+            backgroundDiv.style.backgroundSize = 'cover';
+            backgroundDiv.style.backgroundPosition = 'center';
+            backgroundDiv.style.backgroundRepeat = 'no-repeat';
+            backgroundDiv.style.display = 'block';
+        }
+        
+        sectionWrapper.appendChild(backgroundDiv);
+        sectionWrapper.appendChild(nameWrapper);
+    }
+    
+    container.appendChild(sectionWrapper);
+}
+
 // RIFTBOUND RENDERING
 function renderRiftboundDeckSections(deckObj) {
-    const deckDisplayDetails = document.getElementById('deck-display-details');
-    deckDisplayDetails.style.display = 'none';
-    const container = document.getElementById('main-deck-container');
+    const riftboundSection = document.getElementById('deck-display-riftbound');
+    if (!riftboundSection) return;
+    
+    const deckDisplayDetails = riftboundSection.querySelector('#riftbound-deck-display-details');
+    if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
+    
+    const container = riftboundSection.querySelector('#riftbound-main-deck-container');
+    if (!container) return;
+    
     container.innerHTML = ''; // Clear previous
 
     // Create and populate the player name section dynamically for Riftbound
     createPlayerNameSection(deckData.playerName);
 
-    const sections = ['legend', 'runes', 'battlefields', 'other'];
+    // Handle battlefields separately using scoreboard-style implementation
+    if (deckObj.battlefields && deckObj.battlefields.length > 0) {
+        const battlefields = deckObj.battlefields.slice(0, 3); // Max 3
+        renderBattlefields(battlefields, container);
+    } else {
+        // Show default battlefields if none exist
+        renderBattlefields([], container);
+    }
+
+    const sections = ['runes', 'other'];
     const sectionTitles = {
-        legend: 'Legend',
         runes: 'Runes',
-        battlefields: 'Battlefields',
         other: 'Main Deck'
     };
 
@@ -223,11 +460,7 @@ function renderRiftboundDeckSections(deckObj) {
         if (!cards || cards.length === 0) return;
 
         // Apply visual logic per section
-        if (key === 'legend') {
-            cards = [cards[0]]; // Only first legend
-        } else if (key === 'battlefields') {
-            cards = cards.slice(0, 3); // Max 3
-        } else if (key === 'runes') {
+        if (key === 'runes') {
             cards = cards.slice(0, 2); // Max 2
         } else if (key === 'other') {
             cards = cards.slice(0, 18); // Max 18
@@ -240,14 +473,7 @@ function renderRiftboundDeckSections(deckObj) {
             if (card['card-url']) {
                 const cardEl = document.createElement('div');
                 cardEl.className = 'main-deck-card';
-                if (key === 'battlefields') {
-                    cardEl.innerHTML = `
-                        <div class="battlefield-card">
-                            <div class="battlefield-name">${card['card-name']}</div>
-                            <div class="battlefield-background" style="--bg-image: url('${card['card-url']}');"></div>
-                        </div>
-                    `;
-                } else if (key === 'runes') {
+                if (key === 'runes') {
                     cardEl.innerHTML = `
                         <div class="runes-card">
                             <div class="runes-background" style="--bg-image: url('${card['card-url']}');"></div>
@@ -267,7 +493,12 @@ function renderRiftboundDeckSections(deckObj) {
 
 // VERTICAL RENDERING FUNCTIONS
 function renderMTGVerticalDeck() {
-    const mainDeckContainer = document.getElementById('main-deck-container');
+    const mtgSection = document.getElementById('deck-display-mtg');
+    if (!mtgSection) return;
+    
+    const mainDeckContainer = mtgSection.querySelector('#main-deck-container');
+    if (!mainDeckContainer) return;
+    
     mainDeckContainer.className = 'vertical-deck-container';
     
     // Clear previous deck displays
@@ -312,18 +543,22 @@ function renderMTGVerticalDeck() {
 }
 
 function renderRiftboundVerticalDeck(deckObj) {
-    const deckDisplayDetails = document.getElementById('deck-display-details');
-    deckDisplayDetails.style.display = 'none';
+    const riftboundSection = document.getElementById('deck-display-riftbound');
+    if (!riftboundSection) return;
     
-    const mainDeckContainer = document.getElementById('main-deck-container');
+    const deckDisplayDetails = riftboundSection.querySelector('#riftbound-deck-display-details');
+    if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
+    
+    const mainDeckContainer = riftboundSection.querySelector('#riftbound-main-deck-container');
+    if (!mainDeckContainer) return;
+    
     mainDeckContainer.className = 'riftbound-vertical-single-column-container';
     
     // Clear previous deck displays
     mainDeckContainer.innerHTML = '';
     
-    // Define sections in the required order: legend, battlefields, other cards, then runes
+    // Define sections in the required order: battlefields, other cards, then runes
     const sections = [
-        { key: 'legend', title: 'Legend' },
         { key: 'battlefields', title: 'Battlefields' },
         { key: 'other', title: 'Main Deck' },
         { key: 'runes', title: 'Runes' }
@@ -365,13 +600,6 @@ function renderRiftboundVerticalDeck(deckObj) {
                         <div class="riftbound-battlefield-name">${card['card-name']}</div>
                         <div class="riftbound-battlefield-background" style="--bg-image: url('${card['card-url']}');"></div>
                     </div>
-                `;
-            } else if (section.key === 'legend') {
-                // Legend doesn't show card counts
-                cardElement.innerHTML = `
-                    <div class="riftbound-legend-icon"></div>
-                    <div class="riftbound-card-name-no-count" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
-                    <div class="riftbound-card-background-no-count" style="background-image: url('${card['card-url']}');background-position: 0px -60px;background-size: cover;"></div>
                 `;
             } else if (section.key === 'runes') {
                 // Runes show card counts and card names like main deck cards
@@ -450,12 +678,55 @@ function handleGameSelectionUpdate(gameSelection) {
     // Add game type class to body
     document.body.classList.add(selectedGame);
 
-    // Perform actions based on game type
+    // Show/hide appropriate sections
+    const mtgSection = document.getElementById('deck-display-mtg');
+    const riftboundSection = document.getElementById('deck-display-riftbound');
+
     if (selectedGame === 'mtg') {
         console.log('Switching to MTG mode...');
+        if (mtgSection) mtgSection.style.display = 'block';
+        if (riftboundSection) riftboundSection.style.display = 'none';
     } else if (selectedGame === 'riftbound') {
         console.log('Switching to Riftbound mode...');
+        if (mtgSection) mtgSection.style.display = 'none';
+        if (riftboundSection) riftboundSection.style.display = 'block';
+        setRiftboundBackground();
+    } else {
+        // Default: hide both if unknown game type
+        if (mtgSection) mtgSection.style.display = 'none';
+        if (riftboundSection) riftboundSection.style.display = 'none';
     }
+}
+
+// Function to set the riftbound background based on side_id
+function setRiftboundBackground() {
+    const riftboundSection = document.getElementById('deck-display-riftbound');
+    if (!riftboundSection) return;
+    
+    const backgroundParent = riftboundSection.querySelector('#riftbound-background-parent');
+    if (!backgroundParent) return;
+    
+    // Determine if this is left or right player
+    // side_id can be '1' or '2', or potentially 'left' or 'right'
+    const isLeft = side_id === '1' || side_id?.toLowerCase() === 'left';
+    const isRight = side_id === '2' || side_id?.toLowerCase() === 'right';
+    
+    let backgroundImage;
+    if (isLeft) {
+        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped.png';
+    } else if (isRight) {
+        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Green_Prepped.png';
+    } else {
+        // Default to blue if side_id is not recognized
+        console.log('Unknown side_id, defaulting to blue background');
+        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped.png';
+    }
+    
+    // Set the background image with cache buster
+    const cacheBuster = new Date().getTime();
+    const finalUrl = `${backgroundImage}?v=${cacheBuster}`;
+    backgroundParent.style.backgroundImage = `url("${finalUrl}")`;
+    console.log(`Riftbound background set to: ${finalUrl} for side_id: ${side_id}`);
 }
 
 socket.emit('get-game-selection');
