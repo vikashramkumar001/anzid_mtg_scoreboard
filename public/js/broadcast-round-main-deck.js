@@ -43,6 +43,17 @@ const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
     right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
 };
 
+// Riftbound Runes Dictionary
+// Maps rune letters to their icon image URLs
+const RIFTBOUND_RUNES = {
+    'g': '/assets/images/riftbound/scoreboard/icons/Calm2.png',
+    'p': '/assets/images/riftbound/scoreboard/icons/Chaos2.png',
+    'r': '/assets/images/riftbound/scoreboard/icons/Fury2.png',
+    'b': '/assets/images/riftbound/scoreboard/icons/Mind.png',
+    'y': '/assets/images/riftbound/scoreboard/icons/Order2.png',
+    'o': '/assets/images/riftbound/scoreboard/icons/Body2.png'
+};
+
 const RIFTBOUND_BATTLEFIELDS = {
     'default': {
         left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default180.png',
@@ -510,46 +521,79 @@ function renderRiftboundDeckSections(deckObj) {
         renderBattlefields([], container);
     }
 
-    const sections = ['runes', 'other'];
-    const sectionTitles = {
-        runes: 'Runes',
-        other: 'Main Deck'
-    };
+    // Handle runes section separately - use rune icons from runes string
+    const runesString = roundData[match_id] ? (roundData[match_id][`player-runes-${side_id}`] || '').trim().toLowerCase() : '';
+    if (runesString) {
+        const sectionWrapper = document.createElement('div');
+        sectionWrapper.className = 'deck-section-wrapper runes-section';
 
-    sections.forEach(key => {
-        let cards = deckObj[key];
-        if (!cards || cards.length === 0) return;
+        // Map rune letters to rune names for matching with deck data
+        const runeLetterToName = {
+            'g': 'Calm',
+            'p': 'Chaos',
+            'r': 'Fury',
+            'b': 'Mind',
+            'y': 'Order',
+            'o': 'Body'
+        };
 
-        // Apply visual logic per section
-        if (key === 'runes') {
-            cards = cards.slice(0, 2); // Max 2
-        } else if (key === 'other') {
-            cards = cards.slice(0, 18); // Max 18
+        // Create a map of rune card names to their counts from deck data
+        const runeCardsMap = {};
+        if (deckObj.runes && Array.isArray(deckObj.runes)) {
+            deckObj.runes.forEach(card => {
+                const cardName = card['card-name'] || '';
+                // Match rune name in card name (case-insensitive)
+                for (const [letter, runeName] of Object.entries(runeLetterToName)) {
+                    if (cardName.toLowerCase().includes(runeName.toLowerCase())) {
+                        runeCardsMap[letter] = card['card-count'] || 0;
+                        break;
+                    }
+                }
+            });
         }
 
+        // Process first 2 runes from the string
+        const runesToDisplay = runesString.slice(0, 2);
+        for (let i = 0; i < runesToDisplay.length; i++) {
+            const letter = runesToDisplay[i];
+            const runeUrl = RIFTBOUND_RUNES[letter];
+            
+            if (runeUrl) {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'main-deck-card';
+                const cardCount = runeCardsMap[letter] || 0;
+                cardEl.innerHTML = `
+                    <img src="${runeUrl}" class="riftbound-rune-icon" alt="Rune ${letter}">
+                    <div class="card-count">${cardCount}</div>
+                `;
+                sectionWrapper.appendChild(cardEl);
+            }
+        }
+
+        if (sectionWrapper.children.length > 0) {
+            container.appendChild(sectionWrapper);
+        }
+    }
+
+    // Handle other section (main deck cards)
+    const otherCards = deckObj['other'];
+    if (otherCards && otherCards.length > 0) {
+        const cards = otherCards.slice(0, 18); // Max 18
+
         const sectionWrapper = document.createElement('div');
-        sectionWrapper.className = `deck-section-wrapper ${key}-section`;
+        sectionWrapper.className = 'deck-section-wrapper other-section';
 
         cards.forEach(card => {
             if (card['card-url']) {
                 const cardEl = document.createElement('div');
                 cardEl.className = 'main-deck-card';
-                if (key === 'runes') {
-                    cardEl.innerHTML = `
-                        <div class="runes-card">
-                            <div class="runes-background" style="--bg-image: url('${card['card-url']}');"></div>
-                        </div>
-                        <div class="card-count">${card['card-count']}</div>
-                    `;
-                } else {
-                    cardEl.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-                }
+                cardEl.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
                 sectionWrapper.appendChild(cardEl);
             }
         });
 
         container.appendChild(sectionWrapper);
-    });
+    }
 
     // Handle side deck separately
     if (deckData.sideDeck && Array.isArray(deckData.sideDeck) && deckData.sideDeck.length > 0) {
@@ -640,15 +684,14 @@ function renderRiftboundVerticalDeck(deckObj) {
     // Define sections in the required order: battlefields, other cards, then runes
     const sections = [
         { key: 'battlefields', title: 'Battlefields' },
-        { key: 'other', title: 'Main Deck' },
-        { key: 'runes', title: 'Runes' }
+        { key: 'other', title: 'Main Deck' }
     ];
     
     // Create single cards container
     const cardsContainer = document.createElement('div');
     cardsContainer.className = 'riftbound-single-column-cards-container';
     
-    // Count total cards first to determine card height
+    // Count total cards first to determine card height (excluding runes which are handled separately)
     let totalCards = 0;
     sections.forEach(section => {
         const cards = deckObj[section.key];
@@ -656,6 +699,12 @@ function renderRiftboundVerticalDeck(deckObj) {
             totalCards += cards.length; // Count all cards in each section
         }
     });
+    
+    // Add runes count (max 2)
+    const runesString = roundData[match_id] ? (roundData[match_id][`player-runes-${side_id}`] || '').trim().toLowerCase() : '';
+    if (runesString) {
+        totalCards += Math.min(runesString.length, 2);
+    }
     
     // Use dynamic card height based on total card count
     const cardHeight = totalCards > 21 ? 41 : 50;
@@ -681,13 +730,6 @@ function renderRiftboundVerticalDeck(deckObj) {
                         <div class="riftbound-battlefield-background" style="--bg-image: url('${card['card-url']}');"></div>
                     </div>
                 `;
-            } else if (section.key === 'runes') {
-                // Runes show card counts and card names like main deck cards
-                cardElement.innerHTML = `
-                    <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
-                    <div class="riftbound-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
-                    <div class="riftbound-runes-background" style="background-image: url('${card['card-url']}');background-position:-40px -172px;background-size: 120% auto;"></div>
-                `;
             } else {
                 // Main deck shows card counts
                 cardElement.innerHTML = `
@@ -699,6 +741,53 @@ function renderRiftboundVerticalDeck(deckObj) {
             cardsContainer.appendChild(cardElement);
         });
     });
+    
+    // Handle runes section separately - use rune icons from runes string
+    if (runesString) {
+        // Map rune letters to rune names for matching with deck data
+        const runeLetterToName = {
+            'g': 'Calm',
+            'p': 'Chaos',
+            'r': 'Fury',
+            'b': 'Mind',
+            'y': 'Order',
+            'o': 'Body'
+        };
+
+        // Create a map of rune card names to their counts from deck data
+        const runeCardsMap = {};
+        if (deckObj.runes && Array.isArray(deckObj.runes)) {
+            deckObj.runes.forEach(card => {
+                const cardName = card['card-name'] || '';
+                // Match rune name in card name (case-insensitive)
+                for (const [letter, runeName] of Object.entries(runeLetterToName)) {
+                    if (cardName.toLowerCase().includes(runeName.toLowerCase())) {
+                        runeCardsMap[letter] = card['card-count'] || 0;
+                        break;
+                    }
+                }
+            });
+        }
+
+        // Process first 2 runes from the string
+        const runesToDisplay = runesString.slice(0, 2);
+        for (let i = 0; i < runesToDisplay.length; i++) {
+            const letter = runesToDisplay[i];
+            const runeUrl = RIFTBOUND_RUNES[letter];
+            
+            if (runeUrl) {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'riftbound-vertical-card';
+                cardElement.style.height = `${cardHeight}px`;
+                const cardCount = runeCardsMap[letter] || 0;
+                cardElement.innerHTML = `
+                    <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${cardCount}</div>
+                    <img src="${runeUrl}" class="riftbound-rune-icon-vertical" alt="Rune ${letter}" style="width: 40px; height: 40px; object-fit: contain;">
+                `;
+                cardsContainer.appendChild(cardElement);
+            }
+        }
+    }
     
     mainDeckContainer.appendChild(cardsContainer);
 }
