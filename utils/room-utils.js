@@ -75,7 +75,7 @@ export class RoomUtils {
             'vibes-deck-data-from-server': ['vibes-deck-display'],
             'riftbound-deck-data-from-server': ['riftbound-deck-display'],
             'transformed-main-deck-data': ['broadcast-main-deck'],
-            'transformed-side-deck-data': ['broadcast-side-deck'],
+            'transformed-side-deck-data': ['broadcast-side-deck', 'broadcast-main-deck'],
             
             // Standings events
             'standings-data': ['master-control', 'standings', 'broadcast-standings'],

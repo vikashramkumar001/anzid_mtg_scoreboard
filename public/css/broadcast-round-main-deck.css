@@ -358,6 +358,39 @@ body.vertical #deck-display-mtg #main-deck-container {
     border: 1px solid white;
 }
 
+/* Riftbound Side Deck Section */
+#deck-display-riftbound .deck-section-wrapper.side-deck-section {
+    position: absolute;
+    top: 886px;
+    left: 722px;
+    height: 148px;
+    width: 904px;
+    justify-content: start;
+    z-index: 10;
+    display: flex;
+    flex-wrap: nowrap;
+    row-gap: 0px;
+    column-gap: 7px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card {
+    width: 107px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-src {
+    border-radius: 10px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-count {
+    top: 254px;
+    right: 74px;
+    width: 45px;
+    height: 24px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
 
 /* MTG VERTICAL ORIENTATION STYLES */
 #deck-display-mtg body.vertical .vertical-deck-container,

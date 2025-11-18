@@ -4,6 +4,7 @@ window.roomManager = new RoomManager(socket);
 let roundData = {};
 let deckData = {};
 let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
+let pendingSideDeckData = null;  // Store side deck data until game selection is known
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
@@ -163,24 +164,67 @@ socket.on('broadcast-round-data', (data) => {
     } else {
         console.log('deck data not found for url parameters', match_id, side_id);
     }
+
+    // Also check for side deck data
+    if (data[match_id] && data[match_id][`player-side-deck-${side_id}`]) {
+        // Store side deck data for later transformation when game selection is known
+        pendingSideDeckData = data[match_id][`player-side-deck-${side_id}`] || [];
+        
+        // Request transformation if game selection is already known
+        if (selectedGame) {
+            requestSideDeckTransformation();
+        }
+    }
 });
 
 // listen for transformed deck to display
 socket.on('transformed-main-deck-data', (data) => {
     console.log('transformed main deck data from server', data);
     if (data.sideID === side_id && data.gameType === selectedGame && data.matchID === match_id) {
-        deckData = {
-            mainDeck: data.deckData,
-            sideDeck: [],
-            playerName: roundData[match_id][`player-name-${side_id}`] || 'Unknown Player',
-            archetype: roundData[match_id][`player-archetype-${side_id}`] || 'Unknown Archetype',
-            manaSymbols: roundData[match_id][`player-mana-symbols-${side_id}`] || ''
-        };
+        // Update or initialize deckData
+        if (!deckData || Object.keys(deckData).length === 0) {
+            deckData = {
+                mainDeck: data.deckData,
+                sideDeck: [],
+                playerName: roundData[match_id][`player-name-${side_id}`] || 'Unknown Player',
+                archetype: roundData[match_id][`player-archetype-${side_id}`] || 'Unknown Archetype',
+                manaSymbols: roundData[match_id][`player-mana-symbols-${side_id}`] || ''
+            };
+        } else {
+            deckData.mainDeck = data.deckData;
+            // Preserve existing sideDeck if it exists
+            if (!deckData.sideDeck) {
+                deckData.sideDeck = [];
+            }
+        }
         console.log('deck data', deckData);
         // Call a function to render the decks
         renderDecks();
     } else {
         console.log('transformed deck data - not the correct side or game type or match id')
+    }
+})
+
+// listen for transformed side deck to display
+socket.on('transformed-side-deck-data', (data) => {
+    // Check if this is for the current match/side/game
+    const isMatch = data.sideID === side_id && data.gameType === selectedGame && data.matchID === match_id;
+    
+    if (isMatch) {
+        // Update deckData with side deck
+        if (!deckData || Object.keys(deckData).length === 0) {
+            deckData = {
+                mainDeck: {},
+                sideDeck: data.deckData,
+                playerName: roundData[match_id] ? roundData[match_id][`player-name-${side_id}`] || 'Unknown Player' : 'Unknown Player',
+                archetype: roundData[match_id] ? roundData[match_id][`player-archetype-${side_id}`] || 'Unknown Archetype' : 'Unknown Archetype',
+                manaSymbols: roundData[match_id] ? roundData[match_id][`player-mana-symbols-${side_id}`] || '' : ''
+            };
+        } else {
+            deckData.sideDeck = data.deckData;
+        }
+        // Call a function to render the decks
+        renderDecks();
     }
 })
 
@@ -489,6 +533,25 @@ function renderRiftboundDeckSections(deckObj) {
 
         container.appendChild(sectionWrapper);
     });
+
+    // Handle side deck separately
+    if (deckData.sideDeck && Array.isArray(deckData.sideDeck) && deckData.sideDeck.length > 0) {
+        const sideDeckCards = deckData.sideDeck.slice(0, 8); // Max 8 cards
+        
+        const sideDeckWrapper = document.createElement('div');
+        sideDeckWrapper.className = 'deck-section-wrapper side-deck-section';
+
+        sideDeckCards.forEach(card => {
+            if (card['card-url']) {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'main-deck-card';
+                cardEl.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                sideDeckWrapper.appendChild(cardEl);
+            }
+        });
+
+        container.appendChild(sideDeckWrapper);
+    }
 }
 
 // VERTICAL RENDERING FUNCTIONS
@@ -662,6 +725,18 @@ function renderManaSymbols(inputStr, containerId, scenario = {}) {
     });
 }
 
+// Helper function to request side deck transformation
+function requestSideDeckTransformation() {
+    if (pendingSideDeckData && selectedGame) {
+        socket.emit('transform-side-deck-data', ({
+            deckData: pendingSideDeckData,
+            gameType: selectedGame,
+            sideID: side_id,
+            matchID: match_id
+        }));
+    }
+}
+
 // game selection logic
 function handleGameSelectionUpdate(gameSelection) {
     const normalized = gameSelection?.toLowerCase();
@@ -696,6 +771,9 @@ function handleGameSelectionUpdate(gameSelection) {
         if (mtgSection) mtgSection.style.display = 'none';
         if (riftboundSection) riftboundSection.style.display = 'none';
     }
+
+    // Request side deck transformation now that game selection is known
+    requestSideDeckTransformation();
 }
 
 // Function to set the riftbound background based on side_id
