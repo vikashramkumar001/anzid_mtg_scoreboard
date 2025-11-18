@@ -100,10 +100,10 @@ body.vertical #deck-display-mtg #main-deck-container {
 
 #deck-display-riftbound #player-name-section {
     position: absolute;
-    top: 70px;
-    left: 700px;
-    width: 1200px;
-    height: 105px;
+    top: 702px;
+    left: 38px;
+    width: 600px;
+    height: 169px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -111,23 +111,44 @@ body.vertical #deck-display-mtg #main-deck-container {
     z-index: 10;
 }
 
-#deck-display-riftbound .player-label {
-    font-size: 30px;
-    font-weight: normal;
-    height: 20px;
-    line-height: 27px;
-    color: white;
+#deck-display-riftbound .player-name-display-wrapper {
+    width: 100%;
+    height: 55px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #deck-display-riftbound .player-name-display {
-    font-size: 105px;
-    font-weight: normal;
-    height: 85px;
-    line-height: 105px;
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 60px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#deck-display-riftbound .player-legend-display-wrapper {
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#deck-display-riftbound .player-legend-display {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
 }
 
 .main-deck-card {
@@ -349,7 +370,7 @@ body.vertical #deck-display-mtg #main-deck-container {
 }
 
 #deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card .card-count {
-    top: 254px;
+    top: 250px;
     right: 74px;
     width: 45px;
     height: 24px;

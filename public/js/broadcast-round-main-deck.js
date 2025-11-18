@@ -246,7 +246,7 @@ function checkFontFamily(globalFont) {
 }
 
 // Function to create the player name section dynamically
-function createPlayerNameSection(playerName) {
+function createPlayerNameSection(playerName, legend) {
     const riftboundSection = document.getElementById('deck-display-riftbound');
     if (!riftboundSection) return;
     
@@ -260,19 +260,35 @@ function createPlayerNameSection(playerName) {
     const playerNameSection = document.createElement('div');
     playerNameSection.id = 'player-name-section';
 
-    // Create the player label
-    const playerLabel = document.createElement('div');
-    playerLabel.className = 'player-label';
-    playerLabel.textContent = 'Player:';
-
+    // Create parent div for player name display
+    const playerNameDisplayWrapper = document.createElement('div');
+    playerNameDisplayWrapper.className = 'player-name-display-wrapper';
+    
     // Create the player name display
     const playerNameDisplay = document.createElement('div');
     playerNameDisplay.className = 'player-name-display';
     playerNameDisplay.textContent = playerName;
+    
+    // Append player name display to its wrapper
+    playerNameDisplayWrapper.appendChild(playerNameDisplay);
+
+    // Create parent div for legend display
+    const legendDisplayWrapper = document.createElement('div');
+    legendDisplayWrapper.className = 'player-legend-display-wrapper';
+    
+    // Create the legend display
+    const legendDisplay = document.createElement('div');
+    legendDisplay.className = 'player-legend-display';
+    legendDisplay.textContent = legend ? `Playing ${legend}` : '';
+    // Set color based on side_id: #19c8ff for left, #1ae930 for right
+    legendDisplay.style.color = side_id === 'left' ? '#19c8ff' : '#1ae930';
+    
+    // Append legend display to its wrapper
+    legendDisplayWrapper.appendChild(legendDisplay);
 
     // Append elements to the section
-    playerNameSection.appendChild(playerLabel);
-    playerNameSection.appendChild(playerNameDisplay);
+    playerNameSection.appendChild(playerNameDisplayWrapper);
+    playerNameSection.appendChild(legendDisplayWrapper);
 
     // Append the section to the riftbound-main-deck-container
     const mainDeckContainer = riftboundSection.querySelector('#riftbound-main-deck-container');
@@ -482,7 +498,8 @@ function renderRiftboundDeckSections(deckObj) {
     container.innerHTML = ''; // Clear previous
 
     // Create and populate the player name section dynamically for Riftbound
-    createPlayerNameSection(deckData.playerName);
+    const legend = roundData[match_id] ? roundData[match_id][`player-legend-${side_id}`] || '' : '';
+    createPlayerNameSection(deckData.playerName, legend);
 
     // Handle battlefields separately using scoreboard-style implementation
     if (deckObj.battlefields && deckObj.battlefields.length > 0) {
