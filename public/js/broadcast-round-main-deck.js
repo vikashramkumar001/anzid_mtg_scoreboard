@@ -46,12 +46,12 @@ const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
 // Riftbound Runes Dictionary
 // Maps rune letters to their icon image URLs
 const RIFTBOUND_RUNES = {
-    'g': '/assets/images/riftbound/scoreboard/icons/Calm2.png',
-    'p': '/assets/images/riftbound/scoreboard/icons/Chaos2.png',
-    'r': '/assets/images/riftbound/scoreboard/icons/Fury2.png',
-    'b': '/assets/images/riftbound/scoreboard/icons/Mind.png',
-    'y': '/assets/images/riftbound/scoreboard/icons/Order2.png',
-    'o': '/assets/images/riftbound/scoreboard/icons/Body2.png'
+    'g': '/assets/images/riftbound/runes-outlined/Calm.png',
+    'p': '/assets/images/riftbound/runes-outlined/Chaos.png',
+    'r': '/assets/images/riftbound/runes-outlined/Fury.png',
+    'b': '/assets/images/riftbound/runes-outlined/Mind.png',
+    'y': '/assets/images/riftbound/runes-outlined/Order.png',
+    'o': '/assets/images/riftbound/runes-outlined/Body.png'
 };
 
 const RIFTBOUND_BATTLEFIELDS = {
@@ -157,12 +157,47 @@ const RIFTBOUND_BATTLEFIELDS = {
     }
 };
 
+// Riftbound Legends Descriptions Dictionary
+// Maps legend names to their description image URLs
+const RIFTBOUND_LEGENDS_DESCRIPTIONS = {
+    'default': '/assets/images/riftbound/decklist-descriptions/LegendText_0000_default.png',
+    'Kai\'sa': '/assets/images/riftbound/decklist-descriptions/LegendText_0001_Kaisa, Daughter of the Void.png',
+    'Volibear': '/assets/images/riftbound/decklist-descriptions/LegendText_0002_Volibear, Relentless Storm.png',
+    'Sett': '/assets/images/riftbound/decklist-descriptions/LegendText_0003_Sett, The Boss.png',
+    'Viktor': '/assets/images/riftbound/decklist-descriptions/LegendText_0004_Viktor, Herald of the Arcane.png',
+    'Teemo': '/assets/images/riftbound/decklist-descriptions/LegendText_0005_Teemo, Swift Scout.png',
+    'Leona': '/assets/images/riftbound/decklist-descriptions/LegendText_0006_Leona, Radiant Dawn.png',
+    'Yasuo': '/assets/images/riftbound/decklist-descriptions/LegendText_0007_Yasuo, Unforgiven.png',
+    'Yas': '/assets/images/riftbound/decklist-descriptions/LegendText_0007_Yasuo, Unforgiven.png',
+    'Lee Sin': '/assets/images/riftbound/decklist-descriptions/LegendText_0008_Lee Sin, Blind Monk.png',
+    'Ahri': '/assets/images/riftbound/decklist-descriptions/LegendText_0009_Ahri, Nine-Tailed Fox.png',
+    'Darius': '/assets/images/riftbound/decklist-descriptions/LegendText_0010_Darius, Hand of Noxus.png',
+    'Jinx': '/assets/images/riftbound/decklist-descriptions/LegendText_0011_Jinx, Loose Cannon.png',
+    'Miss Fortune': '/assets/images/riftbound/decklist-descriptions/LegendText_0012_Miss Fortune, Bounty Hunter.png',
+    'Garen': '/assets/images/riftbound/decklist-descriptions/LegendText_0013_Garen, Might of Demacia.png',
+    'Lux': '/assets/images/riftbound/decklist-descriptions/LegendText_0014_Lux, Lady of Luminosity.png',
+    'Annie': '/assets/images/riftbound/decklist-descriptions/LegendText_0015_Annie, Dark Child.png',
+    'Master Yi': '/assets/images/riftbound/decklist-descriptions/LegendText_0016_Master Yi, Wuju Bladesman.png'
+};
+
 // Listen for deck data to display
 socket.on('broadcast-round-data', (data) => {
     // {match1:{}, match2:{},...}}
     console.log('data', data);
 
     roundData = data;
+
+    // Update legend description if game is riftbound and legend data exists
+    if (selectedGame === 'riftbound' && data[match_id] && data[match_id][`player-legend-${side_id}`]) {
+        const riftboundSection = document.getElementById('deck-display-riftbound');
+        if (riftboundSection) {
+            const container = riftboundSection.querySelector('#riftbound-main-deck-container');
+            if (container) {
+                const legend = data[match_id][`player-legend-${side_id}`] || '';
+                createLegendDescriptionSection(legend, container);
+            }
+        }
+    }
 
     if (data[match_id] && data[match_id][`player-main-deck-${side_id}`]) {
         // ask server to transform main deck data
@@ -290,7 +325,7 @@ function createPlayerNameSection(playerName, legend) {
     // Create the legend display
     const legendDisplay = document.createElement('div');
     legendDisplay.className = 'player-legend-display';
-    legendDisplay.textContent = legend ? `Playing ${legend}` : '';
+    legendDisplay.textContent = legend ? `${legend}` : '';
     // Set color based on side_id: #19c8ff for left, #1ae930 for right
     legendDisplay.style.color = side_id === 'left' ? '#19c8ff' : '#1ae930';
     
@@ -306,6 +341,74 @@ function createPlayerNameSection(playerName, legend) {
     if (mainDeckContainer) {
         mainDeckContainer.appendChild(playerNameSection);
     }
+}
+
+// Function to create and update the legend description section
+function createLegendDescriptionSection(legend, container) {
+    if (!container) return;
+    
+    // Remove existing legend description section if it exists
+    const existingSection = container.querySelector('#riftbound-legend-description-section');
+    if (existingSection) {
+        existingSection.remove();
+    }
+    
+    // Create the section wrapper
+    const sectionWrapper = document.createElement('div');
+    sectionWrapper.id = 'riftbound-legend-description-section';
+    sectionWrapper.className = 'deck-section-wrapper legend-description-section';
+    
+    // Determine which image to use
+    let imageUrl;
+    if (legend) {
+        const legendValue = legend.trim();
+        const legendValueLower = legendValue.toLowerCase();
+        let matchedLegendKey = null;
+        
+        // First try exact case-insensitive match
+        for (const legendKey in RIFTBOUND_LEGENDS_DESCRIPTIONS) {
+            if (legendKey.toLowerCase() === legendValueLower) {
+                matchedLegendKey = legendKey;
+                break;
+            }
+        }
+        
+        // If no exact match, check if the value contains any of the legend dictionary keys
+        // This handles cases like "Jinx, Loose Cannon" matching "Jinx"
+        if (!matchedLegendKey) {
+            for (const legendKey in RIFTBOUND_LEGENDS_DESCRIPTIONS) {
+                const legendKeyLower = legendKey.toLowerCase();
+                // Check if the incoming value contains the legend key (e.g., "jinx, loose cannon" contains "jinx")
+                if (legendValueLower.includes(legendKeyLower)) {
+                    matchedLegendKey = legendKey;
+                    break;
+                }
+            }
+        }
+        
+        // Get the description image URL
+        if (matchedLegendKey && RIFTBOUND_LEGENDS_DESCRIPTIONS[matchedLegendKey]) {
+            imageUrl = RIFTBOUND_LEGENDS_DESCRIPTIONS[matchedLegendKey];
+        } else {
+            // Use default if no match found
+            imageUrl = RIFTBOUND_LEGENDS_DESCRIPTIONS['default'];
+        }
+    } else {
+        // Show default if legend is empty
+        imageUrl = RIFTBOUND_LEGENDS_DESCRIPTIONS['default'];
+    }
+    
+    // Create img element directly as child of section wrapper
+    const imgElement = document.createElement('img');
+    imgElement.className = 'legend-description-image';
+    const encodedUrl = encodeURI(imageUrl);
+    const cacheBuster = new Date().getTime();
+    const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+    imgElement.src = finalUrl;
+    imgElement.alt = legend ? `Legend description for ${legend.trim()}` : 'Default legend description';
+    
+    sectionWrapper.appendChild(imgElement);
+    container.appendChild(sectionWrapper);
 }
 
 // Function to render the decks on the page
@@ -511,6 +614,9 @@ function renderRiftboundDeckSections(deckObj) {
     // Create and populate the player name section dynamically for Riftbound
     const legend = roundData[match_id] ? roundData[match_id][`player-legend-${side_id}`] || '' : '';
     createPlayerNameSection(deckData.playerName, legend);
+    
+    // Create and populate the legend description section
+    createLegendDescriptionSection(legend, container);
 
     // Handle battlefields separately using scoreboard-style implementation
     if (deckObj.battlefields && deckObj.battlefields.length > 0) {
@@ -872,6 +978,15 @@ function handleGameSelectionUpdate(gameSelection) {
         if (mtgSection) mtgSection.style.display = 'none';
         if (riftboundSection) riftboundSection.style.display = 'block';
         setRiftboundBackground();
+        
+        // Update legend description when switching to riftbound
+        if (riftboundSection) {
+            const container = riftboundSection.querySelector('#riftbound-main-deck-container');
+            if (container && roundData[match_id] && roundData[match_id][`player-legend-${side_id}`]) {
+                const legend = roundData[match_id][`player-legend-${side_id}`] || '';
+                createLegendDescriptionSection(legend, container);
+            }
+        }
     } else {
         // Default: hide both if unknown game type
         if (mtgSection) mtgSection.style.display = 'none';
@@ -897,13 +1012,13 @@ function setRiftboundBackground() {
     
     let backgroundImage;
     if (isLeft) {
-        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped.png';
+        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped-2.png';
     } else if (isRight) {
-        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Green_Prepped.png';
+        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Green_Prepped-2.png';
     } else {
         // Default to blue if side_id is not recognized
         console.log('Unknown side_id, defaulting to blue background');
-        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped.png';
+        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped-2.png';
     }
     
     // Set the background image with cache buster

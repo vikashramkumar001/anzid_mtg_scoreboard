@@ -1,3 +1,88 @@
+/* Akzidenz-Grotesk Next Font Faces for Riftbound */
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot');
+    src: local('Akzidenz-Grotesk Next Bold'), local('AkzidGrtskNext-Bold'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot');
+    src: local('Akzidenz-Grotesk Next Regular'), local('AkzidGrtskNext-Regular'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.eot');
+    src: local('Akzidenz-Grotesk Next Light'), local('AkzidGrtskNext-Light'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.eot');
+    src: local('Akzidenz-Grotesk Next Black'), local('AkzidGrtskNext-Black'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next Med';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.eot');
+    src: local('Akzidenz-Grotesk Next Medium'), local('AkzidGrtskNext-Med'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next Med';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.eot');
+    src: local('Akzidenz-Grotesk Next Medium Italic'), local('AkzidGrtskNext-MedIt'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next XBold';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.eot');
+    src: local('Akzidenz-Grotesk Next ExtraBold'), local('AkzidGrtskNext-ExtraBold'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
 :root {
     --dynamic-font: 'Bebas Neue', sans-serif;
 }
@@ -59,6 +144,11 @@ body.vertical #deck-display-mtg #main-deck-container {
     width: 1920px;
     height: 1080px;
     position: relative;
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+}
+
+#deck-display-riftbound * {
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
 }
 
 #deck-display-riftbound #riftbound-background-parent {
@@ -100,10 +190,10 @@ body.vertical #deck-display-mtg #main-deck-container {
 
 #deck-display-riftbound #player-name-section {
     position: absolute;
-    top: 702px;
-    left: 38px;
+    top: 614px;
+    left: 39px;
     width: 600px;
-    height: 169px;
+    height: 87px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -119,7 +209,7 @@ body.vertical #deck-display-mtg #main-deck-container {
 }
 
 #deck-display-riftbound .player-name-display {
-    font-size: 55px;
+    font-size: 45px;
     font-weight: bold;
     line-height: 60px;
     white-space: nowrap;
@@ -347,7 +437,7 @@ body.vertical #deck-display-mtg #main-deck-container {
 
 #deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-name {
     color: #fff;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
     font-weight: normal;
     font-size: 22px;
     white-space: nowrap;
@@ -408,13 +498,19 @@ body.vertical #deck-display-mtg #main-deck-container {
 }
 
 #deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-count {
-    top: 254px;
-    right: 74px;
+    top: 130px;
+    right: 31px;
     width: 45px;
     height: 24px;
     font-size: 20px;
     border-radius: 10px;
     border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
 }
 
 
@@ -710,4 +806,19 @@ body.vertical #deck-display-mtg .vertical-deck-container {
     bottom: 0;
     background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     z-index: 1;
+}
+
+/* Riftbound Legend Description Section */
+#deck-display-riftbound .deck-section-wrapper.legend-description-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* z-index: 1; */
+    z-index: 10;
+}
+
+#deck-display-riftbound .deck-section-wrapper.legend-description-section .legend-description-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
