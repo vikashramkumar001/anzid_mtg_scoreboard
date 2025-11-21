@@ -813,8 +813,7 @@ body.vertical #deck-display-mtg .vertical-deck-container {
     position: absolute;
     top: 0;
     left: 0;
-    /* z-index: 1; */
-    z-index: 10;
+     z-index: 1;
 }
 
 #deck-display-riftbound .deck-section-wrapper.legend-description-section .legend-description-image {
