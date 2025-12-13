@@ -7,25 +7,49 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-056.webp",
     "type": "Unit"
   },
+  "Against the Odds": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-001.webp",
+    "type": "Spell"
+  },
   "Ahri, Alluring": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-066.webp",
     "type": "Unit"
   },
   "Ahri, Inquisitive": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-119.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-119a.webp",
     "type": "Unit"
   },
   "Ahri, Nine-Tailed Fox": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-255.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-303s.webp",
     "type": "Legend"
+  },
+  "Akshan, Mischievous": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-109.webp",
+    "type": "Unit"
   },
   "Albus Ferros": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-230.webp",
     "type": "Unit"
   },
+  "Altar of Memories": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-169.webp",
+    "type": "Gear"
+  },
   "Altar to Unity": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-275.webp",
     "type": "Battlefield"
+  },
+  "Ancient Henge": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-117.webp",
+    "type": "Gear"
+  },
+  "Ancient Warmonger": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-131.webp",
+    "type": "Unit"
+  },
+  "Angle Shot": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-011.webp",
+    "type": "Spell"
   },
   "Anivia, Primal": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-148.webp",
@@ -43,16 +67,56 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGS-010.webp",
     "type": "Unit"
   },
+  "Aphelios, Exalted": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-049.webp",
+    "type": "Unit"
+  },
+  "Apprentice Smith": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-041.webp",
+    "type": "Unit"
+  },
+  "Arcane Shift": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-200.webp",
+    "type": "Spell"
+  },
   "Arena Bar": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-124.webp",
     "type": "Gear"
+  },
+  "Arise!": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-198.webp",
+    "type": "Spell"
+  },
+  "Armed Assailant": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-002.webp",
+    "type": "Unit"
   },
   "Aspirant's Climb": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-276.webp",
     "type": "Battlefield"
   },
+  "Aspiring Engineer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-061.webp",
+    "type": "Unit"
+  },
+  "Assembly Rig": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-019.webp",
+    "type": "Gear"
+  },
   "Ava Achiever": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-107.webp",
+    "type": "Unit"
+  },
+  "Azir, Ascendant": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-050.webp",
+    "type": "Unit"
+  },
+  "Azir, Emperor of the Sands": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-247.webp",
+    "type": "Legend"
+  },
+  "Azir, Sovereign": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-177a.webp",
     "type": "Unit"
   },
   "Back-Alley Bar": {
@@ -71,12 +135,44 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-278.webp",
     "type": "Battlefield"
   },
+  "Bard, Mercurial": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-228s.webp",
+    "type": "Unit"
+  },
+  "Battering Ram": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-012.webp",
+    "type": "Unit"
+  },
+  "Beast Below": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-132.webp",
+    "type": "Unit"
+  },
+  "Bellows Breath": {
+    "imageUrl": "https://piltoverarchive.b-cdn.net/temporary/1764220621316-uei6cf7vyrp.webp",
+    "type": "Spell"
+  },
+  "B.F. Sword": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-161.webp",
+    "type": "Gear"
+  },
   "Bilgewater Bully": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-125.webp",
     "type": "Unit"
   },
+  "Black AMrket Broker": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-121.webp",
+    "type": "Unit"
+  },
+  "Blade of the Ruined King": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-178.webp",
+    "type": "Gear"
+  },
   "Blastcone Fae": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-097.webp",
+    "type": "Unit"
+  },
+  "Blast Corps Cadet": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-013.webp",
     "type": "Unit"
   },
   "Blast of Power": {
@@ -99,36 +195,80 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-057.webp",
     "type": "Spell"
   },
+  "Blood Money": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-162.webp",
+    "type": "Spell"
+  },
+  "Blood Rush": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-003.webp",
+    "type": "Spell"
+  },
   "Body Rune": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-126.webp",
     "type": "Rune"
+  },
+  "Bonds of Strength": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-151.webp",
+    "type": "Spell"
+  },
+  "Boneshiver": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-118.webp",
+    "type": "Gear"
+  },
+  "Boots of Swiftness": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-133.webp",
+    "type": "Gear"
   },
   "Brazen Buccaneer": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-002.webp",
     "type": "Unit"
   },
+  "Breakneck Mech": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-071.webp",
+    "type": "Unit"
+  },
+  "Brutalizer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-042.webp",
+    "type": "Gear"
+  },
   "Brynhir Thundersong": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-026.webp",
+    "type": "Unit"
+  },
+  "Bubble Bot": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-062.webp",
     "type": "Unit"
   },
   "Buff": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-XXX.webp",
     "type": "Card"
   },
+  "Buhru Captain": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-091.webp",
+    "type": "Unit"
+  },
   "Bullet Time": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-268.webp",
+    "type": "Spell"
+  },
+  "Bushwhack": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-004.webp",
     "type": "Spell"
   },
   "Caitlyn, Patrolling": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-068.webp",
     "type": "Unit"
   },
+  "Called Shot": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-122.webp",
+    "type": "Spell"
+  },
   "Call to Glory": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-207.webp",
     "type": "Spell"
   },
   "Calm Rune": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-042.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-042a.webp",
     "type": "Rune"
   },
   "Cannon Barrage": {
@@ -137,6 +277,10 @@
   },
   "Captain Farron": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-015.webp",
+    "type": "Unit"
+  },
+  "Card Sharp": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-081.webp",
     "type": "Unit"
   },
   "Carnivorous Snapvine": {
@@ -163,6 +307,10 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-043.webp",
     "type": "Spell"
   },
+  "Chemtech Cask": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-063.webp",
+    "type": "Gear"
+  },
   "Chemtech Enforcer": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-003.webp",
     "type": "Unit"
@@ -177,6 +325,14 @@
   },
   "Clockwork Keeper": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-044.webp",
+    "type": "Unit"
+  },
+  "Cloth Armor": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-064.webp",
+    "type": "Gear"
+  },
+  "Combat Chef": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-092.webp",
     "type": "Unit"
   },
   "Commander Ledros": {
@@ -195,6 +351,18 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-108.webp",
     "type": "Spell"
   },
+  "Corina Veraza": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-179.webp",
+    "type": "Unit"
+  },
+  "Corrupt Enforcer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-123.webp",
+    "type": "Unit"
+  },
+  "Counter Strike": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-194.webp",
+    "type": "Spell"
+  },
   "Crackshot Corsair": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-130.webp",
     "type": "Unit"
@@ -203,6 +371,10 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-208.webp",
     "type": "Unit"
   },
+  "Cull": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-134.webp",
+    "type": "Gear"
+  },
   "Cull the Weak": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-209.webp",
     "type": "Spell"
@@ -210,6 +382,10 @@
   "Dangerous Duo": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-016.webp",
     "type": "Unit"
+  },
+  "Danger Zone": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-182.webp",
+    "type": "Spell"
   },
   "Daring Poro": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-210.webp",
@@ -227,6 +403,10 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-027.webp",
     "type": "Unit"
   },
+  "Dauntless Vanguard": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-093.webp",
+    "type": "Unit"
+  },
   "Dazzling Aurora": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-160.webp",
     "type": "Gear"
@@ -235,13 +415,37 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-161.webp",
     "type": "Unit"
   },
+  "Deathgrip": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-163.webp",
+    "type": "Spell"
+  },
   "Decisive Strike": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGS-024.webp",
+    "type": "Spell"
+  },
+  "Defiant Dance": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-196.webp",
     "type": "Spell"
   },
   "Defy": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-045.webp",
     "type": "Spell"
+  },
+  "Desert's Call": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-031.webp",
+    "type": "Spell"
+  },
+  "Detonate": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-005.webp",
+    "type": "Spell"
+  },
+  "Direwing": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-094.webp",
+    "type": "Unit"
+  },
+  "Disarming Rake": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-032.webp",
+    "type": "Unit"
   },
   "Discipline": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-058.webp",
@@ -255,16 +459,56 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-244.webp",
     "type": "Spell"
   },
+  "Doran's Blade": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-095.webp",
+    "type": "Gear"
+  },
+  "Doran's Ring": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-124.webp",
+    "type": "Gear"
+  },
+  "Doran's Shield": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-033.webp",
+    "type": "Gear"
+  },
+  "Downwell": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-147.webp",
+    "type": "Spell"
+  },
   "Dragon's Rage": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-258.webp",
     "type": "Spell"
+  },
+  "Drag Under": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-164.webp",
+    "type": "Spell"
+  },
+  "Draven, Audacious": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-148.webp",
+    "type": "Unit"
+  },
+  "Draven, Glorious Executioner": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-185.webp",
+    "type": "Legend"
   },
   "Draven, Showboat": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-028.webp",
     "type": "Unit"
   },
+  "Draven, Vanquisher": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-020.webp",
+    "type": "Unit"
+  },
   "Dr. Mundo, Expert": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-109.webp",
+    "type": "Unit"
+  },
+  "Dropboarder": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-072.webp",
+    "type": "Unit"
+  },
+  "Dunebreaker": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-027.webp",
     "type": "Unit"
   },
   "Dune Drake": {
@@ -275,9 +519,17 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-084.webp",
     "type": "Unit"
   },
+  "Eager Drakehound": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-006.webp",
+    "type": "Unit"
+  },
   "Eclipse Herald": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-059.webp",
     "type": "Unit"
+  },
+  "Edge of Night": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-139.webp",
+    "type": "Gear"
   },
   "Ekko, Recurrent": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-110.webp",
@@ -287,6 +539,18 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-167.webp",
     "type": "Unit"
   },
+  "Eminent Benefactor": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-152.webp",
+    "type": "Unit"
+  },
+  "Emperor's Dais": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-207.webp",
+    "type": "Battlefield"
+  },
+  "Emperor's Divide": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-043.webp",
+    "type": "Spell"
+  },
   "Energy Conduit": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-098.webp",
     "type": "Gear"
@@ -295,13 +559,45 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-046.webp",
     "type": "Spell"
   },
+  "Experimental Hexplate": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-073.webp",
+    "type": "Gear"
+  },
+  "Eye of the Herald": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-153.webp",
+    "type": "Gear"
+  },
+  "Ezreal, Dashing": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-082.webp",
+    "type": "Unit"
+  },
+  "Ezreal, Prodigal Explorer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-248.webp",
+    "type": "Legend"
+  },
+  "Ezreal, Prodigy": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-149a.webp",
+    "type": "Unit"
+  },
   "Facebreaker": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-220.webp",
+    "type": "Spell"
+  },
+  "Factory Recall": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-135.webp",
     "type": "Spell"
   },
   "Fading Memories": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-180.webp",
     "type": "Spell"
+  },
+  "Fae Dragon": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-101.webp",
+    "type": "Unit"
+  },
+  "Fae Porter": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-125.webp",
+    "type": "Unit"
   },
   "Faithful Manufactor": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-211.webp",
@@ -315,6 +611,14 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-029.webp",
     "type": "Spell"
   },
+  "Feral Strength": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-034.webp",
+    "type": "Spell"
+  },
+  "Ferrous Forerunner": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-021.webp",
+    "type": "Unit"
+  },
   "Fight or Flight": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-168.webp",
     "type": "Spell"
@@ -327,8 +631,20 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-047.webp",
     "type": "Spell"
   },
+  "Fiora, Grand Duelist": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-205.webp",
+    "type": "Legend"
+  },
+  "Fiora, Peerless": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-110a.webp",
+    "type": "Unit"
+  },
   "Fiora, Victorious": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-232.webp",
+    "type": "Unit"
+  },
+  "Fiora, Worthy": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-180.webp",
     "type": "Unit"
   },
   "Firestorm": {
@@ -337,6 +653,10 @@
   },
   "First Mate": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-132.webp",
+    "type": "Unit"
+  },
+  "Fizz, Trickster": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-140.webp",
     "type": "Unit"
   },
   "Flame Chompers": {
@@ -351,9 +671,25 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-133.webp",
     "type": "Spell"
   },
+  "Forecaster": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-065.webp",
+    "type": "Unit"
+  },
+  "Forgefire Cape": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-190.webp",
+    "type": "Gear"
+  },
+  "Forge of the Fluft": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-208.webp",
+    "type": "Battlefield"
+  },
   "Forge of the Future": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-212.webp",
     "type": "Gear"
+  },
+  "Forgotten Monument": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-209.webp",
+    "type": "Battlefield"
   },
   "Fortified Position": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-279.webp",
@@ -363,8 +699,16 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-256.webp",
     "type": "Spell"
   },
+  "Frigid Touch": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-066.webp",
+    "type": "Spell"
+  },
+  "Frostcoat Cub": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-067.webp",
+    "type": "Unit"
+  },
   "Fury Rune": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-007.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-007a.webp",
     "type": "Rune"
   },
   "Garbage Grabber": {
@@ -383,8 +727,16 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGS-007.webp",
     "type": "Unit"
   },
+  "Gearhead": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-068.webp",
+    "type": "Unit"
+  },
   "Gemcraft Seer": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-100.webp",
+    "type": "Unit"
+  },
+  "Gem Jammer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-007.webp",
     "type": "Unit"
   },
   "Gentlemen's Duel": {
@@ -395,6 +747,14 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-008.webp",
     "type": "Spell"
   },
+  "Glasc Mixologist": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-165.webp",
+    "type": "Unit"
+  },
+  "Gold": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-T03.webp",
+    "type": "Gear"
+  },
   "Grand Strategem": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-233.webp",
     "type": "Spell"
@@ -402,6 +762,18 @@
   "Grove of the God-Willow": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-280.webp",
     "type": "Battlefield"
+  },
+  "Guardian Angel": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-051.webp",
+    "type": "Gear"
+  },
+  "Guardian of the Passage": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-035.webp",
+    "type": "Unit"
+  },
+  "Guards!": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-154.webp",
+    "type": "Spell"
   },
   "Guerilla Warfare": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-264.webp",
@@ -411,13 +783,29 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-169.webp",
     "type": "Spell"
   },
+  "Hall of Legends": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-210.webp",
+    "type": "Battlefield"
+  },
   "Hallowed Tomb": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-281.webp",
     "type": "Battlefield"
   },
+  "Hard Bargain": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-136.webp",
+    "type": "Spell"
+  },
   "Harnessed Dragon": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-234.webp",
     "type": "Unit"
+  },
+  "Harpoon Squad": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-137.webp",
+    "type": "Unit"
+  },
+  "Heart of Dark Ice": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-052.webp",
+    "type": "Gear"
   },
   "Heimerdinger, Inventor": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-111.webp",
@@ -426,6 +814,18 @@
   "Herald of Scales": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-140.webp",
     "type": "Unit"
+  },
+  "Here to Help": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-111.webp",
+    "type": "Spell"
+  },
+  "Hexdrinker": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-102.webp",
+    "type": "Gear"
+  },
+  "Hextech Anomaly": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-083.webp",
+    "type": "Gear"
   },
   "Hextech Ray": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-009.webp",
@@ -437,6 +837,14 @@
   },
   "Highlander": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGS-020.webp",
+    "type": "Spell"
+  },
+  "Honest Broker": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-155.webp",
+    "type": "Unit"
+  },
+  "Hostile Takeover": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-202.webp",
     "type": "Spell"
   },
   "Icathian Rain": {
@@ -459,9 +867,49 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-201.webp",
     "type": "Spell"
   },
+  "Irelia, Blade Dancer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-195.webp",
+    "type": "Legend"
+  },
+  "Irelia, Fervent": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-057.webp",
+    "type": "Unit"
+  },
+  "Irelia, Graceful": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-141.webp",
+    "type": "Unit"
+  },
   "Iron Ballista": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-017.webp",
     "type": "Gear"
+  },
+  "Jae Medarda": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-142.webp",
+    "type": "Unit"
+  },
+  "Janna, Savior": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-053.webp",
+    "type": "Unit"
+  },
+  "Jaull-Fish": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-103.webp",
+    "type": "Unit"
+  },
+  "Jax, Grandmaster at Arms": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-245.webp",
+    "type": "Legend"
+  },
+  "Jax, Unmatched": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-054.webp",
+    "type": "Unit"
+  },
+  "Jax, Unrelenting": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-119.webp",
+    "type": "Unit"
+  },
+  "Jayce, Man of Progress": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-084.webp",
+    "type": "Unit"
   },
   "Jeweled Colossus": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-086.webp",
@@ -476,7 +924,7 @@
     "type": "Legend"
   },
   "Jinx, Rebel": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-202.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-202a.webp",
     "type": "Unit"
   },
   "Kadregrin the Infernal": {
@@ -484,7 +932,7 @@
     "type": "Unit"
   },
   "Kai'Sa, Daughter of the Void": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-247.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-299s.webp",
     "type": "Legend"
   },
   "Kai'Sa, Evolutionary": {
@@ -501,6 +949,10 @@
   },
   "Karthus, Eternal": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-236.webp",
+    "type": "Unit"
+  },
+  "Kato the Arm": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-112.webp",
     "type": "Unit"
   },
   "Kayn, Unleashed": {
@@ -527,9 +979,21 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-260.webp",
     "type": "Spell"
   },
+  "Last Rites": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-150.webp",
+    "type": "Gear"
+  },
   "Last Stand": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-069.webp",
     "type": "Spell"
+  },
+  "Laurent Bladekeeper": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-096.webp",
+    "type": "Unit"
+  },
+  "Laurent Duelist": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-156.webp",
+    "type": "Unit"
   },
   "Lecturing Yordle": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-087.webp",
@@ -544,7 +1008,11 @@
     "type": "Legend"
   },
   "Lee Sin, Centered": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-151a.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-151.webp",
+    "type": "Unit"
+  },
+  "Legion Quartermaster": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-044.webp",
     "type": "Unit"
   },
   "Legion Rearguard": {
@@ -562,6 +1030,30 @@
   "Leona, Zealot": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-079.webp",
     "type": "Unit"
+  },
+  "Lonely Poro": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-036.webp",
+    "type": "Unit"
+  },
+  "Long Sword": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-022.webp",
+    "type": "Gear"
+  },
+  "Loyal Pup": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-126.webp",
+    "type": "Unit"
+  },
+  "Lucian, Gunslinger": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-028a.webp",
+    "type": "Unit"
+  },
+  "Lucian, Merciless": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-113.webp",
+    "type": "Unit"
+  },
+  "Lucian, Purifier": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-183.webp",
+    "type": "Legend"
   },
   "Lux, Crownguard": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGS-014.webp",
@@ -595,9 +1087,21 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-113.webp",
     "type": "Unit"
   },
+  "Marai Spire": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-211.webp",
+    "type": "Battlefield"
+  },
+  "Marching Orders": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-114.webp",
+    "type": "Spell"
+  },
   "Mask of Foresight": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-060.webp",
     "type": "Gear"
+  },
+  "Master Bingwen": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-127.webp",
+    "type": "Unit"
   },
   "Master Yi, Honed": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGS-009.webp",
@@ -611,6 +1115,10 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGS-019.webp",
     "type": "Legend"
   },
+  "Mech": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-T01.webp",
+    "type": "Unit"
+  },
   "Meditation": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-048.webp",
     "type": "Spell"
@@ -620,11 +1128,19 @@
     "type": "Unit"
   },
   "Mind Rune": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-089.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-089a.webp",
     "type": "Rune"
   },
   "Mindsplitter": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-192.webp",
+    "type": "Unit"
+  },
+  "Minefield": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-212.webp",
+    "type": "Battlefield"
+  },
+  "Minotaur Reckoner": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-014.webp",
     "type": "Unit"
   },
   "Miss Fortune, Bounty Hunter": {
@@ -675,9 +1191,21 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-283.webp",
     "type": "Battlefield"
   },
+  "Navori Scout": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-037.webp",
+    "type": "Unit"
+  },
+  "Needlessly Large Yordle": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-055.webp",
+    "type": "Unit"
+  },
   "Nocturne, Horrifying": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-194.webp",
     "type": "Unit"
+  },
+  "Not So Fast": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-045.webp",
+    "type": "Spell"
   },
   "Noxian Drummer": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-222.webp",
@@ -699,17 +1227,41 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-284.webp",
     "type": "Battlefield"
   },
+  "On the Hunt": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-204.webp",
+    "type": "Spell"
+  },
   "Orb of Regret": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-090.webp",
     "type": "Gear"
   },
   "Order Rune": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-214.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-214a.webp",
     "type": "Rune"
+  },
+  "Ornn, Blacksmith": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-058a.webp",
+    "type": "Unit"
+  },
+  "Ornn, Fire Below the Mountain": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-189.webp",
+    "type": "Legend"
+  },
+  "Ornn, Forge God": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-085.webp",
+    "type": "Unit"
+  },
+  "Ornn's Forge": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-213.webp",
+    "type": "Battlefield"
   },
   "Overt Operation": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-153.webp",
     "type": "Spell"
+  },
+  "Overzealous Fan": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-128.webp",
+    "type": "Unit"
   },
   "Pack of Wonders": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-181.webp",
@@ -727,9 +1279,25 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-223.webp",
     "type": "Unit"
   },
+  "Perched Grimwyrm": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-015.webp",
+    "type": "Unit"
+  },
+  "Petricite Monument": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-104.webp",
+    "type": "Gear"
+  },
   "Petty Officer": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-215.webp",
     "type": "Unit"
+  },
+  "Pickpocket": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-074.webp",
+    "type": "Unit"
+  },
+  "Piercing Light": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-023.webp",
+    "type": "Spell"
   },
   "Pirate's Haven": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-143.webp",
@@ -747,9 +1315,17 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-049.webp",
     "type": "Unit"
   },
+  "Plundering Poro": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-069.webp",
+    "type": "Unit"
+  },
   "Poro Herder": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-061.webp",
     "type": "Unit"
+  },
+  "Poro Snax": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-046.webp",
+    "type": "Gear"
   },
   "Portal Rescue": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-102.webp",
@@ -763,8 +1339,24 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-013.webp",
     "type": "Unit"
   },
+  "Power Nexus": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-214.webp",
+    "type": "Battlefield"
+  },
+  "Premonition": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-087.webp",
+    "type": "Spell"
+  },
   "Primal Strength": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-154.webp",
+    "type": "Spell"
+  },
+  "Prize of Progress": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-075.webp",
+    "type": "Unit"
+  },
+  "Production Surge": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-076.webp",
     "type": "Spell"
   },
   "Progress Day": {
@@ -775,9 +1367,17 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-115.webp",
     "type": "Spell"
   },
+  "Punch First": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-097.webp",
+    "type": "Spell"
+  },
   "Qiyana, Victorious": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-155.webp",
     "type": "Unit"
+  },
+  "Rabadon's Deathcrown": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-191.webp",
+    "type": "Gear"
   },
   "Raging Firebrand": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-031.webp",
@@ -786,6 +1386,14 @@
   "Raging Soul": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-019.webp",
     "type": "Unit"
+  },
+  "Rally the Troops": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-166.webp",
+    "type": "Spell"
+  },
+  "Ravenbloom Conservatory": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-215.webp",
+    "type": "Battlefield"
   },
   "Ravenbloom Student": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-103.webp",
@@ -823,9 +1431,49 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-272.webp",
     "type": "Unit"
   },
+  "Recurve Bow": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-016.webp",
+    "type": "Gear"
+  },
   "Reinforce": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-062.webp",
     "type": "Spell"
+  },
+  "Rek'Sai, Breacher": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-029.webp",
+    "type": "Unit"
+  },
+  "Rek'Sai, Swarm Queen": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-170.webp",
+    "type": "Unit"
+  },
+  "Rek'Sai, Void Burrower": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-187.webp",
+    "type": "Legend"
+  },
+  "Relentless Pursuit": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-184.webp",
+    "type": "Spell"
+  },
+  "Rell, Magnetic": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-024.webp",
+    "type": "Unit"
+  },
+  "Renata Glasc, Chem-Baroness": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-201.webp",
+    "type": "Legend"
+  },
+  "Renata Glasc, Industrialist": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-171.webp",
+    "type": "Unit"
+  },
+  "Renata Glasc, Mastermind": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-088.webp",
+    "type": "Unit"
+  },
+  "Rengar, Pouncing": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-025.webp",
+    "type": "Unit"
   },
   "Retreat": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-104.webp",
@@ -835,12 +1483,52 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-195.webp",
     "type": "Unit"
   },
+  "Ribbon Dancer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-038.webp",
+    "type": "Unit"
+  },
   "Ride the Wind": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-173.webp",
     "type": "Spell"
   },
+  "Riposte": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-206.webp",
+    "type": "Spell"
+  },
   "Riptide Rex": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-092.webp",
+    "type": "Unit"
+  },
+  "Rocket Barrage": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-077.webp",
+    "type": "Spell"
+  },
+  "Rockfall Path": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-216.webp",
+    "type": "Battlefield"
+  },
+  "Royal Entourage": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-039.webp",
+    "type": "Unit"
+  },
+  "Royal Guard": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-157.webp",
+    "type": "Unit"
+  },
+  "Ruin Runner": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-105.webp",
+    "type": "Unit"
+  },
+  "Rumble, Hotheaded": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-026.webp",
+    "type": "Unit"
+  },
+  "Rumble, Mechanized Menace": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-240.webp",
+    "type": "Legend"
+  },
+  "Rumble, Scrapper": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-089.webp",
     "type": "Unit"
   },
   "Rune Prison": {
@@ -851,6 +1539,10 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-156.webp",
     "type": "Spell"
   },
+  "Sacred Shears": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-172.webp",
+    "type": "Gear"
+  },
   "Sai Scout": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-174.webp",
     "type": "Unit"
@@ -858,6 +1550,14 @@
   "Salvage": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-224.webp",
     "type": "Spell"
+  },
+  "Sandshifter": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-158.webp",
+    "type": "Unit"
+  },
+  "Sand Soldier": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-T02.webp",
+    "type": "Unit"
   },
   "Scrapheap": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-182.webp",
@@ -868,7 +1568,7 @@
     "type": "Unit"
   },
   "Seal of Discord": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-204.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-234.webp",
     "type": "Gear"
   },
   "Seal of Focus": {
@@ -889,6 +1589,22 @@
   },
   "Seal of Unity": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-245.webp",
+    "type": "Gear"
+  },
+  "Sea Monkey": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-098.webp",
+    "type": "Unit"
+  },
+  "Seat of Power": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-217.webp",
+    "type": "Battlefield"
+  },
+  "Sentinel Adept": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-008.webp",
+    "type": "Unit"
+  },
+  "Serrated Dirk": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-009.webp",
     "type": "Gear"
   },
   "Sett, Brawler": {
@@ -915,13 +1631,25 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-175.webp",
     "type": "Unit"
   },
+  "Show of Strength": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-106.webp",
+    "type": "Spell"
+  },
   "Showstopper": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-270.webp",
     "type": "Spell"
   },
+  "Shurelya's Requiem": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-192.webp",
+    "type": "Gear"
+  },
   "Sigil of the Storm": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-287.webp",
     "type": "Battlefield"
+  },
+  "Simian Ancestor": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-047.webp",
+    "type": "Unit"
   },
   "Singularity": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-105.webp",
@@ -930,6 +1658,22 @@
   "Siphon Power": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-266.webp",
     "type": "Spell"
+  },
+  "Sivir, Ambitious": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-120.webp",
+    "type": "Unit"
+  },
+  "Sivir, Battle Mistress": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-250.webp",
+    "type": "Legend"
+  },
+  "Sivir, Mercenary": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-143.webp",
+    "type": "Unit"
+  },
+  "Skyfall of Areion": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-030.webp",
+    "type": "Gear"
   },
   "Sky Splitter": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-014.webp",
@@ -963,6 +1707,10 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-073.webp",
     "type": "Unit"
   },
+  "Soraka, Wanderer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-173.webp",
+    "type": "Unit"
+  },
   "Soulgorger": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-196.webp",
     "type": "Unit"
@@ -971,8 +1719,16 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-226.webp",
     "type": "Unit"
   },
+  "Spinning Axe": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-186.webp",
+    "type": "Gear"
+  },
   "Spirit's Refuge": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-063.webp",
+    "type": "Gear"
+  },
+  "Spirit Wheel": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-144.webp",
     "type": "Gear"
   },
   "Spoils of War": {
@@ -1011,6 +1767,14 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-177.webp",
     "type": "Unit"
   },
+  "Stellacorn herder": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-048.webp",
+    "type": "Unit"
+  },
+  "Sterak's Gage": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-056.webp",
+    "type": "Gear"
+  },
   "Stormbringer": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-250.webp",
     "type": "Spell"
@@ -1019,13 +1783,25 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-137.webp",
     "type": "Unit"
   },
+  "Strike Down": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-107.webp",
+    "type": "Spell"
+  },
   "Stupefy": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-095.webp",
+    "type": "Spell"
+  },
+  "Sudden Storm": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-017.webp",
     "type": "Spell"
   },
   "Sun Disc": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-021.webp",
     "type": "Gear"
+  },
+  "Sunken Temple": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-218.webp",
+    "type": "Battlefield"
   },
   "Sunlit Guardian": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-054.webp",
@@ -1033,6 +1809,14 @@
   },
   "Super Mega Death Rocket!": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-252.webp",
+    "type": "Spell"
+  },
+  "Svellsongur": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-059.webp",
+    "type": "Gear"
+  },
+  "Switcheroo": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-145.webp",
     "type": "Spell"
   },
   "Symbol of the Solari": {
@@ -1052,7 +1836,7 @@
     "type": "Unit"
   },
   "Teemo, Scout": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-197.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-197a.webp",
     "type": "Unit"
   },
   "Teemo, Strategist": {
@@ -1062,6 +1846,14 @@
   "Teemo, Swift Scout": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-263.webp",
     "type": "Legend"
+  },
+  "Temporal Portal": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-078.webp",
+    "type": "Gear"
+  },
+  "Temptation": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-129.webp",
+    "type": "Spell"
   },
   "The Arena's Greatest": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-290.webp",
@@ -1083,6 +1875,10 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-198.webp",
     "type": "Spell"
   },
+  "The Papertree": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-219.webp",
+    "type": "Battlefield"
+  },
   "Thermo Beam": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-022.webp",
     "type": "Spell"
@@ -1091,8 +1887,20 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-184.webp",
     "type": "Gear"
   },
+  "The Zero Drive": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-090.webp",
+    "type": "Gear"
+  },
   "Thousand-Tailed Watcher": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-116.webp",
+    "type": "Unit"
+  },
+  "Thwonk!": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-040.webp",
+    "type": "Spell"
+  },
+  "Tianna Crownguard": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-060.webp",
     "type": "Unit"
   },
   "Tibbers": {
@@ -1111,6 +1919,14 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-185.webp",
     "type": "Unit"
   },
+  "Treasure Hoard": {
+    "imageUrl": "https://piltoverarchive.b-cdn.net/cards/SFD-220.webp",
+    "type": "Battlefield"
+  },
+  "Treasure Hunter": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-130.webp",
+    "type": "Unit"
+  },
   "Treasure Trove": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-186.webp",
     "type": "Gear"
@@ -1122,6 +1938,18 @@
   "Trifarian War Camp": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-294.webp",
     "type": "Battlefield"
+  },
+  "Trinity Force": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-115.webp",
+    "type": "Gear"
+  },
+  "Trove Golem": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-174.webp",
+    "type": "Unit"
+  },
+  "Trusty Ramhound": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-159.webp",
+    "type": "Unit"
   },
   "Tryndamere, Barbarian": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-034.webp",
@@ -1143,13 +1971,25 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-178.webp",
     "type": "Unit"
   },
+  "Undertitan": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-175.webp",
+    "type": "Unit"
+  },
   "Unlicensed Armory": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-023.webp",
     "type": "Gear"
   },
+  "Unsung Hero": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-167.webp",
+    "type": "Unit"
+  },
   "Unyielding Spirit": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-145.webp",
     "type": "Spell"
+  },
+  "Vanguard Armory": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-168.webp",
+    "type": "Gear"
   },
   "Vanguard Attendant": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGS-016.webp",
@@ -1171,20 +2011,32 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-035.webp",
     "type": "Unit"
   },
+  "Veiled Temple": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-221.webp",
+    "type": "Battlefield"
+  },
   "Vengeance": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-229.webp",
     "type": "Spell"
   },
+  "Veteran poro": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-099.webp",
+    "type": "Unit"
+  },
+  "Vex, Cheerless": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-146.webp",
+    "type": "Unit"
+  },
   "Vi, Destructive": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-036.webp",
+    "imageUrl": "https://piltoverarchive.b-cdn.net/temporary/1760416626325-f3zxpz5s8g7.webp",
     "type": "Unit"
   },
   "Viktor, Herald of the Arcane": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-265.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-308s.webp",
     "type": "Legend"
   },
   "Viktor, Innovator": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-117a.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-117.webp",
     "type": "Unit"
   },
   "Viktor, Leader": {
@@ -1195,16 +2047,28 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-295.webp",
     "type": "Battlefield"
   },
+  "Void Drone": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-010.webp",
+    "type": "Unit"
+  },
   "Void Gate": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-296.webp",
     "type": "Battlefield"
+  },
+  "Void Hatchling": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-018.webp",
+    "type": "Unit"
+  },
+  "Void Rush": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-188.webp",
+    "type": "Spell"
   },
   "Void Seeker": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-024.webp",
     "type": "Spell"
   },
   "Volibear, Furious": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-041.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-041a.webp",
     "type": "Unit"
   },
   "Volibear, Imposing": {
@@ -1212,15 +2076,23 @@
     "type": "Unit"
   },
   "Volibear, Relentless Storm": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-300.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-300s.webp",
     "type": "Legend"
+  },
+  "Wages of Pain": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-070.webp",
+    "type": "Spell"
   },
   "Wallop": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-146.webp",
     "type": "Spell"
   },
+  "Warmog's Armor": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-108.webp",
+    "type": "Gear"
+  },
   "Warwick, Hunter": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-159.webp",
+    "imageUrl": "https://piltoverarchive.b-cdn.net/temporary/1760416787235-exutfmhlgxf.webp",
     "type": "Unit"
   },
   "Watchful Sentry": {
@@ -1243,6 +2115,10 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-147.webp",
     "type": "Unit"
   },
+  "Windsinger": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-138.webp",
+    "type": "Unit"
+  },
   "Windswept Hillock": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-297.webp",
     "type": "Battlefield"
@@ -1255,8 +2131,16 @@
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-065.webp",
     "type": "Unit"
   },
+  "World Atlas": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-086.webp",
+    "type": "Gear"
+  },
   "Wraith of Echoes": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-118.webp",
+    "type": "Unit"
+  },
+  "Xin Zhao, Vigilant": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-176.webp",
     "type": "Unit"
   },
   "Yasuo, Remorseful": {
@@ -1268,11 +2152,23 @@
     "type": "Legend"
   },
   "Yasuo, Windrider": {
-    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-205.webp",
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-205a.webp",
+    "type": "Unit"
+  },
+  "Yone, Blademaster": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-116.webp",
+    "type": "Unit"
+  },
+  "Yordle Explorer": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-100.webp",
     "type": "Unit"
   },
   "Zaunite Bouncer": {
     "imageUrl": "https://cdn.piltoverarchive.com/cards/OGN-188.webp",
+    "type": "Unit"
+  },
+  "Zaun Punk": {
+    "imageUrl": "https://cdn.piltoverarchive.com/cards/SFD-160.webp",
     "type": "Unit"
   },
   "Zaun Warrens": {

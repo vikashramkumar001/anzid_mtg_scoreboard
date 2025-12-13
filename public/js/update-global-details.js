@@ -46,9 +46,25 @@ function renderDetails() {
     // Render player name
     globalDetail.innerHTML = `${detailToDisplay}`;
     if (detail_id === 'global-commentator-1' || detail_id === 'global-commentator-2' || detail_id === 'global-commentator-3' || detail_id === 'global-commentator-4') {
-        globalDetail.style.fontSize = '70px';
+		//		  MTG styling
+		//        globalDetail.style.fontSize = '70px'; 
+		
+		//		  riftbound styling
+		globalDetail.style.fontFamily = "'AkzMed', sans-serif";
+		globalDetail.style.fontSize = "36px";
+		globalDetail.style.fontWeight = "500";
+		globalDetail.style.textAlign = "left";
     }
     if (detail_id === 'global-commentator-1-subtext' || detail_id === 'global-commentator-2-subtext' || detail_id === 'global-commentator-3-subtext' || detail_id === 'global-commentator-4-subtext') {
-        globalDetail.style.fontSize = '30px';
+		//		  MTG styling
+		//        globalDetail.style.fontSize = '30px';
+		
+		//		  riftbound styling
+		globalDetail.style.fontFamily = "'AkzMed', sans-serif";
+		globalDetail.style.fontSize = "28px";
+		globalDetail.style.fontWeight = "500"; 
+		globalDetail.style.fontStyle = "italic";
+		globalDetail.style.color = "#49e723";
+		globalDetail.style.textAlign = "left";
     }
 }

@@ -1011,14 +1011,14 @@ function setRiftboundBackground() {
     const isRight = side_id === '2' || side_id?.toLowerCase() === 'right';
     
     let backgroundImage;
-    if (isLeft) {
+    if (isLeft && orientation === 'horizontal') {
         backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped-3.png';
-    } else if (isRight) {
+    } else if (isRight && orientation === 'horizontal') {
         backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Green_Prepped-3.png';
     } else {
         // Default to blue if side_id is not recognized
         console.log('Unknown side_id, defaulting to blue background');
-        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped-2.png';
+        //backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped-2.png';
     }
     
     // Set the background image with cache buster

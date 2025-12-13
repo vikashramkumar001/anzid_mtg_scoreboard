@@ -440,6 +440,7 @@ body.vertical #deck-display-mtg #main-deck-container {
     font-family: 'Akzidenz-Grotesk Next', sans-serif;
     font-weight: normal;
     font-size: 22px;
+    font-style: italic;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

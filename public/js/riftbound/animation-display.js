@@ -64,6 +64,26 @@ const RIFTBOUND_LEGEND_ANIMATIONS = {
     'Lux': {
         portrait: '/assets/animations/riftbound/6-Animations/LegendAnimation_0014_P_Lux, Lady of Luminosity.mp4',
         landscape: '/assets/animations/riftbound/6-Animations/LegendAnimation_0014_L_Lux, Lady of Luminosity.mp4'
+    },
+    'Annie': {
+        portrait: '/assets/animations/riftbound/6-Animations/LegendAnimation_0015_P_Annie, Dark Child.mp4',
+        landscape: '/assets/animations/riftbound/6-Animations/LegendAnimation_0015_L_Annie, Dark Child.mp4'
+    },
+    'Yi': {
+        portrait: '/assets/animations/riftbound/6-Animations/LegendAnimation_0016_P_Master Yi, Wuju Bladesman.mp4',
+        landscape: '/assets/animations/riftbound/6-Animations/LegendAnimation_0016_L_Master Yi, Wuju Bladesman.mp4'
+    },
+    'Yasuo': {
+        portrait: '/assets/animations/riftbound/6-Animations/LegendAnimation_0007_P_Yasuo, Unforgiven.mp4',
+        landscape: '/assets/animations/riftbound/6-Animations/LegendAnimation_0007_L_Yasuo, Unforgiven.mp4'
+    },
+    'Sett': {
+        portrait: '/assets/animations/riftbound/6-Animations/LegendAnimation_0003_P_Sett, The Boss.mp4',
+        landscape: '/assets/animations/riftbound/6-Animations/LegendAnimation_0003_L_Sett, The Boss.mp4'
+    },
+    'Teemo': {
+        portrait: '/assets/animations/riftbound/6-Animations/LegendAnimation_0005_P_Teemo, Swift Scout.mp4',
+        landscape: '/assets/animations/riftbound/6-Animations/LegendAnimation_0005_L_Teemo, Swift Scout.mp4'
     }
 };
 
