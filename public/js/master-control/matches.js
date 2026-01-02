@@ -56,7 +56,19 @@ export function initMatches(socket) {
         {name: "Annie, Dark Child"},
         {name: "Master Yi, Wuju Bladesman"},
         {name: "Lux, Lady of Luminosity"},
-        {name: "Garen, Might of Demacia"}
+        {name: "Garen, Might of Demacia"},
+		{name: "Rumble, Mechanized Menace"},
+		{name: "Lucian, Purifier"},
+		{name: "Draven, Glorious Executioner"},
+		{name: "Rek'sai, Void Burrower"},
+		{name: "Ornn, Fire Below the Mountain"},
+		{name: "Jax, Grandmaster at Arms"},
+		{name: "Irelia, Blade Dancer"},
+		{name: "Azir, Emperor of the Sands"},
+		{name: "Ezreal, Prodigal Explorer"}, 
+		{name: "Renata Glasc, Chem-Baroness"},
+		{name: "Sivir, Battle Mistress"}, 
+		{name: "Fiora, Grand Duelist"}
     ];
     
     // Riftbound Champions List
@@ -92,7 +104,33 @@ export function initMatches(socket) {
         {name: "Annie, Stubborn"},
         {name: "Master Yi, Honed"},
         {name: "Lux, Crownguard"},
-        {name: "Garen, Commander"}
+        {name: "Garen, Commander"},
+		{name: "Rumble, Hotheaded"},
+		{name: "Rumble, Scrapper"},
+		{name: "Lucian, Gunslinger"},
+		{name: "Lucian, Merciless"},
+		{name: "Draven, Vanquisher"},
+		{name: "Draven, Audacious"},
+		{name: "Draven, Showboat"},
+		{name: "Rek'sai, Breacher"},
+		{name: "Rek'sai, Swarm Queen"},
+		{name: "Ornn, Blacksmith"},
+		{name: "Ornn, Forge God"},
+		{name: "Jax, Unrelenting"},
+		{name: "Jax, Unmatched"},
+		{name: "Irelia, Graceful"},
+		{name: "Irelia, Fervent"},
+		{name: "Azir, Ascendant"},
+		{name: "Azir, Sovereign"},
+		{name: "Ezreal, Prodigy"},
+		{name: "Ezreal, Dashing"},
+		{name: "Renata Glasc, Mastermind"},
+		{name: "Renata Glasc, Industrialist"},
+		{name: "Sivir, Ambitious"},
+		{name: "Sivir, Mercenary"},
+		{name: "Fiora, Worthy"},
+		{name: "Fiora, Peerless"},
+		{name: "Fiora, Victorious"}
     ];
     
     // Riftbound Battlefields List
@@ -120,7 +158,22 @@ export function initMatches(socket) {
         {name: "Void Gate"},
         {name: "Windswept Hillock"},
         {name: "Zaun Warrens"},
-        {name: "The Candlelit Sanctum"}
+        {name: "The Candlelit Sanctum"},
+		{name: "Emperor's Dais"},
+		{name: "Forge of the Fluft"},
+		{name: "Forgotten Monument"},
+		{name: "Hall of Legends"},
+		{name: "Marai Spire"},
+		{name: "Minefield"},
+		{name: "Ornn's Forge"},
+		{name: "Power Nexus"},
+		{name: "Ravenbloom Conservatory"},
+		{name: "Rockfall Path"},
+		{name: "Seat of Power"},
+		{name: "Sunken Temple"},
+		{name: "The Papertree"},
+		{name: "Treasure Hoard"},
+		{name: "Veiled Temple"}
     ];
 
     // Function to render or update a match card

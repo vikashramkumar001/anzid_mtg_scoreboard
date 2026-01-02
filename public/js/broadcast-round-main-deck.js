@@ -46,12 +46,12 @@ const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
 // Riftbound Runes Dictionary
 // Maps rune letters to their icon image URLs
 const RIFTBOUND_RUNES = {
-    'g': '/assets/images/riftbound/runes-outlined/Calm.png',
-    'p': '/assets/images/riftbound/runes-outlined/Chaos.png',
     'r': '/assets/images/riftbound/runes-outlined/Fury.png',
+	'g': '/assets/images/riftbound/runes-outlined/Calm.png',
     'b': '/assets/images/riftbound/runes-outlined/Mind.png',
-    'y': '/assets/images/riftbound/runes-outlined/Order.png',
-    'o': '/assets/images/riftbound/runes-outlined/Body.png'
+    'o': '/assets/images/riftbound/runes-outlined/Body.png',
+	'p': '/assets/images/riftbound/runes-outlined/Chaos.png',
+	'y': '/assets/images/riftbound/runes-outlined/Order.png'
 };
 
 const RIFTBOUND_BATTLEFIELDS = {
@@ -154,11 +154,71 @@ const RIFTBOUND_BATTLEFIELDS = {
     'The Candlelit Sanctum': {
         left: '/assets/images/riftbound/scoreboard/battlefields/_0023_The-Candlelit-Sanctum180.png',
         right: '/assets/images/riftbound/scoreboard/battlefields/_0047_The-Candlelit-Sanctum.png'
-    }
+    },
+	'Emperor\'s Dais': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0048_Emperor_s-Dais180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0072_Emperor_s-Dais.png'
+	},
+	'Forge of the Fluft': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0049_Forge-of-the-Fluft180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0073_Forge-of-the-Fluft.png'
+	},
+	'Forgotten Monument': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0050_Forgotten-Monument180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0074_Forgotten-Monument.png'
+	},
+	'Hall of Legends': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0051_Hall-of-Legends180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0075_Hall-of-Legends.png'
+	},
+	'Marai Spire': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0052_Marai-Spire180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0076_Marai-Spire.png'
+	},
+	'Minefield': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0053_Minefield180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0077_Minefield.png'
+	},
+	'Ornn\'s Forge': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0054_Ornn_s-Forge180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0078_Ornn_s-Forge.png'
+	},
+	'Power Nexus': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0055_Power-Nexus180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0079_Power-Nexus.png'
+	},
+	'Ravenbloom Conservatory': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0056_Ravenbloom-Conservatory180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0080_Ravenbloom-Conservatory.png'
+	},
+	'Rockfall Path': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0057_Rockfall-Path180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0081_Rockfall-Path.png'
+	},
+	'Seat of Power': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0058_Seat-of-Power180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0082_Seat-of-Power.png'
+	},
+	'Sunken Temple': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0059_Sunken-Temple180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0083_Sunken-Temple.png'
+	},
+	'The Papertree': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0060_The-Papertree180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0084_The-Papertree.png'
+	},
+	'Treasure Hoard': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0061_Treasure-Hoard180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0085_Treasure-Hoard.png'
+	},
+	'Veiled Temple': {
+	    left: '/assets/images/riftbound/scoreboard/battlefields/_0062_Veiled-Temple180.png',
+	    right: '/assets/images/riftbound/scoreboard/battlefields/_0086_Veiled-Temple.png'
+	}
 };
 
 // Riftbound Legends Descriptions Dictionary
-// Maps legend names to their description image URLs
+// Maps legend names to their legend ability image URLs
 const RIFTBOUND_LEGENDS_DESCRIPTIONS = {
     'default': '/assets/images/riftbound/decklist-descriptions/LegendText_0000_default.png',
     'Kai\'sa': '/assets/images/riftbound/decklist-descriptions/LegendText_0001_Kaisa, Daughter of the Void.png',
@@ -177,7 +237,19 @@ const RIFTBOUND_LEGENDS_DESCRIPTIONS = {
     'Garen': '/assets/images/riftbound/decklist-descriptions/LegendText_0013_Garen, Might of Demacia.png',
     'Lux': '/assets/images/riftbound/decklist-descriptions/LegendText_0014_Lux, Lady of Luminosity.png',
     'Annie': '/assets/images/riftbound/decklist-descriptions/LegendText_0015_Annie, Dark Child.png',
-    'Master Yi': '/assets/images/riftbound/decklist-descriptions/LegendText_0016_Master Yi, Wuju Bladesman.png'
+    'Master Yi': '/assets/images/riftbound/decklist-descriptions/LegendText_0016_Master Yi, Wuju Bladesman.png',
+	'Rumble': '/assets/images/riftbound/decklist-descriptions/LegendText_0017_Rumble, Mechanized Menace.png',
+	'Lucian': '/assets/images/riftbound/decklist-descriptions/LegendText_0018_Lucian, Purifier.png',
+	'Draven': '/assets/images/riftbound/decklist-descriptions/LegendText_0019_Draven, Glorious Executioner.png',
+	'Rek\'Sai': '/assets/images/riftbound/decklist-descriptions/LegendText_0020_Reksai, Void Burrower.png',
+	'Ornn': '/assets/images/riftbound/decklist-descriptions/LegendText_0021_Ornn, Fire Below the Mountain.png',
+	'Jax': '/assets/images/riftbound/decklist-descriptions/LegendText_0022_Jax, Grandmaster at Arms.png',
+	'Irelia': '/assets/images/riftbound/decklist-descriptions/LegendText_0023_Irelia, Blade Dancer.png',
+	'Azir': '/assets/images/riftbound/decklist-descriptions/LegendText_0024_Azir, Emperor of the Sands.png',
+	'Ezreal': '/assets/images/riftbound/decklist-descriptions/LegendText_0025_Ezreal, Prodigal Explorer.png',
+	'Renata Glasc': '/assets/images/riftbound/decklist-descriptions/LegendText_0026_Renata Glasc, Chem-Baroness.png',
+	'Sivir': '/assets/images/riftbound/decklist-descriptions/LegendText_0027_Sivir, Battle Mistress.png',
+	'Fiora': '/assets/images/riftbound/decklist-descriptions/LegendText_0028_Fiora, Grand Duelist.png'
 };
 
 // Listen for deck data to display
