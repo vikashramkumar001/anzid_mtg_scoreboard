@@ -92,3 +92,6 @@ Thumbs.db
 
 # Riftbound animations
 public/assets/animations/riftbound/
+
+# Vibes card images
+public/assets/images/vibes/all_cards/
