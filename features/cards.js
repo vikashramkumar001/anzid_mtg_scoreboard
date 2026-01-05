@@ -163,7 +163,7 @@ function getURLFromCardName(cardName, cardsList, gameType) {
 
     cleaned = normalizeName(cleaned);
 
-    if (gameType === 'mtg') {
+    if (gameType === 'mtg' || gameType === 'vibes') {
         return cardsList[cleaned];
     } else {
         return cardsList[cleaned]?.imageUrl;
@@ -183,6 +183,9 @@ export function transformMainDeck(data, io) {
     } else if (gameType === 'riftbound') {
         const riftboundCards = riftboundGetCardListData();
         cleanedCardsMap = createCleanedCardMap(riftboundCards);
+    } else if (gameType === 'vibes') {
+        const vibesCards = vibesGetCardListData();
+        cleanedCardsMap = createCleanedCardMap(vibesCards);
     }
 
     // --- Riftbound: categorized structure ---
@@ -251,6 +254,9 @@ export function transformSideDeck(data, io) {
     } else if (gameType === 'riftbound') {
         const riftboundCards = riftboundGetCardListData();
         cleanedCardsMap = createCleanedCardMap(riftboundCards);
+    } else if (gameType === 'vibes') {
+        const vibesCards = vibesGetCardListData();
+        cleanedCardsMap = createCleanedCardMap(vibesCards);
     }
 
     // same flat structure for side deck regardless of game type

@@ -570,6 +570,71 @@ function renderDecks() {
             if (mainDeckContainer) mainDeckContainer.innerHTML = '';
         }
     }
+    if (selectedGame === 'vibes') {
+        const vibesSection = document.getElementById('deck-display-vibes');
+        if (!vibesSection) return;
+        
+        if (Array.isArray(deckData.mainDeck) && deckData.mainDeck.length !== 0) {
+            // Vibes uses same layout as MTG for now
+            const deckDisplayDetails = vibesSection.querySelector('#vibes-deck-display-details');
+            // Clear previous deck displays
+            const mainDeckContainer = vibesSection.querySelector('#vibes-main-deck-container');
+            if (mainDeckContainer) mainDeckContainer.innerHTML = '';
+
+            if (orientation === 'vertical') {
+                if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
+                renderVibesVerticalDeck();
+            } else {
+                if (deckDisplayDetails) deckDisplayDetails.style.display = 'flex';
+                // Render main deck horizontally
+                if (mainDeckContainer) {
+                    const totalCards = deckData.mainDeck.length;
+
+                    // No overlap, display cards normally
+                    // 3 x 10 rows
+                    if (totalCards <= 30) {
+                        deckData.mainDeck.forEach((card, index) => {
+                            const cardElement = document.createElement('div');
+                            cardElement.className = 'main-deck-card';
+                            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                            mainDeckContainer.appendChild(cardElement);
+                        });
+                    } else {
+                        // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
+                        const numberCardsPerRow = Math.ceil(totalCards / 3);
+                        // 5px each side on padding on main container -> 10px
+                        // 5px each side of card -> 10px
+                        const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
+                        deckData.mainDeck.forEach((card, index) => {
+                            const cardElement = document.createElement('div');
+                            cardElement.className = 'main-deck-card';
+                            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                            cardElement.style.width = `${scalingCardWidth}px`;
+                            mainDeckContainer.appendChild(cardElement);
+                        });
+                    }
+                }
+            }
+
+            // Optionally, display player name and archetype
+            if (deckDisplayDetails) {
+                deckDisplayDetails.innerHTML = `
+                    <h1 class="player-name">${deckData.playerName}</h1>
+                    <h5 class="archetype-name">
+                        <span id="vibes-player-mana-symbols" class="mana-symbols-container"></span> ${deckData.archetype}
+                    </h5>
+                `;
+
+                // display mana symbols (if applicable for vibes)
+                renderManaSymbols(deckData.manaSymbols || '', 'vibes-player-mana-symbols');
+            }
+        } else {
+            console.log('vibes selected but not correct deckData type - clearing');
+            // Clear previous deck displays
+            const mainDeckContainer = vibesSection.querySelector('#vibes-main-deck-container');
+            if (mainDeckContainer) mainDeckContainer.innerHTML = '';
+        }
+    }
 }
 
 // Function to render battlefields using scoreboard-style implementation
@@ -844,6 +909,56 @@ function renderMTGVerticalDeck() {
     mainDeckContainer.appendChild(cardsContainer);
 }
 
+function renderVibesVerticalDeck() {
+    const vibesSection = document.getElementById('deck-display-vibes');
+    if (!vibesSection) return;
+    
+    const mainDeckContainer = vibesSection.querySelector('#vibes-main-deck-container');
+    if (!mainDeckContainer) return;
+    
+    mainDeckContainer.className = 'vertical-deck-container';
+    
+    // Clear previous deck displays
+    mainDeckContainer.innerHTML = '';
+    
+    // Create single cards container
+    const cardsContainer = document.createElement('div');
+    cardsContainer.className = 'vibes-single-column-cards-container';
+    
+    const totalCards = deckData.mainDeck.length;
+    
+    // Use dynamic card height based on total card count
+    let cardHeight, fontScaleFactor;
+    if (totalCards > 35) {
+        cardHeight = 25;
+        fontScaleFactor = 1;
+    } else if (totalCards > 26) {
+        cardHeight = 30;
+        fontScaleFactor = 1;
+    } else if (totalCards > 21) {
+        cardHeight = 41;
+        fontScaleFactor = 1;
+    } else {
+        cardHeight = 50;
+        fontScaleFactor = 1;
+    }
+    
+    // Render all cards with conditional sizing
+    deckData.mainDeck.forEach((card, index) => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'vertical-card';
+        cardElement.style.height = `${cardHeight}px`;
+        cardElement.innerHTML = `
+            <div class="vertical-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
+            <div class="vertical-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
+            <div class="vertical-card-background" style="background-image: url('${card['card-url']}');background-position: 40px -105px;background-size: cover;"></div>
+        `;
+        cardsContainer.appendChild(cardElement);
+    });
+    
+    mainDeckContainer.appendChild(cardsContainer);
+}
+
 function renderRiftboundVerticalDeck(deckObj) {
     const riftboundSection = document.getElementById('deck-display-riftbound');
     if (!riftboundSection) return;
@@ -1040,15 +1155,18 @@ function handleGameSelectionUpdate(gameSelection) {
     // Show/hide appropriate sections
     const mtgSection = document.getElementById('deck-display-mtg');
     const riftboundSection = document.getElementById('deck-display-riftbound');
+    const vibesSection = document.getElementById('deck-display-vibes');
 
     if (selectedGame === 'mtg') {
         console.log('Switching to MTG mode...');
         if (mtgSection) mtgSection.style.display = 'block';
         if (riftboundSection) riftboundSection.style.display = 'none';
+        if (vibesSection) vibesSection.style.display = 'none';
     } else if (selectedGame === 'riftbound') {
         console.log('Switching to Riftbound mode...');
         if (mtgSection) mtgSection.style.display = 'none';
         if (riftboundSection) riftboundSection.style.display = 'block';
+        if (vibesSection) vibesSection.style.display = 'none';
         setRiftboundBackground();
         
         // Update legend description when switching to riftbound
@@ -1059,10 +1177,16 @@ function handleGameSelectionUpdate(gameSelection) {
                 createLegendDescriptionSection(legend, container);
             }
         }
-    } else {
-        // Default: hide both if unknown game type
+    } else if (selectedGame === 'vibes') {
+        console.log('Switching to Vibes mode...');
         if (mtgSection) mtgSection.style.display = 'none';
         if (riftboundSection) riftboundSection.style.display = 'none';
+        if (vibesSection) vibesSection.style.display = 'block';
+    } else {
+        // Default: hide all if unknown game type
+        if (mtgSection) mtgSection.style.display = 'none';
+        if (riftboundSection) riftboundSection.style.display = 'none';
+        if (vibesSection) vibesSection.style.display = 'none';
     }
 
     // Request side deck transformation now that game selection is known

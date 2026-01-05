@@ -139,6 +139,52 @@ body.vertical #deck-display-mtg #main-deck-container {
     height: 1080px;
 }
 
+/* Vibes Deck Display Styles */
+#deck-display-vibes {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+}
+
+#deck-display-vibes #vibes-deck-display-details {
+    width: 1920px;
+    height: 130px;
+    color: white;
+}
+
+#deck-display-vibes #vibes-deck-display-details h1 {
+    font-size: 100px;
+    height: 100px;
+    position: relative;
+    top: 0px;
+}
+
+#deck-display-vibes #vibes-deck-display-details h5 {
+    font-size: 40px;
+    font-style: italic;
+    position: relative;
+    top: -20px;
+}
+
+#deck-display-vibes #vibes-deck-display-container {
+    width: 1920px;
+    height: 1080px;
+}
+
+#deck-display-vibes #vibes-main-deck-container {
+    width: 1920px;
+    height: 930px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: flex-start;
+    padding: 5px;
+}
+
+body.vertical #deck-display-vibes #vibes-main-deck-container {
+    height: 1080px;
+}
+
 /* Riftbound Deck Display Styles */
 #deck-display-riftbound {
     width: 1920px;
@@ -599,6 +645,96 @@ body.vertical #deck-display-mtg .vertical-deck-container {
 }
 
 #deck-display-mtg .vertical-card-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+    z-index: 1;
+}
+
+/* VIBES VERTICAL ORIENTATION STYLES */
+#deck-display-vibes body.vertical .vertical-deck-container,
+body.vertical #deck-display-vibes .vertical-deck-container {
+    width: 1920px;
+    height: 930px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#deck-display-vibes .vibes-single-column-cards-container {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 0 20px;
+}
+
+#deck-display-vibes .vertical-card {
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+#deck-display-vibes .vertical-card-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: normal;
+    z-index: 2;
+    border-radius: 0 0 8px 0;
+}
+
+#deck-display-vibes .vertical-card-name {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    right: 0;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: normal;
+    z-index: 2;
+}
+
+#deck-display-vibes .vertical-card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: auto 300px;
+    background-repeat: no-repeat;
+    background-position: 0px -100px;
+    z-index: 1;
+}
+
+#deck-display-vibes .vertical-card-background::before {
     content: '';
     position: absolute;
     top: 0;
