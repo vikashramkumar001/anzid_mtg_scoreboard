@@ -603,8 +603,21 @@ function renderDecks() {
                     const totalCards = deckData.mainDeck.length;
 
                     // No overlap, display cards normally
-                    // 3 x 10 rows
-                    if (totalCards <= 30) {
+                    // 3 x 7 rows
+                    if (totalCards <= 21) {
+                        // Max 7 per row
+                        const cardsPerRow = Math.min(7, totalCards);
+
+                        // Card footprint = card width + left/right margins (must match your CSS)
+                        // If .main-deck-card is 180px wide with margin: 5px, footprint is 190px
+                        const cardFootprint = 190;
+
+                        // Force container width to fit exactly N cards
+                        const targetWidth = cardsPerRow * cardFootprint;
+
+                        mainDeckContainer.style.width = `${targetWidth}px`;
+                        mainDeckContainer.style.maxWidth = `${targetWidth}px`;
+
                         deckData.mainDeck.forEach((card, index) => {
                             const cardElement = document.createElement('div');
                             cardElement.className = 'main-deck-card';
@@ -612,11 +625,18 @@ function renderDecks() {
                             mainDeckContainer.appendChild(cardElement);
                         });
                     } else {
-                        // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
+                        // RULE #2: max 3 rows (so compute cards-per-row to keep it to 3)
+                        mainDeckContainer.style.width = '';
+                        mainDeckContainer.style.maxWidth = '1340px'; // or leave blank if CSS already sets it
+
                         const numberCardsPerRow = Math.ceil(totalCards / 3);
-                        // 5px each side on padding on main container -> 10px
-                        // 5px each side of card -> 10px
-                        const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
+
+                        // Use actual container width (NOT 1920)
+                        const containerWidth = mainDeckContainer.clientWidth || 1340;
+
+                        // same padding/margin assumptions you used
+                        const scalingCardWidth = ((containerWidth - 10) / numberCardsPerRow) - 10;
+                        
                         deckData.mainDeck.forEach((card, index) => {
                             const cardElement = document.createElement('div');
                             cardElement.className = 'main-deck-card';
