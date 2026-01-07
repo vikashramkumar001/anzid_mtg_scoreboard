@@ -314,6 +314,12 @@ socket.on('transformed-main-deck-data', (data) => {
             if (!deckData.sideDeck) {
                 deckData.sideDeck = [];
             }
+            // Always update metadata from roundData to ensure it's fresh (fixes player name update issue)
+            if (roundData[match_id]) {
+                deckData.playerName = roundData[match_id][`player-name-${side_id}`] || 'Unknown Player';
+                deckData.archetype = roundData[match_id][`player-archetype-${side_id}`] || 'Unknown Archetype';
+                deckData.manaSymbols = roundData[match_id][`player-mana-symbols-${side_id}`] || '';
+            }
         }
         console.log('deck data', deckData);
         // Call a function to render the decks
@@ -340,6 +346,12 @@ socket.on('transformed-side-deck-data', (data) => {
             };
         } else {
             deckData.sideDeck = data.deckData;
+            // Always update metadata from roundData to ensure it's fresh (fixes player name update issue)
+            if (roundData[match_id]) {
+                deckData.playerName = roundData[match_id][`player-name-${side_id}`] || 'Unknown Player';
+                deckData.archetype = roundData[match_id][`player-archetype-${side_id}`] || 'Unknown Archetype';
+                deckData.manaSymbols = roundData[match_id][`player-mana-symbols-${side_id}`] || '';
+            }
         }
         // Call a function to render the decks
         renderDecks();
