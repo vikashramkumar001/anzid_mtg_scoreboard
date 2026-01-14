@@ -90,7 +90,7 @@ export class RoomUtils {
             'receive-meta-breakdown-data': ['meta-breakdown'],
             
             // Broadcast events
-            'broadcast-round-data': ['broadcast-details', 'broadcast-main-deck', 'broadcast-side-deck', 'broadcast-standings'],
+            'broadcast-round-data': ['broadcast-details', 'broadcast-main-deck', 'broadcast-side-deck', 'broadcast-standings', 'riftbound-animation-display-1', 'riftbound-animation-display-2', 'riftbound-animation-display-3', 'riftbound-animation-display-4'],
             
             // Overlay events
             'overlayHeaderBackgroundUpdate': ['global'],

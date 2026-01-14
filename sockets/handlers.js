@@ -270,9 +270,11 @@ export default function registerSocketHandlers(io) {
         // Broadcast
         socket.on('broadcast-requested', async ({round_id}) => {
             const controlData = getControlData();
+            console.log('haha');
             if (controlData[round_id]) {
                 updateBroadcastTracker(round_id);
                 RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
+                console.log('haha again');
             }
             emitBroadcastStandings(io, round_id);
         });

@@ -7,8 +7,10 @@ window.roomManager = new RoomManager(socket);
 // Get URL parameters
 const pathSegments = window.location.pathname.split('/');
 const orientation = pathSegments[pathSegments.length - 3]; // portrait or landscape
-const side = pathSegments[pathSegments.length - 2]; // left or right
-const control_id = pathSegments[pathSegments.length - 1]; // control ID (1-4)
+const side = pathSegments[pathSegments.length - 1]; // left or right
+const match_id = pathSegments[pathSegments.length - 2]; // match ID (1-4)
+
+
 
 // Normalize side parameter
 const normalizedSide = side?.toLowerCase() === 'right' ? 'right' : 'left';
@@ -95,7 +97,7 @@ const animationContainer = document.getElementById('animation-container');
 const normalizedOrientation = orientation?.toLowerCase() === 'portrait' ? 'portrait' : 'landscape';
 
 console.log('Animation Display initialized');
-console.log('Control ID:', control_id);
+console.log('Match ID:', match_id);
 console.log('Orientation:', normalizedOrientation);
 console.log('Side:', normalizedSide);
 
@@ -207,28 +209,19 @@ function handleGameSelectionUpdate(gameSelection) {
 }
 
 // Function to process control data
-function processControlData(data) {
-    if (!data) {
-        console.log('No control data received');
+function processBroadcastData(broadcastData) {
+    if (!broadcastData) {
+        console.log('No broadcast data received');
         return;
     }
     
+    //get match data GOOD CONVENTION :)
+    let data = broadcastData[match_id]
+
     // Store the control data for later reprocessing
     lastControlData = data;
     
-    console.log('Processing control data:', data);
-    
-    // Check if game type is riftbound
-    const gameSelection = data['game-selection'];
-    if (gameSelection) {
-        handleGameSelectionUpdate(gameSelection);
-    }
-    
-    // Only proceed if game type is riftbound
-    if (selectedGame !== 'riftbound') {
-        hideAnimation();
-        return;
-    }
+    console.log('Processing broadcast data:', data);
     
     // Get legend value from control data based on the side parameter
     const legendKey = `player-legend-${normalizedSide}`;
@@ -238,20 +231,17 @@ function processControlData(data) {
         console.log(`Legend value for ${normalizedSide} side:`, legendValue);
         updateAnimation(legendValue);
     } else {
-        console.log(`No legend value found in control data for ${normalizedSide} side (key: ${legendKey})`);
+        console.log(`No legend value found in broadcast data for ${normalizedSide} side (key: ${legendKey})`);
         hideAnimation();
     }
 }
 
-// INITIAL STATE - Request control data
-console.log('Requesting control data for control ID:', control_id);
-socket.emit('getSavedControlState', {control_id: control_id});
-
-// Listen for saved state from server
-socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
-    console.log('Received saved state from server:', data);
-    if (data && data.data) {
-        processControlData(data.data);
+// Listen for broadcast round data from server
+socket.on('broadcast-round-data', (data) => {
+    console.log('Received broadcast round data from server:', data);
+    if (data) {
+        processBroadcastData(data);
+        console.log('DATA!');
     }
 });
 

@@ -132,7 +132,7 @@ router.get('/riftbound/display/main/deck/:deckID', (req, res) => {
 });
 
 // riftbound - animation display
-router.get('/riftbound/animation-display/:orientation/:side/:controlID', (req, res) => {
+router.get('/riftbound/animation-display/:orientation/:matchID/:side', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/riftbound/animation-display.html'));
 });
 

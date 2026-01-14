@@ -975,3 +975,274 @@ body {
     font-weight: 800;
     font-size: 72px;
 }
+
+/* Vibes Scoreboard Styles */
+#scoreboard-vibes {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+#scoreboard-vibes * {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+#scoreboard-vibes .header .background {
+    width: 1920px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("/assets/images/overlay_header.png");
+    z-index: 2;
+    transition: background-image 0.5s ease-in-out;
+    /* Smooth transition for background image */
+}
+
+#scoreboard-vibes .body .background {
+    width: 1920px;
+    height: 930px;
+    background: url("/assets/images/overlay_body.png");
+}
+
+#scoreboard-vibes .footer .background {
+    width: 1920px;
+    height: 50px;
+    background: url("/assets/images/overlay_footer.png");
+    transition: background-image 0.5s ease-in-out;
+    /* Smooth transition for background image */
+}
+
+#scoreboard-vibes .scorebug {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#scoreboard-vibes .scorebug-life {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 200px;
+    height: 100px;
+    font-size: 100px;
+}
+
+#scoreboard-vibes .scorebug-right-life {
+    /* align-items: flex-end; */
+    flex-direction: row-reverse;
+}
+
+#scoreboard-vibes .scorebug-life-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    padding-top: 9px;
+}
+
+#scoreboard-vibes .scorebug-life-wins {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#scoreboard-vibes .scorebug-right-life-wins,
+#scoreboard-vibes .scorebug-left-life-wins {
+    width: 82px;
+    height: 100%;
+    padding-top: 5px;
+}
+
+#scoreboard-vibes .scorebug-life-wins-dot {
+    width: 20px;
+    height: 20px;
+    font-size: 28px;
+    border: 3px solid white;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+#scoreboard-vibes .player-record {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    font-size: 42px;
+    height: 100px;
+}
+
+#scoreboard-vibes .scorebug-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6px;
+    height: 100px;
+    width: 610px;
+    line-height: 1.0;
+}
+
+#scoreboard-vibes .scorebug-name-title {
+    font-size: 66px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 650px;
+    padding-top: 5px;
+}
+
+#scoreboard-vibes .scorebug-right-name {
+    align-items: flex-end;
+}
+
+#scoreboard-vibes .scorebug-name-data,
+#scoreboard-vibes .scorebug-name-data * {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 34px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2px;
+}
+
+#scoreboard-vibes .scorebug-vs {
+    width: 130px;
+}
+
+#scoreboard-vibes .chyron {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+#scoreboard-vibes .chyron * {
+    font-size: 28px;
+    color: #fff;
+}
+
+#scoreboard-vibes .poison {
+    z-index: 1;
+    position: absolute;
+}
+
+#scoreboard-vibes .poison-left {
+    background: url("/assets/images/poison_left.png");
+    display: block;
+    position: absolute;
+    top: 105px;
+    width: 163px;
+    height: 58px;
+    left: 0px;
+}
+
+#scoreboard-vibes .poison-right {
+    background: url("/assets/images/poison_right.png");
+    display: block;
+    position: absolute;
+    top: 105px;
+    width: 163px;
+    height: 58px;
+    left: 1757px;
+}
+
+#scoreboard-vibes .player-poison-left,
+#scoreboard-vibes .player-poison-right {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    position: absolute;
+    height: 48px;
+    font-size: 42px;
+}
+
+#scoreboard-vibes .player-poison-left {
+    left: 50px;
+}
+
+#scoreboard-vibes .player-poison-right {
+    right: 50px;
+}
+
+#scoreboard-vibes .player-pronouns {
+    border-radius: 8px;
+    padding: 0px 10px;
+    font-size: .6em;
+    background-image: linear-gradient(to left, #80738088, #19181888);
+}
+
+#scoreboard-vibes #player-pronouns-left {
+    background-image: linear-gradient(to left, #80738088, #19181888);
+}
+
+#scoreboard-vibes #player-pronouns-right {
+    background-image: linear-gradient(to left, #19181888, #80738088);
+}
+
+body {
+    background: transparent !important;
+}
+
+#scoreboard-vibes .background-left {
+    position: absolute;
+    top: 0;
+    width: 960px;
+    height: 100px;
+    left: 0;
+    transition: background-image 0.5s ease-in-out;
+    /* Smooth transition for background image */
+}
+
+#scoreboard-vibes .background-right {
+    position: absolute;
+    top: 0;
+    width: 960px;
+    height: 100px;
+    left: 960px;
+    transform: scaleX(-1);
+    /* Add this line to flip the image horizontally */
+    transition: background-image 0.5s ease-in-out;
+    /* Smooth transition for background image */
+}
+
+#scoreboard-vibes .timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 60px;
+    font-size: 25px;
+}
+
+#scoreboard-vibes .mana-symbols {
+    height: 16px;
+    margin-right: 3px;
+}
+
+#scoreboard-vibes #player-mana-symbols-left-symbols,
+#scoreboard-vibes #player-mana-symbols-right-symbols {
+    display: none;
+}
+
+#scoreboard-vibes #player-mana-symbols-left-symbols,
+#scoreboard-vibes #player-archetype-left {
+    margin-right: 5px;
+}
+
+#scoreboard-vibes #player-mana-symbols-right-symbols,
+#scoreboard-vibes #player-archetype-right {
+    margin-left: 5px;
+}

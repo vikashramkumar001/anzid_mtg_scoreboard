@@ -235,6 +235,7 @@ function updateElementText(id, value) {
     // This ensures data is ready when switching between games
     const mtgContainer = document.getElementById('scoreboard-mtg');
     const riftboundContainer = document.getElementById('scoreboard-riftbound');
+    const vibesContainer = document.getElementById('scoreboard-vibes');
     
     let updated = false;
     
@@ -252,6 +253,16 @@ function updateElementText(id, value) {
         const riftboundEl = riftboundContainer.querySelector(`#${id}`);
         if (riftboundEl && lastState[id] !== value) {
             riftboundEl.innerHTML = value;
+            updated = true;
+        }
+    }
+
+    // Update Vibes section
+    if (vibesContainer) {
+        console.log('ping1updateelementtext');
+        const vibesEl = vibesContainer.querySelector(`#${id}`);
+        if (vibesEl && lastState[id] !== value) {
+            vibesEl.innerHTML = value;
             updated = true;
         }
     }
@@ -679,6 +690,17 @@ socket.on('current-all-timer-states', ({timerState}) => {
                 riftboundTimer.style.display = shouldShow ? 'block' : 'none';
             }
         }
+
+        // Update Vibes timer
+        const vibesContainer = document.getElementById('scoreboard-vibes');
+        if (vibesContainer) {
+            console.log('ping2timer');
+            const vibesTimer = vibesContainer.querySelector('#timer');
+            if (vibesTimer) {
+                vibesTimer.innerText = timerText;
+                vibesTimer.style.display = shouldShow ? 'block' : 'none';
+            }
+        }
     }
 });
 
@@ -777,15 +799,18 @@ function handleGameSelectionUpdate(gameSelection) {
     // Show/hide appropriate scoreboard containers
     const mtgScoreboard = document.getElementById('scoreboard-mtg');
     const riftboundScoreboard = document.getElementById('scoreboard-riftbound');
+    const vibesScoreboard = document.getElementById('scoreboard-vibes');
 
     if (selectedGame === 'mtg') {
-        console.log('Switching to MTG mode...');
+        console.log('Switching scoreboard to MTG mode...');
         if (mtgScoreboard) mtgScoreboard.style.display = 'block';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
+        if (vibesScoreboard) vibesScoreboard.style.display = 'none';
     } else if (selectedGame === 'riftbound') {
-        console.log('Switching to Riftbound mode...');
+        console.log('Switching scoreboard to Riftbound mode...');
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'block';
+        if (vibesScoreboard) vibesScoreboard.style.display = 'none';
         
         // Apply battlefield images - always set a background (use default if empty or not found)
         const riftboundContainer = document.getElementById('scoreboard-riftbound');
@@ -967,16 +992,23 @@ function handleGameSelectionUpdate(gameSelection) {
                 }
             }
         }
-    } else {
-        // Default: hide both if unknown game type
+    } else if (selectedGame === 'vibes') {
+        console.log('Scoreboard switching to Vibes mode...');
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
+        if (vibesScoreboard) vibesScoreboard.style.display = 'block';
+    } else {
+        // Default: hide all if unknown game type
+        if (mtgScoreboard) mtgScoreboard.style.display = 'none';
+        if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
+        if (vibesScoreboard) vibesScoreboard.style.display = 'none';
     }
 }
 
 socket.emit('get-game-selection');
 
 socket.on('game-selection-updated', ({gameSelection}) => {
+    console.log('game selection updated socket on');
     handleGameSelectionUpdate(gameSelection);
 });
 
