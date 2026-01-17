@@ -158,3 +158,10 @@
     width: 100%;
     left: -10px;
 }
+
+/* Only decklist textareas */
+textarea[id*="main-deck"], 
+textarea[id*="side-deck"] {
+  font-family: "Bebas Neue Pro", sans-serif; /* or your Bebas Neue Pro name */
+  font-weight: 700;
+}

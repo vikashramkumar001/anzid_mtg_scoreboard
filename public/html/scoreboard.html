@@ -163,6 +163,7 @@
 
 <!-- Vibes Scoreboard -->
 <div id="scoreboard-vibes" style="display: none;">
+    <div class="vibes-frame"></div>
     <div class="header">
         <div class="background-left">
         </div>
@@ -193,9 +194,9 @@
                     </div>
                 </div>
                 <div id="player-record-left" class="player-record player-record-left"></div>
-                <div class="timer-container">
+                <!-- <div class="timer-container">
                     <p id="timer">00:00</p>
-                </div>
+                </div> -->
                 <div id="player-record-right" class="player-record player-record-right"></div>
                 <div class="scorebug-name scorebug-right-name">
                     <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
@@ -222,7 +223,15 @@
     </div>
     <div class="footer">
         <div class="background">
-            <div class="chyron">
+            <div class="vibes-timer-wrapper">
+                <div class="timer-container">
+                    <p id="timer" class="vibes-timer">00:00</p>
+                </div>
+            </div> 
+            <!--<div class="timer-container">
+                <p id="timer">00:00</p>
+            </div> -->
+            <!--<div class="chyron">
                 <div class="chyron_commentary">
                     <span id="miscellaneous-details"></span>
                 </div>
@@ -231,7 +240,7 @@
                     <span id="event-round">-</span>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <span id="event-format">-</span>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

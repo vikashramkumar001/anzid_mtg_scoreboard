@@ -587,7 +587,7 @@ function renderDecks() {
         if (!vibesSection) return;
         
         if (Array.isArray(deckData.mainDeck) && deckData.mainDeck.length !== 0) {
-            // Vibes uses same layout as MTG for now
+            // Vibes uses same layout as MTG for now but is 3x7
             const deckDisplayDetails = vibesSection.querySelector('#vibes-deck-display-details');
             // Clear previous deck displays
             const mainDeckContainer = vibesSection.querySelector('#vibes-main-deck-container');

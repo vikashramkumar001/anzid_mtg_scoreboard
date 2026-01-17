@@ -36,7 +36,8 @@ export function initMatches(socket) {
         {name: "Alverata", value: "'Alverata', sans-serif"},
         {name: "Alverata Informal", value: "'AlverataInformal', sans-serif"},
         {name: "Alverata Irregular", value: "'AlverataIrregular', sans-serif"},
-        {name: "Bebas Neue", value: "'Bebas Neue', sans-serif"}
+        {name: "Bebas Neue", value: "'Bebas Neue', sans-serif"},
+        {name: "Bebas Neue Pro", value: "'Bebas Neue Pro', sans-serif"}
     ];
     
     // Riftbound Legends List

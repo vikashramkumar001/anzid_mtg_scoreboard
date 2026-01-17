@@ -33,7 +33,10 @@ export function emitMTGCardList(io) {
     RoomUtils.emitWithRoomMapping(io, 'mtg-card-list-data', {cardListData});
 }
 
-function normalizeName(str) {
+function normalizeName(str, gameType) {
+    if (gameType === 'vibes') {
+        str = validateName(str, gameType);
+    }
     return str
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, '') // strip accents
@@ -43,10 +46,23 @@ function normalizeName(str) {
         .trim();
 }
 
-function createCleanedCardMap(cardsList) {
+//Validate names for cards where publishers don't auto-validate 
+//Current use case is for Vibes, Melee (player ingest website) does not auto validate apparently
+function validateName(str, gameType) {
+    if (gameType === 'vibes') {
+        return str
+            .replace(/[^\w\s]/g, '')             // remove punctuation
+            .replace(/\s+/g, '')                 // remove ALL spaces, not just trim
+            .toLowerCase();                      // force lowercase
+    } else {
+        return str;
+    }
+}
+
+function createCleanedCardMap(cardsList, gameType) {
     const cleanedMap = {};
     for (const originalName in cardsList) {
-        const cleaned = normalizeName(originalName);
+        const cleaned = normalizeName(originalName, gameType);
         // Only store the first match for a cleaned name
         if (!cleanedMap[cleaned]) {
             cleanedMap[cleaned] = cardsList[originalName];
@@ -92,10 +108,10 @@ export function emitCardView(io, cardSelected) {
             : cardSelected['card-selected'].trim();
 
         // Remove leading/trailing quotes and sanitize
-        const cleanedName = normalizeName(singleFace);
+        const cleanedName = normalizeName(singleFace, cardSelected['game-id']);
 
         // Clean the card list data
-        const cleanedCardListData = createCleanedCardMap(cardListData);
+        const cleanedCardListData = createCleanedCardMap(cardListData, cardSelected['game-id']);
 
         // get card url from json
         const cardURL = cleanedCardListData[cleanedName];
@@ -161,9 +177,13 @@ function getURLFromCardName(cardName, cardsList, gameType) {
         ? cardName.split('//')[0].trim()
         : cardName.trim();
 
-    cleaned = normalizeName(cleaned);
-
-    if (gameType === 'mtg' || gameType === 'vibes') {
+    cleaned = normalizeName(cleaned, gameType);
+    console.log('cleaned is '+cleaned);
+    if (gameType === 'mtg') {
+        return cardsList[cleaned];
+    } else if (gameType === 'vibes') {
+        //apply additional formatting for vibes here
+        //lower case, remove spaces, remove punctuation
         return cardsList[cleaned];
     } else {
         return cardsList[cleaned]?.imageUrl;
@@ -179,13 +199,13 @@ export function transformMainDeck(data, io) {
     let sideID = data.sideID;
     let matchID = data.matchID;
     if (gameType === 'mtg') {
-        cleanedCardsMap = createCleanedCardMap(cardListData);
+        cleanedCardsMap = createCleanedCardMap(cardListData, gameType);
     } else if (gameType === 'riftbound') {
         const riftboundCards = riftboundGetCardListData();
-        cleanedCardsMap = createCleanedCardMap(riftboundCards);
+        cleanedCardsMap = createCleanedCardMap(riftboundCards, gameType);
     } else if (gameType === 'vibes') {
         const vibesCards = vibesGetCardListData();
-        cleanedCardsMap = createCleanedCardMap(vibesCards);
+        cleanedCardsMap = createCleanedCardMap(vibesCards, gameType);
     }
 
     // --- Riftbound: categorized structure ---
@@ -230,7 +250,7 @@ export function transformMainDeck(data, io) {
             const count = parseInt(parts[1], 10);
             const name = parts[2];
             const url = getURLFromCardName(name, cleanedCardsMap, gameType);
-
+          
             flatDeck.push({
                 'card-name': name,
                 'card-count': count,
@@ -250,13 +270,13 @@ export function transformSideDeck(data, io) {
     let sideID = data.sideID;
     let matchID = data.matchID;
     if (gameType === 'mtg') {
-        cleanedCardsMap = createCleanedCardMap(cardListData);
+        cleanedCardsMap = createCleanedCardMap(cardListData, gameType);
     } else if (gameType === 'riftbound') {
         const riftboundCards = riftboundGetCardListData();
-        cleanedCardsMap = createCleanedCardMap(riftboundCards);
+        cleanedCardsMap = createCleanedCardMap(riftboundCards, gameType);
     } else if (gameType === 'vibes') {
         const vibesCards = vibesGetCardListData();
-        cleanedCardsMap = createCleanedCardMap(vibesCards);
+        cleanedCardsMap = createCleanedCardMap(vibesCards, gameType);
     }
 
     // same flat structure for side deck regardless of game type
