@@ -178,7 +178,7 @@ function getURLFromCardName(cardName, cardsList, gameType) {
         : cardName.trim();
 
     cleaned = normalizeName(cleaned, gameType);
-    console.log('cleaned is '+cleaned);
+    //console.log('cleaned is '+cleaned);
     if (gameType === 'mtg') {
         return cardsList[cleaned];
     } else if (gameType === 'vibes') {

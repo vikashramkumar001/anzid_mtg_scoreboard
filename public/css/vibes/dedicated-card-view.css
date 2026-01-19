@@ -5,7 +5,8 @@
 
 body {
     width: 1920px;
-    height: 1080px;
+    height: 540px;
+    background: transparent;
 }
 
 .card-src {

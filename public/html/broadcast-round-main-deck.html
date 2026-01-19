@@ -15,7 +15,7 @@
     <link href="/css/broadcast-round-main-deck.css" rel="stylesheet">
 </head>
 
-<body class="container-fluid">
+<body class="container-fluid p-0">
     <!-- MTG Deck Display -->
     <div id="deck-display-mtg" style="display: none;">
         <div class="row" id="deck-display-details">
@@ -39,6 +39,19 @@
 
     <!-- Vibes Deck Display -->
     <div id="deck-display-vibes" style="display: none;">
+        <div 
+            class="bg-image"
+            style="
+                background-image: url('/assets/images/vibes/broadcast-round-main-deck/vibes-decklist-bg.png');
+                height: 100vh;
+            "
+            id="vibes-bg-image" 
+        ></div>
+        <iframe
+            src="http://localhost:1378/vibes/display/card/view/1"
+            id="vibes-card-frame"
+            frameborder="0">
+        </iframe>
         <div class="row" id="vibes-deck-display-details">
         </div>
         <div class="row" id="vibes-deck-display-container">
