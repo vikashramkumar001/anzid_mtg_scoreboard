@@ -1,7 +1,7 @@
 const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
-let globalData = {};
+let localData = {};
 let commentator1 = "";
 let commentator1subtext = "";
 let commentator2 = "";
@@ -10,34 +10,35 @@ let commentator3 = "";
 let commentator3subtext = "";
 let commentator4 = "";
 let commentator4subtext = "";
+let selectedGame = "";
 
 // Get match name from the URL - exact pathSegment might be different
 const pathSegments = window.location.pathname.split('/');
-const commentator_id = pathSegments[4];
+const commentator_id = pathSegments[3];
 
 // Listen for global data update w/ commentator data
 socket.on('update-match-global-data', (data) => {
     console.log('L3 - global data', data);
     // Save to local object
-    globalData = data;
+    localData = data;
 
-    commentator1 = globalData['global-commentator-1']
-    commentator1subtext = globalData['global-commentator-1-subtext']
-    commentator2= globalData['global-commentator-2']
-    commentator2subtext = globalData['global-commentator-2-subtext']
-    commentator3 = globalData['global-commentator-3']
-    commentator3subtext = globalData['global-commentator-3-subtext']
-    commentator4 = globalData['global-commentator-4']
-    commentator4subtext = globalData['global-commentator-4-subtext']
+    commentator1 = localData['globalData']['global-commentator-1']
+    commentator1subtext = localData['globalData']['global-commentator-1-subtext']
+    commentator2= localData['globalData']['global-commentator-2']
+    commentator2subtext = localData['globalData']['global-commentator-2-subtext']
+    commentator3 = localData['globalData']['global-commentator-3']
+    commentator3subtext = localData['globalData']['global-commentator-3-subtext']
+    commentator4 = localData['globalData']['global-commentator-4']
+    commentator4subtext = localData['globalData']['global-commentator-4-subtext']
 
     console.log('L3 - commentator data', commentator1, commentator1subtext, commentator2, commentator2subtext, commentator3, commentator3subtext, commentator4, commentator4subtext);
 
     // specifically checking for font family change
-    checkFontFamily(data['globalData']['global-font-family']);
+    // checkFontFamily(data['localData']['global-font-family']);
     updateCommentatorData();
 })
 
-// Function to check if font family needs updating
+// function for font selection - TODO
 function checkFontFamily(globalFont) {
     if (globalFont) {
         document.documentElement.style.setProperty('--dynamic-font', globalFont);
@@ -50,21 +51,37 @@ function updateCommentatorData(){
     const commentatorHandle = document.getElementsByClassName('commentator-subtext');
 
     switch(commentator_id) {
-        case 1:
-            commentatorNameplate.innerHTML = commentator1;
-            commentatorHandle.innerHTML = commentator1subtext;
+        case '1':
+            [].slice.call(commentatorNameplate).forEach(function(div) {
+                div.innerHTML = commentator1;
+            });
+            [].slice.call(commentatorHandle).forEach(function(div) {
+                div.innerHTML = commentator1subtext;
+            });
             break;
-        case 2:
-            commentatorNameplate.innerHTML = commentator2;
-            commentatorHandle.innerHTML = commentator2subtext;
+        case '2':
+            [].slice.call(commentatorNameplate).forEach(function(div) {
+                div.innerHTML = commentator2;
+            });
+            [].slice.call(commentatorHandle).forEach(function(div) {
+                div.innerHTML = commentator2subtext;
+            });
             break;
-        case 3:
-            commentatorNameplate.innerHTML = commentator3;
-            commentatorHandle.innerHTML = commentator3subtext;
+        case '3':
+            [].slice.call(commentatorNameplate).forEach(function(div) {
+                div.innerHTML = commentator3;
+            });
+            [].slice.call(commentatorHandle).forEach(function(div) {
+                div.innerHTML = commentator3subtext;
+            });
             break;
-        case 4:
-            commentatorNameplate.innerHTML = commentator4;
-            commentatorHandle.innerHTML = commentator4subtext;
+        case '4':
+            [].slice.call(commentatorNameplate).forEach(function(div) {
+                div.innerHTML = commentator4;
+            });
+            [].slice.call(commentatorHandle).forEach(function(div) {
+                div.innerHTML = commentator4subtext;
+            });
             break;
     }
 }
@@ -78,11 +95,13 @@ socket.on('game-selection-updated', ({gameSelection}) => {
 
 // If this is the first time receiving it (like on initial load):
 socket.on('server-current-game-selection', ({gameSelection}) => {
+    console.log('L3 - server game selection updated socket on');
     handleGameSelectionUpdate(gameSelection);
 });
 
 // game selection logic - we only need to update the image
 function handleGameSelectionUpdate(gameSelection) {
+    console.log('L3 - Enter handle game select: ', gameSelection);
     const normalized = gameSelection?.toLowerCase();
     if (!normalized || normalized === selectedGame) return;
 
@@ -114,13 +133,13 @@ function handleGameSelectionUpdate(gameSelection) {
         if (vibesLowerThird) vibesLowerThird.style.display = 'none';
     } else if (selectedGame === 'vibes') {
         console.log('Switching lower-third to Vibes mode...');
-        if (mtglowerThird) mtglowerThird.style.display = 'none';
-        if (riftboundlowerThird) riftboundlowerThird.style.display = 'none';
-        if (vibeslowerThird) vibeslowerThird.style.display = 'block';
+        if (mtgLowerThird) mtgLowerThird.style.display = 'none';
+        if (riftboundLowerThird) riftboundLowerThird.style.display = 'none';
+        if (vibesLowerThird) vibesLowerThird.style.display = 'block';
     } else {
         // Default: hide all if unknown game type
-        if (mtglowerThird) mtglowerThird.style.display = 'none';
-        if (riftboundlowerThird) riftboundlowerThird.style.display = 'none';
-        if (vibeslowerThird) vibeslowerThird.style.display = 'none';
+        if (mtgLowerThird) mtgLowerThird.style.display = 'none';
+        if (riftboundLowerThird) riftboundLowerThird.style.display = 'none';
+        if (vibesLowerThird) vibesLowerThird.style.display = 'none';
     }
 }
