@@ -32,6 +32,7 @@ export function initMatches(socket) {
     let baseLifePoints = '20';
     let baseTimer = '50';
     let currentArchetypeList = [];
+    let commentatorData = {};
     const fontFamilies = [
         {name: "Alverata", value: "'Alverata', sans-serif"},
         {name: "Alverata Informal", value: "'AlverataInformal', sans-serif"},
@@ -849,6 +850,17 @@ export function initMatches(socket) {
         })
     }
 
+    // add click handler for commentator data
+    function attachCommentatorDataUpdateClickListener() {
+        const commentatorDataUpdateButton = document.querySelector(`#update-commentator-dropdowns`);
+
+        commentatorDataUpdateButton.addEventListener('click', () => {
+            commentatorData = extractCommentatorData();
+            // send update to server to handle storage - unsure if this is needed?
+            //socket.emit('bracket-updated', {bracketValues});
+        });
+    }
+
     // add click handlers for update global buttons
     function attachGlobalCommentatorsListener() {
         updateCommentators.addEventListener('click', () => {
@@ -931,6 +943,87 @@ export function initMatches(socket) {
             console.log(data2send)
             socket.emit('update-global-miscellaneous-information', {miscellaneousData: data2send});
         })
+    }
+
+    // Commentator Data Function
+    function extractCommentatorData() {
+        // Select the parent container
+        const commentatorDataText = document.getElementById('commentators-input').value;
+        
+        // Update commentatorData to be an object w/ pairs
+        commentatorData = [];
+        // split into array
+        let comData = commentatorDataText.split(/\r?\n/);
+        for (let i = 0; i < comData.length; i+=2) {
+            if (i+1 < comData.length){
+                let o = {
+                    name: comData[i],
+                    social: comData[i+1]
+                }
+                commentatorData.push(o);
+            }
+        }
+        autoPopulateCommentatorDropdowns();
+    }
+
+    function autoPopulateCommentatorDropdowns() {
+        console.log('APCD - entered autopopulate comdata');
+        // grab name dropdown inputs
+        let nameInputs = document.querySelectorAll('[id^="global-commentator-"].editable');
+        console.log('APCD - ', nameInputs);
+
+        // use commentatorData to populate dropdowns
+        let namesFromComData = [...new Set(Object.values(commentatorData).map(commentator => commentator.name))];
+        console.log('APCD - ', namesFromComData);
+
+        nameInputs.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) {
+                return; // Skip if already set up
+            }
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            field.addEventListener('input', function () {
+                const value = this.textContent.trim().toLowerCase();
+                const filteredNames = namesFromComData.filter(name => name.toLowerCase().includes(value))
+                    .slice(0, 5); // Limit to top 5 results
+                renderDropdownList(dropdownList, filteredNames, field);
+            });
+
+            field.addEventListener('focus', function () {
+                renderDropdownList(dropdownList, namesFromComData, field);
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!wrapper.contains(e.target)) {
+                    dropdownList.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    function renderDropdownList(dropdownList, names, field) {
+        dropdownList.innerHTML = '';
+        names.forEach(name => {
+            const div = document.createElement('div');
+            div.textContent = name;
+            div.classList.add('dropdown-item');
+            div.addEventListener('click', function () {
+                field.textContent = name;
+                dropdownList.style.display = 'none';
+                field.dispatchEvent(new Event('input'));
+                field.dispatchEvent(new Event('change')); // Trigger change event
+            });
+            dropdownList.appendChild(div);
+        });
+        dropdownList.style.display = names.length > 0 ? 'block' : 'none';
     }
 
 
@@ -1105,6 +1198,8 @@ export function initMatches(socket) {
     attachGlobalBaseTimerUpdateListener();
     // attach global miscellaneous update button listener
     attachGlobalMiscellaneousInformationUpdateListener();
+    // attach commentator data update button listener
+    attachCommentatorDataUpdateClickListener();
 
     // setup sockets emitters
 

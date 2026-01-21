@@ -115,7 +115,6 @@ body {
 #lower-third-mtg .commentator-subtext {
     font-size: 25px;
     padding-left: 125px;
-    margin-top: -10px;
 }
 
 /* Riftbound Lower Third */
@@ -138,7 +137,6 @@ body {
 #lower-third-riftbound .commentator-subtext {
     font-size: 25px;
     padding-left: 125px;
-    margin-top: -10px;
 }
 
 /* Vibes Lower Third */
@@ -158,5 +156,4 @@ body {
 #lower-third-vibes .commentator-subtext {
     font-size: 25px;
     padding-left: 125px;
-    margin-top: -10px;
 }
