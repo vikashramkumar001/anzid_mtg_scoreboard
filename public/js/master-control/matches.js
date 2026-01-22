@@ -1009,11 +1009,11 @@ export function initMatches(socket) {
             field.addEventListener('input', function () {
                 const value = this.textContent.trim().toLowerCase();
                 const filteredNames = namesFromComData.filter(name => name.toLowerCase().includes(value));
-                renderDropdownList(dropdownList, filteredNames, field);
+                renderCommentatorDropdownList(dropdownList, filteredNames, field);
             });
 
             field.addEventListener('focus', function () {
-                renderDropdownList(dropdownList, namesFromComData, field);
+                renderCommentatorDropdownList(dropdownList, namesFromComData, field);
             });
 
             field.addEventListener('change', function (e) {
@@ -1030,7 +1030,7 @@ export function initMatches(socket) {
         });
     }
 
-    function renderDropdownList(dropdownList, names, field) {
+    function renderCommentatorDropdownList(dropdownList, names, field) {
         dropdownList.innerHTML = '';
         names.forEach(name => {
             const div = document.createElement('div');
