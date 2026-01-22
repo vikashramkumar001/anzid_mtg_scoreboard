@@ -89,19 +89,19 @@ function updateCommentatorData(){
 socket.emit('get-game-selection');
 
 socket.on('game-selection-updated', ({gameSelection}) => {
-    console.log('L3 - game selection updated socket on');
+    //console.log('L3 - game selection updated socket on');
     handleGameSelectionUpdate(gameSelection);
 });
 
 // If this is the first time receiving it (like on initial load):
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    console.log('L3 - server game selection updated socket on');
+    //console.log('L3 - server game selection updated socket on');
     handleGameSelectionUpdate(gameSelection);
 });
 
 // game selection logic - we only need to update the image
 function handleGameSelectionUpdate(gameSelection) {
-    console.log('L3 - Enter handle game select: ', gameSelection);
+    //console.log('L3 - Enter handle game select: ', gameSelection);
     const normalized = gameSelection?.toLowerCase();
     if (!normalized || normalized === selectedGame) return;
 
@@ -111,7 +111,7 @@ function handleGameSelectionUpdate(gameSelection) {
     }
 
     selectedGame = normalized;
-    console.log('L3 - Game selection updated:', selectedGame);
+    //console.log('L3 - Game selection updated:', selectedGame);
 
     // Add game type class to body
     document.body.classList.add(selectedGame);
