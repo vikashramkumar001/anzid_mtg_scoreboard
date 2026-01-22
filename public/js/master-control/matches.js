@@ -10,14 +10,14 @@ export function initMatches(socket) {
     const updateMiscellaneousInformation = document.querySelector(`#global-update-misc-information.update-button`);
     const updateEventInformationBaseTimer = document.querySelector(`#global-update-event-information-base-timer.update-button`);
     const updateCommentators = document.querySelector(`#global-update-commentators.update-button`);
-    const commentator1 = document.querySelector(`#global-commentator-1`);
-    const commentator1_subtext = document.querySelector(`#global-commentator-1-subtext`);
-    const commentator2 = document.querySelector(`#global-commentator-2`);
-    const commentator2_subtext = document.querySelector(`#global-commentator-2-subtext`);
-    const commentator3 = document.querySelector(`#global-commentator-3`);
-    const commentator3_subtext = document.querySelector(`#global-commentator-3-subtext`);
-    const commentator4 = document.querySelector(`#global-commentator-4`);
-    const commentator4_subtext = document.querySelector(`#global-commentator-4-subtext`);
+    const commentator1 = () => document.querySelector(`#global-commentator-1`);
+    const commentator1_subtext = () =>  document.querySelector(`#global-commentator-subtext-1`);
+    const commentator2 = () =>  document.querySelector(`#global-commentator-2`);
+    const commentator2_subtext = () =>  document.querySelector(`#global-commentator-subtext-2`);
+    const commentator3 = () =>  document.querySelector(`#global-commentator-3`);
+    const commentator3_subtext = () =>  document.querySelector(`#global-commentator-subtext-3`);
+    const commentator4 = () =>  document.querySelector(`#global-commentator-4`);
+    const commentator4_subtext = () =>  document.querySelector(`#global-commentator-subtext-4`);
     const matchEventName = document.querySelector(`#global-event-name`);
     const matchEventFormat = document.querySelector(`#global-event-format`);
     const matchEventMiscDetails = document.querySelector(`#global-event-miscellaneous-details`);
@@ -32,6 +32,7 @@ export function initMatches(socket) {
     let baseLifePoints = '20';
     let baseTimer = '50';
     let currentArchetypeList = [];
+    let commentatorData = {};
     const fontFamilies = [
         {name: "Alverata", value: "'Alverata', sans-serif"},
         {name: "Alverata Informal", value: "'AlverataInformal', sans-serif"},
@@ -849,18 +850,29 @@ export function initMatches(socket) {
         })
     }
 
+    // add click handler for commentator data
+    function attachCommentatorDataUpdateClickListener() {
+        const commentatorDataUpdateButton = document.querySelector(`#update-commentator-dropdowns`);
+
+        commentatorDataUpdateButton.addEventListener('click', () => {
+            commentatorData = extractCommentatorData();
+            // send update to server to handle storage - unsure if this is needed?
+            //socket.emit('bracket-updated', {bracketValues});
+        });
+    }
+
     // add click handlers for update global buttons
     function attachGlobalCommentatorsListener() {
         updateCommentators.addEventListener('click', () => {
             const data2send = {
-                'global-commentator-1': commentator1.innerText,
-                'global-commentator-1-subtext': commentator1_subtext.innerText,
-                'global-commentator-2': commentator2.innerText,
-                'global-commentator-2-subtext': commentator2_subtext.innerText,
-                'global-commentator-3': commentator3.innerText,
-                'global-commentator-3-subtext': commentator3_subtext.innerText,
-                'global-commentator-4': commentator4.innerText,
-                'global-commentator-4-subtext': commentator4_subtext.innerText
+                'global-commentator-1': commentator1().innerText,
+                'global-commentator-1-subtext': commentator1_subtext().innerText,
+                'global-commentator-2': commentator2().innerText,
+                'global-commentator-2-subtext': commentator2_subtext().innerText,
+                'global-commentator-3': commentator3().innerText,
+                'global-commentator-3-subtext': commentator3_subtext().innerText,
+                'global-commentator-4': commentator4().innerText,
+                'global-commentator-4-subtext': commentator4_subtext().innerText
             }
             console.log(data2send)
             socket.emit('update-commentators-requested', {commentatorData: data2send});
@@ -933,6 +945,107 @@ export function initMatches(socket) {
         })
     }
 
+    // Commentator Data Function
+    function extractCommentatorData() {
+        // Select the parent container
+        const commentatorDataText = document.getElementById('commentators-input').value;
+        
+        // Update commentatorData to be an object w/ pairs
+        commentatorData = [];
+        // split into array
+        let comData = commentatorDataText.split(/\r?\n/);
+        for (let i = 0; i < comData.length; i+=2) {
+            if (i+1 < comData.length){
+                let o = {
+                    name: comData[i],
+                    social: comData[i+1]
+                }
+                commentatorData.push(o);
+            }
+        }
+        //console.log('commentatorData set', commentatorData);
+        autoPopulateCommentatorDropdowns(commentatorData);
+    }
+
+    function autoPopulateCommentatorDropdowns(commentatorData) {
+        //console.log('APCD - entered autopopulate comdata');
+
+        // delete all pre-existing wrappers/dropdowns, we want to start from scratch each time
+        // delete all wrappers
+        document.querySelectorAll('.custom-dropdown.global-commentator').forEach(e => e.replaceWith(...e.childNodes));
+        // delete all children dropdown lists
+        document.querySelectorAll('.dropdown-list.global-commentator').forEach(e => e.remove());
+
+
+        // grab name dropdown inputs
+        let nameInputsForDeletion = document.querySelectorAll('[id^="global-commentator-"]:not([id^="global-commentator-subtext-"]).editable');
+        // delete and remake all old nameInputs so that we can remove existing listeners
+        nameInputsForDeletion.forEach(node => {
+            const clone = node.cloneNode();
+            node.replaceWith(clone);
+        });
+
+        // also clear all socials text
+        document.querySelectorAll('[id^="global-commentator-subtext-"]').forEach(e => { e.innerText = '' })
+
+        // grab name dropdown inputs
+        let nameInputs = document.querySelectorAll('[id^="global-commentator-"]:not([id^="global-commentator-subtext-"]).editable');
+        //console.log('APCD - ', nameInputs);
+
+        // use commentatorData to populate dropdowns
+        let namesFromComData = [...new Set(Object.values(commentatorData).map(commentator => commentator.name))];
+        //console.log('APCD - ', namesFromComData);
+
+        nameInputs.forEach(field => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown global-commentator';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list global-commentator';
+            wrapper.appendChild(dropdownList);
+
+            field.addEventListener('input', function () {
+                const value = this.textContent.trim().toLowerCase();
+                const filteredNames = namesFromComData.filter(name => name.toLowerCase().includes(value));
+                renderDropdownList(dropdownList, filteredNames, field);
+            });
+
+            field.addEventListener('focus', function () {
+                renderDropdownList(dropdownList, namesFromComData, field);
+            });
+
+            field.addEventListener('change', function (e) {
+                let s = commentatorData.find(n => n.name === e.target.innerText).social
+                let subtext = document.getElementById('global-commentator-subtext-' + e.target.id.split('-')[2])
+                subtext.innerText = s;
+            })
+
+            document.addEventListener('click', function (e) {
+                if (!wrapper.contains(e.target)) {
+                    dropdownList.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    function renderDropdownList(dropdownList, names, field) {
+        dropdownList.innerHTML = '';
+        names.forEach(name => {
+            const div = document.createElement('div');
+            div.textContent = name;
+            div.classList.add('dropdown-item');
+            div.addEventListener('click', function () {
+                field.textContent = name;
+                dropdownList.style.display = 'none';
+                field.dispatchEvent(new Event('input'));
+                field.dispatchEvent(new Event('change')); // Trigger change event
+            });
+            dropdownList.appendChild(div);
+        });
+        dropdownList.style.display = names.length > 0 ? 'block' : 'none';
+    }
 
     // START TIMER FUNCTIONS
 
@@ -1105,6 +1218,8 @@ export function initMatches(socket) {
     attachGlobalBaseTimerUpdateListener();
     // attach global miscellaneous update button listener
     attachGlobalMiscellaneousInformationUpdateListener();
+    // attach commentator data update button listener
+    attachCommentatorDataUpdateClickListener();
 
     // setup sockets emitters
 
@@ -1142,14 +1257,14 @@ export function initMatches(socket) {
     socket.on('update-match-global-data', (data) => {
         // update match global fields
         console.log('got global data', data['globalData'])
-        commentator1.innerText = data['globalData']['global-commentator-1'] ? data['globalData']['global-commentator-1'] : '';
-        commentator1_subtext.innerText = data['globalData']['global-commentator-1-subtext'] ? data['globalData']['global-commentator-1-subtext'] : '';
-        commentator2.innerText = data['globalData']['global-commentator-2'] ? data['globalData']['global-commentator-2'] : '';
-        commentator2_subtext.innerText = data['globalData']['global-commentator-2-subtext'] ? data['globalData']['global-commentator-2-subtext'] : '';
-        commentator3.innerText = data['globalData']['global-commentator-3'] ? data['globalData']['global-commentator-3'] : '';
-        commentator3_subtext.innerText = data['globalData']['global-commentator-3-subtext'] ? data['globalData']['global-commentator-3-subtext'] : '';
-        commentator4.innerText = data['globalData']['global-commentator-4'] ? data['globalData']['global-commentator-4'] : '';
-        commentator4_subtext.innerText = data['globalData']['global-commentator-4-subtext'] ? data['globalData']['global-commentator-4-subtext'] : '';
+        commentator1().innerText = data['globalData']['global-commentator-1'] ? data['globalData']['global-commentator-1'] : '';
+        commentator1_subtext().innerText = data['globalData']['global-commentator-1-subtext'] ? data['globalData']['global-commentator-1-subtext'] : '';
+        commentator2().innerText = data['globalData']['global-commentator-2'] ? data['globalData']['global-commentator-2'] : '';
+        commentator2_subtext().innerText = data['globalData']['global-commentator-2-subtext'] ? data['globalData']['global-commentator-2-subtext'] : '';
+        commentator3().innerText = data['globalData']['global-commentator-3'] ? data['globalData']['global-commentator-3'] : '';
+        commentator3_subtext().innerText = data['globalData']['global-commentator-3-subtext'] ? data['globalData']['global-commentator-3-subtext'] : '';
+        commentator4().innerText = data['globalData']['global-commentator-4'] ? data['globalData']['global-commentator-4'] : '';
+        commentator4_subtext().innerText = data['globalData']['global-commentator-4-subtext'] ? data['globalData']['global-commentator-4-subtext'] : '';
         matchEventName.innerText = data['globalData']['global-event-name'] ? data['globalData']['global-event-name'] : '';
         matchEventFormat.innerText = data['globalData']['global-event-format'] ? data['globalData']['global-event-format'] : '';
         matchEventMiscDetails.innerText = data['globalData']['global-event-miscellaneous-details'] ? data['globalData']['global-event-miscellaneous-details'] : '';

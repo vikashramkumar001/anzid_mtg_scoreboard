@@ -1,0 +1,159 @@
+/* Akzidenz-Grotesk Next Font Faces for Riftbound */
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot');
+    src: local('Akzidenz-Grotesk Next Bold'), local('AkzidGrtskNext-Bold'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot');
+    src: local('Akzidenz-Grotesk Next Regular'), local('AkzidGrtskNext-Regular'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.eot');
+    src: local('Akzidenz-Grotesk Next Light'), local('AkzidGrtskNext-Light'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.eot');
+    src: local('Akzidenz-Grotesk Next Black'), local('AkzidGrtskNext-Black'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next Med';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.eot');
+    src: local('Akzidenz-Grotesk Next Medium'), local('AkzidGrtskNext-Med'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Med.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next Med';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.eot');
+    src: local('Akzidenz-Grotesk Next Medium Italic'), local('AkzidGrtskNext-MedIt'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-MedIt.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next XBold';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.eot');
+    src: local('Akzidenz-Grotesk Next ExtraBold'), local('AkzidGrtskNext-ExtraBold'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+* {
+    font-family: "Bebas Neue", sans-serif;
+    /* BebasNeueBold */
+    text-transform: uppercase;
+    color: white;
+}
+
+body {
+    width: 616px;
+    height: 100px;
+}
+
+/* MTG Lower Third */
+/* TODO: Dial in exact specs */
+
+#lower-third-mtg .commentator-image {
+    width: 616px;
+    height: 100px;
+    background-image: url('/assets/images/mtg/lower-third.png');
+    /* Temporary shading to differentiate */
+    background-color: rgba(133, 90, 27, 0.5);
+    background-blend-mode: multiply;
+}
+
+#lower-third-mtg .commentator {
+    font-size: 40px;
+    padding-left: 125px;
+}
+
+#lower-third-mtg .commentator-subtext {
+    font-size: 25px;
+    padding-left: 125px;
+}
+
+/* Riftbound Lower Third */
+/* TODO: Dial in exact specs */
+
+#lower-third-riftbound .commentator-image {
+    width: 616px;
+    height: 100px;
+    background-image: url('/assets/images/riftbound/lower-third.png');
+    /* Temporary shading to differentiate */
+    background-color: rgba(0, 6, 92, 0.5);
+    background-blend-mode: multiply;
+}
+
+#lower-third-riftbound .commentator {
+    font-size: 40px;
+    padding-left: 125px;
+}
+
+#lower-third-riftbound .commentator-subtext {
+    font-size: 25px;
+    padding-left: 125px;
+}
+
+/* Vibes Lower Third */
+/* TODO: Dial in exact specs */
+
+#lower-third-vibes .commentator-image {
+    width: 616px;
+    height: 100px;
+    background-image: url('/assets/images/vibes/lower-third.png');
+}
+
+#lower-third-vibes .commentator {
+    font-size: 40px;
+    padding-left: 125px;
+}
+
+#lower-third-vibes .commentator-subtext {
+    font-size: 25px;
+    padding-left: 125px;
+}

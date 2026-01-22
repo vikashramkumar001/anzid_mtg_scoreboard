@@ -75,6 +75,10 @@ router.get('/display/card/view/:gameID/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/dedicated-card-view.html'));
 });
 
+router.get('/lower-third/commentator/:commentatorID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/commentator-lower-third.html'));
+});
+
 // Upload overlay header image
 router.post('/upload-header-overlay', uploadOverlay.single('overlay_header'), (req, res) => {
   if (req.file) {
