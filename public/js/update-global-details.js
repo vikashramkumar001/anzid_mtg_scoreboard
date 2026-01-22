@@ -51,7 +51,7 @@ function renderDetails() {
 		
 		//		  riftbound styling
 		globalDetail.style.fontFamily = "'AkzMed', sans-serif";
-		globalDetail.style.fontSize = "36px";
+		globalDetail.style.fontSize = "48px";
 		globalDetail.style.fontWeight = "500";
 		globalDetail.style.textAlign = "left";
     }
@@ -61,10 +61,11 @@ function renderDetails() {
 		
 		//		  riftbound styling
 		globalDetail.style.fontFamily = "'AkzMed', sans-serif";
-		globalDetail.style.fontSize = "28px";
+		globalDetail.style.fontSize = "48px";
 		globalDetail.style.fontWeight = "500"; 
 		globalDetail.style.fontStyle = "italic";
-		globalDetail.style.color = "#49e723";
+        globalDetail.style.color = "#ffffff";
+		//TES color - globalDetail.style.color = "#49e723";
 		globalDetail.style.textAlign = "left";
     }
 }
