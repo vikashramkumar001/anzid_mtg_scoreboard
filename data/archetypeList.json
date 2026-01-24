@@ -1,214 +1,50 @@
 [
   {
-    "name": "4c control",
+    "name": "BashGlobe",
     "imageUrl": "/assets/images/archetypes/archetype_4c_control.png"
   },
   {
-    "name": "8 cast",
+    "name": "Bellyacher Colo",
     "imageUrl": "/assets/images/archetypes/archetype_8_cast.png"
   },
   {
-    "name": "ad nauseum tendrils",
+    "name": "BizBunk",
     "imageUrl": "/assets/images/archetypes/archetype_ad_nauseum_tendrils.png"
   },
   {
-    "name": "aggrovine",
+    "name": "Blue Mill",
     "imageUrl": "/assets/images/archetypes/archetype_aggrovine.png"
   },
   {
-    "name": "bant nadu",
+    "name": "Caffeine Colo",
     "imageUrl": "/assets/images/archetypes/archetype_bant_nadu.png"
   },
   {
-    "name": "beseech storm",
+    "name": "Control Hats",
     "imageUrl": "/assets/images/archetypes/archetype_beseech_storm.png"
   },
   {
-    "name": "blue tinker",
+    "name": "Green Control",
     "imageUrl": "/assets/images/archetypes/archetype_blue_tinker.png"
   },
   {
-    "name": "bug",
+    "name": "Red Purple Control",
     "imageUrl": "/assets/images/archetypes/archetype_bug.png"
   },
   {
-    "name": "bug beanstalk",
+    "name": "Red Purple Midrange",
     "imageUrl": "/assets/images/archetypes/archetype_bug_beanstalk.png"
   },
   {
-    "name": "cephalid breakfast",
+    "name": "Red Tower",
     "imageUrl": "/assets/images/archetypes/archetype_cephalid_breakfast.png"
   },
   {
-    "name": "cloudpost",
+    "name": "Yellow Midrange",
     "imageUrl": "/assets/images/archetypes/archetype_cloudpost.png"
   },
   {
-    "name": "countervine",
+    "name": "Yellow YumYum",
     "imageUrl": "/assets/images/archetypes/archetype_countervine.png"
-  },
-  {
-    "name": "cradle control",
-    "imageUrl": "/assets/images/archetypes/archetype_cradle_control.png"
-  },
-  {
-    "name": "death & taxes",
-    "imageUrl": "/assets/images/archetypes/archetype_death___taxes.png"
-  },
-  {
-    "name": "dimir lurrus control",
-    "imageUrl": "/assets/images/archetypes/archetype_dimir_lurrus_control.png"
-  },
-  {
-    "name": "Dimir reanimator",
-    "imageUrl": "/assets/images/archetypes/archetype_dimir_reanimator.png"
-  },
-  {
-    "name": "Dimir tempo",
-    "imageUrl": "/assets/images/archetypes/archetype_dimir_tempo.png"
-  },
-  {
-    "name": "doomsday",
-    "imageUrl": "/assets/images/archetypes/archetype_doomsday.png"
-  },
-  {
-    "name": "dredge",
-    "imageUrl": "/assets/images/archetypes/archetype_dredge.png"
-  },
-  {
-    "name": "eldrazi",
-    "imageUrl": "/assets/images/archetypes/archetype_eldrazi.png"
-  },
-  {
-    "name": "elves",
-    "imageUrl": "/assets/images/archetypes/archetype_elves.png"
-  },
-  {
-    "name": "esper lurrus control",
-    "imageUrl": "/assets/images/archetypes/archetype_esper_lurrus_control.png"
-  },
-  {
-    "name": "esper stoneblade",
-    "imageUrl": "/assets/images/archetypes/archetype_esper_stoneblade.png"
-  },
-  {
-    "name": "goblins",
-    "imageUrl": "/assets/images/archetypes/archetype_goblins.png"
-  },
-  {
-    "name": "grixis delver",
-    "imageUrl": "/assets/images/archetypes/archetype_grixis_delver.png"
-  },
-  {
-    "name": "grixis lurrus control",
-    "imageUrl": "/assets/images/archetypes/archetype_grixis_lurrus_control.png"
-  },
-  {
-    "name": "initiative",
-    "imageUrl": "/assets/images/archetypes/archetype_initiative.png"
-  },
-  {
-    "name": "jewel shops",
-    "imageUrl": "/assets/images/archetypes/archetype_jewel_shops.png"
-  },
-  {
-    "name": "lands",
-    "imageUrl": "/assets/images/archetypes/archetype_lands.png"
-  },
-  {
-    "name": "lurrus breach",
-    "imageUrl": "/assets/images/archetypes/archetype_lurrus_breach.png"
-  },
-  {
-    "name": "lurrus drs",
-    "imageUrl": "/assets/images/archetypes/archetype_lurrus_drs.png"
-  },
-  {
-    "name": "lurrus PO",
-    "imageUrl": "/assets/images/archetypes/archetype_lurrus_po.png"
-  },
-  {
-    "name": "lurrus vault key",
-    "imageUrl": "/assets/images/archetypes/archetype_lurrus_vault_key.png"
-  },
-  {
-    "name": "merfolk",
-    "imageUrl": "/assets/images/archetypes/archetype_merfolk.png"
-  },
-  {
-    "name": "mono red stompy",
-    "imageUrl": "/assets/images/archetypes/archetype_mono_red_stompy.png"
-  },
-  {
-    "name": "mystic forge",
-    "imageUrl": "/assets/images/archetypes/archetype_mystic_forge.png"
-  },
-  {
-    "name": "nadu breakfast",
-    "imageUrl": "/assets/images/archetypes/archetype_nadu_breakfast.png"
-  },
-  {
-    "name": "nadu elves",
-    "imageUrl": "/assets/images/archetypes/archetype_nadu_elves.png"
-  },
-  {
-    "name": "necrodominance",
-    "imageUrl": "/assets/images/archetypes/archetype_necrodominance.png"
-  },
-  {
-    "name": "oath of druids",
-    "imageUrl": "/assets/images/archetypes/archetype_oath_of_druids.png"
-  },
-  {
-    "name": "omnitell",
-    "imageUrl": "/assets/images/archetypes/archetype_omnitell.png"
-  },
-  {
-    "name": "oops all spells",
-    "imageUrl": "/assets/images/archetypes/archetype_oops_all_spells.png"
-  },
-  {
-    "name": "painter",
-    "imageUrl": "/assets/images/archetypes/archetype_painter.png"
-  },
-  {
-    "name": "paradoxical outcome",
-    "imageUrl": "/assets/images/archetypes/archetype_paradoxical_outcome.png"
-  },
-  {
-    "name": "rakdos reanimator",
-    "imageUrl": "/assets/images/archetypes/archetype_rakdos_reanimator.png"
-  },
-  {
-    "name": "riddlesmith",
-    "imageUrl": "/assets/images/archetypes/archetype_riddlesmith.png"
-  },
-  {
-    "name": "scam",
-    "imageUrl": "/assets/images/archetypes/archetype_scam.png"
-  },
-  {
-    "name": "selesnya depths",
-    "imageUrl": "/assets/images/archetypes/archetype_selesnya_depths.png"
-  },
-  {
-    "name": "sneak & show",
-    "imageUrl": "/assets/images/archetypes/archetype_sneak___show.png"
-  },
-  {
-    "name": "sphere shops",
-    "imageUrl": "/assets/images/archetypes/archetype_sphere_shops.png"
-  },
-  {
-    "name": "the epic gamble",
-    "imageUrl": "/assets/images/archetypes/archetype_the_epic_gamble.png"
-  },
-  {
-    "name": "the epic storm",
-    "imageUrl": "/assets/images/archetypes/archetype_the_epic_storm.png"
-  },
-  {
-    "name": "underworld breach",
-    "imageUrl": "/assets/images/archetypes/archetype_underworld_breach.png"
   }
 ]
