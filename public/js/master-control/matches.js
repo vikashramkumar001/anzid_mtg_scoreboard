@@ -281,7 +281,7 @@ export function initMatches(socket) {
                                 <label class="form-label">Archetype</label>
                                 <div id="${roundId}-${matchId}-player-archetype-left" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 mtg-only-field">
                                 <label class="form-label">Mana Symbols</label>
                                 <div id="${roundId}-${matchId}-player-mana-symbols-left" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -293,7 +293,7 @@ export function initMatches(socket) {
                                 <label class="form-label">Wins</label>
                                 <div id="${roundId}-${matchId}-player-wins-left" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 mtg-only-field">
                                 <label class="form-label">Poison</label>
                                 <div id="${roundId}-${matchId}-player-poison-left" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -338,7 +338,7 @@ export function initMatches(socket) {
                                 <label class="form-label">Archetype</label>
                                 <div id="${roundId}-${matchId}-player-archetype-right" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 mtg-only-field">
                                 <label class="form-label">Mana Symbols</label>
                                 <div id="${roundId}-${matchId}-player-mana-symbols-right" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -350,7 +350,7 @@ export function initMatches(socket) {
                                 <label class="form-label">Wins</label>
                                 <div id="${roundId}-${matchId}-player-wins-right" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 mtg-only-field">
                                 <label class="form-label">Poison</label>
                                 <div id="${roundId}-${matchId}-player-poison-right" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -429,7 +429,7 @@ export function initMatches(socket) {
             // Add the new card to the round's match container
             matchContainer.appendChild(matchCard);
             // Toggle Riftbound fields visibility based on current game selection
-            toggleRiftboundFields(currentGameSelection === 'riftbound');
+            toggleGameFields(currentGameSelection);
             // Attach change listeners
             attachChangeListeners(roundId, matchId);
             // Attach the deck display listeners after rendering
@@ -468,13 +468,21 @@ export function initMatches(socket) {
     function attachChangeListeners(roundId, matchId) {
         const editableFields = document.querySelectorAll(`#match-card-${roundId}-${matchId} .editable`);
         editableFields.forEach(field => {
-            field.addEventListener('input', () => {
+            field.addEventListener('input', (e) => {
                 let value;
 
                 // Handle deck lists as arrays
                 if (field.tagName.toLowerCase() === 'textarea' &&
                     (field.id.includes('main-deck') || field.id.includes('side-deck'))) {
                     // Split by newlines and/or commas, trim whitespace, and filter empty strings
+                    let parsedDeck = parseDeckString(field.value);
+
+                    // Update various fields as needed (Legend, Champion, etc.) (Currently only needed for Riftbound, but who knows?)
+                    let sideId = e.target['id'].split('-')[5]
+                    if (currentGameSelection === 'riftbound') {
+                        updateRiftboundFields(parsedDeck, roundId, matchId, sideId);
+                    }
+                    
                     value = field.value
                         .split(/\n+/)
                         .map(card => card.trim())
@@ -507,6 +515,94 @@ export function initMatches(socket) {
                 socket.emit('master-control-matches-updated', allControlData);
             });
         });
+    }
+
+    // parse deck string into an object of multiple array categories
+    function parseDeckString(decklist) {
+        const result = {};
+        let currentSection = null;
+
+        const lines = decklist.split("\n");
+
+        for (const line of lines) {
+            const trimmed = line.trim();
+
+            // skip empty lines
+            if (!trimmed) continue;
+
+            // section header
+            if (trimmed.endsWith(":")) {
+                const rawHeader = trimmed.slice(0, -1);
+
+                let normalizedHeader = rawHeader
+                    .replace(/\s*\(\d+\)\s*$/, "") // remove "(number)"
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]/g, "");    // remove spaces & symbols
+
+                // game-specific normalization
+                // RIFTBOUND
+                // normalize any rune-related header to "runepool"
+                if (normalizedHeader.includes("rune")) {
+                    normalizedHeader = "runepool";
+                }
+
+                // units / spells → maindeck
+                if (normalizedHeader === "units" || normalizedHeader === "spells") {
+                    normalizedHeader = "maindeck";
+                }
+
+                currentSection = normalizedHeader;
+                result[currentSection] = [];
+                continue;
+            }
+
+            // card line
+            if (currentSection) {
+                result[currentSection].push(trimmed);
+            }
+        }
+      return result;
+    }
+
+    // Function to update Riftbound-specific fields based on parsed deck data
+    function updateRiftboundFields(parsedDeck, roundId, matchId, sideId) {
+        // Legend
+        let legendField = document.getElementById(`${roundId}-${matchId}-player-legend-${sideId}`);
+        let legendName = parsedDeck['legend'] ? parsedDeck['legend'][0] : '';
+        legendName = legendName.substring(2, legendName.length); // remove quantity prefix
+        legendField.innerText = legendName;
+
+        // Champion
+        let championField = document.getElementById(`${roundId}-${matchId}-player-champion-${sideId}`);
+        let championName = parsedDeck['champion'] ? parsedDeck['champion'][0] : '';
+        championName = championName.substring(2, championName.length); // remove quantity prefix
+        championField.innerText = championName;
+
+        // Battlefield
+
+
+        // Runes
+        const runeLetterToName = {
+            'r': 'Fury',
+            'g': 'Calm',
+            'b': 'Mind',
+            'o': 'Body',
+            'p': 'Chaos',
+            'y': 'Order'
+        };
+
+        const nameToLetter = Object.fromEntries(Object.entries(runeLetterToName).map(([k, v]) => [v, k.toUpperCase()]));
+        const order = ['R', 'G', 'B', 'O', 'P', 'Y'];
+
+        let runeField = document.getElementById(`${roundId}-${matchId}-player-runes-${sideId}`);
+        if (parsedDeck['runepool']) {
+            const runeNames = parsedDeck['runepool'].map(r => r.split(' ')[1]);
+            const letters = runeNames.map(name => nameToLetter[name]).filter(Boolean);
+            letters.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+            runeField.innerText = letters.join('');
+        } else {
+            runeField.innerText = '';
+        }
     }
 
     // Function to update the control data for a specific match
@@ -1349,23 +1445,31 @@ export function initMatches(socket) {
         }
     });
 
-    // Function to toggle visibility of Riftbound-only fields
-    function toggleRiftboundFields(show) {
+    // Function to toggle visibility of game-specific fields
+    function toggleGameFields(gameSelection) {
+        const showRiftbound = gameSelection === 'riftbound';
+        const showMtg = gameSelection === 'mtg';
+
         const riftboundFields = document.querySelectorAll('.riftbound-only-field');
         riftboundFields.forEach(field => {
-            field.style.display = show ? 'block' : 'none';
+            field.style.display = showRiftbound ? 'block' : 'none';
+        });
+
+        const mtgFields = document.querySelectorAll('.mtg-only-field');
+        mtgFields.forEach(field => {
+            field.style.display = showMtg ? 'block' : 'none';
         });
     }
 
     // Listen for game selection changes
     socket.on('game-selection-updated', ({gameSelection}) => {
         currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
-        toggleRiftboundFields(currentGameSelection === 'riftbound');
+        toggleGameFields(currentGameSelection);
     });
 
     socket.on('server-current-game-selection', ({gameSelection}) => {
         currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
-        toggleRiftboundFields(currentGameSelection === 'riftbound');
+        toggleGameFields(currentGameSelection);
     });
 
     // Initial fetch of game selection
