@@ -537,29 +537,58 @@ function renderDecks() {
                 if (mainDeckContainer) {
                     const totalCards = deckData.mainDeck.length;
 
-                    // No overlap, display cards normally
-                    // 3 x 10 rows
-                    if (totalCards <= 30) {
-                        deckData.mainDeck.forEach((card, index) => {
-                            const cardElement = document.createElement('div');
-                            cardElement.className = 'main-deck-card';
-                            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-                            mainDeckContainer.appendChild(cardElement);
-                        });
+                    // Determine cards per row based on total card count
+                    // Goal: 3 rows, with appropriate cards per row
+                    let cardsPerRow;
+                    if (totalCards <= 24) {
+                        cardsPerRow = 8;
+                    } else if (totalCards <= 27) {
+                        cardsPerRow = 9;
+                    } else if (totalCards <= 30) {
+                        cardsPerRow = 10;
                     } else {
-                        // number of cards per row to maintain 3 rows -> total cards / 3 -> ceil
-                        const numberCardsPerRow = Math.ceil(totalCards / 3);
-                        // 5px each side on padding on main container -> 10px
-                        // 5px each side of card -> 10px
-                        const scalingCardWidth = ((1920 - 10) / numberCardsPerRow) - 10;
-                        deckData.mainDeck.forEach((card, index) => {
-                            const cardElement = document.createElement('div');
-                            cardElement.className = 'main-deck-card';
-                            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-                            cardElement.style.width = `${scalingCardWidth}px`;
-                            mainDeckContainer.appendChild(cardElement);
-                        });
+                        // For >30 cards, compare 3 rows vs 4 rows
+                        const cardsPerRow3 = Math.ceil(totalCards / 3);
+                        const cardsPerRow4 = Math.ceil(totalCards / 4);
+
+                        // Calculate total width needed for each option
+                        const availableWidthCalc = 1920 - 20;
+                        const cardWidth3 = (availableWidthCalc - (cardsPerRow3 - 1) * 5 - 10) / cardsPerRow3;
+                        const cardWidth4 = (availableWidthCalc - (cardsPerRow4 - 1) * 5 - 10) / cardsPerRow4;
+
+                        // Use 4 rows if it gives larger cards
+                        cardsPerRow = (cardWidth4 > cardWidth3) ? cardsPerRow4 : cardsPerRow3;
                     }
+
+                    // Calculate card width based on container dimensions
+                    const containerHeight = mainDeckContainer.clientHeight || 756;
+                    const availableHeight = containerHeight - 10; // subtract padding
+                    const availableWidth = 1920 - 20; // screen width minus margins
+
+                    // Determine number of rows needed
+                    const numRows = Math.ceil(totalCards / cardsPerRow);
+
+                    // Card width based on fitting rows in height (aspect ratio ~1:1.4)
+                    const maxCardHeight = (availableHeight - (numRows - 1) * 5) / numRows;
+                    const cardWidthFromHeight = maxCardHeight / 1.4;
+
+                    // Card width based on fitting cardsPerRow in screen width
+                    const cardWidthFromWidth = (availableWidth - (cardsPerRow - 1) * 5 - 10) / cardsPerRow;
+
+                    // Use smaller width to fit both constraints
+                    const scalingCardWidth = Math.min(cardWidthFromHeight, cardWidthFromWidth);
+
+                    // Dynamically set container width to fit exactly cardsPerRow cards
+                    const requiredWidth = cardsPerRow * scalingCardWidth + (cardsPerRow - 1) * 5 + 10;
+                    mainDeckContainer.style.width = `${requiredWidth}px`;
+
+                    deckData.mainDeck.forEach((card, index) => {
+                        const cardElement = document.createElement('div');
+                        cardElement.className = 'main-deck-card';
+                        cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                        cardElement.style.width = `${scalingCardWidth}px`;
+                        mainDeckContainer.appendChild(cardElement);
+                    });
                 }
             }
 

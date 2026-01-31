@@ -45,6 +45,35 @@ function checkFontFamily(globalFont) {
     }
 }
 
+// Auto-scale font size to fit container width
+function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
+    if (!element || !element.innerHTML) return;
+
+    element.style.whiteSpace = 'nowrap';
+    element.style.fontSize = maxFontSize + 'px';
+
+    // Create a temporary span to measure text width accurately
+    const temp = document.createElement('span');
+    temp.style.visibility = 'hidden';
+    temp.style.position = 'absolute';
+    temp.style.whiteSpace = 'nowrap';
+    temp.style.font = window.getComputedStyle(element).font;
+    temp.innerHTML = element.innerHTML;
+    document.body.appendChild(temp);
+
+    // Reduce font size until text fits
+    let currentSize = maxFontSize;
+    temp.style.fontSize = currentSize + 'px';
+
+    while (temp.offsetWidth > maxWidth && currentSize > minFontSize) {
+        currentSize -= 1;
+        temp.style.fontSize = currentSize + 'px';
+    }
+
+    element.style.fontSize = currentSize + 'px';
+    document.body.removeChild(temp);
+}
+
 // Function to update commentator data
 function updateCommentatorData(){
     const commentatorNameplate = document.getElementsByClassName('commentator');
@@ -84,6 +113,13 @@ function updateCommentatorData(){
             });
             break;
     }
+
+    // Wait for fonts to load before scaling text
+    document.fonts.ready.then(() => {
+        [].slice.call(commentatorNameplate).forEach(function(div) {
+            autoScaleText(div, 48, 24, 465);
+        });
+    });
 }
 
 socket.emit('get-game-selection');

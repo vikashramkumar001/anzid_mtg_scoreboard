@@ -60,6 +60,9 @@ socket.on('broadcast-round-data', (data) => {
         } else if (detail_id === 'player-sprite-left' || detail_id === 'player-sprite-right') {
             // We don't need to set detailToDisplay for sprite; just call renderDetails
             detailToDisplay = null;
+        } else if (detail_id === 'winner-left' || detail_id === 'winner-right') {
+            // Winner display - combines background, name, and archetype
+            detailToDisplay = null;
         } else {
             return; // detail_id doesn't exist and isn't a sprite, so exit
         }
@@ -72,12 +75,30 @@ socket.on('broadcast-round-data', (data) => {
 socket.on('update-match-global-data', (data) => {
     console.log('global data', data);
     // specifically checking for font family change
-    checkFontFamily(data['globalData']['global-font-family']);
+    checkFontFamily(data['globalData']['global-font-family'], data['globalData']['global-game-selection']);
+})
+
+// Get game selection on load
+socket.emit('get-game-selection');
+
+socket.on('server-current-game-selection', ({gameSelection}) => {
+    if (gameSelection?.toLowerCase() === 'mtg') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham');
+    }
+});
+
+socket.on('game-selection-updated', ({gameSelection}) => {
+    if (gameSelection?.toLowerCase() === 'mtg') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham');
+    }
 })
 
 // Function to check if font family needs updating
-function checkFontFamily(globalFont) {
-    if (globalFont) {
+function checkFontFamily(globalFont, gameSelection) {
+    // Use Gotham for MTG
+    if (gameSelection?.toLowerCase() === 'mtg') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham');
+    } else if (globalFont) {
         document.documentElement.style.setProperty('--dynamic-font', globalFont);
     }
 }
@@ -132,6 +153,33 @@ function renderDetails(detail) {
             fallbackImg.src = '/assets/images/sprites/fallback.png'; // or any subtle, soft image
             playerDetail.appendChild(fallbackImg);
         }
+
+        // Winner display - background image with player name and archetype
+    } else if (detail_id === 'winner-left' || detail_id === 'winner-right') {
+        const side = detail_id.endsWith('left') ? 'left' : 'right';
+        const playerName = roundData[match_id]?.[`player-name-${side}`] || '';
+        const archetype = roundData[match_id]?.[`player-archetype-${side}`] || '';
+
+        playerDetail.innerHTML = '';
+        playerDetail.className = 'winner-display';
+
+        // Background image container (contains name and archetype like commentator)
+        const bgImage = document.createElement('div');
+        bgImage.className = 'winner-bg-image';
+
+        // Player name (inside bg container)
+        const nameEl = document.createElement('div');
+        nameEl.className = 'winner-name';
+        nameEl.textContent = playerName;
+        bgImage.appendChild(nameEl);
+
+        // Archetype (inside bg container)
+        const archetypeEl = document.createElement('div');
+        archetypeEl.className = 'winner-archetype';
+        archetypeEl.textContent = archetype;
+        bgImage.appendChild(archetypeEl);
+
+        playerDetail.appendChild(bgImage);
 
         // Default: just show the detail as text
     } else {

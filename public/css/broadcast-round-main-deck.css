@@ -83,6 +83,102 @@
     font-style: normal;
 }
 
+/* Gotham Font Faces */
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-ThinItalic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-XLight.otf') format('opentype'),
+        url('/fonts/GothamLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-XLightItalic.otf') format('opentype'),
+        url('/fonts/GothamLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/GothamBook.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-BookItalic.otf') format('opentype'),
+        url('/fonts/GothamBookItalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/GothamMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/GothamMediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-Bold.otf') format('opentype'),
+        url('/fonts/GothamBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/GothamBoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-UltraItalic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+
 :root {
     --dynamic-font: 'Bebas Neue', sans-serif;
 }
@@ -100,6 +196,15 @@
     position: relative;
 }
 
+#deck-display-mtg #mtg-bg-image {
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    z-index: 1;
+}
+
 #deck-display-mtg #deck-display-details {
     width: 1920px;
     height: 130px;
@@ -107,32 +212,49 @@
 }
 
 #deck-display-mtg #deck-display-details h1 {
-    font-size: 100px;
+    font-family: 'Gotham', sans-serif;
+    font-size: 115px;
+    font-weight: 700;
     height: 100px;
     position: relative;
-    top: 0px;
+    top: 50px;
+    left: 106px;
+    z-index: 5;
 }
 
 #deck-display-mtg #deck-display-details h5 {
-    font-size: 40px;
+    font-family: 'Gotham', sans-serif;
+    font-size: 45px;
+    font-weight: 400;
     font-style: italic;
     position: relative;
-    top: -20px;
+    top: 56px;
+    left: 106px;
+    z-index: 5;
 }
 
 #deck-display-mtg #deck-display-container {
     width: 1920px;
     height: 1080px;
+    position: absolute;
+    z-index: 10;
+    top: 256px;
+    left: 0;
 }
 
 #deck-display-mtg #main-deck-container {
-    width: 1920px;
-    height: 930px;
+    width: 1670px;
+    height: 756px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: center;
     align-content: flex-start;
     padding: 5px;
+    gap: 5px;
+    position: absolute;
+    left: calc(50% + 12px);
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 body.vertical #deck-display-mtg #main-deck-container {
