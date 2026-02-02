@@ -1,0 +1,3621 @@
+[
+    {
+        "name": "332nd Stalwart",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/240.png",
+        "type": "Unit",
+        "image": "TWI\\332nd_Stalwart",
+        "success": true
+    },
+    {
+        "name": "41st Elite Corps",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/045.png",
+        "type": "Unit",
+        "image": "TWI\\41st_Elite_Corps",
+        "success": true
+    },
+    {
+        "name": "41st Elite Corps",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/318.png",
+        "type": "Unit",
+        "image": "TWI\\41st_Elite_Corps",
+        "success": true
+    },
+    {
+        "name": "501st Liberator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/109.png",
+        "type": "Unit",
+        "image": "TWI\\501st_Liberator",
+        "success": true
+    },
+    {
+        "name": "501st Liberator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/379.png",
+        "type": "Unit",
+        "image": "TWI\\501st_Liberator",
+        "success": true
+    },
+    {
+        "name": "A Fine Addition",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/040.png",
+        "type": "Event",
+        "image": "TWI\\A_Fine_Addition",
+        "success": true
+    },
+    {
+        "name": "A Fine Addition",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/313.png",
+        "type": "Event",
+        "image": "TWI\\A_Fine_Addition",
+        "success": true
+    },
+    {
+        "name": "AT-TE Vanguard",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/247.png",
+        "type": "Unit",
+        "image": "TWI\\AT-TE_Vanguard",
+        "success": true
+    },
+    {
+        "name": "AT-TE Vanguard",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/508.png",
+        "type": "Unit",
+        "image": "TWI\\AT-TE_Vanguard",
+        "success": true
+    },
+    {
+        "name": "Aayla Secura",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/096.png",
+        "type": "Unit",
+        "image": "TWI\\Aayla_Secura",
+        "success": true
+    },
+    {
+        "name": "Aayla Secura",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/368.png",
+        "type": "Unit",
+        "image": "TWI\\Aayla_Secura",
+        "success": true
+    },
+    {
+        "name": "Admiral Trench",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/086.png",
+        "type": "Unit",
+        "image": "TWI\\Admiral_Trench",
+        "success": true
+    },
+    {
+        "name": "Admiral Trench",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/358.png",
+        "type": "Unit",
+        "image": "TWI\\Admiral_Trench",
+        "success": true
+    },
+    {
+        "name": "Admiral Yularen",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/092.png",
+        "type": "Unit",
+        "image": "TWI\\Admiral_Yularen",
+        "success": true
+    },
+    {
+        "name": "Admiral Yularen",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/364.png",
+        "type": "Unit",
+        "image": "TWI\\Admiral_Yularen",
+        "success": true
+    },
+    {
+        "name": "Advanced Recon Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/093.png",
+        "type": "Unit",
+        "image": "TWI\\Advanced_Recon_Commando",
+        "success": true
+    },
+    {
+        "name": "Advanced Recon Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/365.png",
+        "type": "Unit",
+        "image": "TWI\\Advanced_Recon_Commando",
+        "success": true
+    },
+    {
+        "name": "Aggrieved Parliamentarian",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/252.png",
+        "type": "Unit",
+        "image": "TWI\\Aggrieved_Parliamentarian",
+        "success": true
+    },
+    {
+        "name": "Aggrieved Parliamentarian",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/512.png",
+        "type": "Unit",
+        "image": "TWI\\Aggrieved_Parliamentarian",
+        "success": true
+    },
+    {
+        "name": "Ahsoka Tano",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/011.png",
+        "type": "Leader",
+        "image": "TWI\\Ahsoka_Tano",
+        "success": true
+    },
+    {
+        "name": "Ahsoka Tano",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/194.png",
+        "type": "Unit",
+        "image": "TWI\\Ahsoka_Tano",
+        "success": true
+    },
+    {
+        "name": "Ahsoka Tano",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/268.png",
+        "type": "Leader",
+        "image": "TWI\\Ahsoka_Tano",
+        "success": true
+    },
+    {
+        "name": "Ahsoka Tano",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/459.png",
+        "type": "Unit",
+        "image": "TWI\\Ahsoka_Tano",
+        "success": true
+    },
+    {
+        "name": "Ahsoka's Padawan Lightsaber",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/248.png",
+        "type": "Upgrade",
+        "image": "TWI\\Ahsokas_Padawan_Lightsaber",
+        "success": true
+    },
+    {
+        "name": "Aid from the Innocent",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/201.png",
+        "type": "Event",
+        "image": "TWI\\Aid_from_the_Innocent",
+        "success": true
+    },
+    {
+        "name": "Aid from the Innocent",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/466.png",
+        "type": "Event",
+        "image": "TWI\\Aid_from_the_Innocent",
+        "success": true
+    },
+    {
+        "name": "Anakin Skywalker",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/012.png",
+        "type": "Leader",
+        "image": "TWI\\Anakin_Skywalker",
+        "success": true
+    },
+    {
+        "name": "Anakin Skywalker",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/147.png",
+        "type": "Unit",
+        "image": "TWI\\Anakin_Skywalker",
+        "success": true
+    },
+    {
+        "name": "Anakin Skywalker",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/269.png",
+        "type": "Leader",
+        "image": "TWI\\Anakin_Skywalker",
+        "success": true
+    },
+    {
+        "name": "Anakin Skywalker",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/287.png",
+        "type": "Leader",
+        "image": "TWI\\Anakin_Skywalker",
+        "success": true
+    },
+    {
+        "name": "Anakin's Interceptor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/142.png",
+        "type": "Unit",
+        "image": "TWI\\Anakins_Interceptor",
+        "success": true
+    },
+    {
+        "name": "Anakin's Interceptor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/410.png",
+        "type": "Unit",
+        "image": "TWI\\Anakins_Interceptor",
+        "success": true
+    },
+    {
+        "name": "Armored Saber Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/245.png",
+        "type": "Unit",
+        "image": "TWI\\Armored_Saber_Tank",
+        "success": true
+    },
+    {
+        "name": "Armored Saber Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/506.png",
+        "type": "Unit",
+        "image": "TWI\\Armored_Saber_Tank",
+        "success": true
+    },
+    {
+        "name": "Asajj Ventress",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/014.png",
+        "type": "Leader",
+        "image": "TWI\\Asajj_Ventress",
+        "success": true
+    },
+    {
+        "name": "Asajj Ventress",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/134.png",
+        "type": "Unit",
+        "image": "TWI\\Asajj_Ventress",
+        "success": true
+    },
+    {
+        "name": "Asajj Ventress",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/271.png",
+        "type": "Leader",
+        "image": "TWI\\Asajj_Ventress",
+        "success": true
+    },
+    {
+        "name": "Asajj Ventress",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/289.png",
+        "type": "Leader",
+        "image": "TWI\\Asajj_Ventress",
+        "success": true
+    },
+    {
+        "name": "Asajj Ventress",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/402.png",
+        "type": "Unit",
+        "image": "TWI\\Asajj_Ventress",
+        "success": true
+    },
+    {
+        "name": "Aurra Sing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/166.png",
+        "type": "Unit",
+        "image": "TWI\\Aurra_Sing",
+        "success": true
+    },
+    {
+        "name": "Aurra Sing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/433.png",
+        "type": "Unit",
+        "image": "TWI\\Aurra_Sing",
+        "success": true
+    },
+    {
+        "name": "B1 Attack Platform",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/133.png",
+        "type": "Unit",
+        "image": "TWI\\B1_Attack_Platform",
+        "success": true
+    },
+    {
+        "name": "B1 Attack Platform",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/401.png",
+        "type": "Unit",
+        "image": "TWI\\B1_Attack_Platform",
+        "success": true
+    },
+    {
+        "name": "B1 Security Team",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/207.png",
+        "type": "Unit",
+        "image": "TWI\\B1_Security_Team",
+        "success": true
+    },
+    {
+        "name": "B1 Security Team",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/472.png",
+        "type": "Unit",
+        "image": "TWI\\B1_Security_Team",
+        "success": true
+    },
+    {
+        "name": "B2 Legionnaires",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/113.png",
+        "type": "Unit",
+        "image": "TWI\\B2_Legionnaires",
+        "success": true
+    },
+    {
+        "name": "B2 Legionnaires",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/383.png",
+        "type": "Unit",
+        "image": "TWI\\B2_Legionnaires",
+        "success": true
+    },
+    {
+        "name": "Baktoid Spider Droid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/117.png",
+        "type": "Unit",
+        "image": "TWI\\Baktoid_Spider_Droid",
+        "success": true
+    },
+    {
+        "name": "Baktoid Spider Droid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/387.png",
+        "type": "Unit",
+        "image": "TWI\\Baktoid_Spider_Droid",
+        "success": true
+    },
+    {
+        "name": "Barriss Offee",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/042.png",
+        "type": "Unit",
+        "image": "TWI\\Barriss_Offee",
+        "success": true
+    },
+    {
+        "name": "Barriss Offee",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/315.png",
+        "type": "Unit",
+        "image": "TWI\\Barriss_Offee",
+        "success": true
+    },
+    {
+        "name": "Batch Brothers",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/144.png",
+        "type": "Unit",
+        "image": "TWI\\Batch_Brothers",
+        "success": true
+    },
+    {
+        "name": "Batch Brothers",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/412.png",
+        "type": "Unit",
+        "image": "TWI\\Batch_Brothers",
+        "success": true
+    },
+    {
+        "name": "Battle Droid Escort",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/229.png",
+        "type": "Unit",
+        "image": "TWI\\Battle_Droid_Escort",
+        "success": true
+    },
+    {
+        "name": "Battle Droid Legion",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/235.png",
+        "type": "Unit",
+        "image": "TWI\\Battle_Droid_Legion",
+        "success": true
+    },
+    {
+        "name": "Battle Droid Legion",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/498.png",
+        "type": "Unit",
+        "image": "TWI\\Battle_Droid_Legion",
+        "success": true
+    },
+    {
+        "name": "Blood Sport",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/173.png",
+        "type": "Event",
+        "image": "TWI\\Blood_Sport",
+        "success": true
+    },
+    {
+        "name": "Blood Sport",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/440.png",
+        "type": "Event",
+        "image": "TWI\\Blood_Sport",
+        "success": true
+    },
+    {
+        "name": "Bo-Katan Kryze",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/130.png",
+        "type": "Unit",
+        "image": "TWI\\Bo-Katan_Kryze",
+        "success": true
+    },
+    {
+        "name": "Bo-Katan Kryze",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/398.png",
+        "type": "Unit",
+        "image": "TWI\\Bo-Katan_Kryze",
+        "success": true
+    },
+    {
+        "name": "Bold Recon Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/161.png",
+        "type": "Unit",
+        "image": "TWI\\Bold_Recon_Commando",
+        "success": true
+    },
+    {
+        "name": "Bold Recon Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/428.png",
+        "type": "Unit",
+        "image": "TWI\\Bold_Recon_Commando",
+        "success": true
+    },
+    {
+        "name": "Bold Resistance",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/153.png",
+        "type": "Event",
+        "image": "TWI\\Bold_Resistance",
+        "success": true
+    },
+    {
+        "name": "Bold Resistance",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/420.png",
+        "type": "Event",
+        "image": "TWI\\Bold_Resistance",
+        "success": true
+    },
+    {
+        "name": "Brain Invaders",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/255.png",
+        "type": "Unit",
+        "image": "TWI\\Brain_Invaders",
+        "success": true
+    },
+    {
+        "name": "Brain Invaders",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/515.png",
+        "type": "Unit",
+        "image": "TWI\\Brain_Invaders",
+        "success": true
+    },
+    {
+        "name": "Breaking In",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/224.png",
+        "type": "Event",
+        "image": "TWI\\Breaking_In",
+        "success": true
+    },
+    {
+        "name": "Breaking In",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/489.png",
+        "type": "Event",
+        "image": "TWI\\Breaking_In",
+        "success": true
+    },
+    {
+        "name": "Cad Bane",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/187.png",
+        "type": "Unit",
+        "image": "TWI\\Cad_Bane",
+        "success": true
+    },
+    {
+        "name": "Cad Bane",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/452.png",
+        "type": "Unit",
+        "image": "TWI\\Cad_Bane",
+        "success": true
+    },
+    {
+        "name": "Calculating MagnaGuard",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/033.png",
+        "type": "Unit",
+        "image": "TWI\\Calculating_MagnaGuard",
+        "success": true
+    },
+    {
+        "name": "Calculating MagnaGuard",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/306.png",
+        "type": "Unit",
+        "image": "TWI\\Calculating_MagnaGuard",
+        "success": true
+    },
+    {
+        "name": "Captain Rex",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/007.png",
+        "type": "Leader",
+        "image": "TWI\\Captain_Rex",
+        "success": true
+    },
+    {
+        "name": "Captain Rex",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/097.png",
+        "type": "Unit",
+        "image": "TWI\\Captain_Rex",
+        "success": true
+    },
+    {
+        "name": "Captain Rex",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/264.png",
+        "type": "Leader",
+        "image": "TWI\\Captain_Rex",
+        "success": true
+    },
+    {
+        "name": "Captain Rex",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/282.png",
+        "type": "Leader",
+        "image": "TWI\\Captain_Rex",
+        "success": true
+    },
+    {
+        "name": "Captain Typho",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/046.png",
+        "type": "Unit",
+        "image": "TWI\\Captain_Typho",
+        "success": true
+    },
+    {
+        "name": "Captain Typho",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/319.png",
+        "type": "Unit",
+        "image": "TWI\\Captain_Typho",
+        "success": true
+    },
+    {
+        "name": "Caught in the Crossfire",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/176.png",
+        "type": "Event",
+        "image": "TWI\\Caught_in_the_Crossfire",
+        "success": true
+    },
+    {
+        "name": "Caught in the Crossfire",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/442.png",
+        "type": "Event",
+        "image": "TWI\\Caught_in_the_Crossfire",
+        "success": true
+    },
+    {
+        "name": "Chancellor Palpatine",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/203.png",
+        "type": "Unit",
+        "image": "TWI\\Chancellor_Palpatine",
+        "success": true
+    },
+    {
+        "name": "Chancellor Palpatine",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/468.png",
+        "type": "Unit",
+        "image": "TWI\\Chancellor_Palpatine",
+        "success": true
+    },
+    {
+        "name": "Chancellor Palpatine // Darth Sidious",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/017.png",
+        "type": "Leader",
+        "image": "TWI\\Chancellor_Palpatine__Darth_Sidious",
+        "success": true
+    },
+    {
+        "name": "Chancellor Palpatine // Darth Sidious",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/274.png",
+        "type": "Leader",
+        "image": "TWI\\Chancellor_Palpatine__Darth_Sidious",
+        "success": true
+    },
+    {
+        "name": "Chancellor Palpatine // Darth Sidious",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/292.png",
+        "type": "Leader",
+        "image": "TWI\\Chancellor_Palpatine__Darth_Sidious",
+        "success": true
+    },
+    {
+        "name": "Clear the Field",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/199.png",
+        "type": "Event",
+        "image": "TWI\\Clear_the_Field",
+        "success": true
+    },
+    {
+        "name": "Clear the Field",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/464.png",
+        "type": "Event",
+        "image": "TWI\\Clear_the_Field",
+        "success": true
+    },
+    {
+        "name": "Clone",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/116.png",
+        "type": "Unit",
+        "image": "TWI\\Clone",
+        "success": true
+    },
+    {
+        "name": "Clone",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/386.png",
+        "type": "Unit",
+        "image": "TWI\\Clone",
+        "success": true
+    },
+    {
+        "name": "Clone Cohort",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/169.png",
+        "type": "Upgrade",
+        "image": "TWI\\Clone_Cohort",
+        "success": true
+    },
+    {
+        "name": "Clone Cohort",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/436.png",
+        "type": "Upgrade",
+        "image": "TWI\\Clone_Cohort",
+        "success": true
+    },
+    {
+        "name": "Clone Commander Cody",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/114.png",
+        "type": "Unit",
+        "image": "TWI\\Clone_Commander_Cody",
+        "success": true
+    },
+    {
+        "name": "Clone Commander Cody",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/384.png",
+        "type": "Unit",
+        "image": "TWI\\Clone_Commander_Cody",
+        "success": true
+    },
+    {
+        "name": "Clone Dive Trooper",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/205.png",
+        "type": "Unit",
+        "image": "TWI\\Clone_Dive_Trooper",
+        "success": true
+    },
+    {
+        "name": "Clone Dive Trooper",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/470.png",
+        "type": "Unit",
+        "image": "TWI\\Clone_Dive_Trooper",
+        "success": true
+    },
+    {
+        "name": "Clone Heavy Gunner",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/158.png",
+        "type": "Unit",
+        "image": "TWI\\Clone_Heavy_Gunner",
+        "success": true
+    },
+    {
+        "name": "Clone Heavy Gunner",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/425.png",
+        "type": "Unit",
+        "image": "TWI\\Clone_Heavy_Gunner",
+        "success": true
+    },
+    {
+        "name": "Compassionate Senator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/056.png",
+        "type": "Unit",
+        "image": "TWI\\Compassionate_Senator",
+        "success": true
+    },
+    {
+        "name": "Compassionate Senator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/329.png",
+        "type": "Unit",
+        "image": "TWI\\Compassionate_Senator",
+        "success": true
+    },
+    {
+        "name": "Confederate Courier",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/079.png",
+        "type": "Unit",
+        "image": "TWI\\Confederate_Courier",
+        "success": true
+    },
+    {
+        "name": "Confederate Courier",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/352.png",
+        "type": "Unit",
+        "image": "TWI\\Confederate_Courier",
+        "success": true
+    },
+    {
+        "name": "Confederate Tri-Fighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/132.png",
+        "type": "Unit",
+        "image": "TWI\\Confederate_Tri-Fighter",
+        "success": true
+    },
+    {
+        "name": "Confederate Tri-Fighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/400.png",
+        "type": "Unit",
+        "image": "TWI\\Confederate_Tri-Fighter",
+        "success": true
+    },
+    {
+        "name": "Consolidation of Power",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/089.png",
+        "type": "Event",
+        "image": "TWI\\Consolidation_of_Power",
+        "success": true
+    },
+    {
+        "name": "Consolidation of Power",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/361.png",
+        "type": "Event",
+        "image": "TWI\\Consolidation_of_Power",
+        "success": true
+    },
+    {
+        "name": "Corner the Prey",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/139.png",
+        "type": "Event",
+        "image": "TWI\\Corner_the_Prey",
+        "success": true
+    },
+    {
+        "name": "Corner the Prey",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/407.png",
+        "type": "Event",
+        "image": "TWI\\Corner_the_Prey",
+        "success": true
+    },
+    {
+        "name": "Coruscant Guard",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/106.png",
+        "type": "Unit",
+        "image": "TWI\\Coruscant_Guard",
+        "success": true
+    },
+    {
+        "name": "Coruscant Guard",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/377.png",
+        "type": "Unit",
+        "image": "TWI\\Coruscant_Guard",
+        "success": true
+    },
+    {
+        "name": "Count Dooku",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/005.png",
+        "type": "Leader",
+        "image": "TWI\\Count_Dooku",
+        "success": true
+    },
+    {
+        "name": "Count Dooku",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/138.png",
+        "type": "Unit",
+        "image": "TWI\\Count_Dooku",
+        "success": true
+    },
+    {
+        "name": "Count Dooku",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/262.png",
+        "type": "Leader",
+        "image": "TWI\\Count_Dooku",
+        "success": true
+    },
+    {
+        "name": "Count Dooku",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/280.png",
+        "type": "Leader",
+        "image": "TWI\\Count_Dooku",
+        "success": true
+    },
+    {
+        "name": "Count Dooku",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/406.png",
+        "type": "Unit",
+        "image": "TWI\\Count_Dooku",
+        "success": true
+    },
+    {
+        "name": "Creative Thinking",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/200.png",
+        "type": "Event",
+        "image": "TWI\\Creative_Thinking",
+        "success": true
+    },
+    {
+        "name": "Creative Thinking",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/465.png",
+        "type": "Event",
+        "image": "TWI\\Creative_Thinking",
+        "success": true
+    },
+    {
+        "name": "Daring Raid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/170.png",
+        "type": "Event",
+        "image": "TWI\\Daring_Raid",
+        "success": true
+    },
+    {
+        "name": "Daring Raid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/437.png",
+        "type": "Event",
+        "image": "TWI\\Daring_Raid",
+        "success": true
+    },
+    {
+        "name": "Darth Maul",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/135.png",
+        "type": "Unit",
+        "image": "TWI\\Darth_Maul",
+        "success": true
+    },
+    {
+        "name": "Darth Maul",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/403.png",
+        "type": "Unit",
+        "image": "TWI\\Darth_Maul",
+        "success": true
+    },
+    {
+        "name": "Daughter of Dathomir",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/062.png",
+        "type": "Unit",
+        "image": "TWI\\Daughter_of_Dathomir",
+        "success": true
+    },
+    {
+        "name": "Daughter of Dathomir",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/335.png",
+        "type": "Unit",
+        "image": "TWI\\Daughter_of_Dathomir",
+        "success": true
+    },
+    {
+        "name": "Death by Droids",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/076.png",
+        "type": "Event",
+        "image": "TWI\\Death_by_Droids",
+        "success": true
+    },
+    {
+        "name": "Death by Droids",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/349.png",
+        "type": "Event",
+        "image": "TWI\\Death_by_Droids",
+        "success": true
+    },
+    {
+        "name": "Dendup's Loyalist",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/159.png",
+        "type": "Unit",
+        "image": "TWI\\Dendups_Loyalist",
+        "success": true
+    },
+    {
+        "name": "Dendup's Loyalist",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/426.png",
+        "type": "Unit",
+        "image": "TWI\\Dendups_Loyalist",
+        "success": true
+    },
+    {
+        "name": "Devastating Gunship",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/036.png",
+        "type": "Unit",
+        "image": "TWI\\Devastating_Gunship",
+        "success": true
+    },
+    {
+        "name": "Devastating Gunship",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/309.png",
+        "type": "Unit",
+        "image": "TWI\\Devastating_Gunship",
+        "success": true
+    },
+    {
+        "name": "Disaffected Senator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/157.png",
+        "type": "Unit",
+        "image": "TWI\\Disaffected_Senator",
+        "success": true
+    },
+    {
+        "name": "Disaffected Senator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/424.png",
+        "type": "Unit",
+        "image": "TWI\\Disaffected_Senator",
+        "success": true
+    },
+    {
+        "name": "Disruptive Burst",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/075.png",
+        "type": "Event",
+        "image": "TWI\\Disruptive_Burst",
+        "success": true
+    },
+    {
+        "name": "Disruptive Burst",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/348.png",
+        "type": "Event",
+        "image": "TWI\\Disruptive_Burst",
+        "success": true
+    },
+    {
+        "name": "Droid Cohort",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/218.png",
+        "type": "Upgrade",
+        "image": "TWI\\Droid_Cohort",
+        "success": true
+    },
+    {
+        "name": "Droid Cohort",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/483.png",
+        "type": "Upgrade",
+        "image": "TWI\\Droid_Cohort",
+        "success": true
+    },
+    {
+        "name": "Droid Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/081.png",
+        "type": "Unit",
+        "image": "TWI\\Droid_Commando",
+        "success": true
+    },
+    {
+        "name": "Droid Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/354.png",
+        "type": "Unit",
+        "image": "TWI\\Droid_Commando",
+        "success": true
+    },
+    {
+        "name": "Droid Deployment",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/237.png",
+        "type": "Event",
+        "image": "TWI\\Droid_Deployment",
+        "success": true
+    },
+    {
+        "name": "Droid Deployment",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/499.png",
+        "type": "Event",
+        "image": "TWI\\Droid_Deployment",
+        "success": true
+    },
+    {
+        "name": "Droid Manufactory",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/022.png",
+        "type": "Base",
+        "image": "TWI\\Droid_Manufactory",
+        "success": true
+    },
+    {
+        "name": "Droid Manufactory",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/297.png",
+        "type": "Base",
+        "image": "TWI\\Droid_Manufactory",
+        "success": true
+    },
+    {
+        "name": "Droid Starfighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/228.png",
+        "type": "Unit",
+        "image": "TWI\\Droid_Starfighter",
+        "success": true
+    },
+    {
+        "name": "Droid Starfighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/492.png",
+        "type": "Unit",
+        "image": "TWI\\Droid_Starfighter",
+        "success": true
+    },
+    {
+        "name": "Droideka Security",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/037.png",
+        "type": "Unit",
+        "image": "TWI\\Droideka_Security",
+        "success": true
+    },
+    {
+        "name": "Droideka Security",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/310.png",
+        "type": "Unit",
+        "image": "TWI\\Droideka_Security",
+        "success": true
+    },
+    {
+        "name": "Drop In",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/251.png",
+        "type": "Event",
+        "image": "TWI\\Drop_In",
+        "success": true
+    },
+    {
+        "name": "Drop In",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/511.png",
+        "type": "Event",
+        "image": "TWI\\Drop_In",
+        "success": true
+    },
+    {
+        "name": "Duchess's Champion",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/054.png",
+        "type": "Unit",
+        "image": "TWI\\Duchesss_Champion",
+        "success": true
+    },
+    {
+        "name": "Duchess's Champion",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/327.png",
+        "type": "Unit",
+        "image": "TWI\\Duchesss_Champion",
+        "success": true
+    },
+    {
+        "name": "Dwarf Spider Droid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/231.png",
+        "type": "Unit",
+        "image": "TWI\\Dwarf_Spider_Droid",
+        "success": true
+    },
+    {
+        "name": "Dwarf Spider Droid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/494.png",
+        "type": "Unit",
+        "image": "TWI\\Dwarf_Spider_Droid",
+        "success": true
+    },
+    {
+        "name": "Echo",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/090.png",
+        "type": "Unit",
+        "image": "TWI\\Echo",
+        "success": true
+    },
+    {
+        "name": "Echo",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/362.png",
+        "type": "Unit",
+        "image": "TWI\\Echo",
+        "success": true
+    },
+    {
+        "name": "Elite P-38 Starfighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/181.png",
+        "type": "Unit",
+        "image": "TWI\\Elite_P-38_Starfighter",
+        "success": true
+    },
+    {
+        "name": "Elite P-38 Starfighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/446.png",
+        "type": "Unit",
+        "image": "TWI\\Elite_P-38_Starfighter",
+        "success": true
+    },
+    {
+        "name": "Encouraging Leadership",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/126.png",
+        "type": "Event",
+        "image": "TWI\\Encouraging_Leadership",
+        "success": true
+    },
+    {
+        "name": "Encouraging Leadership",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/394.png",
+        "type": "Event",
+        "image": "TWI\\Encouraging_Leadership",
+        "success": true
+    },
+    {
+        "name": "Enfys Nest",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/198.png",
+        "type": "Unit",
+        "image": "TWI\\Enfys_Nest",
+        "success": true
+    },
+    {
+        "name": "Enfys Nest",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/463.png",
+        "type": "Unit",
+        "image": "TWI\\Enfys_Nest",
+        "success": true
+    },
+    {
+        "name": "Equalize",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/055.png",
+        "type": "Event",
+        "image": "TWI\\Equalize",
+        "success": true
+    },
+    {
+        "name": "Equalize",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/328.png",
+        "type": "Event",
+        "image": "TWI\\Equalize",
+        "success": true
+    },
+    {
+        "name": "Eta-2 Light Interceptor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/244.png",
+        "type": "Unit",
+        "image": "TWI\\Eta-2_Light_Interceptor",
+        "success": true
+    },
+    {
+        "name": "Eta-2 Light Interceptor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/505.png",
+        "type": "Unit",
+        "image": "TWI\\Eta-2_Light_Interceptor",
+        "success": true
+    },
+    {
+        "name": "Execute Order 66",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/239.png",
+        "type": "Event",
+        "image": "TWI\\Execute_Order_66",
+        "success": true
+    },
+    {
+        "name": "Execute Order 66",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/501.png",
+        "type": "Event",
+        "image": "TWI\\Execute_Order_66",
+        "success": true
+    },
+    {
+        "name": "Falchion Ion Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/065.png",
+        "type": "Unit",
+        "image": "TWI\\Falchion_Ion_Tank",
+        "success": true
+    },
+    {
+        "name": "Falchion Ion Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/338.png",
+        "type": "Unit",
+        "image": "TWI\\Falchion_Ion_Tank",
+        "success": true
+    },
+    {
+        "name": "Favorable Delegate",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/208.png",
+        "type": "Unit",
+        "image": "TWI\\Favorable_Delegate",
+        "success": true
+    },
+    {
+        "name": "Favorable Delegate",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/473.png",
+        "type": "Unit",
+        "image": "TWI\\Favorable_Delegate",
+        "success": true
+    },
+    {
+        "name": "Finn",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/053.png",
+        "type": "Unit",
+        "image": "TWI\\Finn",
+        "success": true
+    },
+    {
+        "name": "Finn",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/326.png",
+        "type": "Unit",
+        "image": "TWI\\Finn",
+        "success": true
+    },
+    {
+        "name": "Fives",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/216.png",
+        "type": "Unit",
+        "image": "TWI\\Fives",
+        "success": true
+    },
+    {
+        "name": "Fives",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/481.png",
+        "type": "Unit",
+        "image": "TWI\\Fives",
+        "success": true
+    },
+    {
+        "name": "For The Republic",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/051.png",
+        "type": "Upgrade",
+        "image": "TWI\\For_The_Republic",
+        "success": true
+    },
+    {
+        "name": "For The Republic",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/324.png",
+        "type": "Upgrade",
+        "image": "TWI\\For_The_Republic",
+        "success": true
+    },
+    {
+        "name": "Foresight",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/068.png",
+        "type": "Upgrade",
+        "image": "TWI\\Foresight",
+        "success": true
+    },
+    {
+        "name": "Foresight",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/341.png",
+        "type": "Upgrade",
+        "image": "TWI\\Foresight",
+        "success": true
+    },
+    {
+        "name": "Freelance Assassin",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/212.png",
+        "type": "Unit",
+        "image": "TWI\\Freelance_Assassin",
+        "success": true
+    },
+    {
+        "name": "Freelance Assassin",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/477.png",
+        "type": "Unit",
+        "image": "TWI\\Freelance_Assassin",
+        "success": true
+    },
+    {
+        "name": "General Grievous",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/015.png",
+        "type": "Leader",
+        "image": "TWI\\General_Grievous",
+        "success": true
+    },
+    {
+        "name": "General Grievous",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/034.png",
+        "type": "Unit",
+        "image": "TWI\\General_Grievous",
+        "success": true
+    },
+    {
+        "name": "General Grievous",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/272.png",
+        "type": "Leader",
+        "image": "TWI\\General_Grievous",
+        "success": true
+    },
+    {
+        "name": "General Grievous",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/307.png",
+        "type": "Unit",
+        "image": "TWI\\General_Grievous",
+        "success": true
+    },
+    {
+        "name": "General's Blade",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/121.png",
+        "type": "Upgrade",
+        "image": "TWI\\Generals_Blade",
+        "success": true
+    },
+    {
+        "name": "General's Blade",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/391.png",
+        "type": "Upgrade",
+        "image": "TWI\\Generals_Blade",
+        "success": true
+    },
+    {
+        "name": "General's Guardian",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/083.png",
+        "type": "Unit",
+        "image": "TWI\\Generals_Guardian",
+        "success": true
+    },
+    {
+        "name": "Geonosis Patrol Fighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/215.png",
+        "type": "Unit",
+        "image": "TWI\\Geonosis_Patrol_Fighter",
+        "success": true
+    },
+    {
+        "name": "Geonosis Patrol Fighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/480.png",
+        "type": "Unit",
+        "image": "TWI\\Geonosis_Patrol_Fighter",
+        "success": true
+    },
+    {
+        "name": "Gor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/118.png",
+        "type": "Unit",
+        "image": "TWI\\Gor",
+        "success": true
+    },
+    {
+        "name": "Gor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/388.png",
+        "type": "Unit",
+        "image": "TWI\\Gor",
+        "success": true
+    },
+    {
+        "name": "Grenade Strike",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/171.png",
+        "type": "Event",
+        "image": "TWI\\Grenade_Strike",
+        "success": true
+    },
+    {
+        "name": "Grenade Strike",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/438.png",
+        "type": "Event",
+        "image": "TWI\\Grenade_Strike",
+        "success": true
+    },
+    {
+        "name": "Grievous Reassembly",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/073.png",
+        "type": "Event",
+        "image": "TWI\\Grievous_Reassembly",
+        "success": true
+    },
+    {
+        "name": "Grievous Reassembly",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/346.png",
+        "type": "Event",
+        "image": "TWI\\Grievous_Reassembly",
+        "success": true
+    },
+    {
+        "name": "Grievous's Wheel Bike",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/236.png",
+        "type": "Upgrade",
+        "image": "TWI\\Grievouss_Wheel_Bike",
+        "success": true
+    },
+    {
+        "name": "Grim Resolve",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/172.png",
+        "type": "Event",
+        "image": "TWI\\Grim_Resolve",
+        "success": true
+    },
+    {
+        "name": "Grim Resolve",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/439.png",
+        "type": "Event",
+        "image": "TWI\\Grim_Resolve",
+        "success": true
+    },
+    {
+        "name": "Guarding the Way",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/074.png",
+        "type": "Event",
+        "image": "TWI\\Guarding_the_Way",
+        "success": true
+    },
+    {
+        "name": "Guarding the Way",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/347.png",
+        "type": "Event",
+        "image": "TWI\\Guarding_the_Way",
+        "success": true
+    },
+    {
+        "name": "Guerilla Insurgency",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/177.png",
+        "type": "Event",
+        "image": "TWI\\Guerilla_Insurgency",
+        "success": true
+    },
+    {
+        "name": "Guerilla Insurgency",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/443.png",
+        "type": "Event",
+        "image": "TWI\\Guerilla_Insurgency",
+        "success": true
+    },
+    {
+        "name": "Hailfire Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/233.png",
+        "type": "Unit",
+        "image": "TWI\\Hailfire_Tank",
+        "success": true
+    },
+    {
+        "name": "Hailfire Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/496.png",
+        "type": "Unit",
+        "image": "TWI\\Hailfire_Tank",
+        "success": true
+    },
+    {
+        "name": "Headhunter Squadron ",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/253.png",
+        "type": "Unit",
+        "image": "TWI\\Headhunter_Squadron",
+        "success": true
+    },
+    {
+        "name": "Headhunter Squadron ",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/513.png",
+        "type": "Unit",
+        "image": "TWI\\Headhunter_Squadron",
+        "success": true
+    },
+    {
+        "name": "Heavy Persuader Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/167.png",
+        "type": "Unit",
+        "image": "TWI\\Heavy_Persuader_Tank",
+        "success": true
+    },
+    {
+        "name": "Heavy Persuader Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/434.png",
+        "type": "Unit",
+        "image": "TWI\\Heavy_Persuader_Tank",
+        "success": true
+    },
+    {
+        "name": "Hello There",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/052.png",
+        "type": "Event",
+        "image": "TWI\\Hello_There",
+        "success": true
+    },
+    {
+        "name": "Hello There",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/325.png",
+        "type": "Event",
+        "image": "TWI\\Hello_There",
+        "success": true
+    },
+    {
+        "name": "Heroes on Both Sides",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/249.png",
+        "type": "Event",
+        "image": "TWI\\Heroes_on_Both_Sides",
+        "success": true
+    },
+    {
+        "name": "Heroes on Both Sides",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/509.png",
+        "type": "Event",
+        "image": "TWI\\Heroes_on_Both_Sides",
+        "success": true
+    },
+    {
+        "name": "Hevy",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/164.png",
+        "type": "Unit",
+        "image": "TWI\\Hevy",
+        "success": true
+    },
+    {
+        "name": "Hevy",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/431.png",
+        "type": "Unit",
+        "image": "TWI\\Hevy",
+        "success": true
+    },
+    {
+        "name": "Hidden Sharpshooter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/214.png",
+        "type": "Unit",
+        "image": "TWI\\Hidden_Sharpshooter",
+        "success": true
+    },
+    {
+        "name": "Hidden Sharpshooter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/479.png",
+        "type": "Unit",
+        "image": "TWI\\Hidden_Sharpshooter",
+        "success": true
+    },
+    {
+        "name": "Hold-Out Blaster",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/256.png",
+        "type": "Upgrade",
+        "image": "TWI\\Hold-Out_Blaster",
+        "success": true
+    },
+    {
+        "name": "Hold-Out Blaster",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/516.png",
+        "type": "Upgrade",
+        "image": "TWI\\Hold-Out_Blaster",
+        "success": true
+    },
+    {
+        "name": "Hotshot V-Wing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/209.png",
+        "type": "Unit",
+        "image": "TWI\\Hotshot_V-Wing",
+        "success": true
+    },
+    {
+        "name": "Hotshot V-Wing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/474.png",
+        "type": "Unit",
+        "image": "TWI\\Hotshot_V-Wing",
+        "success": true
+    },
+    {
+        "name": "Huyang",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/110.png",
+        "type": "Unit",
+        "image": "TWI\\Huyang",
+        "success": true
+    },
+    {
+        "name": "Huyang",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/380.png",
+        "type": "Unit",
+        "image": "TWI\\Huyang",
+        "success": true
+    },
+    {
+        "name": "I Have the High Ground",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/072.png",
+        "type": "Event",
+        "image": "TWI\\I_Have_the_High_Ground",
+        "success": true
+    },
+    {
+        "name": "I Have the High Ground",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/345.png",
+        "type": "Event",
+        "image": "TWI\\I_Have_the_High_Ground",
+        "success": true
+    },
+    {
+        "name": "Impropriety Among Thieves",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/204.png",
+        "type": "Event",
+        "image": "TWI\\Impropriety_Among_Thieves",
+        "success": true
+    },
+    {
+        "name": "Impropriety Among Thieves",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/469.png",
+        "type": "Event",
+        "image": "TWI\\Impropriety_Among_Thieves",
+        "success": true
+    },
+    {
+        "name": "In Defense of Kamino",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/129.png",
+        "type": "Event",
+        "image": "TWI\\In_Defense_of_Kamino",
+        "success": true
+    },
+    {
+        "name": "In Defense of Kamino",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/397.png",
+        "type": "Event",
+        "image": "TWI\\In_Defense_of_Kamino",
+        "success": true
+    },
+    {
+        "name": "In Pursuit",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/221.png",
+        "type": "Event",
+        "image": "TWI\\In_Pursuit",
+        "success": true
+    },
+    {
+        "name": "In Pursuit",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/486.png",
+        "type": "Event",
+        "image": "TWI\\In_Pursuit",
+        "success": true
+    },
+    {
+        "name": "Independent Senator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/206.png",
+        "type": "Unit",
+        "image": "TWI\\Independent_Senator",
+        "success": true
+    },
+    {
+        "name": "Independent Senator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/471.png",
+        "type": "Unit",
+        "image": "TWI\\Independent_Senator",
+        "success": true
+    },
+    {
+        "name": "Infantry of the 212th",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/061.png",
+        "type": "Unit",
+        "image": "TWI\\Infantry_of_the_212th",
+        "success": true
+    },
+    {
+        "name": "Infantry of the 212th",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/334.png",
+        "type": "Unit",
+        "image": "TWI\\Infantry_of_the_212th",
+        "success": true
+    },
+    {
+        "name": "Infiltrating Demolisher",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/182.png",
+        "type": "Unit",
+        "image": "TWI\\Infiltrating_Demolisher",
+        "success": true
+    },
+    {
+        "name": "Infiltrating Demolisher",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/447.png",
+        "type": "Unit",
+        "image": "TWI\\Infiltrating_Demolisher",
+        "success": true
+    },
+    {
+        "name": "Jango Fett",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/016.png",
+        "type": "Leader",
+        "image": "TWI\\Jango_Fett",
+        "success": true
+    },
+    {
+        "name": "Jango Fett",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/273.png",
+        "type": "Leader",
+        "image": "TWI\\Jango_Fett",
+        "success": true
+    },
+    {
+        "name": "Jango Fett",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/291.png",
+        "type": "Leader",
+        "image": "TWI\\Jango_Fett",
+        "success": true
+    },
+    {
+        "name": "Jar Jar Binks",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/202.png",
+        "type": "Unit",
+        "image": "TWI\\Jar_Jar_Binks",
+        "success": true
+    },
+    {
+        "name": "Jar Jar Binks",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/467.png",
+        "type": "Unit",
+        "image": "TWI\\Jar_Jar_Binks",
+        "success": true
+    },
+    {
+        "name": "Jesse",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/145.png",
+        "type": "Unit",
+        "image": "TWI\\Jesse",
+        "success": true
+    },
+    {
+        "name": "Jesse",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/413.png",
+        "type": "Unit",
+        "image": "TWI\\Jesse",
+        "success": true
+    },
+    {
+        "name": "Jyn Erso",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/143.png",
+        "type": "Unit",
+        "image": "TWI\\Jyn_Erso",
+        "success": true
+    },
+    {
+        "name": "Jyn Erso",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/411.png",
+        "type": "Unit",
+        "image": "TWI\\Jyn_Erso",
+        "success": true
+    },
+    {
+        "name": "KCM Mining Facility",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/026.png",
+        "type": "Base",
+        "image": "TWI\\KCM_Mining_Facility",
+        "success": true
+    },
+    {
+        "name": "KCM Mining Facility",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/301.png",
+        "type": "Base",
+        "image": "TWI\\KCM_Mining_Facility",
+        "success": true
+    },
+    {
+        "name": "Kalani",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/085.png",
+        "type": "Unit",
+        "image": "TWI\\Kalani",
+        "success": true
+    },
+    {
+        "name": "Kalani",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/357.png",
+        "type": "Unit",
+        "image": "TWI\\Kalani",
+        "success": true
+    },
+    {
+        "name": "Kashyyyk Defender",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/044.png",
+        "type": "Unit",
+        "image": "TWI\\Kashyyyk_Defender",
+        "success": true
+    },
+    {
+        "name": "Kashyyyk Defender",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/317.png",
+        "type": "Unit",
+        "image": "TWI\\Kashyyyk_Defender",
+        "success": true
+    },
+    {
+        "name": "Ki-Adi-Mundi",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/064.png",
+        "type": "Unit",
+        "image": "TWI\\Ki-Adi-Mundi",
+        "success": true
+    },
+    {
+        "name": "Ki-Adi-Mundi",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/337.png",
+        "type": "Unit",
+        "image": "TWI\\Ki-Adi-Mundi",
+        "success": true
+    },
+    {
+        "name": "Kit Fisto",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/165.png",
+        "type": "Unit",
+        "image": "TWI\\Kit_Fisto",
+        "success": true
+    },
+    {
+        "name": "Kit Fisto",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/432.png",
+        "type": "Unit",
+        "image": "TWI\\Kit_Fisto",
+        "success": true
+    },
+    {
+        "name": "Knight of the Republic",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/049.png",
+        "type": "Unit",
+        "image": "TWI\\Knight_of_the_Republic",
+        "success": true
+    },
+    {
+        "name": "Knight of the Republic",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/322.png",
+        "type": "Unit",
+        "image": "TWI\\Knight_of_the_Republic",
+        "success": true
+    },
+    {
+        "name": "Kraken",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/084.png",
+        "type": "Unit",
+        "image": "TWI\\Kraken",
+        "success": true
+    },
+    {
+        "name": "Kraken",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/356.png",
+        "type": "Unit",
+        "image": "TWI\\Kraken",
+        "success": true
+    },
+    {
+        "name": "Lair of Grievous",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/023.png",
+        "type": "Base",
+        "image": "TWI\\Lair_of_Grievous",
+        "success": true
+    },
+    {
+        "name": "Lair of Grievous",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/298.png",
+        "type": "Base",
+        "image": "TWI\\Lair_of_Grievous",
+        "success": true
+    },
+    {
+        "name": "Lethal Crackdown",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/041.png",
+        "type": "Event",
+        "image": "TWI\\Lethal_Crackdown",
+        "success": true
+    },
+    {
+        "name": "Lethal Crackdown",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/314.png",
+        "type": "Event",
+        "image": "TWI\\Lethal_Crackdown",
+        "success": true
+    },
+    {
+        "name": "Level 1313",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/029.png",
+        "type": "Base",
+        "image": "TWI\\Level_1313",
+        "success": true
+    },
+    {
+        "name": "Level 1313",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/518.png",
+        "type": "Base",
+        "image": "TWI\\Level_1313",
+        "success": true
+    },
+    {
+        "name": "Low Altitude Gunship",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/149.png",
+        "type": "Unit",
+        "image": "TWI\\Low_Altitude_Gunship",
+        "success": true
+    },
+    {
+        "name": "Low Altitude Gunship",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/416.png",
+        "type": "Unit",
+        "image": "TWI\\Low_Altitude_Gunship",
+        "success": true
+    },
+    {
+        "name": "Luminara Unduli",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/050.png",
+        "type": "Unit",
+        "image": "TWI\\Luminara_Unduli",
+        "success": true
+    },
+    {
+        "name": "Luminara Unduli",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/323.png",
+        "type": "Unit",
+        "image": "TWI\\Luminara_Unduli",
+        "success": true
+    },
+    {
+        "name": "Lux Bonteri",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/210.png",
+        "type": "Unit",
+        "image": "TWI\\Lux_Bonteri",
+        "success": true
+    },
+    {
+        "name": "Lux Bonteri",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/475.png",
+        "type": "Unit",
+        "image": "TWI\\Lux_Bonteri",
+        "success": true
+    },
+    {
+        "name": "Mace Windu",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/013.png",
+        "type": "Leader",
+        "image": "TWI\\Mace_Windu",
+        "success": true
+    },
+    {
+        "name": "Mace Windu",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/270.png",
+        "type": "Leader",
+        "image": "TWI\\Mace_Windu",
+        "success": true
+    },
+    {
+        "name": "Mace Windu",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/288.png",
+        "type": "Leader",
+        "image": "TWI\\Mace_Windu",
+        "success": true
+    },
+    {
+        "name": "Mace Windu's Lightsaber",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/152.png",
+        "type": "Upgrade",
+        "image": "TWI\\Mace_Windus_Lightsaber",
+        "success": true
+    },
+    {
+        "name": "Mace Windu's Lightsaber",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/419.png",
+        "type": "Upgrade",
+        "image": "TWI\\Mace_Windus_Lightsaber",
+        "success": true
+    },
+    {
+        "name": "MagnaGuard Wing Leader",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/082.png",
+        "type": "Unit",
+        "image": "TWI\\MagnaGuard_Wing_Leader",
+        "success": true
+    },
+    {
+        "name": "MagnaGuard Wing Leader",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/355.png",
+        "type": "Unit",
+        "image": "TWI\\MagnaGuard_Wing_Leader",
+        "success": true
+    },
+    {
+        "name": "Malevolence",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/039.png",
+        "type": "Unit",
+        "image": "TWI\\Malevolence",
+        "success": true
+    },
+    {
+        "name": "Malevolence",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/312.png",
+        "type": "Unit",
+        "image": "TWI\\Malevolence",
+        "success": true
+    },
+    {
+        "name": "Manufactured Soldiers",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/102.png",
+        "type": "Event",
+        "image": "TWI\\Manufactured_Soldiers",
+        "success": true
+    },
+    {
+        "name": "Manufactured Soldiers",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/373.png",
+        "type": "Event",
+        "image": "TWI\\Manufactured_Soldiers",
+        "success": true
+    },
+    {
+        "name": "Mas Amedda",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/101.png",
+        "type": "Unit",
+        "image": "TWI\\Mas_Amedda",
+        "success": true
+    },
+    {
+        "name": "Mas Amedda",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/372.png",
+        "type": "Unit",
+        "image": "TWI\\Mas_Amedda",
+        "success": true
+    },
+    {
+        "name": "Maul",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/009.png",
+        "type": "Leader",
+        "image": "TWI\\Maul",
+        "success": true
+    },
+    {
+        "name": "Maul",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/266.png",
+        "type": "Leader",
+        "image": "TWI\\Maul",
+        "success": true
+    },
+    {
+        "name": "Maul",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/284.png",
+        "type": "Leader",
+        "image": "TWI\\Maul",
+        "success": true
+    },
+    {
+        "name": "Merciless Contest",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/238.png",
+        "type": "Event",
+        "image": "TWI\\Merciless_Contest",
+        "success": true
+    },
+    {
+        "name": "Merciless Contest",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/500.png",
+        "type": "Event",
+        "image": "TWI\\Merciless_Contest",
+        "success": true
+    },
+    {
+        "name": "Mister Bones",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/154.png",
+        "type": "Unit",
+        "image": "TWI\\Mister_Bones",
+        "success": true
+    },
+    {
+        "name": "Mister Bones",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/421.png",
+        "type": "Unit",
+        "image": "TWI\\Mister_Bones",
+        "success": true
+    },
+    {
+        "name": "Morgan Elsbeth",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/035.png",
+        "type": "Unit",
+        "image": "TWI\\Morgan_Elsbeth",
+        "success": true
+    },
+    {
+        "name": "Morgan Elsbeth",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/308.png",
+        "type": "Unit",
+        "image": "TWI\\Morgan_Elsbeth",
+        "success": true
+    },
+    {
+        "name": "Multi-Troop Transport",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/066.png",
+        "type": "Unit",
+        "image": "TWI\\Multi-Troop_Transport",
+        "success": true
+    },
+    {
+        "name": "Multi-Troop Transport",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/339.png",
+        "type": "Unit",
+        "image": "TWI\\Multi-Troop_Transport",
+        "success": true
+    },
+    {
+        "name": "Nala Se",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/001.png",
+        "type": "Leader",
+        "image": "TWI\\Nala_Se",
+        "success": true
+    },
+    {
+        "name": "Nala Se",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/258.png",
+        "type": "Leader",
+        "image": "TWI\\Nala_Se",
+        "success": true
+    },
+    {
+        "name": "Nala Se",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/276.png",
+        "type": "Leader",
+        "image": "TWI\\Nala_Se",
+        "success": true
+    },
+    {
+        "name": "Nameless Valor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/119.png",
+        "type": "Upgrade",
+        "image": "TWI\\Nameless_Valor",
+        "success": true
+    },
+    {
+        "name": "Nameless Valor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/389.png",
+        "type": "Upgrade",
+        "image": "TWI\\Nameless_Valor",
+        "success": true
+    },
+    {
+        "name": "Now There Are Two of Them",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/225.png",
+        "type": "Event",
+        "image": "TWI\\Now_There_Are_Two_of_Them",
+        "success": true
+    },
+    {
+        "name": "Now There Are Two of Them",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/490.png",
+        "type": "Event",
+        "image": "TWI\\Now_There_Are_Two_of_Them",
+        "success": true
+    },
+    {
+        "name": "Nute Gunray",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/002.png",
+        "type": "Leader",
+        "image": "TWI\\Nute_Gunray",
+        "success": true
+    },
+    {
+        "name": "Nute Gunray",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/259.png",
+        "type": "Leader",
+        "image": "TWI\\Nute_Gunray",
+        "success": true
+    },
+    {
+        "name": "Nute Gunray",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/277.png",
+        "type": "Leader",
+        "image": "TWI\\Nute_Gunray",
+        "success": true
+    },
+    {
+        "name": "OOM-Series Officer",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/131.png",
+        "type": "Unit",
+        "image": "TWI\\OOM-Series_Officer",
+        "success": true
+    },
+    {
+        "name": "OOM-Series Officer",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/399.png",
+        "type": "Unit",
+        "image": "TWI\\OOM-Series_Officer",
+        "success": true
+    },
+    {
+        "name": "Obedient Vanguard",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/104.png",
+        "type": "Unit",
+        "image": "TWI\\Obedient_Vanguard",
+        "success": true
+    },
+    {
+        "name": "Obedient Vanguard",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/375.png",
+        "type": "Unit",
+        "image": "TWI\\Obedient_Vanguard",
+        "success": true
+    },
+    {
+        "name": "Obi-Wan Kenobi",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/003.png",
+        "type": "Leader",
+        "image": "TWI\\Obi-Wan_Kenobi",
+        "success": true
+    },
+    {
+        "name": "Obi-Wan Kenobi",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/260.png",
+        "type": "Leader",
+        "image": "TWI\\Obi-Wan_Kenobi",
+        "success": true
+    },
+    {
+        "name": "Obi-Wan Kenobi",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/278.png",
+        "type": "Leader",
+        "image": "TWI\\Obi-Wan_Kenobi",
+        "success": true
+    },
+    {
+        "name": "Obi-Wan's Aethersprite",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/048.png",
+        "type": "Unit",
+        "image": "TWI\\Obi-Wans_Aethersprite",
+        "success": true
+    },
+    {
+        "name": "Obi-Wan's Aethersprite",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/321.png",
+        "type": "Unit",
+        "image": "TWI\\Obi-Wans_Aethersprite",
+        "success": true
+    },
+    {
+        "name": "Old Access Codes",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/168.png",
+        "type": "Upgrade",
+        "image": "TWI\\Old_Access_Codes",
+        "success": true
+    },
+    {
+        "name": "Old Access Codes",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/435.png",
+        "type": "Upgrade",
+        "image": "TWI\\Old_Access_Codes",
+        "success": true
+    },
+    {
+        "name": "On Top of Things",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/219.png",
+        "type": "Upgrade",
+        "image": "TWI\\On_Top_of_Things",
+        "success": true
+    },
+    {
+        "name": "On Top of Things",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/484.png",
+        "type": "Upgrade",
+        "image": "TWI\\On_Top_of_Things",
+        "success": true
+    },
+    {
+        "name": "On the Doorstep",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/190.png",
+        "type": "Event",
+        "image": "TWI\\On_the_Doorstep",
+        "success": true
+    },
+    {
+        "name": "On the Doorstep",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/455.png",
+        "type": "Event",
+        "image": "TWI\\On_the_Doorstep",
+        "success": true
+    },
+    {
+        "name": "Open Fire",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/174.png",
+        "type": "Event",
+        "image": "TWI\\Open_Fire",
+        "success": true
+    },
+    {
+        "name": "Osi Sobeck",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/115.png",
+        "type": "Unit",
+        "image": "TWI\\Osi_Sobeck",
+        "success": true
+    },
+    {
+        "name": "Osi Sobeck",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/385.png",
+        "type": "Unit",
+        "image": "TWI\\Osi_Sobeck",
+        "success": true
+    },
+    {
+        "name": "Outflank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/123.png",
+        "type": "Event",
+        "image": "TWI\\Outflank",
+        "success": true
+    },
+    {
+        "name": "Outspoken Representative",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/043.png",
+        "type": "Unit",
+        "image": "TWI\\Outspoken_Representative",
+        "success": true
+    },
+    {
+        "name": "Outspoken Representative",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/316.png",
+        "type": "Unit",
+        "image": "TWI\\Outspoken_Representative",
+        "success": true
+    },
+    {
+        "name": "Padawan Starfighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/058.png",
+        "type": "Unit",
+        "image": "TWI\\Padawan_Starfighter",
+        "success": true
+    },
+    {
+        "name": "Padawan Starfighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/331.png",
+        "type": "Unit",
+        "image": "TWI\\Padawan_Starfighter",
+        "success": true
+    },
+    {
+        "name": "Padm\u00e9 Amidala",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/008.png",
+        "type": "Leader",
+        "image": "TWI\\Padm_Amidala",
+        "success": true
+    },
+    {
+        "name": "Padm\u00e9 Amidala",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/192.png",
+        "type": "Unit",
+        "image": "TWI\\Padm_Amidala",
+        "success": true
+    },
+    {
+        "name": "Padm\u00e9 Amidala",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/265.png",
+        "type": "Leader",
+        "image": "TWI\\Padm_Amidala",
+        "success": true
+    },
+    {
+        "name": "Padm\u00e9 Amidala",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/283.png",
+        "type": "Leader",
+        "image": "TWI\\Padm_Amidala",
+        "success": true
+    },
+    {
+        "name": "Padm\u00e9 Amidala",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/457.png",
+        "type": "Unit",
+        "image": "TWI\\Padm_Amidala",
+        "success": true
+    },
+    {
+        "name": "Patrolling AAT",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/232.png",
+        "type": "Unit",
+        "image": "TWI\\Patrolling_AAT",
+        "success": true
+    },
+    {
+        "name": "Patrolling AAT",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/495.png",
+        "type": "Unit",
+        "image": "TWI\\Patrolling_AAT",
+        "success": true
+    },
+    {
+        "name": "Patrolling V-Wing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/107.png",
+        "type": "Unit",
+        "image": "TWI\\Patrolling_V-Wing",
+        "success": true
+    },
+    {
+        "name": "Pau City",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/019.png",
+        "type": "Base",
+        "image": "TWI\\Pau_City",
+        "success": true
+    },
+    {
+        "name": "Pau City",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/294.png",
+        "type": "Base",
+        "image": "TWI\\Pau_City",
+        "success": true
+    },
+    {
+        "name": "Pelta Supply Frigate",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/095.png",
+        "type": "Unit",
+        "image": "TWI\\Pelta_Supply_Frigate",
+        "success": true
+    },
+    {
+        "name": "Pelta Supply Frigate",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/367.png",
+        "type": "Unit",
+        "image": "TWI\\Pelta_Supply_Frigate",
+        "success": true
+    },
+    {
+        "name": "Perilous Position",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/070.png",
+        "type": "Upgrade",
+        "image": "TWI\\Perilous_Position",
+        "success": true
+    },
+    {
+        "name": "Perilous Position",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/343.png",
+        "type": "Upgrade",
+        "image": "TWI\\Perilous_Position",
+        "success": true
+    },
+    {
+        "name": "Petition the Senate",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/100.png",
+        "type": "Event",
+        "image": "TWI\\Petition_the_Senate",
+        "success": true
+    },
+    {
+        "name": "Petition the Senate",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/371.png",
+        "type": "Event",
+        "image": "TWI\\Petition_the_Senate",
+        "success": true
+    },
+    {
+        "name": "Petranaki Arena",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/028.png",
+        "type": "Base",
+        "image": "TWI\\Petranaki_Arena",
+        "success": true
+    },
+    {
+        "name": "Petranaki Arena",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/303.png",
+        "type": "Base",
+        "image": "TWI\\Petranaki_Arena",
+        "success": true
+    },
+    {
+        "name": "Phase I Clone Trooper",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/241.png",
+        "type": "Unit",
+        "image": "TWI\\Phase_I_Clone_Trooper",
+        "success": true
+    },
+    {
+        "name": "Phase I Clone Trooper",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/502.png",
+        "type": "Unit",
+        "image": "TWI\\Phase_I_Clone_Trooper",
+        "success": true
+    },
+    {
+        "name": "Phase II Clone Trooper",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/242.png",
+        "type": "Unit",
+        "image": "TWI\\Phase_II_Clone_Trooper",
+        "success": true
+    },
+    {
+        "name": "Phase II Clone Trooper",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/503.png",
+        "type": "Unit",
+        "image": "TWI\\Phase_II_Clone_Trooper",
+        "success": true
+    },
+    {
+        "name": "Planetary Invasion",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/178.png",
+        "type": "Event",
+        "image": "TWI\\Planetary_Invasion",
+        "success": true
+    },
+    {
+        "name": "Planetary Invasion",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/444.png",
+        "type": "Event",
+        "image": "TWI\\Planetary_Invasion",
+        "success": true
+    },
+    {
+        "name": "Plo Koon",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/196.png",
+        "type": "Unit",
+        "image": "TWI\\Plo_Koon",
+        "success": true
+    },
+    {
+        "name": "Plo Koon",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/461.png",
+        "type": "Unit",
+        "image": "TWI\\Plo_Koon",
+        "success": true
+    },
+    {
+        "name": "Poggle the Lesser",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/080.png",
+        "type": "Unit",
+        "image": "TWI\\Poggle_the_Lesser",
+        "success": true
+    },
+    {
+        "name": "Poggle the Lesser",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/353.png",
+        "type": "Unit",
+        "image": "TWI\\Poggle_the_Lesser",
+        "success": true
+    },
+    {
+        "name": "Political Pressure",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/222.png",
+        "type": "Event",
+        "image": "TWI\\Political_Pressure",
+        "success": true
+    },
+    {
+        "name": "Political Pressure",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/487.png",
+        "type": "Event",
+        "image": "TWI\\Political_Pressure",
+        "success": true
+    },
+    {
+        "name": "Pre Vizsla",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/010.png",
+        "type": "Leader",
+        "image": "TWI\\Pre_Vizsla",
+        "success": true
+    },
+    {
+        "name": "Pre Vizsla",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/267.png",
+        "type": "Leader",
+        "image": "TWI\\Pre_Vizsla",
+        "success": true
+    },
+    {
+        "name": "Pre Vizsla",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/285.png",
+        "type": "Leader",
+        "image": "TWI\\Pre_Vizsla",
+        "success": true
+    },
+    {
+        "name": "Prisoner of War",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/227.png",
+        "type": "Event",
+        "image": "TWI\\Prisoner_of_War",
+        "success": true
+    },
+    {
+        "name": "Prisoner of War",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/491.png",
+        "type": "Event",
+        "image": "TWI\\Prisoner_of_War",
+        "success": true
+    },
+    {
+        "name": "Private Manufacturing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/257.png",
+        "type": "Event",
+        "image": "TWI\\Private_Manufacturing",
+        "success": true
+    },
+    {
+        "name": "Private Manufacturing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/517.png",
+        "type": "Event",
+        "image": "TWI\\Private_Manufacturing",
+        "success": true
+    },
+    {
+        "name": "Providence Destroyer",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/038.png",
+        "type": "Unit",
+        "image": "TWI\\Providence_Destroyer",
+        "success": true
+    },
+    {
+        "name": "Providence Destroyer",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/311.png",
+        "type": "Unit",
+        "image": "TWI\\Providence_Destroyer",
+        "success": true
+    },
+    {
+        "name": "Pyke Palace",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/030.png",
+        "type": "Base",
+        "image": "TWI\\Pyke_Palace",
+        "success": true
+    },
+    {
+        "name": "Pyke Palace",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/519.png",
+        "type": "Base",
+        "image": "TWI\\Pyke_Palace",
+        "success": true
+    },
+    {
+        "name": "Pyrrhic Assault",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/103.png",
+        "type": "Event",
+        "image": "TWI\\Pyrrhic_Assault",
+        "success": true
+    },
+    {
+        "name": "Pyrrhic Assault",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/374.png",
+        "type": "Event",
+        "image": "TWI\\Pyrrhic_Assault",
+        "success": true
+    },
+    {
+        "name": "Quinlan Vos",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/018.png",
+        "type": "Leader",
+        "image": "TWI\\Quinlan_Vos",
+        "success": true
+    },
+    {
+        "name": "Quinlan Vos",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/275.png",
+        "type": "Leader",
+        "image": "TWI\\Quinlan_Vos",
+        "success": true
+    },
+    {
+        "name": "Quinlan Vos",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/293.png",
+        "type": "Leader",
+        "image": "TWI\\Quinlan_Vos",
+        "success": true
+    },
+    {
+        "name": "R2-D2",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/193.png",
+        "type": "Unit",
+        "image": "TWI\\R2-D2",
+        "success": true
+    },
+    {
+        "name": "R2-D2",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/458.png",
+        "type": "Unit",
+        "image": "TWI\\R2-D2",
+        "success": true
+    },
+    {
+        "name": "Reckless Torrent",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/162.png",
+        "type": "Unit",
+        "image": "TWI\\Reckless_Torrent",
+        "success": true
+    },
+    {
+        "name": "Reckless Torrent",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/429.png",
+        "type": "Unit",
+        "image": "TWI\\Reckless_Torrent",
+        "success": true
+    },
+    {
+        "name": "Relentless Rocket Droid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/163.png",
+        "type": "Unit",
+        "image": "TWI\\Relentless_Rocket_Droid",
+        "success": true
+    },
+    {
+        "name": "Relentless Rocket Droid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/430.png",
+        "type": "Unit",
+        "image": "TWI\\Relentless_Rocket_Droid",
+        "success": true
+    },
+    {
+        "name": "Reprocess",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/088.png",
+        "type": "Event",
+        "image": "TWI\\Reprocess",
+        "success": true
+    },
+    {
+        "name": "Reprocess",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/360.png",
+        "type": "Event",
+        "image": "TWI\\Reprocess",
+        "success": true
+    },
+    {
+        "name": "Republic ARC-170",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/111.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_ARC-170",
+        "success": true
+    },
+    {
+        "name": "Republic ARC-170",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/381.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_ARC-170",
+        "success": true
+    },
+    {
+        "name": "Republic Attack Pod",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/197.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_Attack_Pod",
+        "success": true
+    },
+    {
+        "name": "Republic Attack Pod",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/462.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_Attack_Pod",
+        "success": true
+    },
+    {
+        "name": "Republic Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/243.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_Commando",
+        "success": true
+    },
+    {
+        "name": "Republic Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/504.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_Commando",
+        "success": true
+    },
+    {
+        "name": "Republic Defense Carrier",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/098.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_Defense_Carrier",
+        "success": true
+    },
+    {
+        "name": "Republic Defense Carrier",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/369.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_Defense_Carrier",
+        "success": true
+    },
+    {
+        "name": "Republic Tactical Officer",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/091.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_Tactical_Officer",
+        "success": true
+    },
+    {
+        "name": "Republic Tactical Officer",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/363.png",
+        "type": "Unit",
+        "image": "TWI\\Republic_Tactical_Officer",
+        "success": true
+    },
+    {
+        "name": "Resolute",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/151.png",
+        "type": "Unit",
+        "image": "TWI\\Resolute",
+        "success": true
+    },
+    {
+        "name": "Resolute",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/418.png",
+        "type": "Unit",
+        "image": "TWI\\Resolute",
+        "success": true
+    },
+    {
+        "name": "Resupply",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/127.png",
+        "type": "Event",
+        "image": "TWI\\Resupply",
+        "success": true
+    },
+    {
+        "name": "Resupply",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/395.png",
+        "type": "Event",
+        "image": "TWI\\Resupply",
+        "success": true
+    },
+    {
+        "name": "Roger Roger",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/069.png",
+        "type": "Upgrade",
+        "image": "TWI\\Roger_Roger",
+        "success": true
+    },
+    {
+        "name": "Roger Roger",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/342.png",
+        "type": "Upgrade",
+        "image": "TWI\\Roger_Roger",
+        "success": true
+    },
+    {
+        "name": "Royal Guard Attach\u00e9",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/059.png",
+        "type": "Unit",
+        "image": "TWI\\Royal_Guard_Attach",
+        "success": true
+    },
+    {
+        "name": "Royal Guard Attach\u00e9",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/332.png",
+        "type": "Unit",
+        "image": "TWI\\Royal_Guard_Attach",
+        "success": true
+    },
+    {
+        "name": "Rune Haako",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/031.png",
+        "type": "Unit",
+        "image": "TWI\\Rune_Haako",
+        "success": true
+    },
+    {
+        "name": "Rune Haako",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/304.png",
+        "type": "Unit",
+        "image": "TWI\\Rune_Haako",
+        "success": true
+    },
+    {
+        "name": "Rush Clovis",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/183.png",
+        "type": "Unit",
+        "image": "TWI\\Rush_Clovis",
+        "success": true
+    },
+    {
+        "name": "Rush Clovis",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/448.png",
+        "type": "Unit",
+        "image": "TWI\\Rush_Clovis",
+        "success": true
+    },
+    {
+        "name": "Ryloth Militia",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/108.png",
+        "type": "Unit",
+        "image": "TWI\\Ryloth_Militia",
+        "success": true
+    },
+    {
+        "name": "Ryloth Militia",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/378.png",
+        "type": "Unit",
+        "image": "TWI\\Ryloth_Militia",
+        "success": true
+    },
+    {
+        "name": "Sabine Wren",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/195.png",
+        "type": "Unit",
+        "image": "TWI\\Sabine_Wren",
+        "success": true
+    },
+    {
+        "name": "Sabine Wren",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/460.png",
+        "type": "Unit",
+        "image": "TWI\\Sabine_Wren",
+        "success": true
+    },
+    {
+        "name": "San Hill",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/186.png",
+        "type": "Unit",
+        "image": "TWI\\San_Hill",
+        "success": true
+    },
+    {
+        "name": "San Hill",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/451.png",
+        "type": "Unit",
+        "image": "TWI\\San_Hill",
+        "success": true
+    },
+    {
+        "name": "Sanctioner's Shuttle",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/213.png",
+        "type": "Unit",
+        "image": "TWI\\Sanctioners_Shuttle",
+        "success": true
+    },
+    {
+        "name": "Sanctioner's Shuttle",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/478.png",
+        "type": "Unit",
+        "image": "TWI\\Sanctioners_Shuttle",
+        "success": true
+    },
+    {
+        "name": "Satine Kryze",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/047.png",
+        "type": "Unit",
+        "image": "TWI\\Satine_Kryze",
+        "success": true
+    },
+    {
+        "name": "Satine Kryze",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/320.png",
+        "type": "Unit",
+        "image": "TWI\\Satine_Kryze",
+        "success": true
+    },
+    {
+        "name": "Savage Opress",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/137.png",
+        "type": "Unit",
+        "image": "TWI\\Savage_Opress",
+        "success": true
+    },
+    {
+        "name": "Savage Opress",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/405.png",
+        "type": "Unit",
+        "image": "TWI\\Savage_Opress",
+        "success": true
+    },
+    {
+        "name": "Saw Gerrera",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/150.png",
+        "type": "Unit",
+        "image": "TWI\\Saw_Gerrera",
+        "success": true
+    },
+    {
+        "name": "Saw Gerrera",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/417.png",
+        "type": "Unit",
+        "image": "TWI\\Saw_Gerrera",
+        "success": true
+    },
+    {
+        "name": "Self-Destruct",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/140.png",
+        "type": "Event",
+        "image": "TWI\\Self-Destruct",
+        "success": true
+    },
+    {
+        "name": "Self-Destruct",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/408.png",
+        "type": "Event",
+        "image": "TWI\\Self-Destruct",
+        "success": true
+    },
+    {
+        "name": "Senatorial Corvette",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/148.png",
+        "type": "Unit",
+        "image": "TWI\\Senatorial_Corvette",
+        "success": true
+    },
+    {
+        "name": "Senatorial Corvette",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/415.png",
+        "type": "Unit",
+        "image": "TWI\\Senatorial_Corvette",
+        "success": true
+    },
+    {
+        "name": "Separatist Commando",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/180.png",
+        "type": "Unit",
+        "image": "TWI\\Separatist_Commando",
+        "success": true
+    },
+    {
+        "name": "Separatist Super Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/087.png",
+        "type": "Unit",
+        "image": "TWI\\Separatist_Super_Tank",
+        "success": true
+    },
+    {
+        "name": "Separatist Super Tank",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/359.png",
+        "type": "Unit",
+        "image": "TWI\\Separatist_Super_Tank",
+        "success": true
+    },
+    {
+        "name": "Shaak Ti",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/094.png",
+        "type": "Unit",
+        "image": "TWI\\Shaak_Ti",
+        "success": true
+    },
+    {
+        "name": "Shaak Ti",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/366.png",
+        "type": "Unit",
+        "image": "TWI\\Shaak_Ti",
+        "success": true
+    },
+    {
+        "name": "Shadow Collective Camp",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/025.png",
+        "type": "Base",
+        "image": "TWI\\Shadow_Collective_Camp",
+        "success": true
+    },
+    {
+        "name": "Shadow Collective Camp",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/300.png",
+        "type": "Base",
+        "image": "TWI\\Shadow_Collective_Camp",
+        "success": true
+    },
+    {
+        "name": "Shadowed Intentions",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/220.png",
+        "type": "Upgrade",
+        "image": "TWI\\Shadowed_Intentions",
+        "success": true
+    },
+    {
+        "name": "Shadowed Intentions",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/485.png",
+        "type": "Upgrade",
+        "image": "TWI\\Shadowed_Intentions",
+        "success": true
+    },
+    {
+        "name": "Sly Moore",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/211.png",
+        "type": "Unit",
+        "image": "TWI\\Sly_Moore",
+        "success": true
+    },
+    {
+        "name": "Sly Moore",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/476.png",
+        "type": "Unit",
+        "image": "TWI\\Sly_Moore",
+        "success": true
+    },
+    {
+        "name": "Soldier of the 501st",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/141.png",
+        "type": "Unit",
+        "image": "TWI\\Soldier_of_the_501st",
+        "success": true
+    },
+    {
+        "name": "Soldier of the 501st",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/409.png",
+        "type": "Unit",
+        "image": "TWI\\Soldier_of_the_501st",
+        "success": true
+    },
+    {
+        "name": "Soulless One",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/179.png",
+        "type": "Unit",
+        "image": "TWI\\Soulless_One",
+        "success": true
+    },
+    {
+        "name": "Soulless One",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/445.png",
+        "type": "Unit",
+        "image": "TWI\\Soulless_One",
+        "success": true
+    },
+    {
+        "name": "Squad Support",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/122.png",
+        "type": "Upgrade",
+        "image": "TWI\\Squad_Support",
+        "success": true
+    },
+    {
+        "name": "Squad Support",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/392.png",
+        "type": "Upgrade",
+        "image": "TWI\\Squad_Support",
+        "success": true
+    },
+    {
+        "name": "Squadron of Vultures",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/136.png",
+        "type": "Unit",
+        "image": "TWI\\Squadron_of_Vultures",
+        "success": true
+    },
+    {
+        "name": "Squadron of Vultures",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/404.png",
+        "type": "Unit",
+        "image": "TWI\\Squadron_of_Vultures",
+        "success": true
+    },
+    {
+        "name": "Steadfast Senator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/105.png",
+        "type": "Unit",
+        "image": "TWI\\Steadfast_Senator",
+        "success": true
+    },
+    {
+        "name": "Steadfast Senator",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/376.png",
+        "type": "Unit",
+        "image": "TWI\\Steadfast_Senator",
+        "success": true
+    },
+    {
+        "name": "Steela Gerrera",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/146.png",
+        "type": "Unit",
+        "image": "TWI\\Steela_Gerrera",
+        "success": true
+    },
+    {
+        "name": "Steela Gerrera",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/414.png",
+        "type": "Unit",
+        "image": "TWI\\Steela_Gerrera",
+        "success": true
+    },
+    {
+        "name": "Strategic Acumen",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/120.png",
+        "type": "Upgrade",
+        "image": "TWI\\Strategic_Acumen",
+        "success": true
+    },
+    {
+        "name": "Strategic Acumen",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/390.png",
+        "type": "Upgrade",
+        "image": "TWI\\Strategic_Acumen",
+        "success": true
+    },
+    {
+        "name": "Strategic Analysis",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/175.png",
+        "type": "Event",
+        "image": "TWI\\Strategic_Analysis",
+        "success": true
+    },
+    {
+        "name": "Strategic Analysis",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/441.png",
+        "type": "Event",
+        "image": "TWI\\Strategic_Analysis",
+        "success": true
+    },
+    {
+        "name": "Subjugating Starfighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/112.png",
+        "type": "Unit",
+        "image": "TWI\\Subjugating_Starfighter",
+        "success": true
+    },
+    {
+        "name": "Subjugating Starfighter",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/382.png",
+        "type": "Unit",
+        "image": "TWI\\Subjugating_Starfighter",
+        "success": true
+    },
+    {
+        "name": "Sundari",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/020.png",
+        "type": "Base",
+        "image": "TWI\\Sundari",
+        "success": true
+    },
+    {
+        "name": "Sundari",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/295.png",
+        "type": "Base",
+        "image": "TWI\\Sundari",
+        "success": true
+    },
+    {
+        "name": "Super Battle Droid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/230.png",
+        "type": "Unit",
+        "image": "TWI\\Super_Battle_Droid",
+        "success": true
+    },
+    {
+        "name": "Super Battle Droid",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/493.png",
+        "type": "Unit",
+        "image": "TWI\\Super_Battle_Droid",
+        "success": true
+    },
+    {
+        "name": "Sword and Shield Maneuver",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/250.png",
+        "type": "Event",
+        "image": "TWI\\Sword_and_Shield_Maneuver",
+        "success": true
+    },
+    {
+        "name": "Sword and Shield Maneuver",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/510.png",
+        "type": "Event",
+        "image": "TWI\\Sword_and_Shield_Maneuver",
+        "success": true
+    },
+    {
+        "name": "Synchronized Strike",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/099.png",
+        "type": "Event",
+        "image": "TWI\\Synchronized_Strike",
+        "success": true
+    },
+    {
+        "name": "Synchronized Strike",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/370.png",
+        "type": "Event",
+        "image": "TWI\\Synchronized_Strike",
+        "success": true
+    },
+    {
+        "name": "Tactical Advantage",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/124.png",
+        "type": "Event",
+        "image": "TWI\\Tactical_Advantage",
+        "success": true
+    },
+    {
+        "name": "Tactical Droid Commander",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/184.png",
+        "type": "Unit",
+        "image": "TWI\\Tactical_Droid_Commander",
+        "success": true
+    },
+    {
+        "name": "Tactical Droid Commander",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/449.png",
+        "type": "Unit",
+        "image": "TWI\\Tactical_Droid_Commander",
+        "success": true
+    },
+    {
+        "name": "Take Captive",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/128.png",
+        "type": "Event",
+        "image": "TWI\\Take_Captive",
+        "success": true
+    },
+    {
+        "name": "Take Captive",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/396.png",
+        "type": "Event",
+        "image": "TWI\\Take_Captive",
+        "success": true
+    },
+    {
+        "name": "The Clone Wars",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/125.png",
+        "type": "Event",
+        "image": "TWI\\The_Clone_Wars",
+        "success": true
+    },
+    {
+        "name": "The Clone Wars",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/393.png",
+        "type": "Event",
+        "image": "TWI\\The_Clone_Wars",
+        "success": true
+    },
+    {
+        "name": "The Crystal City",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/021.png",
+        "type": "Base",
+        "image": "TWI\\The_Crystal_City",
+        "success": true
+    },
+    {
+        "name": "The Crystal City",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/296.png",
+        "type": "Base",
+        "image": "TWI\\The_Crystal_City",
+        "success": true
+    },
+    {
+        "name": "The Invasion of Christophsis",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/078.png",
+        "type": "Event",
+        "image": "TWI\\The_Invasion_of_Christophsis",
+        "success": true
+    },
+    {
+        "name": "The Invasion of Christophsis",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/351.png",
+        "type": "Event",
+        "image": "TWI\\The_Invasion_of_Christophsis",
+        "success": true
+    },
+    {
+        "name": "The Invisible Hand",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/234.png",
+        "type": "Unit",
+        "image": "TWI\\The_Invisible_Hand",
+        "success": true
+    },
+    {
+        "name": "The Invisible Hand",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/497.png",
+        "type": "Unit",
+        "image": "TWI\\The_Invisible_Hand",
+        "success": true
+    },
+    {
+        "name": "The Nest",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/027.png",
+        "type": "Base",
+        "image": "TWI\\The_Nest",
+        "success": true
+    },
+    {
+        "name": "The Nest",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/302.png",
+        "type": "Base",
+        "image": "TWI\\The_Nest",
+        "success": true
+    },
+    {
+        "name": "The Zillo Beast",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/067.png",
+        "type": "Unit",
+        "image": "TWI\\The_Zillo_Beast",
+        "success": true
+    },
+    {
+        "name": "The Zillo Beast",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/340.png",
+        "type": "Unit",
+        "image": "TWI\\The_Zillo_Beast",
+        "success": true
+    },
+    {
+        "name": "Tipoca City",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/024.png",
+        "type": "Base",
+        "image": "TWI\\Tipoca_City",
+        "success": true
+    },
+    {
+        "name": "Tipoca City",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/299.png",
+        "type": "Base",
+        "image": "TWI\\Tipoca_City",
+        "success": true
+    },
+    {
+        "name": "Trade Federation Shuttle",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/060.png",
+        "type": "Unit",
+        "image": "TWI\\Trade_Federation_Shuttle",
+        "success": true
+    },
+    {
+        "name": "Trade Federation Shuttle",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/333.png",
+        "type": "Unit",
+        "image": "TWI\\Trade_Federation_Shuttle",
+        "success": true
+    },
+    {
+        "name": "Tranquility",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/246.png",
+        "type": "Unit",
+        "image": "TWI\\Tranquility",
+        "success": true
+    },
+    {
+        "name": "Tranquility",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/507.png",
+        "type": "Unit",
+        "image": "TWI\\Tranquility",
+        "success": true
+    },
+    {
+        "name": "Tri-Droid Suppressor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/217.png",
+        "type": "Unit",
+        "image": "TWI\\Tri-Droid_Suppressor",
+        "success": true
+    },
+    {
+        "name": "Tri-Droid Suppressor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/482.png",
+        "type": "Unit",
+        "image": "TWI\\Tri-Droid_Suppressor",
+        "success": true
+    },
+    {
+        "name": "Twice the Pride",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/155.png",
+        "type": "Upgrade",
+        "image": "TWI\\Twice_the_Pride",
+        "success": true
+    },
+    {
+        "name": "Twice the Pride",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/422.png",
+        "type": "Upgrade",
+        "image": "TWI\\Twice_the_Pride",
+        "success": true
+    },
+    {
+        "name": "Unlimited Power",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/156.png",
+        "type": "Event",
+        "image": "TWI\\Unlimited_Power",
+        "success": true
+    },
+    {
+        "name": "Unlimited Power",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/423.png",
+        "type": "Event",
+        "image": "TWI\\Unlimited_Power",
+        "success": true
+    },
+    {
+        "name": "Unmasking the Conspiracy",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/223.png",
+        "type": "Event",
+        "image": "TWI\\Unmasking_the_Conspiracy",
+        "success": true
+    },
+    {
+        "name": "Unmasking the Conspiracy",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/488.png",
+        "type": "Event",
+        "image": "TWI\\Unmasking_the_Conspiracy",
+        "success": true
+    },
+    {
+        "name": "Unnatural Life",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/189.png",
+        "type": "Event",
+        "image": "TWI\\Unnatural_Life",
+        "success": true
+    },
+    {
+        "name": "Unnatural Life",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/454.png",
+        "type": "Event",
+        "image": "TWI\\Unnatural_Life",
+        "success": true
+    },
+    {
+        "name": "Unshakeable Will",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/071.png",
+        "type": "Upgrade",
+        "image": "TWI\\Unshakeable_Will",
+        "success": true
+    },
+    {
+        "name": "Unshakeable Will",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/344.png",
+        "type": "Upgrade",
+        "image": "TWI\\Unshakeable_Will",
+        "success": true
+    },
+    {
+        "name": "Vanguard Droid Bomber",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/160.png",
+        "type": "Unit",
+        "image": "TWI\\Vanguard_Droid_Bomber",
+        "success": true
+    },
+    {
+        "name": "Vanguard Droid Bomber",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/427.png",
+        "type": "Unit",
+        "image": "TWI\\Vanguard_Droid_Bomber",
+        "success": true
+    },
+    {
+        "name": "Vanquish",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/077.png",
+        "type": "Event",
+        "image": "TWI\\Vanquish",
+        "success": true
+    },
+    {
+        "name": "Vanquish",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/350.png",
+        "type": "Event",
+        "image": "TWI\\Vanquish",
+        "success": true
+    },
+    {
+        "name": "Volunteer Soldier",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/254.png",
+        "type": "Unit",
+        "image": "TWI\\Volunteer_Soldier",
+        "success": true
+    },
+    {
+        "name": "Volunteer Soldier",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/514.png",
+        "type": "Unit",
+        "image": "TWI\\Volunteer_Soldier",
+        "success": true
+    },
+    {
+        "name": "Vulture Interceptor Wing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/063.png",
+        "type": "Unit",
+        "image": "TWI\\Vulture_Interceptor_Wing",
+        "success": true
+    },
+    {
+        "name": "Vulture Interceptor Wing",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/336.png",
+        "type": "Unit",
+        "image": "TWI\\Vulture_Interceptor_Wing",
+        "success": true
+    },
+    {
+        "name": "Warrior Drone",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/057.png",
+        "type": "Unit",
+        "image": "TWI\\Warrior_Drone",
+        "success": true
+    },
+    {
+        "name": "Warrior Drone",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/330.png",
+        "type": "Unit",
+        "image": "TWI\\Warrior_Drone",
+        "success": true
+    },
+    {
+        "name": "Wartime Profiteering",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/188.png",
+        "type": "Event",
+        "image": "TWI\\Wartime_Profiteering",
+        "success": true
+    },
+    {
+        "name": "Wartime Profiteering",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/453.png",
+        "type": "Event",
+        "image": "TWI\\Wartime_Profiteering",
+        "success": true
+    },
+    {
+        "name": "Wartime Trade Official",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/032.png",
+        "type": "Unit",
+        "image": "TWI\\Wartime_Trade_Official",
+        "success": true
+    },
+    {
+        "name": "Wartime Trade Official",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/305.png",
+        "type": "Unit",
+        "image": "TWI\\Wartime_Trade_Official",
+        "success": true
+    },
+    {
+        "name": "Wat Tambor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/006.png",
+        "type": "Leader",
+        "image": "TWI\\Wat_Tambor",
+        "success": true
+    },
+    {
+        "name": "Wat Tambor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/263.png",
+        "type": "Leader",
+        "image": "TWI\\Wat_Tambor",
+        "success": true
+    },
+    {
+        "name": "Wat Tambor",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/281.png",
+        "type": "Leader",
+        "image": "TWI\\Wat_Tambor",
+        "success": true
+    },
+    {
+        "name": "Waylay",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/226.png",
+        "type": "Event",
+        "image": "TWI\\Waylay",
+        "success": true
+    },
+    {
+        "name": "Wolf Pack Escort",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/191.png",
+        "type": "Unit",
+        "image": "TWI\\Wolf_Pack_Escort",
+        "success": true
+    },
+    {
+        "name": "Wolf Pack Escort",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/456.png",
+        "type": "Unit",
+        "image": "TWI\\Wolf_Pack_Escort",
+        "success": true
+    },
+    {
+        "name": "Yoda",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/004.png",
+        "type": "Leader",
+        "image": "TWI\\Yoda",
+        "success": true
+    },
+    {
+        "name": "Yoda",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/261.png",
+        "type": "Leader",
+        "image": "TWI\\Yoda",
+        "success": true
+    },
+    {
+        "name": "Yoda",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/279.png",
+        "type": "Leader",
+        "image": "TWI\\Yoda",
+        "success": true
+    },
+    {
+        "name": "Ziro the Hutt",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/185.png",
+        "type": "Unit",
+        "image": "TWI\\Ziro_the_Hutt",
+        "success": true
+    },
+    {
+        "name": "Ziro the Hutt",
+        "url": "https://cdn.swu-db.com/images/cards/TWI/450.png",
+        "type": "Unit",
+        "image": "TWI\\Ziro_the_Hutt",
+        "success": true
+    }
+]
