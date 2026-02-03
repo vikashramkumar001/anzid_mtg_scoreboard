@@ -3,6 +3,7 @@ const socket = io();
 window.roomManager = new RoomManager(socket);
 let roundData = {};
 let detailToDisplay = "";
+let selectedGame = "";
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
@@ -82,22 +83,24 @@ socket.on('update-match-global-data', (data) => {
 socket.emit('get-game-selection');
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    if (gameSelection?.toLowerCase() === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham');
+    selectedGame = gameSelection?.toLowerCase() || '';
+    if (selectedGame === 'mtg') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
     }
 });
 
 socket.on('game-selection-updated', ({gameSelection}) => {
-    if (gameSelection?.toLowerCase() === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham');
+    selectedGame = gameSelection?.toLowerCase() || '';
+    if (selectedGame === 'mtg') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
     }
 })
 
 // Function to check if font family needs updating
 function checkFontFamily(globalFont, gameSelection) {
-    // Use Gotham for MTG
+    // Use Gotham Narrow for MTG
     if (gameSelection?.toLowerCase() === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham');
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
     } else if (globalFont) {
         document.documentElement.style.setProperty('--dynamic-font', globalFont);
     }
@@ -161,7 +164,7 @@ function renderDetails(detail) {
         const archetype = roundData[match_id]?.[`player-archetype-${side}`] || '';
 
         playerDetail.innerHTML = '';
-        playerDetail.className = 'winner-display';
+        playerDetail.className = `winner-display ${selectedGame}`;
 
         // Background image container (contains name and archetype like commentator)
         const bgImage = document.createElement('div');
@@ -173,18 +176,70 @@ function renderDetails(detail) {
         nameEl.textContent = playerName;
         bgImage.appendChild(nameEl);
 
-        // Archetype (inside bg container)
-        const archetypeEl = document.createElement('div');
-        archetypeEl.className = 'winner-archetype';
-        archetypeEl.textContent = archetype;
-        bgImage.appendChild(archetypeEl);
+        // Archetype container (inside bg container)
+        const archetypeContainer = document.createElement('div');
+        archetypeContainer.className = 'winner-archetype';
+
+        // Archetype text
+        const archetypeText = document.createElement('span');
+        archetypeText.className = 'winner-archetype-text';
+        archetypeText.textContent = archetype;
+        archetypeContainer.appendChild(archetypeText);
+
+        // Mana symbols (to the right of archetype)
+        const manaSpan = document.createElement('span');
+        manaSpan.id = 'winner-mana-symbols';
+        manaSpan.className = 'winner-mana-symbols-container';
+        archetypeContainer.appendChild(manaSpan);
+
+        bgImage.appendChild(archetypeContainer);
 
         playerDetail.appendChild(bgImage);
+
+        // Render mana symbols
+        const manaSymbols = roundData[match_id]?.[`player-mana-symbols-${side}`] || '';
+        renderManaSymbols(manaSymbols, 'winner-mana-symbols');
+
+        // Wait for fonts to load before scaling text
+        document.fonts.ready.then(() => {
+            // MTG uses 48px max, riftbound/vibes use 40px max
+            const maxFontSize = selectedGame === 'mtg' ? 48 : 40;
+            autoScaleText(nameEl, maxFontSize, 24, 465);
+        });
 
         // Default: just show the detail as text
     } else {
         playerDetail.textContent = detail;
     }
+}
+
+// Auto-scale font size to fit container width
+function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
+    if (!element || !element.innerHTML) return;
+
+    element.style.whiteSpace = 'nowrap';
+    element.style.fontSize = maxFontSize + 'px';
+
+    // Create a temporary span to measure text width accurately
+    const temp = document.createElement('span');
+    temp.style.visibility = 'hidden';
+    temp.style.position = 'absolute';
+    temp.style.whiteSpace = 'nowrap';
+    temp.style.font = window.getComputedStyle(element).font;
+    temp.innerHTML = element.innerHTML;
+    document.body.appendChild(temp);
+
+    // Reduce font size until text fits
+    let currentSize = maxFontSize;
+    temp.style.fontSize = currentSize + 'px';
+
+    while (temp.offsetWidth > maxWidth && currentSize > minFontSize) {
+        currentSize -= 1;
+        temp.style.fontSize = currentSize + 'px';
+    }
+
+    element.style.fontSize = currentSize + 'px';
+    document.body.removeChild(temp);
 }
 
 // render mana symbols

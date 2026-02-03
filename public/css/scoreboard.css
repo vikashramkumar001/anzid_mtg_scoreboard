@@ -83,6 +83,58 @@
     font-style: normal;
 }
 
+/* Gotham Font Faces for MTG */
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/GothamBook.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/GothamMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-Bold.otf') format('opentype'),
+        url('/fonts/GothamBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Gotham Narrow Font Faces for MTG */
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 * {
     font-family: "Bebas Neue", sans-serif;
     /* BebasNeueBold */
@@ -107,11 +159,13 @@ div {
 
 /* MTG Scoreboard Styles */
 #scoreboard-mtg {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
+    font-weight: 700;
 }
 
 #scoreboard-mtg * {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
+    font-weight: 700;
 }
 
 #scoreboard-mtg .header .background {
@@ -156,7 +210,7 @@ div {
     justify-content: flex-start;
     width: 200px;
     height: 100px;
-    font-size: 100px;
+    font-size: 80px;
 }
 
 #scoreboard-mtg .scorebug-right-life {
@@ -190,7 +244,7 @@ div {
 #scoreboard-mtg .scorebug-life-wins-dot {
     width: 20px;
     height: 20px;
-    font-size: 28px;
+    font-size: 22px;
     border: 3px solid white;
     border-radius: 100px;
     display: flex;
@@ -204,7 +258,7 @@ div {
     align-items: center;
     justify-content: center;
     width: 100px;
-    font-size: 42px;
+    font-size: 34px;
     height: 100px;
 }
 
@@ -220,7 +274,7 @@ div {
 }
 
 #scoreboard-mtg .scorebug-name-title {
-    font-size: 66px;
+    font-size: 53px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -234,8 +288,8 @@ div {
 
 #scoreboard-mtg .scorebug-name-data,
 #scoreboard-mtg .scorebug-name-data * {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 34px;
+    font-family: 'Gotham Narrow', sans-serif;
+    font-size: 27px;
     color: #fff;
     display: flex;
     align-items: center;
@@ -256,7 +310,7 @@ div {
 }
 
 #scoreboard-mtg .chyron * {
-    font-size: 28px;
+    font-size: 22px;
     color: #fff;
 }
 
@@ -294,7 +348,7 @@ div {
     top: 5px;
     position: absolute;
     height: 48px;
-    font-size: 42px;
+    font-size: 34px;
 }
 
 #scoreboard-mtg .player-poison-left {
@@ -346,14 +400,64 @@ body {
     /* Smooth transition for background image */
 }
 
+/* MTG Timer - positioned same as Vibes timer */
+#scoreboard-mtg .mtg-timer-wrapper {
+    position: absolute;
+    z-index: 20;
+    top: 826px;
+    left: 20px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreboard-mtg .mtg-event-round {
+    color: #fff;
+    font-family: 'Gotham Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    margin-top: -4px;
+}
+
 #scoreboard-mtg .timer-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    width: 60px;
+    margin-top: 8px;
+}
+
+#scoreboard-mtg .mtg-timer {
+    color: #ffffff;
+    font-family: 'Gotham Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 62px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1;
+}
+
+#scoreboard-mtg .mtg-event-name {
+    color: #ffffff;
+    font-family: 'Gotham Narrow', sans-serif;
+    font-weight: 700;
     font-size: 25px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#scoreboard-mtg .timer-spacer {
+    width: 60px;
+    height: 100px;
 }
 
 #scoreboard-mtg .mana-symbols {

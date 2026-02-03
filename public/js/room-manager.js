@@ -95,7 +95,7 @@ class RoomManager {
         }
         
         // Broadcast pages - new URL structure
-        if (path.includes('/broadcast/round/standings/')) return 'broadcast-standings';
+        if (path.includes('/broadcast/round/standings')) return 'broadcast-standings';
         if (path.includes('/broadcast/round/details/')) return 'broadcast-details';
         if (path.includes('/broadcast/round/maindeck/')) return 'broadcast-main-deck';
         if (path.includes('/broadcast/round/sidedeck/')) return 'broadcast-side-deck';

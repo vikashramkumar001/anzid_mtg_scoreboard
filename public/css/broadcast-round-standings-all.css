@@ -39,48 +39,65 @@
     background-color: transparent;
 }
 
-#round-standings-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-size: 42px;
-    color: #000;
-    text-align: center;
-    width: 861px;
-    height: 84px;
+body {
+    margin: 0;
     padding: 0;
 }
 
-#standings-rank {
-    width: 69px;
+#standings-wrapper {
+    display: grid;
+    grid-template-columns: 669px 669px;
+    grid-template-rows: repeat(8, auto);
+    grid-auto-flow: column;
+    column-gap: 50px;
+    row-gap: 6px;
+    margin-top: 285px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.round-standings-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 36px;
+    color: #000;
+    text-align: center;
+    width: 669px;
+    height: 85px;
+    padding: 0;
+    background-image: url('/assets/images/mtg/standings/standings-frame.png');
+    background-size: 669px 85px;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.standings-rank {
+    width: 54px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #C6C6C6;
+    margin: 20px;
 }
 
 .player-name-archetype {
-    width: 550px;
+    width: 428px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    clip-path: polygon(0 0, 83% 0%, 72.75% 100%, 0% 100%);
-    background-color: #C6C6C6;
+    padding-top: 13px;
 }
 
-#standings-name {
+.standings-name {
     display: block;
-    height: 51px;
-    line-height: 67.5px;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    height: 36px;
+    line-height: 36px;
     white-space: nowrap;
-    width: 90%;
     text-align: start;
 }
 
-#standings-archetype {
+.standings-archetype {
     display: block;
     height: 33px;
     line-height: 22.5px;
@@ -93,15 +110,13 @@
     white-space: nowrap;
 }
 
-#standings-record {
-    width: 225px;
+.standings-record {
+    position: absolute;
+    left: 515px;
+    top: 0;
+    height: 100%;
+    width: 154px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 15% 100%);
-    left: -177px;
-    position: relative;
-    text-indent: 65px;
 }

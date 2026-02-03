@@ -8,6 +8,7 @@ import {initRiftboundCardView} from './riftbound-card-view.js';
 import {initMetaBreakdown} from './meta-breakdown.js';
 import {initCardDB} from './indexeddb-init.js';
 import {initGameSelection} from './game-selection.js';
+import {initTournamentPlatform} from './tournament-platform.js';
 
 const socket = io();
 
@@ -40,4 +41,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     initVibesCardView(socket);
     initRiftboundCardView(socket);
     initMetaBreakdown(socket);
+    initTournamentPlatform(socket);
 });

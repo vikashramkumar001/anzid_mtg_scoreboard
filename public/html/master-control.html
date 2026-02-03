@@ -571,6 +571,39 @@ CommentatorC
                                 </button>
                             </div>
                         </div>
+                        <hr>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="card-title">Tournament Platform</h5>
+                            </div>
+                            <div class="col-10">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">Platform</label>
+                                            <select id="tournament-platform-select" class="form-select">
+                                                <option value="manual">Manual</option>
+                                                <option value="melee">Melee.gg</option>
+                                                <option value="topdeck">TopDeck.gg</option>
+                                                <option value="cardeio">Carde.io</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">Tournament ID</label>
+                                            <input type="text" id="tournament-id-input" class="form-control"
+                                                placeholder="Enter tournament ID or code">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center d-flex flex-center align-items-center justify-content-center">
+                                <button class="btn btn-primary update-button" id="tournament-platform-save">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -610,8 +643,9 @@ CommentatorC
                 <div class="tab-content" id="roundTabsContent">
                     <!-- Round content will be dynamically inserted here -->
                 </div>
+
             </div>
-        
+
             <!-- Bracket Tab Content -->
             <div class="tab-pane fade" id="bracket-control" role="tabpanel" aria-labelledby="bracket-tab">
                 <div class="col-12">

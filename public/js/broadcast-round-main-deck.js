@@ -287,7 +287,7 @@ socket.on('broadcast-round-data', (data) => {
     if (data[match_id] && data[match_id][`player-side-deck-${side_id}`]) {
         // Store side deck data for later transformation when game selection is known
         pendingSideDeckData = data[match_id][`player-side-deck-${side_id}`] || [];
-        
+
         // Request transformation if game selection is already known
         if (selectedGame) {
             requestSideDeckTransformation();
@@ -597,12 +597,29 @@ function renderDecks() {
                 deckDisplayDetails.innerHTML = `
                     <h1 class="player-name">${deckData.playerName}</h1>
                     <h5 class="archetype-name">
-                        <span id="player-mana-symbols" class="mana-symbols-container"></span> ${deckData.archetype}
+                        ${deckData.archetype} <span id="player-mana-symbols" class="mana-symbols-container"></span>
                     </h5>
                 `;
 
                 // display mana symbols
                 renderManaSymbols(deckData.manaSymbols || '', 'player-mana-symbols');
+
+                // Auto-scale player name to fit container
+                document.fonts.ready.then(() => {
+                    const playerNameEl = deckDisplayDetails.querySelector('.player-name');
+                    if (playerNameEl) {
+                        autoScaleText(playerNameEl, 115, 73, 1100);
+                        const scaledFontSize = parseFloat(playerNameEl.style.fontSize);
+
+                        // Keep height fixed at 100px (from CSS) so archetype stays in place
+                        // Anchor name to bottom of its box - push text down as font shrinks
+                        const baseTop = 42;
+                        const maxFontSize = 115;
+                        const fontShrinkage = maxFontSize - scaledFontSize;
+                        playerNameEl.style.top = (baseTop + fontShrinkage) + 'px';
+                    }
+                    // Archetype stays at fixed position (set in CSS)
+                });
             }
         } else {
             console.log('mtg selected but not correct deckData type - clearing');
@@ -682,12 +699,29 @@ function renderDecks() {
                 deckDisplayDetails.innerHTML = `
                     <h1 class="player-name">${deckData.playerName}</h1>
                     <h5 class="archetype-name">
-                        <span id="vibes-player-mana-symbols" class="mana-symbols-container"></span> ${deckData.archetype}
+                        ${deckData.archetype} <span id="vibes-player-mana-symbols" class="mana-symbols-container"></span>
                     </h5>
                 `;
 
                 // display mana symbols (if applicable for vibes)
                 renderManaSymbols(deckData.manaSymbols || '', 'vibes-player-mana-symbols');
+
+                // Auto-scale player name to fit container
+                document.fonts.ready.then(() => {
+                    const playerNameEl = deckDisplayDetails.querySelector('.player-name');
+                    if (playerNameEl) {
+                        autoScaleText(playerNameEl, 144, 73, 1700);
+                        const scaledFontSize = parseFloat(playerNameEl.style.fontSize);
+
+                        // Keep height fixed at 100px (from CSS) so archetype stays in place
+                        // Anchor name to bottom of its box - push text down as font shrinks
+                        const baseTop = 50;
+                        const maxFontSize = 144;
+                        const fontShrinkage = maxFontSize - scaledFontSize;
+                        playerNameEl.style.top = (baseTop + fontShrinkage) + 'px';
+                    }
+                    // Archetype stays at fixed position (set in CSS)
+                });
             }
         } else {
             console.log('vibes selected but not correct deckData type - clearing');
@@ -1183,6 +1217,35 @@ function renderManaSymbols(inputStr, containerId, scenario = {}) {
         img.alt = MANA_SYMBOLS[symbol].alt;
         container.appendChild(img);
     });
+}
+
+// Auto-scale font size to fit container width
+function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
+    if (!element || !element.innerHTML) return;
+
+    element.style.whiteSpace = 'nowrap';
+    element.style.fontSize = maxFontSize + 'px';
+
+    // Create a temporary span to measure text width accurately
+    const temp = document.createElement('span');
+    temp.style.visibility = 'hidden';
+    temp.style.position = 'absolute';
+    temp.style.whiteSpace = 'nowrap';
+    temp.style.font = window.getComputedStyle(element).font;
+    temp.innerHTML = element.innerHTML;
+    document.body.appendChild(temp);
+
+    // Reduce font size until text fits
+    let currentSize = maxFontSize;
+    temp.style.fontSize = currentSize + 'px';
+
+    while (temp.offsetWidth > maxWidth && currentSize > minFontSize) {
+        currentSize -= 1;
+        temp.style.fontSize = currentSize + 'px';
+    }
+
+    element.style.fontSize = currentSize + 'px';
+    document.body.removeChild(temp);
 }
 
 // Helper function to request side deck transformation

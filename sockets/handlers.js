@@ -42,7 +42,8 @@ import {
 import {
     emitStandings,
     updateStandings,
-    emitBroadcastStandings
+    emitBroadcastStandings,
+    getCurrentBroadcastStandings
 } from '../features/standings.js';
 
 import {
@@ -73,6 +74,12 @@ import {
 } from "../features/riftbound/cards.js";
 
 import { RoomUtils } from '../utils/room-utils.js';
+import {
+    getPlatformConfig,
+    setPlatformConfig,
+    emitPlatformConfig,
+    fetchTournamentStandings
+} from '../features/tournament-platforms.js';
 
 export default function registerSocketHandlers(io) {
     io.on('connection', (socket) => {
@@ -267,6 +274,13 @@ export default function registerSocketHandlers(io) {
             await updateStandings(round_id, textData);
         });
 
+        socket.on('get-broadcast-standings', () => {
+            const standings = getCurrentBroadcastStandings();
+            if (standings) {
+                socket.emit('broadcast-round-standings-data', standings);
+            }
+        });
+
         // Broadcast
         socket.on('broadcast-requested', async ({round_id}) => {
             const controlData = getControlData();
@@ -305,6 +319,28 @@ export default function registerSocketHandlers(io) {
         // Meta Breakdown
         socket.on('send-meta-breakdown-data', (payload) => {
             handleIncomingMetaBreakdownData(io, payload);
+        });
+
+        // Tournament Platform
+        socket.on('get-tournament-platform', () => {
+            socket.emit('tournament-platform-config', getPlatformConfig());
+        });
+
+        socket.on('set-tournament-platform', (config) => {
+            setPlatformConfig(config);
+            emitPlatformConfig(io);
+        });
+
+        socket.on('fetch-tournament-standings', async ({ platform, tournamentId, roundId }) => {
+            try {
+                // Update config before fetching
+                setPlatformConfig({ platform, tournamentId });
+                // Pass roundId to fetch standings for that specific round
+                const standings = await fetchTournamentStandings(roundId);
+                socket.emit('tournament-standings-fetched', { standings });
+            } catch (error) {
+                socket.emit('tournament-standings-fetched', { error: error.message });
+            }
         });
 
         // Disconnect

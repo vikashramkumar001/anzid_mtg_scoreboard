@@ -1,16 +1,54 @@
-/* Gotham Font Faces for MTG */
+/* Gotham Narrow Font Faces for MTG */
 @font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/GothamBook.ttf') format('truetype');
-    font-weight: 400;
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
+    font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Bold.otf') format('opentype'),
-        url('/fonts/GothamBold.ttf') format('truetype');
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
     font-weight: 700;
+    font-style: normal;
+}
+
+/* Akzidenz-Grotesk Next Font Faces for Riftbound */
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot');
+    src: local('Akzidenz-Grotesk Next Bold'), local('AkzidGrtskNext-Bold'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot');
+    src: local('Akzidenz-Grotesk Next Regular'), local('AkzidGrtskNext-Regular'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff2') format('woff2'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff') format('woff'),
+        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -26,7 +64,7 @@
 
 /* MTG uses Gotham font */
 body.mtg * {
-    font-family: 'Gotham', sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
 }
 
 #round-details-container {
@@ -58,18 +96,20 @@ body.mtg * {
 /* Winner Display Styles */
 .winner-display {
     position: absolute;
-    top: 0;
-    left: 0;
+    left: 140px;
+    top: 862px;
+    text-align: left;
 }
 
 .winner-bg-image {
     width: 616px;
     height: 100px;
     background-image: url('/assets/images/mtg/lower-third.png');
+    text-align: left;
 }
 
 .winner-name {
-    font-family: 'Gotham', sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
     font-size: 48px;
     font-weight: 700;
     padding-left: 125px;
@@ -77,12 +117,65 @@ body.mtg * {
     line-height: 35px;
     margin: 0;
     white-space: nowrap;
+    text-align: left;
+    color: white;
 }
 
 .winner-archetype {
-    font-family: 'Gotham', sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
     font-size: 25px;
     font-weight: 400;
     padding-left: 125px;
     margin: 0;
+    text-align: left;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.winner-archetype-text {
+    margin-right: 8px;
+}
+
+.winner-mana-symbols-container {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.winner-mana-symbols-container img {
+    height: 20px;
+    margin-right: 3px;
+}
+
+/* Riftbound Winner Display Styles */
+.winner-display.riftbound .winner-bg-image {
+    background-image: url('/assets/images/riftbound/lower-third.png');
+}
+
+.winner-display.riftbound .winner-name {
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.winner-display.riftbound .winner-archetype {
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+/* Vibes Winner Display Styles */
+.winner-display.vibes .winner-bg-image {
+    background-image: url('/assets/images/vibes/lower-third.png');
+}
+
+.winner-display.vibes .winner-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+}
+
+.winner-display.vibes .winner-archetype {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
 }

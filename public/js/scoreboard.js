@@ -509,6 +509,22 @@ function updateState(data) {
             }
         }
         
+        // Handle MTG-specific event round and event name
+        if (key === 'event-round') {
+            const mtgEventRound = document.getElementById('mtg-event-round');
+            if (mtgEventRound && lastState['mtg-event-round'] !== value) {
+                mtgEventRound.textContent = value;
+                lastState['mtg-event-round'] = value;
+            }
+        }
+        if (key === 'event-name') {
+            const mtgEventName = document.getElementById('mtg-event-name');
+            if (mtgEventName && lastState['mtg-event-name'] !== value) {
+                mtgEventName.textContent = value;
+                lastState['mtg-event-name'] = value;
+            }
+        }
+
         const el = document.getElementById(key);
 
         if (el) {
@@ -722,10 +738,22 @@ socket.on('update-match-global-data', (data) => {
     const miscText = globalData['global-event-miscellaneous-details'];
     const eventFormatText = globalData['global-event-format'];
     const eventNameText = globalData['global-event-name'];
+    const eventRoundText = globalData['global-event-round'];
 
     if (miscText) updateElementText('miscellaneous-details', miscText);
     if (eventFormatText) updateElementText('event-format', eventFormatText);
-    if (eventNameText) updateElementText('event-name', eventNameText);
+    if (eventNameText) {
+        updateElementText('event-name', eventNameText);
+        // Also update MTG-specific event name element
+        const mtgEventName = document.getElementById('mtg-event-name');
+        if (mtgEventName) mtgEventName.textContent = eventNameText;
+    }
+    if (eventRoundText) {
+        updateElementText('event-round', eventRoundText);
+        // Also update MTG-specific event round element
+        const mtgEventRound = document.getElementById('mtg-event-round');
+        if (mtgEventRound) mtgEventRound.textContent = eventRoundText;
+    }
 });
 
 // SCOREBOARD STATE DATA

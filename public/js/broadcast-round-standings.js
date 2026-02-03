@@ -2,6 +2,7 @@ const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
 let standingsData = {};
+let selectedGame = '';
 let rankText = document.getElementById('standings-rank');
 let nameText = document.getElementById('standings-name');
 let archetypeText = document.getElementById('standings-archetype');
@@ -12,6 +13,29 @@ const pathSegments = window.location.pathname.split('/');
 const rank_id = pathSegments[4];
 
 console.log('standings for rank', rank_id);
+
+// Get game selection on load
+socket.emit('get-game-selection');
+
+socket.on('server-current-game-selection', ({gameSelection}) => {
+    selectedGame = gameSelection?.toLowerCase() || '';
+    updateFontForGame(selectedGame);
+});
+
+socket.on('game-selection-updated', ({gameSelection}) => {
+    selectedGame = gameSelection?.toLowerCase() || '';
+    updateFontForGame(selectedGame);
+});
+
+function updateFontForGame(game) {
+    if (game === 'mtg') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
+        document.documentElement.style.setProperty('--dynamic-font-weight', '700');
+    } else {
+        document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
+        document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
+    }
+}
 
 // Listen for deck data to display
 socket.on('broadcast-round-standings-data', (data) => {

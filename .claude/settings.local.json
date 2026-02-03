@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "WebFetch(domain:melee.gg)",
+      "WebFetch(domain:topdeck.gg)",
+      "WebFetch(domain:help.melee.gg)"
+    ]
+  }
+}

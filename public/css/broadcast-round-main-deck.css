@@ -83,100 +83,33 @@
     font-style: normal;
 }
 
-/* Gotham Font Faces */
+/* Gotham Narrow Font Faces */
 @font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Thin.otf') format('opentype');
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
     font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-ThinItalic.otf') format('opentype');
-    font-weight: 100;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-XLight.otf') format('opentype'),
-        url('/fonts/GothamLight.ttf') format('truetype');
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
     font-weight: 200;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-XLightItalic.otf') format('opentype'),
-        url('/fonts/GothamLightItalic.ttf') format('truetype');
-    font-weight: 200;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Light.otf') format('opentype');
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/GothamBook.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-BookItalic.otf') format('opentype'),
-        url('/fonts/GothamBookItalic.ttf') format('truetype');
-    font-weight: 400;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/GothamMedium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/GothamMediumItalic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Bold.otf') format('opentype'),
-        url('/fonts/GothamBold.ttf') format('truetype');
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/GothamBoldItalic.ttf') format('truetype');
-    font-weight: 700;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Black.otf') format('opentype');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-UltraItalic.otf') format('opentype');
-    font-weight: 900;
-    font-style: italic;
 }
 
 :root {
@@ -212,23 +145,23 @@
 }
 
 #deck-display-mtg #deck-display-details h1 {
-    font-family: 'Gotham', sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
     font-size: 115px;
     font-weight: 700;
     height: 100px;
     position: relative;
-    top: 50px;
+    top: 42px;
     left: 106px;
     z-index: 5;
 }
 
 #deck-display-mtg #deck-display-details h5 {
-    font-family: 'Gotham', sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
     font-size: 45px;
     font-weight: 400;
     font-style: italic;
     position: relative;
-    top: 56px;
+    top: 48px;
     left: 106px;
     z-index: 5;
 }

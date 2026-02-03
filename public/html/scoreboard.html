@@ -16,6 +16,13 @@
 
 <!-- MTG Scoreboard -->
 <div id="scoreboard-mtg" style="display: none;">
+    <div class="mtg-timer-wrapper">
+        <div class="mtg-event-name" id="mtg-event-name"></div>
+        <div class="mtg-event-round" id="mtg-event-round"></div>
+        <div class="timer-container">
+            <p id="timer" class="mtg-timer">00:00</p>
+        </div>
+    </div>
     <div class="header">
         <div class="background-left">
         </div>
@@ -46,9 +53,7 @@
                     </div>
                 </div>
                 <div id="player-record-left" class="player-record player-record-left"></div>
-                <div class="timer-container">
-                    <p id="timer">00:00</p>
-                </div>
+                <div class="timer-spacer"></div>
                 <div id="player-record-right" class="player-record player-record-right"></div>
                 <div class="scorebug-name scorebug-right-name">
                     <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>

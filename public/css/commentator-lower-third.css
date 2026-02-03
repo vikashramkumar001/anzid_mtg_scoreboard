@@ -1,15 +1,28 @@
-/* Gotham Font Faces for MTG */
+/* Gotham Narrow Font Faces for MTG */
 @font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/GothamBook.ttf') format('truetype');
-    font-weight: 400;
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
+    font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Gotham';
-    src: url('/fonts/Gotham-Bold.otf') format('opentype'),
-        url('/fonts/GothamBold.ttf') format('truetype');
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
 }
@@ -127,7 +140,7 @@ body {
 }
 
 #lower-third-mtg .commentator {
-    font-family: 'Gotham', sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
     font-size: 48px;
     font-weight: 700;
     padding-left: 125px;
@@ -138,7 +151,7 @@ body {
 }
 
 #lower-third-mtg .commentator-subtext {
-    font-family: 'Gotham', sans-serif;
+    font-family: 'Gotham Narrow', sans-serif;
     font-size: 25px;
     font-weight: 400;
     padding-left: 125px;

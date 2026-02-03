@@ -3,6 +3,7 @@ import {standingsDataPath} from '../config/constants.js';
 import { RoomUtils } from '../utils/room-utils.js';
 
 let standingsData = {};
+let lastBroadcastedRoundId = null;
 
 // Load standings from file
 export async function loadStandingsData() {
@@ -45,7 +46,7 @@ export async function updateStandings(round_id, textData) {
 // Parse raw text standings into objects
 export function parseStandingsRawData(input) {
     let ret = {};
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 32; i++) {
         ret[i.toString()] = {
             rank: "",
             name: "",
@@ -76,16 +77,22 @@ export function parseStandingsRawData(input) {
             const archetype = lines[++i].trim(); // The next line contains the archetype
             const record = lines[++i].trim().split(/\s+/)[0]; // First space-delimited entry in the next line
             let firstName = '', lastName = '';
-            if (playerInfo.includes(',')) {
+            // Remove pronouns like He/Him, She/Her, They/Them
+            const cleanedPlayerInfo = playerInfo
+                .replace(/\b(he\/him|she\/her|they\/them|he\/they|she\/they)\b/gi, '')
+                .trim();
+
+            if (cleanedPlayerInfo.includes(',')) {
                 // "Last, First [optional extra]"
-                [lastName, firstName] = playerInfo.split(',').map(part => part.trim());
+                [lastName, firstName] = cleanedPlayerInfo.split(',').map(part => part.trim());
                 firstName = firstName.split(' ')[0]; // Only take the first word of firstName
             } else {
-                // "First Last [optional extra]"
-                const parts = playerInfo.trim().split(' ');
-                [firstName, lastName] = parts;
+                // "First Last [optional extra]" - take first and last word
+                const parts = cleanedPlayerInfo.split(/\s+/).filter(p => p.length > 0);
+                firstName = parts[0] || '';
+                lastName = parts.length > 1 ? parts[parts.length - 1] : '';
             }
-            const name = `${firstName} ${lastName}`;
+            const name = lastName ? `${firstName} ${lastName}` : firstName;
 
             ret[rank] = {
                 rank: parseInt(rank, 10),
@@ -106,8 +113,16 @@ export function emitStandings(io) {
 
 // Emit parsed standings for broadcast
 export function emitBroadcastStandings(io, round_id) {
+    lastBroadcastedRoundId = round_id;
     const raw = standingsData[round_id];
     // if (!raw) return;
     const parsed = parseStandingsRawData(raw);
     RoomUtils.emitWithRoomMapping(io, 'broadcast-round-standings-data', parsed);
+}
+
+// Get current broadcast standings (for page load requests)
+export function getCurrentBroadcastStandings() {
+    if (!lastBroadcastedRoundId) return null;
+    const raw = standingsData[lastBroadcastedRoundId];
+    return parseStandingsRawData(raw);
 }

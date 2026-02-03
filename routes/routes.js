@@ -63,6 +63,14 @@ router.get('/broadcast/round/standings/:rankID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings.html'));
 });
 
+router.get('/broadcast/round/standings-all', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-all.html'));
+});
+
+router.get('/broadcast/round/standings-all-2', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-all-2.html'));
+});
+
 router.get('/display/bracket/details/:bracketID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/bracket-individual-display.html'));
 });
