@@ -15,6 +15,10 @@ let broadcastTracker = {
     round_id: null
 };
 
+// Write lock to prevent concurrent file writes that corrupt JSON
+let isWriting = false;
+let pendingWrite = false;
+
 // make scoreboard state tracker - wins show/hide for now - can take other things later
 let scoreboardState = Object.fromEntries(Array.from({length: 16}, (_, i) => [i + 1, {
     match1: {showWins: true},
@@ -41,13 +45,25 @@ export async function loadControlData() {
     }
 }
 
-// Save control data to file
+// Save control data to file with write lock to prevent concurrent writes
 export async function saveControlData() {
+    if (isWriting) {
+        pendingWrite = true;
+        return;
+    }
+
+    isWriting = true;
     try {
         await fs.writeFile(controlDataPath, JSON.stringify(controlData, null, 2));
         // console.log('Control data saved.');
     } catch (error) {
         console.error('Error saving control data:', error);
+    } finally {
+        isWriting = false;
+        if (pendingWrite) {
+            pendingWrite = false;
+            await saveControlData();
+        }
     }
 }
 
@@ -172,7 +188,25 @@ export function emitControlTrackers(io) {
 
 // Emit a full update from master control - goes to control / scoreboard
 export async function updateFromMaster(allControlData, io) {
-    controlData = allControlData;
+    // Merge incoming data with existing data to preserve draft list fields
+    Object.entries(allControlData).forEach(([round_id, roundData]) => {
+        if (!controlData[round_id]) controlData[round_id] = {};
+        Object.entries(roundData).forEach(([match_id, matchData]) => {
+            if (!controlData[round_id][match_id]) controlData[round_id][match_id] = {};
+            // Preserve existing draft list fields
+            const existingDraftListLeft = controlData[round_id][match_id]['player-draft-list-left'];
+            const existingDraftListRight = controlData[round_id][match_id]['player-draft-list-right'];
+            // Merge new data
+            controlData[round_id][match_id] = { ...controlData[round_id][match_id], ...matchData };
+            // Restore draft list fields if they existed and weren't in incoming data
+            if (existingDraftListLeft && !matchData['player-draft-list-left']) {
+                controlData[round_id][match_id]['player-draft-list-left'] = existingDraftListLeft;
+            }
+            if (existingDraftListRight && !matchData['player-draft-list-right']) {
+                controlData[round_id][match_id]['player-draft-list-right'] = existingDraftListRight;
+            }
+        });
+    });
     await saveControlData();
 
     Object.entries(allControlData).forEach(([round_id, roundData]) => {
@@ -195,8 +229,9 @@ export async function updateFromMaster(allControlData, io) {
             });
         });
         // emit round data to live broadcast changes using broadcastTracker
+        // Use merged controlData (not incoming roundData) to include preserved draft list fields
         if (broadcastTracker.round_id && broadcastTracker.round_id === round_id) {
-            RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', roundData);
+            RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
             // emit standings as well
             emitBroadcastStandings(io, round_id);
         }

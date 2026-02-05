@@ -2,7 +2,8 @@ import {
     emitMTGCardList,
     emitCardView,
     transformSideDeck,
-    transformMainDeck
+    transformMainDeck,
+    transformDraftList
 } from '../features/cards.js';
 
 import {
@@ -20,6 +21,7 @@ import {
     updateFromMaster,
     emitControlData,
     getControlData,
+    saveControlData,
     updateBroadcastTracker,
     emitScoreboardState,
     updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection
@@ -78,7 +80,10 @@ import {
     getPlatformConfig,
     setPlatformConfig,
     emitPlatformConfig,
-    fetchTournamentStandings
+    fetchTournamentStandings,
+    fetchMatchByTable,
+    fetchMeleeDecklists,
+    fetchMeleePairings
 } from '../features/tournament-platforms.js';
 
 export default function registerSocketHandlers(io) {
@@ -302,6 +307,54 @@ export default function registerSocketHandlers(io) {
             transformSideDeck(data, io);
         });
 
+        socket.on('transform-draft-list', (data) => {
+            transformDraftList(data, io);
+        });
+
+        // Request current draft list data (for page refresh)
+        socket.on('get-draft-list-data', ({ slotId }) => {
+            console.log('[DraftList] Data requested for slot:', slotId);
+            const controlData = getControlData();
+
+            if (controlData.draftLists && controlData.draftLists[slotId]) {
+                const data = controlData.draftLists[slotId];
+                socket.emit('draft-list-data', {
+                    slotId,
+                    playerName: data.playerName || '',
+                    playerPronouns: data.playerPronouns || '',
+                    cards: data.cards || []
+                });
+            }
+        });
+
+        // Draft list update from master control (real-time)
+        // Stored separately from match data - completely independent
+        socket.on('update-draft-list', async ({ slotId, playerName, playerPronouns, draftList }) => {
+            console.log('[DraftList] Update received for slot:', slotId, playerName, draftList?.length, 'cards');
+
+            // Get current control data
+            const controlData = getControlData();
+
+            // Store draft lists in separate 'draftLists' structure
+            if (!controlData.draftLists) controlData.draftLists = {};
+            controlData.draftLists[slotId] = {
+                playerName: playerName || '',
+                playerPronouns: playerPronouns || '',
+                cards: draftList
+            };
+
+            // Save to persist the data
+            await saveControlData();
+
+            // Emit dedicated draft list event (not broadcast-round-data)
+            RoomUtils.emitWithRoomMapping(io, 'draft-list-data', {
+                slotId,
+                playerName: playerName || '',
+                playerPronouns: playerPronouns || '',
+                cards: draftList
+            });
+        });
+
         // Bracket
         socket.on('get-bracket-data', () => {
             emitBracketData(io);
@@ -340,6 +393,36 @@ export default function registerSocketHandlers(io) {
                 socket.emit('tournament-standings-fetched', { standings });
             } catch (error) {
                 socket.emit('tournament-standings-fetched', { error: error.message });
+            }
+        });
+
+        // Fetch match data by table number
+        socket.on('fetch-match-by-table', async ({ tournamentId, roundNumber, tableNumber, platform }) => {
+            try {
+                const matchData = await fetchMatchByTable(tournamentId, roundNumber, tableNumber, platform);
+                socket.emit('match-by-table-fetched', { matchData });
+            } catch (error) {
+                socket.emit('match-by-table-fetched', { error: error.message });
+            }
+        });
+
+        // Fetch all decklists for a tournament (for debugging/exploration)
+        socket.on('fetch-decklists', async ({ tournamentId }) => {
+            try {
+                const decklists = await fetchMeleeDecklists(tournamentId);
+                socket.emit('decklists-fetched', { decklists });
+            } catch (error) {
+                socket.emit('decklists-fetched', { error: error.message });
+            }
+        });
+
+        // Fetch pairings for a round (for debugging/exploration)
+        socket.on('fetch-pairings', async ({ tournamentId, roundNumber }) => {
+            try {
+                const pairings = await fetchMeleePairings(tournamentId, roundNumber);
+                socket.emit('pairings-fetched', { pairings });
+            } catch (error) {
+                socket.emit('pairings-fetched', { error: error.message });
             }
         });
 

@@ -51,4 +51,16 @@ socket.on('broadcast-round-standings-data', (data) => {
     archetypeText.innerHTML = standingsData['archetype'] || '';
     recordText.innerHTML = standingsData['record'] || '';
 
+    // Center name vertically when archetype is empty
+    const archetype = standingsData['archetype'] || '';
+    if (archetype.trim() === '') {
+        archetypeText.style.display = 'none';
+        nameText.style.height = '84px';
+        nameText.style.lineHeight = '84px';
+    } else {
+        archetypeText.style.display = 'block';
+        nameText.style.height = '51px';
+        nameText.style.lineHeight = '67.5px';
+    }
+
 });

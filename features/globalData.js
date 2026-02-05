@@ -17,6 +17,7 @@ let globalMatchData = {
     'global-event-miscellaneous-details': null,
     'global-event-base-life-points': '20',
     'global-event-base-timer': '50',
+    'global-event-number-of-rounds': '15',
     'global-font-family': "'Bebas Neue', sans-serif"
 };
 
@@ -74,12 +75,19 @@ export async function updateEventInformation(eventInfo, io, timerState) {
     // Update control data (event-name and event-format) per match
     const controlData = getControlData();
 
+    const numberOfRounds = eventInfo['global-event-number-of-rounds'] || globalMatchData['global-event-number-of-rounds'] || '15';
+
     Object.entries(controlData).forEach(([round_id, roundData]) => {
+        // round_id is already the round number (e.g., "1", "2", etc.)
+        const eventRoundText = `Round ${round_id} of ${numberOfRounds}`;
+
         Object.entries(roundData).forEach(([match_id, matchData]) => {
             if ('event-name' in matchData)
                 matchData['event-name'] = eventInfo['global-event-name'] || matchData['event-name'];
             if ('event-format' in matchData)
                 matchData['event-format'] = eventInfo['global-event-format'] || matchData['event-format'];
+            // Auto-populate event-round
+            matchData['event-round'] = eventRoundText;
 
             // Emit updated match data
             Object.entries(timerState.controlsTracker || {}).forEach(([control_id, ctrl]) => {

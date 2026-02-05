@@ -59,16 +59,13 @@ export function parseStandingsRawData(input) {
         return ret;
     }
 
-    // Split the input into lines
+// Split the input into lines (preserve empty lines as blank strings)
     const lines = input
         .split('\n')
-        .map(line => line.trim())
-        .filter(line => line.length > 0); // removes blank lines up front
+        .map(line => line.trim());
 
     for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim();
-
-        if (!line) continue; // Skip empty lines
+        const line = lines[i]; // already trimmed; may be empty string
 
         // Check if the line starts with a number (Rank)
         if (/^\d+/.test(line)) {
@@ -77,22 +74,16 @@ export function parseStandingsRawData(input) {
             const archetype = lines[++i].trim(); // The next line contains the archetype
             const record = lines[++i].trim().split(/\s+/)[0]; // First space-delimited entry in the next line
             let firstName = '', lastName = '';
-            // Remove pronouns like He/Him, She/Her, They/Them
-            const cleanedPlayerInfo = playerInfo
-                .replace(/\b(he\/him|she\/her|they\/them|he\/they|she\/they)\b/gi, '')
-                .trim();
-
-            if (cleanedPlayerInfo.includes(',')) {
+            if (playerInfo.includes(',')) {
                 // "Last, First [optional extra]"
-                [lastName, firstName] = cleanedPlayerInfo.split(',').map(part => part.trim());
+                [lastName, firstName] = playerInfo.split(',').map(part => part.trim());
                 firstName = firstName.split(' ')[0]; // Only take the first word of firstName
             } else {
-                // "First Last [optional extra]" - take first and last word
-                const parts = cleanedPlayerInfo.split(/\s+/).filter(p => p.length > 0);
-                firstName = parts[0] || '';
-                lastName = parts.length > 1 ? parts[parts.length - 1] : '';
+                // "First Last [optional extra]"
+                const parts = playerInfo.trim().split(' ');
+                [firstName, lastName] = parts;
             }
-            const name = lastName ? `${firstName} ${lastName}` : firstName;
+            const name = `${firstName} ${lastName}`;
 
             ret[rank] = {
                 rank: parseInt(rank, 10),

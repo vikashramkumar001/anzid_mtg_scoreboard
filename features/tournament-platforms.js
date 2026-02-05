@@ -1,6 +1,23 @@
 import axios from 'axios';
 import { RoomUtils } from '../utils/room-utils.js';
 
+// Browser-like headers to help bypass Cloudflare
+const BROWSER_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive',
+    'Cache-Control': 'no-cache',
+    'Pragma': 'no-cache',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin',
+    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"'
+};
+
 // Tournament platform configuration
 let platformConfig = {
     platform: 'manual',  // 'melee', 'topdeck', 'cardeio', 'manual'
@@ -80,8 +97,25 @@ function normalizeStandings(rawStandings, platform) {
         return normalized;
     }
 
-    rawStandings.forEach((player, index) => {
-        const rank = player.rank || player.standing || (index + 1);
+    // Log first entry to see field names
+    if (rawStandings.length > 0) {
+        console.log('Sample standings entry TOP-LEVEL fields:', Object.keys(rawStandings[0]));
+        // Log just the top-level fields (not nested) to see rank/record fields
+        const topLevelData = {};
+        for (const key of Object.keys(rawStandings[0])) {
+            const val = rawStandings[0][key];
+            if (typeof val !== 'object' || val === null) {
+                topLevelData[key] = val;
+            } else {
+                topLevelData[key] = `[${typeof val}]`;
+            }
+        }
+        console.log('Sample standings entry top-level values:', JSON.stringify(topLevelData, null, 2));
+    }
+
+    rawStandings.forEach((entry, index) => {
+        // Handle both uppercase (Melee API) and lowercase field names
+        const rank = entry.Rank || entry.rank || entry.Standing || entry.standing || (index + 1);
         if (rank > 32) return;
 
         let name = '';
@@ -89,15 +123,37 @@ function normalizeStandings(rawStandings, platform) {
         let record = '';
 
         if (platform === 'melee') {
-            name = normalizeName(player.name || player.displayName || '');
-            archetype = player.deckArchetype || player.archetype || '';
-            // Melee uses wins/losses/draws or matchRecord
-            if (player.matchRecord) {
-                record = player.matchRecord;
+            // Melee.gg nests player info inside Team.Players[0]
+            const player = entry.Team?.Players?.[0] || entry;
+            const playerId = player.ID || player.Id || player.id;
+
+            name = normalizeName(player.Name || player.name || player.DisplayName || player.displayName || '');
+
+            // Archetype/deck name - find decklist matching this player's ID
+            const decklists = entry.Decklists || [];
+
+            // Debug: log first entry's decklist structure
+            if (index === 0 && decklists.length > 0) {
+                console.log('DEBUG - Player ID:', playerId);
+                console.log('DEBUG - Decklists array length:', decklists.length);
+                console.log('DEBUG - First decklist keys:', Object.keys(decklists[0]));
+                console.log('DEBUG - First decklist:', JSON.stringify(decklists[0], null, 2));
+            }
+
+            const playerDecklist = decklists.find(d =>
+                d.PlayerId === playerId || d.playerId === playerId ||
+                d.PlayerID === playerId || d.playerID === playerId
+            );
+            archetype = playerDecklist?.DecklistName || playerDecklist?.decklistName || '';
+
+            // Match record is at the entry level, not player level
+            const matchRecord = entry.MatchRecord || entry.matchRecord;
+            if (matchRecord) {
+                record = matchRecord;
             } else {
-                const wins = player.wins || player.matchWins || 0;
-                const losses = player.losses || player.matchLosses || 0;
-                const draws = player.draws || player.matchDraws || 0;
+                const wins = entry.MatchWins || entry.matchWins || entry.Wins || entry.wins || 0;
+                const losses = entry.MatchLosses || entry.matchLosses || entry.Losses || entry.losses || 0;
+                const draws = entry.MatchDraws || entry.matchDraws || entry.Draws || entry.draws || 0;
                 record = `${wins}-${losses}-${draws}`;
             }
         } else if (platform === 'topdeck') {
@@ -121,48 +177,38 @@ function normalizeStandings(rawStandings, platform) {
     return normalized;
 }
 
-// Get Melee.gg access token
-async function getMeleeAccessToken() {
-    if (!platformConfig.meleeClientId || !platformConfig.meleeClientSecret) {
-        throw new Error('Melee.gg API credentials not configured. Set MELEE_CLIENT_ID and MELEE_CLIENT_SECRET environment variables.');
-    }
-
-    const tokenResponse = await axios.post(
-        'https://melee.gg/connect/token',
-        new URLSearchParams({
-            client_id: platformConfig.meleeClientId,
-            client_secret: platformConfig.meleeClientSecret,
-            grant_type: 'client_credentials',
-            scope: 'TournamentApi'
-        }).toString(),
-        {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        }
-    );
-
-    console.log('Melee.gg token obtained successfully');
-    return tokenResponse.data.access_token;
+// Build auth headers for Melee.gg API (direct Basic auth, no token exchange)
+function getMeleeAuthHeaders() {
+    console.log('Melee credentials - Client ID:', platformConfig.meleeClientId ? platformConfig.meleeClientId.substring(0, 8) + '...' : 'MISSING');
+    console.log('Melee credentials - Client Secret:', platformConfig.meleeClientSecret ? 'SET' : 'MISSING');
+    const basicAuth = Buffer.from(`${platformConfig.meleeClientId}:${platformConfig.meleeClientSecret}`).toString('base64');
+    return {
+        ...BROWSER_HEADERS,
+        'Authorization': `Basic ${basicAuth}`
+    };
 }
 
 // Fetch standings from Melee.gg
 async function fetchMeleeStandings(tournamentId, roundNumber) {
     try {
-        const accessToken = await getMeleeAccessToken();
-        const authHeaders = { 'Authorization': `Bearer ${accessToken}` };
+        const authHeaders = getMeleeAuthHeaders();
+        console.log('Using Basic auth for Melee.gg API');
 
-        // Step 1: Fetch tournament info to get round GUIDs
-        console.log(`Fetching tournament info for ${tournamentId}...`);
-        const tournamentResponse = await axios.get(
-            `https://melee.gg/api/tournament/${tournamentId}`,
-            { headers: authHeaders }
-        );
+        // Step 1: Fetch tournament info to get round IDs
+        const tournamentUrl = `https://melee.gg/api/tournament/${tournamentId}`;
+        console.log(`Fetching tournament info from: ${tournamentUrl}`);
 
-        const tournament = tournamentResponse.data;
-        console.log('Tournament:', tournament.name);
+        const tournamentResponse = await fetch(tournamentUrl, { headers: authHeaders });
 
-        // Step 2: Find the round GUID for the requested round number
+        if (!tournamentResponse.ok) {
+            console.error('Tournament fetch error:', tournamentResponse.status, tournamentResponse.statusText);
+            throw new Error(`Tournament fetch failed: ${tournamentResponse.status}`);
+        }
+
+        const tournament = await tournamentResponse.json();
+        console.log('Tournament:', tournament.Name);
+
+        // Step 2: Find the round ID for the requested round number
         // Round N tab shows standings after round N-1
         // So if roundNumber is "2", we want standings after round 1
         const targetRoundNumber = parseInt(roundNumber) - 1;
@@ -171,66 +217,72 @@ async function fetchMeleeStandings(tournamentId, roundNumber) {
             throw new Error('Cannot fetch standings before round 1.');
         }
 
-        // Rounds may be in tournament.phases[].rounds[] or tournament.rounds[]
+        // Rounds are in tournament.Phases[].Rounds[] (uppercase)
         let rounds = [];
-        if (tournament.phases && Array.isArray(tournament.phases)) {
-            tournament.phases.forEach(phase => {
-                if (phase.rounds && Array.isArray(phase.rounds)) {
-                    rounds = rounds.concat(phase.rounds);
+        if (tournament.Phases && Array.isArray(tournament.Phases)) {
+            tournament.Phases.forEach(phase => {
+                if (phase.Rounds && Array.isArray(phase.Rounds)) {
+                    rounds = rounds.concat(phase.Rounds);
                 }
             });
-        } else if (tournament.rounds && Array.isArray(tournament.rounds)) {
-            rounds = tournament.rounds;
         }
 
         console.log(`Found ${rounds.length} rounds`);
 
-        // Find the round with matching number
-        const targetRound = rounds.find(r => r.roundNumber === targetRoundNumber || r.number === targetRoundNumber);
+        // Find the round with matching SortOrder
+        const targetRound = rounds.find(r => r.SortOrder === targetRoundNumber);
 
         if (!targetRound) {
-            // If we can't find by number, try by index
+            // If we can't find by SortOrder, try by index
             if (rounds.length >= targetRoundNumber) {
                 const roundByIndex = rounds[targetRoundNumber - 1];
                 if (roundByIndex) {
-                    console.log(`Using round by index: ${roundByIndex.id || roundByIndex.guid}`);
-                    return await fetchStandingsForRound(roundByIndex.id || roundByIndex.guid, authHeaders);
+                    console.log(`Using round by index: ${roundByIndex.ID}`);
+                    return await fetchStandingsForRound(roundByIndex.ID, authHeaders);
                 }
             }
             throw new Error(`Round ${targetRoundNumber} not found in tournament.`);
         }
 
-        const roundGuid = targetRound.id || targetRound.guid;
-        console.log(`Fetching standings for round ${targetRoundNumber} (GUID: ${roundGuid})...`);
+        const roundId = targetRound.ID;
+        console.log(`Fetching standings for round ${targetRoundNumber} (ID: ${roundId})...`);
 
-        return await fetchStandingsForRound(roundGuid, authHeaders);
+        return await fetchStandingsForRound(roundId, authHeaders);
 
     } catch (error) {
-        const status = error.response?.status;
-        const data = error.response?.data;
-        console.error('Melee.gg API error:', { status, data, message: error.message });
-
-        if (status === 401) {
-            throw new Error('Invalid Melee.gg credentials. Check your MELEE_CLIENT_ID and MELEE_CLIENT_SECRET.');
-        } else if (status === 403) {
-            throw new Error('Access denied. Your API credentials may not have access to this tournament.');
-        } else if (status === 404) {
-            throw new Error(`Tournament ${tournamentId} not found on Melee.gg.`);
-        }
-
-        throw new Error(`Failed to fetch from Melee.gg: ${data?.error_description || data?.message || error.message}`);
+        console.error('Melee.gg API error:', error.message);
+        throw new Error(`Failed to fetch from Melee.gg: ${error.message}`);
     }
 }
 
-// Fetch standings for a specific round GUID
-async function fetchStandingsForRound(roundGuid, authHeaders) {
-    const standingsResponse = await axios.get(
-        `https://melee.gg/api/standing/list/round/${roundGuid}`,
-        { headers: authHeaders }
-    );
+// Fetch standings for a specific round ID
+async function fetchStandingsForRound(roundId, authHeaders) {
+    const standingsUrl = `https://melee.gg/api/standing/list/round/${roundId}?pageSize=32`;
+    console.log(`Fetching standings from: ${standingsUrl}`);
 
-    console.log('Melee.gg standings fetched:', standingsResponse.data?.length || 0, 'entries');
-    return normalizeStandings(standingsResponse.data, 'melee');
+    const standingsResponse = await fetch(standingsUrl, { headers: authHeaders });
+
+    if (!standingsResponse.ok) {
+        throw new Error(`Standings fetch failed: ${standingsResponse.status}`);
+    }
+
+    const data = await standingsResponse.json();
+    console.log('Melee.gg standings response type:', typeof data);
+    console.log('Melee.gg standings is array:', Array.isArray(data));
+    console.log('Melee.gg standings keys:', data ? Object.keys(data) : 'null');
+    console.log('Melee.gg standings raw:', JSON.stringify(data, null, 2).substring(0, 1000));
+
+    // Handle case where data is wrapped in a paginated response object
+    let standingsArray = data;
+    if (data && !Array.isArray(data)) {
+        // Melee.gg returns { Content: [...], PageSize: 25, RecordsTotal: N, ... }
+        standingsArray = data.Content || data.Standings || data.standings || data.Data || data.data || [];
+        console.log('Extracted standings array length:', standingsArray?.length || 0);
+        console.log('Total records available:', data.RecordsTotal || 'unknown');
+    }
+
+    console.log('Melee.gg standings fetched:', standingsArray?.length || 0, 'entries');
+    return normalizeStandings(standingsArray, 'melee');
 }
 
 // Fetch standings from TopDeck.gg
@@ -284,6 +336,305 @@ export async function fetchTournamentStandings(roundId) {
             throw new Error('Manual mode selected - use the text input to enter standings');
         default:
             throw new Error(`Unknown platform: ${platform}`);
+    }
+}
+
+// Fetch all decklists for a tournament from Melee.gg
+export async function fetchMeleeDecklists(tournamentId) {
+    const authHeaders = getMeleeAuthHeaders();
+    const url = `https://melee.gg/api/decklist/list/${tournamentId}?pageSize=500`;
+    console.log(`Fetching decklists from: ${url}`);
+
+    const response = await fetch(url, { headers: authHeaders });
+
+    if (!response.ok) {
+        const text = await response.text();
+        console.error('Decklists fetch error response:', text.substring(0, 500));
+        throw new Error(`Decklists fetch failed: ${response.status}`);
+    }
+
+    const text = await response.text();
+    let data;
+    try {
+        data = JSON.parse(text);
+    } catch (e) {
+        console.error('Decklists response is not JSON:', text.substring(0, 500));
+        throw new Error(`Decklists API returned non-JSON response`);
+    }
+    console.log('Decklists response keys:', data ? Object.keys(data) : 'null');
+
+    // Handle paginated response
+    let decklistsArray = data;
+    if (data && !Array.isArray(data)) {
+        decklistsArray = data.Content || data.Decklists || data.Data || [];
+        console.log('Extracted decklists array length:', decklistsArray?.length || 0);
+    }
+
+    // Log first decklist structure for debugging
+    if (decklistsArray && decklistsArray.length > 0) {
+        console.log('Sample decklist keys:', Object.keys(decklistsArray[0]));
+        console.log('Sample decklist:', JSON.stringify(decklistsArray[0], null, 2).substring(0, 2000));
+    }
+
+    return decklistsArray;
+}
+
+// Fetch pairings for a specific round from Melee.gg
+export async function fetchMeleePairings(tournamentId, roundNumber) {
+    const authHeaders = getMeleeAuthHeaders();
+
+    // First get tournament info to find round ID
+    const tournamentUrl = `https://melee.gg/api/tournament/${tournamentId}`;
+    const tournamentResponse = await fetch(tournamentUrl, { headers: authHeaders });
+
+    if (!tournamentResponse.ok) {
+        throw new Error(`Tournament fetch failed: ${tournamentResponse.status}`);
+    }
+
+    const tournament = await tournamentResponse.json();
+
+    // Find the round
+    let rounds = [];
+    if (tournament.Phases && Array.isArray(tournament.Phases)) {
+        tournament.Phases.forEach(phase => {
+            if (phase.Rounds && Array.isArray(phase.Rounds)) {
+                rounds = rounds.concat(phase.Rounds);
+            }
+        });
+    }
+
+    const targetRound = rounds.find(r => r.SortOrder === parseInt(roundNumber)) || rounds[parseInt(roundNumber) - 1];
+
+    if (!targetRound) {
+        throw new Error(`Round ${roundNumber} not found`);
+    }
+
+    // Fetch pairings for this round
+    const pairingsUrl = `https://melee.gg/api/pairing/list/round/${targetRound.ID}?pageSize=500`;
+    console.log(`Fetching pairings from: ${pairingsUrl}`);
+
+    const pairingsResponse = await fetch(pairingsUrl, { headers: authHeaders });
+
+    if (!pairingsResponse.ok) {
+        const text = await pairingsResponse.text();
+        console.error('Pairings fetch error response:', text.substring(0, 500));
+        throw new Error(`Pairings fetch failed: ${pairingsResponse.status}`);
+    }
+
+    const pairingsText = await pairingsResponse.text();
+    let data;
+    try {
+        data = JSON.parse(pairingsText);
+    } catch (e) {
+        console.error('Pairings response is not JSON:', pairingsText.substring(0, 500));
+        throw new Error(`Pairings API returned non-JSON response`);
+    }
+    console.log('Pairings response keys:', data ? Object.keys(data) : 'null');
+
+    // Handle paginated response
+    let pairingsArray = data;
+    if (data && !Array.isArray(data)) {
+        pairingsArray = data.Content || data.Pairings || data.Data || [];
+        console.log('Extracted pairings array length:', pairingsArray?.length || 0);
+    }
+
+    // Log first pairing structure for debugging
+    if (pairingsArray && pairingsArray.length > 0) {
+        console.log('Sample pairing keys:', Object.keys(pairingsArray[0]));
+        console.log('Sample pairing:', JSON.stringify(pairingsArray[0], null, 2).substring(0, 2000));
+    }
+
+    return pairingsArray;
+}
+
+// Helper function to fetch player record from standings
+async function fetchPlayerRecordFromStandings(tournamentId, roundNumber, playerName, authHeaders) {
+    // For round 1, there are no prior standings
+    if (parseInt(roundNumber) <= 1) {
+        return '0-0';
+    }
+
+    try {
+        // Get tournament info to find round ID for round N-1
+        const tournamentUrl = `https://melee.gg/api/tournament/${tournamentId}`;
+        const tournamentResponse = await fetch(tournamentUrl, { headers: authHeaders });
+
+        if (!tournamentResponse.ok) {
+            console.error('Tournament fetch failed for standings lookup');
+            return '0-0';
+        }
+
+        const tournament = await tournamentResponse.json();
+
+        // Find all rounds
+        let rounds = [];
+        if (tournament.Phases && Array.isArray(tournament.Phases)) {
+            tournament.Phases.forEach(phase => {
+                if (phase.Rounds && Array.isArray(phase.Rounds)) {
+                    rounds = rounds.concat(phase.Rounds);
+                }
+            });
+        }
+
+        // We want standings after round N-1 (for players going into round N)
+        const targetRoundNumber = parseInt(roundNumber) - 1;
+        const targetRound = rounds.find(r => r.SortOrder === targetRoundNumber) || rounds[targetRoundNumber - 1];
+
+        if (!targetRound) {
+            console.error(`Round ${targetRoundNumber} not found for standings lookup`);
+            return '0-0';
+        }
+
+        // Fetch standings for that round (with large page size to find all players)
+        const standingsUrl = `https://melee.gg/api/standing/list/round/${targetRound.ID}?pageSize=500`;
+        const standingsResponse = await fetch(standingsUrl, { headers: authHeaders });
+
+        if (!standingsResponse.ok) {
+            console.error('Standings fetch failed');
+            return '0-0';
+        }
+
+        const standingsData = await standingsResponse.json();
+        const standings = standingsData.Content || standingsData;
+
+        // Search for player by normalized name
+        const normalizedSearchName = playerName.toLowerCase();
+
+        for (const entry of standings) {
+            const player = entry.Team?.Players?.[0] || entry;
+            const entryName = normalizeName(player.Name || player.name || player.DisplayName || player.displayName || '');
+
+            if (entryName.toLowerCase() === normalizedSearchName) {
+                // Found the player - extract record
+                const matchRecord = entry.MatchRecord || entry.matchRecord;
+                if (matchRecord) {
+                    return matchRecord;
+                }
+                const wins = entry.MatchWins || entry.matchWins || entry.Wins || entry.wins || 0;
+                const losses = entry.MatchLosses || entry.matchLosses || entry.Losses || entry.losses || 0;
+                const draws = entry.MatchDraws || entry.matchDraws || entry.Draws || entry.draws || 0;
+                return `${wins}-${losses}-${draws}`;
+            }
+        }
+
+        console.log(`Player "${playerName}" not found in standings`);
+        return '0-0';
+    } catch (error) {
+        console.error('Error fetching player record:', error.message);
+        return '0-0';
+    }
+}
+
+// Fetch match data by table number
+export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, platform = 'melee') {
+    // Validate platform
+    if (platform !== 'melee') {
+        throw new Error(`Platform "${platform}" is not yet supported for fetching match data. Only Melee.gg is currently implemented.`);
+    }
+
+    try {
+        const authHeaders = getMeleeAuthHeaders();
+
+        // Fetch matches with pagination until we find the one we need
+        let allMatches = [];
+        let page = 1;
+        const pageSize = 250;
+        let hasMore = true;
+
+        while (hasMore) {
+            const url = `https://melee.gg/api/match/list/${tournamentId}?pageSize=${pageSize}&page=${page}`;
+            console.log(`Fetching matches page ${page} from: ${url}`);
+
+            const response = await fetch(url, { headers: authHeaders });
+
+            if (!response.ok) {
+                const text = await response.text();
+                console.error('Match list fetch error response:', text.substring(0, 500));
+                throw new Error(`Match list fetch failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const matches = data.Content || data;
+            const totalRecords = data.RecordsTotal || 0;
+
+            console.log(`Page ${page}: got ${matches.length} matches (total: ${totalRecords})`);
+
+            // Check if our match is in this page
+            const match = matches.find(m =>
+                m.RoundNumber === parseInt(roundNumber) &&
+                m.TableNumber === parseInt(tableNumber)
+            );
+
+            if (match) {
+                console.log('Found match:', JSON.stringify(match, null, 2).substring(0, 1000));
+                allMatches = [match]; // Only keep the match we found
+                hasMore = false;
+            } else {
+                allMatches = allMatches.concat(matches);
+                // Check if there are more pages
+                if (matches.length < pageSize || allMatches.length >= totalRecords) {
+                    hasMore = false;
+                } else {
+                    page++;
+                }
+            }
+        }
+
+        // Find the match by round number and table number
+        const match = allMatches.find(m =>
+            m.RoundNumber === parseInt(roundNumber) &&
+            m.TableNumber === parseInt(tableNumber)
+        );
+
+        if (!match) {
+            throw new Error(`No match found at table ${tableNumber} for round ${roundNumber}`);
+        }
+
+        // Extract player info from Competitors array
+        // Each competitor has Team.Players[0] for player info and Decklists[0] for archetype
+        const competitor1 = match.Competitors?.[0];
+        const competitor2 = match.Competitors?.[1];
+
+        const player1 = competitor1?.Team?.Players?.[0] || {};
+        const player2 = competitor2?.Team?.Players?.[0] || {};
+
+        // Decklists are embedded in each competitor
+        const player1Decklist = competitor1?.Decklists?.[0];
+        const player2Decklist = competitor2?.Decklists?.[0];
+
+        // Get player names for record lookup
+        const player1Name = normalizeName(player1.Name || player1.DisplayName || '');
+        const player2Name = normalizeName(player2.Name || player2.DisplayName || '');
+
+        // Fetch records from standings (round N-1, or 0-0 for round 1)
+        console.log(`Fetching records for round ${roundNumber} (will use round ${parseInt(roundNumber) - 1} standings)`);
+        const [player1Record, player2Record] = await Promise.all([
+            fetchPlayerRecordFromStandings(tournamentId, roundNumber, player1Name, authHeaders),
+            fetchPlayerRecordFromStandings(tournamentId, roundNumber, player2Name, authHeaders)
+        ]);
+
+        console.log(`Player records: ${player1Name} = ${player1Record}, ${player2Name} = ${player2Record}`);
+
+        return {
+            tableNumber: parseInt(tableNumber),
+            player1: {
+                name: player1Name,
+                archetype: player1Decklist?.DecklistName || '',
+                pronouns: player1.PronounsDescription || '',
+                record: player1Record,
+                decklistId: player1Decklist?.DecklistId || null
+            },
+            player2: {
+                name: player2Name,
+                archetype: player2Decklist?.DecklistName || '',
+                pronouns: player2.PronounsDescription || '',
+                record: player2Record,
+                decklistId: player2Decklist?.DecklistId || null
+            }
+        };
+    } catch (error) {
+        console.error('Error fetching match by table:', error.message);
+        throw error;
     }
 }
 

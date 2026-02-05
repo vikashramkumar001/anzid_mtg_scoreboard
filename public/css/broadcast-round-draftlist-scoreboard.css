@@ -1,0 +1,60 @@
+/* Gotham Narrow Font Faces */
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: transparent;
+    overflow: hidden;
+}
+
+#scoreboard-container {
+    width: 394px;
+    font-family: 'Gotham Narrow', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+}
+
+#player-name {
+    font-weight: 700;
+    font-size: 29px; /* 48px * 0.6 = 28.8px */
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+#player-pronouns {
+    font-weight: 300;
+    font-size: 20px; /* 29px * 0.7 = 20.3px */
+    line-height: 1.1;
+}

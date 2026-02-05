@@ -59,6 +59,18 @@ router.get('/broadcast/round/sidedeck/:matchID/:sideID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-side-deck.html'));
 });
 
+router.get('/broadcast/round/draftlist/scoreboard/:slotId', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-draftlist-scoreboard.html'));
+});
+
+router.get('/broadcast/round/draftlist/:orientation/:slotId', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-draft-list.html'));
+});
+
+router.get('/broadcast/round/draftlist/:slotId', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-draft-list.html'));
+});
+
 router.get('/broadcast/round/standings/:rankID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings.html'));
 });

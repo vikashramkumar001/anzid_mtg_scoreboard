@@ -25,6 +25,7 @@ export function initMatches(socket) {
     const matchEventBaseLifePointsCurrent = document.querySelector(`#global-event-base-life-points-current`);
     const matchEventBaseTimer = document.querySelector(`#global-event-base-timer`);
     const matchEventBaseTimerCurrent = document.querySelector(`#global-event-base-timer-current`);
+    const matchEventNumberOfRounds = document.querySelector(`#global-event-number-of-rounds`);
     const miscellaneousFontFamily = document.querySelector(`#global-misc-font-family`);
     let allControlData = {};
     let allTimerStates = {};
@@ -191,10 +192,21 @@ export function initMatches(socket) {
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
             <div class="row mb-2">
-                <div class="col-3 d-flex flex-row justify-content-start align-items-center">
+                <div class="col-4 d-flex flex-row justify-content-start align-items-center">
                     <h3 class="match-id-name mb-0">${roundId}-${matchId}</h3>
+                    <div class="ms-3 d-flex align-items-center">
+                        <label class="form-label me-2 mb-0" style="white-space: nowrap;">Table #</label>
+                        <input type="number" id="table-number-${roundId}-${matchId}"
+                               class="form-control form-control-sm" style="width: 70px;"
+                               placeholder="1" min="1">
+                        <button class="btn btn-sm btn-info ms-2 fetch-table-btn"
+                                id="fetch-table-${roundId}-${matchId}"
+                                data-round-id="${roundId}" data-match-id="${matchId}">
+                            Fetch
+                        </button>
+                    </div>
                 </div>
-                <div class="col-9 d-flex flex-row justify-content-end">
+                <div class="col-8 d-flex flex-row justify-content-end flex-wrap">
                     <button id="reset-life-${roundId}-${matchId}" class="btn btn-warning reset-life-button me-2" data-match-id="${matchId}"
                             data-round-id="${roundId}">Reset Life
                     </button>
@@ -442,6 +454,8 @@ export function initMatches(socket) {
             attachMatchTimerButtonListeners(roundId, matchId);
             // Attach show wins listener
             attachMatchShowWinsCheckboxListener(roundId, matchId);
+            // Attach fetch table button listener
+            attachFetchTableButtonListener(roundId, matchId);
         }
 
         // Update the fields with the match data
@@ -983,7 +997,8 @@ export function initMatches(socket) {
                 'global-event-format': matchEventFormat.innerText,
                 'global-event-miscellaneous-details': matchEventMiscDetails.innerText,
                 'global-event-base-life-points': matchEventBaseLifePoints.innerText,
-                'global-event-base-timer': matchEventBaseTimer.innerText
+                'global-event-base-timer': matchEventBaseTimer.innerText,
+                'global-event-number-of-rounds': matchEventNumberOfRounds.innerText
             }
             console.log(data2send)
             socket.emit('update-event-information-requested', {eventInformationData: data2send});
@@ -1220,6 +1235,53 @@ export function initMatches(socket) {
 
     // END HIDE / SHOW WINS
 
+    // FETCH TABLE DATA
+
+    // Add event listener for fetch table button
+    function attachFetchTableButtonListener(round_id, match_id) {
+        const fetchButton = document.querySelector(`#fetch-table-${round_id}-${match_id}`);
+        const tableInput = document.querySelector(`#table-number-${round_id}-${match_id}`);
+
+        fetchButton.addEventListener('click', () => {
+            const platform = document.getElementById('tournament-platform-select')?.value;
+            const tournamentId = document.getElementById('tournament-id-input')?.value?.trim();
+            const tableNumber = tableInput.value;
+
+            if (!platform || platform === 'manual') {
+                alert('Please select a platform (Melee.gg or TopDeck.gg) in Global Settings.');
+                return;
+            }
+
+            if (!tournamentId) {
+                alert('Please enter a tournament ID in Global Settings.');
+                return;
+            }
+
+            if (!tableNumber) {
+                alert('Please enter a table number.');
+                return;
+            }
+
+            // Show loading state
+            const originalText = fetchButton.textContent;
+            fetchButton.disabled = true;
+            fetchButton.textContent = 'Fetching...';
+            fetchButton.dataset.fetching = 'true';
+            fetchButton.dataset.roundId = round_id;
+            fetchButton.dataset.matchId = match_id;
+
+            // Emit fetch request
+            socket.emit('fetch-match-by-table', {
+                tournamentId,
+                roundNumber: round_id,
+                tableNumber,
+                platform
+            });
+        });
+    }
+
+    // END FETCH TABLE DATA
+
     // STANDINGS DATA
 
     function populateStandingsData() {
@@ -1373,6 +1435,7 @@ export function initMatches(socket) {
         matchEventBaseTimer.innerText = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
         matchEventBaseTimerCurrent.innerText = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
         baseTimer = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
+        matchEventNumberOfRounds.innerText = data['globalData']['global-event-number-of-rounds'] ? data['globalData']['global-event-number-of-rounds'] : '15';
         // try to set the font family
         if (data['globalData']['global-font-family']) {
             const font = fontFamilies.find(f => f.value === data['globalData']['global-font-family']);
@@ -1481,6 +1544,75 @@ export function initMatches(socket) {
     // Listen for updated archetype list from server
     socket.on('archetypeListUpdated', (archetypes) => {
         currentArchetypeList = archetypes; // Update the current archetype list
+    });
+
+    // Listen for match-by-table fetch response
+    socket.on('match-by-table-fetched', (result) => {
+        // Find the button that was fetching and reset it
+        const fetchingButton = document.querySelector('.fetch-table-btn[data-fetching="true"]');
+        if (fetchingButton) {
+            fetchingButton.disabled = false;
+            fetchingButton.textContent = 'Fetch';
+            delete fetchingButton.dataset.fetching;
+
+            const roundId = fetchingButton.dataset.roundId;
+            const matchId = fetchingButton.dataset.matchId;
+
+            if (result.error) {
+                alert('Error fetching match data: ' + result.error);
+                return;
+            }
+
+            if (result.matchData) {
+                const { player1, player2 } = result.matchData;
+
+                // Populate left player fields
+                const nameLeft = document.getElementById(`${roundId}-${matchId}-player-name-left`);
+                const archetypeLeft = document.getElementById(`${roundId}-${matchId}-player-archetype-left`);
+                const pronounsLeft = document.getElementById(`${roundId}-${matchId}-player-pronouns-left`);
+                const recordLeft = document.getElementById(`${roundId}-${matchId}-player-record-left`);
+                if (nameLeft) {
+                    nameLeft.textContent = player1.name || '';
+                    nameLeft.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                if (archetypeLeft) {
+                    archetypeLeft.textContent = player1.archetype || '';
+                    archetypeLeft.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                if (pronounsLeft) {
+                    pronounsLeft.textContent = player1.pronouns || '';
+                    pronounsLeft.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                if (recordLeft) {
+                    recordLeft.textContent = player1.record || '';
+                    recordLeft.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+
+                // Populate right player fields
+                const nameRight = document.getElementById(`${roundId}-${matchId}-player-name-right`);
+                const archetypeRight = document.getElementById(`${roundId}-${matchId}-player-archetype-right`);
+                const pronounsRight = document.getElementById(`${roundId}-${matchId}-player-pronouns-right`);
+                const recordRight = document.getElementById(`${roundId}-${matchId}-player-record-right`);
+                if (nameRight) {
+                    nameRight.textContent = player2.name || '';
+                    nameRight.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                if (archetypeRight) {
+                    archetypeRight.textContent = player2.archetype || '';
+                    archetypeRight.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                if (pronounsRight) {
+                    pronounsRight.textContent = player2.pronouns || '';
+                    pronounsRight.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                if (recordRight) {
+                    recordRight.textContent = player2.record || '';
+                    recordRight.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+
+                console.log('Match data populated for table', result.matchData.tableNumber);
+            }
+        }
     });
 
     // Listen for updated scoreboard state from server

@@ -109,8 +109,21 @@ socket.on('broadcast-round-standings-data', (data) => {
             archetypeEl.innerHTML = rowData['archetype'] || '';
             recordEl.innerHTML = rowData['record'] || '';
             rowEl.style.display = 'flex';
+
             // Auto-scale player name to fit within container (max 36px, min 28px, 370px width)
             autoScaleText(nameEl, 36, 28, 370);
+
+            // Adjust vertical position when archetype is empty (after autoScaleText)
+            const archetype = rowData['archetype'] || '';
+            rankEl.style.marginTop = '23px';
+            recordEl.style.marginTop = '4px';
+            if (archetype.trim() === '') {
+                archetypeEl.style.display = 'none';
+                nameEl.style.marginTop = '-5px';
+            } else {
+                archetypeEl.style.display = 'block';
+                nameEl.style.marginTop = '2px';
+            }
         } else {
             // Hide empty rows
             rankEl.innerHTML = '';

@@ -113,8 +113,8 @@ export function emitCardView(io, cardSelected) {
         // Clean the card list data
         const cleanedCardListData = createCleanedCardMap(cardListData, cardSelected['game-id']);
 
-        // get card url from json
-        const cardURL = cleanedCardListData[cleanedName];
+        // get card url from json (new structure: { imageUrl, manaCost })
+        const cardURL = cleanedCardListData[cleanedName]?.imageUrl;
 
         const cardData = {
             name: cardSelected['card-selected'],
@@ -172,22 +172,41 @@ export function emitTransformedSideDeck(deckData, gameType, sideID, matchID, io)
     RoomUtils.emitWithRoomMapping(io, 'transformed-side-deck-data', data2send);
 }
 
+export function emitTransformedDraftList(deckData, gameType, sideID, matchID, io) {
+    let data2send = {
+        gameType: gameType,
+        deckData: deckData,
+        sideID: sideID,
+        matchID: matchID
+    }
+    RoomUtils.emitWithRoomMapping(io, 'transformed-draft-list-data', data2send);
+}
+
 function getURLFromCardName(cardName, cardsList, gameType) {
     let cleaned = cardName.includes('//')
         ? cardName.split('//')[0].trim()
         : cardName.trim();
 
     cleaned = normalizeName(cleaned, gameType);
-    //console.log('cleaned is '+cleaned);
     if (gameType === 'mtg') {
-        return cardsList[cleaned];
+        // New structure: { imageUrl, manaCost }
+        return cardsList[cleaned]?.imageUrl;
     } else if (gameType === 'vibes') {
-        //apply additional formatting for vibes here
-        //lower case, remove spaces, remove punctuation
         return cardsList[cleaned];
     } else {
         return cardsList[cleaned]?.imageUrl;
     }
+}
+
+function getManaCostFromCardName(cardName, cardsList, gameType) {
+    if (gameType !== 'mtg') return '';
+
+    let cleaned = cardName.includes('//')
+        ? cardName.split('//')[0].trim()
+        : cardName.trim();
+
+    cleaned = normalizeName(cleaned, gameType);
+    return cardsList[cleaned]?.manaCost || '';
 }
 
 
@@ -250,11 +269,13 @@ export function transformMainDeck(data, io) {
             const count = parseInt(parts[1], 10);
             const name = parts[2];
             const url = getURLFromCardName(name, cleanedCardsMap, gameType);
-          
+            const manaCost = getManaCostFromCardName(name, cleanedCardsMap, gameType);
+
             flatDeck.push({
                 'card-name': name,
                 'card-count': count,
-                'card-url': url
+                'card-url': url,
+                'mana-cost': manaCost
             });
         });
 
@@ -287,13 +308,62 @@ export function transformSideDeck(data, io) {
         const count = parseInt(parts[1], 10);
         const name = parts[2];
         const url = getURLFromCardName(name, cleanedCardsMap, gameType);
+        const manaCost = getManaCostFromCardName(name, cleanedCardsMap, gameType);
 
         flatDeck.push({
             'card-name': name,
             'card-count': count,
-            'card-url': url
+            'card-url': url,
+            'mana-cost': manaCost
         });
     });
 
     emitTransformedSideDeck(flatDeck, gameType, sideID, matchID, io);
+}
+
+// Transform draft list data - similar to main deck but for draft picks
+// Pack headers (Pack 1, Pack 2, Pack 3) are passed through without lookup
+export function transformDraftList(data, io) {
+    let cleanedCardsMap = {};
+    let gameType = data.gameType;
+    let deckArray = data.deckData; // Array of card lines (same format as main deck)
+    let sideID = data.sideID;
+    let matchID = data.matchID;
+
+    if (gameType === 'mtg') {
+        cleanedCardsMap = createCleanedCardMap(cardListData, gameType);
+    } else if (gameType === 'riftbound') {
+        const riftboundCards = riftboundGetCardListData();
+        cleanedCardsMap = createCleanedCardMap(riftboundCards, gameType);
+    }
+
+    const flatDeck = [];
+    deckArray.forEach(card => {
+        // Handle both "CardName" and "1 CardName" formats
+        const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
+        const name = parts[2];
+        const cardLower = name.toLowerCase().trim();
+
+        // Check if this is a pack header
+        if (cardLower === 'pack 1' || cardLower === 'pack 2' || cardLower === 'pack 3') {
+            flatDeck.push({
+                'card-name': name,
+                'card-count': 0,
+                'card-url': '',
+                'mana-cost': ''
+            });
+        } else {
+            const url = getURLFromCardName(name, cleanedCardsMap, gameType);
+            const manaCost = getManaCostFromCardName(name, cleanedCardsMap, gameType);
+
+            flatDeck.push({
+                'card-name': name,
+                'card-count': 1, // Always 1 for draft picks
+                'card-url': url,
+                'mana-cost': manaCost
+            });
+        }
+    });
+
+    emitTransformedDraftList(flatDeck, gameType, sideID, matchID, io);
 }

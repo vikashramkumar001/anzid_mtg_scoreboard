@@ -70,6 +70,13 @@
                     Meta Breakdown
                 </button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="draft-list-tab" data-bs-toggle="tab"
+                    data-bs-target="#draft-list-control" type="button" role="tab" aria-controls="draft-list"
+                    aria-selected="false">
+                    Draft List
+                </button>
+            </li>
         </ul>
 
         <!-- Tabs Content -->
@@ -538,6 +545,13 @@ CommentatorC
                                                 </button>
                                             </label>
                                             <div id="global-event-base-timer" class="editable form-control"
+                                                contenteditable="true"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">Number of Rounds</label>
+                                            <div id="global-event-number-of-rounds" class="editable form-control"
                                                 contenteditable="true"></div>
                                         </div>
                                     </div>
@@ -2202,6 +2216,186 @@ CommentatorC
                             <button class="btn btn-primary" id="meta-breakdown-display-button">
                                 Display Meta Breakdown
                             </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Draft List Tab Content -->
+            <div class="tab-pane fade" id="draft-list-control" role="tabpanel" aria-labelledby="draft-list-tab">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h2>Draft List Hub</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- Sub-tabs for Player 1 and Player 2 -->
+                <ul class="nav nav-pills mb-3" id="draft-list-player-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="draft-player-1-tab" data-bs-toggle="pill" data-bs-target="#draft-player-1" type="button" role="tab">Player 1</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="draft-player-2-tab" data-bs-toggle="pill" data-bs-target="#draft-player-2" type="button" role="tab">Player 2</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="draft-list-player-content">
+                    <!-- Player 1 Tab -->
+                    <div class="tab-pane fade show active" id="draft-player-1" role="tabpanel">
+                        <div class="row">
+                            <!-- Controls Column -->
+                            <div class="col-4">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <!-- Player Info (editable) -->
+                                        <div class="row mb-3">
+                                            <div class="col-8">
+                                                <label class="form-label">Player Name</label>
+                                                <input type="text" id="draft-list-1-player-name" class="form-control" placeholder="Player name">
+                                            </div>
+                                            <div class="col-4">
+                                                <label class="form-label">Pronouns</label>
+                                                <input type="text" id="draft-list-1-player-pronouns" class="form-control" placeholder="he/him">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Search Card</label>
+                                            <div class="custom-dropdown" id="draft-list-1-card-search-container">
+                                                <input type="text" id="draft-list-1-card-search" class="form-control" placeholder="Type card name...">
+                                                <div class="dropdown-list" id="draft-list-1-dropdown"></div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-2 mb-3">
+                                            <button class="btn btn-primary" id="draft-list-1-add-card">Add Card</button>
+                                            <button class="btn btn-secondary" id="draft-list-1-next-pack">Next Pack</button>
+                                            <button class="btn btn-outline-danger" id="draft-list-1-clear">Clear</button>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button class="btn btn-success" id="draft-list-1-update">Update Display</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Draft List Display -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Current Draft List</strong>
+                                    </div>
+                                    <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                                        <ul class="list-group" id="draft-list-1-items">
+                                            <!-- Items populated by JS -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Preview Column -->
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Card Preview</strong>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img id="draft-list-1-card-preview" src="" alt="Card Preview" class="img-fluid" style="max-height: 400px; display: none;">
+                                        <p id="draft-list-1-no-preview" class="text-muted">Select a card to preview</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- URLs Column -->
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Display URLs</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="mb-2"><strong>Draft List Display:</strong></p>
+                                        <code class="d-block mb-3">/broadcast/round/draftlist/vertical/1</code>
+                                        <p class="mb-2"><strong>Draft Scoreboard:</strong></p>
+                                        <code class="d-block">/broadcast/round/draftlist/scoreboard/1</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Player 2 Tab -->
+                    <div class="tab-pane fade" id="draft-player-2" role="tabpanel">
+                        <div class="row">
+                            <!-- Controls Column -->
+                            <div class="col-4">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <!-- Player Info (editable) -->
+                                        <div class="row mb-3">
+                                            <div class="col-8">
+                                                <label class="form-label">Player Name</label>
+                                                <input type="text" id="draft-list-2-player-name" class="form-control" placeholder="Player name">
+                                            </div>
+                                            <div class="col-4">
+                                                <label class="form-label">Pronouns</label>
+                                                <input type="text" id="draft-list-2-player-pronouns" class="form-control" placeholder="he/him">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Search Card</label>
+                                            <div class="custom-dropdown" id="draft-list-2-card-search-container">
+                                                <input type="text" id="draft-list-2-card-search" class="form-control" placeholder="Type card name...">
+                                                <div class="dropdown-list" id="draft-list-2-dropdown"></div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-2 mb-3">
+                                            <button class="btn btn-primary" id="draft-list-2-add-card">Add Card</button>
+                                            <button class="btn btn-secondary" id="draft-list-2-next-pack">Next Pack</button>
+                                            <button class="btn btn-outline-danger" id="draft-list-2-clear">Clear</button>
+                                        </div>
+                                        <div class="d-grid">
+                                            <button class="btn btn-success" id="draft-list-2-update">Update Display</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Draft List Display -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Current Draft List</strong>
+                                    </div>
+                                    <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                                        <ul class="list-group" id="draft-list-2-items">
+                                            <!-- Items populated by JS -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Preview Column -->
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Card Preview</strong>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img id="draft-list-2-card-preview" src="" alt="Card Preview" class="img-fluid" style="max-height: 400px; display: none;">
+                                        <p id="draft-list-2-no-preview" class="text-muted">Select a card to preview</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- URLs Column -->
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Display URLs</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="mb-2"><strong>Draft List Display:</strong></p>
+                                        <code class="d-block mb-3">/broadcast/round/draftlist/vertical/2</code>
+                                        <p class="mb-2"><strong>Draft Scoreboard:</strong></p>
+                                        <code class="d-block">/broadcast/round/draftlist/scoreboard/2</code>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

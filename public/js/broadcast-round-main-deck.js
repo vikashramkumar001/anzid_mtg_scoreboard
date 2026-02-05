@@ -24,6 +24,10 @@ if (pathSegments[4] === 'horizontal' || pathSegments[4] === 'vertical') {
 // Add orientation class to body for CSS targeting
 document.body.classList.add(orientation);
 
+// Add side class to body for left/right alignment (normalize to 'left' or 'right')
+const sideClass = (side_id === '1' || side_id?.toLowerCase() === 'left') ? 'left' : 'right';
+document.body.classList.add(sideClass);
+
 const MANA_ORDER = ['W', 'U', 'B', 'R', 'G', 'C'];
 const MANA_SYMBOLS = {
     W: {alt: 'White', src: 'https://svgs.scryfall.io/card-symbols/W.svg'},
@@ -33,6 +37,40 @@ const MANA_SYMBOLS = {
     G: {alt: 'Green', src: 'https://svgs.scryfall.io/card-symbols/G.svg'},
     C: {alt: 'Colorless', src: 'https://svgs.scryfall.io/card-symbols/C.svg'}
 };
+
+// Transform Scryfall URL from full card (png) to art_crop for vertical decklists
+function getArtCropUrl(cardUrl) {
+    if (!cardUrl) return '';
+    // Scryfall art_crop uses .jpg extension instead of .png
+    return cardUrl.replace('/png/', '/art_crop/').replace('.png', '.jpg');
+}
+
+// Parse mana cost string into array of symbols
+// e.g., "{2}{W}{U}" -> ["2", "W", "U"]
+function parseManaCost(manaCost) {
+    if (!manaCost) return [];
+    const matches = manaCost.match(/\{([^}]+)\}/g);
+    if (!matches) return [];
+    return matches.map(s => s.slice(1, -1)); // Remove { and }
+}
+
+// Generate HTML for card row mana symbols
+function renderCardManaSymbols(manaCost, symbolSize = 16) {
+    const symbols = parseManaCost(manaCost);
+    if (symbols.length === 0) return '';
+
+    const symbolsHtml = symbols.map(symbol => {
+        // Scryfall SVG symbol URL format:
+        // - Basic: W, U, B, R, G, C, 1, 2, etc.
+        // - Hybrid mana uses slash: W/U -> WU (remove slash)
+        // - Phyrexian: W/P -> WP
+        const cleanSymbol = symbol.replace(/\//g, '');
+        const src = `https://svgs.scryfall.io/card-symbols/${encodeURIComponent(cleanSymbol)}.svg`;
+        return `<img src="${src}" alt="${symbol}" class="mana-symbol" style="width: ${symbolSize}px; height: ${symbolSize}px;">`;
+    }).join('');
+
+    return `<div class="vertical-card-mana">${symbolsHtml}</div>`;
+}
 
 // Riftbound Battlefields Dictionary
 // Maps battlefield names to their left and right side image URLs
@@ -535,7 +573,13 @@ function renderDecks() {
                 if (deckDisplayDetails) deckDisplayDetails.style.display = 'flex';
                 // Render main deck horizontally
                 if (mainDeckContainer) {
-                    const totalCards = deckData.mainDeck.length;
+                    // Filter out section headers (Main Deck, Sideboard, Pack 1/2/3)
+                    const actualCards = deckData.mainDeck.filter(card => {
+                        const cardName = card['card-name']?.toLowerCase().trim();
+                        return cardName !== 'main deck' && cardName !== 'sideboard' &&
+                               cardName !== 'pack 1' && cardName !== 'pack 2' && cardName !== 'pack 3';
+                    });
+                    const totalCards = actualCards.length;
 
                     // Determine cards per row based on total card count
                     // Goal: 3 rows, with appropriate cards per row
@@ -582,7 +626,7 @@ function renderDecks() {
                     const requiredWidth = cardsPerRow * scalingCardWidth + (cardsPerRow - 1) * 5 + 10;
                     mainDeckContainer.style.width = `${requiredWidth}px`;
 
-                    deckData.mainDeck.forEach((card, index) => {
+                    actualCards.forEach((card, index) => {
                         const cardElement = document.createElement('div');
                         cardElement.className = 'main-deck-card';
                         cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
@@ -646,7 +690,13 @@ function renderDecks() {
                 if (deckDisplayDetails) deckDisplayDetails.style.display = 'flex';
                 // Render main deck horizontally
                 if (mainDeckContainer) {
-                    const totalCards = deckData.mainDeck.length;
+                    // Filter out section headers (Main Deck, Sideboard, Pack 1/2/3)
+                    const actualCards = deckData.mainDeck.filter(card => {
+                        const cardName = card['card-name']?.toLowerCase().trim();
+                        return cardName !== 'main deck' && cardName !== 'sideboard' &&
+                               cardName !== 'pack 1' && cardName !== 'pack 2' && cardName !== 'pack 3';
+                    });
+                    const totalCards = actualCards.length;
 
                     // No overlap, display cards normally
                     // 3 x 7 rows
@@ -664,7 +714,7 @@ function renderDecks() {
                         mainDeckContainer.style.width = `${targetWidth}px`;
                         mainDeckContainer.style.maxWidth = `${targetWidth}px`;
 
-                        deckData.mainDeck.forEach((card, index) => {
+                        actualCards.forEach((card, index) => {
                             const cardElement = document.createElement('div');
                             cardElement.className = 'main-deck-card';
                             cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
@@ -682,8 +732,8 @@ function renderDecks() {
 
                         // same padding/margin assumptions you used
                         const scalingCardWidth = ((containerWidth - 10) / numberCardsPerRow) - 10;
-                        
-                        deckData.mainDeck.forEach((card, index) => {
+
+                        actualCards.forEach((card, index) => {
                             const cardElement = document.createElement('div');
                             cardElement.className = 'main-deck-card';
                             cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
@@ -969,38 +1019,63 @@ function renderMTGVerticalDeck() {
     // Create single cards container
     const cardsContainer = document.createElement('div');
     cardsContainer.className = 'mtg-single-column-cards-container';
-    
+
     const totalCards = deckData.mainDeck.length;
-    
-    // Use dynamic card height based on total card count
-    let cardHeight, fontScaleFactor;
-    if (totalCards > 35) {
-        cardHeight = 25;
-        fontScaleFactor = 1;
-    } else if (totalCards > 26) {
-        cardHeight = 30;
-        fontScaleFactor = 1;
-    } else if (totalCards > 21) {
-        cardHeight = 41;
-        fontScaleFactor = 1;
-    } else {
-        cardHeight = 50;
-        fontScaleFactor = 1;
-    }
+
+    // Calculate card height to fit all cards in available space
+    // Container is 980px with no padding
+    const availableHeight = 980;
+    const maxCardHeight = 50;
+    const minCardHeight = 18;
+
+    // Calculate height to fit all cards, clamped between min and max
+    let cardHeight = availableHeight / totalCards;
+    cardHeight = Math.max(minCardHeight, Math.min(maxCardHeight, cardHeight));
+
+    const fontScaleFactor = cardHeight < 30 ? 0.8 : 1;
     
     // Render all cards with conditional sizing
+    const manaSymbolSize = Math.max(12, Math.min(18, cardHeight * 0.6));
     deckData.mainDeck.forEach((card, index) => {
         const cardElement = document.createElement('div');
         cardElement.className = 'vertical-card';
         cardElement.style.height = `${cardHeight}px`;
-        cardElement.innerHTML = `
-            <div class="vertical-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
-            <div class="vertical-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
-            <div class="vertical-card-background" style="background-image: url('${card['card-url']}');background-position: 40px -105px;background-size: cover;"></div>
-        `;
+
+        // Check if this is a section header (Main Deck or Sideboard)
+        const cardName = card['card-name']?.toLowerCase().trim();
+        const isSectionHeader = cardName === 'main deck' || cardName === 'sideboard';
+
+        if (isSectionHeader) {
+            // Render section header - centered text, black background, no card art
+            cardElement.innerHTML = `
+                <div class="vertical-card-section-header" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
+                <div class="vertical-card-background" style="background: black;"></div>
+            `;
+        } else {
+            // Render normal card
+            // For double-faced cards, only show the front half
+            // Exception: if both halves are single words (e.g., "Fire // Ice"), show the full name
+            let displayName = card['card-name'];
+            if (card['card-name']?.includes('//')) {
+                const parts = card['card-name'].split('//').map(p => p.trim());
+                const frontWords = parts[0].split(/\s+/).length;
+                const backWords = parts[1]?.split(/\s+/).length || 0;
+                // Only truncate if either half has more than 1 word
+                if (frontWords > 1 || backWords > 1) {
+                    displayName = parts[0];
+                }
+            }
+            const manaHtml = renderCardManaSymbols(card['mana-cost'], manaSymbolSize);
+            cardElement.innerHTML = `
+                <div class="vertical-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
+                <div class="vertical-card-name" style="font-size: ${20 * fontScaleFactor}px;">${displayName}</div>
+                ${manaHtml}
+                <div class="vertical-card-background" style="background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0.4) 100%), url('${getArtCropUrl(card['card-url'])}'); background-size: 100% 100%, 65% auto; background-position: center, calc(100% + 55px) calc(50% + 20px); background-repeat: no-repeat;"></div>
+            `;
+        }
         cardsContainer.appendChild(cardElement);
     });
-    
+
     mainDeckContainer.appendChild(cardsContainer);
 }
 

@@ -649,32 +649,54 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 }
 
 
+/* VERTICAL MODE - Hide all backgrounds for all games */
+body.vertical #mtg-bg-image,
+body.vertical #vibes-bg-image,
+body.vertical #riftbound-background-parent {
+    display: none !important;
+}
+
+/* VERTICAL MODE - Reset container offsets to 0,0 */
+body.vertical #deck-display-mtg #deck-display-container,
+body.vertical #deck-display-vibes #vibes-deck-display-container {
+    top: 100px;
+    left: 0;
+}
+
+body.vertical #deck-display-mtg #main-deck-container,
+body.vertical #deck-display-vibes #vibes-main-deck-container {
+    left: 0;
+    transform: none;
+    padding: 0;
+}
+
 /* MTG VERTICAL ORIENTATION STYLES */
 #deck-display-mtg body.vertical .vertical-deck-container,
 body.vertical #deck-display-mtg .vertical-deck-container {
     width: 1920px;
-    height: 930px;
+    height: 980px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 0;
     overflow: hidden;
 }
 
 #deck-display-mtg .mtg-single-column-cards-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 406px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    padding: 0 20px;
+    padding: 0;
+    background-color: black;
 }
 
 #deck-display-mtg .vertical-card {
     width: 100%;
-    max-width: 500px;
+    max-width: 406px;
     height: 50px;
     position: relative;
     display: flex;
@@ -695,8 +717,10 @@ body.vertical #deck-display-mtg .vertical-deck-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 27px;
+    font-family: 'Gotham Narrow', sans-serif;
     font-size: 16px;
-    font-weight: normal;
+    font-weight: 700;
     z-index: 2;
     border-radius: 0 0 8px 0;
 }
@@ -711,8 +735,9 @@ body.vertical #deck-display-mtg .vertical-deck-container {
     display: flex;
     align-items: center;
     padding: 0 20px;
+    font-family: 'Gotham Narrow', sans-serif;
     font-size: 20px;
-    font-weight: normal;
+    font-weight: 700;
     z-index: 2;
     white-space: nowrap;
     overflow: hidden;
@@ -725,22 +750,44 @@ body.vertical #deck-display-mtg .vertical-deck-container {
     left: 0;
     right: 0;
     bottom: 0;
-    background-size: auto 300px;
+    background-size: 50% auto;
     background-repeat: no-repeat;
-    background-position: 0px -100px;
+    background-position: right center;
     z-index: 1;
 }
 
-#deck-display-mtg .vertical-card-background::before {
-    content: '';
+#deck-display-mtg .vertical-card-mana {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    z-index: 3;
+}
+
+#deck-display-mtg .vertical-card-mana .mana-symbol {
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+#deck-display-mtg .vertical-card-section-header {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
-    z-index: 1;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gotham Narrow', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    z-index: 2;
+    text-transform: uppercase;
 }
+
 
 /* VIBES VERTICAL ORIENTATION STYLES */
 #deck-display-vibes body.vertical .vertical-deck-container,
@@ -756,18 +803,18 @@ body.vertical #deck-display-vibes .vertical-deck-container {
 
 #deck-display-vibes .vibes-single-column-cards-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 394px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    padding: 0 20px;
+    padding: 0;
 }
 
 #deck-display-vibes .vertical-card {
     width: 100%;
-    max-width: 500px;
+    max-width: 394px;
     height: 50px;
     position: relative;
     display: flex;
@@ -845,18 +892,18 @@ body.vertical #deck-display-vibes .vertical-deck-container {
 
 #deck-display-riftbound .riftbound-single-column-cards-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 394px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    padding: 0 20px;
+    padding: 0;
 }
 
 #deck-display-riftbound .riftbound-vertical-card {
     width: 100%;
-    max-width: 500px;
+    max-width: 394px;
     height: 50px;
     position: relative;
     display: flex;

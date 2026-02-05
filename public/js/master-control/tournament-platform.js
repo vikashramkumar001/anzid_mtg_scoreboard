@@ -29,6 +29,7 @@ export function initTournamentPlatform(socket) {
                 btn.title = 'Fetch standings from ' + platform;
             }
         });
+
     }
 
     // Platform select change handler
@@ -105,7 +106,7 @@ export function initTournamentPlatform(socket) {
                         if (player.rank && player.name) {
                             textLines.push(rank.toString());
                             textLines.push(player.name);
-                            textLines.push(player.archetype || 'Unknown');
+                            textLines.push(player.archetype || '');
                             textLines.push(player.record || '0-0-0');
                         }
                     });

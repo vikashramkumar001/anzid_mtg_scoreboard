@@ -62,9 +62,10 @@
     text-transform: uppercase;
 }
 
-/* MTG uses Gotham font */
+/* MTG uses Gotham Narrow Bold font */
 body.mtg * {
     font-family: 'Gotham Narrow', sans-serif;
+    font-weight: 700;
 }
 
 #round-details-container {

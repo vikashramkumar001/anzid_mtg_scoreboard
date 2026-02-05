@@ -1,0 +1,33 @@
+Category,URL,Description
+Master Control,/master-control,Main control panel
+Control,/control/:controlID/:delay,Control panel for a match
+Control,/scoreboard/:controlID,Scoreboard display
+Control,/timer/:controlID,Timer display
+Broadcast Details,/broadcast/round/details/:matchID/:detailKey,Match details display
+Broadcast Decks,/broadcast/round/maindeck/:matchID/:sideID,Main deck display
+Broadcast Decks,/broadcast/round/maindeck/:orientation/:matchID/:sideID,Main deck with orientation
+Broadcast Decks,/broadcast/round/sidedeck/:matchID/:sideID,Side deck display
+Broadcast Decks,/broadcast/round/sidedeck/:orientation/:matchID/:sideID,Side deck with orientation
+Broadcast Decks,/deck-display,Deck display page
+Broadcast Decks,/side-deck-display,Side deck display page
+Draft List,/broadcast/round/draftlist/vertical/1,Player 1 draft list
+Draft List,/broadcast/round/draftlist/vertical/2,Player 2 draft list
+Draft List,/broadcast/round/draftlist/scoreboard/1,Player 1 draft scoreboard
+Draft List,/broadcast/round/draftlist/scoreboard/2,Player 2 draft scoreboard
+Draft List,/broadcast/round/draftlist/:slotId,Draft list (default vertical)
+Draft List,/broadcast/round/draftlist/:orientation/:slotId,Draft list with orientation
+Standings,/broadcast/round/standings/:rankID,Individual standing display
+Standings,/broadcast/round/standings-all,All standings display
+Standings,/broadcast/round/standings-all-2,All standings display v2
+Bracket,/display/bracket/details/:bracketID,Bracket display
+Card View,/display/card/view/:gameID/:cardID,Card view display
+Lower Thirds,/lower-third/commentator/:commentatorID,Commentator lower third
+Global,/update/global/details/:detailKey,Global details update
+Meta Breakdown,/meta/breakdown/details/:detailKey,Meta breakdown details
+Meta Breakdown,/meta/breakdown/full/:metaID,Full meta breakdown
+Vibes,/vibes-master-control,Vibes master control
+Vibes,/vibes/display/card/view/:cardID,Vibes card view
+Vibes,/vibes/display/main/deck/:deckID,Vibes deck display
+Riftbound,/riftbound/display/card/view/:cardID,Riftbound card view
+Riftbound,/riftbound/display/main/deck/:deckID,Riftbound deck display
+Riftbound,/riftbound/animation-display/:orientation/:matchID/:side,Riftbound animation display

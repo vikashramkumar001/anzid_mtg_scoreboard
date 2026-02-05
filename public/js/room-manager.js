@@ -61,6 +61,9 @@ class RoomManager {
             return `control-${controlId}`;
         }
         
+        // Draftlist scoreboard - check before generic scoreboard
+        if (path.includes('/broadcast/round/draftlist/scoreboard/')) return 'broadcast-draft-list';
+
         // Scoreboard - check for /scoreboard/ in path
         if (path.includes('/scoreboard/')) {
             // Extract control ID from path (e.g., /control/1/1000)
@@ -99,7 +102,8 @@ class RoomManager {
         if (path.includes('/broadcast/round/details/')) return 'broadcast-details';
         if (path.includes('/broadcast/round/maindeck/')) return 'broadcast-main-deck';
         if (path.includes('/broadcast/round/sidedeck/')) return 'broadcast-side-deck';
-        
+        if (path.includes('/broadcast/round/draftlist/')) return 'broadcast-draft-list';
+
         // Bracket
         if (path.includes('/display/bracket/details/') || path.includes('bracket-individual-display.html')) return 'brackets';
         
@@ -164,6 +168,7 @@ class RoomManager {
             'broadcast-details': ['broadcast-details', 'global'],
             'broadcast-main-deck': ['broadcast-main-deck', 'global'],
             'broadcast-side-deck': ['broadcast-side-deck', 'global'],
+            'broadcast-draft-list': ['broadcast-draft-list', 'global'],
             'brackets': ['brackets', 'global'],
             'meta-breakdown': ['meta-breakdown', 'global']
         };

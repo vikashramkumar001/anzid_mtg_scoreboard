@@ -76,7 +76,8 @@ export class RoomUtils {
             'riftbound-deck-data-from-server': ['riftbound-deck-display'],
             'transformed-main-deck-data': ['broadcast-main-deck'],
             'transformed-side-deck-data': ['broadcast-side-deck', 'broadcast-main-deck'],
-            
+            'transformed-draft-list-data': ['broadcast-draft-list'],
+
             // Standings events
             'standings-data': ['master-control', 'standings', 'broadcast-standings'],
             'standings-updated': ['master-control', 'standings', 'broadcast-standings'],
@@ -90,7 +91,7 @@ export class RoomUtils {
             'receive-meta-breakdown-data': ['meta-breakdown'],
             
             // Broadcast events
-            'broadcast-round-data': ['broadcast-details', 'broadcast-main-deck', 'broadcast-side-deck', 'broadcast-standings', 'riftbound-animation-display-1', 'riftbound-animation-display-2', 'riftbound-animation-display-3', 'riftbound-animation-display-4'],
+            'broadcast-round-data': ['broadcast-details', 'broadcast-main-deck', 'broadcast-side-deck', 'broadcast-draft-list', 'broadcast-standings', 'riftbound-animation-display-1', 'riftbound-animation-display-2', 'riftbound-animation-display-3', 'riftbound-animation-display-4'],
             
             // Overlay events
             'overlayHeaderBackgroundUpdate': ['global'],

@@ -86,6 +86,14 @@ socket.on('server-current-game-selection', ({gameSelection}) => {
     selectedGame = gameSelection?.toLowerCase() || '';
     if (selectedGame === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
+        document.body.classList.add('mtg');
+        document.body.classList.remove('riftbound', 'vibes');
+    } else if (selectedGame === 'riftbound') {
+        document.body.classList.add('riftbound');
+        document.body.classList.remove('mtg', 'vibes');
+    } else if (selectedGame === 'vibes') {
+        document.body.classList.add('vibes');
+        document.body.classList.remove('mtg', 'riftbound');
     }
 });
 
@@ -93,6 +101,14 @@ socket.on('game-selection-updated', ({gameSelection}) => {
     selectedGame = gameSelection?.toLowerCase() || '';
     if (selectedGame === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
+        document.body.classList.add('mtg');
+        document.body.classList.remove('riftbound', 'vibes');
+    } else if (selectedGame === 'riftbound') {
+        document.body.classList.add('riftbound');
+        document.body.classList.remove('mtg', 'vibes');
+    } else if (selectedGame === 'vibes') {
+        document.body.classList.add('vibes');
+        document.body.classList.remove('mtg', 'riftbound');
     }
 })
 
