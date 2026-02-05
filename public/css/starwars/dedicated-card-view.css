@@ -1,0 +1,24 @@
+
+* {
+    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+}
+
+body {
+    width: 1920px;
+    height: 540px;
+    background: transparent;
+}
+
+.card-src {
+    width: 100%;
+}
+
+.main-card-display {
+    width: 500px;
+}
+
+.card-view-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

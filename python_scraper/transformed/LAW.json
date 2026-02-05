@@ -1,0 +1,602 @@
+{
+  "staccatolightningrepeater": {
+    "type": "Upgrade",
+    "image": "LAW\\Staccato_Lightning_Repeater",
+    "name": "\"Staccato Lightning\" Repeater"
+  },
+  "000": {
+    "type": "Unit",
+    "image": "LAW\\0-0-0",
+    "name": "0-0-0"
+  },
+  "4lom": {
+    "type": "Unit",
+    "image": "LAW\\4-LOM",
+    "name": "4-LOM"
+  },
+  "admiralmotti": {
+    "type": "Unit",
+    "image": "LAW\\Admiral_Motti",
+    "name": "Admiral Motti"
+  },
+  "aerie": {
+    "type": "Unit",
+    "image": "LAW\\Aerie",
+    "name": "Aerie"
+  },
+  "agentkallus": {
+    "type": "Leader",
+    "image": "LAW\\Agent_Kallus",
+    "name": "Agent Kallus"
+  },
+  "aldhanigarrison": {
+    "type": "Base",
+    "image": "LAW\\Aldhani_Garrison",
+    "name": "Aldhani Garrison"
+  },
+  "allianceoutpost": {
+    "type": "Base",
+    "image": "LAW\\Alliance_Outpost",
+    "name": "Alliance Outpost"
+  },
+  "anakinskywalker": {
+    "type": "Unit",
+    "image": "LAW\\Anakin_Skywalker",
+    "name": "Anakin Skywalker"
+  },
+  "anakinspodracer": {
+    "type": "Unit",
+    "image": "LAW\\Anakins_Podracer",
+    "name": "Anakin's Podracer"
+  },
+  "attackfromallsides": {
+    "type": "Event",
+    "image": "LAW\\Attack_From_All_Sides",
+    "name": "Attack From All Sides"
+  },
+  "bt1": {
+    "type": "Unit",
+    "image": "LAW\\BT-1",
+    "name": "BT-1"
+  },
+  "backedbythehutts": {
+    "type": "Event",
+    "image": "LAW\\Backed_by_the_Hutts",
+    "name": "Backed by the Hutts"
+  },
+  "bazemalbus": {
+    "type": "Unit",
+    "image": "LAW\\Baze_Malbus",
+    "name": "Baze Malbus"
+  },
+  "beilertvalance": {
+    "type": "Unit",
+    "image": "LAW\\Beilert_Valance",
+    "name": "Beilert Valance"
+  },
+  "bensolo": {
+    "type": "Unit",
+    "image": "LAW\\Ben_Solo",
+    "name": "Ben Solo"
+  },
+  "bibfortuna": {
+    "type": "Unit",
+    "image": "LAW\\Bib_Fortuna",
+    "name": "Bib Fortuna"
+  },
+  "bixcaleen": {
+    "type": "Unit",
+    "image": "LAW\\Bix_Caleen",
+    "name": "Bix Caleen"
+  },
+  "blacksuncabalist": {
+    "type": "Unit",
+    "image": "LAW\\Black_Sun_Cabalist",
+    "name": "Black Sun Cabalist"
+  },
+  "blacksunpatroller": {
+    "type": "Unit",
+    "image": "LAW\\Black_Sun_Patroller",
+    "name": "Black Sun Patroller"
+  },
+  "bobafett": {
+    "type": "Unit",
+    "image": "LAW\\Boba_Fett",
+    "name": "Boba Fett"
+  },
+  "bodhirook": {
+    "type": "Unit",
+    "image": "LAW\\Bodhi_Rook",
+    "name": "Bodhi Rook"
+  },
+  "c3p0": {
+    "type": "Unit",
+    "image": "LAW\\C-3P0",
+    "name": "C-3P0"
+  },
+  "cantobight": {
+    "type": "Base",
+    "image": "LAW\\Canto_Bight",
+    "name": "Canto Bight"
+  },
+  "cassianandor": {
+    "type": "Unit",
+    "image": "LAW\\Cassian_Andor",
+    "name": "Cassian Andor"
+  },
+  "championskt9podracer": {
+    "type": "Unit",
+    "image": "LAW\\Champions_KT9_Podracer",
+    "name": "Champion's KT9 Podracer"
+  },
+  "chewbacca": {
+    "type": "Unit",
+    "image": "LAW\\Chewbacca",
+    "name": "Chewbacca"
+  },
+  "chiofain": {
+    "type": "Unit",
+    "image": "LAW\\Chio_Fain",
+    "name": "Chio Fain"
+  },
+  "chirrutmwe": {
+    "type": "Unit",
+    "image": "LAW\\Chirrut_mwe",
+    "name": "Chirrut Îmwe"
+  },
+  "chopper": {
+    "type": "Unit",
+    "image": "LAW\\Chopper",
+    "name": "Chopper"
+  },
+  "cintakaz": {
+    "type": "Unit",
+    "image": "LAW\\Cinta_Kaz",
+    "name": "Cinta Kaz"
+  },
+  "citadelresearchcenter": {
+    "type": "Base",
+    "image": "LAW\\Citadel_Research_Center",
+    "name": "Citadel Research Center"
+  },
+  "combatexercise": {
+    "type": "Event",
+    "image": "LAW\\Combat_Exercise",
+    "name": "Combat Exercise"
+  },
+  "commoncause": {
+    "type": "Event",
+    "image": "LAW\\Common_Cause",
+    "name": "Common Cause"
+  },
+  "conveyexsecuritycaptain": {
+    "type": "Unit",
+    "image": "LAW\\Conveyex_Security_Captain",
+    "name": "Conveyex Security Captain"
+  },
+  "daimyospalace": {
+    "type": "Base",
+    "image": "LAW\\Daimyos_Palace",
+    "name": "Daimyo's Palace"
+  },
+  "darthvader": {
+    "type": "Leader",
+    "image": "LAW\\Darth_Vader",
+    "name": "Darth Vader"
+  },
+  "dengar": {
+    "type": "Unit",
+    "image": "LAW\\Dengar",
+    "name": "Dengar"
+  },
+  "directorkrennic": {
+    "type": "Leader",
+    "image": "LAW\\Director_Krennic",
+    "name": "Director Krennic"
+  },
+  "doublecross": {
+    "type": "Event",
+    "image": "LAW\\Double-Cross",
+    "name": "Double-Cross"
+  },
+  "enfynest": {
+    "type": "Leader",
+    "image": "LAW\\Enfy_Nest",
+    "name": "Enfy Nest"
+  },
+  "enfysnestshelmet": {
+    "type": "Upgrade",
+    "image": "LAW\\Enfys_Nests_Helmet",
+    "name": "Enfys Nest's Helmet"
+  },
+  "expendablemercenary": {
+    "type": "Unit",
+    "image": "LAW\\Expendable_Mercenary",
+    "name": "Expendable Mercenary"
+  },
+  "ezrabridger": {
+    "type": "Unit",
+    "image": "LAW\\Ezra_Bridger",
+    "name": "Ezra Bridger"
+  },
+  "fearanddeadmen": {
+    "type": "Event",
+    "image": "LAW\\Fear_and_Dead_Men",
+    "name": "Fear and Dead Men"
+  },
+  "fettsfirespray": {
+    "type": "Unit",
+    "image": "LAW\\Fetts_FIrespray",
+    "name": "Fett's FIrespray"
+  },
+  "finn": {
+    "type": "Unit",
+    "image": "LAW\\Finn",
+    "name": "Finn"
+  },
+  "fromacertainpointofview": {
+    "type": "Event",
+    "image": "LAW\\From_a_Certain_Point_of_View",
+    "name": "From a Certain Point of View"
+  },
+  "fulcrum": {
+    "type": "Upgrade",
+    "image": "LAW\\Fulcrum",
+    "name": "Fulcrum"
+  },
+  "galenerso": {
+    "type": "Unit",
+    "image": "LAW\\Galen_Erso",
+    "name": "Galen Erso"
+  },
+  "greatpitofcarkoon": {
+    "type": "Base",
+    "image": "LAW\\Great_Pit_of_Carkoon",
+    "name": "Great Pit of Carkoon"
+  },
+  "hansolo": {
+    "type": "Leader",
+    "image": "LAW\\Han_Solo",
+    "name": "Han Solo"
+  },
+  "hansgoldendice": {
+    "type": "Upgrade",
+    "image": "LAW\\Hans_Golden_Dice",
+    "name": "Han's Golden Dice"
+  },
+  "haymaker": {
+    "type": "Event",
+    "image": "LAW\\Haymaker",
+    "name": "Haymaker"
+  },
+  "herasyndulla": {
+    "type": "Leader",
+    "image": "LAW\\Hera_Syndulla",
+    "name": "Hera Syndulla"
+  },
+  "hondoohnaka": {
+    "type": "Unit",
+    "image": "LAW\\Hondo_Ohnaka",
+    "name": "Hondo Ohnaka"
+  },
+  "improvise": {
+    "type": "Event",
+    "image": "LAW\\Improvise",
+    "name": "Improvise"
+  },
+  "intimidator": {
+    "type": "Unit",
+    "image": "LAW\\Intimidator",
+    "name": "Intimidator"
+  },
+  "jabbathehutt": {
+    "type": "Leader",
+    "image": "LAW\\Jabba_the_Hutt",
+    "name": "Jabba the Hutt"
+  },
+  "jabbasrancor": {
+    "type": "Unit",
+    "image": "LAW\\Jabbas_Rancor",
+    "name": "Jabba's Rancor"
+  },
+  "jauntylightfreighter": {
+    "type": "Unit",
+    "image": "LAW\\Jaunty_Light_Freighter",
+    "name": "Jaunty Light Freighter"
+  },
+  "jynerso": {
+    "type": "Leader",
+    "image": "LAW\\Jyn_Erso",
+    "name": "Jyn Erso"
+  },
+  "kananjarrus": {
+    "type": "Unit",
+    "image": "LAW\\Kanan_Jarrus",
+    "name": "Kanan Jarrus"
+  },
+  "khetanna": {
+    "type": "Unit",
+    "image": "LAW\\Khetanna",
+    "name": "Khetanna"
+  },
+  "ladyproxima": {
+    "type": "Unit",
+    "image": "LAW\\Lady_Proxima",
+    "name": "Lady Proxima"
+  },
+  "landocalrissian": {
+    "type": "Leader",
+    "image": "LAW\\Lando_Calrissian",
+    "name": "Lando Calrissian"
+  },
+  "lattsrazzi": {
+    "type": "Unit",
+    "image": "LAW\\Latts_Razzi",
+    "name": "Latts Razzi"
+  },
+  "lawbringer": {
+    "type": "Unit",
+    "image": "LAW\\Lawbringer",
+    "name": "Lawbringer"
+  },
+  "leiaorgana": {
+    "type": "Leader",
+    "image": "LAW\\Leia_Organa",
+    "name": "Leia Organa"
+  },
+  "leiasdisguise": {
+    "type": "Upgrade",
+    "image": "LAW\\Leias_Disguise",
+    "name": "Leia's Disguise"
+  },
+  "lepilookout": {
+    "type": "Unit",
+    "image": "LAW\\Lepi_Lookout",
+    "name": "Lepi Lookout"
+  },
+  "lukeskywalker": {
+    "type": "Unit",
+    "image": "LAW\\Luke_Skywalker",
+    "name": "Luke Skywalker"
+  },
+  "malakili": {
+    "type": "Unit",
+    "image": "LAW\\Malakili",
+    "name": "Malakili"
+  },
+  "massassigroupmarines": {
+    "type": "Unit",
+    "image": "LAW\\Massassi_Group_Marines",
+    "name": "Massassi Group Marines"
+  },
+  "maul": {
+    "type": "Unit",
+    "image": "LAW\\Maul",
+    "name": "Maul"
+  },
+  "maxrebo": {
+    "type": "Unit",
+    "image": "LAW\\Max_Rebo",
+    "name": "Max Rebo"
+  },
+  "millenniumfalcon": {
+    "type": "Unit",
+    "image": "LAW\\Millennium_Falcon",
+    "name": "Millennium Falcon"
+  },
+  "nothinglefttofear": {
+    "type": "Event",
+    "image": "LAW\\Nothing_Left_to_Fear",
+    "name": "Nothing Left to Fear"
+  },
+  "patienthunter": {
+    "type": "Unit",
+    "image": "LAW\\Patient_Hunter",
+    "name": "Patient Hunter"
+  },
+  "persecutor": {
+    "type": "Unit",
+    "image": "LAW\\Persecutor",
+    "name": "Persecutor"
+  },
+  "phantom": {
+    "type": "Unit",
+    "image": "LAW\\Phantom",
+    "name": "Phantom"
+  },
+  "puttingateamtogether": {
+    "type": "Event",
+    "image": "LAW\\Putting_a_Team_Together",
+    "name": "Putting a Team Together"
+  },
+  "quigonjinn": {
+    "type": "Unit",
+    "image": "LAW\\Qui-Gon_Jinn",
+    "name": "Qui-Gon Jinn"
+  },
+  "r2d2": {
+    "type": "Unit",
+    "image": "LAW\\R2-D2",
+    "name": "R2-D2"
+  },
+  "rey": {
+    "type": "Unit",
+    "image": "LAW\\Rey",
+    "name": "Rey"
+  },
+  "riodurant": {
+    "type": "Unit",
+    "image": "LAW\\Rio_Durant",
+    "name": "Rio Durant"
+  },
+  "rogueone": {
+    "type": "Unit",
+    "image": "LAW\\Rogue_One",
+    "name": "Rogue One"
+  },
+  "rosetico": {
+    "type": "Unit",
+    "image": "LAW\\Rose_Tico",
+    "name": "Rose Tico"
+  },
+  "salaciouscrumb": {
+    "type": "Unit",
+    "image": "LAW\\Salacious_Crumb",
+    "name": "Salacious Crumb"
+  },
+  "scariflieutenant": {
+    "type": "Unit",
+    "image": "LAW\\Scarif_Lieutenant",
+    "name": "Scarif Lieutenant"
+  },
+  "scavengingsandcrawler": {
+    "type": "Unit",
+    "image": "LAW\\Scavenging_Sandcrawler",
+    "name": "Scavenging Sandcrawler"
+  },
+  "sebulba": {
+    "type": "Leader",
+    "image": "LAW\\Sebulba",
+    "name": "Sebulba"
+  },
+  "sebulbaspodracer": {
+    "type": "Unit",
+    "image": "LAW\\Sebulbas_Podracer",
+    "name": "Sebulba's Podracer"
+  },
+  "secretbattleofpretend": {
+    "type": "Event",
+    "image": "LAW\\Secret_Battle_of_Pretend",
+    "name": "Secret Battle of Pretend"
+  },
+  "shadowcloaking": {
+    "type": "Event",
+    "image": "LAW\\Shadow_Cloaking",
+    "name": "Shadow Cloaking"
+  },
+  "shadowofstygeonprime": {
+    "type": "Upgrade",
+    "image": "LAW\\Shadow_of_Stygeon_Prime",
+    "name": "Shadow of Stygeon Prime"
+  },
+  "shipbreakingyard": {
+    "type": "Base",
+    "image": "LAW\\Shipbreaking_Yard",
+    "name": "Shipbreaking Yard"
+  },
+  "singlereactorignition": {
+    "type": "Event",
+    "image": "LAW\\Single_Reactor_Ignition",
+    "name": "Single Reactor Ignition"
+  },
+  "stockpile": {
+    "type": "Event",
+    "image": "LAW\\Stockpile",
+    "name": "Stockpile"
+  },
+  "stygeonspire": {
+    "type": "Base",
+    "image": "LAW\\Stygeon_Spire",
+    "name": "Stygeon Spire"
+  },
+  "syndicatespicerunner": {
+    "type": "Unit",
+    "image": "LAW\\Syndicate_Spice_Runner",
+    "name": "Syndicate Spice Runner"
+  },
+  "tantiveiv": {
+    "type": "Unit",
+    "image": "LAW\\Tantive_IV",
+    "name": "Tantive IV"
+  },
+  "thatsarock": {
+    "type": "Event",
+    "image": "LAW\\Thats_a_Rock",
+    "name": "That's a Rock"
+  },
+  "theaxeforgets": {
+    "type": "Event",
+    "image": "LAW\\The_Axe_Forgets",
+    "name": "The Axe Forgets"
+  },
+  "thebladewing": {
+    "type": "Unit",
+    "image": "LAW\\The_Blade_Wing",
+    "name": "The Blade Wing"
+  },
+  "theclient": {
+    "type": "Leader",
+    "image": "LAW\\The_Client",
+    "name": "The Client"
+  },
+  "themandalorian": {
+    "type": "Unit",
+    "image": "LAW\\The_Mandalorian",
+    "name": "The Mandalorian"
+  },
+  "themastercodebreaker": {
+    "type": "Unit",
+    "image": "LAW\\The_Master_Codebreaker",
+    "name": "The Master Codebreaker"
+  },
+  "themaxreboband": {
+    "type": "Unit",
+    "image": "LAW\\The_Max_Rebo_Band",
+    "name": "The Max Rebo Band"
+  },
+  "thesarlaccofcarkoon": {
+    "type": "Unit",
+    "image": "LAW\\The_Sarlacc_of_Carkoon",
+    "name": "The Sarlacc of Carkoon"
+  },
+  "thetreeremembers": {
+    "type": "Event",
+    "image": "LAW\\The_Tree_Remembers",
+    "name": "The Tree Remembers"
+  },
+  "transmissionjamming": {
+    "type": "Event",
+    "image": "LAW\\Transmission_Jamming",
+    "name": "Transmission Jamming"
+  },
+  "unmarkedcredits": {
+    "type": "Event",
+    "image": "LAW\\Unmarked_Credits",
+    "name": "Unmarked Credits"
+  },
+  "urrrk": {
+    "type": "Unit",
+    "image": "LAW\\Urrrk",
+    "name": "Urrr'k"
+  },
+  "vermillion": {
+    "type": "Unit",
+    "image": "LAW\\Vermillion",
+    "name": "Vermillion"
+  },
+  "vultskerrissdefender": {
+    "type": "Unit",
+    "image": "LAW\\Vult_Skerriss_Defender",
+    "name": "Vult Skerris's Defender"
+  },
+  "weazel": {
+    "type": "Unit",
+    "image": "LAW\\Weazel",
+    "name": "Weazel"
+  },
+  "weequaypirate": {
+    "type": "Unit",
+    "image": "LAW\\Weequay_Pirate",
+    "name": "Weequay Pirate"
+  },
+  "youholdthis": {
+    "type": "Event",
+    "image": "LAW\\You_Hold_This",
+    "name": "You Hold This"
+  },
+  "zeborellios": {
+    "type": "Unit",
+    "image": "LAW\\Zeb_Orellios",
+    "name": "Zeb Orellios"
+  }
+}

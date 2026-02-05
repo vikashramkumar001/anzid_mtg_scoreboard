@@ -58,16 +58,13 @@ export function parseStandingsRawData(input) {
         return ret;
     }
 
-    // Split the input into lines
+    // Split the input into lines (preserve empty lines as blank strings)
     const lines = input
         .split('\n')
-        .map(line => line.trim())
-        .filter(line => line.length > 0); // removes blank lines up front
+        .map(line => line.trim());
 
     for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim();
-
-        if (!line) continue; // Skip empty lines
+        const line = lines[i]; // already trimmed; may be empty string
 
         // Check if the line starts with a number (Rank)
         if (/^\d+/.test(line)) {

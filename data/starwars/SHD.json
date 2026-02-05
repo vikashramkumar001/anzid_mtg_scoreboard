@@ -1,0 +1,1282 @@
+{
+  "4lom": {
+    "type": "Unit",
+    "image": "SHD\\4-LOM",
+    "name": "4-LOM"
+  },
+  "anewadventure": {
+    "type": "Event",
+    "image": "SHD\\A_New_Adventure",
+    "name": "A New Adventure"
+  },
+  "adelphipatrolwing": {
+    "type": "Unit",
+    "image": "SHD\\Adelphi_Patrol_Wing",
+    "name": "Adelphi Patrol Wing"
+  },
+  "alteringthedeal": {
+    "type": "Event",
+    "image": "SHD\\Altering_the_Deal",
+    "name": "Altering the Deal"
+  },
+  "armedtotheteeth": {
+    "type": "Upgrade",
+    "image": "SHD\\Armed_to_the_Teeth",
+    "name": "Armed to the Teeth"
+  },
+  "arquitensassaultcruiser": {
+    "type": "Unit",
+    "image": "SHD\\Arquitens_Assault_Cruiser",
+    "name": "Arquitens Assault Cruiser"
+  },
+  "bazinenetal": {
+    "type": "Unit",
+    "image": "SHD\\Bazine_Netal",
+    "name": "Bazine Netal"
+  },
+  "blacksunstarfighter": {
+    "type": "Unit",
+    "image": "SHD\\Black_Sun_Starfighter",
+    "name": "Black Sun Starfighter"
+  },
+  "bokatankryze": {
+    "type": "Leader",
+    "image": "SHD\\Bo-Katan_Kryze",
+    "name": "Bo-Katan Kryze"
+  },
+  "bobafett": {
+    "type": "Leader",
+    "image": "SHD\\Boba_Fett",
+    "name": "Boba Fett"
+  },
+  "bobafettsarmor": {
+    "type": "Upgrade",
+    "image": "SHD\\Boba_Fetts_Armor",
+    "name": "Boba Fett's Armor"
+  },
+  "bossk": {
+    "type": "Leader",
+    "image": "SHD\\Bossk",
+    "name": "Bossk"
+  },
+  "bountyguildinitiate": {
+    "type": "Unit",
+    "image": "SHD\\Bounty_Guild_Initiate",
+    "name": "Bounty Guild Initiate"
+  },
+  "bountyhuntersquarry": {
+    "type": "Upgrade",
+    "image": "SHD\\Bounty_Hunters_Quarry",
+    "name": "Bounty Hunter's Quarry"
+  },
+  "bountyposting": {
+    "type": "Event",
+    "image": "SHD\\Bounty_Posting",
+    "name": "Bounty Posting"
+  },
+  "bravado": {
+    "type": "Event",
+    "image": "SHD\\Bravado",
+    "name": "Bravado"
+  },
+  "brutaltraditions": {
+    "type": "Upgrade",
+    "image": "SHD\\Brutal_Traditions",
+    "name": "Brutal Traditions"
+  },
+  "cadbane": {
+    "type": "Leader",
+    "image": "SHD\\Cad_Bane",
+    "name": "Cad Bane"
+  },
+  "calculatedlethality": {
+    "type": "Event",
+    "image": "SHD\\Calculated_Lethality",
+    "name": "Calculated Lethality"
+  },
+  "cargojuggernaut": {
+    "type": "Unit",
+    "image": "SHD\\Cargo_Juggernaut",
+    "name": "Cargo Juggernaut"
+  },
+  "cartelturncoat": {
+    "type": "Unit",
+    "image": "SHD\\Cartel_Turncoat",
+    "name": "Cartel Turncoat"
+  },
+  "cassianandor": {
+    "type": "Unit",
+    "image": "SHD\\Cassian_Andor",
+    "name": "Cassian Andor"
+  },
+  "cellblockguard": {
+    "type": "Unit",
+    "image": "SHD\\Cell_Block_Guard",
+    "name": "Cell Block Guard"
+  },
+  "chaincodecollector": {
+    "type": "Unit",
+    "image": "SHD\\Chain_Code_Collector",
+    "name": "Chain Code Collector"
+  },
+  "chewbacca": {
+    "type": "Unit",
+    "image": "SHD\\Chewbacca",
+    "name": "Chewbacca"
+  },
+  "choosesides": {
+    "type": "Event",
+    "image": "SHD\\Choose_Sides",
+    "name": "Choose Sides"
+  },
+  "clanchallengers": {
+    "type": "Unit",
+    "image": "SHD\\Clan_Challengers",
+    "name": "Clan Challengers"
+  },
+  "clansaxongauntlet": {
+    "type": "Unit",
+    "image": "SHD\\Clan_Saxon_Gauntlet",
+    "name": "Clan Saxon Gauntlet"
+  },
+  "clanwrenrescuer": {
+    "type": "Unit",
+    "image": "SHD\\Clan_Wren_Rescuer",
+    "name": "Clan Wren Rescuer"
+  },
+  "clonedeserter": {
+    "type": "Unit",
+    "image": "SHD\\Clone_Deserter",
+    "name": "Clone Deserter"
+  },
+  "cloudrider": {
+    "type": "Unit",
+    "image": "SHD\\Cloud-Rider",
+    "name": "Cloud-Rider"
+  },
+  "cobbvanth": {
+    "type": "Unit",
+    "image": "SHD\\Cobb_Vanth",
+    "name": "Cobb Vanth"
+  },
+  "collectionsstarhopper": {
+    "type": "Unit",
+    "image": "SHD\\Collections_Starhopper",
+    "name": "Collections Starhopper"
+  },
+  "commission": {
+    "type": "Event",
+    "image": "SHD\\Commission",
+    "name": "Commission"
+  },
+  "concorddawninterceptors": {
+    "type": "Unit",
+    "image": "SHD\\Concord_Dawn_Interceptors",
+    "name": "Concord Dawn Interceptors"
+  },
+  "confiscate": {
+    "type": "Event",
+    "image": "SHD\\Confiscate",
+    "name": "Confiscate"
+  },
+  "coronetcity": {
+    "type": "Base",
+    "image": "SHD\\Coronet_City",
+    "name": "Coronet City"
+  },
+  "coruscantdissident": {
+    "type": "Unit",
+    "image": "SHD\\Coruscant_Dissident",
+    "name": "Coruscant Dissident"
+  },
+  "covertstrength": {
+    "type": "Event",
+    "image": "SHD\\Covert_Strength",
+    "name": "Covert Strength"
+  },
+  "covetousrivals": {
+    "type": "Unit",
+    "image": "SHD\\Covetous_Rivals",
+    "name": "Covetous Rivals"
+  },
+  "criminalmuscle": {
+    "type": "Unit",
+    "image": "SHD\\Criminal_Muscle",
+    "name": "Criminal Muscle"
+  },
+  "crippleauthority": {
+    "type": "Event",
+    "image": "SHD\\Cripple_Authority",
+    "name": "Cripple Authority"
+  },
+  "crosshair": {
+    "type": "Unit",
+    "image": "SHD\\Crosshair",
+    "name": "Crosshair"
+  },
+  "dj": {
+    "type": "Unit",
+    "image": "SHD\\DJ",
+    "name": "DJ"
+  },
+  "daringraid": {
+    "type": "Event",
+    "image": "SHD\\Daring_Raid",
+    "name": "Daring Raid"
+  },
+  "deathmark": {
+    "type": "Upgrade",
+    "image": "SHD\\Death_Mark",
+    "name": "Death Mark"
+  },
+  "deathtrooper": {
+    "type": "Unit",
+    "image": "SHD\\Death_Trooper",
+    "name": "Death Trooper"
+  },
+  "deathwatchhideout": {
+    "type": "Base",
+    "image": "SHD\\Death_Watch_Hideout",
+    "name": "Death Watch Hideout"
+  },
+  "deathwatchloyalist": {
+    "type": "Unit",
+    "image": "SHD\\Death_Watch_Loyalist",
+    "name": "Death Watch Loyalist"
+  },
+  "dengar": {
+    "type": "Unit",
+    "image": "SHD\\Dengar",
+    "name": "Dengar"
+  },
+  "desperadofreighter": {
+    "type": "Unit",
+    "image": "SHD\\Desperado_Freighter",
+    "name": "Desperado Freighter"
+  },
+  "desperateattack": {
+    "type": "Event",
+    "image": "SHD\\Desperate_Attack",
+    "name": "Desperate Attack"
+  },
+  "detentionblockrescue": {
+    "type": "Event",
+    "image": "SHD\\Detention_Block_Rescue",
+    "name": "Detention Block Rescue"
+  },
+  "disablingfangfighter": {
+    "type": "Unit",
+    "image": "SHD\\Disabling_Fang_Fighter",
+    "name": "Disabling Fang Fighter"
+  },
+  "discerningveteran": {
+    "type": "Unit",
+    "image": "SHD\\Discerning_Veteran",
+    "name": "Discerning Veteran"
+  },
+  "doctoraphra": {
+    "type": "Leader",
+    "image": "SHD\\Doctor_Aphra",
+    "name": "Doctor Aphra"
+  },
+  "doctorevazan": {
+    "type": "Unit",
+    "image": "SHD\\Doctor_Evazan",
+    "name": "Doctor Evazan"
+  },
+  "doctorpershing": {
+    "type": "Unit",
+    "image": "SHD\\Doctor_Pershing",
+    "name": "Doctor Pershing"
+  },
+  "drydenvos": {
+    "type": "Unit",
+    "image": "SHD\\Dryden_Vos",
+    "name": "Dryden Vos"
+  },
+  "echo": {
+    "type": "Unit",
+    "image": "SHD\\Echo",
+    "name": "Echo"
+  },
+  "embo": {
+    "type": "Unit",
+    "image": "SHD\\Embo",
+    "name": "Embo"
+  },
+  "endlesslegions": {
+    "type": "Event",
+    "image": "SHD\\Endless_Legions",
+    "name": "Endless Legions"
+  },
+  "enforcedloyalty": {
+    "type": "Event",
+    "image": "SHD\\Enforced_Loyalty",
+    "name": "Enforced Loyalty"
+  },
+  "enfysnest": {
+    "type": "Unit",
+    "image": "SHD\\Enfys_Nest",
+    "name": "Enfys Nest"
+  },
+  "enterprisinglackeys": {
+    "type": "Unit",
+    "image": "SHD\\Enterprising_Lackeys",
+    "name": "Enterprising Lackeys"
+  },
+  "enticingreward": {
+    "type": "Upgrade",
+    "image": "SHD\\Enticing_Reward",
+    "name": "Enticing Reward"
+  },
+  "ephantmon": {
+    "type": "Unit",
+    "image": "SHD\\Ephant_Mon",
+    "name": "Ephant Mon"
+  },
+  "evacuate": {
+    "type": "Event",
+    "image": "SHD\\Evacuate",
+    "name": "Evacuate"
+  },
+  "evidenceofthecrime": {
+    "type": "Event",
+    "image": "SHD\\Evidence_of_the_Crime",
+    "name": "Evidence of the Crime"
+  },
+  "fellthedragon": {
+    "type": "Event",
+    "image": "SHD\\Fell_the_Dragon",
+    "name": "Fell the Dragon"
+  },
+  "fennrau": {
+    "type": "Unit",
+    "image": "SHD\\Fenn_Rau",
+    "name": "Fenn Rau"
+  },
+  "fennecshand": {
+    "type": "Leader",
+    "image": "SHD\\Fennec_Shand",
+    "name": "Fennec Shand"
+  },
+  "finalshowdown": {
+    "type": "Event",
+    "image": "SHD\\Final_Showdown",
+    "name": "Final Showdown"
+  },
+  "finalizer": {
+    "type": "Unit",
+    "image": "SHD\\Finalizer",
+    "name": "Finalizer"
+  },
+  "finn": {
+    "type": "Leader",
+    "image": "SHD\\Finn",
+    "name": "Finn"
+  },
+  "firstlight": {
+    "type": "Unit",
+    "image": "SHD\\First_Light",
+    "name": "First Light"
+  },
+  "followeroftheway": {
+    "type": "Unit",
+    "image": "SHD\\Follower_of_The_Way",
+    "name": "Follower of The Way"
+  },
+  "foundling": {
+    "type": "Upgrade",
+    "image": "SHD\\Foundling",
+    "name": "Foundling"
+  },
+  "freetownbackup": {
+    "type": "Unit",
+    "image": "SHD\\Freetown_Backup",
+    "name": "Freetown Backup"
+  },
+  "frontiertrader": {
+    "type": "Unit",
+    "image": "SHD\\Frontier_Trader",
+    "name": "Frontier Trader"
+  },
+  "frozenincarbonite": {
+    "type": "Upgrade",
+    "image": "SHD\\Frozen_in_Carbonite",
+    "name": "Frozen in Carbonite"
+  },
+  "fugitivewookiee": {
+    "type": "Unit",
+    "image": "SHD\\Fugitive_Wookiee",
+    "name": "Fugitive Wookiee"
+  },
+  "gamorreanretainer": {
+    "type": "Unit",
+    "image": "SHD\\Gamorrean_Retainer",
+    "name": "Gamorrean Retainer"
+  },
+  "garsaxon": {
+    "type": "Leader",
+    "image": "SHD\\Gar_Saxon",
+    "name": "Gar Saxon"
+  },
+  "generalrieekan": {
+    "type": "Unit",
+    "image": "SHD\\General_Rieekan",
+    "name": "General Rieekan"
+  },
+  "generaltagge": {
+    "type": "Unit",
+    "image": "SHD\\General_Tagge",
+    "name": "General Tagge"
+  },
+  "gentlegiant": {
+    "type": "Unit",
+    "image": "SHD\\Gentle_Giant",
+    "name": "Gentle Giant"
+  },
+  "gideonslightcruiser": {
+    "type": "Unit",
+    "image": "SHD\\Gideons_Light_Cruiser",
+    "name": "Gideon's Light Cruiser"
+  },
+  "giveintoyouranger": {
+    "type": "Event",
+    "image": "SHD\\Give_In_to_Your_Anger",
+    "name": "Give In to Your Anger"
+  },
+  "greefkarga": {
+    "type": "Unit",
+    "image": "SHD\\Greef_Karga",
+    "name": "Greef Karga"
+  },
+  "greysquadronywing": {
+    "type": "Unit",
+    "image": "SHD\\Grey_Squadron_Y-Wing",
+    "name": "Grey Squadron Y-Wing"
+  },
+  "grogu": {
+    "type": "Unit",
+    "image": "SHD\\Grogu",
+    "name": "Grogu"
+  },
+  "guavianantagonizer": {
+    "type": "Unit",
+    "image": "SHD\\Guavian_Antagonizer",
+    "name": "Guavian Antagonizer"
+  },
+  "guildtarget": {
+    "type": "Upgrade",
+    "image": "SHD\\Guild_Target",
+    "name": "Guild Target"
+  },
+  "hwk290freighter": {
+    "type": "Unit",
+    "image": "SHD\\HWK-290_Freighter",
+    "name": "HWK-290 Freighter"
+  },
+  "hansolo": {
+    "type": "Leader",
+    "image": "SHD\\Han_Solo",
+    "name": "Han Solo"
+  },
+  "headhunting": {
+    "type": "Event",
+    "image": "SHD\\Headhunting",
+    "name": "Headhunting"
+  },
+  "heroicrenegade": {
+    "type": "Unit",
+    "image": "SHD\\Heroic_Renegade",
+    "name": "Heroic Renegade"
+  },
+  "heroicresolve": {
+    "type": "Upgrade",
+    "image": "SHD\\Heroic_Resolve",
+    "name": "Heroic Resolve"
+  },
+  "hondoohnaka": {
+    "type": "Leader",
+    "image": "SHD\\Hondo_Ohnaka",
+    "name": "Hondo Ohnaka"
+  },
+  "hotshotdl44blaster": {
+    "type": "Upgrade",
+    "image": "SHD\\Hotshot_DL-44_Blaster",
+    "name": "Hotshot DL-44 Blaster"
+  },
+  "housekastsoldier": {
+    "type": "Unit",
+    "image": "SHD\\House_Kast_Soldier",
+    "name": "House Kast Soldier"
+  },
+  "hunter": {
+    "type": "Leader",
+    "image": "SHD\\Hunter",
+    "name": "Hunter"
+  },
+  "hunterofthehaxionbrood": {
+    "type": "Unit",
+    "image": "SHD\\Hunter_of_the_Haxion_Brood",
+    "name": "Hunter of the Haxion Brood"
+  },
+  "huntingnexu": {
+    "type": "Unit",
+    "image": "SHD\\Hunting_Nexu",
+    "name": "Hunting Nexu"
+  },
+  "huttshenchmen": {
+    "type": "Unit",
+    "image": "SHD\\Hutts_Henchmen",
+    "name": "Hutt's Henchmen"
+  },
+  "hylobonenforcer": {
+    "type": "Unit",
+    "image": "SHD\\Hylobon_Enforcer",
+    "name": "Hylobon Enforcer"
+  },
+  "ig11": {
+    "type": "Unit",
+    "image": "SHD\\IG-11",
+    "name": "IG-11"
+  },
+  "imprisoned": {
+    "type": "Upgrade",
+    "image": "SHD\\Imprisoned",
+    "name": "Imprisoned"
+  },
+  "incineratortrooper": {
+    "type": "Unit",
+    "image": "SHD\\Incinerator_Trooper",
+    "name": "Incinerator Trooper"
+  },
+  "inspiringmentor": {
+    "type": "Upgrade",
+    "image": "SHD\\Inspiring_Mentor",
+    "name": "Inspiring Mentor"
+  },
+  "jabbathehutt": {
+    "type": "Leader",
+    "image": "SHD\\Jabba_the_Hutt",
+    "name": "Jabba the Hutt"
+  },
+  "jabbaspalace": {
+    "type": "Base",
+    "image": "SHD\\Jabbas_Palace",
+    "name": "Jabba's Palace"
+  },
+  "jabbasrancor": {
+    "type": "Unit",
+    "image": "SHD\\Jabbas_Rancor",
+    "name": "Jabba's Rancor"
+  },
+  "jangofett": {
+    "type": "Unit",
+    "image": "SHD\\Jango_Fett",
+    "name": "Jango Fett"
+  },
+  "jetpack": {
+    "type": "Upgrade",
+    "image": "SHD\\Jetpack",
+    "name": "Jetpack"
+  },
+  "ketsuonyo": {
+    "type": "Unit",
+    "image": "SHD\\Ketsu_Onyo",
+    "name": "Ketsu Onyo"
+  },
+  "kihrazxheavyfighter": {
+    "type": "Unit",
+    "image": "SHD\\Kihrazx_Heavy_Fighter",
+    "name": "Kihrazx Heavy Fighter"
+  },
+  "kintanintimidator": {
+    "type": "Unit",
+    "image": "SHD\\Kintan_Intimidator",
+    "name": "Kintan Intimidator"
+  },
+  "koskareeves": {
+    "type": "Unit",
+    "image": "SHD\\Koska_Reeves",
+    "name": "Koska Reeves"
+  },
+  "kragangorr": {
+    "type": "Unit",
+    "image": "SHD\\Kragan_Gorr",
+    "name": "Kragan Gorr"
+  },
+  "kraytdragon": {
+    "type": "Unit",
+    "image": "SHD\\Krayt_Dragon",
+    "name": "Krayt Dragon"
+  },
+  "krrsantan": {
+    "type": "Unit",
+    "image": "SHD\\Krrsantan",
+    "name": "Krrsantan"
+  },
+  "kuiil": {
+    "type": "Unit",
+    "image": "SHD\\Kuiil",
+    "name": "Kuiil"
+  },
+  "kyloren": {
+    "type": "Leader",
+    "image": "SHD\\Kylo_Ren",
+    "name": "Kylo Ren"
+  },
+  "kylostiesilencer": {
+    "type": "Unit",
+    "image": "SHD\\Kylos_TIE_Silencer",
+    "name": "Kylo's TIE Silencer"
+  },
+  "l337": {
+    "type": "Unit",
+    "image": "SHD\\L3-37",
+    "name": "L3-37"
+  },
+  "ladyproxima": {
+    "type": "Unit",
+    "image": "SHD\\Lady_Proxima",
+    "name": "Lady Proxima"
+  },
+  "landocalrissian": {
+    "type": "Leader",
+    "image": "SHD\\Lando_Calrissian",
+    "name": "Lando Calrissian"
+  },
+  "legalauthority": {
+    "type": "Upgrade",
+    "image": "SHD\\Legal_Authority",
+    "name": "Legal Authority"
+  },
+  "letthewookieewin": {
+    "type": "Event",
+    "image": "SHD\\Let_the_Wookiee_Win",
+    "name": "Let the Wookiee Win"
+  },
+  "liberatedslaves": {
+    "type": "Unit",
+    "image": "SHD\\Liberated_Slaves",
+    "name": "Liberated Slaves"
+  },
+  "lompyke": {
+    "type": "Unit",
+    "image": "SHD\\Lom_Pyke",
+    "name": "Lom Pyke"
+  },
+  "looktheotherway": {
+    "type": "Event",
+    "image": "SHD\\Look_the_Other_Way",
+    "name": "Look the Other Way"
+  },
+  "lurkingtiephantom": {
+    "type": "Unit",
+    "image": "SHD\\Lurking_TIE_Phantom",
+    "name": "Lurking TIE Phantom"
+  },
+  "maklounkee": {
+    "type": "Event",
+    "image": "SHD\\Ma_Klounkee",
+    "name": "Ma Klounkee"
+  },
+  "mandalorianarmor": {
+    "type": "Upgrade",
+    "image": "SHD\\Mandalorian_Armor",
+    "name": "Mandalorian Armor"
+  },
+  "mandalorianwarrior": {
+    "type": "Unit",
+    "image": "SHD\\Mandalorian_Warrior",
+    "name": "Mandalorian Warrior"
+  },
+  "maul": {
+    "type": "Unit",
+    "image": "SHD\\Maul",
+    "name": "Maul"
+  },
+  "mazkanata": {
+    "type": "Unit",
+    "image": "SHD\\Maz_Kanata",
+    "name": "Maz Kanata"
+  },
+  "mazkanatascastle": {
+    "type": "Base",
+    "image": "SHD\\Maz_Kanatas_Castle",
+    "name": "Maz Kanata's Castle"
+  },
+  "mercenarycompany": {
+    "type": "Unit",
+    "image": "SHD\\Mercenary_Company",
+    "name": "Mercenary Company"
+  },
+  "mercenarygunship": {
+    "type": "Unit",
+    "image": "SHD\\Mercenary_Gunship",
+    "name": "Mercenary Gunship"
+  },
+  "midnightrepairs": {
+    "type": "Event",
+    "image": "SHD\\Midnight_Repairs",
+    "name": "Midnight Repairs"
+  },
+  "migsmayfeld": {
+    "type": "Unit",
+    "image": "SHD\\Migs_Mayfeld",
+    "name": "Migs Mayfeld"
+  },
+  "millenniumfalcon": {
+    "type": "Unit",
+    "image": "SHD\\Millennium_Falcon",
+    "name": "Millennium Falcon"
+  },
+  "moddedcohort": {
+    "type": "Unit",
+    "image": "SHD\\Modded_Cohort",
+    "name": "Modded Cohort"
+  },
+  "moffgideon": {
+    "type": "Leader",
+    "image": "SHD\\Moff_Gideon",
+    "name": "Moff Gideon"
+  },
+  "moisturefarmer": {
+    "type": "Unit",
+    "image": "SHD\\Moisture_Farmer",
+    "name": "Moisture Farmer"
+  },
+  "momentofglory": {
+    "type": "Event",
+    "image": "SHD\\Moment_of_Glory",
+    "name": "Moment of Glory"
+  },
+  "mysticreflection": {
+    "type": "Event",
+    "image": "SHD\\Mystic_Reflection",
+    "name": "Mystic Reflection"
+  },
+  "nevarrocity": {
+    "type": "Base",
+    "image": "SHD\\Nevarro_City",
+    "name": "Nevarro City"
+  },
+  "niimaoutpostconstables": {
+    "type": "Unit",
+    "image": "SHD\\Niima_Outpost_Constables",
+    "name": "Niima Outpost Constables"
+  },
+  "niteowlskirmisher": {
+    "type": "Unit",
+    "image": "SHD\\Nite_Owl_Skirmisher",
+    "name": "Nite Owl Skirmisher"
+  },
+  "nobargain": {
+    "type": "Event",
+    "image": "SHD\\No_Bargain",
+    "name": "No Bargain"
+  },
+  "omega": {
+    "type": "Unit",
+    "image": "SHD\\Omega",
+    "name": "Omega"
+  },
+  "outflank": {
+    "type": "Event",
+    "image": "SHD\\Outflank",
+    "name": "Outflank"
+  },
+  "outlandtievanguard": {
+    "type": "Unit",
+    "image": "SHD\\Outland_TIE_Vanguard",
+    "name": "Outland TIE Vanguard"
+  },
+  "outlawcorona": {
+    "type": "Unit",
+    "image": "SHD\\Outlaw_Corona",
+    "name": "Outlaw Corona"
+  },
+  "palpatinesreturn": {
+    "type": "Event",
+    "image": "SHD\\Palpatines_Return",
+    "name": "Palpatine's Return"
+  },
+  "phaseiiidarktrooper": {
+    "type": "Unit",
+    "image": "SHD\\Phase-III_Dark_Trooper",
+    "name": "Phase-III Dark Trooper"
+  },
+  "pillage": {
+    "type": "Event",
+    "image": "SHD\\Pillage",
+    "name": "Pillage"
+  },
+  "piratebattletank": {
+    "type": "Unit",
+    "image": "SHD\\Pirate_Battle_Tank",
+    "name": "Pirate Battle Tank"
+  },
+  "poedameron": {
+    "type": "Unit",
+    "image": "SHD\\Poe_Dameron",
+    "name": "Poe Dameron"
+  },
+  "previzsla": {
+    "type": "Unit",
+    "image": "SHD\\Pre_Vizsla",
+    "name": "Pre Vizsla"
+  },
+  "priceonyourhead": {
+    "type": "Upgrade",
+    "image": "SHD\\Price_on_Your_Head",
+    "name": "Price on Your Head"
+  },
+  "principledoutlaw": {
+    "type": "Unit",
+    "image": "SHD\\Principled_Outlaw",
+    "name": "Principled Outlaw"
+  },
+  "privateercrew": {
+    "type": "Unit",
+    "image": "SHD\\Privateer_Crew",
+    "name": "Privateer Crew"
+  },
+  "privateerscyk": {
+    "type": "Unit",
+    "image": "SHD\\Privateer_Scyk",
+    "name": "Privateer Scyk"
+  },
+  "protectorofthethrone": {
+    "type": "Unit",
+    "image": "SHD\\Protector_of_the_Throne",
+    "name": "Protector of the Throne"
+  },
+  "publicenemy": {
+    "type": "Upgrade",
+    "image": "SHD\\Public_Enemy",
+    "name": "Public Enemy"
+  },
+  "punishingone": {
+    "type": "Unit",
+    "image": "SHD\\Punishing_One",
+    "name": "Punishing One"
+  },
+  "pykesentinel": {
+    "type": "Unit",
+    "image": "SHD\\Pyke_Sentinel",
+    "name": "Pyke Sentinel"
+  },
+  "qira": {
+    "type": "Leader",
+    "image": "SHD\\Qira",
+    "name": "Qi'ra"
+  },
+  "razorcrest": {
+    "type": "Unit",
+    "image": "SHD\\Razor_Crest",
+    "name": "Razor Crest"
+  },
+  "recklessgunslinger": {
+    "type": "Unit",
+    "image": "SHD\\Reckless_Gunslinger",
+    "name": "Reckless Gunslinger"
+  },
+  "relentlesspursuit": {
+    "type": "Event",
+    "image": "SHD\\Relentless_Pursuit",
+    "name": "Relentless Pursuit"
+  },
+  "remnantreserves": {
+    "type": "Event",
+    "image": "SHD\\Remnant_Reserves",
+    "name": "Remnant Reserves"
+  },
+  "remnantsciencefacility": {
+    "type": "Base",
+    "image": "SHD\\Remnant_Science_Facility",
+    "name": "Remnant Science Facility"
+  },
+  "remotevillage": {
+    "type": "Base",
+    "image": "SHD\\Remote_Village",
+    "name": "Remote Village"
+  },
+  "reputablehunter": {
+    "type": "Unit",
+    "image": "SHD\\Reputable_Hunter",
+    "name": "Reputable Hunter"
+  },
+  "resilient": {
+    "type": "Upgrade",
+    "image": "SHD\\Resilient",
+    "name": "Resilient"
+  },
+  "resourcefulpursuers": {
+    "type": "Unit",
+    "image": "SHD\\Resourceful_Pursuers",
+    "name": "Resourceful Pursuers"
+  },
+  "rey": {
+    "type": "Leader",
+    "image": "SHD\\Rey",
+    "name": "Rey"
+  },
+  "rhokaigunship": {
+    "type": "Unit",
+    "image": "SHD\\Rhokai_Gunship",
+    "name": "Rhokai Gunship"
+  },
+  "richreward": {
+    "type": "Upgrade",
+    "image": "SHD\\Rich_Reward",
+    "name": "Rich Reward"
+  },
+  "ricketyquadjumper": {
+    "type": "Unit",
+    "image": "SHD\\Rickety_Quadjumper",
+    "name": "Rickety Quadjumper"
+  },
+  "rivalsfall": {
+    "type": "Event",
+    "image": "SHD\\Rivals_Fall",
+    "name": "Rival's Fall"
+  },
+  "rosetico": {
+    "type": "Unit",
+    "image": "SHD\\Rose_Tico",
+    "name": "Rose Tico"
+  },
+  "rulewithrespect": {
+    "type": "Event",
+    "image": "SHD\\Rule_with_Respect",
+    "name": "Rule with Respect"
+  },
+  "ruthlessassassin": {
+    "type": "Unit",
+    "image": "SHD\\Ruthless_Assassin",
+    "name": "Ruthless Assassin"
+  },
+  "ruthlessness": {
+    "type": "Upgrade",
+    "image": "SHD\\Ruthlessness",
+    "name": "Ruthlessness"
+  },
+  "salaciouscrumb": {
+    "type": "Unit",
+    "image": "SHD\\Salacious_Crumb",
+    "name": "Salacious Crumb"
+  },
+  "scanningofficer": {
+    "type": "Unit",
+    "image": "SHD\\Scanning_Officer",
+    "name": "Scanning Officer"
+  },
+  "seasonedshoretrooper": {
+    "type": "Unit",
+    "image": "SHD\\Seasoned_Shoretrooper",
+    "name": "Seasoned Shoretrooper"
+  },
+  "secondchance": {
+    "type": "Upgrade",
+    "image": "SHD\\Second_Chance",
+    "name": "Second Chance"
+  },
+  "slaversfreighter": {
+    "type": "Unit",
+    "image": "SHD\\Slavers_Freighter",
+    "name": "Slaver's Freighter"
+  },
+  "smugglersaid": {
+    "type": "Event",
+    "image": "SHD\\Smugglers_Aid",
+    "name": "Smuggler's Aid"
+  },
+  "smugglersstarfighter": {
+    "type": "Unit",
+    "image": "SHD\\Smugglers_Starfighter",
+    "name": "Smuggler's Starfighter"
+  },
+  "snapshotreflexes": {
+    "type": "Upgrade",
+    "image": "SHD\\Snapshot_Reflexes",
+    "name": "Snapshot Reflexes"
+  },
+  "snowtrooperlieutenant": {
+    "type": "Unit",
+    "image": "SHD\\Snowtrooper_Lieutenant",
+    "name": "Snowtrooper Lieutenant"
+  },
+  "sparethetarget": {
+    "type": "Event",
+    "image": "SHD\\Spare_the_Target",
+    "name": "Spare the Target"
+  },
+  "sparkofhope": {
+    "type": "Event",
+    "image": "SHD\\Spark_of_Hope",
+    "name": "Spark of Hope"
+  },
+  "spicemines": {
+    "type": "Base",
+    "image": "SHD\\Spice_Mines",
+    "name": "Spice Mines"
+  },
+  "stolenlandspeeder": {
+    "type": "Unit",
+    "image": "SHD\\Stolen_Landspeeder",
+    "name": "Stolen Landspeeder"
+  },
+  "streetgangrecruiter": {
+    "type": "Unit",
+    "image": "SHD\\Street_Gang_Recruiter",
+    "name": "Street Gang Recruiter"
+  },
+  "sugi": {
+    "type": "Unit",
+    "image": "SHD\\Sugi",
+    "name": "Sugi"
+  },
+  "sundaripeacekeeper": {
+    "type": "Unit",
+    "image": "SHD\\Sundari_Peacekeeper",
+    "name": "Sundari Peacekeeper"
+  },
+  "supercommandosquad": {
+    "type": "Unit",
+    "image": "SHD\\Supercommando_Squad",
+    "name": "Supercommando Squad"
+  },
+  "superlasertechnician": {
+    "type": "Unit",
+    "image": "SHD\\Superlaser_Technician",
+    "name": "Superlaser Technician"
+  },
+  "supremeleadersnoke": {
+    "type": "Unit",
+    "image": "SHD\\Supreme_Leader_Snoke",
+    "name": "Supreme Leader Snoke"
+  },
+  "surprisestrike": {
+    "type": "Event",
+    "image": "SHD\\Surprise_Strike",
+    "name": "Surprise Strike"
+  },
+  "survivorsgauntlet": {
+    "type": "Unit",
+    "image": "SHD\\Survivors_Gauntlet",
+    "name": "Survivors' Gauntlet"
+  },
+  "swoopdown": {
+    "type": "Event",
+    "image": "SHD\\Swoop_Down",
+    "name": "Swoop Down"
+  },
+  "synarasan": {
+    "type": "Unit",
+    "image": "SHD\\Synara_San",
+    "name": "Synara San"
+  },
+  "systempatrolcraft": {
+    "type": "Unit",
+    "image": "SHD\\System_Patrol_Craft",
+    "name": "System Patrol Craft"
+  },
+  "takecaptive": {
+    "type": "Event",
+    "image": "SHD\\Take_Captive",
+    "name": "Take Captive"
+  },
+  "tarfful": {
+    "type": "Unit",
+    "image": "SHD\\Tarfful",
+    "name": "Tarfful"
+  },
+  "tech": {
+    "type": "Unit",
+    "image": "SHD\\Tech",
+    "name": "Tech"
+  },
+  "thearmorer": {
+    "type": "Unit",
+    "image": "SHD\\The_Armorer",
+    "name": "The Armorer"
+  },
+  "thechaosofwar": {
+    "type": "Event",
+    "image": "SHD\\The_Chaos_of_War",
+    "name": "The Chaos of War"
+  },
+  "theclient": {
+    "type": "Unit",
+    "image": "SHD\\The_Client",
+    "name": "The Client"
+  },
+  "thedarksaber": {
+    "type": "Upgrade",
+    "image": "SHD\\The_Darksaber",
+    "name": "The Darksaber"
+  },
+  "themandalorian": {
+    "type": "Leader",
+    "image": "SHD\\The_Mandalorian",
+    "name": "The Mandalorian"
+  },
+  "themandaloriansrifle": {
+    "type": "Upgrade",
+    "image": "SHD\\The_Mandalorians_Rifle",
+    "name": "The Mandalorian's Rifle"
+  },
+  "themarauder": {
+    "type": "Unit",
+    "image": "SHD\\The_Marauder",
+    "name": "The Marauder"
+  },
+  "thisistheway": {
+    "type": "Event",
+    "image": "SHD\\This_Is_The_Way",
+    "name": "This Is The Way"
+  },
+  "timelyintervention": {
+    "type": "Event",
+    "image": "SHD\\Timely_Intervention",
+    "name": "Timely Intervention"
+  },
+  "tobiasbeckett": {
+    "type": "Unit",
+    "image": "SHD\\Tobias_Beckett",
+    "name": "Tobias Beckett"
+  },
+  "toptarget": {
+    "type": "Upgrade",
+    "image": "SHD\\Top_Target",
+    "name": "Top Target"
+  },
+  "torocalican": {
+    "type": "Unit",
+    "image": "SHD\\Toro_Calican",
+    "name": "Toro Calican"
+  },
+  "trandoshanhunters": {
+    "type": "Unit",
+    "image": "SHD\\Trandoshan_Hunters",
+    "name": "Trandoshan Hunters"
+  },
+  "tripledarkraid": {
+    "type": "Event",
+    "image": "SHD\\Triple_Dark_Raid",
+    "name": "Triple Dark Raid"
+  },
+  "twinpodcloudcar": {
+    "type": "Unit",
+    "image": "SHD\\Twin_Pod_Cloud_Car",
+    "name": "Twin Pod Cloud Car"
+  },
+  "underworldthug": {
+    "type": "Unit",
+    "image": "SHD\\Underworld_Thug",
+    "name": "Underworld Thug"
+  },
+  "unexpectedescape": {
+    "type": "Event",
+    "image": "SHD\\Unexpected_Escape",
+    "name": "Unexpected Escape"
+  },
+  "unlicensedheadhunter": {
+    "type": "Unit",
+    "image": "SHD\\Unlicensed_Headhunter",
+    "name": "Unlicensed Headhunter"
+  },
+  "unrefusableoffer": {
+    "type": "Upgrade",
+    "image": "SHD\\Unrefusable_Offer",
+    "name": "Unrefusable Offer"
+  },
+  "val": {
+    "type": "Unit",
+    "image": "SHD\\Val",
+    "name": "Val"
+  },
+  "valiantassaultship": {
+    "type": "Unit",
+    "image": "SHD\\Valiant_Assault_Ship",
+    "name": "Valiant Assault Ship"
+  },
+  "vambraceflamethrower": {
+    "type": "Upgrade",
+    "image": "SHD\\Vambrace_Flamethrower",
+    "name": "Vambrace Flamethrower"
+  },
+  "vambracegrappleshot": {
+    "type": "Upgrade",
+    "image": "SHD\\Vambrace_Grappleshot",
+    "name": "Vambrace Grappleshot"
+  },
+  "vigilantpursuitcraft": {
+    "type": "Unit",
+    "image": "SHD\\Vigilant_Pursuit_Craft",
+    "name": "Vigilant Pursuit Craft"
+  },
+  "villageprotectors": {
+    "type": "Unit",
+    "image": "SHD\\Village_Protectors",
+    "name": "Village Protectors"
+  },
+  "wanted": {
+    "type": "Upgrade",
+    "image": "SHD\\Wanted",
+    "name": "Wanted"
+  },
+  "wantedinsurgents": {
+    "type": "Unit",
+    "image": "SHD\\Wanted_Insurgents",
+    "name": "Wanted Insurgents"
+  },
+  "warbirdstowaway": {
+    "type": "Unit",
+    "image": "SHD\\Warbird_Stowaway",
+    "name": "Warbird Stowaway"
+  },
+  "warzonelieutenant": {
+    "type": "Unit",
+    "image": "SHD\\Warzone_Lieutenant",
+    "name": "Warzone Lieutenant"
+  },
+  "weequaypirategang": {
+    "type": "Unit",
+    "image": "SHD\\Weequay_Pirate_Gang",
+    "name": "Weequay Pirate Gang"
+  },
+  "wildrancor": {
+    "type": "Unit",
+    "image": "SHD\\Wild_Rancor",
+    "name": "Wild Rancor"
+  },
+  "wookieewarrior": {
+    "type": "Unit",
+    "image": "SHD\\Wookiee_Warrior",
+    "name": "Wookiee Warrior"
+  },
+  "wrecker": {
+    "type": "Unit",
+    "image": "SHD\\Wrecker",
+    "name": "Wrecker"
+  },
+  "wroshyrtreetender": {
+    "type": "Unit",
+    "image": "SHD\\Wroshyr_Tree_Tender",
+    "name": "Wroshyr Tree Tender"
+  },
+  "xanadublood": {
+    "type": "Unit",
+    "image": "SHD\\Xanadu_Blood",
+    "name": "Xanadu Blood"
+  },
+  "zoriibliss": {
+    "type": "Unit",
+    "image": "SHD\\Zorii_Bliss",
+    "name": "Zorii Bliss"
+  },
+  "zuckuss": {
+    "type": "Unit",
+    "image": "SHD\\Zuckuss",
+    "name": "Zuckuss"
+  }
+}

@@ -577,6 +577,7 @@ CommentatorC
                                         <option value="mtg">MTG</option>
                                         <option value="riftbound">RIFTBOUND</option>
                                         <option value="vibes">VIBES</option>
+                                        <option value="starwars">STAR WARS</option>
                                     </select>
                                 </div>
                             </div>
@@ -1416,6 +1417,13 @@ CommentatorC
                         Riftbound
                     </button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="starwars-card-view-tab" data-bs-toggle="tab"
+                            data-bs-target="#starwars-card-view" type="button" role="tab" aria-controls="starwars"
+                            aria-selected="false">
+                        Star Wars
+                    </button>
+                </li>
             </ul>
 
             <!-- Card View Tabs Content -->
@@ -1657,6 +1665,84 @@ CommentatorC
             </div>
 
         </div>
+
+                <!-- Star Wars Card View Tab Content -->
+                <div class="tab-pane fade" id="starwars-card-view" role="tabpanel"
+                     aria-labelledby="starwars-card-view-tab">
+                    <div class="row my-3">
+                        <div class="col-12 my-3">
+                            <h1>Star Wars Card View</h1>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row my-3">
+                                        <div class="col-12">
+                                            <h5>Card View 1</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Card Select</label>
+                                                <div id="card-view-starwars-input-autocomplete-1"
+                                                     class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
+                                            <button class="btn btn-primary update-button me-2"
+                                                    id="card-view-starwars-display-button-1">
+                                                View Card
+                                            </button>
+                                            <button class="btn btn-primary reset-button"
+                                                    id="card-view-starwars-reset-button-1">
+                                                Reset
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <div id="card-preview-starwars-1" class="my-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row my-3">
+                                        <div class="col-12">
+                                            <h5>Card View</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Card Select</label>
+                                                <div id="card-view-starwars-input-autocomplete-2"
+                                                     class="editable form-control"
+                                                     contenteditable="true"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
+                                            <button class="btn btn-primary update-button me-2"
+                                                    id="card-view-starwars-display-button-2">
+                                                View Card
+                                            </button>
+                                            <button class="btn btn-primary reset-button"
+                                                    id="card-view-starwars-reset-button-2">
+                                                Reset
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <div id="card-preview-starwars-2" class="my-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
         <!-- Meta Breakdown Tab Content -->
         <div class="tab-pane fade" id="meta-breakdown-control" role="tabpanel" aria-labelledby="card-view-tab">

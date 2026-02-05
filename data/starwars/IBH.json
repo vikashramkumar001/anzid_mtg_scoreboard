@@ -1,0 +1,257 @@
+{
+  "admiralozzel": {
+    "type": "Unit",
+    "image": "IBH\\Admiral_Ozzel",
+    "name": "Admiral Ozzel"
+  },
+  "admiralpiett": {
+    "type": "Unit",
+    "image": "IBH\\Admiral_Piett",
+    "name": "Admiral Piett"
+  },
+  "avenger": {
+    "type": "Unit",
+    "image": "IBH\\Avenger",
+    "name": "Avenger"
+  },
+  "blizzardforceatst": {
+    "type": "Unit",
+    "image": "IBH\\Blizzard_Force_AT-ST",
+    "name": "Blizzard Force AT-ST"
+  },
+  "blizzardone": {
+    "type": "Unit",
+    "image": "IBH\\Blizzard_One",
+    "name": "Blizzard One"
+  },
+  "brighthope": {
+    "type": "Unit",
+    "image": "IBH\\Bright_Hope",
+    "name": "Bright Hope"
+  },
+  "c3p0": {
+    "type": "Unit",
+    "image": "IBH\\C-3P0",
+    "name": "C-3P0"
+  },
+  "chewbacca": {
+    "type": "Unit",
+    "image": "IBH\\Chewbacca",
+    "name": "Chewbacca"
+  },
+  "darthvader": {
+    "type": "Leader",
+    "image": "IBH\\Darth_Vader",
+    "name": "Darth Vader"
+  },
+  "deathsquadronstardestroyer": {
+    "type": "Unit",
+    "image": "IBH\\Death_Squadron_Star_Destroyer",
+    "name": "Death Squadron Star Destroyer"
+  },
+  "ewebgunner": {
+    "type": "Unit",
+    "image": "IBH\\E-Web_Gunner",
+    "name": "E-Web Gunner"
+  },
+  "echocaverns": {
+    "type": "Base",
+    "image": "IBH\\Echo_Caverns",
+    "name": "Echo Caverns"
+  },
+  "echocoordinator": {
+    "type": "Unit",
+    "image": "IBH\\Echo_Coordinator",
+    "name": "Echo Coordinator"
+  },
+  "evacuationescort": {
+    "type": "Unit",
+    "image": "IBH\\Evacuation_Escort",
+    "name": "Evacuation Escort"
+  },
+  "firstlegiontrooper": {
+    "type": "Unit",
+    "image": "IBH\\First_Legion_Trooper",
+    "name": "First Legion Trooper"
+  },
+  "forwardcommandpost": {
+    "type": "Base",
+    "image": "IBH\\Forward_Command_Post",
+    "name": "Forward Command Post"
+  },
+  "gr75mediumtransport": {
+    "type": "Unit",
+    "image": "IBH\\GR-75_Medium_Transport",
+    "name": "GR-75 Medium Transport"
+  },
+  "generalrieekan": {
+    "type": "Unit",
+    "image": "IBH\\General_Rieekan",
+    "name": "General Rieekan"
+  },
+  "generalveers": {
+    "type": "Unit",
+    "image": "IBH\\General_Veers",
+    "name": "General Veers"
+  },
+  "goforthelegs": {
+    "type": "Event",
+    "image": "IBH\\Go_for_the_Legs",
+    "name": "Go for the Legs"
+  },
+  "groundassaultatat": {
+    "type": "Unit",
+    "image": "IBH\\Ground_Assault_AT-AT",
+    "name": "Ground Assault AT-AT"
+  },
+  "hansolo": {
+    "type": "Unit",
+    "image": "IBH\\Han_Solo",
+    "name": "Han Solo"
+  },
+  "hothlieutenant": {
+    "type": "Unit",
+    "image": "IBH\\Hoth_Lieutenant",
+    "name": "Hoth Lieutenant"
+  },
+  "hothtrooper": {
+    "type": "Unit",
+    "image": "IBH\\Hoth_Trooper",
+    "name": "Hoth Trooper"
+  },
+  "iwantproofnotleads": {
+    "type": "Event",
+    "image": "IBH\\I_Want_Proof_Not_Leads",
+    "name": "I Want Proof, Not Leads"
+  },
+  "illcoverforyou": {
+    "type": "Event",
+    "image": "IBH\\Ill_Cover_For_You",
+    "name": "I'll Cover For You"
+  },
+  "ivefoundthem": {
+    "type": "Event",
+    "image": "IBH\\Ive_Found_Them",
+    "name": "I've Found Them"
+  },
+  "imperialdeckofficer": {
+    "type": "Unit",
+    "image": "IBH\\Imperial_Deck_Officer",
+    "name": "Imperial Deck Officer"
+  },
+  "improviseddetonation": {
+    "type": "Event",
+    "image": "IBH\\Improvised_Detonation",
+    "name": "Improvised Detonation"
+  },
+  "ioncannon": {
+    "type": "Unit",
+    "image": "IBH\\Ion_Cannon",
+    "name": "Ion Cannon"
+  },
+  "lambdashuttle": {
+    "type": "Unit",
+    "image": "IBH\\Lambda_Shuttle",
+    "name": "Lambda Shuttle"
+  },
+  "leiaorgana": {
+    "type": "Leader",
+    "image": "IBH\\Leia_Organa",
+    "name": "Leia Organa"
+  },
+  "lukeskywalker": {
+    "type": "Unit",
+    "image": "IBH\\Luke_Skywalker",
+    "name": "Luke Skywalker"
+  },
+  "millenniumfalcon": {
+    "type": "Unit",
+    "image": "IBH\\Millennium_Falcon",
+    "name": "Millennium Falcon"
+  },
+  "r2d2": {
+    "type": "Unit",
+    "image": "IBH\\R2-D2",
+    "name": "R2-D2"
+  },
+  "rampagingwampa": {
+    "type": "Unit",
+    "image": "IBH\\Rampaging_Wampa",
+    "name": "Rampaging Wampa"
+  },
+  "rebellionywing": {
+    "type": "Unit",
+    "image": "IBH\\Rebellion_Y-Wing",
+    "name": "Rebellion Y-Wing"
+  },
+  "recovery": {
+    "type": "Event",
+    "image": "IBH\\Recovery",
+    "name": "Recovery"
+  },
+  "roguesquadronspeeder": {
+    "type": "Unit",
+    "image": "IBH\\Rogue_Squadron_Speeder",
+    "name": "Rogue Squadron Speeder"
+  },
+  "scoutingtiefighter": {
+    "type": "Unit",
+    "image": "IBH\\Scouting_TIE_Fighter",
+    "name": "Scouting TIE Fighter"
+  },
+  "snowtrooper": {
+    "type": "Unit",
+    "image": "IBH\\Snowtrooper",
+    "name": "Snowtrooper"
+  },
+  "snowtroopervanguard": {
+    "type": "Unit",
+    "image": "IBH\\Snowtrooper_Vanguard",
+    "name": "Snowtrooper Vanguard"
+  },
+  "surfaceassaultbomber": {
+    "type": "Unit",
+    "image": "IBH\\Surface_Assault_Bomber",
+    "name": "Surface Assault Bomber"
+  },
+  "targetthemaingenerator": {
+    "type": "Event",
+    "image": "IBH\\Target_the_Main_Generator",
+    "name": "Target the Main Generator"
+  },
+  "tauntaunmount": {
+    "type": "Unit",
+    "image": "IBH\\Tauntaun_Mount",
+    "name": "Tauntaun Mount"
+  },
+  "thedesolationofhoth": {
+    "type": "Event",
+    "image": "IBH\\The_Desolation_of_Hoth",
+    "name": "The Desolation of Hoth"
+  },
+  "toostrongforblasters": {
+    "type": "Event",
+    "image": "IBH\\Too_Strong_for_Blasters",
+    "name": "Too Strong for Blasters"
+  },
+  "trenchdefender": {
+    "type": "Unit",
+    "image": "IBH\\Trench_Defender",
+    "name": "Trench Defender"
+  },
+  "watchthis": {
+    "type": "Event",
+    "image": "IBH\\Watch_This",
+    "name": "Watch This"
+  },
+  "wereintrouble": {
+    "type": "Event",
+    "image": "IBH\\Were_In_Trouble",
+    "name": "We're In Trouble"
+  },
+  "youhavefailedme": {
+    "type": "Event",
+    "image": "IBH\\You_Have_Failed_Me",
+    "name": "You Have Failed Me"
+  }
+}
