@@ -98,7 +98,7 @@ function renderDetails() {
     if (archetype_key in bracketData) {
         playerArchetype.innerText = bracketData[archetype_key];
         playerArchetype.style.display = bracketData[archetype_key] ? 'block' : 'none';
-        playerName.style.lineHeight = bracketData[archetype_key] ? '39px' : '33px';
+        playerName.style.lineHeight = bracketData[archetype_key] ? '39px' : '34px';
     }
     if (points_key in bracketData) {
         playerPoints.innerText = bracketData[points_key];

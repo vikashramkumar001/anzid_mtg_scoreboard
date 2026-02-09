@@ -137,14 +137,15 @@ export function initDraftList(socket) {
             const cardName = cardSearchInput.value.trim();
             if (!cardName) return;
 
-            const cardData = cards[cardName];
+            const matchedKey = cardNames.find(name => name.toLowerCase() === cardName.toLowerCase());
+            const cardData = matchedKey ? cards[matchedKey] : null;
             if (!cardData) {
                 console.warn('[DraftList] Card not found:', cardName);
                 return;
             }
 
             const cardEntry = {
-                'card-name': cardName,
+                'card-name': matchedKey,
                 'card-url': cardData.imageUrl || cardData,
                 'mana-cost': cardData.manaCost || ''
             };
@@ -175,14 +176,15 @@ export function initDraftList(socket) {
             const cardName = cardSearchInput.value.trim();
             if (!cardName) return;
 
-            const cardData = cards[cardName];
+            const matchedKey = cardNames.find(name => name.toLowerCase() === cardName.toLowerCase());
+            const cardData = matchedKey ? cards[matchedKey] : null;
             if (!cardData) {
                 console.warn('[DraftList] Card not found:', cardName);
                 return;
             }
 
             const cardEntry = {
-                'card-name': cardName,
+                'card-name': matchedKey,
                 'card-url': cardData.imageUrl || cardData,
                 'mana-cost': cardData.manaCost || ''
             };
