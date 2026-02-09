@@ -1,3 +1,39 @@
+/* Gotham Narrow Font Faces */
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/Gotham Narrow Medium.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 :root {
   --dynamic-font: 'Bebas Neue', sans-serif;
 }
@@ -42,8 +78,9 @@
 
 #player-name {
     display: block;
-    height: 34px;
-    line-height: 45px;
+    height: 31px;
+    line-height: 39px;
+    margin-bottom: 0px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -54,8 +91,9 @@
 #player-archetype {
     display: block;
     height: 22px;
-    line-height: 15px;
-    font-style: italic;
+    line-height: 18px;
+    font-style: var(--archetype-font-style, italic);
+    font-weight: var(--archetype-font-weight, bold);
     font-size: 16px;
     text-overflow: ellipsis;
     overflow: hidden;

@@ -101,7 +101,8 @@ body {
     display: block;
     height: 33px;
     line-height: 22.5px;
-    font-style: italic;
+    font-style: var(--archetype-font-style, italic);
+    font-weight: var(--archetype-font-weight, bold);
     font-size: 24px;
     text-overflow: ellipsis;
     overflow: hidden;

@@ -4,10 +4,10 @@ import { RoomUtils } from '../utils/room-utils.js';
 // Create timerState structure for 16 rounds with 4 matches each
 let timerState = Array.from({length: 16}, (_, i) => ({
     [i + 1]: {
-        match1: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true},
-        match2: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true},
-        match3: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true},
-        match4: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true}
+        match1: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false},
+        match2: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false},
+        match3: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false},
+        match4: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false}
     }
 })).reduce((acc, round) => ({...acc, ...round}), {});
 
@@ -46,13 +46,23 @@ export function updateTimerAction(io, round_id, match_id, action) {
             break;
         case 'reset':
             match.status = 'stopped';
-            match.time = DEFAULT_INITIAL_TIME;
+            match.time = match.countUp ? 0 : DEFAULT_INITIAL_TIME;
             break;
         case 'show':
             match.show = true;
             break;
         case 'no-show':
             match.show = false;
+            break;
+        case 'count-up':
+            match.countUp = true;
+            match.time = 0;
+            match.status = 'stopped';
+            break;
+        case 'count-down':
+            match.countUp = false;
+            match.time = DEFAULT_INITIAL_TIME;
+            match.status = 'stopped';
             break;
     }
 }
@@ -62,19 +72,27 @@ export function emitTimerState(io) {
     RoomUtils.emitWithRoomMapping(io, 'current-all-timer-states', {timerState});
 }
 
-// Set up timer interval to decrement running timers
+// Set up timer interval to decrement/increment running timers
 export function startTimerBroadcast(io) {
     setInterval(() => {
 
         Object.keys(timerState).forEach(roundId => {
             Object.keys(timerState[roundId]).forEach(matchId => {
                 const match = timerState[roundId][matchId];
-                if (match.status === 'running' && match.time > 0) {
-                    match.time -= 1000;
-                }
-                if (match.status === 'running' && match.time <= 0) {
-                    match.time = 0;
-                    match.status = 'stopped';
+                if (match.status === 'running') {
+                    if (match.countUp) {
+                        // Count up mode - increment time
+                        match.time += 1000;
+                    } else {
+                        // Count down mode - decrement time
+                        if (match.time > 0) {
+                            match.time -= 1000;
+                        }
+                        if (match.time <= 0) {
+                            match.time = 0;
+                            match.status = 'stopped';
+                        }
+                    }
                 }
             });
         });

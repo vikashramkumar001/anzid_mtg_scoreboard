@@ -17,8 +17,7 @@ let globalMatchData = {
     'global-event-miscellaneous-details': null,
     'global-event-base-life-points': '20',
     'global-event-base-timer': '50',
-    'global-event-number-of-rounds': '15',
-    'global-font-family': "'Bebas Neue', sans-serif"
+    'global-event-number-of-rounds': '15'
 };
 
 // Get current global data
@@ -78,6 +77,7 @@ export async function updateEventInformation(eventInfo, io, timerState) {
     const numberOfRounds = eventInfo['global-event-number-of-rounds'] || globalMatchData['global-event-number-of-rounds'] || '15';
 
     Object.entries(controlData).forEach(([round_id, roundData]) => {
+        if (isNaN(round_id)) return; // Skip non-round keys like "draftLists"
         // round_id is already the round number (e.g., "1", "2", etc.)
         const eventRoundText = `Round ${round_id} of ${numberOfRounds}`;
 
@@ -116,10 +116,3 @@ export async function updateEventInformation(eventInfo, io, timerState) {
     emitControlData(io);
 }
 
-// Update global miscellaneous data and broadcast it
-export function updateMiscellaneousInformation(miscellaneousData, io) {
-    Object.entries(miscellaneousData).forEach(([key, val]) => {
-        if (key in globalMatchData) globalMatchData[key] = val;
-    });
-    emitGlobalMatchData(io);
-}

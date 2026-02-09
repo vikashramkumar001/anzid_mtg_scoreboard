@@ -135,18 +135,20 @@ function renderDetails(detail) {
         playerDetail.appendChild(span);
         renderManaSymbols(detail, 'player-mana-symbols');
 
-        // Case 2: Archetype with mana symbols prepended
+        // Case 2: Archetype with mana symbols after text
     } else if (detail_id.startsWith('player-archetype-')) {
         const container = document.createElement('div');
+        container.className = 'archetype-container';
+
+        const text = document.createElement('span');
+        text.className = 'archetype-text';
+        text.textContent = detail + ' ';
+        container.appendChild(text);
+
         const span = document.createElement('span');
         span.id = 'player-mana-symbols';
         span.className = 'mana-symbols-container';
         container.appendChild(span);
-
-        const text = document.createElement('span');
-        text.className = 'archetype-text';
-        text.textContent = ' ' + detail;
-        container.appendChild(text);
 
         playerDetail.appendChild(container);
         renderManaSymbols(roundData[match_id][`player-mana-symbols-${detail_id.endsWith('left') ? 'left' : 'right'}`] || '', 'player-mana-symbols');
@@ -177,6 +179,7 @@ function renderDetails(detail) {
     } else if (detail_id === 'winner-left' || detail_id === 'winner-right') {
         const side = detail_id.endsWith('left') ? 'left' : 'right';
         const playerName = roundData[match_id]?.[`player-name-${side}`] || '';
+        const pronouns = roundData[match_id]?.[`player-pronouns-${side}`] || '';
         const archetype = roundData[match_id]?.[`player-archetype-${side}`] || '';
 
         playerDetail.innerHTML = '';
@@ -186,7 +189,7 @@ function renderDetails(detail) {
         const bgImage = document.createElement('div');
         bgImage.className = 'winner-bg-image';
 
-        // Player name (inside bg container)
+        // Player name
         const nameEl = document.createElement('div');
         nameEl.className = 'winner-name';
         nameEl.textContent = playerName;
@@ -202,11 +205,19 @@ function renderDetails(detail) {
         archetypeText.textContent = archetype;
         archetypeContainer.appendChild(archetypeText);
 
-        // Mana symbols (to the right of archetype)
+        // Mana symbols (after archetype)
         const manaSpan = document.createElement('span');
         manaSpan.id = 'winner-mana-symbols';
         manaSpan.className = 'winner-mana-symbols-container';
         archetypeContainer.appendChild(manaSpan);
+
+        // Pronouns pill (after mana symbols)
+        // if (pronouns) {
+        //     const pronounsEl = document.createElement('span');
+        //     pronounsEl.className = 'winner-pronouns';
+        //     pronounsEl.textContent = pronouns;
+        //     archetypeContainer.appendChild(pronounsEl);
+        // }
 
         bgImage.appendChild(archetypeContainer);
 
@@ -226,6 +237,9 @@ function renderDetails(detail) {
         // Default: just show the detail as text
     } else {
         playerDetail.textContent = detail;
+        if (detail_id.startsWith('player-name-')) {
+            playerDetail.style.fontWeight = '700';
+        }
     }
 }
 
@@ -275,8 +289,8 @@ function renderManaSymbols(inputStr, containerId, scenario = {}) {
         return;
     }
 
-    // Otherwise, make sure it's visible
-    container.style.display = 'inline-block';
+    // Otherwise, make sure it's visible (reset to CSS default)
+    container.style.display = '';
 
     let symbolsToRender = MANA_ORDER.filter(symbol => presentSymbols.has(symbol));
     if (scenario.reverse === true) {

@@ -100,8 +100,7 @@ export function initBrackets(socket) {
         // Split the input into lines
         const lines = standingsDataRaw
             .split('\n')
-            .map(line => line.trim())
-            .filter(line => line.length > 0); // removes blank lines up front
+            .map(line => line.trim());
 
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();

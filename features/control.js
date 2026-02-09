@@ -20,7 +20,7 @@ let isWriting = false;
 let pendingWrite = false;
 
 // make scoreboard state tracker - wins show/hide for now - can take other things later
-let scoreboardState = Object.fromEntries(Array.from({length: 16}, (_, i) => [i + 1, {
+let scoreboardState = Object.fromEntries(Array.from({length: 20}, (_, i) => [i + 1, {
     match1: {showWins: true},
     match2: {showWins: true},
     match3: {showWins: true},
@@ -190,6 +190,7 @@ export function emitControlTrackers(io) {
 export async function updateFromMaster(allControlData, io) {
     // Merge incoming data with existing data to preserve draft list fields
     Object.entries(allControlData).forEach(([round_id, roundData]) => {
+        if (isNaN(round_id)) return; // Skip non-round keys like "draftLists"
         if (!controlData[round_id]) controlData[round_id] = {};
         Object.entries(roundData).forEach(([match_id, matchData]) => {
             if (!controlData[round_id][match_id]) controlData[round_id][match_id] = {};
@@ -210,6 +211,7 @@ export async function updateFromMaster(allControlData, io) {
     await saveControlData();
 
     Object.entries(allControlData).forEach(([round_id, roundData]) => {
+        if (isNaN(round_id)) return; // Skip non-round keys like "draftLists"
         Object.entries(roundData).forEach(([match_id, matchData]) => {
             Object.entries(controlsTracker).forEach(([control_id, ctrl]) => {
                 if (ctrl.round_id === round_id && ctrl.match_id === match_id) {

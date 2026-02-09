@@ -7,7 +7,6 @@ export function initMatches(socket) {
     const control3Display = document.getElementById('control-3-round-match-display');
     const control4Display = document.getElementById('control-4-round-match-display');
     const updateEventInformation = document.querySelector(`#global-update-event-information.update-button`);
-    const updateMiscellaneousInformation = document.querySelector(`#global-update-misc-information.update-button`);
     const updateEventInformationBaseTimer = document.querySelector(`#global-update-event-information-base-timer.update-button`);
     const updateCommentators = document.querySelector(`#global-update-commentators.update-button`);
     const commentator1 = () => document.querySelector(`#global-commentator-1`);
@@ -26,7 +25,6 @@ export function initMatches(socket) {
     const matchEventBaseTimer = document.querySelector(`#global-event-base-timer`);
     const matchEventBaseTimerCurrent = document.querySelector(`#global-event-base-timer-current`);
     const matchEventNumberOfRounds = document.querySelector(`#global-event-number-of-rounds`);
-    const miscellaneousFontFamily = document.querySelector(`#global-misc-font-family`);
     let allControlData = {};
     let allTimerStates = {};
     let allStandingsData = {};
@@ -34,13 +32,6 @@ export function initMatches(socket) {
     let baseTimer = '50';
     let currentArchetypeList = [];
     let commentatorData = {};
-    const fontFamilies = [
-        {name: "Alverata", value: "'Alverata', sans-serif"},
-        {name: "Alverata Informal", value: "'AlverataInformal', sans-serif"},
-        {name: "Alverata Irregular", value: "'AlverataIrregular', sans-serif"},
-        {name: "Bebas Neue", value: "'Bebas Neue', sans-serif"},
-        {name: "Bebas Neue Pro", value: "'Bebas Neue Pro', sans-serif"}
-    ];
     
     // Riftbound Legends List
     const riftboundLegendsList = [
@@ -192,7 +183,7 @@ export function initMatches(socket) {
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
             <div class="row mb-2">
-                <div class="col-4 d-flex flex-row justify-content-start align-items-center">
+                <div class="col-4 d-flex flex-row justify-content-start align-items-center" style="position: relative; z-index: 1;">
                     <h3 class="match-id-name mb-0">${roundId}-${matchId}</h3>
                     <div class="ms-3 d-flex align-items-center">
                         <label class="form-label me-2 mb-0" style="white-space: nowrap;">Table #</label>
@@ -243,6 +234,9 @@ export function initMatches(socket) {
                                 <div class="col-12 text-center">
                                     <label>
                                         <input type="checkbox" id="timer-display-scoreboard-${roundId}-${matchId}"> Show Timer on Scoreboard
+                                    </label>
+                                    <label class="ms-3">
+                                        <input type="checkbox" id="timer-count-up-${roundId}-${matchId}"> Count Up
                                     </label>
                                 </div>
                                 <div class="col-12 text-center">
@@ -303,7 +297,11 @@ export function initMatches(socket) {
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Wins</label>
-                                <div id="${roundId}-${matchId}-player-wins-left" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary wins-minus-btn" data-target="${roundId}-${matchId}-player-wins-left">-</button>
+                                    <div id="${roundId}-${matchId}-player-wins-left" class="editable form-control text-center mx-1" contenteditable="false" style="width: 50px;">0</div>
+                                    <button class="btn btn-sm btn-outline-secondary wins-plus-btn" data-target="${roundId}-${matchId}-player-wins-left">+</button>
+                                </div>
                             </div>
                             <div class="mb-3 mtg-only-field">
                                 <label class="form-label">Poison</label>
@@ -360,7 +358,11 @@ export function initMatches(socket) {
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Wins</label>
-                                <div id="${roundId}-${matchId}-player-wins-right" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary wins-minus-btn" data-target="${roundId}-${matchId}-player-wins-right">-</button>
+                                    <div id="${roundId}-${matchId}-player-wins-right" class="editable form-control text-center mx-1" contenteditable="false" style="width: 50px;">0</div>
+                                    <button class="btn btn-sm btn-outline-secondary wins-plus-btn" data-target="${roundId}-${matchId}-player-wins-right">+</button>
+                                </div>
                             </div>
                             <div class="mb-3 mtg-only-field">
                                 <label class="form-label">Poison</label>
@@ -682,36 +684,6 @@ export function initMatches(socket) {
             });
         });
 
-        const fontFamilyFields = document.querySelectorAll('[id="global-misc-font-family"]');
-        fontFamilyFields.forEach(field => {
-            if (field.parentNode.classList.contains('custom-dropdown')) {
-                return; // Skip if already set up
-            }
-
-            const wrapper = document.createElement('div');
-            wrapper.className = 'custom-dropdown';
-            field.parentNode.insertBefore(wrapper, field);
-            wrapper.appendChild(field);
-
-            const dropdownList = document.createElement('div');
-            dropdownList.className = 'dropdown-list';
-            wrapper.appendChild(dropdownList);
-
-            field.addEventListener('input', function () {
-                const value = this.textContent.trim().toLowerCase();
-                renderDropdownList(dropdownList, fontFamilies, field);
-            });
-
-            field.addEventListener('focus', function () {
-                renderDropdownList(dropdownList, fontFamilies, field);
-            });
-
-            document.addEventListener('click', function (e) {
-                if (!wrapper.contains(e.target)) {
-                    dropdownList.style.display = 'none';
-                }
-            });
-        });
 
         // Setup legend autocomplete dropdowns
         const legendFields = document.querySelectorAll('[id$="-player-legend-left"], [id$="-player-legend-right"]');
@@ -823,7 +795,7 @@ export function initMatches(socket) {
 
         if (roundTabs.children.length === 0 && roundContent.children.length === 0) {
             // Create tabs and content for each round
-            Object.keys(allData).forEach((roundId, index) => {
+            Object.keys(allData).filter(roundId => !isNaN(roundId)).forEach((roundId, index) => {
                 // Create tab
                 const tab = document.createElement('li');
                 tab.className = 'nav-item';
@@ -871,7 +843,7 @@ export function initMatches(socket) {
         }
 
         // update content in round / matches
-        Object.keys(allData).forEach((roundId, index) => {
+        Object.keys(allData).filter(roundId => !isNaN(roundId)).forEach((roundId) => {
             // Render all matches for this round
             Object.entries(allData[roundId]).forEach(([matchId, matchData]) => {
                 renderMatch(roundId, matchId, matchData);
@@ -1039,22 +1011,6 @@ export function initMatches(socket) {
         });
     }
 
-    // add click handlers for update event on miscellaneous global information
-    function attachGlobalMiscellaneousInformationUpdateListener() {
-        updateMiscellaneousInformation.addEventListener('click', () => {
-            const fontFamilySelected = miscellaneousFontFamily.innerText;
-            let fontFamilySelectedValue = null;
-            if (fontFamilySelected) {
-                const font = fontFamilies.find(f => f.name === fontFamilySelected);
-                fontFamilySelectedValue = font ? font.value : null;
-            }
-            const data2send = {
-                'global-font-family': fontFamilySelectedValue
-            }
-            console.log(data2send)
-            socket.emit('update-global-miscellaneous-information', {miscellaneousData: data2send});
-        })
-    }
 
     // Commentator Data Function
     function extractCommentatorData() {
@@ -1179,6 +1135,7 @@ export function initMatches(socket) {
         const pauseButton = document.querySelector(`#timer-pause-${round_id}-${match_id}`);
         const resetButton = document.querySelector(`#timer-reset-${round_id}-${match_id}`);
         const timerShowCheck = document.querySelector(`#timer-display-scoreboard-${round_id}-${match_id}`);
+        const timerCountUpCheck = document.querySelector(`#timer-count-up-${round_id}-${match_id}`);
         startButton.addEventListener('click', () => {
             console.log('start clicked', round_id, match_id)
             updateTimerState(round_id, match_id, 'start');
@@ -1205,6 +1162,14 @@ export function initMatches(socket) {
                 updateTimerState(round_id, match_id, 'show');
             } else {
                 updateTimerState(round_id, match_id, 'no-show');
+            }
+        });
+        timerCountUpCheck.addEventListener('change', function () {
+            console.log('count up / count down clicked', round_id, match_id, timerCountUpCheck.checked);
+            if (timerCountUpCheck.checked) {
+                updateTimerState(round_id, match_id, 'count-up');
+            } else {
+                updateTimerState(round_id, match_id, 'count-down');
             }
         });
     }
@@ -1279,6 +1244,23 @@ export function initMatches(socket) {
             });
         });
     }
+
+    // WINS +/- BUTTONS (event delegation)
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('wins-plus-btn') || e.target.classList.contains('wins-minus-btn')) {
+            const targetId = e.target.dataset.target;
+            const winsEl = document.getElementById(targetId);
+            if (!winsEl) return;
+            let current = parseInt(winsEl.textContent) || 0;
+            if (e.target.classList.contains('wins-plus-btn')) {
+                current++;
+            } else {
+                current = Math.max(0, current - 1);
+            }
+            winsEl.textContent = current.toString();
+            winsEl.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    });
 
     // END FETCH TABLE DATA
 
@@ -1377,8 +1359,6 @@ export function initMatches(socket) {
     attachGlobalBaseTimerInputListener();
     // attach global base timer update button lister
     attachGlobalBaseTimerUpdateListener();
-    // attach global miscellaneous update button listener
-    attachGlobalMiscellaneousInformationUpdateListener();
     // attach commentator data update button listener
     attachCommentatorDataUpdateClickListener();
 
@@ -1436,13 +1416,6 @@ export function initMatches(socket) {
         matchEventBaseTimerCurrent.innerText = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
         baseTimer = data['globalData']['global-event-base-timer'] ? data['globalData']['global-event-base-timer'] : '50';
         matchEventNumberOfRounds.innerText = data['globalData']['global-event-number-of-rounds'] ? data['globalData']['global-event-number-of-rounds'] : '15';
-        // try to set the font family
-        if (data['globalData']['global-font-family']) {
-            const font = fontFamilies.find(f => f.value === data['globalData']['global-font-family']);
-            miscellaneousFontFamily.innerText = font ? font.name : null;
-        } else {
-            miscellaneousFontFamily.innerText = null;
-        }
     })
 
     // handle getting all timer states
@@ -1455,11 +1428,21 @@ export function initMatches(socket) {
                 const matchState = timerState[roundId][matchId];
                 const timerElement = document.querySelector(`#timer-${roundId}-${matchId}`);
                 if (timerElement) {
-                    timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
+                    // For count up mode, always show the time (never show TURNS)
+                    // For count down mode, show TURNS when time reaches 0
+                    if (matchState.countUp) {
+                        timerElement.innerText = formatTime(matchState.time);
+                    } else {
+                        timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
+                    }
                 }
                 const timerShowCheck = document.querySelector(`#timer-display-scoreboard-${roundId}-${matchId}`);
                 if (timerShowCheck) {
                     timerShowCheck.checked = matchState.show;
+                }
+                const timerCountUpCheck = document.querySelector(`#timer-count-up-${roundId}-${matchId}`);
+                if (timerCountUpCheck) {
+                    timerCountUpCheck.checked = matchState.countUp;
                 }
             });
         });

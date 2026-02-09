@@ -684,7 +684,11 @@ socket.emit('get-all-timer-states');
 socket.on('current-all-timer-states', ({timerState}) => {
     const matchState = timerState[round_id][match_id];
     if (matchState) {
-        const timerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
+        // For count up mode, always show the time (never show TURNS)
+        // For count down mode, show TURNS when time reaches 0
+        const timerText = matchState.countUp
+            ? formatTime(matchState.time)
+            : (matchState.time > 0 ? formatTime(matchState.time) : 'TURNS');
         const shouldShow = matchState.show;
         
         // Update MTG timer

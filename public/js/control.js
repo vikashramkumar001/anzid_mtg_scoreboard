@@ -104,6 +104,23 @@ document.querySelectorAll(".editable").forEach(editable => editable.addEventList
     }
 }));
 
+// Wins +/- buttons
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('wins-plus-btn') || e.target.classList.contains('wins-minus-btn')) {
+        const targetId = e.target.dataset.target;
+        const winsEl = document.getElementById(targetId);
+        if (!winsEl) return;
+        let current = parseInt(winsEl.textContent) || 0;
+        if (e.target.classList.contains('wins-plus-btn')) {
+            current++;
+        } else {
+            current = Math.max(0, current - 1);
+        }
+        winsEl.textContent = current.toString();
+        winsEl.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+});
+
 function loadSavedState(data) {
     Object.entries(data).forEach((element) => {
         let [key, value] = element;

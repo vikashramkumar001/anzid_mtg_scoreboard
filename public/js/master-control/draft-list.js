@@ -25,11 +25,15 @@ export function initDraftList(socket) {
         const nextPackButton = document.getElementById(`draft-list-${slotId}-next-pack`);
         const clearButton = document.getElementById(`draft-list-${slotId}-clear`);
         const updateButton = document.getElementById(`draft-list-${slotId}-update`);
+        const viewCardButton = document.getElementById(`draft-list-${slotId}-view-card`);
+        const resetCardButton = document.getElementById(`draft-list-${slotId}-reset-card`);
         const draftListItems = document.getElementById(`draft-list-${slotId}-items`);
         const cardPreview = document.getElementById(`draft-list-${slotId}-card-preview`);
         const noPreview = document.getElementById(`draft-list-${slotId}-no-preview`);
         const playerNameInput = document.getElementById(`draft-list-${slotId}-player-name`);
         const playerPronounsInput = document.getElementById(`draft-list-${slotId}-player-pronouns`);
+        const playerArchetypeInput = document.getElementById(`draft-list-${slotId}-player-archetype`);
+        const playerManaSymbolsInput = document.getElementById(`draft-list-${slotId}-player-mana-symbols`);
 
         // State for this slot
         let currentPack = 1;
@@ -85,9 +89,18 @@ export function initDraftList(socket) {
                     li.style.backgroundColor = '#f8f9fa';
                 } else {
                     pickNumber++;
+                    const isHighlighted = item.highlighted;
+                    if (isHighlighted) {
+                        li.style.backgroundColor = '#fff3cd';
+                        li.style.fontWeight = 'bold';
+                    }
                     li.innerHTML = `
-                        <span>${pickNumber}. ${cardName}</span>
-                        <button class="btn btn-sm btn-outline-danger draft-list-remove" data-index="${index}">&times;</button>
+                        <span>${isHighlighted ? '<strong style="color: #d63384;">' + pickNumber + '.</strong>' : pickNumber + '.'} ${cardName}</span>
+                        <div>
+                            <button class="btn btn-sm ${isHighlighted ? 'btn-warning' : 'btn-outline-warning'} draft-list-highlight" data-index="${index}" title="Highlight">&#9733;</button>
+                            <button class="btn btn-sm btn-outline-primary draft-list-insert" data-index="${index}" title="Insert above">+</button>
+                            <button class="btn btn-sm btn-outline-danger draft-list-remove" data-index="${index}">&times;</button>
+                        </div>
                     `;
                 }
 
@@ -99,6 +112,22 @@ export function initDraftList(socket) {
                 btn.addEventListener('click', (e) => {
                     const index = parseInt(e.target.dataset.index);
                     removeCard(index);
+                });
+            });
+
+            // Add click handlers for insert buttons
+            draftListItems.querySelectorAll('.draft-list-insert').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    insertCard(index);
+                });
+            });
+
+            // Add click handlers for highlight buttons
+            draftListItems.querySelectorAll('.draft-list-highlight').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    toggleHighlight(index);
                 });
             });
         }
@@ -121,12 +150,71 @@ export function initDraftList(socket) {
             };
 
             draftList.push(cardEntry);
+
+            // Auto-add next pack after 14 cards in current pack
+            const cardsInCurrentPack = getCardsInCurrentPack();
+            console.log(`[DraftList] Cards in current pack: ${cardsInCurrentPack}, currentPack: ${currentPack}, draftList:`, draftList.map(c => c['card-name']));
+            if (cardsInCurrentPack >= 14 && currentPack < 3) {
+                currentPack++;
+                draftList.push({ 'card-name': `Pack ${currentPack}` });
+                if (currentPack >= 3) {
+                    nextPackButton.disabled = true;
+                }
+            }
+
             renderDraftList();
             broadcastUpdate();
 
             cardSearchInput.value = '';
             selectedCard = null;
             showCardPreview(null);
+        }
+
+        // Insert card before a given index
+        function insertCard(beforeIndex) {
+            const cardName = cardSearchInput.value.trim();
+            if (!cardName) return;
+
+            const cardData = cards[cardName];
+            if (!cardData) {
+                console.warn('[DraftList] Card not found:', cardName);
+                return;
+            }
+
+            const cardEntry = {
+                'card-name': cardName,
+                'card-url': cardData.imageUrl || cardData,
+                'mana-cost': cardData.manaCost || ''
+            };
+
+            draftList.splice(beforeIndex, 0, cardEntry);
+            rebuildPackStructure();
+            renderDraftList();
+            broadcastUpdate();
+
+            cardSearchInput.value = '';
+            selectedCard = null;
+            showCardPreview(null);
+        }
+
+        // Toggle highlight on a card
+        function toggleHighlight(index) {
+            const item = draftList[index];
+            if (item && !item['card-name'].toLowerCase().startsWith('pack ')) {
+                item.highlighted = !item.highlighted;
+                renderDraftList();
+                broadcastUpdate();
+            }
+        }
+
+        // Count cards after the last pack header
+        function getCardsInCurrentPack() {
+            let count = 0;
+            for (let i = draftList.length - 1; i >= 0; i--) {
+                if (draftList[i]['card-name'].toLowerCase().startsWith('pack ')) break;
+                count++;
+            }
+            return count;
         }
 
         // Remove card from draft list
@@ -137,8 +225,27 @@ export function initDraftList(socket) {
             }
 
             draftList.splice(index, 1);
+            rebuildPackStructure();
             renderDraftList();
             broadcastUpdate();
+        }
+
+        // Rebuild pack headers based on 14 cards per pack
+        function rebuildPackStructure() {
+            const allCards = draftList.filter(item => !item['card-name'].toLowerCase().startsWith('pack '));
+            draftList = [{ 'card-name': 'Pack 1' }];
+            let packNum = 1;
+
+            allCards.forEach((card, i) => {
+                draftList.push(card);
+                if ((i + 1) % 14 === 0 && i + 1 < allCards.length && packNum < 3) {
+                    packNum++;
+                    draftList.push({ 'card-name': `Pack ${packNum}` });
+                }
+            });
+
+            currentPack = packNum;
+            nextPackButton.disabled = (currentPack >= 3);
         }
 
         // Add next pack
@@ -171,6 +278,8 @@ export function initDraftList(socket) {
         function broadcastUpdate() {
             const playerName = playerNameInput.value.trim();
             const playerPronouns = playerPronounsInput.value.trim();
+            const playerArchetype = playerArchetypeInput.value.trim();
+            const playerManaSymbols = playerManaSymbolsInput.value.trim();
 
             console.log(`[DraftList ${slotId}] Broadcasting update:`, playerName, draftList.length, 'cards');
 
@@ -178,6 +287,8 @@ export function initDraftList(socket) {
                 slotId,
                 playerName,
                 playerPronouns,
+                playerArchetype,
+                playerManaSymbols,
                 draftList
             });
         }
@@ -222,9 +333,33 @@ export function initDraftList(socket) {
         clearButton.addEventListener('click', clearDraftList);
         updateButton.addEventListener('click', broadcastUpdate);
 
+        viewCardButton.addEventListener('click', () => {
+            const cardName = selectedCard || cardSearchInput.value.trim();
+            if (!cardName) return;
+            socket.emit('view-selected-card', {
+                cardSelected: {
+                    'card-selected': cardName,
+                    'card-id': parseInt(slotId),
+                    'game-id': 'mtg'
+                }
+            });
+        });
+
+        resetCardButton.addEventListener('click', () => {
+            socket.emit('view-selected-card', {
+                cardSelected: {
+                    'card-selected': '',
+                    'card-id': parseInt(slotId),
+                    'game-id': 'mtg'
+                }
+            });
+        });
+
         // Broadcast when player info changes
         playerNameInput.addEventListener('input', broadcastUpdate);
         playerPronounsInput.addEventListener('input', broadcastUpdate);
+        playerArchetypeInput.addEventListener('input', broadcastUpdate);
+        playerManaSymbolsInput.addEventListener('input', broadcastUpdate);
 
         // Initialize
         renderDraftList();

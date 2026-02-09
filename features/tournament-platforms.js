@@ -60,9 +60,10 @@ export function emitPlatformConfig(io) {
 function normalizeName(rawName) {
     if (!rawName) return '';
 
-    // Remove pronouns
+    // Remove pronouns and N/A placeholders
     let name = rawName
-        .replace(/\b(he\/him|she\/her|they\/them|he\/they|she\/they)\b/gi, '')
+        .replace(/\b(he\/him|she\/her|they\/them|he\/they|she\/they|it\/its)\b/gi, '')
+        .replace(/\bN\/A\b/gi, '')
         .trim();
 
     // Handle "Last, First" format

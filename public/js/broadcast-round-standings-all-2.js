@@ -84,9 +84,13 @@ function updateFontForGame(game) {
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
         document.documentElement.style.setProperty('--dynamic-font-weight', '700');
+        document.documentElement.style.setProperty('--archetype-font-style', 'normal');
+        document.documentElement.style.setProperty('--archetype-font-weight', '400');
     } else {
         document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
         document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
+        document.documentElement.style.setProperty('--archetype-font-style', 'italic');
+        document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
 }
 

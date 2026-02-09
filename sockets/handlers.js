@@ -31,8 +31,7 @@ import {
     emitGlobalMatchData,
     updateBaseTimerDefault,
     updateCommentators,
-    updateEventInformation,
-    updateMiscellaneousInformation
+    updateEventInformation
 } from '../features/globalData.js';
 
 import {
@@ -207,9 +206,6 @@ export default function registerSocketHandlers(io) {
             updateEventInformation(eventInformationData, io, getTimerState());
         });
 
-        socket.on('update-global-miscellaneous-information', ({miscellaneousData}) => {
-            updateMiscellaneousInformation(miscellaneousData, io);
-        });
 
         // Global base timer
         socket.on('update-event-information-base-timer-requested', ({eventInformationData}) => {
@@ -322,6 +318,8 @@ export default function registerSocketHandlers(io) {
                     slotId,
                     playerName: data.playerName || '',
                     playerPronouns: data.playerPronouns || '',
+                    playerArchetype: data.playerArchetype || '',
+                    playerManaSymbols: data.playerManaSymbols || '',
                     cards: data.cards || []
                 });
             }
@@ -329,7 +327,7 @@ export default function registerSocketHandlers(io) {
 
         // Draft list update from master control (real-time)
         // Stored separately from match data - completely independent
-        socket.on('update-draft-list', async ({ slotId, playerName, playerPronouns, draftList }) => {
+        socket.on('update-draft-list', async ({ slotId, playerName, playerPronouns, playerArchetype, playerManaSymbols, draftList }) => {
             console.log('[DraftList] Update received for slot:', slotId, playerName, draftList?.length, 'cards');
 
             // Get current control data
@@ -340,6 +338,8 @@ export default function registerSocketHandlers(io) {
             controlData.draftLists[slotId] = {
                 playerName: playerName || '',
                 playerPronouns: playerPronouns || '',
+                playerArchetype: playerArchetype || '',
+                playerManaSymbols: playerManaSymbols || '',
                 cards: draftList
             };
 
@@ -351,6 +351,8 @@ export default function registerSocketHandlers(io) {
                 slotId,
                 playerName: playerName || '',
                 playerPronouns: playerPronouns || '',
+                playerArchetype: playerArchetype || '',
+                playerManaSymbols: playerManaSymbols || '',
                 cards: draftList
             });
         });

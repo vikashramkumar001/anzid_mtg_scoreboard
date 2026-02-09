@@ -118,7 +118,10 @@ export function initMTGCardView(socket) {
         // Encode for URL
         const encodedName = encodeURIComponent(cleanedName);
 
-        return cards[cleanedName]
+        const matchedKey = Object.keys(cards).find(
+            key => key.toLowerCase() === cleanedName.toLowerCase()
+        );
+        return matchedKey ? cards[matchedKey]?.imageUrl : undefined;
     }
 
     function renderCardPreview1(cardName) {

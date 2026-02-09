@@ -80,6 +80,32 @@ html, body {
 }
 
 
+/* player wins overwrites */
+.player-wins {
+    display: flex;
+    flex-direction: row;
+}
+
+.player-wins .player-wins-control {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
+
+.player-wins .player-wins-control .btn {
+    width: 70px;
+    font-size: 40px;
+    border: none;
+}
+
+.player-wins .player-wins-control .btn.plus {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.player-wins .player-wins-control .btn.minus {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 .player-header {
     font-size: 10px;
 }

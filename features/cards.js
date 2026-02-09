@@ -113,8 +113,11 @@ export function emitCardView(io, cardSelected) {
         // Clean the card list data
         const cleanedCardListData = createCleanedCardMap(cardListData, cardSelected['game-id']);
 
-        // get card url from json (new structure: { imageUrl, manaCost })
-        const cardURL = cleanedCardListData[cleanedName]?.imageUrl;
+        // get card url from json (case-insensitive lookup)
+        const matchedKey = Object.keys(cleanedCardListData).find(
+            key => key.toLowerCase() === cleanedName.toLowerCase()
+        );
+        const cardURL = matchedKey ? cleanedCardListData[matchedKey]?.imageUrl : undefined;
 
         const cardData = {
             name: cardSelected['card-selected'],

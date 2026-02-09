@@ -16,8 +16,9 @@ const playerArchetype = document.getElementById('player-archetype');
 const playerPoints = document.getElementById('player-points');
 const bracketContainer = document.getElementById('bracket-details-container');
 
-// ask for global match data to get font family
+// ask for global match data to get game selection
 socket.emit('get-match-global-data');
+socket.emit('get-game-selection');
 
 // Listen for deck data to display
 socket.on('bracket-data', (data) => {
@@ -30,18 +31,55 @@ socket.on('bracket-data', (data) => {
     renderDetails();
 });
 
-// Listen for global data update
-socket.on('update-match-global-data', (data) => {
-    console.log('global data', data);
-    // specifically checking for font family change
-    checkFontFamily(data['globalData']['global-font-family']);
-})
+// Listen for game selection updates
+socket.on('server-current-game-selection', ({gameSelection}) => {
+    updateFontForGame(gameSelection);
+});
 
-// Function to check if font family needs updating
-function checkFontFamily(globalFont) {
-    if (globalFont) {
-        document.documentElement.style.setProperty('--dynamic-font', globalFont);
+socket.on('game-selection-updated', ({gameSelection}) => {
+    updateFontForGame(gameSelection);
+});
+
+// Update font based on game selection
+function updateFontForGame(game) {
+    if (game === 'mtg') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
+        document.documentElement.style.setProperty('--dynamic-font-weight', '700');
+        document.documentElement.style.setProperty('--archetype-font-style', 'normal');
+        document.documentElement.style.setProperty('--archetype-font-weight', '400');
+    } else {
+        document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
+        document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
+        document.documentElement.style.setProperty('--archetype-font-style', 'italic');
+        document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
+}
+
+// Auto-scale font size to fit within visible clip-path area
+function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
+    if (!element || !element.innerText) return;
+
+    element.style.whiteSpace = 'nowrap';
+    element.style.fontSize = maxFontSize + 'px';
+
+    const temp = document.createElement('span');
+    temp.style.visibility = 'hidden';
+    temp.style.position = 'absolute';
+    temp.style.whiteSpace = 'nowrap';
+    temp.style.font = window.getComputedStyle(element).font;
+    temp.innerText = element.innerText;
+    document.body.appendChild(temp);
+
+    let currentSize = maxFontSize;
+    temp.style.fontSize = currentSize + 'px';
+
+    while (temp.offsetWidth > maxWidth && currentSize > minFontSize) {
+        currentSize -= 1;
+        temp.style.fontSize = currentSize + 'px';
+    }
+
+    element.style.fontSize = currentSize + 'px';
+    document.body.removeChild(temp);
 }
 
 // Function to render the round details on the page
@@ -59,6 +97,8 @@ function renderDetails() {
     }
     if (archetype_key in bracketData) {
         playerArchetype.innerText = bracketData[archetype_key];
+        playerArchetype.style.display = bracketData[archetype_key] ? 'block' : 'none';
+        playerName.style.lineHeight = bracketData[archetype_key] ? '39px' : '33px';
     }
     if (points_key in bracketData) {
         playerPoints.innerText = bracketData[points_key];
@@ -84,4 +124,11 @@ function renderDetails() {
     } else {
         playerPoints.style.backgroundColor = '#fff';
     }
+
+    // Auto-scale text after fonts load
+    // Clip-path visible widths: name ~312px (73% of 428), archetype ~276px (64.5% of 428)
+    document.fonts.ready.then(() => {
+        autoScaleText(playerName, 28, 16, 280);
+        autoScaleText(playerArchetype, 16, 10, 265);
+    });
 }

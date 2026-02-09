@@ -62,10 +62,16 @@
     text-transform: uppercase;
 }
 
-/* MTG uses Gotham Narrow Bold font */
+/* MTG uses Gotham Narrow font */
 body.mtg * {
     font-family: 'Gotham Narrow', sans-serif;
-    font-weight: 700;
+}
+
+body.mtg #player-detail {
+    font-size: 48px;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
 }
 
 #round-details-container {
@@ -77,16 +83,23 @@ body.mtg * {
     text-align: center;
 }
 
+.archetype-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
 .mana-symbols-container {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     vertical-align: middle;
-    margin-right: 5px;
+    transform: translateY(-2px);
 }
 
 .mana-symbols-container img {
-    height: 20px;
-    margin-right: 2px;
-    margin-top: 3px;
+    height: 0.7em;
+    margin-right: 3px;
 }
 
 .player-sprite {
@@ -122,10 +135,22 @@ body.mtg * {
     color: white;
 }
 
+.winner-pronouns {
+    font-family: 'Gotham Narrow', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: white;
+    border-radius: 8px;
+    padding: 2px 10px;
+    margin-left: 8px;
+    background-image: linear-gradient(to left, #80738088, #19181888);
+    white-space: nowrap;
+}
+
 .winner-archetype {
     font-family: 'Gotham Narrow', sans-serif;
     font-size: 25px;
-    font-weight: 400;
+    font-weight: 300;
     padding-left: 125px;
     margin: 0;
     text-align: left;
@@ -135,6 +160,7 @@ body.mtg * {
 }
 
 .winner-archetype-text {
+    font-weight: 300;
     margin-right: 8px;
 }
 
@@ -142,6 +168,7 @@ body.mtg * {
     display: inline-flex;
     align-items: center;
     vertical-align: middle;
+    transform: translateY(-2px);
 }
 
 .winner-mana-symbols-container img {
@@ -160,10 +187,16 @@ body.mtg * {
     font-weight: bold;
 }
 
+.winner-display.riftbound .winner-pronouns {
+    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+}
+
 .winner-display.riftbound .winner-archetype {
     font-family: 'Akzidenz-Grotesk Next', sans-serif;
     font-size: 25px;
-    font-weight: normal;
+    font-weight: 300;
 }
 
 /* Vibes Winner Display Styles */
@@ -174,6 +207,11 @@ body.mtg * {
 .winner-display.vibes .winner-name {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
+}
+
+.winner-display.vibes .winner-pronouns {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
 }
 
 .winner-display.vibes .winner-archetype {
