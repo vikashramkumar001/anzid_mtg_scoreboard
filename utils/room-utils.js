@@ -69,6 +69,7 @@ export class RoomUtils {
             'vibes-card-view-card-selected': ['vibes-card-view'],
             'riftbound-card-list-data': ['riftbound-card-view', 'master-control'],
             'riftbound-card-view-card-selected': ['riftbound-card-view'],
+            'starwars-card-view-card-selected': ['starwars-card-view'],
             
             // Deck events
             'deck-display-update': ['deck-display'],
@@ -169,6 +170,8 @@ export class RoomUtils {
         // Card views
         if (pagePath.includes('/vibes/display/card/view/')) return 'vibes-card-view';
         if (pagePath.includes('/riftbound/display/card/view/')) return 'riftbound-card-view';
+        // Star Wars dedicated card view
+        if (pagePath.includes('/starwars/display/card/view/')) return 'starwars-card-view';
         if (pagePath.includes('/display/card/view/')) return 'mtg-card-view';
         
         // Deck displays

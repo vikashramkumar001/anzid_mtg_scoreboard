@@ -1,0 +1,1217 @@
+{
+  "21bsurgicaldroid": {
+    "type": "Unit",
+    "image": "SOR\\2-1B_Surgical_Droid",
+    "name": "2-1B Surgical Droid"
+  },
+  "97thlegion": {
+    "type": "Unit",
+    "image": "SOR\\97th_Legion",
+    "name": "97th Legion"
+  },
+  "atatsuppressor": {
+    "type": "Unit",
+    "image": "SOR\\AT-AT_Suppressor",
+    "name": "AT-AT Suppressor"
+  },
+  "atst": {
+    "type": "Unit",
+    "image": "SOR\\AT-ST",
+    "name": "AT-ST"
+  },
+  "academydefensewalker": {
+    "type": "Unit",
+    "image": "SOR\\Academy_Defense_Walker",
+    "name": "Academy Defense Walker"
+  },
+  "academytraining": {
+    "type": "Upgrade",
+    "image": "SOR\\Academy_Training",
+    "name": "Academy Training"
+  },
+  "administratorstower": {
+    "type": "Base",
+    "image": "SOR\\Administrators_Tower",
+    "name": "Administrator's Tower"
+  },
+  "admiralackbar": {
+    "type": "Unit",
+    "image": "SOR\\Admiral_Ackbar",
+    "name": "Admiral Ackbar"
+  },
+  "admiralmotti": {
+    "type": "Unit",
+    "image": "SOR\\Admiral_Motti",
+    "name": "Admiral Motti"
+  },
+  "admiralozzel": {
+    "type": "Unit",
+    "image": "SOR\\Admiral_Ozzel",
+    "name": "Admiral Ozzel"
+  },
+  "admiralpiett": {
+    "type": "Unit",
+    "image": "SOR\\Admiral_Piett",
+    "name": "Admiral Piett"
+  },
+  "agentkallus": {
+    "type": "Unit",
+    "image": "SOR\\Agent_Kallus",
+    "name": "Agent Kallus"
+  },
+  "aggression": {
+    "type": "Event",
+    "image": "SOR\\Aggression",
+    "name": "Aggression"
+  },
+  "alliancedispatcher": {
+    "type": "Unit",
+    "image": "SOR\\Alliance_Dispatcher",
+    "name": "Alliance Dispatcher"
+  },
+  "alliancexwing": {
+    "type": "Unit",
+    "image": "SOR\\Alliance_X-Wing",
+    "name": "Alliance X-Wing"
+  },
+  "ardentsympathizer": {
+    "type": "Unit",
+    "image": "SOR\\Ardent_Sympathizer",
+    "name": "Ardent Sympathizer"
+  },
+  "asteroidsanctuary": {
+    "type": "Event",
+    "image": "SOR\\Asteroid_Sanctuary",
+    "name": "Asteroid Sanctuary"
+  },
+  "attackpatterndelta": {
+    "type": "Event",
+    "image": "SOR\\Attack_Pattern_Delta",
+    "name": "Attack Pattern Delta"
+  },
+  "auzituckliberatorgunship": {
+    "type": "Unit",
+    "image": "SOR\\Auzituck_Liberator_Gunship",
+    "name": "Auzituck Liberator Gunship"
+  },
+  "avenger": {
+    "type": "Unit",
+    "image": "SOR\\Avenger",
+    "name": "Avenger"
+  },
+  "bailorgana": {
+    "type": "Unit",
+    "image": "SOR\\Bail_Organa",
+    "name": "Bail Organa"
+  },
+  "bamboozle": {
+    "type": "Event",
+    "image": "SOR\\Bamboozle",
+    "name": "Bamboozle"
+  },
+  "battlefieldmarine": {
+    "type": "Unit",
+    "image": "SOR\\Battlefield_Marine",
+    "name": "Battlefield Marine"
+  },
+  "bazemalbus": {
+    "type": "Unit",
+    "image": "SOR\\Baze_Malbus",
+    "name": "Baze Malbus"
+  },
+  "bendu": {
+    "type": "Unit",
+    "image": "SOR\\Bendu",
+    "name": "Bendu"
+  },
+  "benthictwotubes": {
+    "type": "Unit",
+    "image": "SOR\\Benthic_Two_Tubes",
+    "name": "Benthic \"Two Tubes\""
+  },
+  "bibfortuna": {
+    "type": "Unit",
+    "image": "SOR\\Bib_Fortuna",
+    "name": "Bib Fortuna"
+  },
+  "blackone": {
+    "type": "Unit",
+    "image": "SOR\\Black_One",
+    "name": "Black One"
+  },
+  "blizzardassaultatat": {
+    "type": "Unit",
+    "image": "SOR\\Blizzard_Assault_AT-AT",
+    "name": "Blizzard Assault AT-AT"
+  },
+  "bobafett": {
+    "type": "Leader",
+    "image": "SOR\\Boba_Fett",
+    "name": "Boba Fett"
+  },
+  "bodhirook": {
+    "type": "Unit",
+    "image": "SOR\\Bodhi_Rook",
+    "name": "Bodhi Rook"
+  },
+  "bombingrun": {
+    "type": "Event",
+    "image": "SOR\\Bombing_Run",
+    "name": "Bombing Run"
+  },
+  "bossk": {
+    "type": "Unit",
+    "image": "SOR\\Bossk",
+    "name": "Bossk"
+  },
+  "bountyhuntercrew": {
+    "type": "Unit",
+    "image": "SOR\\Bounty_Hunter_Crew",
+    "name": "Bounty Hunter Crew"
+  },
+  "brighthope": {
+    "type": "Unit",
+    "image": "SOR\\Bright_Hope",
+    "name": "Bright Hope"
+  },
+  "c3p0": {
+    "type": "Unit",
+    "image": "SOR\\C-3P0",
+    "name": "C-3P0"
+  },
+  "cantinabouncer": {
+    "type": "Unit",
+    "image": "SOR\\Cantina_Bouncer",
+    "name": "Cantina Bouncer"
+  },
+  "cantinabraggart": {
+    "type": "Unit",
+    "image": "SOR\\Cantina_Braggart",
+    "name": "Cantina Braggart"
+  },
+  "capitalcity": {
+    "type": "Base",
+    "image": "SOR\\Capital_City",
+    "name": "Capital City"
+  },
+  "cargojuggernaut": {
+    "type": "Unit",
+    "image": "SOR\\Cargo_Juggernaut",
+    "name": "Cargo Juggernaut"
+  },
+  "cartelspacer": {
+    "type": "Unit",
+    "image": "SOR\\Cartel_Spacer",
+    "name": "Cartel Spacer"
+  },
+  "cassianandor": {
+    "type": "Leader",
+    "image": "SOR\\Cassian_Andor",
+    "name": "Cassian Andor"
+  },
+  "catacombsofcadera": {
+    "type": "Base",
+    "image": "SOR\\Catacombs_of_Cadera",
+    "name": "Catacombs of Cadera"
+  },
+  "cellblockguard": {
+    "type": "Unit",
+    "image": "SOR\\Cell_Block_Guard",
+    "name": "Cell Block Guard"
+  },
+  "changeofheart": {
+    "type": "Event",
+    "image": "SOR\\Change_of_Heart",
+    "name": "Change of Heart"
+  },
+  "chewbacca": {
+    "type": "Leader",
+    "image": "SOR\\Chewbacca",
+    "name": "Chewbacca"
+  },
+  "chimaera": {
+    "type": "Unit",
+    "image": "SOR\\Chimaera",
+    "name": "Chimaera"
+  },
+  "chirrutmwe": {
+    "type": "Leader",
+    "image": "SOR\\Chirrut_mwe",
+    "name": "Chirrut Îmwe"
+  },
+  "chopper": {
+    "type": "Unit",
+    "image": "SOR\\Chopper",
+    "name": "Chopper"
+  },
+  "chopperbase": {
+    "type": "Base",
+    "image": "SOR\\Chopper_Base",
+    "name": "Chopper Base"
+  },
+  "cloudcitywingguard": {
+    "type": "Unit",
+    "image": "SOR\\Cloud_City_Wing_Guard",
+    "name": "Cloud City Wing Guard"
+  },
+  "colonelyularen": {
+    "type": "Unit",
+    "image": "SOR\\Colonel_Yularen",
+    "name": "Colonel Yularen"
+  },
+  "command": {
+    "type": "Event",
+    "image": "SOR\\Command",
+    "name": "Command"
+  },
+  "commandcenter": {
+    "type": "Base",
+    "image": "SOR\\Command_Center",
+    "name": "Command Center"
+  },
+  "confiscate": {
+    "type": "Event",
+    "image": "SOR\\Confiscate",
+    "name": "Confiscate"
+  },
+  "consortiumstarviper": {
+    "type": "Unit",
+    "image": "SOR\\Consortium_StarViper",
+    "name": "Consortium StarViper"
+  },
+  "consularsecurityforce": {
+    "type": "Unit",
+    "image": "SOR\\Consular_Security_Force",
+    "name": "Consular Security Force"
+  },
+  "corellianfreighter": {
+    "type": "Unit",
+    "image": "SOR\\Corellian_Freighter",
+    "name": "Corellian Freighter"
+  },
+  "countdooku": {
+    "type": "Unit",
+    "image": "SOR\\Count_Dooku",
+    "name": "Count Dooku"
+  },
+  "craftysmuggler": {
+    "type": "Unit",
+    "image": "SOR\\Crafty_Smuggler",
+    "name": "Crafty Smuggler"
+  },
+  "cunning": {
+    "type": "Event",
+    "image": "SOR\\Cunning",
+    "name": "Cunning"
+  },
+  "dagobahswamp": {
+    "type": "Base",
+    "image": "SOR\\Dagobah_Swamp",
+    "name": "Dagobah Swamp"
+  },
+  "darthvader": {
+    "type": "Leader",
+    "image": "SOR\\Darth_Vader",
+    "name": "Darth Vader"
+  },
+  "deathstarstormtrooper": {
+    "type": "Unit",
+    "image": "SOR\\Death_Star_Stormtrooper",
+    "name": "Death Star Stormtrooper"
+  },
+  "deathtrooper": {
+    "type": "Unit",
+    "image": "SOR\\Death_Trooper",
+    "name": "Death Trooper"
+  },
+  "delmeeko": {
+    "type": "Unit",
+    "image": "SOR\\Del_Meeko",
+    "name": "Del Meeko"
+  },
+  "devastator": {
+    "type": "Unit",
+    "image": "SOR\\Devastator",
+    "name": "Devastator"
+  },
+  "devotion": {
+    "type": "Upgrade",
+    "image": "SOR\\Devotion",
+    "name": "Devotion"
+  },
+  "directorkrennic": {
+    "type": "Leader",
+    "image": "SOR\\Director_Krennic",
+    "name": "Director Krennic"
+  },
+  "disablingfangfighter": {
+    "type": "Unit",
+    "image": "SOR\\Disabling_Fang_Fighter",
+    "name": "Disabling Fang Fighter"
+  },
+  "disarm": {
+    "type": "Event",
+    "image": "SOR\\Disarm",
+    "name": "Disarm"
+  },
+  "distantpatroller": {
+    "type": "Unit",
+    "image": "SOR\\Distant_Patroller",
+    "name": "Distant Patroller"
+  },
+  "dontgetcocky": {
+    "type": "Event",
+    "image": "SOR\\Dont_Get_Cocky",
+    "name": "Don't Get Cocky"
+  },
+  "echobase": {
+    "type": "Base",
+    "image": "SOR\\Echo_Base",
+    "name": "Echo Base"
+  },
+  "echobasedefender": {
+    "type": "Unit",
+    "image": "SOR\\Echo_Base_Defender",
+    "name": "Echo Base Defender"
+  },
+  "electrostaff": {
+    "type": "Upgrade",
+    "image": "SOR\\Electrostaff",
+    "name": "Electrostaff"
+  },
+  "emperorpalpatine": {
+    "type": "Leader",
+    "image": "SOR\\Emperor_Palpatine",
+    "name": "Emperor Palpatine"
+  },
+  "emperorsroyalguard": {
+    "type": "Unit",
+    "image": "SOR\\Emperors_Royal_Guard",
+    "name": "Emperor's Royal Guard"
+  },
+  "energyconversionlab": {
+    "type": "Base",
+    "image": "SOR\\Energy_Conversion_Lab",
+    "name": "Energy Conversion Lab"
+  },
+  "entrenched": {
+    "type": "Upgrade",
+    "image": "SOR\\Entrenched",
+    "name": "Entrenched"
+  },
+  "escortskiff": {
+    "type": "Unit",
+    "image": "SOR\\Escort_Skiff",
+    "name": "Escort Skiff"
+  },
+  "ezrabridger": {
+    "type": "Unit",
+    "image": "SOR\\Ezra_Bridger",
+    "name": "Ezra Bridger"
+  },
+  "fallenlightsaber": {
+    "type": "Upgrade",
+    "image": "SOR\\Fallen_Lightsaber",
+    "name": "Fallen Lightsaber"
+  },
+  "fettsfirespray": {
+    "type": "Unit",
+    "image": "SOR\\Fetts_Firespray",
+    "name": "Fett's Firespray"
+  },
+  "fifthbrother": {
+    "type": "Unit",
+    "image": "SOR\\Fifth_Brother",
+    "name": "Fifth Brother"
+  },
+  "fightersforfreedom": {
+    "type": "Unit",
+    "image": "SOR\\Fighters_For_Freedom",
+    "name": "Fighters For Freedom"
+  },
+  "firstlegionsnowtrooper": {
+    "type": "Unit",
+    "image": "SOR\\First_Legion_Snowtrooper",
+    "name": "First Legion Snowtrooper"
+  },
+  "fleetlieutenant": {
+    "type": "Unit",
+    "image": "SOR\\Fleet_Lieutenant",
+    "name": "Fleet Lieutenant"
+  },
+  "foracauseibelievein": {
+    "type": "Event",
+    "image": "SOR\\For_a_Cause_I_Believe_In",
+    "name": "For a Cause I Believe In"
+  },
+  "forcechoke": {
+    "type": "Event",
+    "image": "SOR\\Force_Choke",
+    "name": "Force Choke"
+  },
+  "forcelightning": {
+    "type": "Event",
+    "image": "SOR\\Force_Lightning",
+    "name": "Force Lightning"
+  },
+  "forcethrow": {
+    "type": "Event",
+    "image": "SOR\\Force_Throw",
+    "name": "Force Throw"
+  },
+  "forcedsurrender": {
+    "type": "Event",
+    "image": "SOR\\Forced_Surrender",
+    "name": "Forced Surrender"
+  },
+  "frontieratrt": {
+    "type": "Unit",
+    "image": "SOR\\Frontier_AT-RT",
+    "name": "Frontier AT-RT"
+  },
+  "frontlineshuttle": {
+    "type": "Unit",
+    "image": "SOR\\Frontline_Shuttle",
+    "name": "Frontline Shuttle"
+  },
+  "galacticambition": {
+    "type": "Event",
+    "image": "SOR\\Galactic_Ambition",
+    "name": "Galactic Ambition"
+  },
+  "gamorreanguards": {
+    "type": "Unit",
+    "image": "SOR\\Gamorrean_Guards",
+    "name": "Gamorrean Guards"
+  },
+  "generaldodonna": {
+    "type": "Unit",
+    "image": "SOR\\General_Dodonna",
+    "name": "General Dodonna"
+  },
+  "generalkrell": {
+    "type": "Unit",
+    "image": "SOR\\General_Krell",
+    "name": "General Krell"
+  },
+  "generaltagge": {
+    "type": "Unit",
+    "image": "SOR\\General_Tagge",
+    "name": "General Tagge"
+  },
+  "generalveers": {
+    "type": "Unit",
+    "image": "SOR\\General_Veers",
+    "name": "General Veers"
+  },
+  "gideonhask": {
+    "type": "Unit",
+    "image": "SOR\\Gideon_Hask",
+    "name": "Gideon Hask"
+  },
+  "gladiatorstardestroyer": {
+    "type": "Unit",
+    "image": "SOR\\Gladiator_Star_Destroyer",
+    "name": "Gladiator Star Destroyer"
+  },
+  "grandadmiralthrawn": {
+    "type": "Leader",
+    "image": "SOR\\Grand_Admiral_Thrawn",
+    "name": "Grand Admiral Thrawn"
+  },
+  "grandinquisitor": {
+    "type": "Leader",
+    "image": "SOR\\Grand_Inquisitor",
+    "name": "Grand Inquisitor"
+  },
+  "grandmofftarkin": {
+    "type": "Leader",
+    "image": "SOR\\Grand_Moff_Tarkin",
+    "name": "Grand Moff Tarkin"
+  },
+  "greedo": {
+    "type": "Unit",
+    "image": "SOR\\Greedo",
+    "name": "Greedo"
+  },
+  "greensquadronawing": {
+    "type": "Unit",
+    "image": "SOR\\Green_Squadron_A-Wing",
+    "name": "Green Squadron A-Wing"
+  },
+  "guardianofthewhills": {
+    "type": "Unit",
+    "image": "SOR\\Guardian_of_the_Whills",
+    "name": "Guardian of the Whills"
+  },
+  "guerillaattackpod": {
+    "type": "Unit",
+    "image": "SOR\\Guerilla_Attack_Pod",
+    "name": "Guerilla Attack Pod"
+  },
+  "hansolo": {
+    "type": "Leader",
+    "image": "SOR\\Han_Solo",
+    "name": "Han Solo"
+  },
+  "hardpointheavyblaster": {
+    "type": "Upgrade",
+    "image": "SOR\\Hardpoint_Heavy_Blaster",
+    "name": "Hardpoint Heavy Blaster"
+  },
+  "herasyndulla": {
+    "type": "Leader",
+    "image": "SOR\\Hera_Syndulla",
+    "name": "Hera Syndulla"
+  },
+  "heroicsacrifice": {
+    "type": "Event",
+    "image": "SOR\\Heroic_Sacrifice",
+    "name": "Heroic Sacrifice"
+  },
+  "homeone": {
+    "type": "Unit",
+    "image": "SOR\\Home_One",
+    "name": "Home One"
+  },
+  "homesteadmilitia": {
+    "type": "Unit",
+    "image": "SOR\\Homestead_Militia",
+    "name": "Homestead Militia"
+  },
+  "iamyourfather": {
+    "type": "Event",
+    "image": "SOR\\I_Am_Your_Father",
+    "name": "I Am Your Father"
+  },
+  "ihadnochoice": {
+    "type": "Event",
+    "image": "SOR\\I_Had_No_Choice",
+    "name": "I Had No Choice"
+  },
+  "ig88": {
+    "type": "Leader",
+    "image": "SOR\\IG-88",
+    "name": "IG-88"
+  },
+  "isbagent": {
+    "type": "Unit",
+    "image": "SOR\\ISB_Agent",
+    "name": "ISB Agent"
+  },
+  "idenversio": {
+    "type": "Leader",
+    "image": "SOR\\Iden_Versio",
+    "name": "Iden Versio"
+  },
+  "imperialinterceptor": {
+    "type": "Unit",
+    "image": "SOR\\Imperial_Interceptor",
+    "name": "Imperial Interceptor"
+  },
+  "infernofour": {
+    "type": "Unit",
+    "image": "SOR\\Inferno_Four",
+    "name": "Inferno Four"
+  },
+  "infiltratorsskill": {
+    "type": "Upgrade",
+    "image": "SOR\\Infiltrators_Skill",
+    "name": "Infiltrator's Skill"
+  },
+  "itbindsallthings": {
+    "type": "Event",
+    "image": "SOR\\It_Binds_All_Things",
+    "name": "It Binds All Things"
+  },
+  "jabbathehutt": {
+    "type": "Unit",
+    "image": "SOR\\Jabba_the_Hutt",
+    "name": "Jabba the Hutt"
+  },
+  "jawascavenger": {
+    "type": "Unit",
+    "image": "SOR\\Jawa_Scavenger",
+    "name": "Jawa Scavenger"
+  },
+  "jedhaagitator": {
+    "type": "Unit",
+    "image": "SOR\\Jedha_Agitator",
+    "name": "Jedha Agitator"
+  },
+  "jedhacity": {
+    "type": "Base",
+    "image": "SOR\\Jedha_City",
+    "name": "Jedha City"
+  },
+  "jedilightsaber": {
+    "type": "Upgrade",
+    "image": "SOR\\Jedi_Lightsaber",
+    "name": "Jedi Lightsaber"
+  },
+  "jynerso": {
+    "type": "Leader",
+    "image": "SOR\\Jyn_Erso",
+    "name": "Jyn Erso"
+  },
+  "k2so": {
+    "type": "Unit",
+    "image": "SOR\\K-2SO",
+    "name": "K-2SO"
+  },
+  "kananjarrus": {
+    "type": "Unit",
+    "image": "SOR\\Kanan_Jarrus",
+    "name": "Kanan Jarrus"
+  },
+  "karabast": {
+    "type": "Event",
+    "image": "SOR\\Karabast",
+    "name": "Karabast"
+  },
+  "keepfighting": {
+    "type": "Event",
+    "image": "SOR\\Keep_Fighting",
+    "name": "Keep Fighting"
+  },
+  "kestrocity": {
+    "type": "Base",
+    "image": "SOR\\Kestro_City",
+    "name": "Kestro City"
+  },
+  "landocalrissian": {
+    "type": "Unit",
+    "image": "SOR\\Lando_Calrissian",
+    "name": "Lando Calrissian"
+  },
+  "leiaorgana": {
+    "type": "Leader",
+    "image": "SOR\\Leia_Organa",
+    "name": "Leia Organa"
+  },
+  "lieutenantchildsen": {
+    "type": "Unit",
+    "image": "SOR\\Lieutenant_Childsen",
+    "name": "Lieutenant Childsen"
+  },
+  "lothalinsurgent": {
+    "type": "Unit",
+    "image": "SOR\\Lothal_Insurgent",
+    "name": "Lothal Insurgent"
+  },
+  "lukeskywalker": {
+    "type": "Leader",
+    "image": "SOR\\Luke_Skywalker",
+    "name": "Luke Skywalker"
+  },
+  "lukeslightsaber": {
+    "type": "Upgrade",
+    "image": "SOR\\Lukes_Lightsaber",
+    "name": "Luke's Lightsaber"
+  },
+  "macewindu": {
+    "type": "Unit",
+    "image": "SOR\\Mace_Windu",
+    "name": "Mace Windu"
+  },
+  "makeanopening": {
+    "type": "Event",
+    "image": "SOR\\Make_an_Opening",
+    "name": "Make an Opening"
+  },
+  "maximumfirepower": {
+    "type": "Event",
+    "image": "SOR\\Maximum_Firepower",
+    "name": "Maximum Firepower"
+  },
+  "medalceremony": {
+    "type": "Event",
+    "image": "SOR\\Medal_Ceremony",
+    "name": "Medal Ceremony"
+  },
+  "mercenarycompany": {
+    "type": "Unit",
+    "image": "SOR\\Mercenary_Company",
+    "name": "Mercenary Company"
+  },
+  "millenniumfalcon": {
+    "type": "Unit",
+    "image": "SOR\\Millennium_Falcon",
+    "name": "Millennium Falcon"
+  },
+  "miningguildtiefighter": {
+    "type": "Unit",
+    "image": "SOR\\Mining_Guild_TIE_Fighter",
+    "name": "Mining Guild TIE Fighter"
+  },
+  "missionbriefing": {
+    "type": "Event",
+    "image": "SOR\\Mission_Briefing",
+    "name": "Mission Briefing"
+  },
+  "momentofpeace": {
+    "type": "Event",
+    "image": "SOR\\Moment_of_Peace",
+    "name": "Moment of Peace"
+  },
+  "monmothma": {
+    "type": "Unit",
+    "image": "SOR\\Mon_Mothma",
+    "name": "Mon Mothma"
+  },
+  "nogoodtomedead": {
+    "type": "Event",
+    "image": "SOR\\No_Good_to_Me_Dead",
+    "name": "No Good to Me Dead"
+  },
+  "obiwankenobi": {
+    "type": "Unit",
+    "image": "SOR\\Obi-Wan_Kenobi",
+    "name": "Obi-Wan Kenobi"
+  },
+  "occupiersiegetank": {
+    "type": "Unit",
+    "image": "SOR\\Occupier_Siege_Tank",
+    "name": "Occupier Siege Tank"
+  },
+  "openfire": {
+    "type": "Event",
+    "image": "SOR\\Open_Fire",
+    "name": "Open Fire"
+  },
+  "outerrimheadhunter": {
+    "type": "Unit",
+    "image": "SOR\\Outer_Rim_Headhunter",
+    "name": "Outer Rim Headhunter"
+  },
+  "outmaneuver": {
+    "type": "Event",
+    "image": "SOR\\Outmaneuver",
+    "name": "Outmaneuver"
+  },
+  "overwhelmingbarrage": {
+    "type": "Event",
+    "image": "SOR\\Overwhelming_Barrage",
+    "name": "Overwhelming Barrage"
+  },
+  "partisaninsurgent": {
+    "type": "Unit",
+    "image": "SOR\\Partisan_Insurgent",
+    "name": "Partisan Insurgent"
+  },
+  "patrollingvwing": {
+    "type": "Unit",
+    "image": "SOR\\Patrolling_V-Wing",
+    "name": "Patrolling V-Wing"
+  },
+  "piratedstarfighter": {
+    "type": "Unit",
+    "image": "SOR\\Pirated_Starfighter",
+    "name": "Pirated Starfighter"
+  },
+  "powerfailure": {
+    "type": "Event",
+    "image": "SOR\\Power_Failure",
+    "name": "Power Failure"
+  },
+  "powerofthedarkside": {
+    "type": "Event",
+    "image": "SOR\\Power_of_the_Dark_Side",
+    "name": "Power of the Dark Side"
+  },
+  "precisionfire": {
+    "type": "Event",
+    "image": "SOR\\Precision_Fire",
+    "name": "Precision Fire"
+  },
+  "preparefortakeoff": {
+    "type": "Event",
+    "image": "SOR\\Prepare_For_Takeoff",
+    "name": "Prepare For Takeoff"
+  },
+  "protector": {
+    "type": "Upgrade",
+    "image": "SOR\\Protector",
+    "name": "Protector"
+  },
+  "r2d2": {
+    "type": "Unit",
+    "image": "SOR\\R2-D2",
+    "name": "R2-D2"
+  },
+  "rallyingcry": {
+    "type": "Event",
+    "image": "SOR\\Rallying_Cry",
+    "name": "Rallying Cry"
+  },
+  "rebelassault": {
+    "type": "Event",
+    "image": "SOR\\Rebel_Assault",
+    "name": "Rebel Assault"
+  },
+  "rebelpathfinder": {
+    "type": "Unit",
+    "image": "SOR\\Rebel_Pathfinder",
+    "name": "Rebel Pathfinder"
+  },
+  "recruit": {
+    "type": "Event",
+    "image": "SOR\\Recruit",
+    "name": "Recruit"
+  },
+  "redthree": {
+    "type": "Unit",
+    "image": "SOR\\Red_Three",
+    "name": "Red Three"
+  },
+  "redemption": {
+    "type": "Unit",
+    "image": "SOR\\Redemption",
+    "name": "Redemption"
+  },
+  "regionalgovernor": {
+    "type": "Unit",
+    "image": "SOR\\Regional_Governor",
+    "name": "Regional Governor"
+  },
+  "regionalsympathizers": {
+    "type": "Unit",
+    "image": "SOR\\Regional_Sympathizers",
+    "name": "Regional Sympathizers"
+  },
+  "reinforcementwalker": {
+    "type": "Unit",
+    "image": "SOR\\Reinforcement_Walker",
+    "name": "Reinforcement Walker"
+  },
+  "relentless": {
+    "type": "Unit",
+    "image": "SOR\\Relentless",
+    "name": "Relentless"
+  },
+  "repair": {
+    "type": "Event",
+    "image": "SOR\\Repair",
+    "name": "Repair"
+  },
+  "resilient": {
+    "type": "Upgrade",
+    "image": "SOR\\Resilient",
+    "name": "Resilient"
+  },
+  "restock": {
+    "type": "Event",
+    "image": "SOR\\Restock",
+    "name": "Restock"
+  },
+  "restoredarc170": {
+    "type": "Unit",
+    "image": "SOR\\Restored_ARC-170",
+    "name": "Restored ARC-170"
+  },
+  "resupply": {
+    "type": "Event",
+    "image": "SOR\\Resupply",
+    "name": "Resupply"
+  },
+  "rogueoperative": {
+    "type": "Unit",
+    "image": "SOR\\Rogue_Operative",
+    "name": "Rogue Operative"
+  },
+  "roguesquadronskirmisher": {
+    "type": "Unit",
+    "image": "SOR\\Rogue_Squadron_Skirmisher",
+    "name": "Rogue Squadron Skirmisher"
+  },
+  "ruggedsurvivors": {
+    "type": "Unit",
+    "image": "SOR\\Rugged_Survivors",
+    "name": "Rugged Survivors"
+  },
+  "rukh": {
+    "type": "Unit",
+    "image": "SOR\\Rukh",
+    "name": "Rukh"
+  },
+  "ruthlessraider": {
+    "type": "Unit",
+    "image": "SOR\\Ruthless_Raider",
+    "name": "Ruthless Raider"
+  },
+  "sabinewren": {
+    "type": "Leader",
+    "image": "SOR\\Sabine_Wren",
+    "name": "Sabine Wren"
+  },
+  "sawgerrera": {
+    "type": "Unit",
+    "image": "SOR\\Saw_Gerrera",
+    "name": "Saw Gerrera"
+  },
+  "scoutbikepursuer": {
+    "type": "Unit",
+    "image": "SOR\\Scout_Bike_Pursuer",
+    "name": "Scout Bike Pursuer"
+  },
+  "searchyourfeelings": {
+    "type": "Event",
+    "image": "SOR\\Search_Your_Feelings",
+    "name": "Search Your Feelings"
+  },
+  "seasonedshoretrooper": {
+    "type": "Unit",
+    "image": "SOR\\Seasoned_Shoretrooper",
+    "name": "Seasoned Shoretrooper"
+  },
+  "securitycomplex": {
+    "type": "Base",
+    "image": "SOR\\Security_Complex",
+    "name": "Security Complex"
+  },
+  "seventhfleetdefender": {
+    "type": "Unit",
+    "image": "SOR\\Seventh_Fleet_Defender",
+    "name": "Seventh Fleet Defender"
+  },
+  "seventhsister": {
+    "type": "Unit",
+    "image": "SOR\\Seventh_Sister",
+    "name": "Seventh Sister"
+  },
+  "shootfirst": {
+    "type": "Event",
+    "image": "SOR\\Shoot_First",
+    "name": "Shoot First"
+  },
+  "smokeandcinders": {
+    "type": "Event",
+    "image": "SOR\\Smoke_and_Cinders",
+    "name": "Smoke and Cinders"
+  },
+  "smugglingcompartment": {
+    "type": "Upgrade",
+    "image": "SOR\\Smuggling_Compartment",
+    "name": "Smuggling Compartment"
+  },
+  "snapshotreflexes": {
+    "type": "Event",
+    "image": "SOR\\Snapshot_Reflexes",
+    "name": "Snapshot Reflexes"
+  },
+  "sneakattack": {
+    "type": "Event",
+    "image": "SOR\\Sneak_Attack",
+    "name": "Sneak Attack"
+  },
+  "snowspeeder": {
+    "type": "Unit",
+    "image": "SOR\\Snowspeeder",
+    "name": "Snowspeeder"
+  },
+  "snowtrooperlieutenant": {
+    "type": "Unit",
+    "image": "SOR\\Snowtrooper_Lieutenant",
+    "name": "Snowtrooper Lieutenant"
+  },
+  "sparkofrebellion": {
+    "type": "Event",
+    "image": "SOR\\Spark_of_Rebellion",
+    "name": "Spark of Rebellion"
+  },
+  "specforcesoldier": {
+    "type": "Unit",
+    "image": "SOR\\SpecForce_Soldier",
+    "name": "SpecForce Soldier"
+  },
+  "starwingscout": {
+    "type": "Unit",
+    "image": "SOR\\Star_Wing_Scout",
+    "name": "Star Wing Scout"
+  },
+  "steadfastbattalion": {
+    "type": "Unit",
+    "image": "SOR\\Steadfast_Battalion",
+    "name": "Steadfast Battalion"
+  },
+  "strafinggunship": {
+    "type": "Unit",
+    "image": "SOR\\Strafing_Gunship",
+    "name": "Strafing Gunship"
+  },
+  "striketrue": {
+    "type": "Event",
+    "image": "SOR\\Strike_True",
+    "name": "Strike True"
+  },
+  "superlaserblast": {
+    "type": "Event",
+    "image": "SOR\\Superlaser_Blast",
+    "name": "Superlaser Blast"
+  },
+  "superlasertechnician": {
+    "type": "Unit",
+    "image": "SOR\\Superlaser_Technician",
+    "name": "Superlaser Technician"
+  },
+  "surprisestrike": {
+    "type": "Event",
+    "image": "SOR\\Surprise_Strike",
+    "name": "Surprise Strike"
+  },
+  "swoopracer": {
+    "type": "Unit",
+    "image": "SOR\\Swoop_Racer",
+    "name": "Swoop Racer"
+  },
+  "syndicatelackeys": {
+    "type": "Unit",
+    "image": "SOR\\Syndicate_Lackeys",
+    "name": "Syndicate Lackeys"
+  },
+  "systempatrolcraft": {
+    "type": "Unit",
+    "image": "SOR\\System_Patrol_Craft",
+    "name": "System Patrol Craft"
+  },
+  "tieadvanced": {
+    "type": "Unit",
+    "image": "SOR\\TIE_Advanced",
+    "name": "TIE Advanced"
+  },
+  "tielnfighter": {
+    "type": "Unit",
+    "image": "SOR\\TIEln_Fighter",
+    "name": "TIE/ln Fighter"
+  },
+  "tacticaladvantage": {
+    "type": "Event",
+    "image": "SOR\\Tactical_Advantage",
+    "name": "Tactical Advantage"
+  },
+  "takedown": {
+    "type": "Event",
+    "image": "SOR\\Takedown",
+    "name": "Takedown"
+  },
+  "tarkintown": {
+    "type": "Base",
+    "image": "SOR\\Tarkintown",
+    "name": "Tarkintown"
+  },
+  "theemperorslegion": {
+    "type": "Event",
+    "image": "SOR\\The_Emperors_Legion",
+    "name": "The Emperor's Legion"
+  },
+  "theforceiswithme": {
+    "type": "Event",
+    "image": "SOR\\The_Force_Is_With_Me",
+    "name": "The Force Is With Me"
+  },
+  "theghost": {
+    "type": "Unit",
+    "image": "SOR\\The_Ghost",
+    "name": "The Ghost"
+  },
+  "traitorous": {
+    "type": "Upgrade",
+    "image": "SOR\\Traitorous",
+    "name": "Traitorous"
+  },
+  "uwingreinforcement": {
+    "type": "Event",
+    "image": "SOR\\U-Wing_Reinforcement",
+    "name": "U-Wing Reinforcement"
+  },
+  "underworldthug": {
+    "type": "Unit",
+    "image": "SOR\\Underworld_Thug",
+    "name": "Underworld Thug"
+  },
+  "vaderslightsaber": {
+    "type": "Upgrade",
+    "image": "SOR\\Vaders_Lightsaber",
+    "name": "Vader's Lightsaber"
+  },
+  "vanguardace": {
+    "type": "Unit",
+    "image": "SOR\\Vanguard_Ace",
+    "name": "Vanguard Ace"
+  },
+  "vanguardinfantry": {
+    "type": "Unit",
+    "image": "SOR\\Vanguard_Infantry",
+    "name": "Vanguard Infantry"
+  },
+  "vanquish": {
+    "type": "Event",
+    "image": "SOR\\Vanquish",
+    "name": "Vanquish"
+  },
+  "vigilance": {
+    "type": "Event",
+    "image": "SOR\\Vigilance",
+    "name": "Vigilance"
+  },
+  "vigilanthonorguards": {
+    "type": "Unit",
+    "image": "SOR\\Vigilant_Honor_Guards",
+    "name": "Vigilant Honor Guards"
+  },
+  "viperprobedroid": {
+    "type": "Unit",
+    "image": "SOR\\Viper_Probe_Droid",
+    "name": "Viper Probe Droid"
+  },
+  "volunteersoldier": {
+    "type": "Unit",
+    "image": "SOR\\Volunteer_Soldier",
+    "name": "Volunteer Soldier"
+  },
+  "wampa": {
+    "type": "Unit",
+    "image": "SOR\\Wampa",
+    "name": "Wampa"
+  },
+  "waylay": {
+    "type": "Event",
+    "image": "SOR\\Waylay",
+    "name": "Waylay"
+  },
+  "wedgeantilles": {
+    "type": "Unit",
+    "image": "SOR\\Wedge_Antilles",
+    "name": "Wedge Antilles"
+  },
+  "wildernessfighter": {
+    "type": "Unit",
+    "image": "SOR\\Wilderness_Fighter",
+    "name": "Wilderness Fighter"
+  },
+  "wingleader": {
+    "type": "Unit",
+    "image": "SOR\\Wing_Leader",
+    "name": "Wing Leader"
+  },
+  "wolffe": {
+    "type": "Unit",
+    "image": "SOR\\Wolffe",
+    "name": "Wolffe"
+  },
+  "yoda": {
+    "type": "Unit",
+    "image": "SOR\\Yoda",
+    "name": "Yoda"
+  },
+  "youremyonlyhope": {
+    "type": "Event",
+    "image": "SOR\\Youre_My_Only_Hope",
+    "name": "You're My Only Hope"
+  },
+  "zeborrelios": {
+    "type": "Unit",
+    "image": "SOR\\Zeb_Orrelios",
+    "name": "Zeb Orrelios"
+  }
+}

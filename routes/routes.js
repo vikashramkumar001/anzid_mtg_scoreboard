@@ -135,7 +135,7 @@ router.get('/vibes-master-control', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/vibes/master-control.html'));
 });
 
-// vibes - dedicated car view
+// vibes - dedicated card view
 router.get('/vibes/display/card/view/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/vibes/dedicated-card-view.html'));
 });
@@ -149,7 +149,7 @@ router.get('/vibes/display/main/deck/:deckID', (req, res) => {
 
 // RIFTBOUND
 
-// riftbound - dedicated car view
+// riftbound - dedicated card view
 router.get('/riftbound/display/card/view/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/riftbound/dedicated-card-view.html'));
 });
@@ -165,6 +165,15 @@ router.get('/riftbound/animation-display/:orientation/:matchID/:side', (req, res
 });
 
 // END RIFTBOUND
+
+// STAR WARS
+
+// starwars - dedicated card view
+router.get('/starwars/display/card/view/:cardID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/starwars/dedicated-card-view.html'));
+});
+
+// END STAR WARS
 
 // meta breakdown links
 router.get('/meta/breakdown/details/:detailKey', (req, res) => {

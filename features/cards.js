@@ -2,6 +2,7 @@ import {promises as fs} from 'fs';
 import {cardListDataPath} from '../config/constants.js';
 import {getCardListData as vibesGetCardListData} from "./vibes/cards.js";
 import {getCardListData as riftboundGetCardListData} from "./riftbound/cards.js";
+import { emitStarWarsCardView, transformDeckData as starwarsTransformDeckData } from "./starwars/cards.js";
 import { RoomUtils } from '../utils/room-utils.js';
 
 let cardListData = [];
@@ -153,6 +154,10 @@ export function emitCardView(io, cardSelected) {
             RoomUtils.emitWithRoomMapping(io, 'riftbound-card-view-card-selected', cardData);
         }
     }
+    if (cardSelected['game-id'] === 'starwars') {
+        // Delegate parsing and emitting to the starwars feature module
+        emitStarWarsCardView(io, cardSelected);
+    }
 }
 
 // emit card main / side deck
@@ -220,6 +225,12 @@ export function transformMainDeck(data, io) {
     let deckArray = data.deckData;
     let sideID = data.sideID;
     let matchID = data.matchID;
+    if (gameType === 'starwars') {
+        // Delegate deck transformation to starwars feature (handles set-scoped keys)
+        const formatted = starwarsTransformDeckData(deckArray);
+        emitTransformedMainDeck(formatted, gameType, sideID, matchID, io);
+        return;
+    }
     if (gameType === 'mtg') {
         cleanedCardsMap = createCleanedCardMap(cardListData, gameType);
     } else if (gameType === 'riftbound') {
@@ -293,6 +304,12 @@ export function transformSideDeck(data, io) {
     let deckArray = data.deckData;
     let sideID = data.sideID;
     let matchID = data.matchID;
+    if (gameType === 'starwars') {
+        // Delegate side-deck transformation to starwars feature
+        const formatted = starwarsTransformDeckData(deckArray);
+        emitTransformedSideDeck(formatted, gameType, sideID, matchID, io);
+        return;
+    }
     if (gameType === 'mtg') {
         cleanedCardsMap = createCleanedCardMap(cardListData, gameType);
     } else if (gameType === 'riftbound') {

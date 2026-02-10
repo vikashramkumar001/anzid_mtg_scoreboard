@@ -1,0 +1,1252 @@
+{
+  "332ndstalwart": {
+    "type": "Unit",
+    "image": "TWI\\332nd_Stalwart",
+    "name": "332nd Stalwart"
+  },
+  "41stelitecorps": {
+    "type": "Unit",
+    "image": "TWI\\41st_Elite_Corps",
+    "name": "41st Elite Corps"
+  },
+  "501stliberator": {
+    "type": "Unit",
+    "image": "TWI\\501st_Liberator",
+    "name": "501st Liberator"
+  },
+  "afineaddition": {
+    "type": "Event",
+    "image": "TWI\\A_Fine_Addition",
+    "name": "A Fine Addition"
+  },
+  "attevanguard": {
+    "type": "Unit",
+    "image": "TWI\\AT-TE_Vanguard",
+    "name": "AT-TE Vanguard"
+  },
+  "aaylasecura": {
+    "type": "Unit",
+    "image": "TWI\\Aayla_Secura",
+    "name": "Aayla Secura"
+  },
+  "admiraltrench": {
+    "type": "Unit",
+    "image": "TWI\\Admiral_Trench",
+    "name": "Admiral Trench"
+  },
+  "admiralyularen": {
+    "type": "Unit",
+    "image": "TWI\\Admiral_Yularen",
+    "name": "Admiral Yularen"
+  },
+  "advancedreconcommando": {
+    "type": "Unit",
+    "image": "TWI\\Advanced_Recon_Commando",
+    "name": "Advanced Recon Commando"
+  },
+  "aggrievedparliamentarian": {
+    "type": "Unit",
+    "image": "TWI\\Aggrieved_Parliamentarian",
+    "name": "Aggrieved Parliamentarian"
+  },
+  "ahsokatano": {
+    "type": "Leader",
+    "image": "TWI\\Ahsoka_Tano",
+    "name": "Ahsoka Tano"
+  },
+  "ahsokaspadawanlightsaber": {
+    "type": "Upgrade",
+    "image": "TWI\\Ahsokas_Padawan_Lightsaber",
+    "name": "Ahsoka's Padawan Lightsaber"
+  },
+  "aidfromtheinnocent": {
+    "type": "Event",
+    "image": "TWI\\Aid_from_the_Innocent",
+    "name": "Aid from the Innocent"
+  },
+  "anakinskywalker": {
+    "type": "Leader",
+    "image": "TWI\\Anakin_Skywalker",
+    "name": "Anakin Skywalker"
+  },
+  "anakinsinterceptor": {
+    "type": "Unit",
+    "image": "TWI\\Anakins_Interceptor",
+    "name": "Anakin's Interceptor"
+  },
+  "armoredsabertank": {
+    "type": "Unit",
+    "image": "TWI\\Armored_Saber_Tank",
+    "name": "Armored Saber Tank"
+  },
+  "asajjventress": {
+    "type": "Leader",
+    "image": "TWI\\Asajj_Ventress",
+    "name": "Asajj Ventress"
+  },
+  "aurrasing": {
+    "type": "Unit",
+    "image": "TWI\\Aurra_Sing",
+    "name": "Aurra Sing"
+  },
+  "b1attackplatform": {
+    "type": "Unit",
+    "image": "TWI\\B1_Attack_Platform",
+    "name": "B1 Attack Platform"
+  },
+  "b1securityteam": {
+    "type": "Unit",
+    "image": "TWI\\B1_Security_Team",
+    "name": "B1 Security Team"
+  },
+  "b2legionnaires": {
+    "type": "Unit",
+    "image": "TWI\\B2_Legionnaires",
+    "name": "B2 Legionnaires"
+  },
+  "baktoidspiderdroid": {
+    "type": "Unit",
+    "image": "TWI\\Baktoid_Spider_Droid",
+    "name": "Baktoid Spider Droid"
+  },
+  "barrissoffee": {
+    "type": "Unit",
+    "image": "TWI\\Barriss_Offee",
+    "name": "Barriss Offee"
+  },
+  "batchbrothers": {
+    "type": "Unit",
+    "image": "TWI\\Batch_Brothers",
+    "name": "Batch Brothers"
+  },
+  "battledroidescort": {
+    "type": "Unit",
+    "image": "TWI\\Battle_Droid_Escort",
+    "name": "Battle Droid Escort"
+  },
+  "battledroidlegion": {
+    "type": "Unit",
+    "image": "TWI\\Battle_Droid_Legion",
+    "name": "Battle Droid Legion"
+  },
+  "bloodsport": {
+    "type": "Event",
+    "image": "TWI\\Blood_Sport",
+    "name": "Blood Sport"
+  },
+  "bokatankryze": {
+    "type": "Unit",
+    "image": "TWI\\Bo-Katan_Kryze",
+    "name": "Bo-Katan Kryze"
+  },
+  "boldreconcommando": {
+    "type": "Unit",
+    "image": "TWI\\Bold_Recon_Commando",
+    "name": "Bold Recon Commando"
+  },
+  "boldresistance": {
+    "type": "Event",
+    "image": "TWI\\Bold_Resistance",
+    "name": "Bold Resistance"
+  },
+  "braininvaders": {
+    "type": "Unit",
+    "image": "TWI\\Brain_Invaders",
+    "name": "Brain Invaders"
+  },
+  "breakingin": {
+    "type": "Event",
+    "image": "TWI\\Breaking_In",
+    "name": "Breaking In"
+  },
+  "cadbane": {
+    "type": "Unit",
+    "image": "TWI\\Cad_Bane",
+    "name": "Cad Bane"
+  },
+  "calculatingmagnaguard": {
+    "type": "Unit",
+    "image": "TWI\\Calculating_MagnaGuard",
+    "name": "Calculating MagnaGuard"
+  },
+  "captainrex": {
+    "type": "Leader",
+    "image": "TWI\\Captain_Rex",
+    "name": "Captain Rex"
+  },
+  "captaintypho": {
+    "type": "Unit",
+    "image": "TWI\\Captain_Typho",
+    "name": "Captain Typho"
+  },
+  "caughtinthecrossfire": {
+    "type": "Event",
+    "image": "TWI\\Caught_in_the_Crossfire",
+    "name": "Caught in the Crossfire"
+  },
+  "chancellorpalpatine": {
+    "type": "Unit",
+    "image": "TWI\\Chancellor_Palpatine",
+    "name": "Chancellor Palpatine"
+  },
+  "chancellorpalpatinedarthsidious": {
+    "type": "Leader",
+    "image": "TWI\\Chancellor_Palpatine__Darth_Sidious",
+    "name": "Chancellor Palpatine // Darth Sidious"
+  },
+  "clearthefield": {
+    "type": "Event",
+    "image": "TWI\\Clear_the_Field",
+    "name": "Clear the Field"
+  },
+  "clone": {
+    "type": "Unit",
+    "image": "TWI\\Clone",
+    "name": "Clone"
+  },
+  "clonecohort": {
+    "type": "Upgrade",
+    "image": "TWI\\Clone_Cohort",
+    "name": "Clone Cohort"
+  },
+  "clonecommandercody": {
+    "type": "Unit",
+    "image": "TWI\\Clone_Commander_Cody",
+    "name": "Clone Commander Cody"
+  },
+  "clonedivetrooper": {
+    "type": "Unit",
+    "image": "TWI\\Clone_Dive_Trooper",
+    "name": "Clone Dive Trooper"
+  },
+  "cloneheavygunner": {
+    "type": "Unit",
+    "image": "TWI\\Clone_Heavy_Gunner",
+    "name": "Clone Heavy Gunner"
+  },
+  "compassionatesenator": {
+    "type": "Unit",
+    "image": "TWI\\Compassionate_Senator",
+    "name": "Compassionate Senator"
+  },
+  "confederatecourier": {
+    "type": "Unit",
+    "image": "TWI\\Confederate_Courier",
+    "name": "Confederate Courier"
+  },
+  "confederatetrifighter": {
+    "type": "Unit",
+    "image": "TWI\\Confederate_Tri-Fighter",
+    "name": "Confederate Tri-Fighter"
+  },
+  "consolidationofpower": {
+    "type": "Event",
+    "image": "TWI\\Consolidation_of_Power",
+    "name": "Consolidation of Power"
+  },
+  "cornertheprey": {
+    "type": "Event",
+    "image": "TWI\\Corner_the_Prey",
+    "name": "Corner the Prey"
+  },
+  "coruscantguard": {
+    "type": "Unit",
+    "image": "TWI\\Coruscant_Guard",
+    "name": "Coruscant Guard"
+  },
+  "countdooku": {
+    "type": "Leader",
+    "image": "TWI\\Count_Dooku",
+    "name": "Count Dooku"
+  },
+  "creativethinking": {
+    "type": "Event",
+    "image": "TWI\\Creative_Thinking",
+    "name": "Creative Thinking"
+  },
+  "daringraid": {
+    "type": "Event",
+    "image": "TWI\\Daring_Raid",
+    "name": "Daring Raid"
+  },
+  "darthmaul": {
+    "type": "Unit",
+    "image": "TWI\\Darth_Maul",
+    "name": "Darth Maul"
+  },
+  "daughterofdathomir": {
+    "type": "Unit",
+    "image": "TWI\\Daughter_of_Dathomir",
+    "name": "Daughter of Dathomir"
+  },
+  "deathbydroids": {
+    "type": "Event",
+    "image": "TWI\\Death_by_Droids",
+    "name": "Death by Droids"
+  },
+  "dendupsloyalist": {
+    "type": "Unit",
+    "image": "TWI\\Dendups_Loyalist",
+    "name": "Dendup's Loyalist"
+  },
+  "devastatinggunship": {
+    "type": "Unit",
+    "image": "TWI\\Devastating_Gunship",
+    "name": "Devastating Gunship"
+  },
+  "disaffectedsenator": {
+    "type": "Unit",
+    "image": "TWI\\Disaffected_Senator",
+    "name": "Disaffected Senator"
+  },
+  "disruptiveburst": {
+    "type": "Event",
+    "image": "TWI\\Disruptive_Burst",
+    "name": "Disruptive Burst"
+  },
+  "droidcohort": {
+    "type": "Upgrade",
+    "image": "TWI\\Droid_Cohort",
+    "name": "Droid Cohort"
+  },
+  "droidcommando": {
+    "type": "Unit",
+    "image": "TWI\\Droid_Commando",
+    "name": "Droid Commando"
+  },
+  "droiddeployment": {
+    "type": "Event",
+    "image": "TWI\\Droid_Deployment",
+    "name": "Droid Deployment"
+  },
+  "droidmanufactory": {
+    "type": "Base",
+    "image": "TWI\\Droid_Manufactory",
+    "name": "Droid Manufactory"
+  },
+  "droidstarfighter": {
+    "type": "Unit",
+    "image": "TWI\\Droid_Starfighter",
+    "name": "Droid Starfighter"
+  },
+  "droidekasecurity": {
+    "type": "Unit",
+    "image": "TWI\\Droideka_Security",
+    "name": "Droideka Security"
+  },
+  "dropin": {
+    "type": "Event",
+    "image": "TWI\\Drop_In",
+    "name": "Drop In"
+  },
+  "duchessschampion": {
+    "type": "Unit",
+    "image": "TWI\\Duchesss_Champion",
+    "name": "Duchess's Champion"
+  },
+  "dwarfspiderdroid": {
+    "type": "Unit",
+    "image": "TWI\\Dwarf_Spider_Droid",
+    "name": "Dwarf Spider Droid"
+  },
+  "echo": {
+    "type": "Unit",
+    "image": "TWI\\Echo",
+    "name": "Echo"
+  },
+  "elitep38starfighter": {
+    "type": "Unit",
+    "image": "TWI\\Elite_P-38_Starfighter",
+    "name": "Elite P-38 Starfighter"
+  },
+  "encouragingleadership": {
+    "type": "Event",
+    "image": "TWI\\Encouraging_Leadership",
+    "name": "Encouraging Leadership"
+  },
+  "enfysnest": {
+    "type": "Unit",
+    "image": "TWI\\Enfys_Nest",
+    "name": "Enfys Nest"
+  },
+  "equalize": {
+    "type": "Event",
+    "image": "TWI\\Equalize",
+    "name": "Equalize"
+  },
+  "eta2lightinterceptor": {
+    "type": "Unit",
+    "image": "TWI\\Eta-2_Light_Interceptor",
+    "name": "Eta-2 Light Interceptor"
+  },
+  "executeorder66": {
+    "type": "Event",
+    "image": "TWI\\Execute_Order_66",
+    "name": "Execute Order 66"
+  },
+  "falchioniontank": {
+    "type": "Unit",
+    "image": "TWI\\Falchion_Ion_Tank",
+    "name": "Falchion Ion Tank"
+  },
+  "favorabledelegate": {
+    "type": "Unit",
+    "image": "TWI\\Favorable_Delegate",
+    "name": "Favorable Delegate"
+  },
+  "finn": {
+    "type": "Unit",
+    "image": "TWI\\Finn",
+    "name": "Finn"
+  },
+  "fives": {
+    "type": "Unit",
+    "image": "TWI\\Fives",
+    "name": "Fives"
+  },
+  "fortherepublic": {
+    "type": "Upgrade",
+    "image": "TWI\\For_The_Republic",
+    "name": "For The Republic"
+  },
+  "foresight": {
+    "type": "Upgrade",
+    "image": "TWI\\Foresight",
+    "name": "Foresight"
+  },
+  "freelanceassassin": {
+    "type": "Unit",
+    "image": "TWI\\Freelance_Assassin",
+    "name": "Freelance Assassin"
+  },
+  "generalgrievous": {
+    "type": "Leader",
+    "image": "TWI\\General_Grievous",
+    "name": "General Grievous"
+  },
+  "generalsblade": {
+    "type": "Upgrade",
+    "image": "TWI\\Generals_Blade",
+    "name": "General's Blade"
+  },
+  "generalsguardian": {
+    "type": "Unit",
+    "image": "TWI\\Generals_Guardian",
+    "name": "General's Guardian"
+  },
+  "geonosispatrolfighter": {
+    "type": "Unit",
+    "image": "TWI\\Geonosis_Patrol_Fighter",
+    "name": "Geonosis Patrol Fighter"
+  },
+  "gor": {
+    "type": "Unit",
+    "image": "TWI\\Gor",
+    "name": "Gor"
+  },
+  "grenadestrike": {
+    "type": "Event",
+    "image": "TWI\\Grenade_Strike",
+    "name": "Grenade Strike"
+  },
+  "grievousreassembly": {
+    "type": "Event",
+    "image": "TWI\\Grievous_Reassembly",
+    "name": "Grievous Reassembly"
+  },
+  "grievousswheelbike": {
+    "type": "Upgrade",
+    "image": "TWI\\Grievouss_Wheel_Bike",
+    "name": "Grievous's Wheel Bike"
+  },
+  "grimresolve": {
+    "type": "Event",
+    "image": "TWI\\Grim_Resolve",
+    "name": "Grim Resolve"
+  },
+  "guardingtheway": {
+    "type": "Event",
+    "image": "TWI\\Guarding_the_Way",
+    "name": "Guarding the Way"
+  },
+  "guerillainsurgency": {
+    "type": "Event",
+    "image": "TWI\\Guerilla_Insurgency",
+    "name": "Guerilla Insurgency"
+  },
+  "hailfiretank": {
+    "type": "Unit",
+    "image": "TWI\\Hailfire_Tank",
+    "name": "Hailfire Tank"
+  },
+  "headhuntersquadron": {
+    "type": "Unit",
+    "image": "TWI\\Headhunter_Squadron",
+    "name": "Headhunter Squadron "
+  },
+  "heavypersuadertank": {
+    "type": "Unit",
+    "image": "TWI\\Heavy_Persuader_Tank",
+    "name": "Heavy Persuader Tank"
+  },
+  "hellothere": {
+    "type": "Event",
+    "image": "TWI\\Hello_There",
+    "name": "Hello There"
+  },
+  "heroesonbothsides": {
+    "type": "Event",
+    "image": "TWI\\Heroes_on_Both_Sides",
+    "name": "Heroes on Both Sides"
+  },
+  "hevy": {
+    "type": "Unit",
+    "image": "TWI\\Hevy",
+    "name": "Hevy"
+  },
+  "hiddensharpshooter": {
+    "type": "Unit",
+    "image": "TWI\\Hidden_Sharpshooter",
+    "name": "Hidden Sharpshooter"
+  },
+  "holdoutblaster": {
+    "type": "Upgrade",
+    "image": "TWI\\Hold-Out_Blaster",
+    "name": "Hold-Out Blaster"
+  },
+  "hotshotvwing": {
+    "type": "Unit",
+    "image": "TWI\\Hotshot_V-Wing",
+    "name": "Hotshot V-Wing"
+  },
+  "huyang": {
+    "type": "Unit",
+    "image": "TWI\\Huyang",
+    "name": "Huyang"
+  },
+  "ihavethehighground": {
+    "type": "Event",
+    "image": "TWI\\I_Have_the_High_Ground",
+    "name": "I Have the High Ground"
+  },
+  "improprietyamongthieves": {
+    "type": "Event",
+    "image": "TWI\\Impropriety_Among_Thieves",
+    "name": "Impropriety Among Thieves"
+  },
+  "indefenseofkamino": {
+    "type": "Event",
+    "image": "TWI\\In_Defense_of_Kamino",
+    "name": "In Defense of Kamino"
+  },
+  "inpursuit": {
+    "type": "Event",
+    "image": "TWI\\In_Pursuit",
+    "name": "In Pursuit"
+  },
+  "independentsenator": {
+    "type": "Unit",
+    "image": "TWI\\Independent_Senator",
+    "name": "Independent Senator"
+  },
+  "infantryofthe212th": {
+    "type": "Unit",
+    "image": "TWI\\Infantry_of_the_212th",
+    "name": "Infantry of the 212th"
+  },
+  "infiltratingdemolisher": {
+    "type": "Unit",
+    "image": "TWI\\Infiltrating_Demolisher",
+    "name": "Infiltrating Demolisher"
+  },
+  "jangofett": {
+    "type": "Leader",
+    "image": "TWI\\Jango_Fett",
+    "name": "Jango Fett"
+  },
+  "jarjarbinks": {
+    "type": "Unit",
+    "image": "TWI\\Jar_Jar_Binks",
+    "name": "Jar Jar Binks"
+  },
+  "jesse": {
+    "type": "Unit",
+    "image": "TWI\\Jesse",
+    "name": "Jesse"
+  },
+  "jynerso": {
+    "type": "Unit",
+    "image": "TWI\\Jyn_Erso",
+    "name": "Jyn Erso"
+  },
+  "kcmminingfacility": {
+    "type": "Base",
+    "image": "TWI\\KCM_Mining_Facility",
+    "name": "KCM Mining Facility"
+  },
+  "kalani": {
+    "type": "Unit",
+    "image": "TWI\\Kalani",
+    "name": "Kalani"
+  },
+  "kashyyykdefender": {
+    "type": "Unit",
+    "image": "TWI\\Kashyyyk_Defender",
+    "name": "Kashyyyk Defender"
+  },
+  "kiadimundi": {
+    "type": "Unit",
+    "image": "TWI\\Ki-Adi-Mundi",
+    "name": "Ki-Adi-Mundi"
+  },
+  "kitfisto": {
+    "type": "Unit",
+    "image": "TWI\\Kit_Fisto",
+    "name": "Kit Fisto"
+  },
+  "knightoftherepublic": {
+    "type": "Unit",
+    "image": "TWI\\Knight_of_the_Republic",
+    "name": "Knight of the Republic"
+  },
+  "kraken": {
+    "type": "Unit",
+    "image": "TWI\\Kraken",
+    "name": "Kraken"
+  },
+  "lairofgrievous": {
+    "type": "Base",
+    "image": "TWI\\Lair_of_Grievous",
+    "name": "Lair of Grievous"
+  },
+  "lethalcrackdown": {
+    "type": "Event",
+    "image": "TWI\\Lethal_Crackdown",
+    "name": "Lethal Crackdown"
+  },
+  "level1313": {
+    "type": "Base",
+    "image": "TWI\\Level_1313",
+    "name": "Level 1313"
+  },
+  "lowaltitudegunship": {
+    "type": "Unit",
+    "image": "TWI\\Low_Altitude_Gunship",
+    "name": "Low Altitude Gunship"
+  },
+  "luminaraunduli": {
+    "type": "Unit",
+    "image": "TWI\\Luminara_Unduli",
+    "name": "Luminara Unduli"
+  },
+  "luxbonteri": {
+    "type": "Unit",
+    "image": "TWI\\Lux_Bonteri",
+    "name": "Lux Bonteri"
+  },
+  "macewindu": {
+    "type": "Leader",
+    "image": "TWI\\Mace_Windu",
+    "name": "Mace Windu"
+  },
+  "macewinduslightsaber": {
+    "type": "Upgrade",
+    "image": "TWI\\Mace_Windus_Lightsaber",
+    "name": "Mace Windu's Lightsaber"
+  },
+  "magnaguardwingleader": {
+    "type": "Unit",
+    "image": "TWI\\MagnaGuard_Wing_Leader",
+    "name": "MagnaGuard Wing Leader"
+  },
+  "malevolence": {
+    "type": "Unit",
+    "image": "TWI\\Malevolence",
+    "name": "Malevolence"
+  },
+  "manufacturedsoldiers": {
+    "type": "Event",
+    "image": "TWI\\Manufactured_Soldiers",
+    "name": "Manufactured Soldiers"
+  },
+  "masamedda": {
+    "type": "Unit",
+    "image": "TWI\\Mas_Amedda",
+    "name": "Mas Amedda"
+  },
+  "maul": {
+    "type": "Leader",
+    "image": "TWI\\Maul",
+    "name": "Maul"
+  },
+  "mercilesscontest": {
+    "type": "Event",
+    "image": "TWI\\Merciless_Contest",
+    "name": "Merciless Contest"
+  },
+  "misterbones": {
+    "type": "Unit",
+    "image": "TWI\\Mister_Bones",
+    "name": "Mister Bones"
+  },
+  "morganelsbeth": {
+    "type": "Unit",
+    "image": "TWI\\Morgan_Elsbeth",
+    "name": "Morgan Elsbeth"
+  },
+  "multitrooptransport": {
+    "type": "Unit",
+    "image": "TWI\\Multi-Troop_Transport",
+    "name": "Multi-Troop Transport"
+  },
+  "nalase": {
+    "type": "Leader",
+    "image": "TWI\\Nala_Se",
+    "name": "Nala Se"
+  },
+  "namelessvalor": {
+    "type": "Upgrade",
+    "image": "TWI\\Nameless_Valor",
+    "name": "Nameless Valor"
+  },
+  "nowtherearetwoofthem": {
+    "type": "Event",
+    "image": "TWI\\Now_There_Are_Two_of_Them",
+    "name": "Now There Are Two of Them"
+  },
+  "nutegunray": {
+    "type": "Leader",
+    "image": "TWI\\Nute_Gunray",
+    "name": "Nute Gunray"
+  },
+  "oomseriesofficer": {
+    "type": "Unit",
+    "image": "TWI\\OOM-Series_Officer",
+    "name": "OOM-Series Officer"
+  },
+  "obedientvanguard": {
+    "type": "Unit",
+    "image": "TWI\\Obedient_Vanguard",
+    "name": "Obedient Vanguard"
+  },
+  "obiwankenobi": {
+    "type": "Leader",
+    "image": "TWI\\Obi-Wan_Kenobi",
+    "name": "Obi-Wan Kenobi"
+  },
+  "obiwansaethersprite": {
+    "type": "Unit",
+    "image": "TWI\\Obi-Wans_Aethersprite",
+    "name": "Obi-Wan's Aethersprite"
+  },
+  "oldaccesscodes": {
+    "type": "Upgrade",
+    "image": "TWI\\Old_Access_Codes",
+    "name": "Old Access Codes"
+  },
+  "ontopofthings": {
+    "type": "Upgrade",
+    "image": "TWI\\On_Top_of_Things",
+    "name": "On Top of Things"
+  },
+  "onthedoorstep": {
+    "type": "Event",
+    "image": "TWI\\On_the_Doorstep",
+    "name": "On the Doorstep"
+  },
+  "openfire": {
+    "type": "Event",
+    "image": "TWI\\Open_Fire",
+    "name": "Open Fire"
+  },
+  "osisobeck": {
+    "type": "Unit",
+    "image": "TWI\\Osi_Sobeck",
+    "name": "Osi Sobeck"
+  },
+  "outflank": {
+    "type": "Event",
+    "image": "TWI\\Outflank",
+    "name": "Outflank"
+  },
+  "outspokenrepresentative": {
+    "type": "Unit",
+    "image": "TWI\\Outspoken_Representative",
+    "name": "Outspoken Representative"
+  },
+  "padawanstarfighter": {
+    "type": "Unit",
+    "image": "TWI\\Padawan_Starfighter",
+    "name": "Padawan Starfighter"
+  },
+  "padmamidala": {
+    "type": "Leader",
+    "image": "TWI\\Padm_Amidala",
+    "name": "Padmé Amidala"
+  },
+  "patrollingaat": {
+    "type": "Unit",
+    "image": "TWI\\Patrolling_AAT",
+    "name": "Patrolling AAT"
+  },
+  "patrollingvwing": {
+    "type": "Unit",
+    "image": "TWI\\Patrolling_V-Wing",
+    "name": "Patrolling V-Wing"
+  },
+  "paucity": {
+    "type": "Base",
+    "image": "TWI\\Pau_City",
+    "name": "Pau City"
+  },
+  "peltasupplyfrigate": {
+    "type": "Unit",
+    "image": "TWI\\Pelta_Supply_Frigate",
+    "name": "Pelta Supply Frigate"
+  },
+  "perilousposition": {
+    "type": "Upgrade",
+    "image": "TWI\\Perilous_Position",
+    "name": "Perilous Position"
+  },
+  "petitionthesenate": {
+    "type": "Event",
+    "image": "TWI\\Petition_the_Senate",
+    "name": "Petition the Senate"
+  },
+  "petranakiarena": {
+    "type": "Base",
+    "image": "TWI\\Petranaki_Arena",
+    "name": "Petranaki Arena"
+  },
+  "phaseiclonetrooper": {
+    "type": "Unit",
+    "image": "TWI\\Phase_I_Clone_Trooper",
+    "name": "Phase I Clone Trooper"
+  },
+  "phaseiiclonetrooper": {
+    "type": "Unit",
+    "image": "TWI\\Phase_II_Clone_Trooper",
+    "name": "Phase II Clone Trooper"
+  },
+  "planetaryinvasion": {
+    "type": "Event",
+    "image": "TWI\\Planetary_Invasion",
+    "name": "Planetary Invasion"
+  },
+  "plokoon": {
+    "type": "Unit",
+    "image": "TWI\\Plo_Koon",
+    "name": "Plo Koon"
+  },
+  "pogglethelesser": {
+    "type": "Unit",
+    "image": "TWI\\Poggle_the_Lesser",
+    "name": "Poggle the Lesser"
+  },
+  "politicalpressure": {
+    "type": "Event",
+    "image": "TWI\\Political_Pressure",
+    "name": "Political Pressure"
+  },
+  "previzsla": {
+    "type": "Leader",
+    "image": "TWI\\Pre_Vizsla",
+    "name": "Pre Vizsla"
+  },
+  "prisonerofwar": {
+    "type": "Event",
+    "image": "TWI\\Prisoner_of_War",
+    "name": "Prisoner of War"
+  },
+  "privatemanufacturing": {
+    "type": "Event",
+    "image": "TWI\\Private_Manufacturing",
+    "name": "Private Manufacturing"
+  },
+  "providencedestroyer": {
+    "type": "Unit",
+    "image": "TWI\\Providence_Destroyer",
+    "name": "Providence Destroyer"
+  },
+  "pykepalace": {
+    "type": "Base",
+    "image": "TWI\\Pyke_Palace",
+    "name": "Pyke Palace"
+  },
+  "pyrrhicassault": {
+    "type": "Event",
+    "image": "TWI\\Pyrrhic_Assault",
+    "name": "Pyrrhic Assault"
+  },
+  "quinlanvos": {
+    "type": "Leader",
+    "image": "TWI\\Quinlan_Vos",
+    "name": "Quinlan Vos"
+  },
+  "r2d2": {
+    "type": "Unit",
+    "image": "TWI\\R2-D2",
+    "name": "R2-D2"
+  },
+  "recklesstorrent": {
+    "type": "Unit",
+    "image": "TWI\\Reckless_Torrent",
+    "name": "Reckless Torrent"
+  },
+  "relentlessrocketdroid": {
+    "type": "Unit",
+    "image": "TWI\\Relentless_Rocket_Droid",
+    "name": "Relentless Rocket Droid"
+  },
+  "reprocess": {
+    "type": "Event",
+    "image": "TWI\\Reprocess",
+    "name": "Reprocess"
+  },
+  "republicarc170": {
+    "type": "Unit",
+    "image": "TWI\\Republic_ARC-170",
+    "name": "Republic ARC-170"
+  },
+  "republicattackpod": {
+    "type": "Unit",
+    "image": "TWI\\Republic_Attack_Pod",
+    "name": "Republic Attack Pod"
+  },
+  "republiccommando": {
+    "type": "Unit",
+    "image": "TWI\\Republic_Commando",
+    "name": "Republic Commando"
+  },
+  "republicdefensecarrier": {
+    "type": "Unit",
+    "image": "TWI\\Republic_Defense_Carrier",
+    "name": "Republic Defense Carrier"
+  },
+  "republictacticalofficer": {
+    "type": "Unit",
+    "image": "TWI\\Republic_Tactical_Officer",
+    "name": "Republic Tactical Officer"
+  },
+  "resolute": {
+    "type": "Unit",
+    "image": "TWI\\Resolute",
+    "name": "Resolute"
+  },
+  "resupply": {
+    "type": "Event",
+    "image": "TWI\\Resupply",
+    "name": "Resupply"
+  },
+  "rogerroger": {
+    "type": "Upgrade",
+    "image": "TWI\\Roger_Roger",
+    "name": "Roger Roger"
+  },
+  "royalguardattach": {
+    "type": "Unit",
+    "image": "TWI\\Royal_Guard_Attach",
+    "name": "Royal Guard Attaché"
+  },
+  "runehaako": {
+    "type": "Unit",
+    "image": "TWI\\Rune_Haako",
+    "name": "Rune Haako"
+  },
+  "rushclovis": {
+    "type": "Unit",
+    "image": "TWI\\Rush_Clovis",
+    "name": "Rush Clovis"
+  },
+  "rylothmilitia": {
+    "type": "Unit",
+    "image": "TWI\\Ryloth_Militia",
+    "name": "Ryloth Militia"
+  },
+  "sabinewren": {
+    "type": "Unit",
+    "image": "TWI\\Sabine_Wren",
+    "name": "Sabine Wren"
+  },
+  "sanhill": {
+    "type": "Unit",
+    "image": "TWI\\San_Hill",
+    "name": "San Hill"
+  },
+  "sanctionersshuttle": {
+    "type": "Unit",
+    "image": "TWI\\Sanctioners_Shuttle",
+    "name": "Sanctioner's Shuttle"
+  },
+  "satinekryze": {
+    "type": "Unit",
+    "image": "TWI\\Satine_Kryze",
+    "name": "Satine Kryze"
+  },
+  "savageopress": {
+    "type": "Unit",
+    "image": "TWI\\Savage_Opress",
+    "name": "Savage Opress"
+  },
+  "sawgerrera": {
+    "type": "Unit",
+    "image": "TWI\\Saw_Gerrera",
+    "name": "Saw Gerrera"
+  },
+  "selfdestruct": {
+    "type": "Event",
+    "image": "TWI\\Self-Destruct",
+    "name": "Self-Destruct"
+  },
+  "senatorialcorvette": {
+    "type": "Unit",
+    "image": "TWI\\Senatorial_Corvette",
+    "name": "Senatorial Corvette"
+  },
+  "separatistcommando": {
+    "type": "Unit",
+    "image": "TWI\\Separatist_Commando",
+    "name": "Separatist Commando"
+  },
+  "separatistsupertank": {
+    "type": "Unit",
+    "image": "TWI\\Separatist_Super_Tank",
+    "name": "Separatist Super Tank"
+  },
+  "shaakti": {
+    "type": "Unit",
+    "image": "TWI\\Shaak_Ti",
+    "name": "Shaak Ti"
+  },
+  "shadowcollectivecamp": {
+    "type": "Base",
+    "image": "TWI\\Shadow_Collective_Camp",
+    "name": "Shadow Collective Camp"
+  },
+  "shadowedintentions": {
+    "type": "Upgrade",
+    "image": "TWI\\Shadowed_Intentions",
+    "name": "Shadowed Intentions"
+  },
+  "slymoore": {
+    "type": "Unit",
+    "image": "TWI\\Sly_Moore",
+    "name": "Sly Moore"
+  },
+  "soldierofthe501st": {
+    "type": "Unit",
+    "image": "TWI\\Soldier_of_the_501st",
+    "name": "Soldier of the 501st"
+  },
+  "soullessone": {
+    "type": "Unit",
+    "image": "TWI\\Soulless_One",
+    "name": "Soulless One"
+  },
+  "squadsupport": {
+    "type": "Upgrade",
+    "image": "TWI\\Squad_Support",
+    "name": "Squad Support"
+  },
+  "squadronofvultures": {
+    "type": "Unit",
+    "image": "TWI\\Squadron_of_Vultures",
+    "name": "Squadron of Vultures"
+  },
+  "steadfastsenator": {
+    "type": "Unit",
+    "image": "TWI\\Steadfast_Senator",
+    "name": "Steadfast Senator"
+  },
+  "steelagerrera": {
+    "type": "Unit",
+    "image": "TWI\\Steela_Gerrera",
+    "name": "Steela Gerrera"
+  },
+  "strategicacumen": {
+    "type": "Upgrade",
+    "image": "TWI\\Strategic_Acumen",
+    "name": "Strategic Acumen"
+  },
+  "strategicanalysis": {
+    "type": "Event",
+    "image": "TWI\\Strategic_Analysis",
+    "name": "Strategic Analysis"
+  },
+  "subjugatingstarfighter": {
+    "type": "Unit",
+    "image": "TWI\\Subjugating_Starfighter",
+    "name": "Subjugating Starfighter"
+  },
+  "sundari": {
+    "type": "Base",
+    "image": "TWI\\Sundari",
+    "name": "Sundari"
+  },
+  "superbattledroid": {
+    "type": "Unit",
+    "image": "TWI\\Super_Battle_Droid",
+    "name": "Super Battle Droid"
+  },
+  "swordandshieldmaneuver": {
+    "type": "Event",
+    "image": "TWI\\Sword_and_Shield_Maneuver",
+    "name": "Sword and Shield Maneuver"
+  },
+  "synchronizedstrike": {
+    "type": "Event",
+    "image": "TWI\\Synchronized_Strike",
+    "name": "Synchronized Strike"
+  },
+  "tacticaladvantage": {
+    "type": "Event",
+    "image": "TWI\\Tactical_Advantage",
+    "name": "Tactical Advantage"
+  },
+  "tacticaldroidcommander": {
+    "type": "Unit",
+    "image": "TWI\\Tactical_Droid_Commander",
+    "name": "Tactical Droid Commander"
+  },
+  "takecaptive": {
+    "type": "Event",
+    "image": "TWI\\Take_Captive",
+    "name": "Take Captive"
+  },
+  "theclonewars": {
+    "type": "Event",
+    "image": "TWI\\The_Clone_Wars",
+    "name": "The Clone Wars"
+  },
+  "thecrystalcity": {
+    "type": "Base",
+    "image": "TWI\\The_Crystal_City",
+    "name": "The Crystal City"
+  },
+  "theinvasionofchristophsis": {
+    "type": "Event",
+    "image": "TWI\\The_Invasion_of_Christophsis",
+    "name": "The Invasion of Christophsis"
+  },
+  "theinvisiblehand": {
+    "type": "Unit",
+    "image": "TWI\\The_Invisible_Hand",
+    "name": "The Invisible Hand"
+  },
+  "thenest": {
+    "type": "Base",
+    "image": "TWI\\The_Nest",
+    "name": "The Nest"
+  },
+  "thezillobeast": {
+    "type": "Unit",
+    "image": "TWI\\The_Zillo_Beast",
+    "name": "The Zillo Beast"
+  },
+  "tipocacity": {
+    "type": "Base",
+    "image": "TWI\\Tipoca_City",
+    "name": "Tipoca City"
+  },
+  "tradefederationshuttle": {
+    "type": "Unit",
+    "image": "TWI\\Trade_Federation_Shuttle",
+    "name": "Trade Federation Shuttle"
+  },
+  "tranquility": {
+    "type": "Unit",
+    "image": "TWI\\Tranquility",
+    "name": "Tranquility"
+  },
+  "tridroidsuppressor": {
+    "type": "Unit",
+    "image": "TWI\\Tri-Droid_Suppressor",
+    "name": "Tri-Droid Suppressor"
+  },
+  "twicethepride": {
+    "type": "Upgrade",
+    "image": "TWI\\Twice_the_Pride",
+    "name": "Twice the Pride"
+  },
+  "unlimitedpower": {
+    "type": "Event",
+    "image": "TWI\\Unlimited_Power",
+    "name": "Unlimited Power"
+  },
+  "unmaskingtheconspiracy": {
+    "type": "Event",
+    "image": "TWI\\Unmasking_the_Conspiracy",
+    "name": "Unmasking the Conspiracy"
+  },
+  "unnaturallife": {
+    "type": "Event",
+    "image": "TWI\\Unnatural_Life",
+    "name": "Unnatural Life"
+  },
+  "unshakeablewill": {
+    "type": "Upgrade",
+    "image": "TWI\\Unshakeable_Will",
+    "name": "Unshakeable Will"
+  },
+  "vanguarddroidbomber": {
+    "type": "Unit",
+    "image": "TWI\\Vanguard_Droid_Bomber",
+    "name": "Vanguard Droid Bomber"
+  },
+  "vanquish": {
+    "type": "Event",
+    "image": "TWI\\Vanquish",
+    "name": "Vanquish"
+  },
+  "volunteersoldier": {
+    "type": "Unit",
+    "image": "TWI\\Volunteer_Soldier",
+    "name": "Volunteer Soldier"
+  },
+  "vultureinterceptorwing": {
+    "type": "Unit",
+    "image": "TWI\\Vulture_Interceptor_Wing",
+    "name": "Vulture Interceptor Wing"
+  },
+  "warriordrone": {
+    "type": "Unit",
+    "image": "TWI\\Warrior_Drone",
+    "name": "Warrior Drone"
+  },
+  "wartimeprofiteering": {
+    "type": "Event",
+    "image": "TWI\\Wartime_Profiteering",
+    "name": "Wartime Profiteering"
+  },
+  "wartimetradeofficial": {
+    "type": "Unit",
+    "image": "TWI\\Wartime_Trade_Official",
+    "name": "Wartime Trade Official"
+  },
+  "wattambor": {
+    "type": "Leader",
+    "image": "TWI\\Wat_Tambor",
+    "name": "Wat Tambor"
+  },
+  "waylay": {
+    "type": "Event",
+    "image": "TWI\\Waylay",
+    "name": "Waylay"
+  },
+  "wolfpackescort": {
+    "type": "Unit",
+    "image": "TWI\\Wolf_Pack_Escort",
+    "name": "Wolf Pack Escort"
+  },
+  "yoda": {
+    "type": "Leader",
+    "image": "TWI\\Yoda",
+    "name": "Yoda"
+  },
+  "zirothehutt": {
+    "type": "Unit",
+    "image": "TWI\\Ziro_the_Hutt",
+    "name": "Ziro the Hutt"
+  }
+}

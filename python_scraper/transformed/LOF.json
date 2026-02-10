@@ -1,0 +1,1287 @@
+{
+  "aprecariouspredicament": {
+    "type": "Event",
+    "image": "LOF\\A_Precarious_Predicament",
+    "name": "A Precarious Predicament"
+  },
+  "acclamatorassaultship": {
+    "type": "Unit",
+    "image": "LOF\\Acclamator_Assault_Ship",
+    "name": "Acclamator Assault Ship"
+  },
+  "acolyteofthebeyond": {
+    "type": "Unit",
+    "image": "LOF\\Acolyte_of_the_Beyond",
+    "name": "Acolyte of the Beyond"
+  },
+  "adeptofanger": {
+    "type": "Unit",
+    "image": "LOF\\Adept_of_Anger",
+    "name": "Adept of Anger"
+  },
+  "adigallia": {
+    "type": "Unit",
+    "image": "LOF\\Adi_Gallia",
+    "name": "Adi Gallia"
+  },
+  "ahsokatano": {
+    "type": "Leader",
+    "image": "LOF\\Ahsoka_Tano",
+    "name": "Ahsoka Tano"
+  },
+  "alwaystwo": {
+    "type": "Event",
+    "image": "LOF\\Always_Two",
+    "name": "Always Two"
+  },
+  "anakinskywalker": {
+    "type": "Leader",
+    "image": "LOF\\Anakin_Skywalker",
+    "name": "Anakin Skywalker"
+  },
+  "armyofthedead": {
+    "type": "Unit",
+    "image": "LOF\\Army_of_the_Dead",
+    "name": "Army of the Dead"
+  },
+  "asihaveforeseen": {
+    "type": "Event",
+    "image": "LOF\\As_I_Have_Foreseen",
+    "name": "As I Have Foreseen"
+  },
+  "asajjventress": {
+    "type": "Unit",
+    "image": "LOF\\Asajj_Ventress",
+    "name": "Asajj Ventress"
+  },
+  "ascensioncable": {
+    "type": "Upgrade",
+    "image": "LOF\\Ascension_Cable",
+    "name": "Ascension Cable"
+  },
+  "ataruonslaught": {
+    "type": "Event",
+    "image": "LOF\\Ataru_Onslaught",
+    "name": "Ataru Onslaught"
+  },
+  "attunedfyrnock": {
+    "type": "Unit",
+    "image": "LOF\\Attuned_Fyrnock",
+    "name": "Attuned Fyrnock"
+  },
+  "aurrasing": {
+    "type": "Unit",
+    "image": "LOF\\Aurra_Sing",
+    "name": "Aurra Sing"
+  },
+  "avarkriss": {
+    "type": "Leader",
+    "image": "LOF\\Avar_Kriss",
+    "name": "Avar Kriss"
+  },
+  "awakenedspecters": {
+    "type": "Unit",
+    "image": "LOF\\Awakened_Specters",
+    "name": "Awakened Specters"
+  },
+  "axewoves": {
+    "type": "Unit",
+    "image": "LOF\\Axe_Woves",
+    "name": "Axe Woves"
+  },
+  "bd1": {
+    "type": "Unit",
+    "image": "LOF\\BD-1",
+    "name": "BD-1"
+  },
+  "babufrik": {
+    "type": "Unit",
+    "image": "LOF\\Babu_Frik",
+    "name": "Babu Frik"
+  },
+  "bankingclanshuttle": {
+    "type": "Unit",
+    "image": "LOF\\Banking_Clan_Shuttle",
+    "name": "Banking Clan Shuttle"
+  },
+  "barrissoffee": {
+    "type": "Leader",
+    "image": "LOF\\Barriss_Offee",
+    "name": "Barriss Offee"
+  },
+  "battlefury": {
+    "type": "Upgrade",
+    "image": "LOF\\Battle_Fury",
+    "name": "Battle Fury"
+  },
+  "baylanskoll": {
+    "type": "Unit",
+    "image": "LOF\\Baylan_Skoll",
+    "name": "Baylan Skoll"
+  },
+  "bendu": {
+    "type": "Unit",
+    "image": "LOF\\Bendu",
+    "name": "Bendu"
+  },
+  "blockaderunner": {
+    "type": "Unit",
+    "image": "LOF\\Blockade_Runner",
+    "name": "Blockade Runner"
+  },
+  "bluesquadronassaultwing": {
+    "type": "Unit",
+    "image": "LOF\\Blue_Squadron_Assault_Wing",
+    "name": "Blue Squadron Assault Wing"
+  },
+  "bolsteredendurance": {
+    "type": "Upgrade",
+    "image": "LOF\\Bolstered_Endurance",
+    "name": "Bolstered Endurance"
+  },
+  "calkestis": {
+    "type": "Leader",
+    "image": "LOF\\Cal_Kestis",
+    "name": "Cal Kestis"
+  },
+  "calminthestorm": {
+    "type": "Event",
+    "image": "LOF\\Calm_in_the_Storm",
+    "name": "Calm in the Storm"
+  },
+  "captainenoch": {
+    "type": "Unit",
+    "image": "LOF\\Captain_Enoch",
+    "name": "Captain Enoch"
+  },
+  "caretakermatron": {
+    "type": "Unit",
+    "image": "LOF\\Caretaker_Matron",
+    "name": "Caretaker Matron"
+  },
+  "cartelinterceptor": {
+    "type": "Unit",
+    "image": "LOF\\Cartel_Interceptor",
+    "name": "Cartel Interceptor"
+  },
+  "chargingphillak": {
+    "type": "Unit",
+    "image": "LOF\\Charging_Phillak",
+    "name": "Charging Phillak"
+  },
+  "chirrutmwe": {
+    "type": "Unit",
+    "image": "LOF\\Chirrut_mwe",
+    "name": "Chirrut Îmwe"
+  },
+  "cindrallig": {
+    "type": "Unit",
+    "image": "LOF\\Cin_Drallig",
+    "name": "Cin Drallig"
+  },
+  "constructedlightsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Constructed_Lightsaber",
+    "name": "Constructed Lightsaber"
+  },
+  "consumedbythedarkside": {
+    "type": "Event",
+    "image": "LOF\\Consumed_by_the_Dark_Side",
+    "name": "Consumed by the Dark Side"
+  },
+  "corruptedsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Corrupted_Saber",
+    "name": "Corrupted Saber"
+  },
+  "cravingpower": {
+    "type": "Upgrade",
+    "image": "LOF\\Craving_Power",
+    "name": "Craving Power"
+  },
+  "crushingblow": {
+    "type": "Event",
+    "image": "LOF\\Crushing_Blow",
+    "name": "Crushing Blow"
+  },
+  "crystalcaves": {
+    "type": "Base",
+    "image": "LOF\\Crystal_Caves",
+    "name": "Crystal Caves"
+  },
+  "curewounds": {
+    "type": "Event",
+    "image": "LOF\\Cure_Wounds",
+    "name": "Cure Wounds"
+  },
+  "curiousflock": {
+    "type": "Unit",
+    "image": "LOF\\Curious_Flock",
+    "name": "Curious Flock"
+  },
+  "drk1probedroid": {
+    "type": "Unit",
+    "image": "LOF\\DRK-1_Probe_Droid",
+    "name": "DRK-1 Probe Droid"
+  },
+  "dagoyanmaster": {
+    "type": "Unit",
+    "image": "LOF\\Dagoyan_Master",
+    "name": "Dagoyan Master"
+  },
+  "darthmalak": {
+    "type": "Unit",
+    "image": "LOF\\Darth_Malak",
+    "name": "Darth Malak"
+  },
+  "darthmaul": {
+    "type": "Leader",
+    "image": "LOF\\Darth_Maul",
+    "name": "Darth Maul"
+  },
+  "darthmaulslightsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Darth_Mauls_Lightsaber",
+    "name": "Darth Maul's Lightsaber"
+  },
+  "darthrevan": {
+    "type": "Leader",
+    "image": "LOF\\Darth_Revan",
+    "name": "Darth Revan"
+  },
+  "darthrevanslightsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Darth_Revans_Lightsaber",
+    "name": "Darth Revan's Lightsaber"
+  },
+  "darthsidious": {
+    "type": "Unit",
+    "image": "LOF\\Darth_Sidious",
+    "name": "Darth Sidious"
+  },
+  "darthtyranus": {
+    "type": "Unit",
+    "image": "LOF\\Darth_Tyranus",
+    "name": "Darth Tyranus"
+  },
+  "darthvader": {
+    "type": "Unit",
+    "image": "LOF\\Darth_Vader",
+    "name": "Darth Vader"
+  },
+  "deathfield": {
+    "type": "Event",
+    "image": "LOF\\Death_Field",
+    "name": "Death Field"
+  },
+  "deceptiveshade": {
+    "type": "Unit",
+    "image": "LOF\\Deceptive_Shade",
+    "name": "Deceptive Shade"
+  },
+  "depabillaba": {
+    "type": "Unit",
+    "image": "LOF\\Depa_Billaba",
+    "name": "Depa Billaba"
+  },
+  "directedbytheforce": {
+    "type": "Event",
+    "image": "LOF\\Directed_by_the_Force",
+    "name": "Directed by the Force"
+  },
+  "disturbanceintheforce": {
+    "type": "Event",
+    "image": "LOF\\Disturbance_in_the_Force",
+    "name": "Disturbance in the Force"
+  },
+  "doordonot": {
+    "type": "Event",
+    "image": "LOF\\Do_or_Do_Not",
+    "name": "Do or Do Not"
+  },
+  "dooku": {
+    "type": "Unit",
+    "image": "LOF\\Dooku",
+    "name": "Dooku"
+  },
+  "drainessence": {
+    "type": "Event",
+    "image": "LOF\\Drain_Essence",
+    "name": "Drain Essence"
+  },
+  "drengirspawn": {
+    "type": "Unit",
+    "image": "LOF\\Drengir_Spawn",
+    "name": "Drengir Spawn"
+  },
+  "dume": {
+    "type": "Unit",
+    "image": "LOF\\Dume",
+    "name": "Dume"
+  },
+  "eethkoth": {
+    "type": "Unit",
+    "image": "LOF\\Eeth_Koth",
+    "name": "Eeth Koth"
+  },
+  "eighthbrother": {
+    "type": "Unit",
+    "image": "LOF\\Eighth_Brother",
+    "name": "Eighth Brother"
+  },
+  "exegolpatroller": {
+    "type": "Unit",
+    "image": "LOF\\Exegol_Patroller",
+    "name": "Exegol Patroller"
+  },
+  "eyeofsion": {
+    "type": "Unit",
+    "image": "LOF\\Eye_of_Sion",
+    "name": "Eye of Sion"
+  },
+  "ezrabridger": {
+    "type": "Unit",
+    "image": "LOF\\Ezra_Bridger",
+    "name": "Ezra Bridger"
+  },
+  "fallenjedi": {
+    "type": "Unit",
+    "image": "LOF\\Fallen_Jedi",
+    "name": "Fallen Jedi"
+  },
+  "flightoftheinquisitor": {
+    "type": "Event",
+    "image": "LOF\\Flight_of_the_Inquisitor",
+    "name": "Flight of the Inquisitor"
+  },
+  "focusdeterminesreality": {
+    "type": "Event",
+    "image": "LOF\\Focus_Determines_Reality",
+    "name": "Focus Determines Reality"
+  },
+  "followingthepath": {
+    "type": "Event",
+    "image": "LOF\\Following_the_Path",
+    "name": "Following the Path"
+  },
+  "forceillusion": {
+    "type": "Event",
+    "image": "LOF\\Force_Illusion",
+    "name": "Force Illusion"
+  },
+  "forceslow": {
+    "type": "Event",
+    "image": "LOF\\Force_Slow",
+    "name": "Force Slow"
+  },
+  "forcespeed": {
+    "type": "Event",
+    "image": "LOF\\Force_Speed",
+    "name": "Force Speed"
+  },
+  "forgedstarfighter": {
+    "type": "Unit",
+    "image": "LOF\\Forged_Starfighter",
+    "name": "Forged Starfighter"
+  },
+  "fortressvader": {
+    "type": "Base",
+    "image": "LOF\\Fortress_Vader",
+    "name": "Fortress Vader"
+  },
+  "giftedurchin": {
+    "type": "Unit",
+    "image": "LOF\\Gifted_Urchin",
+    "name": "Gifted Urchin"
+  },
+  "gointohiding": {
+    "type": "Event",
+    "image": "LOF\\Go_Into_Hiding",
+    "name": "Go Into Hiding"
+  },
+  "gracefulpurrgil": {
+    "type": "Unit",
+    "image": "LOF\\Graceful_Purrgil",
+    "name": "Graceful Purrgil"
+  },
+  "grandinquisitor": {
+    "type": "Leader",
+    "image": "LOF\\Grand_Inquisitor",
+    "name": "Grand Inquisitor"
+  },
+  "grapplingguardian": {
+    "type": "Unit",
+    "image": "LOF\\Grappling_Guardian",
+    "name": "Grappling Guardian"
+  },
+  "grogu": {
+    "type": "Unit",
+    "image": "LOF\\Grogu",
+    "name": "Grogu"
+  },
+  "guardianofthewhills": {
+    "type": "Unit",
+    "image": "LOF\\Guardian_of_the_Whills",
+    "name": "Guardian of the Whills"
+  },
+  "gunganwarrior": {
+    "type": "Unit",
+    "image": "LOF\\Gungan_Warrior",
+    "name": "Gungan Warrior"
+  },
+  "gungi": {
+    "type": "Unit",
+    "image": "LOF\\Gungi",
+    "name": "Gungi"
+  },
+  "hk47": {
+    "type": "Unit",
+    "image": "LOF\\HK-47",
+    "name": "HK-47"
+  },
+  "hk87assassindroid": {
+    "type": "Unit",
+    "image": "LOF\\HK-87_Assassin_Droid",
+    "name": "HK-87 Assassin Droid"
+  },
+  "heavyblastercannon": {
+    "type": "Upgrade",
+    "image": "LOF\\Heavy_Blaster_Cannon",
+    "name": "Heavy Blaster Cannon"
+  },
+  "heavymissilegunship": {
+    "type": "Unit",
+    "image": "LOF\\Heavy_Missile_Gunship",
+    "name": "Heavy Missile Gunship"
+  },
+  "heirloomlightsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Heirloom_Lightsaber",
+    "name": "Heirloom Lightsaber"
+  },
+  "hivedefensewing": {
+    "type": "Unit",
+    "image": "LOF\\Hive_Defense_Wing",
+    "name": "Hive Defense Wing"
+  },
+  "huntingnexu": {
+    "type": "Unit",
+    "image": "LOF\\Hunting_Nexu",
+    "name": "Hunting Nexu"
+  },
+  "hyenabomber": {
+    "type": "Unit",
+    "image": "LOF\\Hyena_Bomber",
+    "name": "Hyena Bomber"
+  },
+  "hyperspacewayfarer": {
+    "type": "Unit",
+    "image": "LOF\\Hyperspace_Wayfarer",
+    "name": "Hyperspace Wayfarer"
+  },
+  "impossibleescape": {
+    "type": "Event",
+    "image": "LOF\\Impossible_Escape",
+    "name": "Impossible Escape"
+  },
+  "intheshadows": {
+    "type": "Event",
+    "image": "LOF\\In_the_Shadows",
+    "name": "In the Shadows"
+  },
+  "infusedbrawler": {
+    "type": "Unit",
+    "image": "LOF\\Infused_Brawler",
+    "name": "Infused Brawler "
+  },
+  "inquisitorslightsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Inquisitors_Lightsaber",
+    "name": "Inquisitor's Lightsaber"
+  },
+  "invasioncontrolship": {
+    "type": "Unit",
+    "image": "LOF\\Invasion_Control_Ship",
+    "name": "Invasion Control Ship"
+  },
+  "itsworse": {
+    "type": "Event",
+    "image": "LOF\\Its_Worse",
+    "name": "It's Worse"
+  },
+  "itinerantwarrior": {
+    "type": "Unit",
+    "image": "LOF\\Itinerant_Warrior",
+    "name": "Itinerant Warrior"
+  },
+  "jtypenubianstarship": {
+    "type": "Unit",
+    "image": "LOF\\J-Type_Nubian_Starship",
+    "name": "J-Type Nubian Starship"
+  },
+  "jediconsular": {
+    "type": "Unit",
+    "image": "LOF\\Jedi_Consular",
+    "name": "Jedi Consular"
+  },
+  "jediguardian": {
+    "type": "Unit",
+    "image": "LOF\\Jedi_Guardian",
+    "name": "Jedi Guardian"
+  },
+  "jediholocron": {
+    "type": "Upgrade",
+    "image": "LOF\\Jedi_Holocron",
+    "name": "Jedi Holocron"
+  },
+  "jediinhiding": {
+    "type": "Unit",
+    "image": "LOF\\Jedi_In_Hiding",
+    "name": "Jedi In Hiding"
+  },
+  "jediknight": {
+    "type": "Unit",
+    "image": "LOF\\Jedi_Knight",
+    "name": "Jedi Knight"
+  },
+  "jedisentinel": {
+    "type": "Unit",
+    "image": "LOF\\Jedi_Sentinel",
+    "name": "Jedi Sentinel"
+  },
+  "jedistarfighter": {
+    "type": "Unit",
+    "image": "LOF\\Jedi_Starfighter",
+    "name": "Jedi Starfighter"
+  },
+  "jeditemple": {
+    "type": "Base",
+    "image": "LOF\\Jedi_Temple",
+    "name": "Jedi Temple"
+  },
+  "jeditempleguards": {
+    "type": "Unit",
+    "image": "LOF\\Jedi_Temple_Guards",
+    "name": "Jedi Temple Guards"
+  },
+  "jeditrials": {
+    "type": "Upgrade",
+    "image": "LOF\\Jedi_Trials",
+    "name": "Jedi Trials"
+  },
+  "jedivector": {
+    "type": "Unit",
+    "image": "LOF\\Jedi_Vector",
+    "name": "Jedi Vector"
+  },
+  "jocastanu": {
+    "type": "Unit",
+    "image": "LOF\\Jocasta_Nu",
+    "name": "Jocasta Nu"
+  },
+  "kaadu": {
+    "type": "Unit",
+    "image": "LOF\\Kaadu",
+    "name": "Kaadu"
+  },
+  "kananjarrus": {
+    "type": "Leader",
+    "image": "LOF\\Kanan_Jarrus",
+    "name": "Kanan Jarrus"
+  },
+  "karis": {
+    "type": "Unit",
+    "image": "LOF\\Karis",
+    "name": "Karis"
+  },
+  "kelleranbeq": {
+    "type": "Unit",
+    "image": "LOF\\Kelleran_Beq",
+    "name": "Kelleran Beq"
+  },
+  "kiadimundi": {
+    "type": "Unit",
+    "image": "LOF\\Ki-Adi-Mundi",
+    "name": "Ki-Adi-Mundi"
+  },
+  "kitfisto": {
+    "type": "Leader",
+    "image": "LOF\\Kit_Fisto",
+    "name": "Kit Fisto"
+  },
+  "kitfistosaethersprite": {
+    "type": "Unit",
+    "image": "LOF\\Kit_Fistos_Aethersprite",
+    "name": "Kit Fisto's Aethersprite"
+  },
+  "knightofren": {
+    "type": "Unit",
+    "image": "LOF\\Knight_of_Ren",
+    "name": "Knight of Ren"
+  },
+  "knightssaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Knights_Saber",
+    "name": "Knight's Saber"
+  },
+  "kowakianmonkeylizard": {
+    "type": "Unit",
+    "image": "LOF\\Kowakian_Monkey-Lizard",
+    "name": "Kowakian Monkey-Lizard"
+  },
+  "kyloren": {
+    "type": "Leader",
+    "image": "LOF\\Kylo_Ren",
+    "name": "Kylo Ren"
+  },
+  "kylorenslightsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Kylo_Rens_Lightsaber",
+    "name": "Kylo Ren's Lightsaber"
+  },
+  "lastwords": {
+    "type": "Event",
+    "image": "LOF\\Last_Words",
+    "name": "Last Words"
+  },
+  "leiaorgana": {
+    "type": "Unit",
+    "image": "LOF\\Leia_Organa",
+    "name": "Leia Organa"
+  },
+  "liberatedbydarkness": {
+    "type": "Event",
+    "image": "LOF\\Liberated_by_Darkness",
+    "name": "Liberated by Darkness"
+  },
+  "lifewindsage": {
+    "type": "Unit",
+    "image": "LOF\\Life_Wind_Sage",
+    "name": "Life Wind Sage"
+  },
+  "lightsaberthrow": {
+    "type": "Event",
+    "image": "LOF\\Lightsaber_Throw",
+    "name": "Lightsaber Throw"
+  },
+  "longbeamcruiser": {
+    "type": "Unit",
+    "image": "LOF\\Longbeam_Cruiser",
+    "name": "Longbeam Cruiser"
+  },
+  "lorsantekka": {
+    "type": "Unit",
+    "image": "LOF\\Lor_San_Tekka",
+    "name": "Lor San Tekka"
+  },
+  "lothcat": {
+    "type": "Unit",
+    "image": "LOF\\Loth-Cat",
+    "name": "Loth-Cat"
+  },
+  "lothwolf": {
+    "type": "Unit",
+    "image": "LOF\\Loth-Wolf",
+    "name": "Loth-Wolf"
+  },
+  "lukeskywalker": {
+    "type": "Unit",
+    "image": "LOF\\Luke_Skywalker",
+    "name": "Luke Skywalker"
+  },
+  "luminousbeings": {
+    "type": "Event",
+    "image": "LOF\\Luminous_Beings",
+    "name": "Luminous Beings"
+  },
+  "luthenrael": {
+    "type": "Unit",
+    "image": "LOF\\Luthen_Rael",
+    "name": "Luthen Rael"
+  },
+  "macewindu": {
+    "type": "Unit",
+    "image": "LOF\\Mace_Windu",
+    "name": "Mace Windu"
+  },
+  "magistratesscout": {
+    "type": "Unit",
+    "image": "LOF\\Magistrates_Scout",
+    "name": "Magistrate's Scout"
+  },
+  "malakili": {
+    "type": "Unit",
+    "image": "LOF\\Malakili",
+    "name": "Malakili"
+  },
+  "marchionro": {
+    "type": "Unit",
+    "image": "LOF\\Marchion_Ro",
+    "name": "Marchion Ro"
+  },
+  "mazkanata": {
+    "type": "Unit",
+    "image": "LOF\\Maz_Kanata",
+    "name": "Maz Kanata"
+  },
+  "medicalfrigate": {
+    "type": "Unit",
+    "image": "LOF\\Medical_Frigate",
+    "name": "Medical Frigate"
+  },
+  "merrin": {
+    "type": "Unit",
+    "image": "LOF\\Merrin",
+    "name": "Merrin"
+  },
+  "mindtrick": {
+    "type": "Event",
+    "image": "LOF\\Mind_Trick",
+    "name": "Mind Trick"
+  },
+  "morganelsbeth": {
+    "type": "Leader",
+    "image": "LOF\\Morgan_Elsbeth",
+    "name": "Morgan Elsbeth"
+  },
+  "mothertalzin": {
+    "type": "Leader",
+    "image": "LOF\\Mother_Talzin",
+    "name": "Mother Talzin"
+  },
+  "mynock": {
+    "type": "Unit",
+    "image": "LOF\\Mynock",
+    "name": "Mynock"
+  },
+  "mysterioushermit": {
+    "type": "Unit",
+    "image": "LOF\\Mysterious_Hermit",
+    "name": "Mysterious Hermit"
+  },
+  "mysticmonastery": {
+    "type": "Base",
+    "image": "LOF\\Mystic_Monastery",
+    "name": "Mystic Monastery"
+  },
+  "mythosaur": {
+    "type": "Unit",
+    "image": "LOF\\Mythosaur",
+    "name": "Mythosaur"
+  },
+  "n1starfighter": {
+    "type": "Unit",
+    "image": "LOF\\N-1_Starfighter",
+    "name": "N-1 Starfighter"
+  },
+  "namelessterror": {
+    "type": "Unit",
+    "image": "LOF\\Nameless_Terror",
+    "name": "Nameless Terror"
+  },
+  "nightsisterlair": {
+    "type": "Base",
+    "image": "LOF\\Nightsister_Lair",
+    "name": "Nightsister Lair"
+  },
+  "nightsisterwarrior": {
+    "type": "Unit",
+    "image": "LOF\\Nightsister_Warrior",
+    "name": "Nightsister Warrior"
+  },
+  "nihilmarauder": {
+    "type": "Unit",
+    "image": "LOF\\Nihil_Marauder",
+    "name": "Nihil Marauder"
+  },
+  "nimanstrike": {
+    "type": "Event",
+    "image": "LOF\\Niman_Strike",
+    "name": "Niman Strike"
+  },
+  "obiwankenobi": {
+    "type": "Leader",
+    "image": "LOF\\Obi-Wan_Kenobi",
+    "name": "Obi-Wan Kenobi"
+  },
+  "oggdobogdo": {
+    "type": "Unit",
+    "image": "LOF\\Oggdo_Bogdo",
+    "name": "Oggdo Bogdo"
+  },
+  "olddaka": {
+    "type": "Unit",
+    "image": "LOF\\Old_Daka",
+    "name": "Old Daka"
+  },
+  "opporancisis": {
+    "type": "Unit",
+    "image": "LOF\\Oppo_Rancisis",
+    "name": "Oppo Rancisis"
+  },
+  "outerrimmystic": {
+    "type": "Unit",
+    "image": "LOF\\Outer_Rim_Mystic",
+    "name": "Outer Rim Mystic"
+  },
+  "overpower": {
+    "type": "Event",
+    "image": "LOF\\Overpower",
+    "name": "Overpower"
+  },
+  "owenlars": {
+    "type": "Unit",
+    "image": "LOF\\Owen_Lars",
+    "name": "Owen Lars"
+  },
+  "padawanstarfighter": {
+    "type": "Unit",
+    "image": "LOF\\Padawan_Starfighter",
+    "name": "Padawan Starfighter"
+  },
+  "paladintrainingcorvette": {
+    "type": "Unit",
+    "image": "LOF\\Paladin_Training_Corvette",
+    "name": "Paladin Training Corvette"
+  },
+  "pazvizsla": {
+    "type": "Unit",
+    "image": "LOF\\Paz_Vizsla",
+    "name": "Paz Vizsla"
+  },
+  "pelimotto": {
+    "type": "Unit",
+    "image": "LOF\\Peli_Motto",
+    "name": "Peli Motto"
+  },
+  "pilliostarcompass": {
+    "type": "Upgrade",
+    "image": "LOF\\Pillio_Star_Compass",
+    "name": "Pillio Star Compass"
+  },
+  "plokoon": {
+    "type": "Unit",
+    "image": "LOF\\Plo_Koon",
+    "name": "Plo Koon"
+  },
+  "pointrainreclaimer": {
+    "type": "Unit",
+    "image": "LOF\\Point_Rain_Reclaimer",
+    "name": "Point Rain Reclaimer"
+  },
+  "pongkrell": {
+    "type": "Unit",
+    "image": "LOF\\Pong_Krell",
+    "name": "Pong Krell"
+  },
+  "porg": {
+    "type": "Unit",
+    "image": "LOF\\Porg",
+    "name": "Porg"
+  },
+  "pounce": {
+    "type": "Event",
+    "image": "LOF\\Pounce",
+    "name": "Pounce"
+  },
+  "praetorianguard": {
+    "type": "Unit",
+    "image": "LOF\\Praetorian_Guard",
+    "name": "Praetorian Guard"
+  },
+  "premonitionofdoom": {
+    "type": "Event",
+    "image": "LOF\\Premonition_of_Doom",
+    "name": "Premonition of Doom"
+  },
+  "priestessesoftheforce": {
+    "type": "Unit",
+    "image": "LOF\\Priestesses_of_the_Force",
+    "name": "Priestesses of the Force"
+  },
+  "protectthepod": {
+    "type": "Event",
+    "image": "LOF\\Protect_the_Pod",
+    "name": "Protect the Pod"
+  },
+  "psychometry": {
+    "type": "Event",
+    "image": "LOF\\Psychometry",
+    "name": "Psychometry"
+  },
+  "purgetrooper": {
+    "type": "Unit",
+    "image": "LOF\\Purge_Trooper",
+    "name": "Purge Trooper"
+  },
+  "quigonjinn": {
+    "type": "Leader",
+    "image": "LOF\\Qui-Gon_Jinn",
+    "name": "Qui-Gon Jinn"
+  },
+  "quigonjinnsaethersprite": {
+    "type": "Unit",
+    "image": "LOF\\Qui-Gon_Jinns_Aethersprite",
+    "name": "Qui-Gon Jinn's Aethersprite"
+  },
+  "quigonjinnslightsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Qui-Gon_Jinns_Lightsaber",
+    "name": "Qui-Gon Jinn's Lightsaber"
+  },
+  "quinlanvos": {
+    "type": "Unit",
+    "image": "LOF\\Quinlan_Vos",
+    "name": "Quinlan Vos"
+  },
+  "rampage": {
+    "type": "Event",
+    "image": "LOF\\Rampage",
+    "name": "Rampage"
+  },
+  "raveninggundark": {
+    "type": "Unit",
+    "image": "LOF\\Ravening_Gundark",
+    "name": "Ravening Gundark"
+  },
+  "ravenousrathtar": {
+    "type": "Unit",
+    "image": "LOF\\Ravenous_Rathtar",
+    "name": "Ravenous Rathtar"
+  },
+  "refugeeofthepath": {
+    "type": "Unit",
+    "image": "LOF\\Refugee_of_The_Path",
+    "name": "Refugee of The Path"
+  },
+  "relicscavenger": {
+    "type": "Unit",
+    "image": "LOF\\Relic_Scavenger",
+    "name": "Relic Scavenger"
+  },
+  "rey": {
+    "type": "Leader",
+    "image": "LOF\\Rey",
+    "name": "Rey"
+  },
+  "saeseetiin": {
+    "type": "Unit",
+    "image": "LOF\\Saesee_Tiin",
+    "name": "Saesee Tiin"
+  },
+  "sandtroopercavalry": {
+    "type": "Unit",
+    "image": "LOF\\Sandtrooper_Cavalry",
+    "name": "Sandtrooper Cavalry"
+  },
+  "savageopress": {
+    "type": "Unit",
+    "image": "LOF\\Savage_Opress",
+    "name": "Savage Opress"
+  },
+  "scimitar": {
+    "type": "Unit",
+    "image": "LOF\\Scimitar",
+    "name": "Scimitar"
+  },
+  "scythe": {
+    "type": "Unit",
+    "image": "LOF\\Scythe",
+    "name": "Scythe"
+  },
+  "secondsister": {
+    "type": "Unit",
+    "image": "LOF\\Second_Sister",
+    "name": "Second Sister"
+  },
+  "secretivesage": {
+    "type": "Unit",
+    "image": "LOF\\Secretive_Sage",
+    "name": "Secretive Sage"
+  },
+  "shadowedundercity": {
+    "type": "Base",
+    "image": "LOF\\Shadowed_Undercity",
+    "name": "Shadowed Undercity"
+  },
+  "shatterpoint": {
+    "type": "Event",
+    "image": "LOF\\Shatterpoint",
+    "name": "Shatterpoint"
+  },
+  "shienflurry": {
+    "type": "Event",
+    "image": "LOF\\Shien_Flurry",
+    "name": "Shien Flurry"
+  },
+  "shinhati": {
+    "type": "Unit",
+    "image": "LOF\\Shin_Hati",
+    "name": "Shin Hati"
+  },
+  "sifodyas": {
+    "type": "Unit",
+    "image": "LOF\\Sifo-Dyas",
+    "name": "Sifo-Dyas"
+  },
+  "sithholocron": {
+    "type": "Upgrade",
+    "image": "LOF\\Sith_Holocron",
+    "name": "Sith Holocron"
+  },
+  "sithlegionnaire": {
+    "type": "Unit",
+    "image": "LOF\\Sith_Legionnaire",
+    "name": "Sith Legionnaire"
+  },
+  "sizemattersnot": {
+    "type": "Upgrade",
+    "image": "LOF\\Size_Matters_Not",
+    "name": "Size Matters Not"
+  },
+  "sorcerersoftund": {
+    "type": "Unit",
+    "image": "LOF\\Sorcerers_of_Tund",
+    "name": "Sorcerers of Tund"
+  },
+  "sorcerousblast": {
+    "type": "Event",
+    "image": "LOF\\Sorcerous_Blast",
+    "name": "Sorcerous Blast"
+  },
+  "soresustance": {
+    "type": "Event",
+    "image": "LOF\\Soresu_Stance",
+    "name": "Soresu Stance"
+  },
+  "starlighttemple": {
+    "type": "Base",
+    "image": "LOF\\Starlight_Temple",
+    "name": "Starlight Temple"
+  },
+  "stingermantis": {
+    "type": "Unit",
+    "image": "LOF\\Stinger_Mantis",
+    "name": "Stinger Mantis"
+  },
+  "strangledcliffs": {
+    "type": "Base",
+    "image": "LOF\\Strangled_Cliffs",
+    "name": "Strangled Cliffs"
+  },
+  "strikeship": {
+    "type": "Unit",
+    "image": "LOF\\Strikeship",
+    "name": "Strikeship"
+  },
+  "supremacy": {
+    "type": "Unit",
+    "image": "LOF\\Supremacy",
+    "name": "Supremacy"
+  },
+  "supremacytiesf": {
+    "type": "Unit",
+    "image": "LOF\\Supremacy_TIEsf",
+    "name": "Supremacy TIE/sf"
+  },
+  "supremeleadersnoke": {
+    "type": "Leader",
+    "image": "LOF\\Supreme_Leader_Snoke",
+    "name": "Supreme Leader Snoke"
+  },
+  "t6shuttle1974": {
+    "type": "Unit",
+    "image": "LOF\\T-6_Shuttle_1974",
+    "name": "T-6 Shuttle 1974"
+  },
+  "talzinsassassin": {
+    "type": "Unit",
+    "image": "LOF\\Talzins_Assassin",
+    "name": "Talzin's Assassin"
+  },
+  "tauntaun": {
+    "type": "Unit",
+    "image": "LOF\\Tauntaun",
+    "name": "Tauntaun"
+  },
+  "templeofdestruction": {
+    "type": "Base",
+    "image": "LOF\\Temple_of_Destruction",
+    "name": "Temple of Destruction"
+  },
+  "terentatek": {
+    "type": "Unit",
+    "image": "LOF\\Terentatek",
+    "name": "Terentatek"
+  },
+  "theburdenofmasters": {
+    "type": "Event",
+    "image": "LOF\\The_Burden_of_Masters",
+    "name": "The Burden of Masters"
+  },
+  "thedaughter": {
+    "type": "Unit",
+    "image": "LOF\\The_Daughter",
+    "name": "The Daughter"
+  },
+  "thefather": {
+    "type": "Unit",
+    "image": "LOF\\The_Father",
+    "name": "The Father"
+  },
+  "theholycity": {
+    "type": "Base",
+    "image": "LOF\\The_Holy_City",
+    "name": "The Holy City"
+  },
+  "thelegacyrun": {
+    "type": "Unit",
+    "image": "LOF\\The_Legacy_Run",
+    "name": "The Legacy Run"
+  },
+  "thepurrgilking": {
+    "type": "Unit",
+    "image": "LOF\\The_Purrgil_King",
+    "name": "The Purrgil King"
+  },
+  "theson": {
+    "type": "Unit",
+    "image": "LOF\\The_Son",
+    "name": "The Son"
+  },
+  "thetragedyofplagueis": {
+    "type": "Event",
+    "image": "LOF\\The_Tragedy_of_Plagueis",
+    "name": "The Tragedy of Plagueis"
+  },
+  "thewilloftheforce": {
+    "type": "Event",
+    "image": "LOF\\The_Will_of_the_Force",
+    "name": "The Will of the Force"
+  },
+  "thirdsister": {
+    "type": "Leader",
+    "image": "LOF\\Third_Sister",
+    "name": "Third Sister"
+  },
+  "thrallsofthecoven": {
+    "type": "Unit",
+    "image": "LOF\\Thralls_of_the_Coven",
+    "name": "Thralls of the Coven"
+  },
+  "threelessons": {
+    "type": "Event",
+    "image": "LOF\\Three_Lessons",
+    "name": "Three Lessons"
+  },
+  "timeofcrisis": {
+    "type": "Event",
+    "image": "LOF\\Time_of_Crisis",
+    "name": "Time of Crisis"
+  },
+  "tipthescale": {
+    "type": "Event",
+    "image": "LOF\\Tip_the_Scale",
+    "name": "Tip the Scale"
+  },
+  "tombofeilram": {
+    "type": "Base",
+    "image": "LOF\\Tomb_of_Eilram",
+    "name": "Tomb of Eilram"
+  },
+  "tridentassaultship": {
+    "type": "Unit",
+    "image": "LOF\\Trident_Assault_Ship",
+    "name": "Trident Assault Ship"
+  },
+  "trustyourinstincts": {
+    "type": "Event",
+    "image": "LOF\\Trust_Your_Instincts",
+    "name": "Trust Your Instincts"
+  },
+  "tukata": {
+    "type": "Unit",
+    "image": "LOF\\Tukata",
+    "name": "Tuk'ata"
+  },
+  "tuskentracker": {
+    "type": "Unit",
+    "image": "LOF\\Tusken_Tracker",
+    "name": "Tusken Tracker"
+  },
+  "unleashrage": {
+    "type": "Event",
+    "image": "LOF\\Unleash_Rage",
+    "name": "Unleash Rage"
+  },
+  "vane": {
+    "type": "Unit",
+    "image": "LOF\\Vane",
+    "name": "Vaneé"
+  },
+  "vergencetemple": {
+    "type": "Base",
+    "image": "LOF\\Vergence_Temple",
+    "name": "Vergence Temple"
+  },
+  "vernestrarwoh": {
+    "type": "Unit",
+    "image": "LOF\\Vernestra_Rwoh",
+    "name": "Vernestra Rwoh"
+  },
+  "villagetender": {
+    "type": "Unit",
+    "image": "LOF\\Village_Tender",
+    "name": "Village Tender"
+  },
+  "vulptex": {
+    "type": "Unit",
+    "image": "LOF\\Vulptex",
+    "name": "Vulptex"
+  },
+  "wampa": {
+    "type": "Unit",
+    "image": "LOF\\Wampa",
+    "name": "Wampa"
+  },
+  "watto": {
+    "type": "Unit",
+    "image": "LOF\\Watto",
+    "name": "Watto"
+  },
+  "whirlwindofpower": {
+    "type": "Event",
+    "image": "LOF\\Whirlwind_of_Power",
+    "name": "Whirlwind of Power"
+  },
+  "witchofthemist": {
+    "type": "Unit",
+    "image": "LOF\\Witch_of_the_Mist",
+    "name": "Witch of the Mist"
+  },
+  "yaddle": {
+    "type": "Unit",
+    "image": "LOF\\Yaddle",
+    "name": "Yaddle"
+  },
+  "yoda": {
+    "type": "Unit",
+    "image": "LOF\\Yoda",
+    "name": "Yoda"
+  },
+  "yodaslightsaber": {
+    "type": "Upgrade",
+    "image": "LOF\\Yodas_Lightsaber",
+    "name": "Yoda's Lightsaber"
+  },
+  "younglingpadawan": {
+    "type": "Unit",
+    "image": "LOF\\Youngling_Padawan",
+    "name": "Youngling Padawan"
+  },
+  "zuckuss": {
+    "type": "Unit",
+    "image": "LOF\\Zuckuss",
+    "name": "Zuckuss"
+  }
+}

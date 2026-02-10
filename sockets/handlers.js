@@ -74,6 +74,12 @@ import {
     handleRiftboundIncomingDeckData
 } from "../features/riftbound/cards.js";
 
+import {
+    emitStarWarsCardList,
+    emitStarWarsCardView,
+    handleStarWarsIncomingDeckData
+} from "../features/starwars/cards.js";
+
 import { RoomUtils } from '../utils/room-utils.js';
 import {
     getPlatformConfig,
@@ -227,6 +233,7 @@ export default function registerSocketHandlers(io) {
         });
 
         socket.on('view-selected-card', ({cardSelected}) => {
+            console.log('[VIEW] view-selected-card from', socket.id, cardSelected);
             emitCardView(io, cardSelected);
         });
 
@@ -265,6 +272,20 @@ export default function registerSocketHandlers(io) {
         })
 
         // END RIFTBOUND
+
+        // STARWARS
+
+        // starwars - Card list
+        socket.on('starwars-get-card-list-data', () => {
+            emitStarWarsCardList(io);
+        });
+
+        // starwars - Deck Display
+        socket.on('starwars-main-deck-display-clicked', (deckListData) => {
+            handleStarWarsIncomingDeckData(io, deckListData)
+        })
+
+        // END STARWARS
 
         // Standings
         socket.on('get-all-standings', () => {
