@@ -1,0 +1,863 @@
+[
+    {
+        "name": "\"Staccato Lightning\" Repeater",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/187.png",
+        "type": "Upgrade",
+        "image": "LAW\\Staccato_Lightning_Repeater",
+        "success": true
+    },
+    {
+        "name": "0-0-0",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/174.png",
+        "type": "Unit",
+        "image": "LAW\\0-0-0",
+        "success": true
+    },
+    {
+        "name": "4-LOM",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/065.png",
+        "type": "Unit",
+        "image": "LAW\\4-LOM",
+        "success": true
+    },
+    {
+        "name": "Admiral Motti",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/139.png",
+        "type": "Unit",
+        "image": "LAW\\Admiral_Motti",
+        "success": true
+    },
+    {
+        "name": "Aerie",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/184.png",
+        "type": "Unit",
+        "image": "LAW\\Aerie",
+        "success": true
+    },
+    {
+        "name": "Agent Kallus",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/003.png",
+        "type": "Leader",
+        "image": "LAW\\Agent_Kallus",
+        "success": true
+    },
+    {
+        "name": "Aldhani Garrison",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/022.png",
+        "type": "Base",
+        "image": "LAW\\Aldhani_Garrison",
+        "success": true
+    },
+    {
+        "name": "Alliance Outpost",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/019.png",
+        "type": "Base",
+        "image": "LAW\\Alliance_Outpost",
+        "success": true
+    },
+    {
+        "name": "Anakin Skywalker",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/088.png",
+        "type": "Unit",
+        "image": "LAW\\Anakin_Skywalker",
+        "success": true
+    },
+    {
+        "name": "Anakin's Podracer",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/219.png",
+        "type": "Unit",
+        "image": "LAW\\Anakins_Podracer",
+        "success": true
+    },
+    {
+        "name": "Attack From All Sides",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/207.png",
+        "type": "Event",
+        "image": "LAW\\Attack_From_All_Sides",
+        "success": true
+    },
+    {
+        "name": "BT-1",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/173.png",
+        "type": "Unit",
+        "image": "LAW\\BT-1",
+        "success": true
+    },
+    {
+        "name": "Backed by the Hutts",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/247.png",
+        "type": "Event",
+        "image": "LAW\\Backed_by_the_Hutts",
+        "success": true
+    },
+    {
+        "name": "Baze Malbus",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/047.png",
+        "type": "Unit",
+        "image": "LAW\\Baze_Malbus",
+        "success": true
+    },
+    {
+        "name": "Beilert Valance",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/051.png",
+        "type": "Unit",
+        "image": "LAW\\Beilert_Valance",
+        "success": true
+    },
+    {
+        "name": "Ben Solo",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/185.png",
+        "type": "Unit",
+        "image": "LAW\\Ben_Solo",
+        "success": true
+    },
+    {
+        "name": "Bib Fortuna",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/134.png",
+        "type": "Unit",
+        "image": "LAW\\Bib_Fortuna",
+        "success": true
+    },
+    {
+        "name": "Bix Caleen",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/236.png",
+        "type": "Unit",
+        "image": "LAW\\Bix_Caleen",
+        "success": true
+    },
+    {
+        "name": "Black Sun Cabalist",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/249.png",
+        "type": "Unit",
+        "image": "LAW\\Black_Sun_Cabalist",
+        "success": true
+    },
+    {
+        "name": "Black Sun Patroller",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/211.png",
+        "type": "Unit",
+        "image": "LAW\\Black_Sun_Patroller",
+        "success": true
+    },
+    {
+        "name": "Boba Fett",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/214.png",
+        "type": "Unit",
+        "image": "LAW\\Boba_Fett",
+        "success": true
+    },
+    {
+        "name": "Bodhi Rook",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/104.png",
+        "type": "Unit",
+        "image": "LAW\\Bodhi_Rook",
+        "success": true
+    },
+    {
+        "name": "C-3P0",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/152.png",
+        "type": "Unit",
+        "image": "LAW\\C-3P0",
+        "success": true
+    },
+    {
+        "name": "Canto Bight",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/028.png",
+        "type": "Base",
+        "image": "LAW\\Canto_Bight",
+        "success": true
+    },
+    {
+        "name": "Cassian Andor",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/056.png",
+        "type": "Unit",
+        "image": "LAW\\Cassian_Andor",
+        "success": true
+    },
+    {
+        "name": "Champion's KT9 Podracer",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/232.png",
+        "type": "Unit",
+        "image": "LAW\\Champions_KT9_Podracer",
+        "success": true
+    },
+    {
+        "name": "Chewbacca",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/034.png",
+        "type": "Unit",
+        "image": "LAW\\Chewbacca",
+        "success": true
+    },
+    {
+        "name": "Chio Fain",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/048.png",
+        "type": "Unit",
+        "image": "LAW\\Chio_Fain",
+        "success": true
+    },
+    {
+        "name": "Chirrut \u00cemwe",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/046.png",
+        "type": "Unit",
+        "image": "LAW\\Chirrut_mwe",
+        "success": true
+    },
+    {
+        "name": "Chopper",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/055.png",
+        "type": "Unit",
+        "image": "LAW\\Chopper",
+        "success": true
+    },
+    {
+        "name": "Cinta Kaz",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/105.png",
+        "type": "Unit",
+        "image": "LAW\\Cinta_Kaz",
+        "success": true
+    },
+    {
+        "name": "Citadel Research Center",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/029.png",
+        "type": "Base",
+        "image": "LAW\\Citadel_Research_Center",
+        "success": true
+    },
+    {
+        "name": "Combat Exercise",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/165.png",
+        "type": "Event",
+        "image": "LAW\\Combat_Exercise",
+        "success": true
+    },
+    {
+        "name": "Common Cause",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/167.png",
+        "type": "Event",
+        "image": "LAW\\Common_Cause",
+        "success": true
+    },
+    {
+        "name": "Conveyex Security Captain",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/117.png",
+        "type": "Unit",
+        "image": "LAW\\Conveyex_Security_Captain",
+        "success": true
+    },
+    {
+        "name": "Daimyo's Palace",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/020.png",
+        "type": "Base",
+        "image": "LAW\\Daimyos_Palace",
+        "success": true
+    },
+    {
+        "name": "Darth Vader",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/011.png",
+        "type": "Leader",
+        "image": "LAW\\Darth_Vader",
+        "success": true
+    },
+    {
+        "name": "Dengar",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/053.png",
+        "type": "Unit",
+        "image": "LAW\\Dengar",
+        "success": true
+    },
+    {
+        "name": "Director Krennic",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/008.png",
+        "type": "Leader",
+        "image": "LAW\\Director_Krennic",
+        "success": true
+    },
+    {
+        "name": "Double-Cross",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/170.png",
+        "type": "Event",
+        "image": "LAW\\Double-Cross",
+        "success": true
+    },
+    {
+        "name": "Enfy Nest",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/014.png",
+        "type": "Leader",
+        "image": "LAW\\Enfy_Nest",
+        "success": true
+    },
+    {
+        "name": "Enfys Nest's Helmet",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/186.png",
+        "type": "Upgrade",
+        "image": "LAW\\Enfys_Nests_Helmet",
+        "success": true
+    },
+    {
+        "name": "Expendable Mercenary",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/159.png",
+        "type": "Unit",
+        "image": "LAW\\Expendable_Mercenary",
+        "success": true
+    },
+    {
+        "name": "Ezra Bridger",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/035.png",
+        "type": "Unit",
+        "image": "LAW\\Ezra_Bridger",
+        "success": true
+    },
+    {
+        "name": "Fear and Dead Men",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/179.png",
+        "type": "Event",
+        "image": "LAW\\Fear_and_Dead_Men",
+        "success": true
+    },
+    {
+        "name": "Fett's FIrespray",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/252.png",
+        "type": "Unit",
+        "image": "LAW\\Fetts_FIrespray",
+        "success": true
+    },
+    {
+        "name": "Finn",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/095.png",
+        "type": "Unit",
+        "image": "LAW\\Finn",
+        "success": true
+    },
+    {
+        "name": "From a Certain Point of View",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/264.png",
+        "type": "Event",
+        "image": "LAW\\From_a_Certain_Point_of_View",
+        "success": true
+    },
+    {
+        "name": "Fulcrum",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/150.png",
+        "type": "Upgrade",
+        "image": "LAW\\Fulcrum",
+        "success": true
+    },
+    {
+        "name": "Galen Erso",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/233.png",
+        "type": "Unit",
+        "image": "LAW\\Galen_Erso",
+        "success": true
+    },
+    {
+        "name": "Great Pit of Carkoon",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/023.png",
+        "type": "Base",
+        "image": "LAW\\Great_Pit_of_Carkoon",
+        "success": true
+    },
+    {
+        "name": "Han Solo",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/017.png",
+        "type": "Leader",
+        "image": "LAW\\Han_Solo",
+        "success": true
+    },
+    {
+        "name": "Han Solo",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/037.png",
+        "type": "Unit",
+        "image": "LAW\\Han_Solo",
+        "success": true
+    },
+    {
+        "name": "Han's Golden Dice",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/225.png",
+        "type": "Upgrade",
+        "image": "LAW\\Hans_Golden_Dice",
+        "success": true
+    },
+    {
+        "name": "Haymaker",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/168.png",
+        "type": "Event",
+        "image": "LAW\\Haymaker",
+        "success": true
+    },
+    {
+        "name": "Hera Syndulla",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/009.png",
+        "type": "Leader",
+        "image": "LAW\\Hera_Syndulla",
+        "success": true
+    },
+    {
+        "name": "Hondo Ohnaka",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/094.png",
+        "type": "Unit",
+        "image": "LAW\\Hondo_Ohnaka",
+        "success": true
+    },
+    {
+        "name": "Improvise",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/242.png",
+        "type": "Event",
+        "image": "LAW\\Improvise",
+        "success": true
+    },
+    {
+        "name": "Intimidator",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/140.png",
+        "type": "Unit",
+        "image": "LAW\\Intimidator",
+        "success": true
+    },
+    {
+        "name": "Jabba the Hutt",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/015.png",
+        "type": "Leader",
+        "image": "LAW\\Jabba_the_Hutt",
+        "success": true
+    },
+    {
+        "name": "Jabba's Rancor",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/216.png",
+        "type": "Unit",
+        "image": "LAW\\Jabbas_Rancor",
+        "success": true
+    },
+    {
+        "name": "Jaunty Light Freighter",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/147.png",
+        "type": "Unit",
+        "image": "LAW\\Jaunty_Light_Freighter",
+        "success": true
+    },
+    {
+        "name": "Jyn Erso",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/005.png",
+        "type": "Leader",
+        "image": "LAW\\Jyn_Erso",
+        "success": true
+    },
+    {
+        "name": "Jyn Erso",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/067.png",
+        "type": "Unit",
+        "image": "LAW\\Jyn_Erso",
+        "success": true
+    },
+    {
+        "name": "Kanan Jarrus",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/089.png",
+        "type": "Unit",
+        "image": "LAW\\Kanan_Jarrus",
+        "success": true
+    },
+    {
+        "name": "Khetanna",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/158.png",
+        "type": "Unit",
+        "image": "LAW\\Khetanna",
+        "success": true
+    },
+    {
+        "name": "Lady Proxima",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/235.png",
+        "type": "Unit",
+        "image": "LAW\\Lady_Proxima",
+        "success": true
+    },
+    {
+        "name": "Lando Calrissian",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/018.png",
+        "type": "Leader",
+        "image": "LAW\\Lando_Calrissian",
+        "success": true
+    },
+    {
+        "name": "Lando Calrissian",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/108.png",
+        "type": "Unit",
+        "image": "LAW\\Lando_Calrissian",
+        "success": true
+    },
+    {
+        "name": "Latts Razzi",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/039.png",
+        "type": "Unit",
+        "image": "LAW\\Latts_Razzi",
+        "success": true
+    },
+    {
+        "name": "Lawbringer",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/101.png",
+        "type": "Unit",
+        "image": "LAW\\Lawbringer",
+        "success": true
+    },
+    {
+        "name": "Leia Organa",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/010.png",
+        "type": "Leader",
+        "image": "LAW\\Leia_Organa",
+        "success": true
+    },
+    {
+        "name": "Leia's Disguise",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/111.png",
+        "type": "Upgrade",
+        "image": "LAW\\Leias_Disguise",
+        "success": true
+    },
+    {
+        "name": "Lepi Lookout",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/038.png",
+        "type": "Unit",
+        "image": "LAW\\Lepi_Lookout",
+        "success": true
+    },
+    {
+        "name": "Luke Skywalker",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/080.png",
+        "type": "Unit",
+        "image": "LAW\\Luke_Skywalker",
+        "success": true
+    },
+    {
+        "name": "Malakili",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/212.png",
+        "type": "Unit",
+        "image": "LAW\\Malakili",
+        "success": true
+    },
+    {
+        "name": "Massassi Group Marines",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/146.png",
+        "type": "Unit",
+        "image": "LAW\\Massassi_Group_Marines",
+        "success": true
+    },
+    {
+        "name": "Maul",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/054.png",
+        "type": "Unit",
+        "image": "LAW\\Maul",
+        "success": true
+    },
+    {
+        "name": "Max Rebo",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/072.png",
+        "type": "Unit",
+        "image": "LAW\\Max_Rebo",
+        "success": true
+    },
+    {
+        "name": "Millennium Falcon",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/068.png",
+        "type": "Unit",
+        "image": "LAW\\Millennium_Falcon",
+        "success": true
+    },
+    {
+        "name": "Nothing Left to Fear",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/041.png",
+        "type": "Event",
+        "image": "LAW\\Nothing_Left_to_Fear",
+        "success": true
+    },
+    {
+        "name": "Patient Hunter",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/073.png",
+        "type": "Unit",
+        "image": "LAW\\Patient_Hunter",
+        "success": true
+    },
+    {
+        "name": "Persecutor",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/178.png",
+        "type": "Unit",
+        "image": "LAW\\Persecutor",
+        "success": true
+    },
+    {
+        "name": "Phantom",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/144.png",
+        "type": "Unit",
+        "image": "LAW\\Phantom",
+        "success": true
+    },
+    {
+        "name": "Putting a Team Together",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/166.png",
+        "type": "Event",
+        "image": "LAW\\Putting_a_Team_Together",
+        "success": true
+    },
+    {
+        "name": "Qui-Gon Jinn",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/237.png",
+        "type": "Unit",
+        "image": "LAW\\Qui-Gon_Jinn",
+        "success": true
+    },
+    {
+        "name": "R2-D2",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/145.png",
+        "type": "Unit",
+        "image": "LAW\\R2-D2",
+        "success": true
+    },
+    {
+        "name": "Rey",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/149.png",
+        "type": "Unit",
+        "image": "LAW\\Rey",
+        "success": true
+    },
+    {
+        "name": "Rio Durant",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/093.png",
+        "type": "Unit",
+        "image": "LAW\\Rio_Durant",
+        "success": true
+    },
+    {
+        "name": "Rogue One",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/119.png",
+        "type": "Unit",
+        "image": "LAW\\Rogue_One",
+        "success": true
+    },
+    {
+        "name": "Rose Tico",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/223.png",
+        "type": "Unit",
+        "image": "LAW\\Rose_Tico",
+        "success": true
+    },
+    {
+        "name": "Salacious Crumb",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/210.png",
+        "type": "Unit",
+        "image": "LAW\\Salacious_Crumb",
+        "success": true
+    },
+    {
+        "name": "Scarif Lieutenant",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/142.png",
+        "type": "Unit",
+        "image": "LAW\\Scarif_Lieutenant",
+        "success": true
+    },
+    {
+        "name": "Scavenging Sandcrawler",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/238.png",
+        "type": "Unit",
+        "image": "LAW\\Scavenging_Sandcrawler",
+        "success": true
+    },
+    {
+        "name": "Sebulba",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/012.png",
+        "type": "Leader",
+        "image": "LAW\\Sebulba",
+        "success": true
+    },
+    {
+        "name": "Sebulba's Podracer",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/176.png",
+        "type": "Unit",
+        "image": "LAW\\Sebulbas_Podracer",
+        "success": true
+    },
+    {
+        "name": "Secret Battle of Pretend",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/226.png",
+        "type": "Event",
+        "image": "LAW\\Secret_Battle_of_Pretend",
+        "success": true
+    },
+    {
+        "name": "Shadow Cloaking",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/043.png",
+        "type": "Event",
+        "image": "LAW\\Shadow_Cloaking",
+        "success": true
+    },
+    {
+        "name": "Shadow of Stygeon Prime",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/077.png",
+        "type": "Upgrade",
+        "image": "LAW\\Shadow_of_Stygeon_Prime",
+        "success": true
+    },
+    {
+        "name": "Shipbreaking Yard",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/026.png",
+        "type": "Base",
+        "image": "LAW\\Shipbreaking_Yard",
+        "success": true
+    },
+    {
+        "name": "Single Reactor Ignition",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/044.png",
+        "type": "Event",
+        "image": "LAW\\Single_Reactor_Ignition",
+        "success": true
+    },
+    {
+        "name": "Stockpile",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/171.png",
+        "type": "Event",
+        "image": "LAW\\Stockpile",
+        "success": true
+    },
+    {
+        "name": "Stygeon Spire",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/027.png",
+        "type": "Base",
+        "image": "LAW\\Stygeon_Spire",
+        "success": true
+    },
+    {
+        "name": "Syndicate Spice Runner",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/136.png",
+        "type": "Unit",
+        "image": "LAW\\Syndicate_Spice_Runner",
+        "success": true
+    },
+    {
+        "name": "Tantive IV",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/109.png",
+        "type": "Unit",
+        "image": "LAW\\Tantive_IV",
+        "success": true
+    },
+    {
+        "name": "That's a Rock",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/206.png",
+        "type": "Event",
+        "image": "LAW\\Thats_a_Rock",
+        "success": true
+    },
+    {
+        "name": "The Axe Forgets",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/246.png",
+        "type": "Event",
+        "image": "LAW\\The_Axe_Forgets",
+        "success": true
+    },
+    {
+        "name": "The Blade Wing",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/241.png",
+        "type": "Unit",
+        "image": "LAW\\The_Blade_Wing",
+        "success": true
+    },
+    {
+        "name": "The Client",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/016.png",
+        "type": "Leader",
+        "image": "LAW\\The_Client",
+        "success": true
+    },
+    {
+        "name": "The Mandalorian",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/052.png",
+        "type": "Unit",
+        "image": "LAW\\The_Mandalorian",
+        "success": true
+    },
+    {
+        "name": "The Master Codebreaker",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/229.png",
+        "type": "Unit",
+        "image": "LAW\\The_Master_Codebreaker",
+        "success": true
+    },
+    {
+        "name": "The Max Rebo Band",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/071.png",
+        "type": "Unit",
+        "image": "LAW\\The_Max_Rebo_Band",
+        "success": true
+    },
+    {
+        "name": "The Sarlacc of Carkoon",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/163.png",
+        "type": "Unit",
+        "image": "LAW\\The_Sarlacc_of_Carkoon",
+        "success": true
+    },
+    {
+        "name": "The Tree Remembers",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/132.png",
+        "type": "Event",
+        "image": "LAW\\The_Tree_Remembers",
+        "success": true
+    },
+    {
+        "name": "Transmission Jamming",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/243.png",
+        "type": "Event",
+        "image": "LAW\\Transmission_Jamming",
+        "success": true
+    },
+    {
+        "name": "Unmarked Credits",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/244.png",
+        "type": "Event",
+        "image": "LAW\\Unmarked_Credits",
+        "success": true
+    },
+    {
+        "name": "Urrr'k",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/082.png",
+        "type": "Unit",
+        "image": "LAW\\Urrrk",
+        "success": true
+    },
+    {
+        "name": "Vermillion",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/215.png",
+        "type": "Unit",
+        "image": "LAW\\Vermillion",
+        "success": true
+    },
+    {
+        "name": "Vult Skerris's Defender",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/076.png",
+        "type": "Unit",
+        "image": "LAW\\Vult_Skerriss_Defender",
+        "success": true
+    },
+    {
+        "name": "Weazel",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/182.png",
+        "type": "Unit",
+        "image": "LAW\\Weazel",
+        "success": true
+    },
+    {
+        "name": "Weequay Pirate",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/231.png",
+        "type": "Unit",
+        "image": "LAW\\Weequay_Pirate",
+        "success": true
+    },
+    {
+        "name": "You Hold This",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/085.png",
+        "type": "Event",
+        "image": "LAW\\You_Hold_This",
+        "success": true
+    },
+    {
+        "name": "Zeb Orellios",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/045.png",
+        "type": "Unit",
+        "image": "LAW\\Zeb_Orellios",
+        "success": true
+    }
+]
