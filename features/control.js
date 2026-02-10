@@ -249,6 +249,9 @@ export function emitScoreboardState(io) {
 export function updateScoreboardSate(io, round_id, match_id, action, value) {
     // console.log(round_id, match_id, action, value);
     if (action === 'showWins') {
+        if (!scoreboardState[round_id]) {
+            scoreboardState[round_id] = { match1: {showWins: true}, match2: {showWins: true}, match3: {showWins: true}, match4: {showWins: true} };
+        }
         scoreboardState[round_id][match_id]['showWins'] = value;
         // emit updated scoreboard state
         emitScoreboardState(io);

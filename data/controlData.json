@@ -21,7 +21,7 @@
       "player-side-deck-right": [],
       "player-side-deck-left": [],
       "player-main-deck-left": [
-        "Pack 1",
+        "Main Deck",
         "1 Grub, Notorious Auntie",
         "1 Grub, Storied Matriarch"
       ],
@@ -1865,7 +1865,7 @@
   },
   "17": {
     "match1": {
-      "player-name-left": "",
+      "player-name-left": "test17",
       "player-pronouns-left": "",
       "player-archetype-left": "",
       "player-record-left": "0-0",

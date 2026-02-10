@@ -110,6 +110,7 @@ export function initBrackets(socket) {
             // Check if the line starts with a number (Rank)
             if (/^\d+/.test(line)) {
                 const rank = line.split(' ')[0]; // The rank is the first part of the line
+                if (i + 3 >= lines.length) break; // Not enough lines for a complete entry
                 const playerInfo = lines[++i].trim(); // The next line contains the player's name
                 const archetype = lines[++i].trim(); // The next line contains the archetype
                 const record = lines[++i].trim().split(/\s+/)[0]; // First space-delimited entry in the next line

@@ -105,6 +105,7 @@ class RoomManager {
         if (path.includes('/broadcast/round/draftlist/')) return 'broadcast-draft-list';
 
         // Bracket
+        if (path.includes('/display/bracket/top8')) return 'brackets';
         if (path.includes('/display/bracket/details/') || path.includes('bracket-individual-display.html')) return 'brackets';
         
         // Meta breakdown

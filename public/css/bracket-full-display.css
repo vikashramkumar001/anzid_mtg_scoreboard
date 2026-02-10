@@ -1,0 +1,193 @@
+/* Gotham Narrow Font Faces */
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/Gotham Narrow Medium.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --dynamic-font: 'Bebas Neue', sans-serif;
+    --dynamic-font-weight: bold;
+    --archetype-font-style: italic;
+    --archetype-font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--dynamic-font), sans-serif;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* Canvas */
+#bracket-canvas {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+}
+
+#bracket-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 0;
+    object-fit: cover;
+}
+
+#bracket-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 1;
+}
+
+#bracket-slots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 2;
+}
+
+/* Individual bracket slot */
+.bracket-slot {
+    position: absolute;
+    width: 574px;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 28px;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    /* Animation: start hidden */
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1s ease-out;
+}
+
+.bracket-slot.revealed {
+    clip-path: inset(0 0 0 0);
+}
+
+/* Frame background image on each slot */
+.bracket-slot .slot-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 424px;
+    height: 56px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.slot-rank {
+    width: 46px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #C6C6C6;
+    padding-top: 3px;
+    z-index: 1;
+}
+
+.slot-name-archetype {
+    width: 428px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    clip-path: polygon(0% 0, 73% 0%, 64.5% 100%, 0% 100%);
+    background-color: #C6C6C6;
+    z-index: 1;
+}
+
+.slot-name {
+    display: block;
+    height: 31px;
+    line-height: 39px;
+    margin-bottom: 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90%;
+    text-align: start;
+}
+
+.slot-archetype {
+    display: block;
+    height: 22px;
+    line-height: 18px;
+    font-style: var(--archetype-font-style, italic);
+    font-weight: var(--archetype-font-weight, bold);
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 88%;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.slot-points {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 4.25% 100%);
+    left: -150px;
+    position: relative;
+    text-indent: 25px;
+    padding-top: 3px;
+    z-index: 1;
+}
+
+/* SVG bracket lines */
+#bracket-lines path {
+    stroke: white;
+    stroke-width: 3;
+    fill: none;
+    transition: stroke-dashoffset 0.8s ease-out;
+}

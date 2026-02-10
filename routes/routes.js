@@ -83,6 +83,10 @@ router.get('/broadcast/round/standings-all-2', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-all-2.html'));
 });
 
+router.get('/display/bracket/top8', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/bracket-full-display.html'));
+});
+
 router.get('/display/bracket/details/:bracketID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/bracket-individual-display.html'));
 });

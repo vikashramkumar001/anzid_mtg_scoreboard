@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Full Bracket Display</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <link href="/css/bracket-full-display.css" rel="stylesheet">
+</head>
+<body>
+<div id="bracket-canvas">
+    <img id="bracket-bg" src="/assets/images/mtg/bracket/bracket-bg.png" alt="">
+    <svg id="bracket-lines" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="bracket-slots"></div>
+</div>
+<script type="module" src="/js/bracket-full-display.js"></script>
+</body>
+</html>
