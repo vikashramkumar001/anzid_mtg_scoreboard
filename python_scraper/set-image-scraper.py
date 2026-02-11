@@ -9,6 +9,7 @@ import re
 import requests
 import os
 import json
+from PIL import Image
 from urllib.parse import urlparse
 
 API_URL = "https://api.swu-db.com/cards/"
@@ -55,6 +56,13 @@ def download_image(url: str, filename: str) -> bool:
 		fh.write(r.content)
 	return True
 
+def force_portrait(image_path):
+	img = Image.open(image_path)
+	width, height = img.size
+	if width > height:
+		img = img.rotate(90, expand=True)
+		img.save(image_path)
+
 def main():
 	setname = input("Set acronym: ")
 	response = requests.get(API_URL + setname)
@@ -71,20 +79,42 @@ def main():
 		os.makedirs(IMAGE_DIR)
 
 	for card in cards:
-		front_art_url = card['FrontArt']
-		raw_name = card['Name']
+		raw_name = card.get('Name', '')
+		subtitle = card.get('Subtitle', '')
+		front_art_url = card.get('FrontArt', '')
+		back_art_url = card.get('BackArt', '')
 
-		base_name = sanitize_filename(str(raw_name))
+		base_name = sanitize_filename(str(raw_name)) 
+		if subtitle != '':
+			base_name += " - " + sanitize_filename(str(subtitle))
 		filename = os.path.join(IMAGE_DIR, base_name)
+		
+		if any(c['name'] == base_name for c in manifest): 
+			continue
+		else:
+			ok = download_image(front_art_url, filename)
+			force_portrait(filename + ".png")
+			manifest.append({
+				'name': base_name,
+				'subtitle': subtitle,
+				'url': front_art_url,
+				'type': card['Type'],
+				'image': filename + ".png" if ok else None,
+				'success': bool(ok)
+			})
 
-		ok = download_image(front_art_url, filename)
-		manifest.append({
-			'name': raw_name,
-			'url': front_art_url,
-			'type': card['Type'],
-			'image': filename if ok else None,
-			'success': bool(ok)
-		})
+			if back_art_url != '':
+				back_filename = os.path.join(IMAGE_DIR, base_name + "_back")
+				ok = download_image(back_art_url, back_filename)
+				manifest.append({
+					'name': base_name + "_back",
+					'subtitle': subtitle,
+					'url': back_art_url,
+					'type': card['Type'],
+					'image': back_filename + ".png" if ok else None,
+					'success': bool(ok)
+				})
+
 
 	with open(MANIFEST_FILE, 'w') as f:
 		json.dump(manifest, f, indent=4)

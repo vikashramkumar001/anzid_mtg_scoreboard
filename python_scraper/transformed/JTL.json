@@ -1,1282 +1,1402 @@
 {
   "atdpoccupier": {
     "type": "Unit",
-    "image": "JTL\\AT-DP_Occupier",
-    "name": "AT-DP Occupier"
+    "image": "JTL\\AT-DP_Occupier.png",
+    "name": "AT-DP_Occupier"
   },
   "academygraduate": {
     "type": "Unit",
-    "image": "JTL\\Academy_Graduate",
-    "name": "Academy Graduate"
+    "image": "JTL\\Academy_Graduate.png",
+    "name": "Academy_Graduate"
   },
   "adeptarc170": {
     "type": "Unit",
-    "image": "JTL\\Adept_ARC-170",
-    "name": "Adept ARC-170"
+    "image": "JTL\\Adept_ARC-170.png",
+    "name": "Adept_ARC-170"
   },
-  "admiralackbar": {
+  "admiralackbaritsatrap": {
     "type": "Leader",
-    "image": "JTL\\Admiral_Ackbar",
-    "name": "Admiral Ackbar"
+    "image": "JTL\\Admiral_Ackbar - Its_A_Trap.png",
+    "name": "Admiral_Ackbar - Its_A_Trap"
   },
-  "admiralholdo": {
+  "admiralackbaritsatrapback": {
     "type": "Leader",
-    "image": "JTL\\Admiral_Holdo",
-    "name": "Admiral Holdo"
+    "image": "JTL\\Admiral_Ackbar - Its_A_Trap_back.png",
+    "name": "Admiral_Ackbar - Its_A_Trap_back"
   },
-  "admiralpiett": {
+  "admiralholdowerenotalone": {
     "type": "Leader",
-    "image": "JTL\\Admiral_Piett",
-    "name": "Admiral Piett"
+    "image": "JTL\\Admiral_Holdo - Were_Not_Alone.png",
+    "name": "Admiral_Holdo - Were_Not_Alone"
   },
-  "admiraltrench": {
+  "admiralholdowerenotaloneback": {
     "type": "Leader",
-    "image": "JTL\\Admiral_Trench",
-    "name": "Admiral Trench"
+    "image": "JTL\\Admiral_Holdo - Were_Not_Alone_back.png",
+    "name": "Admiral_Holdo - Were_Not_Alone_back"
   },
-  "admiralyularen": {
+  "admiralpiettcommandingthearmada": {
+    "type": "Leader",
+    "image": "JTL\\Admiral_Piett - Commanding_the_Armada.png",
+    "name": "Admiral_Piett - Commanding_the_Armada"
+  },
+  "admiralpiettcommandingthearmadaback": {
+    "type": "Leader",
+    "image": "JTL\\Admiral_Piett - Commanding_the_Armada_back.png",
+    "name": "Admiral_Piett - Commanding_the_Armada_back"
+  },
+  "admiraltrenchchkchkchkchk": {
+    "type": "Leader",
+    "image": "JTL\\Admiral_Trench - chk-chk-chk-chk.png",
+    "name": "Admiral_Trench - chk-chk-chk-chk"
+  },
+  "admiraltrenchchkchkchkchkback": {
+    "type": "Leader",
+    "image": "JTL\\Admiral_Trench - chk-chk-chk-chk_back.png",
+    "name": "Admiral_Trench - chk-chk-chk-chk_back"
+  },
+  "admiralyularenfleetcoordinator": {
     "type": "Unit",
-    "image": "JTL\\Admiral_Yularen",
-    "name": "Admiral Yularen"
+    "image": "JTL\\Admiral_Yularen - Fleet_Coordinator.png",
+    "name": "Admiral_Yularen - Fleet_Coordinator"
   },
-  "ahsokatano": {
+  "ahsokatanochasingwhispers": {
     "type": "Unit",
-    "image": "JTL\\Ahsoka_Tano",
-    "name": "Ahsoka Tano"
+    "image": "JTL\\Ahsoka_Tano - Chasing_Whispers.png",
+    "name": "Ahsoka_Tano - Chasing_Whispers"
   },
   "airsuperiority": {
     "type": "Event",
-    "image": "JTL\\Air_Superiority",
-    "name": "Air Superiority"
+    "image": "JTL\\Air_Superiority.png",
+    "name": "Air_Superiority"
   },
   "allwingsreportin": {
     "type": "Event",
-    "image": "JTL\\All_Wings_Report_In",
-    "name": "All Wings Report In"
+    "image": "JTL\\All_Wings_Report_In.png",
+    "name": "All_Wings_Report_In"
   },
-  "allegiantgeneralpryde": {
+  "allegiantgeneralpryderuthlessandloyal": {
     "type": "Unit",
-    "image": "JTL\\Allegiant_General_Pryde",
-    "name": "Allegiant General Pryde"
+    "image": "JTL\\Allegiant_General_Pryde - Ruthless_and_Loyal.png",
+    "name": "Allegiant_General_Pryde - Ruthless_and_Loyal"
   },
-  "anakinskywalker": {
+  "anakinskywalkerilltryspinning": {
     "type": "Unit",
-    "image": "JTL\\Anakin_Skywalker",
-    "name": "Anakin Skywalker"
+    "image": "JTL\\Anakin_Skywalker - Ill_Try_Spinning.png",
+    "name": "Anakin_Skywalker - Ill_Try_Spinning"
   },
-  "annihilator": {
+  "annihilatortaggesflagship": {
     "type": "Unit",
-    "image": "JTL\\Annihilator",
-    "name": "Annihilator"
+    "image": "JTL\\Annihilator - Tagges_Flagship.png",
+    "name": "Annihilator - Tagges_Flagship"
   },
   "apologyaccepted": {
     "type": "Event",
-    "image": "JTL\\Apology_Accepted",
-    "name": "Apology Accepted"
+    "image": "JTL\\Apology_Accepted.png",
+    "name": "Apology_Accepted"
   },
-  "asajjventress": {
+  "asajjventressiworkalone": {
     "type": "Leader",
-    "image": "JTL\\Asajj_Ventress",
-    "name": "Asajj Ventress"
+    "image": "JTL\\Asajj_Ventress - I_Work_Alone.png",
+    "name": "Asajj_Ventress - I_Work_Alone"
+  },
+  "asajjventressiworkaloneback": {
+    "type": "Leader",
+    "image": "JTL\\Asajj_Ventress - I_Work_Alone_back.png",
+    "name": "Asajj_Ventress - I_Work_Alone_back"
   },
   "astromechpilot": {
     "type": "Unit",
-    "image": "JTL\\Astromech_Pilot",
-    "name": "Astromech Pilot"
+    "image": "JTL\\Astromech_Pilot.png",
+    "name": "Astromech_Pilot"
   },
   "attackrun": {
     "type": "Event",
-    "image": "JTL\\Attack_Run",
-    "name": "Attack Run"
+    "image": "JTL\\Attack_Run.png",
+    "name": "Attack_Run"
   },
-  "bb8": {
+  "bb8happybeeps": {
     "type": "Unit",
-    "image": "JTL\\BB-8",
-    "name": "BB-8"
+    "image": "JTL\\BB-8 - Happy_Beeps.png",
+    "name": "BB-8 - Happy_Beeps"
   },
-  "banshee": {
+  "bansheecripplingcommand": {
     "type": "Unit",
-    "image": "JTL\\Banshee",
-    "name": "Banshee"
+    "image": "JTL\\Banshee - Crippling_Command.png",
+    "name": "Banshee - Crippling_Command"
   },
   "barrelroll": {
     "type": "Event",
-    "image": "JTL\\Barrel_Roll",
-    "name": "Barrel Roll"
+    "image": "JTL\\Barrel_Roll.png",
+    "name": "Barrel_Roll"
   },
-  "biggsdarklighter": {
+  "biggsdarklightertheyllneverstopus": {
     "type": "Unit",
-    "image": "JTL\\Biggs_Darklighter",
-    "name": "Biggs Darklighter"
+    "image": "JTL\\Biggs_Darklighter - Theyll_Never_Stop_Us.png",
+    "name": "Biggs_Darklighter - Theyll_Never_Stop_Us"
   },
-  "blackone": {
+  "blackonestraightatthem": {
     "type": "Unit",
-    "image": "JTL\\Black_One",
-    "name": "Black One"
+    "image": "JTL\\Black_One - Straight_At_Them.png",
+    "name": "Black_One - Straight_At_Them"
   },
   "blacksquadronscoutwing": {
     "type": "Unit",
-    "image": "JTL\\Black_Squadron_Scout_Wing",
-    "name": "Black Squadron Scout Wing"
+    "image": "JTL\\Black_Squadron_Scout_Wing.png",
+    "name": "Black_Squadron_Scout_Wing"
   },
   "bladesquadronbwing": {
     "type": "Unit",
-    "image": "JTL\\Blade_Squadron_B-Wing",
-    "name": "Blade Squadron B-Wing"
+    "image": "JTL\\Blade_Squadron_B-Wing.png",
+    "name": "Blade_Squadron_B-Wing"
   },
-  "blueleader": {
+  "blueleaderscarifairsupport": {
     "type": "Unit",
-    "image": "JTL\\Blue_Leader",
-    "name": "Blue Leader"
+    "image": "JTL\\Blue_Leader - Scarif_Air_Support.png",
+    "name": "Blue_Leader - Scarif_Air_Support"
   },
-  "boshek": {
+  "boshekcharismaticsmuggler": {
     "type": "Unit",
-    "image": "JTL\\BoShek",
-    "name": "BoShek"
+    "image": "JTL\\BoShek - Charismatic_Smuggler.png",
+    "name": "BoShek - Charismatic_Smuggler"
   },
-  "bobafett": {
+  "bobafettanymethodsnecessary": {
     "type": "Leader",
-    "image": "JTL\\Boba_Fett",
-    "name": "Boba Fett"
+    "image": "JTL\\Boba_Fett - Any_Methods_Necessary.png",
+    "name": "Boba_Fett - Any_Methods_Necessary"
   },
-  "bossk": {
+  "bobafettanymethodsnecessaryback": {
+    "type": "Leader",
+    "image": "JTL\\Boba_Fett - Any_Methods_Necessary_back.png",
+    "name": "Boba_Fett - Any_Methods_Necessary_back"
+  },
+  "bobafettfearedbountyhunter": {
     "type": "Unit",
-    "image": "JTL\\Bossk",
-    "name": "Bossk"
+    "image": "JTL\\Boba_Fett - Feared_Bounty_Hunter.png",
+    "name": "Boba_Fett - Feared_Bounty_Hunter"
+  },
+  "bosskhuntbyinstinct": {
+    "type": "Unit",
+    "image": "JTL\\Bossk - Hunt_By_Instinct.png",
+    "name": "Bossk - Hunt_By_Instinct"
   },
   "bunkerdefender": {
     "type": "Unit",
-    "image": "JTL\\Bunker_Defender",
-    "name": "Bunker Defender"
+    "image": "JTL\\Bunker_Defender.png",
+    "name": "Bunker_Defender"
   },
   "cr90reliefrunner": {
     "type": "Unit",
-    "image": "JTL\\CR90_Relief_Runner",
-    "name": "CR90 Relief Runner"
+    "image": "JTL\\CR90_Relief_Runner.png",
+    "name": "CR90_Relief_Runner"
   },
-  "captainphasma": {
+  "captainphasmachromedome": {
     "type": "Leader",
-    "image": "JTL\\Captain_Phasma",
-    "name": "Captain Phasma"
+    "image": "JTL\\Captain_Phasma - Chrome_Dome.png",
+    "name": "Captain_Phasma - Chrome_Dome"
   },
-  "captaintarkin": {
-    "type": "Unit",
-    "image": "JTL\\Captain_Tarkin",
-    "name": "Captain Tarkin"
+  "captainphasmachromedomeback": {
+    "type": "Leader",
+    "image": "JTL\\Captain_Phasma - Chrome_Dome_back.png",
+    "name": "Captain_Phasma - Chrome_Dome_back"
   },
-  "cassianandor": {
+  "captainphasmaonmycommand": {
     "type": "Unit",
-    "image": "JTL\\Cassian_Andor",
-    "name": "Cassian Andor"
+    "image": "JTL\\Captain_Phasma - On_My_Command.png",
+    "name": "Captain_Phasma - On_My_Command"
+  },
+  "captaintarkinfullforwardassault": {
+    "type": "Unit",
+    "image": "JTL\\Captain_Tarkin - Full_Forward_Assault.png",
+    "name": "Captain_Tarkin - Full_Forward_Assault"
+  },
+  "cassianandorthreadingtheeye": {
+    "type": "Unit",
+    "image": "JTL\\Cassian_Andor - Threading_the_Eye.png",
+    "name": "Cassian_Andor - Threading_the_Eye"
   },
   "catandmouse": {
     "type": "Event",
-    "image": "JTL\\Cat_and_Mouse",
-    "name": "Cat and Mouse"
+    "image": "JTL\\Cat_and_Mouse.png",
+    "name": "Cat_and_Mouse"
   },
-  "chamsyndulla": {
+  "chamsyndullarallyingryloth": {
     "type": "Unit",
-    "image": "JTL\\Cham_Syndulla",
-    "name": "Cham Syndulla"
+    "image": "JTL\\Cham_Syndulla - Rallying_Ryloth.png",
+    "name": "Cham_Syndulla - Rallying_Ryloth"
   },
-  "chewbacca": {
+  "chewbaccafaithfulfirstmate": {
     "type": "Unit",
-    "image": "JTL\\Chewbacca",
-    "name": "Chewbacca"
+    "image": "JTL\\Chewbacca - Faithful_First_Mate.png",
+    "name": "Chewbacca - Faithful_First_Mate"
   },
-  "chimaera": {
+  "chimaerareinforcingthecenter": {
     "type": "Unit",
-    "image": "JTL\\Chimaera",
-    "name": "Chimaera"
+    "image": "JTL\\Chimaera - Reinforcing_the_Center.png",
+    "name": "Chimaera - Reinforcing_the_Center"
   },
-  "chopperbase": {
+  "chopperbaseatollon": {
     "type": "Base",
-    "image": "JTL\\Chopper_Base",
-    "name": "Chopper Base"
+    "image": "JTL\\Chopper_Base - Atollon.png",
+    "name": "Chopper_Base - Atollon"
   },
-  "cityintheclouds": {
+  "cityinthecloudscloudcity": {
     "type": "Base",
-    "image": "JTL\\City_in_the_Clouds",
-    "name": "City in the Clouds"
+    "image": "JTL\\City_in_the_Clouds - Cloud_City.png",
+    "name": "City_in_the_Clouds - Cloud_City"
   },
   "cloakedstarviper": {
     "type": "Unit",
-    "image": "JTL\\Cloaked_StarViper",
-    "name": "Cloaked StarViper"
+    "image": "JTL\\Cloaked_StarViper.png",
+    "name": "Cloaked_StarViper"
   },
   "clonecombatsquadron": {
     "type": "Unit",
-    "image": "JTL\\Clone_Combat_Squadron",
-    "name": "Clone Combat Squadron"
+    "image": "JTL\\Clone_Combat_Squadron.png",
+    "name": "Clone_Combat_Squadron"
   },
   "clonepilot": {
     "type": "Unit",
-    "image": "JTL\\Clone_Pilot",
-    "name": "Clone Pilot"
+    "image": "JTL\\Clone_Pilot.png",
+    "name": "Clone_Pilot"
   },
   "closetheshieldgate": {
     "type": "Event",
-    "image": "JTL\\Close_the_Shield_Gate",
-    "name": "Close the Shield Gate"
+    "image": "JTL\\Close_the_Shield_Gate.png",
+    "name": "Close_the_Shield_Gate"
   },
-  "colossus": {
+  "colossuscastilon": {
     "type": "Base",
-    "image": "JTL\\Colossus",
-    "name": "Colossus"
+    "image": "JTL\\Colossus - Castilon.png",
+    "name": "Colossus - Castilon"
   },
   "commandeer": {
     "type": "Event",
-    "image": "JTL\\Commandeer",
+    "image": "JTL\\Commandeer.png",
     "name": "Commandeer"
   },
   "commencepatrol": {
     "type": "Event",
-    "image": "JTL\\Commence_Patrol",
-    "name": "Commence Patrol"
+    "image": "JTL\\Commence_Patrol.png",
+    "name": "Commence_Patrol"
   },
   "contractedhunter": {
     "type": "Unit",
-    "image": "JTL\\Contracted_Hunter",
-    "name": "Contracted Hunter"
+    "image": "JTL\\Contracted_Hunter.png",
+    "name": "Contracted_Hunter"
   },
   "contractedjumpmaster": {
     "type": "Unit",
-    "image": "JTL\\Contracted_Jumpmaster",
-    "name": "Contracted Jumpmaster"
+    "image": "JTL\\Contracted_Jumpmaster.png",
+    "name": "Contracted_Jumpmaster"
   },
   "coordinatedfront": {
     "type": "Event",
-    "image": "JTL\\Coordinated_Front",
-    "name": "Coordinated Front"
+    "image": "JTL\\Coordinated_Front.png",
+    "name": "Coordinated_Front"
   },
   "corellianfreighter": {
     "type": "Unit",
-    "image": "JTL\\Corellian_Freighter",
-    "name": "Corellian Freighter"
+    "image": "JTL\\Corellian_Freighter.png",
+    "name": "Corellian_Freighter"
   },
   "corporatedefenseshuttle": {
     "type": "Unit",
-    "image": "JTL\\Corporate_Defense_Shuttle",
-    "name": "Corporate Defense Shuttle"
+    "image": "JTL\\Corporate_Defense_Shuttle.png",
+    "name": "Corporate_Defense_Shuttle"
   },
   "corporatelightcruiser": {
     "type": "Unit",
-    "image": "JTL\\Corporate_Light_Cruiser",
-    "name": "Corporate Light Cruiser"
+    "image": "JTL\\Corporate_Light_Cruiser.png",
+    "name": "Corporate_Light_Cruiser"
   },
-  "corvus": {
+  "corvusinfernosquadronraider": {
     "type": "Unit",
-    "image": "JTL\\Corvus",
-    "name": "Corvus"
+    "image": "JTL\\Corvus - Inferno_Squadron_Raider.png",
+    "name": "Corvus - Inferno_Squadron_Raider"
   },
   "coveringthewing": {
     "type": "Event",
-    "image": "JTL\\Covering_the_Wing",
-    "name": "Covering the Wing"
+    "image": "JTL\\Covering_the_Wing.png",
+    "name": "Covering_the_Wing"
   },
   "crackshotvwing": {
     "type": "Unit",
-    "image": "JTL\\Crackshot_V-Wing",
-    "name": "Crackshot V-Wing"
+    "image": "JTL\\Crackshot_V-Wing.png",
+    "name": "Crackshot_V-Wing"
   },
   "dqarcargofrigate": {
     "type": "Unit",
-    "image": "JTL\\DQar_Cargo_Frigate",
-    "name": "D'Qar Cargo Frigate"
+    "image": "JTL\\DQar_Cargo_Frigate.png",
+    "name": "DQar_Cargo_Frigate"
   },
   "daggersquadronpilot": {
     "type": "Unit",
-    "image": "JTL\\Dagger_Squadron_Pilot",
-    "name": "Dagger Squadron Pilot"
+    "image": "JTL\\Dagger_Squadron_Pilot.png",
+    "name": "Dagger_Squadron_Pilot"
   },
-  "darthvader": {
+  "darthvadervictorsquadronleader": {
     "type": "Leader",
-    "image": "JTL\\Darth_Vader",
-    "name": "Darth Vader"
+    "image": "JTL\\Darth_Vader - Victor_Squadron_Leader.png",
+    "name": "Darth_Vader - Victor_Squadron_Leader"
   },
-  "datavault": {
+  "darthvadervictorsquadronleaderback": {
+    "type": "Leader",
+    "image": "JTL\\Darth_Vader - Victor_Squadron_Leader_back.png",
+    "name": "Darth_Vader - Victor_Squadron_Leader_back"
+  },
+  "darthvaderscourgeofsquadrons": {
+    "type": "Unit",
+    "image": "JTL\\Darth_Vader - Scourge_of_Squadrons.png",
+    "name": "Darth_Vader - Scourge_of_Squadrons"
+  },
+  "datavaultscarif": {
     "type": "Base",
-    "image": "JTL\\Data_Vault",
-    "name": "Data Vault"
+    "image": "JTL\\Data_Vault - Scarif.png",
+    "name": "Data_Vault - Scarif"
   },
   "deathspaceskirmisher": {
     "type": "Unit",
-    "image": "JTL\\Death_Space_Skirmisher",
-    "name": "Death Space Skirmisher"
+    "image": "JTL\\Death_Space_Skirmisher.png",
+    "name": "Death_Space_Skirmisher"
   },
   "deathstarplans": {
     "type": "Upgrade",
-    "image": "JTL\\Death_Star_Plans",
-    "name": "Death Star Plans"
+    "image": "JTL\\Death_Star_Plans.png",
+    "name": "Death_Star_Plans"
   },
   "decimatorofdissidents": {
     "type": "Unit",
-    "image": "JTL\\Decimator_of_Dissidents",
-    "name": "Decimator of Dissidents"
+    "image": "JTL\\Decimator_of_Dissidents.png",
+    "name": "Decimator_of_Dissidents"
   },
   "dedicatedwingmen": {
     "type": "Event",
-    "image": "JTL\\Dedicated_Wingmen",
-    "name": "Dedicated Wingmen"
+    "image": "JTL\\Dedicated_Wingmen.png",
+    "name": "Dedicated_Wingmen"
   },
-  "dengar": {
+  "dengarcrudeandslovenly": {
     "type": "Unit",
-    "image": "JTL\\Dengar",
-    "name": "Dengar"
+    "image": "JTL\\Dengar - Crude_and_Slovenly.png",
+    "name": "Dengar - Crude_and_Slovenly"
   },
   "desperatecommando": {
     "type": "Unit",
-    "image": "JTL\\Desperate_Commando",
-    "name": "Desperate Commando"
+    "image": "JTL\\Desperate_Commando.png",
+    "name": "Desperate_Commando"
   },
   "determinedrecruit": {
     "type": "Unit",
-    "image": "JTL\\Determined_Recruit",
-    "name": "Determined Recruit"
+    "image": "JTL\\Determined_Recruit.png",
+    "name": "Determined_Recruit"
   },
-  "devastator": {
+  "devastatorhuntingtherebellion": {
     "type": "Unit",
-    "image": "JTL\\Devastator",
-    "name": "Devastator"
+    "image": "JTL\\Devastator - Hunting_the_Rebellion.png",
+    "name": "Devastator - Hunting_the_Rebellion"
   },
   "dilapidatedskispeeder": {
     "type": "Unit",
-    "image": "JTL\\Dilapidated_Ski_Speeder",
-    "name": "Dilapidated Ski Speeder"
+    "image": "JTL\\Dilapidated_Ski_Speeder.png",
+    "name": "Dilapidated_Ski_Speeder"
   },
   "directhit": {
     "type": "Event",
-    "image": "JTL\\Direct_Hit",
-    "name": "Direct Hit"
+    "image": "JTL\\Direct_Hit.png",
+    "name": "Direct_Hit"
   },
-  "directorkrennic": {
+  "directorkrenniconthevergeofgreatness": {
     "type": "Unit",
-    "image": "JTL\\Director_Krennic",
-    "name": "Director Krennic"
+    "image": "JTL\\Director_Krennic - On_the_Verge_Of_Greatness.png",
+    "name": "Director_Krennic - On_the_Verge_Of_Greatness"
   },
   "diversion": {
     "type": "Event",
-    "image": "JTL\\Diversion",
+    "image": "JTL\\Diversion.png",
     "name": "Diversion"
   },
   "dogfight": {
     "type": "Event",
-    "image": "JTL\\Dogfight",
+    "image": "JTL\\Dogfight.png",
     "name": "Dogfight"
   },
   "dorneangunship": {
     "type": "Unit",
-    "image": "JTL\\Dornean_Gunship",
-    "name": "Dornean Gunship"
+    "image": "JTL\\Dornean_Gunship.png",
+    "name": "Dornean_Gunship"
   },
   "dorsalturret": {
     "type": "Upgrade",
-    "image": "JTL\\Dorsal_Turret",
-    "name": "Dorsal Turret"
+    "image": "JTL\\Dorsal_Turret.png",
+    "name": "Dorsal_Turret"
   },
   "droidmissileplatform": {
     "type": "Unit",
-    "image": "JTL\\Droid_Missile_Platform",
-    "name": "Droid Missile Platform"
+    "image": "JTL\\Droid_Missile_Platform.png",
+    "name": "Droid_Missile_Platform"
   },
   "eagerescortfighter": {
     "type": "Unit",
-    "image": "JTL\\Eager_Escort_Fighter",
-    "name": "Eager Escort Fighter"
+    "image": "JTL\\Eager_Escort_Fighter.png",
+    "name": "Eager_Escort_Fighter"
   },
   "echobaseengineer": {
     "type": "Unit",
-    "image": "JTL\\Echo_Base_Engineer",
-    "name": "Echo Base Engineer"
+    "image": "JTL\\Echo_Base_Engineer.png",
+    "name": "Echo_Base_Engineer"
   },
   "eject": {
     "type": "Event",
-    "image": "JTL\\Eject",
+    "image": "JTL\\Eject.png",
     "name": "Eject"
   },
   "electromagneticpulse": {
     "type": "Event",
-    "image": "JTL\\Electromagnetic_Pulse",
-    "name": "Electromagnetic Pulse"
+    "image": "JTL\\Electromagnetic_Pulse.png",
+    "name": "Electromagnetic_Pulse"
   },
   "evasivemaneuver": {
     "type": "Event",
-    "image": "JTL\\Evasive_Maneuver",
-    "name": "Evasive Maneuver"
+    "image": "JTL\\Evasive_Maneuver.png",
+    "name": "Evasive_Maneuver"
   },
-  "executor": {
+  "executormightoftheempire": {
     "type": "Unit",
-    "image": "JTL\\Executor",
-    "name": "Executor"
+    "image": "JTL\\Executor - Might_of_the_Empire.png",
+    "name": "Executor - Might_of_the_Empire"
   },
   "faceoff": {
     "type": "Event",
-    "image": "JTL\\Face_Off",
-    "name": "Face Off"
+    "image": "JTL\\Face_Off.png",
+    "name": "Face_Off"
   },
-  "fettsfirespray": {
+  "fettsfiresprayfearedsilhouette": {
     "type": "Unit",
-    "image": "JTL\\Fetts_Firespray",
-    "name": "Fett's Firespray"
+    "image": "JTL\\Fetts_Firespray - Feared_Silhouette.png",
+    "name": "Fetts_Firespray - Feared_Silhouette"
   },
   "fightfirewithfire": {
     "type": "Event",
-    "image": "JTL\\Fight_Fire_With_Fire",
-    "name": "Fight Fire With Fire"
+    "image": "JTL\\Fight_Fire_With_Fire.png",
+    "name": "Fight_Fire_With_Fire"
   },
-  "fireball": {
+  "fireballanexplosionwithwings": {
     "type": "Unit",
-    "image": "JTL\\Fireball",
-    "name": "Fireball"
+    "image": "JTL\\Fireball - An_Explosion_With_Wings.png",
+    "name": "Fireball - An_Explosion_With_Wings"
   },
   "firstorderstormtrooper": {
     "type": "Unit",
-    "image": "JTL\\First_Order_Stormtrooper",
-    "name": "First Order Stormtrooper"
+    "image": "JTL\\First_Order_Stormtrooper.png",
+    "name": "First_Order_Stormtrooper"
   },
   "firstordertiefighter": {
     "type": "Unit",
-    "image": "JTL\\First_Order_TIE_Fighter",
-    "name": "First Order TIE Fighter"
+    "image": "JTL\\First_Order_TIE_Fighter.png",
+    "name": "First_Order_TIE_Fighter"
   },
   "flankingfangfighter": {
     "type": "Unit",
-    "image": "JTL\\Flanking_Fang_Fighter",
-    "name": "Flanking Fang Fighter"
+    "image": "JTL\\Flanking_Fang_Fighter.png",
+    "name": "Flanking_Fang_Fighter"
   },
   "fleetinterdictor": {
     "type": "Unit",
-    "image": "JTL\\Fleet_Interdictor",
-    "name": "Fleet Interdictor"
+    "image": "JTL\\Fleet_Interdictor.png",
+    "name": "Fleet_Interdictor"
   },
   "flycasual": {
     "type": "Event",
-    "image": "JTL\\Fly_Casual",
-    "name": "Fly Casual"
+    "image": "JTL\\Fly_Casual.png",
+    "name": "Fly_Casual"
   },
   "focusfire": {
     "type": "Event",
-    "image": "JTL\\Focus_Fire",
-    "name": "Focus Fire"
+    "image": "JTL\\Focus_Fire.png",
+    "name": "Focus_Fire"
   },
-  "frisk": {
+  "friskvanguardloudmouth": {
     "type": "Unit",
-    "image": "JTL\\Frisk",
-    "name": "Frisk"
+    "image": "JTL\\Frisk - Vanguard_Loudmouth.png",
+    "name": "Frisk - Vanguard_Loudmouth"
   },
-  "generaldraven": {
+  "generaldravendoingwhatmustbedone": {
     "type": "Unit",
-    "image": "JTL\\General_Draven",
-    "name": "General Draven"
+    "image": "JTL\\General_Draven - Doing_What_Must_Be_Done.png",
+    "name": "General_Draven - Doing_What_Must_Be_Done"
   },
-  "generalhux": {
+  "generalhuxnotermsnosurrender": {
     "type": "Unit",
-    "image": "JTL\\General_Hux",
-    "name": "General Hux"
+    "image": "JTL\\General_Hux - No_Terms_No_Surrender.png",
+    "name": "General_Hux - No_Terms_No_Surrender"
   },
-  "goldleader": {
+  "goldleaderfastestshipinthefleet": {
     "type": "Unit",
-    "image": "JTL\\Gold_Leader",
-    "name": "Gold Leader"
+    "image": "JTL\\Gold_Leader - Fastest_Ship_in_the_Fleet.png",
+    "name": "Gold_Leader - Fastest_Ship_in_the_Fleet"
   },
-  "grandadmiralthrawn": {
+  "grandadmiralthrawnhowunfortunate": {
     "type": "Leader",
-    "image": "JTL\\Grand_Admiral_Thrawn",
-    "name": "Grand Admiral Thrawn"
+    "image": "JTL\\Grand_Admiral_Thrawn - ...How_Unfortunate.png",
+    "name": "Grand_Admiral_Thrawn - ...How_Unfortunate"
+  },
+  "grandadmiralthrawnhowunfortunateback": {
+    "type": "Leader",
+    "image": "JTL\\Grand_Admiral_Thrawn - ...How_Unfortunate_back.png",
+    "name": "Grand_Admiral_Thrawn - ...How_Unfortunate_back"
   },
   "grimvalor": {
     "type": "Upgrade",
-    "image": "JTL\\Grim_Valor",
-    "name": "Grim Valor"
+    "image": "JTL\\Grim_Valor.png",
+    "name": "Grim_Valor"
   },
   "guerillasoldier": {
     "type": "Unit",
-    "image": "JTL\\Guerilla_Soldier",
-    "name": "Guerilla Soldier"
+    "image": "JTL\\Guerilla_Soldier.png",
+    "name": "Guerilla_Soldier"
   },
-  "hansolo": {
+  "hansolonevertellmetheodds": {
     "type": "Leader",
-    "image": "JTL\\Han_Solo",
-    "name": "Han Solo"
+    "image": "JTL\\Han_Solo - Never_Tell_Me_the_Odds.png",
+    "name": "Han_Solo - Never_Tell_Me_the_Odds"
+  },
+  "hansolonevertellmetheoddsback": {
+    "type": "Leader",
+    "image": "JTL\\Han_Solo - Never_Tell_Me_the_Odds_back.png",
+    "name": "Han_Solo - Never_Tell_Me_the_Odds_back"
+  },
+  "hansolohashismoments": {
+    "type": "Unit",
+    "image": "JTL\\Han_Solo - Has_His_Moments.png",
+    "name": "Han_Solo - Has_His_Moments"
   },
   "heartlesstactics": {
     "type": "Event",
-    "image": "JTL\\Heartless_Tactics",
-    "name": "Heartless Tactics"
+    "image": "JTL\\Heartless_Tactics.png",
+    "name": "Heartless_Tactics"
   },
-  "herasyndulla": {
+  "herasyndullawevelostenough": {
     "type": "Unit",
-    "image": "JTL\\Hera_Syndulla",
-    "name": "Hera Syndulla"
+    "image": "JTL\\Hera_Syndulla - Weve_Lost_Enough.png",
+    "name": "Hera_Syndulla - Weve_Lost_Enough"
   },
-  "homeone": {
+  "homeoneonmymark": {
     "type": "Unit",
-    "image": "JTL\\Home_One",
-    "name": "Home One"
+    "image": "JTL\\Home_One - On_My_Mark.png",
+    "name": "Home_One - On_My_Mark"
   },
   "homesteadmilitia": {
     "type": "Unit",
-    "image": "JTL\\Homestead_Militia",
-    "name": "Homestead Militia"
+    "image": "JTL\\Homestead_Militia.png",
+    "name": "Homestead_Militia"
   },
-  "hondoohnaka": {
+  "hondoohnakasuperfluousswindler": {
     "type": "Unit",
-    "image": "JTL\\Hondo_Ohnaka",
-    "name": "Hondo Ohnaka"
+    "image": "JTL\\Hondo_Ohnaka - Superfluous_Swindler.png",
+    "name": "Hondo_Ohnaka - Superfluous_Swindler"
   },
   "hopefulvolunteer": {
     "type": "Unit",
-    "image": "JTL\\Hopeful_Volunteer",
-    "name": "Hopeful Volunteer"
+    "image": "JTL\\Hopeful_Volunteer.png",
+    "name": "Hopeful_Volunteer"
   },
   "hotshotmaneuver": {
     "type": "Event",
-    "image": "JTL\\Hotshot_Maneuver",
-    "name": "Hotshot Maneuver"
+    "image": "JTL\\Hotshot_Maneuver.png",
+    "name": "Hotshot_Maneuver"
   },
-  "houndstooth": {
+  "houndstoothreliableanddeadly": {
     "type": "Unit",
-    "image": "JTL\\Hounds_Tooth",
-    "name": "Hound's Tooth"
+    "image": "JTL\\Hounds_Tooth - Reliable_and_Deadly.png",
+    "name": "Hounds_Tooth - Reliable_and_Deadly"
   },
   "huntingaggressor": {
     "type": "Unit",
-    "image": "JTL\\Hunting_Aggressor",
-    "name": "Hunting Aggressor"
+    "image": "JTL\\Hunting_Aggressor.png",
+    "name": "Hunting_Aggressor"
   },
   "ihaveyounow": {
     "type": "Event",
-    "image": "JTL\\I_Have_You_Now",
-    "name": "I Have You Now"
+    "image": "JTL\\I_Have_You_Now.png",
+    "name": "I_Have_You_Now"
   },
-  "ig2000": {
+  "ig2000assassinsaggressor": {
     "type": "Unit",
-    "image": "JTL\\IG-2000",
-    "name": "IG-2000"
+    "image": "JTL\\IG-2000 - Assassins_Aggressor.png",
+    "name": "IG-2000 - Assassins_Aggressor"
   },
-  "ig88": {
+  "ig88murderousphlutdroid": {
     "type": "Unit",
-    "image": "JTL\\IG-88",
-    "name": "IG-88"
+    "image": "JTL\\IG-88 - Murderous_Phlutdroid.png",
+    "name": "IG-88 - Murderous_Phlutdroid"
   },
-  "idenversio": {
+  "idenversioadaptordie": {
     "type": "Unit",
-    "image": "JTL\\Iden_Versio",
-    "name": "Iden Versio"
+    "image": "JTL\\Iden_Versio - Adapt_or_Die.png",
+    "name": "Iden_Versio - Adapt_or_Die"
   },
   "indebttocrimsondawn": {
     "type": "Upgrade",
-    "image": "JTL\\In_Debt_to_Crimson_Dawn",
-    "name": "In Debt to Crimson Dawn"
+    "image": "JTL\\In_Debt_to_Crimson_Dawn.png",
+    "name": "In_Debt_to_Crimson_Dawn"
   },
   "intheheatofbattle": {
     "type": "Event",
-    "image": "JTL\\In_the_Heat_of_Battle",
-    "name": "In the Heat of Battle"
+    "image": "JTL\\In_the_Heat_of_Battle.png",
+    "name": "In_the_Heat_of_Battle"
   },
   "independentsmuggler": {
     "type": "Unit",
-    "image": "JTL\\Independent_Smuggler",
-    "name": "Independent Smuggler"
+    "image": "JTL\\Independent_Smuggler.png",
+    "name": "Independent_Smuggler"
   },
   "insurgentsaboteurs": {
     "type": "Unit",
-    "image": "JTL\\Insurgent_Saboteurs",
-    "name": "Insurgent Saboteurs"
+    "image": "JTL\\Insurgent_Saboteurs.png",
+    "name": "Insurgent_Saboteurs"
   },
   "interceptorace": {
     "type": "Unit",
-    "image": "JTL\\Interceptor_Ace",
-    "name": "Interceptor Ace"
+    "image": "JTL\\Interceptor_Ace.png",
+    "name": "Interceptor_Ace"
   },
-  "invincible": {
+  "invinciblenavaladversary": {
     "type": "Unit",
-    "image": "JTL\\Invincible",
-    "name": "Invincible"
+    "image": "JTL\\Invincible - Naval_Adversary.png",
+    "name": "Invincible - Naval_Adversary"
   },
   "itsatrap": {
     "type": "Event",
-    "image": "JTL\\Its_a_Trap",
-    "name": "It's a Trap"
+    "image": "JTL\\Its_a_Trap.png",
+    "name": "Its_a_Trap"
   },
   "jamcommunications": {
     "type": "Event",
-    "image": "JTL\\Jam_Communications",
-    "name": "Jam Communications"
+    "image": "JTL\\Jam_Communications.png",
+    "name": "Jam_Communications"
   },
-  "jarekyeager": {
+  "jarekyeagercoordinatingwiththeresistance": {
     "type": "Unit",
-    "image": "JTL\\Jarek_Yeager",
-    "name": "Jarek Yeager"
+    "image": "JTL\\Jarek_Yeager - Coordinating_With_The_Resistance.png",
+    "name": "Jarek_Yeager - Coordinating_With_The_Resistance"
   },
   "jedilightcruiser": {
     "type": "Unit",
-    "image": "JTL\\Jedi_Light_Cruiser",
-    "name": "Jedi Light Cruiser"
+    "image": "JTL\\Jedi_Light_Cruiser.png",
+    "name": "Jedi_Light_Cruiser"
   },
   "jumptolightspeed": {
     "type": "Event",
-    "image": "JTL\\Jump_to_Lightspeed",
-    "name": "Jump to Lightspeed"
+    "image": "JTL\\Jump_to_Lightspeed.png",
+    "name": "Jump_to_Lightspeed"
   },
-  "kazudaxiono": {
+  "kazudaxionobestpilotinthegalaxy": {
     "type": "Leader",
-    "image": "JTL\\Kazuda_Xiono",
-    "name": "Kazuda Xiono"
+    "image": "JTL\\Kazuda_Xiono - Best_Pilot_in_the_Galaxy.png",
+    "name": "Kazuda_Xiono - Best_Pilot_in_the_Galaxy"
+  },
+  "kazudaxionobestpilotinthegalaxyback": {
+    "type": "Leader",
+    "image": "JTL\\Kazuda_Xiono - Best_Pilot_in_the_Galaxy_back.png",
+    "name": "Kazuda_Xiono - Best_Pilot_in_the_Galaxy_back"
   },
   "kijimipatrollers": {
     "type": "Unit",
-    "image": "JTL\\Kijimi_Patrollers",
-    "name": "Kijimi Patrollers"
+    "image": "JTL\\Kijimi_Patrollers.png",
+    "name": "Kijimi_Patrollers"
   },
   "kimogliaheavyfighter": {
     "type": "Unit",
-    "image": "JTL\\Kimoglia_Heavy_Fighter",
-    "name": "Kimoglia Heavy Fighter"
+    "image": "JTL\\Kimoglia_Heavy_Fighter.png",
+    "name": "Kimoglia_Heavy_Fighter"
   },
   "koiogranturn": {
     "type": "Event",
-    "image": "JTL\\Koiogran_Turn",
-    "name": "Koiogran Turn"
+    "image": "JTL\\Koiogran_Turn.png",
+    "name": "Koiogran_Turn"
   },
-  "l337": {
+  "l337getoutofmyseat": {
     "type": "Unit",
-    "image": "JTL\\L3-37",
-    "name": "L3-37"
+    "image": "JTL\\L3-37 - Get_Out_of_My_Seat.png",
+    "name": "L3-37 - Get_Out_of_My_Seat"
   },
-  "lakecountry": {
+  "lakecountrynaboo": {
     "type": "Base",
-    "image": "JTL\\Lake_Country",
-    "name": "Lake Country"
+    "image": "JTL\\Lake_Country - Naboo.png",
+    "name": "Lake_Country - Naboo"
   },
   "landingshuttle": {
     "type": "Unit",
-    "image": "JTL\\Landing_Shuttle",
-    "name": "Landing Shuttle"
+    "image": "JTL\\Landing_Shuttle.png",
+    "name": "Landing_Shuttle"
   },
-  "landocalrissian": {
+  "landocalrissianbuyingtime": {
     "type": "Leader",
-    "image": "JTL\\Lando_Calrissian",
-    "name": "Lando Calrissian"
+    "image": "JTL\\Lando_Calrissian - Buying_Time.png",
+    "name": "Lando_Calrissian - Buying_Time"
   },
-  "leiaorgana": {
+  "landocalrissianbuyingtimeback": {
+    "type": "Leader",
+    "image": "JTL\\Lando_Calrissian - Buying_Time_back.png",
+    "name": "Lando_Calrissian - Buying_Time_back"
+  },
+  "leiaorganapilotstoyourstations": {
     "type": "Unit",
-    "image": "JTL\\Leia_Organa",
-    "name": "Leia Organa"
+    "image": "JTL\\Leia_Organa - Pilots_To_Your_Stations.png",
+    "name": "Leia_Organa - Pilots_To_Your_Stations"
   },
   "lightspeedassault": {
     "type": "Event",
-    "image": "JTL\\Lightspeed_Assault",
-    "name": "Lightspeed Assault"
+    "image": "JTL\\Lightspeed_Assault.png",
+    "name": "Lightspeed_Assault"
   },
-  "lukeskywalker": {
+  "lukeskywalkerheroofyavin": {
     "type": "Leader",
-    "image": "JTL\\Luke_Skywalker",
-    "name": "Luke Skywalker"
+    "image": "JTL\\Luke_Skywalker - Hero_of_Yavin.png",
+    "name": "Luke_Skywalker - Hero_of_Yavin"
+  },
+  "lukeskywalkerheroofyavinback": {
+    "type": "Leader",
+    "image": "JTL\\Luke_Skywalker - Hero_of_Yavin_back.png",
+    "name": "Luke_Skywalker - Hero_of_Yavin_back"
+  },
+  "lukeskywalkeryoustillwithme": {
+    "type": "Unit",
+    "image": "JTL\\Luke_Skywalker - You_Still_With_Me.png",
+    "name": "Luke_Skywalker - You_Still_With_Me"
   },
   "mc30assaultfrigate": {
     "type": "Unit",
-    "image": "JTL\\MC30_Assault_Frigate",
-    "name": "MC30 Assault Frigate"
+    "image": "JTL\\MC30_Assault_Frigate.png",
+    "name": "MC30_Assault_Frigate"
   },
-  "majorvonreg": {
+  "majorvonregredbaron": {
     "type": "Leader",
-    "image": "JTL\\Major_Vonreg",
-    "name": "Major Vonreg"
+    "image": "JTL\\Major_Vonreg - Red_Baron.png",
+    "name": "Major_Vonreg - Red_Baron"
+  },
+  "majorvonregredbaronback": {
+    "type": "Leader",
+    "image": "JTL\\Major_Vonreg - Red_Baron_back.png",
+    "name": "Major_Vonreg - Red_Baron_back"
   },
   "massassitacticalofficer": {
     "type": "Unit",
-    "image": "JTL\\Massassi_Tactical_Officer",
-    "name": "Massassi Tactical Officer"
+    "image": "JTL\\Massassi_Tactical_Officer.png",
+    "name": "Massassi_Tactical_Officer"
   },
-  "massassitemple": {
+  "massassitempleyavin4": {
     "type": "Base",
-    "image": "JTL\\Massassi_Temple",
-    "name": "Massassi Temple"
+    "image": "JTL\\Massassi_Temple - Yavin_4.png",
+    "name": "Massassi_Temple - Yavin_4"
   },
-  "millenniumfalcon": {
+  "millenniumfalcongetoutandpush": {
     "type": "Unit",
-    "image": "JTL\\Millennium_Falcon",
-    "name": "Millennium Falcon"
+    "image": "JTL\\Millennium_Falcon - Get_Out_And_Push.png",
+    "name": "Millennium_Falcon - Get_Out_And_Push"
   },
-  "misthunter": {
+  "misthunterthefindsmanspursuit": {
     "type": "Unit",
-    "image": "JTL\\Mist_Hunter",
-    "name": "Mist Hunter"
+    "image": "JTL\\Mist_Hunter - The_Findsmans_Pursuit.png",
+    "name": "Mist_Hunter - The_Findsmans_Pursuit"
   },
-  "moffgideon": {
+  "moffgideoniknoweverything": {
     "type": "Unit",
-    "image": "JTL\\Moff_Gideon",
-    "name": "Moff Gideon"
+    "image": "JTL\\Moff_Gideon - I_Know_Everything.png",
+    "name": "Moff_Gideon - I_Know_Everything"
   },
-  "moseisley": {
+  "moseisleytatooine": {
     "type": "Base",
-    "image": "JTL\\Mos_Eisley",
-    "name": "Mos Eisley"
+    "image": "JTL\\Mos_Eisley - Tatooine.png",
+    "name": "Mos_Eisley - Tatooine"
   },
   "munificentfrigate": {
     "type": "Unit",
-    "image": "JTL\\Munificent_Frigate",
-    "name": "Munificent Frigate"
+    "image": "JTL\\Munificent_Frigate.png",
+    "name": "Munificent_Frigate"
   },
-  "nabatvillage": {
+  "nabatvillageryloth": {
     "type": "Base",
-    "image": "JTL\\Nabat_Village",
-    "name": "Nabat Village"
+    "image": "JTL\\Nabat_Village - Ryloth.png",
+    "name": "Nabat_Village - Ryloth"
   },
-  "nadiridockyards": {
+  "nadiridockyardsnadiri": {
     "type": "Base",
-    "image": "JTL\\Nadiri_Dockyards",
-    "name": "Nadiri Dockyards"
+    "image": "JTL\\Nadiri_Dockyards - Nadiri.png",
+    "name": "Nadiri_Dockyards - Nadiri"
   },
   "nebulaignition": {
     "type": "Event",
-    "image": "JTL\\Nebula_Ignition",
-    "name": "Nebula Ignition"
+    "image": "JTL\\Nebula_Ignition.png",
+    "name": "Nebula_Ignition"
   },
   "nevertellmetheodds": {
     "type": "Event",
-    "image": "JTL\\Never_Tell_Me_the_Odds",
-    "name": "Never Tell Me the Odds"
+    "image": "JTL\\Never_Tell_Me_the_Odds.png",
+    "name": "Never_Tell_Me_the_Odds"
   },
-  "niennunb": {
+  "niennunbloyalcopilot": {
     "type": "Unit",
-    "image": "JTL\\Nien_Nunb",
-    "name": "Nien Nunb"
+    "image": "JTL\\Nien_Nunb - Loyal_Co-Pilot.png",
+    "name": "Nien_Nunb - Loyal_Co-Pilot"
   },
   "nodisintegrations": {
     "type": "Event",
-    "image": "JTL\\No_Disintegrations",
-    "name": "No Disintegrations"
+    "image": "JTL\\No_Disintegrations.png",
+    "name": "No_Disintegrations"
   },
   "nogloryonlyresults": {
     "type": "Event",
-    "image": "JTL\\No_Glory_Only_Results",
-    "name": "No Glory, Only Results"
+    "image": "JTL\\No_Glory_Only_Results.png",
+    "name": "No_Glory_Only_Results"
   },
   "occupiersiegetank": {
     "type": "Unit",
-    "image": "JTL\\Occupier_Siege_Tank",
-    "name": "Occupier Siege Tank"
+    "image": "JTL\\Occupier_Siege_Tank.png",
+    "name": "Occupier_Siege_Tank"
   },
   "omicronstrikecraft": {
     "type": "Unit",
-    "image": "JTL\\Omicron_Strike_Craft",
-    "name": "Omicron Strike Craft"
+    "image": "JTL\\Omicron_Strike_Craft.png",
+    "name": "Omicron_Strike_Craft"
   },
   "onyxsquadronbrute": {
     "type": "Unit",
-    "image": "JTL\\Onyx_Squadron_Brute",
-    "name": "Onyx Squadron Brute"
+    "image": "JTL\\Onyx_Squadron_Brute.png",
+    "name": "Onyx_Squadron_Brute"
   },
   "orbitingkwing": {
     "type": "Unit",
-    "image": "JTL\\Orbiting_K-Wing",
-    "name": "Orbiting K-Wing"
+    "image": "JTL\\Orbiting_K-Wing.png",
+    "name": "Orbiting_K-Wing"
   },
   "outtheairlock": {
     "type": "Event",
-    "image": "JTL\\Out_the_Airlock",
-    "name": "Out the Airlock"
+    "image": "JTL\\Out_the_Airlock.png",
+    "name": "Out_the_Airlock"
   },
   "outerrimoutlaws": {
     "type": "Unit",
-    "image": "JTL\\Outer_Rim_Outlaws",
-    "name": "Outer Rim Outlaws"
+    "image": "JTL\\Outer_Rim_Outlaws.png",
+    "name": "Outer_Rim_Outlaws"
   },
-  "paigetico": {
+  "paigeticodroppingthehammer": {
     "type": "Unit",
-    "image": "JTL\\Paige_Tico",
-    "name": "Paige Tico"
+    "image": "JTL\\Paige_Tico - Dropping_the_Hammer.png",
+    "name": "Paige_Tico - Dropping_the_Hammer"
   },
   "pantoranstarshipthief": {
     "type": "Unit",
-    "image": "JTL\\Pantoran_Starship_Thief",
-    "name": "Pantoran Starship Thief"
+    "image": "JTL\\Pantoran_Starship_Thief.png",
+    "name": "Pantoran_Starship_Thief"
   },
   "perimeteratrt": {
     "type": "Unit",
-    "image": "JTL\\Perimeter_AT-RT",
-    "name": "Perimeter AT-RT"
+    "image": "JTL\\Perimeter_AT-RT.png",
+    "name": "Perimeter_AT-RT"
   },
-  "phantomii": {
+  "phantomiimodifiedtodock": {
     "type": "Unit",
-    "image": "JTL\\Phantom_II",
-    "name": "Phantom II"
+    "image": "JTL\\Phantom_II - Modified_to_Dock.png",
+    "name": "Phantom_II - Modified_to_Dock"
   },
   "phoenixsquadronawing": {
     "type": "Unit",
-    "image": "JTL\\Phoenix_Squadron_A-Wing",
-    "name": "Phoenix Squadron A-Wing"
+    "image": "JTL\\Phoenix_Squadron_A-Wing.png",
+    "name": "Phoenix_Squadron_A-Wing"
   },
   "piercingshot": {
     "type": "Event",
-    "image": "JTL\\Piercing_Shot",
-    "name": "Piercing Shot"
+    "image": "JTL\\Piercing_Shot.png",
+    "name": "Piercing_Shot"
   },
   "planetarybombardment": {
     "type": "Event",
-    "image": "JTL\\Planetary_Bombardment",
-    "name": "Planetary Bombardment"
+    "image": "JTL\\Planetary_Bombardment.png",
+    "name": "Planetary_Bombardment"
   },
-  "poedameron": {
+  "poedameronicanflyanything": {
     "type": "Leader",
-    "image": "JTL\\Poe_Dameron",
-    "name": "Poe Dameron"
+    "image": "JTL\\Poe_Dameron - I_Can_Fly_Anything.png",
+    "name": "Poe_Dameron - I_Can_Fly_Anything"
+  },
+  "poedameronicanflyanythingback": {
+    "type": "Leader",
+    "image": "JTL\\Poe_Dameron - I_Can_Fly_Anything_back.png",
+    "name": "Poe_Dameron - I_Can_Fly_Anything_back"
+  },
+  "poedamerononehellofaapilot": {
+    "type": "Unit",
+    "image": "JTL\\Poe_Dameron - One_Hell_of_a_a_Pilot.png",
+    "name": "Poe_Dameron - One_Hell_of_a_a_Pilot"
   },
   "powerfrompain": {
     "type": "Event",
-    "image": "JTL\\Power_from_Pain",
-    "name": "Power from Pain"
+    "image": "JTL\\Power_from_Pain.png",
+    "name": "Power_from_Pain"
   },
   "preparefortakeoff": {
     "type": "Event",
-    "image": "JTL\\Prepare_for_Takeoff",
-    "name": "Prepare for Takeoff"
+    "image": "JTL\\Prepare_for_Takeoff.png",
+    "name": "Prepare_for_Takeoff"
   },
-  "profundity": {
+  "profunditywefight": {
     "type": "Unit",
-    "image": "JTL\\Profundity",
-    "name": "Profundity"
+    "image": "JTL\\Profundity - We_Fight.png",
+    "name": "Profundity - We_Fight"
   },
   "prototypetieadvanced": {
     "type": "Unit",
-    "image": "JTL\\Prototype_TIE_Advanced",
-    "name": "Prototype TIE Advanced"
+    "image": "JTL\\Prototype_TIE_Advanced.png",
+    "name": "Prototype_TIE_Advanced"
   },
   "punchit": {
     "type": "Event",
-    "image": "JTL\\Punch_It",
-    "name": "Punch It"
+    "image": "JTL\\Punch_It.png",
+    "name": "Punch_It"
   },
   "quasartiecarrier": {
     "type": "Unit",
-    "image": "JTL\\Quasar_TIE_Carrier",
-    "name": "Quasar TIE Carrier"
+    "image": "JTL\\Quasar_TIE_Carrier.png",
+    "name": "Quasar_TIE_Carrier"
   },
-  "r2d2": {
+  "r2d2artooooooooo": {
     "type": "Unit",
-    "image": "JTL\\R2-D2",
-    "name": "R2-D2"
+    "image": "JTL\\R2-D2 - Artooooooooo.png",
+    "name": "R2-D2 - Artooooooooo"
   },
-  "raddus": {
+  "raddusholdosfinalcommand": {
     "type": "Unit",
-    "image": "JTL\\Raddus",
-    "name": "Raddus"
+    "image": "JTL\\Raddus - Holdos_Final_Command.png",
+    "name": "Raddus - Holdos_Final_Command"
   },
-  "radiantvii": {
+  "radiantviiambassadorsarrival": {
     "type": "Unit",
-    "image": "JTL\\Radiant_VII",
-    "name": "Radiant VII"
+    "image": "JTL\\Radiant_VII - Ambassadors_Arrival.png",
+    "name": "Radiant_VII - Ambassadors_Arrival"
   },
-  "rafamartez": {
+  "rafamartezshrewdsister": {
     "type": "Unit",
-    "image": "JTL\\Rafa_Martez",
-    "name": "Rafa Martez"
+    "image": "JTL\\Rafa_Martez - Shrewd_Sister.png",
+    "name": "Rafa_Martez - Shrewd_Sister"
   },
-  "rampart": {
+  "rampartenjoytheexit": {
     "type": "Unit",
-    "image": "JTL\\Rampart",
-    "name": "Rampart"
+    "image": "JTL\\Rampart - Enjoy_the_Exit.png",
+    "name": "Rampart - Enjoy_the_Exit"
   },
-  "razorcrest": {
+  "razorcrestrideforhire": {
     "type": "Unit",
-    "image": "JTL\\Razor_Crest",
-    "name": "Razor Crest"
+    "image": "JTL\\Razor_Crest - Ride_For_Hire.png",
+    "name": "Razor_Crest - Ride_For_Hire"
   },
   "rebellioushammerhead": {
     "type": "Unit",
-    "image": "JTL\\Rebellious_Hammerhead",
-    "name": "Rebellious Hammerhead"
+    "image": "JTL\\Rebellious_Hammerhead.png",
+    "name": "Rebellious_Hammerhead"
   },
-  "redfive": {
+  "redfiverunningthetrench": {
     "type": "Unit",
-    "image": "JTL\\Red_Five",
-    "name": "Red Five"
+    "image": "JTL\\Red_Five - Running_the_Trench.png",
+    "name": "Red_Five - Running_the_Trench"
   },
-  "redleader": {
+  "redleaderformup": {
     "type": "Unit",
-    "image": "JTL\\Red_Leader",
-    "name": "Red Leader"
+    "image": "JTL\\Red_Leader - Form_Up.png",
+    "name": "Red_Leader - Form_Up"
   },
   "redsquadronxwing": {
     "type": "Unit",
-    "image": "JTL\\Red_Squadron_X-Wing",
-    "name": "Red Squadron X-Wing"
+    "image": "JTL\\Red_Squadron_X-Wing.png",
+    "name": "Red_Squadron_X-Wing"
   },
   "redsquadronywing": {
     "type": "Unit",
-    "image": "JTL\\Red_Squadron_Y-Wing",
-    "name": "Red Squadron Y-Wing"
+    "image": "JTL\\Red_Squadron_Y-Wing.png",
+    "name": "Red_Squadron_Y-Wing"
   },
   "relentlessfirespray": {
     "type": "Unit",
-    "image": "JTL\\Relentless_Firespray",
-    "name": "Relentless Firespray"
+    "image": "JTL\\Relentless_Firespray.png",
+    "name": "Relentless_Firespray"
   },
   "repair": {
     "type": "Event",
-    "image": "JTL\\Repair",
+    "image": "JTL\\Repair.png",
     "name": "Repair"
   },
   "republicywing": {
     "type": "Unit",
-    "image": "JTL\\Republic_Y-Wing",
-    "name": "Republic Y-Wing"
+    "image": "JTL\\Republic_Y-Wing.png",
+    "name": "Republic_Y-Wing"
   },
   "resistancebluesquadron": {
     "type": "Unit",
-    "image": "JTL\\Resistance_Blue_Squadron",
-    "name": "Resistance Blue Squadron"
+    "image": "JTL\\Resistance_Blue_Squadron.png",
+    "name": "Resistance_Blue_Squadron"
   },
-  "resistanceheadquarters": {
+  "resistanceheadquartersdqar": {
     "type": "Base",
-    "image": "JTL\\Resistance_Headquarters",
-    "name": "Resistance Headquarters"
+    "image": "JTL\\Resistance_Headquarters - DQar.png",
+    "name": "Resistance_Headquarters - DQar"
   },
   "resistancexwing": {
     "type": "Unit",
-    "image": "JTL\\Resistance_X-Wing",
-    "name": "Resistance X-Wing"
+    "image": "JTL\\Resistance_X-Wing.png",
+    "name": "Resistance_X-Wing"
   },
   "resupplycarrier": {
     "type": "Unit",
-    "image": "JTL\\Resupply_Carrier",
-    "name": "Resupply Carrier"
+    "image": "JTL\\Resupply_Carrier.png",
+    "name": "Resupply_Carrier"
   },
   "retrofittedairspeeder": {
     "type": "Unit",
-    "image": "JTL\\Retrofitted_Airspeeder",
-    "name": "Retrofitted Airspeeder"
+    "image": "JTL\\Retrofitted_Airspeeder.png",
+    "name": "Retrofitted_Airspeeder"
   },
-  "riodurant": {
+  "riodurantwisecrackingwheelman": {
     "type": "Leader",
-    "image": "JTL\\Rio_Durant",
-    "name": "Rio Durant"
+    "image": "JTL\\Rio_Durant - Wisecracking_Wheelman.png",
+    "name": "Rio_Durant - Wisecracking_Wheelman"
+  },
+  "riodurantwisecrackingwheelmanback": {
+    "type": "Leader",
+    "image": "JTL\\Rio_Durant - Wisecracking_Wheelman_back.png",
+    "name": "Rio_Durant - Wisecracking_Wheelman_back"
   },
   "rogueclassstarfighter": {
     "type": "Unit",
-    "image": "JTL\\Rogue-class_Starfighter",
-    "name": "Rogue-class Starfighter"
+    "image": "JTL\\Rogue-class_Starfighter.png",
+    "name": "Rogue-class_Starfighter"
   },
-  "rosetico": {
+  "roseticosavingwhatwelove": {
     "type": "Leader",
-    "image": "JTL\\Rose_Tico",
-    "name": "Rose Tico"
+    "image": "JTL\\Rose_Tico - Saving_What_We_Love.png",
+    "name": "Rose_Tico - Saving_What_We_Love"
+  },
+  "roseticosavingwhatweloveback": {
+    "type": "Leader",
+    "image": "JTL\\Rose_Tico - Saving_What_We_Love_back.png",
+    "name": "Rose_Tico - Saving_What_We_Love_back"
   },
   "royalsecurityfighter": {
     "type": "Unit",
-    "image": "JTL\\Royal_Security_Fighter",
-    "name": "Royal Security Fighter"
+    "image": "JTL\\Royal_Security_Fighter.png",
+    "name": "Royal_Security_Fighter"
   },
-  "sabinesmasterpiece": {
+  "sabinesmasterpiececrazycolorful": {
     "type": "Unit",
-    "image": "JTL\\Sabines_Masterpiece",
-    "name": "Sabine's Masterpiece"
+    "image": "JTL\\Sabines_Masterpiece - Crazy_Colorful.png",
+    "name": "Sabines_Masterpiece - Crazy_Colorful"
   },
   "salvage": {
     "type": "Event",
-    "image": "JTL\\Salvage",
+    "image": "JTL\\Salvage.png",
     "name": "Salvage"
   },
   "scoutingheadhunter": {
     "type": "Unit",
-    "image": "JTL\\Scouting_Headhunter",
-    "name": "Scouting Headhunter"
+    "image": "JTL\\Scouting_Headhunter.png",
+    "name": "Scouting_Headhunter"
   },
   "scramblefighters": {
     "type": "Event",
-    "image": "JTL\\Scramble_Fighters",
-    "name": "Scramble Fighters"
+    "image": "JTL\\Scramble_Fighters.png",
+    "name": "Scramble_Fighters"
   },
   "seasonedfleetadmiral": {
     "type": "Unit",
-    "image": "JTL\\Seasoned_Fleet_Admiral",
-    "name": "Seasoned Fleet Admiral"
+    "image": "JTL\\Seasoned_Fleet_Admiral.png",
+    "name": "Seasoned_Fleet_Admiral"
   },
-  "shadowcaster": {
+  "shadowcasterjustbusiness": {
     "type": "Unit",
-    "image": "JTL\\Shadow_Caster",
-    "name": "Shadow Caster"
+    "image": "JTL\\Shadow_Caster - Just_Business.png",
+    "name": "Shadow_Caster - Just_Business"
   },
   "shadowedhovertank": {
     "type": "Unit",
-    "image": "JTL\\Shadowed_Hover_Tank",
-    "name": "Shadowed Hover Tank"
+    "image": "JTL\\Shadowed_Hover_Tank.png",
+    "name": "Shadowed_Hover_Tank"
   },
-  "shieldgeneratorcomplex": {
+  "shieldgeneratorcomplexendor": {
     "type": "Base",
-    "image": "JTL\\Shield_Generator_Complex",
-    "name": "Shield Generator Complex"
+    "image": "JTL\\Shield_Generator_Complex - Endor.png",
+    "name": "Shield_Generator_Complex - Endor"
   },
   "shootdown": {
     "type": "Event",
-    "image": "JTL\\Shoot_Down",
-    "name": "Shoot Down"
+    "image": "JTL\\Shoot_Down.png",
+    "name": "Shoot_Down"
   },
-  "shuttlest149": {
+  "shuttlest149underkrennicsauthority": {
     "type": "Unit",
-    "image": "JTL\\Shuttle_ST-149",
-    "name": "Shuttle ST-149"
+    "image": "JTL\\Shuttle_ST-149 - Under_Krennics_Authority.png",
+    "name": "Shuttle_ST-149 - Under_Krennics_Authority"
   },
-  "shuttletydirium": {
+  "shuttletydiriumflycasual": {
     "type": "Unit",
-    "image": "JTL\\Shuttle_Tydirium",
-    "name": "Shuttle Tydirium"
+    "image": "JTL\\Shuttle_Tydirium - Fly_Casual.png",
+    "name": "Shuttle_Tydirium - Fly_Casual"
   },
-  "sidonithano": {
+  "sidonithanothecrimsoncorsair": {
     "type": "Unit",
-    "image": "JTL\\Sidon_Ithano",
-    "name": "Sidon Ithano"
+    "image": "JTL\\Sidon_Ithano - The_Crimson_Corsair.png",
+    "name": "Sidon_Ithano - The_Crimson_Corsair"
   },
-  "silverangel": {
+  "silverangeltraceshope": {
     "type": "Unit",
-    "image": "JTL\\Silver_Angel",
-    "name": "Silver Angel"
+    "image": "JTL\\Silver_Angel - Traces_Hope.png",
+    "name": "Silver_Angel - Traces_Hope"
   },
   "sithtrooper": {
     "type": "Unit",
-    "image": "JTL\\Sith_Trooper",
-    "name": "Sith Trooper"
+    "image": "JTL\\Sith_Trooper.png",
+    "name": "Sith_Trooper"
   },
   "skywaycloudcar": {
     "type": "Unit",
-    "image": "JTL\\Skyway_Cloud_Car",
-    "name": "Skyway Cloud Car"
+    "image": "JTL\\Skyway_Cloud_Car.png",
+    "name": "Skyway_Cloud_Car"
   },
-  "snapwexley": {
+  "snapwexleyresistancereconflier": {
     "type": "Unit",
-    "image": "JTL\\Snap_Wexley",
-    "name": "Snap Wexley"
+    "image": "JTL\\Snap_Wexley - Resistance_Recon_Flier.png",
+    "name": "Snap_Wexley - Resistance_Recon_Flier"
   },
   "specialforcestiefighter": {
     "type": "Unit",
-    "image": "JTL\\Special_Forces_TIE_Fighter",
-    "name": "Special Forces TIE Fighter"
+    "image": "JTL\\Special_Forces_TIE_Fighter.png",
+    "name": "Special_Forces_TIE_Fighter"
   },
   "stayontarget": {
     "type": "Event",
-    "image": "JTL\\Stay_on_Target",
-    "name": "Stay on Target"
+    "image": "JTL\\Stay_on_Target.png",
+    "name": "Stay_on_Target"
   },
   "stolenathauler": {
     "type": "Unit",
-    "image": "JTL\\Stolen_AT-Hauler",
-    "name": "Stolen AT-Hauler"
+    "image": "JTL\\Stolen_AT-Hauler.png",
+    "name": "Stolen_AT-Hauler"
   },
   "sullustanspacer": {
     "type": "Unit",
-    "image": "JTL\\Sullustan_Spacer",
-    "name": "Sullustan Spacer"
+    "image": "JTL\\Sullustan_Spacer.png",
+    "name": "Sullustan_Spacer"
   },
   "superheavyioncannon": {
     "type": "Upgrade",
-    "image": "JTL\\Superheavy_Ion_Cannon",
-    "name": "Superheavy Ion Cannon"
+    "image": "JTL\\Superheavy_Ion_Cannon.png",
+    "name": "Superheavy_Ion_Cannon"
   },
   "supportingeta2": {
     "type": "Unit",
-    "image": "JTL\\Supporting_Eta-2",
-    "name": "Supporting Eta-2"
+    "image": "JTL\\Supporting_Eta-2.png",
+    "name": "Supporting_Eta-2"
   },
   "swarmingvulturedroid": {
     "type": "Unit",
-    "image": "JTL\\Swarming_Vulture_Droid",
-    "name": "Swarming Vulture Droid"
+    "image": "JTL\\Swarming_Vulture_Droid.png",
+    "name": "Swarming_Vulture_Droid"
   },
   "sweepthearea": {
     "type": "Event",
-    "image": "JTL\\Sweep_the_Area",
-    "name": "Sweep the Area"
+    "image": "JTL\\Sweep_the_Area.png",
+    "name": "Sweep_the_Area"
   },
   "systemshock": {
     "type": "Event",
-    "image": "JTL\\System_Shock",
-    "name": "System Shock"
+    "image": "JTL\\System_Shock.png",
+    "name": "System_Shock"
   },
   "tieambushsquadron": {
     "type": "Unit",
-    "image": "JTL\\TIE_Ambush_Squadron",
-    "name": "TIE Ambush Squadron"
+    "image": "JTL\\TIE_Ambush_Squadron.png",
+    "name": "TIE_Ambush_Squadron"
   },
   "tiebomber": {
     "type": "Unit",
-    "image": "JTL\\TIE_Bomber",
-    "name": "TIE Bomber"
+    "image": "JTL\\TIE_Bomber.png",
+    "name": "TIE_Bomber"
   },
   "tiedaggervanguard": {
     "type": "Unit",
-    "image": "JTL\\TIE_Dagger_Vanguard",
-    "name": "TIE Dagger Vanguard"
+    "image": "JTL\\TIE_Dagger_Vanguard.png",
+    "name": "TIE_Dagger_Vanguard"
   },
   "tacticalheavybomber": {
     "type": "Unit",
-    "image": "JTL\\Tactical_Heavy_Bomber",
-    "name": "Tactical Heavy Bomber"
+    "image": "JTL\\Tactical_Heavy_Bomber.png",
+    "name": "Tactical_Heavy_Bomber"
   },
   "tamryvora": {
     "type": "Unit",
-    "image": "JTL\\Tam_Ryvora",
-    "name": "Tam Ryvora"
+    "image": "JTL\\Tam_Ryvora.png",
+    "name": "Tam_Ryvora"
   },
   "tandemassault": {
     "type": "Event",
-    "image": "JTL\\Tandem_Assault",
-    "name": "Tandem Assault"
+    "image": "JTL\\Tandem_Assault.png",
+    "name": "Tandem_Assault"
   },
-  "tantiveiv": {
+  "tantiveivfleeingtheempire": {
     "type": "Unit",
-    "image": "JTL\\Tantive_IV",
-    "name": "Tantive IV"
+    "image": "JTL\\Tantive_IV - Fleeing_the_Empire.png",
+    "name": "Tantive_IV - Fleeing_the_Empire"
   },
   "targetingcomputer": {
     "type": "Upgrade",
-    "image": "JTL\\Targeting_Computer",
-    "name": "Targeting Computer"
+    "image": "JTL\\Targeting_Computer.png",
+    "name": "Targeting_Computer"
   },
   "technouniontransport": {
     "type": "Unit",
-    "image": "JTL\\Techno_Union_Transport",
-    "name": "Techno Union Transport"
+    "image": "JTL\\Techno_Union_Transport.png",
+    "name": "Techno_Union_Transport"
   },
-  "theghost": {
+  "theghostheartofthefamily": {
     "type": "Unit",
-    "image": "JTL\\The_Ghost",
-    "name": "The Ghost"
+    "image": "JTL\\The_Ghost - Heart_of_the_Family.png",
+    "name": "The_Ghost - Heart_of_the_Family"
   },
-  "theinvisiblehand": {
+  "theinvisiblehandcrawlingwithvultures": {
     "type": "Unit",
-    "image": "JTL\\The_Invisible_Hand",
-    "name": "The Invisible Hand"
+    "image": "JTL\\The_Invisible_Hand - Crawling_With_Vultures.png",
+    "name": "The_Invisible_Hand - Crawling_With_Vultures"
   },
-  "themandalorian": {
+  "themandalorianweatheredpilot": {
     "type": "Unit",
-    "image": "JTL\\The_Mandalorian",
-    "name": "The Mandalorian"
+    "image": "JTL\\The_Mandalorian - Weathered_Pilot.png",
+    "name": "The_Mandalorian - Weathered_Pilot"
   },
-  "thestarhawk": {
+  "thestarhawkprototypebattleship": {
     "type": "Unit",
-    "image": "JTL\\The_Starhawk",
-    "name": "The Starhawk"
+    "image": "JTL\\The_Starhawk - Prototype_Battleship.png",
+    "name": "The_Starhawk - Prototype_Battleship"
   },
-  "theedpalace": {
+  "theedpalacenaboo": {
     "type": "Base",
-    "image": "JTL\\Theed_Palace",
-    "name": "Theed Palace"
+    "image": "JTL\\Theed_Palace - Naboo.png",
+    "name": "Theed_Palace - Naboo"
   },
   "thereisnoescape": {
     "type": "Event",
-    "image": "JTL\\There_Is_No_Escape",
-    "name": "There Is No Escape"
+    "image": "JTL\\There_Is_No_Escape.png",
+    "name": "There_Is_No_Escape"
   },
-  "thermaloscillator": {
+  "thermaloscillatorstarkillerbase": {
     "type": "Base",
-    "image": "JTL\\Thermal_Oscillator",
-    "name": "Thermal Oscillator"
+    "image": "JTL\\Thermal_Oscillator - Starkiller_Base.png",
+    "name": "Thermal_Oscillator - Starkiller_Base"
   },
   "theyhatethatship": {
     "type": "Event",
-    "image": "JTL\\They_Hate_That_Ship",
-    "name": "They Hate That Ship"
+    "image": "JTL\\They_Hate_That_Ship.png",
+    "name": "They_Hate_That_Ship"
   },
   "timelyreinforcements": {
     "type": "Event",
-    "image": "JTL\\Timely_Reinforcements",
-    "name": "Timely Reinforcements"
+    "image": "JTL\\Timely_Reinforcements.png",
+    "name": "Timely_Reinforcements"
   },
   "torpedobarrage": {
     "type": "Event",
-    "image": "JTL\\Torpedo_Barrage",
-    "name": "Torpedo Barrage"
+    "image": "JTL\\Torpedo_Barrage.png",
+    "name": "Torpedo_Barrage"
   },
-  "tracemartez": {
+  "tracemarteztrustingsister": {
     "type": "Unit",
-    "image": "JTL\\Trace_Martez",
-    "name": "Trace Martez"
+    "image": "JTL\\Trace_Martez - Trusting_Sister.png",
+    "name": "Trace_Martez - Trusting_Sister"
   },
   "trenchrun": {
     "type": "Event",
-    "image": "JTL\\Trench_Run",
-    "name": "Trench Run"
+    "image": "JTL\\Trench_Run.png",
+    "name": "Trench_Run"
   },
   "turbolasersalvo": {
     "type": "Event",
-    "image": "JTL\\Turbolaser_Salvo",
-    "name": "Turbolaser Salvo"
+    "image": "JTL\\Turbolaser_Salvo.png",
+    "name": "Turbolaser_Salvo"
   },
   "twinlaserturret": {
     "type": "Upgrade",
-    "image": "JTL\\Twin_Laser_Turret",
-    "name": "Twin Laser Turret"
+    "image": "JTL\\Twin_Laser_Turret.png",
+    "name": "Twin_Laser_Turret"
   },
   "uwinglander": {
     "type": "Unit",
-    "image": "JTL\\U-Wing_Lander",
-    "name": "U-Wing Lander"
+    "image": "JTL\\U-Wing_Lander.png",
+    "name": "U-Wing_Lander"
   },
   "unityofpurpose": {
     "type": "Event",
-    "image": "JTL\\Unity_of_Purpose",
-    "name": "Unity of Purpose"
+    "image": "JTL\\Unity_of_Purpose.png",
+    "name": "Unity_of_Purpose"
   },
   "veteranfleetofficer": {
     "type": "Unit",
-    "image": "JTL\\Veteran_Fleet_Officer",
-    "name": "Veteran Fleet Officer"
+    "image": "JTL\\Veteran_Fleet_Officer.png",
+    "name": "Veteran_Fleet_Officer"
   },
-  "victorleader": {
+  "victorleaderleadingfromthefront": {
     "type": "Unit",
-    "image": "JTL\\Victor_Leader",
-    "name": "Victor Leader"
+    "image": "JTL\\Victor_Leader - Leading_From_the_Front.png",
+    "name": "Victor_Leader - Leading_From_the_Front"
   },
-  "vonregstieinterceptor": {
+  "vonregstieinterceptoraceofthefirstorder": {
     "type": "Unit",
-    "image": "JTL\\Vonregs_TIE_Interceptor",
-    "name": "Vonreg's TIE Interceptor"
+    "image": "JTL\\Vonregs_TIE_Interceptor - Ace_of_the_First_Order.png",
+    "name": "Vonregs_TIE_Interceptor - Ace_of_the_First_Order"
   },
   "warjuggernaut": {
     "type": "Unit",
-    "image": "JTL\\War_Juggernaut",
-    "name": "War Juggernaut"
+    "image": "JTL\\War_Juggernaut.png",
+    "name": "War_Juggernaut"
   },
-  "wedgeantilles": {
+  "wedgeantillesleaderofredsquadron": {
     "type": "Leader",
-    "image": "JTL\\Wedge_Antilles",
-    "name": "Wedge Antilles"
+    "image": "JTL\\Wedge_Antilles - Leader_of_Red_Squadron.png",
+    "name": "Wedge_Antilles - Leader_of_Red_Squadron"
+  },
+  "wedgeantillesleaderofredsquadronback": {
+    "type": "Leader",
+    "image": "JTL\\Wedge_Antilles - Leader_of_Red_Squadron_back.png",
+    "name": "Wedge_Antilles - Leader_of_Red_Squadron_back"
   },
   "wingguardsecurityteam": {
     "type": "Unit",
-    "image": "JTL\\Wing_Guard_Security_Team",
-    "name": "Wing Guard Security Team"
+    "image": "JTL\\Wing_Guard_Security_Team.png",
+    "name": "Wing_Guard_Security_Team"
   },
-  "wingmanvictorthree": {
+  "wingmanvictorthreebackstabber": {
     "type": "Unit",
-    "image": "JTL\\Wingman_Victor_Three",
-    "name": "Wingman Victor Three"
+    "image": "JTL\\Wingman_Victor_Three - Backstabber.png",
+    "name": "Wingman_Victor_Three - Backstabber"
   },
-  "wingmanvictortwo": {
+  "wingmanvictortwomaulermithel": {
     "type": "Unit",
-    "image": "JTL\\Wingman_Victor_Two",
-    "name": "Wingman Victor Two"
+    "image": "JTL\\Wingman_Victor_Two - Mauler_Mithel.png",
+    "name": "Wingman_Victor_Two - Mauler_Mithel"
   },
   "x34landspeeder": {
     "type": "Unit",
-    "image": "JTL\\X-34_Landspeeder",
-    "name": "X-34 Landspeeder"
+    "image": "JTL\\X-34_Landspeeder.png",
+    "name": "X-34_Landspeeder"
   },
   "youreallclearkid": {
     "type": "Event",
-    "image": "JTL\\Youre_All_Clear_Kid",
-    "name": "You're All Clear, Kid"
+    "image": "JTL\\Youre_All_Clear_Kid.png",
+    "name": "Youre_All_Clear_Kid"
   },
   "zygerrianstarhopper": {
     "type": "Unit",
-    "image": "JTL\\Zygerrian_Starhopper",
-    "name": "Zygerrian Starhopper"
+    "image": "JTL\\Zygerrian_Starhopper.png",
+    "name": "Zygerrian_Starhopper"
   },
   "indoctrinatedconscript": {
     "type": "Unit",
-    "image": "JTL\\indoctrinated_Conscript",
-    "name": "indoctrinated Conscript"
+    "image": "JTL\\indoctrinated_Conscript.png",
+    "name": "indoctrinated_Conscript"
   }
 }
