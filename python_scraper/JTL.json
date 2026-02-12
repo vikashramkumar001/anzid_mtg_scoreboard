@@ -1,6 +1,6 @@
 [
     {
-        "name": "AT-DP_Occupier",
+        "name": "AT-DP Occupier",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/163.png",
         "type": "Unit",
@@ -8,7 +8,7 @@
         "success": true
     },
     {
-        "name": "Academy_Graduate",
+        "name": "Academy Graduate",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/058.png",
         "type": "Unit",
@@ -16,7 +16,7 @@
         "success": true
     },
     {
-        "name": "Adept_ARC-170",
+        "name": "Adept ARC-170",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/114.png",
         "type": "Unit",
@@ -24,7 +24,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Ackbar - Its_A_Trap",
+        "name": "Admiral Ackbar - It's A Trap!",
         "subtitle": "It's A Trap!",
         "url": "https://cdn.swu-db.com/images/cards/JTL/016.png",
         "type": "Leader",
@@ -32,7 +32,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Ackbar - Its_A_Trap_back",
+        "name": "Admiral Ackbar - It's A Trap! [Back]",
         "subtitle": "It's A Trap!",
         "url": "https://cdn.swu-db.com/images/cards/JTL/016-b.png",
         "type": "Leader",
@@ -40,7 +40,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Holdo - Were_Not_Alone",
+        "name": "Admiral Holdo - We're Not Alone",
         "subtitle": "We're Not Alone",
         "url": "https://cdn.swu-db.com/images/cards/JTL/007.png",
         "type": "Leader",
@@ -48,7 +48,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Holdo - Were_Not_Alone_back",
+        "name": "Admiral Holdo - We're Not Alone [Back]",
         "subtitle": "We're Not Alone",
         "url": "https://cdn.swu-db.com/images/cards/JTL/007-b.png",
         "type": "Leader",
@@ -56,7 +56,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Piett - Commanding_the_Armada",
+        "name": "Admiral Piett - Commanding the Armada",
         "subtitle": "Commanding the Armada",
         "url": "https://cdn.swu-db.com/images/cards/JTL/005.png",
         "type": "Leader",
@@ -64,7 +64,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Piett - Commanding_the_Armada_back",
+        "name": "Admiral Piett - Commanding the Armada [Back]",
         "subtitle": "Commanding the Armada",
         "url": "https://cdn.swu-db.com/images/cards/JTL/005-b.png",
         "type": "Leader",
@@ -72,7 +72,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Trench - chk-chk-chk-chk",
+        "name": "Admiral Trench - chk-chk-chk-chk",
         "subtitle": "chk-chk-chk-chk",
         "url": "https://cdn.swu-db.com/images/cards/JTL/014.png",
         "type": "Leader",
@@ -80,7 +80,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Trench - chk-chk-chk-chk_back",
+        "name": "Admiral Trench - chk-chk-chk-chk [Back]",
         "subtitle": "chk-chk-chk-chk",
         "url": "https://cdn.swu-db.com/images/cards/JTL/014-b.png",
         "type": "Leader",
@@ -88,7 +88,7 @@
         "success": true
     },
     {
-        "name": "Admiral_Yularen - Fleet_Coordinator",
+        "name": "Admiral Yularen - Fleet Coordinator",
         "subtitle": "Fleet Coordinator",
         "url": "https://cdn.swu-db.com/images/cards/JTL/047.png",
         "type": "Unit",
@@ -96,7 +96,7 @@
         "success": true
     },
     {
-        "name": "Ahsoka_Tano - Chasing_Whispers",
+        "name": "Ahsoka Tano - Chasing Whispers",
         "subtitle": "Chasing Whispers",
         "url": "https://cdn.swu-db.com/images/cards/JTL/201.png",
         "type": "Unit",
@@ -104,7 +104,7 @@
         "success": true
     },
     {
-        "name": "Air_Superiority",
+        "name": "Air Superiority",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/125.png",
         "type": "Event",
@@ -112,7 +112,7 @@
         "success": true
     },
     {
-        "name": "All_Wings_Report_In",
+        "name": "All Wings Report In",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/122.png",
         "type": "Event",
@@ -120,7 +120,7 @@
         "success": true
     },
     {
-        "name": "Allegiant_General_Pryde - Ruthless_and_Loyal",
+        "name": "Allegiant General Pryde - Ruthless and Loyal",
         "subtitle": "Ruthless and Loyal",
         "url": "https://cdn.swu-db.com/images/cards/JTL/133.png",
         "type": "Unit",
@@ -128,7 +128,7 @@
         "success": true
     },
     {
-        "name": "Anakin_Skywalker - Ill_Try_Spinning",
+        "name": "Anakin Skywalker - I'll Try Spinning",
         "subtitle": "I'll Try Spinning",
         "url": "https://cdn.swu-db.com/images/cards/JTL/197.png",
         "type": "Unit",
@@ -136,7 +136,7 @@
         "success": true
     },
     {
-        "name": "Annihilator - Tagges_Flagship",
+        "name": "Annihilator - Tagge's Flagship",
         "subtitle": "Tagge's Flagship",
         "url": "https://cdn.swu-db.com/images/cards/JTL/041.png",
         "type": "Unit",
@@ -144,7 +144,7 @@
         "success": true
     },
     {
-        "name": "Apology_Accepted",
+        "name": "Apology Accepted",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/091.png",
         "type": "Event",
@@ -152,7 +152,7 @@
         "success": true
     },
     {
-        "name": "Asajj_Ventress - I_Work_Alone",
+        "name": "Asajj Ventress - I Work Alone",
         "subtitle": "I Work Alone",
         "url": "https://cdn.swu-db.com/images/cards/JTL/001.png",
         "type": "Leader",
@@ -160,7 +160,7 @@
         "success": true
     },
     {
-        "name": "Asajj_Ventress - I_Work_Alone_back",
+        "name": "Asajj Ventress - I Work Alone [Back]",
         "subtitle": "I Work Alone",
         "url": "https://cdn.swu-db.com/images/cards/JTL/001-b.png",
         "type": "Leader",
@@ -168,7 +168,7 @@
         "success": true
     },
     {
-        "name": "Astromech_Pilot",
+        "name": "Astromech Pilot",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/057.png",
         "type": "Unit",
@@ -176,7 +176,7 @@
         "success": true
     },
     {
-        "name": "Attack_Run",
+        "name": "Attack Run",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/261.png",
         "type": "Event",
@@ -184,7 +184,7 @@
         "success": true
     },
     {
-        "name": "BB-8 - Happy_Beeps",
+        "name": "BB-8 - Happy Beeps",
         "subtitle": "Happy Beeps",
         "url": "https://cdn.swu-db.com/images/cards/JTL/145.png",
         "type": "Unit",
@@ -192,7 +192,7 @@
         "success": true
     },
     {
-        "name": "Banshee - Crippling_Command",
+        "name": "Banshee - Crippling Command",
         "subtitle": "Crippling Command",
         "url": "https://cdn.swu-db.com/images/cards/JTL/037.png",
         "type": "Unit",
@@ -200,7 +200,7 @@
         "success": true
     },
     {
-        "name": "Barrel_Roll",
+        "name": "Barrel Roll",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/228.png",
         "type": "Event",
@@ -208,7 +208,7 @@
         "success": true
     },
     {
-        "name": "Biggs_Darklighter - Theyll_Never_Stop_Us",
+        "name": "Biggs Darklighter - They'll Never Stop Us",
         "subtitle": "They'll Never Stop Us",
         "url": "https://cdn.swu-db.com/images/cards/JTL/150.png",
         "type": "Unit",
@@ -216,7 +216,7 @@
         "success": true
     },
     {
-        "name": "Black_One - Straight_At_Them",
+        "name": "Black One - Straight At Them",
         "subtitle": "Straight At Them",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1033.png",
         "type": "Unit",
@@ -224,7 +224,7 @@
         "success": true
     },
     {
-        "name": "Black_Squadron_Scout_Wing",
+        "name": "Black Squadron Scout Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/202.png",
         "type": "Unit",
@@ -232,7 +232,7 @@
         "success": true
     },
     {
-        "name": "Blade_Squadron_B-Wing",
+        "name": "Blade Squadron B-Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/199.png",
         "type": "Unit",
@@ -240,7 +240,7 @@
         "success": true
     },
     {
-        "name": "Blue_Leader - Scarif_Air_Support",
+        "name": "Blue Leader - Scarif Air Support",
         "subtitle": "Scarif Air Support",
         "url": "https://cdn.swu-db.com/images/cards/JTL/096.png",
         "type": "Unit",
@@ -248,7 +248,7 @@
         "success": true
     },
     {
-        "name": "BoShek - Charismatic_Smuggler",
+        "name": "BoShek - Charismatic Smuggler",
         "subtitle": "Charismatic Smuggler",
         "url": "https://cdn.swu-db.com/images/cards/JTL/215.png",
         "type": "Unit",
@@ -256,7 +256,7 @@
         "success": true
     },
     {
-        "name": "Boba_Fett - Any_Methods_Necessary",
+        "name": "Boba Fett - Any Methods Necessary",
         "subtitle": "Any Methods Necessary",
         "url": "https://cdn.swu-db.com/images/cards/JTL/009.png",
         "type": "Leader",
@@ -264,7 +264,7 @@
         "success": true
     },
     {
-        "name": "Boba_Fett - Any_Methods_Necessary_back",
+        "name": "Boba Fett - Any Methods Necessary [Back]",
         "subtitle": "Any Methods Necessary",
         "url": "https://cdn.swu-db.com/images/cards/JTL/009-b.png",
         "type": "Leader",
@@ -272,7 +272,7 @@
         "success": true
     },
     {
-        "name": "Boba_Fett - Feared_Bounty_Hunter",
+        "name": "Boba Fett - Feared Bounty Hunter",
         "subtitle": "Feared Bounty Hunter",
         "url": "https://cdn.swu-db.com/images/cards/JTL/189.png",
         "type": "Unit",
@@ -280,7 +280,7 @@
         "success": true
     },
     {
-        "name": "Bossk - Hunt_By_Instinct",
+        "name": "Bossk - Hunt By Instinct",
         "subtitle": "Hunt By Instinct",
         "url": "https://cdn.swu-db.com/images/cards/JTL/187.png",
         "type": "Unit",
@@ -288,7 +288,7 @@
         "success": true
     },
     {
-        "name": "Bunker_Defender",
+        "name": "Bunker Defender",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/107.png",
         "type": "Unit",
@@ -296,7 +296,7 @@
         "success": true
     },
     {
-        "name": "CR90_Relief_Runner",
+        "name": "CR90 Relief Runner",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/071.png",
         "type": "Unit",
@@ -304,7 +304,7 @@
         "success": true
     },
     {
-        "name": "Captain_Phasma - Chrome_Dome",
+        "name": "Captain Phasma - Chrome Dome",
         "subtitle": "Chrome Dome",
         "url": "https://cdn.swu-db.com/images/cards/JTL/010.png",
         "type": "Leader",
@@ -312,7 +312,7 @@
         "success": true
     },
     {
-        "name": "Captain_Phasma - Chrome_Dome_back",
+        "name": "Captain Phasma - Chrome Dome [Back]",
         "subtitle": "Chrome Dome",
         "url": "https://cdn.swu-db.com/images/cards/JTL/010-b.png",
         "type": "Leader",
@@ -320,7 +320,7 @@
         "success": true
     },
     {
-        "name": "Captain_Phasma - On_My_Command",
+        "name": "Captain Phasma - On My Command",
         "subtitle": "On My Command",
         "url": "https://cdn.swu-db.com/images/cards/JTL/088.png",
         "type": "Unit",
@@ -328,7 +328,7 @@
         "success": true
     },
     {
-        "name": "Captain_Tarkin - Full_Forward_Assault",
+        "name": "Captain Tarkin - Full Forward Assault",
         "subtitle": "Full Forward Assault",
         "url": "https://cdn.swu-db.com/images/cards/JTL/161.png",
         "type": "Unit",
@@ -336,7 +336,7 @@
         "success": true
     },
     {
-        "name": "Cassian_Andor - Threading_the_Eye",
+        "name": "Cassian Andor - Threading the Eye",
         "subtitle": "Threading the Eye",
         "url": "https://cdn.swu-db.com/images/cards/JTL/048.png",
         "type": "Unit",
@@ -344,7 +344,7 @@
         "success": true
     },
     {
-        "name": "Cat_and_Mouse",
+        "name": "Cat and Mouse",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/195.png",
         "type": "Event",
@@ -352,7 +352,7 @@
         "success": true
     },
     {
-        "name": "Cham_Syndulla - Rallying_Ryloth",
+        "name": "Cham Syndulla - Rallying Ryloth",
         "subtitle": "Rallying Ryloth",
         "url": "https://cdn.swu-db.com/images/cards/JTL/164.png",
         "type": "Unit",
@@ -360,7 +360,7 @@
         "success": true
     },
     {
-        "name": "Chewbacca - Faithful_First_Mate",
+        "name": "Chewbacca - Faithful First Mate",
         "subtitle": "Faithful First Mate",
         "url": "https://cdn.swu-db.com/images/cards/JTL/103.png",
         "type": "Unit",
@@ -368,7 +368,7 @@
         "success": true
     },
     {
-        "name": "Chimaera - Reinforcing_the_Center",
+        "name": "Chimaera - Reinforcing the Center",
         "subtitle": "Reinforcing the Center",
         "url": "https://cdn.swu-db.com/images/cards/JTL/039.png",
         "type": "Unit",
@@ -376,7 +376,7 @@
         "success": true
     },
     {
-        "name": "Chopper_Base - Atollon",
+        "name": "Chopper Base - Atollon",
         "subtitle": "Atollon",
         "url": "https://cdn.swu-db.com/images/cards/JTL/029.png",
         "type": "Base",
@@ -384,7 +384,7 @@
         "success": true
     },
     {
-        "name": "City_in_the_Clouds - Cloud_City",
+        "name": "City in the Clouds - Cloud City",
         "subtitle": "Cloud City",
         "url": "https://cdn.swu-db.com/images/cards/JTL/019.png",
         "type": "Base",
@@ -392,7 +392,7 @@
         "success": true
     },
     {
-        "name": "Cloaked_StarViper",
+        "name": "Cloaked StarViper",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/067.png",
         "type": "Unit",
@@ -400,7 +400,7 @@
         "success": true
     },
     {
-        "name": "Clone_Combat_Squadron",
+        "name": "Clone Combat Squadron",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/115.png",
         "type": "Unit",
@@ -408,7 +408,7 @@
         "success": true
     },
     {
-        "name": "Clone_Pilot",
+        "name": "Clone Pilot",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/108.png",
         "type": "Unit",
@@ -416,7 +416,7 @@
         "success": true
     },
     {
-        "name": "Close_the_Shield_Gate",
+        "name": "Close the Shield Gate",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/074.png",
         "type": "Event",
@@ -440,7 +440,7 @@
         "success": true
     },
     {
-        "name": "Commence_Patrol",
+        "name": "Commence Patrol",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/205.png",
         "type": "Event",
@@ -448,7 +448,7 @@
         "success": true
     },
     {
-        "name": "Contracted_Hunter",
+        "name": "Contracted Hunter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/216.png",
         "type": "Unit",
@@ -456,7 +456,7 @@
         "success": true
     },
     {
-        "name": "Contracted_Jumpmaster",
+        "name": "Contracted Jumpmaster",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/184.png",
         "type": "Unit",
@@ -464,7 +464,7 @@
         "success": true
     },
     {
-        "name": "Coordinated_Front",
+        "name": "Coordinated Front",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/253.png",
         "type": "Event",
@@ -472,7 +472,7 @@
         "success": true
     },
     {
-        "name": "Corellian_Freighter",
+        "name": "Corellian Freighter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/258.png",
         "type": "Unit",
@@ -480,7 +480,7 @@
         "success": true
     },
     {
-        "name": "Corporate_Defense_Shuttle",
+        "name": "Corporate Defense Shuttle",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/059.png",
         "type": "Unit",
@@ -488,7 +488,7 @@
         "success": true
     },
     {
-        "name": "Corporate_Light_Cruiser",
+        "name": "Corporate Light Cruiser",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/225.png",
         "type": "Unit",
@@ -496,7 +496,7 @@
         "success": true
     },
     {
-        "name": "Corvus - Inferno_Squadron_Raider",
+        "name": "Corvus - Inferno Squadron Raider",
         "subtitle": "Inferno Squadron Raider",
         "url": "https://cdn.swu-db.com/images/cards/JTL/038.png",
         "type": "Unit",
@@ -504,7 +504,7 @@
         "success": true
     },
     {
-        "name": "Covering_the_Wing",
+        "name": "Covering the Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/076.png",
         "type": "Event",
@@ -512,7 +512,7 @@
         "success": true
     },
     {
-        "name": "Crackshot_V-Wing",
+        "name": "Crackshot V-Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/158.png",
         "type": "Unit",
@@ -520,7 +520,7 @@
         "success": true
     },
     {
-        "name": "DQar_Cargo_Frigate",
+        "name": "D'Qar Cargo Frigate",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/052.png",
         "type": "Unit",
@@ -528,7 +528,7 @@
         "success": true
     },
     {
-        "name": "Dagger_Squadron_Pilot",
+        "name": "Dagger Squadron Pilot",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/196.png",
         "type": "Unit",
@@ -536,7 +536,7 @@
         "success": true
     },
     {
-        "name": "Darth_Vader - Victor_Squadron_Leader",
+        "name": "Darth Vader - Victor Squadron Leader",
         "subtitle": "Victor Squadron Leader",
         "url": "https://cdn.swu-db.com/images/cards/JTL/006.png",
         "type": "Leader",
@@ -544,7 +544,7 @@
         "success": true
     },
     {
-        "name": "Darth_Vader - Victor_Squadron_Leader_back",
+        "name": "Darth Vader - Victor Squadron Leader [Back]",
         "subtitle": "Victor Squadron Leader",
         "url": "https://cdn.swu-db.com/images/cards/JTL/006-b.png",
         "type": "Leader",
@@ -552,7 +552,7 @@
         "success": true
     },
     {
-        "name": "Darth_Vader - Scourge_of_Squadrons",
+        "name": "Darth Vader - Scourge of Squadrons",
         "subtitle": "Scourge of Squadrons",
         "url": "https://cdn.swu-db.com/images/cards/JTL/142.png",
         "type": "Unit",
@@ -560,7 +560,7 @@
         "success": true
     },
     {
-        "name": "Data_Vault - Scarif",
+        "name": "Data Vault - Scarif",
         "subtitle": "Scarif",
         "url": "https://cdn.swu-db.com/images/cards/JTL/024.png",
         "type": "Base",
@@ -568,7 +568,7 @@
         "success": true
     },
     {
-        "name": "Death_Space_Skirmisher",
+        "name": "Death Space Skirmisher",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/217.png",
         "type": "Unit",
@@ -576,7 +576,7 @@
         "success": true
     },
     {
-        "name": "Death_Star_Plans",
+        "name": "Death Star Plans",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/260.png",
         "type": "Upgrade",
@@ -584,7 +584,7 @@
         "success": true
     },
     {
-        "name": "Decimator_of_Dissidents",
+        "name": "Decimator of Dissidents",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/138.png",
         "type": "Unit",
@@ -592,7 +592,7 @@
         "success": true
     },
     {
-        "name": "Dedicated_Wingmen",
+        "name": "Dedicated Wingmen",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/254.png",
         "type": "Event",
@@ -600,7 +600,7 @@
         "success": true
     },
     {
-        "name": "Dengar - Crude_and_Slovenly",
+        "name": "Dengar - Crude and Slovenly",
         "subtitle": "Crude and Slovenly",
         "url": "https://cdn.swu-db.com/images/cards/JTL/139.png",
         "type": "Unit",
@@ -608,7 +608,7 @@
         "success": true
     },
     {
-        "name": "Desperate_Commando",
+        "name": "Desperate Commando",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/060.png",
         "type": "Unit",
@@ -616,7 +616,7 @@
         "success": true
     },
     {
-        "name": "Determined_Recruit",
+        "name": "Determined Recruit",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/159.png",
         "type": "Unit",
@@ -624,7 +624,7 @@
         "success": true
     },
     {
-        "name": "Devastator - Hunting_the_Rebellion",
+        "name": "Devastator - Hunting the Rebellion",
         "subtitle": "Hunting the Rebellion",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1032.png",
         "type": "Unit",
@@ -632,7 +632,7 @@
         "success": true
     },
     {
-        "name": "Dilapidated_Ski_Speeder",
+        "name": "Dilapidated Ski Speeder",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/248.png",
         "type": "Unit",
@@ -640,7 +640,7 @@
         "success": true
     },
     {
-        "name": "Direct_Hit",
+        "name": "Direct Hit",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/078.png",
         "type": "Event",
@@ -648,7 +648,7 @@
         "success": true
     },
     {
-        "name": "Director_Krennic - On_the_Verge_Of_Greatness",
+        "name": "Director Krennic - On the Verge Of Greatness",
         "subtitle": "On the Verge Of Greatness",
         "url": "https://cdn.swu-db.com/images/cards/JTL/032.png",
         "type": "Unit",
@@ -672,7 +672,7 @@
         "success": true
     },
     {
-        "name": "Dornean_Gunship",
+        "name": "Dornean Gunship",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/116.png",
         "type": "Unit",
@@ -680,7 +680,7 @@
         "success": true
     },
     {
-        "name": "Dorsal_Turret",
+        "name": "Dorsal Turret",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/120.png",
         "type": "Upgrade",
@@ -688,7 +688,7 @@
         "success": true
     },
     {
-        "name": "Droid_Missile_Platform",
+        "name": "Droid Missile Platform",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/162.png",
         "type": "Unit",
@@ -696,7 +696,7 @@
         "success": true
     },
     {
-        "name": "Eager_Escort_Fighter",
+        "name": "Eager Escort Fighter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/112.png",
         "type": "Unit",
@@ -704,7 +704,7 @@
         "success": true
     },
     {
-        "name": "Echo_Base_Engineer",
+        "name": "Echo Base Engineer",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/044.png",
         "type": "Unit",
@@ -720,7 +720,7 @@
         "success": true
     },
     {
-        "name": "Electromagnetic_Pulse",
+        "name": "Electromagnetic Pulse",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/230.png",
         "type": "Event",
@@ -728,7 +728,7 @@
         "success": true
     },
     {
-        "name": "Evasive_Maneuver",
+        "name": "Evasive Maneuver",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/262.png",
         "type": "Event",
@@ -736,7 +736,7 @@
         "success": true
     },
     {
-        "name": "Executor - Might_of_the_Empire",
+        "name": "Executor - Might of the Empire",
         "subtitle": "Might of the Empire",
         "url": "https://cdn.swu-db.com/images/cards/JTL/090.png",
         "type": "Unit",
@@ -744,7 +744,7 @@
         "success": true
     },
     {
-        "name": "Face_Off",
+        "name": "Face Off",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/178.png",
         "type": "Event",
@@ -752,7 +752,7 @@
         "success": true
     },
     {
-        "name": "Fetts_Firespray - Feared_Silhouette",
+        "name": "Fett's Firespray - Feared Silhouette",
         "subtitle": "Feared Silhouette",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1046.png",
         "type": "Unit",
@@ -760,7 +760,7 @@
         "success": true
     },
     {
-        "name": "Fight_Fire_With_Fire",
+        "name": "Fight Fire With Fire",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/173.png",
         "type": "Event",
@@ -768,7 +768,7 @@
         "success": true
     },
     {
-        "name": "Fireball - An_Explosion_With_Wings",
+        "name": "Fireball - An Explosion With Wings",
         "subtitle": "An Explosion With Wings",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1041.png",
         "type": "Unit",
@@ -776,7 +776,7 @@
         "success": true
     },
     {
-        "name": "First_Order_Stormtrooper",
+        "name": "First Order Stormtrooper",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/132.png",
         "type": "Unit",
@@ -784,7 +784,7 @@
         "success": true
     },
     {
-        "name": "First_Order_TIE_Fighter",
+        "name": "First Order TIE Fighter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/081.png",
         "type": "Unit",
@@ -792,7 +792,7 @@
         "success": true
     },
     {
-        "name": "Flanking_Fang_Fighter",
+        "name": "Flanking Fang Fighter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/257.png",
         "type": "Unit",
@@ -800,7 +800,7 @@
         "success": true
     },
     {
-        "name": "Fleet_Interdictor",
+        "name": "Fleet Interdictor",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/040.png",
         "type": "Unit",
@@ -808,7 +808,7 @@
         "success": true
     },
     {
-        "name": "Fly_Casual",
+        "name": "Fly Casual",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/206.png",
         "type": "Event",
@@ -816,7 +816,7 @@
         "success": true
     },
     {
-        "name": "Focus_Fire",
+        "name": "Focus Fire",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/129.png",
         "type": "Event",
@@ -824,7 +824,7 @@
         "success": true
     },
     {
-        "name": "Frisk - Vanguard_Loudmouth",
+        "name": "Frisk - Vanguard Loudmouth",
         "subtitle": "Vanguard Loudmouth",
         "url": "https://cdn.swu-db.com/images/cards/JTL/148.png",
         "type": "Unit",
@@ -832,7 +832,7 @@
         "success": true
     },
     {
-        "name": "General_Draven - Doing_What_Must_Be_Done",
+        "name": "General Draven - Doing What Must Be Done",
         "subtitle": "Doing What Must Be Done",
         "url": "https://cdn.swu-db.com/images/cards/JTL/117.png",
         "type": "Unit",
@@ -840,7 +840,7 @@
         "success": true
     },
     {
-        "name": "General_Hux - No_Terms_No_Surrender",
+        "name": "General Hux - No Terms, No Surrender",
         "subtitle": "No Terms, No Surrender",
         "url": "https://cdn.swu-db.com/images/cards/JTL/134.png",
         "type": "Unit",
@@ -848,7 +848,7 @@
         "success": true
     },
     {
-        "name": "Gold_Leader - Fastest_Ship_in_the_Fleet",
+        "name": "Gold Leader - Fastest Ship in the Fleet",
         "subtitle": "Fastest Ship in the Fleet",
         "url": "https://cdn.swu-db.com/images/cards/JTL/054.png",
         "type": "Unit",
@@ -856,7 +856,7 @@
         "success": true
     },
     {
-        "name": "Grand_Admiral_Thrawn - ...How_Unfortunate",
+        "name": "Grand Admiral Thrawn - ...How Unfortunate",
         "subtitle": "...How Unfortunate",
         "url": "https://cdn.swu-db.com/images/cards/JTL/002.png",
         "type": "Leader",
@@ -864,7 +864,7 @@
         "success": true
     },
     {
-        "name": "Grand_Admiral_Thrawn - ...How_Unfortunate_back",
+        "name": "Grand Admiral Thrawn - ...How Unfortunate [Back]",
         "subtitle": "...How Unfortunate",
         "url": "https://cdn.swu-db.com/images/cards/JTL/002-b.png",
         "type": "Leader",
@@ -872,7 +872,7 @@
         "success": true
     },
     {
-        "name": "Grim_Valor",
+        "name": "Grim Valor",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/073.png",
         "type": "Upgrade",
@@ -880,7 +880,7 @@
         "success": true
     },
     {
-        "name": "Guerilla_Soldier",
+        "name": "Guerilla Soldier",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/218.png",
         "type": "Unit",
@@ -888,7 +888,7 @@
         "success": true
     },
     {
-        "name": "Han_Solo - Never_Tell_Me_the_Odds",
+        "name": "Han Solo - Never Tell Me the Odds",
         "subtitle": "Never Tell Me the Odds",
         "url": "https://cdn.swu-db.com/images/cards/JTL/017.png",
         "type": "Leader",
@@ -896,7 +896,7 @@
         "success": true
     },
     {
-        "name": "Han_Solo - Never_Tell_Me_the_Odds_back",
+        "name": "Han Solo - Never Tell Me the Odds [Back]",
         "subtitle": "Never Tell Me the Odds",
         "url": "https://cdn.swu-db.com/images/cards/JTL/017-b.png",
         "type": "Leader",
@@ -904,7 +904,7 @@
         "success": true
     },
     {
-        "name": "Han_Solo - Has_His_Moments",
+        "name": "Han Solo - Has His Moments",
         "subtitle": "Has His Moments",
         "url": "https://cdn.swu-db.com/images/cards/JTL/203.png",
         "type": "Unit",
@@ -912,7 +912,7 @@
         "success": true
     },
     {
-        "name": "Heartless_Tactics",
+        "name": "Heartless Tactics",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/194.png",
         "type": "Event",
@@ -920,7 +920,7 @@
         "success": true
     },
     {
-        "name": "Hera_Syndulla - Weve_Lost_Enough",
+        "name": "Hera Syndulla - We've Lost Enough",
         "subtitle": "We've Lost Enough",
         "url": "https://cdn.swu-db.com/images/cards/JTL/045.png",
         "type": "Unit",
@@ -928,7 +928,7 @@
         "success": true
     },
     {
-        "name": "Home_One - On_My_Mark",
+        "name": "Home One - On My Mark",
         "subtitle": "On My Mark",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1043.png",
         "type": "Unit",
@@ -936,7 +936,7 @@
         "success": true
     },
     {
-        "name": "Homestead_Militia",
+        "name": "Homestead Militia",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/113.png",
         "type": "Unit",
@@ -944,7 +944,7 @@
         "success": true
     },
     {
-        "name": "Hondo_Ohnaka - Superfluous_Swindler",
+        "name": "Hondo Ohnaka - Superfluous Swindler",
         "subtitle": "Superfluous Swindler",
         "url": "https://cdn.swu-db.com/images/cards/JTL/056.png",
         "type": "Unit",
@@ -952,7 +952,7 @@
         "success": true
     },
     {
-        "name": "Hopeful_Volunteer",
+        "name": "Hopeful Volunteer",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/246.png",
         "type": "Unit",
@@ -960,7 +960,7 @@
         "success": true
     },
     {
-        "name": "Hotshot_Maneuver",
+        "name": "Hotshot Maneuver",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/174.png",
         "type": "Event",
@@ -968,7 +968,7 @@
         "success": true
     },
     {
-        "name": "Hounds_Tooth - Reliable_and_Deadly",
+        "name": "Hound's Tooth - Reliable and Deadly",
         "subtitle": "Reliable and Deadly",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1038.png",
         "type": "Unit",
@@ -976,7 +976,7 @@
         "success": true
     },
     {
-        "name": "Hunting_Aggressor",
+        "name": "Hunting Aggressor",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/165.png",
         "type": "Unit",
@@ -984,7 +984,7 @@
         "success": true
     },
     {
-        "name": "I_Have_You_Now",
+        "name": "I Have You Now",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/193.png",
         "type": "Event",
@@ -992,7 +992,7 @@
         "success": true
     },
     {
-        "name": "IG-2000 - Assassins_Aggressor",
+        "name": "IG-2000 - Assassin's Aggressor",
         "subtitle": "Assassin's Aggressor",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1031.png",
         "type": "Unit",
@@ -1000,7 +1000,7 @@
         "success": true
     },
     {
-        "name": "IG-88 - Murderous_Phlutdroid",
+        "name": "IG-88 - Murderous Phlutdroid",
         "subtitle": "Murderous Phlutdroid",
         "url": "https://cdn.swu-db.com/images/cards/JTL/141.png",
         "type": "Unit",
@@ -1008,7 +1008,7 @@
         "success": true
     },
     {
-        "name": "Iden_Versio - Adapt_or_Die",
+        "name": "Iden Versio - Adapt or Die",
         "subtitle": "Adapt or Die",
         "url": "https://cdn.swu-db.com/images/cards/JTL/036.png",
         "type": "Unit",
@@ -1016,7 +1016,7 @@
         "success": true
     },
     {
-        "name": "In_Debt_to_Crimson_Dawn",
+        "name": "In Debt to Crimson Dawn",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/192.png",
         "type": "Upgrade",
@@ -1024,7 +1024,7 @@
         "success": true
     },
     {
-        "name": "In_the_Heat_of_Battle",
+        "name": "In the Heat of Battle",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/077.png",
         "type": "Event",
@@ -1032,7 +1032,7 @@
         "success": true
     },
     {
-        "name": "Independent_Smuggler",
+        "name": "Independent Smuggler",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/211.png",
         "type": "Unit",
@@ -1040,7 +1040,7 @@
         "success": true
     },
     {
-        "name": "Insurgent_Saboteurs",
+        "name": "Insurgent Saboteurs",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/168.png",
         "type": "Unit",
@@ -1048,7 +1048,7 @@
         "success": true
     },
     {
-        "name": "Interceptor_Ace",
+        "name": "Interceptor Ace",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/034.png",
         "type": "Unit",
@@ -1056,7 +1056,7 @@
         "success": true
     },
     {
-        "name": "Invincible - Naval_Adversary",
+        "name": "Invincible - Naval Adversary",
         "subtitle": "Naval Adversary",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1040.png",
         "type": "Unit",
@@ -1064,7 +1064,7 @@
         "success": true
     },
     {
-        "name": "Its_a_Trap",
+        "name": "It's a Trap",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/209.png",
         "type": "Event",
@@ -1072,7 +1072,7 @@
         "success": true
     },
     {
-        "name": "Jam_Communications",
+        "name": "Jam Communications",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/207.png",
         "type": "Event",
@@ -1080,7 +1080,7 @@
         "success": true
     },
     {
-        "name": "Jarek_Yeager - Coordinating_With_The_Resistance",
+        "name": "Jarek Yeager - Coordinating With The Resistance",
         "subtitle": "Coordinating With The Resistance",
         "url": "https://cdn.swu-db.com/images/cards/JTL/109.png",
         "type": "Unit",
@@ -1088,7 +1088,7 @@
         "success": true
     },
     {
-        "name": "Jedi_Light_Cruiser",
+        "name": "Jedi Light Cruiser",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/251.png",
         "type": "Unit",
@@ -1096,7 +1096,7 @@
         "success": true
     },
     {
-        "name": "Jump_to_Lightspeed",
+        "name": "Jump to Lightspeed",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/232.png",
         "type": "Event",
@@ -1104,7 +1104,7 @@
         "success": true
     },
     {
-        "name": "Kazuda_Xiono - Best_Pilot_in_the_Galaxy",
+        "name": "Kazuda Xiono - Best Pilot in the Galaxy",
         "subtitle": "Best Pilot in the Galaxy",
         "url": "https://cdn.swu-db.com/images/cards/JTL/018.png",
         "type": "Leader",
@@ -1112,7 +1112,7 @@
         "success": true
     },
     {
-        "name": "Kazuda_Xiono - Best_Pilot_in_the_Galaxy_back",
+        "name": "Kazuda Xiono - Best Pilot in the Galaxy [Back]",
         "subtitle": "Best Pilot in the Galaxy",
         "url": "https://cdn.swu-db.com/images/cards/JTL/018-b.png",
         "type": "Leader",
@@ -1120,7 +1120,7 @@
         "success": true
     },
     {
-        "name": "Kijimi_Patrollers",
+        "name": "Kijimi Patrollers",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/082.png",
         "type": "Unit",
@@ -1128,7 +1128,7 @@
         "success": true
     },
     {
-        "name": "Kimoglia_Heavy_Fighter",
+        "name": "Kimoglia Heavy Fighter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/222.png",
         "type": "Unit",
@@ -1136,7 +1136,7 @@
         "success": true
     },
     {
-        "name": "Koiogran_Turn",
+        "name": "Koiogran Turn",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/179.png",
         "type": "Event",
@@ -1144,7 +1144,7 @@
         "success": true
     },
     {
-        "name": "L3-37 - Get_Out_of_My_Seat",
+        "name": "L3-37 - Get Out of My Seat",
         "subtitle": "Get Out of My Seat",
         "url": "https://cdn.swu-db.com/images/cards/JTL/049.png",
         "type": "Unit",
@@ -1152,7 +1152,7 @@
         "success": true
     },
     {
-        "name": "Lake_Country - Naboo",
+        "name": "Lake Country - Naboo",
         "subtitle": "Naboo",
         "url": "https://cdn.swu-db.com/images/cards/JTL/031.png",
         "type": "Base",
@@ -1160,7 +1160,7 @@
         "success": true
     },
     {
-        "name": "Landing_Shuttle",
+        "name": "Landing Shuttle",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/063.png",
         "type": "Unit",
@@ -1168,7 +1168,7 @@
         "success": true
     },
     {
-        "name": "Lando_Calrissian - Buying_Time",
+        "name": "Lando Calrissian - Buying Time",
         "subtitle": "Buying Time",
         "url": "https://cdn.swu-db.com/images/cards/JTL/003.png",
         "type": "Leader",
@@ -1176,7 +1176,7 @@
         "success": true
     },
     {
-        "name": "Lando_Calrissian - Buying_Time_back",
+        "name": "Lando Calrissian - Buying Time [Back]",
         "subtitle": "Buying Time",
         "url": "https://cdn.swu-db.com/images/cards/JTL/003-b.png",
         "type": "Leader",
@@ -1184,7 +1184,7 @@
         "success": true
     },
     {
-        "name": "Leia_Organa - Pilots_To_Your_Stations",
+        "name": "Leia Organa - Pilots, To Your Stations",
         "subtitle": "Pilots, To Your Stations",
         "url": "https://cdn.swu-db.com/images/cards/JTL/097.png",
         "type": "Unit",
@@ -1192,7 +1192,7 @@
         "success": true
     },
     {
-        "name": "Lightspeed_Assault",
+        "name": "Lightspeed Assault",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/127.png",
         "type": "Event",
@@ -1200,7 +1200,7 @@
         "success": true
     },
     {
-        "name": "Luke_Skywalker - Hero_of_Yavin",
+        "name": "Luke Skywalker - Hero of Yavin",
         "subtitle": "Hero of Yavin",
         "url": "https://cdn.swu-db.com/images/cards/JTL/012.png",
         "type": "Leader",
@@ -1208,7 +1208,7 @@
         "success": true
     },
     {
-        "name": "Luke_Skywalker - Hero_of_Yavin_back",
+        "name": "Luke Skywalker - Hero of Yavin [Back]",
         "subtitle": "Hero of Yavin",
         "url": "https://cdn.swu-db.com/images/cards/JTL/012-b.png",
         "type": "Leader",
@@ -1216,7 +1216,7 @@
         "success": true
     },
     {
-        "name": "Luke_Skywalker - You_Still_With_Me",
+        "name": "Luke Skywalker - You Still With Me?",
         "subtitle": "You Still With Me?",
         "url": "https://cdn.swu-db.com/images/cards/JTL/094.png",
         "type": "Unit",
@@ -1224,7 +1224,7 @@
         "success": true
     },
     {
-        "name": "MC30_Assault_Frigate",
+        "name": "MC30 Assault Frigate",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/118.png",
         "type": "Unit",
@@ -1232,7 +1232,7 @@
         "success": true
     },
     {
-        "name": "Major_Vonreg - Red_Baron",
+        "name": "Major Vonreg - Red Baron",
         "subtitle": "Red Baron",
         "url": "https://cdn.swu-db.com/images/cards/JTL/011.png",
         "type": "Leader",
@@ -1240,7 +1240,7 @@
         "success": true
     },
     {
-        "name": "Major_Vonreg - Red_Baron_back",
+        "name": "Major Vonreg - Red Baron [Back]",
         "subtitle": "Red Baron",
         "url": "https://cdn.swu-db.com/images/cards/JTL/011-b.png",
         "type": "Leader",
@@ -1248,7 +1248,7 @@
         "success": true
     },
     {
-        "name": "Massassi_Tactical_Officer",
+        "name": "Massassi Tactical Officer",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/146.png",
         "type": "Unit",
@@ -1256,7 +1256,7 @@
         "success": true
     },
     {
-        "name": "Massassi_Temple - Yavin_4",
+        "name": "Massassi Temple - Yavin 4",
         "subtitle": "Yavin 4",
         "url": "https://cdn.swu-db.com/images/cards/JTL/026.png",
         "type": "Base",
@@ -1264,7 +1264,7 @@
         "success": true
     },
     {
-        "name": "Millennium_Falcon - Get_Out_And_Push",
+        "name": "Millennium Falcon - Get Out And Push",
         "subtitle": "Get Out And Push",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1048.png",
         "type": "Unit",
@@ -1272,7 +1272,7 @@
         "success": true
     },
     {
-        "name": "Mist_Hunter - The_Findsmans_Pursuit",
+        "name": "Mist Hunter - The Findsman's Pursuit",
         "subtitle": "The Findsman's Pursuit",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1039.png",
         "type": "Unit",
@@ -1280,7 +1280,7 @@
         "success": true
     },
     {
-        "name": "Moff_Gideon - I_Know_Everything",
+        "name": "Moff Gideon - I Know Everything",
         "subtitle": "I Know Everything",
         "url": "https://cdn.swu-db.com/images/cards/JTL/188.png",
         "type": "Unit",
@@ -1288,7 +1288,7 @@
         "success": true
     },
     {
-        "name": "Mos_Eisley - Tatooine",
+        "name": "Mos Eisley - Tatooine",
         "subtitle": "Tatooine",
         "url": "https://cdn.swu-db.com/images/cards/JTL/030.png",
         "type": "Base",
@@ -1296,7 +1296,7 @@
         "success": true
     },
     {
-        "name": "Munificent_Frigate",
+        "name": "Munificent Frigate",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/069.png",
         "type": "Unit",
@@ -1304,7 +1304,7 @@
         "success": true
     },
     {
-        "name": "Nabat_Village - Ryloth",
+        "name": "Nabat Village - Ryloth",
         "subtitle": "Ryloth",
         "url": "https://cdn.swu-db.com/images/cards/JTL/028.png",
         "type": "Base",
@@ -1312,7 +1312,7 @@
         "success": true
     },
     {
-        "name": "Nadiri_Dockyards - Nadiri",
+        "name": "Nadiri Dockyards - Nadiri",
         "subtitle": "Nadiri",
         "url": "https://cdn.swu-db.com/images/cards/JTL/027.png",
         "type": "Base",
@@ -1320,7 +1320,7 @@
         "success": true
     },
     {
-        "name": "Nebula_Ignition",
+        "name": "Nebula Ignition",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/080.png",
         "type": "Event",
@@ -1328,7 +1328,7 @@
         "success": true
     },
     {
-        "name": "Never_Tell_Me_the_Odds",
+        "name": "Never Tell Me the Odds",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/208.png",
         "type": "Event",
@@ -1336,7 +1336,7 @@
         "success": true
     },
     {
-        "name": "Nien_Nunb - Loyal_Co-Pilot",
+        "name": "Nien Nunb - Loyal Co-Pilot",
         "subtitle": "Loyal Co-Pilot",
         "url": "https://cdn.swu-db.com/images/cards/JTL/093.png",
         "type": "Unit",
@@ -1344,7 +1344,7 @@
         "success": true
     },
     {
-        "name": "No_Disintegrations",
+        "name": "No Disintegrations",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/144.png",
         "type": "Event",
@@ -1352,7 +1352,7 @@
         "success": true
     },
     {
-        "name": "No_Glory_Only_Results",
+        "name": "No Glory, Only Results",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/043.png",
         "type": "Event",
@@ -1360,7 +1360,7 @@
         "success": true
     },
     {
-        "name": "Occupier_Siege_Tank",
+        "name": "Occupier Siege Tank",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/167.png",
         "type": "Unit",
@@ -1368,7 +1368,7 @@
         "success": true
     },
     {
-        "name": "Omicron_Strike_Craft",
+        "name": "Omicron Strike Craft",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/064.png",
         "type": "Unit",
@@ -1376,7 +1376,7 @@
         "success": true
     },
     {
-        "name": "Onyx_Squadron_Brute",
+        "name": "Onyx Squadron Brute",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/033.png",
         "type": "Unit",
@@ -1384,7 +1384,7 @@
         "success": true
     },
     {
-        "name": "Orbiting_K-Wing",
+        "name": "Orbiting K-Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/166.png",
         "type": "Unit",
@@ -1392,7 +1392,7 @@
         "success": true
     },
     {
-        "name": "Out_the_Airlock",
+        "name": "Out the Airlock",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/079.png",
         "type": "Event",
@@ -1400,7 +1400,7 @@
         "success": true
     },
     {
-        "name": "Outer_Rim_Outlaws",
+        "name": "Outer Rim Outlaws",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/065.png",
         "type": "Unit",
@@ -1408,7 +1408,7 @@
         "success": true
     },
     {
-        "name": "Paige_Tico - Dropping_the_Hammer",
+        "name": "Paige Tico - Dropping the Hammer",
         "subtitle": "Dropping the Hammer",
         "url": "https://cdn.swu-db.com/images/cards/JTL/046.png",
         "type": "Unit",
@@ -1416,7 +1416,7 @@
         "success": true
     },
     {
-        "name": "Pantoran_Starship_Thief",
+        "name": "Pantoran Starship Thief",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/083.png",
         "type": "Unit",
@@ -1424,7 +1424,7 @@
         "success": true
     },
     {
-        "name": "Perimeter_AT-RT",
+        "name": "Perimeter AT-RT",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/068.png",
         "type": "Unit",
@@ -1432,7 +1432,7 @@
         "success": true
     },
     {
-        "name": "Phantom_II - Modified_to_Dock",
+        "name": "Phantom II - Modified to Dock",
         "subtitle": "Modified to Dock",
         "url": "https://cdn.swu-db.com/images/cards/JTL/050.png",
         "type": "Unit",
@@ -1440,7 +1440,7 @@
         "success": true
     },
     {
-        "name": "Phoenix_Squadron_A-Wing",
+        "name": "Phoenix Squadron A-Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/095.png",
         "type": "Unit",
@@ -1448,7 +1448,7 @@
         "success": true
     },
     {
-        "name": "Piercing_Shot",
+        "name": "Piercing Shot",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/180.png",
         "type": "Event",
@@ -1456,7 +1456,7 @@
         "success": true
     },
     {
-        "name": "Planetary_Bombardment",
+        "name": "Planetary Bombardment",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/181.png",
         "type": "Event",
@@ -1464,7 +1464,7 @@
         "success": true
     },
     {
-        "name": "Poe_Dameron - I_Can_Fly_Anything",
+        "name": "Poe Dameron - I Can Fly Anything",
         "subtitle": "I Can Fly Anything",
         "url": "https://cdn.swu-db.com/images/cards/JTL/013.png",
         "type": "Leader",
@@ -1472,7 +1472,7 @@
         "success": true
     },
     {
-        "name": "Poe_Dameron - I_Can_Fly_Anything_back",
+        "name": "Poe Dameron - I Can Fly Anything [Back]",
         "subtitle": "I Can Fly Anything",
         "url": "https://cdn.swu-db.com/images/cards/JTL/013-b.png",
         "type": "Leader",
@@ -1480,7 +1480,7 @@
         "success": true
     },
     {
-        "name": "Poe_Dameron - One_Hell_of_a_a_Pilot",
+        "name": "Poe Dameron - One Hell of a a Pilot",
         "subtitle": "One Hell of a a Pilot",
         "url": "https://cdn.swu-db.com/images/cards/JTL/100.png",
         "type": "Unit",
@@ -1488,7 +1488,7 @@
         "success": true
     },
     {
-        "name": "Power_from_Pain",
+        "name": "Power from Pain",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/042.png",
         "type": "Event",
@@ -1496,7 +1496,7 @@
         "success": true
     },
     {
-        "name": "Prepare_for_Takeoff",
+        "name": "Prepare for Takeoff",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/128.png",
         "type": "Event",
@@ -1504,7 +1504,7 @@
         "success": true
     },
     {
-        "name": "Profundity - We_Fight",
+        "name": "Profundity - We Fight!",
         "subtitle": "We Fight!",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1035.png",
         "type": "Unit",
@@ -1512,7 +1512,7 @@
         "success": true
     },
     {
-        "name": "Prototype_TIE_Advanced",
+        "name": "Prototype TIE Advanced",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/136.png",
         "type": "Unit",
@@ -1520,7 +1520,7 @@
         "success": true
     },
     {
-        "name": "Punch_It",
+        "name": "Punch It",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/231.png",
         "type": "Event",
@@ -1528,7 +1528,7 @@
         "success": true
     },
     {
-        "name": "Quasar_TIE_Carrier",
+        "name": "Quasar TIE Carrier",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/243.png",
         "type": "Unit",
@@ -1536,7 +1536,7 @@
         "success": true
     },
     {
-        "name": "R2-D2 - Artooooooooo",
+        "name": "R2-D2 - Artooooooooo!",
         "subtitle": "Artooooooooo!",
         "url": "https://cdn.swu-db.com/images/cards/JTL/245.png",
         "type": "Unit",
@@ -1544,7 +1544,7 @@
         "success": true
     },
     {
-        "name": "Raddus - Holdos_Final_Command",
+        "name": "Raddus - Holdo's Final Command",
         "subtitle": "Holdo's Final Command",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1028.png",
         "type": "Unit",
@@ -1552,7 +1552,7 @@
         "success": true
     },
     {
-        "name": "Radiant_VII - Ambassadors_Arrival",
+        "name": "Radiant VII - Ambassadors' Arrival",
         "subtitle": "Ambassadors' Arrival",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1045.png",
         "type": "Unit",
@@ -1560,7 +1560,7 @@
         "success": true
     },
     {
-        "name": "Rafa_Martez - Shrewd_Sister",
+        "name": "Rafa Martez - Shrewd Sister",
         "subtitle": "Shrewd Sister",
         "url": "https://cdn.swu-db.com/images/cards/JTL/219.png",
         "type": "Unit",
@@ -1568,7 +1568,7 @@
         "success": true
     },
     {
-        "name": "Rampart - Enjoy_the_Exit",
+        "name": "Rampart - Enjoy the Exit",
         "subtitle": "Enjoy the Exit",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1037.png",
         "type": "Unit",
@@ -1576,7 +1576,7 @@
         "success": true
     },
     {
-        "name": "Razor_Crest - Ride_For_Hire",
+        "name": "Razor Crest - Ride For Hire",
         "subtitle": "Ride For Hire",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1044.png",
         "type": "Unit",
@@ -1584,7 +1584,7 @@
         "success": true
     },
     {
-        "name": "Rebellious_Hammerhead",
+        "name": "Rebellious Hammerhead",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/153.png",
         "type": "Unit",
@@ -1592,7 +1592,7 @@
         "success": true
     },
     {
-        "name": "Red_Five - Running_the_Trench",
+        "name": "Red Five - Running the Trench",
         "subtitle": "Running the Trench",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1034.png",
         "type": "Unit",
@@ -1600,7 +1600,7 @@
         "success": true
     },
     {
-        "name": "Red_Leader - Form_Up",
+        "name": "Red Leader - Form Up",
         "subtitle": "Form Up",
         "url": "https://cdn.swu-db.com/images/cards/JTL/101.png",
         "type": "Unit",
@@ -1608,7 +1608,7 @@
         "success": true
     },
     {
-        "name": "Red_Squadron_X-Wing",
+        "name": "Red Squadron X-Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/051.png",
         "type": "Unit",
@@ -1616,7 +1616,7 @@
         "success": true
     },
     {
-        "name": "Red_Squadron_Y-Wing",
+        "name": "Red Squadron Y-Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/149.png",
         "type": "Unit",
@@ -1624,7 +1624,7 @@
         "success": true
     },
     {
-        "name": "Relentless_Firespray",
+        "name": "Relentless Firespray",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/157.png",
         "type": "Unit",
@@ -1640,7 +1640,7 @@
         "success": true
     },
     {
-        "name": "Republic_Y-Wing",
+        "name": "Republic Y-Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/212.png",
         "type": "Unit",
@@ -1648,7 +1648,7 @@
         "success": true
     },
     {
-        "name": "Resistance_Blue_Squadron",
+        "name": "Resistance Blue Squadron",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/102.png",
         "type": "Unit",
@@ -1656,7 +1656,7 @@
         "success": true
     },
     {
-        "name": "Resistance_Headquarters - DQar",
+        "name": "Resistance Headquarters - D'Qar",
         "subtitle": "D'Qar",
         "url": "https://cdn.swu-db.com/images/cards/JTL/022.png",
         "type": "Base",
@@ -1664,7 +1664,7 @@
         "success": true
     },
     {
-        "name": "Resistance_X-Wing",
+        "name": "Resistance X-Wing",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/247.png",
         "type": "Unit",
@@ -1672,7 +1672,7 @@
         "success": true
     },
     {
-        "name": "Resupply_Carrier",
+        "name": "Resupply Carrier",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/119.png",
         "type": "Unit",
@@ -1680,7 +1680,7 @@
         "success": true
     },
     {
-        "name": "Retrofitted_Airspeeder",
+        "name": "Retrofitted Airspeeder",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/259.png",
         "type": "Unit",
@@ -1688,7 +1688,7 @@
         "success": true
     },
     {
-        "name": "Rio_Durant - Wisecracking_Wheelman",
+        "name": "Rio Durant - Wisecracking Wheelman",
         "subtitle": "Wisecracking Wheelman",
         "url": "https://cdn.swu-db.com/images/cards/JTL/015.png",
         "type": "Leader",
@@ -1696,7 +1696,7 @@
         "success": true
     },
     {
-        "name": "Rio_Durant - Wisecracking_Wheelman_back",
+        "name": "Rio Durant - Wisecracking Wheelman [Back]",
         "subtitle": "Wisecracking Wheelman",
         "url": "https://cdn.swu-db.com/images/cards/JTL/015-b.png",
         "type": "Leader",
@@ -1704,7 +1704,7 @@
         "success": true
     },
     {
-        "name": "Rogue-class_Starfighter",
+        "name": "Rogue-class Starfighter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/241.png",
         "type": "Unit",
@@ -1712,7 +1712,7 @@
         "success": true
     },
     {
-        "name": "Rose_Tico - Saving_What_We_Love",
+        "name": "Rose Tico - Saving What We Love",
         "subtitle": "Saving What We Love",
         "url": "https://cdn.swu-db.com/images/cards/JTL/004.png",
         "type": "Leader",
@@ -1720,7 +1720,7 @@
         "success": true
     },
     {
-        "name": "Rose_Tico - Saving_What_We_Love_back",
+        "name": "Rose Tico - Saving What We Love [Back]",
         "subtitle": "Saving What We Love",
         "url": "https://cdn.swu-db.com/images/cards/JTL/004-b.png",
         "type": "Leader",
@@ -1728,7 +1728,7 @@
         "success": true
     },
     {
-        "name": "Royal_Security_Fighter",
+        "name": "Royal Security Fighter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/061.png",
         "type": "Unit",
@@ -1736,7 +1736,7 @@
         "success": true
     },
     {
-        "name": "Sabines_Masterpiece - Crazy_Colorful",
+        "name": "Sabine's Masterpiece - Crazy Colorful",
         "subtitle": "Crazy Colorful",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1049.png",
         "type": "Unit",
@@ -1752,7 +1752,7 @@
         "success": true
     },
     {
-        "name": "Scouting_Headhunter",
+        "name": "Scouting Headhunter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/110.png",
         "type": "Unit",
@@ -1760,7 +1760,7 @@
         "success": true
     },
     {
-        "name": "Scramble_Fighters",
+        "name": "Scramble Fighters",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/092.png",
         "type": "Event",
@@ -1768,7 +1768,7 @@
         "success": true
     },
     {
-        "name": "Seasoned_Fleet_Admiral",
+        "name": "Seasoned Fleet Admiral",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/111.png",
         "type": "Unit",
@@ -1776,7 +1776,7 @@
         "success": true
     },
     {
-        "name": "Shadow_Caster - Just_Business",
+        "name": "Shadow Caster - Just Business",
         "subtitle": "Just Business",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1036.png",
         "type": "Unit",
@@ -1784,7 +1784,7 @@
         "success": true
     },
     {
-        "name": "Shadowed_Hover_Tank",
+        "name": "Shadowed Hover Tank",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/224.png",
         "type": "Unit",
@@ -1792,7 +1792,7 @@
         "success": true
     },
     {
-        "name": "Shield_Generator_Complex - Endor",
+        "name": "Shield Generator Complex - Endor",
         "subtitle": "Endor",
         "url": "https://cdn.swu-db.com/images/cards/JTL/020.png",
         "type": "Base",
@@ -1800,7 +1800,7 @@
         "success": true
     },
     {
-        "name": "Shoot_Down",
+        "name": "Shoot Down",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/176.png",
         "type": "Event",
@@ -1808,7 +1808,7 @@
         "success": true
     },
     {
-        "name": "Shuttle_ST-149 - Under_Krennics_Authority",
+        "name": "Shuttle ST-149 - Under Krennic's Authority",
         "subtitle": "Under Krennic's Authority",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1047.png",
         "type": "Unit",
@@ -1816,7 +1816,7 @@
         "success": true
     },
     {
-        "name": "Shuttle_Tydirium - Fly_Casual",
+        "name": "Shuttle Tydirium - Fly Casual",
         "subtitle": "Fly Casual",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1042.png",
         "type": "Unit",
@@ -1824,7 +1824,7 @@
         "success": true
     },
     {
-        "name": "Sidon_Ithano - The_Crimson_Corsair",
+        "name": "Sidon Ithano - The Crimson Corsair",
         "subtitle": "The Crimson Corsair",
         "url": "https://cdn.swu-db.com/images/cards/JTL/213.png",
         "type": "Unit",
@@ -1832,7 +1832,7 @@
         "success": true
     },
     {
-        "name": "Silver_Angel - Traces_Hope",
+        "name": "Silver Angel - Trace's Hope",
         "subtitle": "Trace's Hope",
         "url": "https://cdn.swu-db.com/images/cards/JTL/062.png",
         "type": "Unit",
@@ -1840,7 +1840,7 @@
         "success": true
     },
     {
-        "name": "Sith_Trooper",
+        "name": "Sith Trooper",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/238.png",
         "type": "Unit",
@@ -1848,7 +1848,7 @@
         "success": true
     },
     {
-        "name": "Skyway_Cloud_Car",
+        "name": "Skyway Cloud Car",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/220.png",
         "type": "Unit",
@@ -1856,7 +1856,7 @@
         "success": true
     },
     {
-        "name": "Snap_Wexley - Resistance_Recon_Flier",
+        "name": "Snap Wexley - Resistance Recon Flier",
         "subtitle": "Resistance Recon Flier",
         "url": "https://cdn.swu-db.com/images/cards/JTL/098.png",
         "type": "Unit",
@@ -1864,7 +1864,7 @@
         "success": true
     },
     {
-        "name": "Special_Forces_TIE_Fighter",
+        "name": "Special Forces TIE Fighter",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/135.png",
         "type": "Unit",
@@ -1872,7 +1872,7 @@
         "success": true
     },
     {
-        "name": "Stay_on_Target",
+        "name": "Stay on Target",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/177.png",
         "type": "Event",
@@ -1880,7 +1880,7 @@
         "success": true
     },
     {
-        "name": "Stolen_AT-Hauler",
+        "name": "Stolen AT-Hauler",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/221.png",
         "type": "Unit",
@@ -1888,7 +1888,7 @@
         "success": true
     },
     {
-        "name": "Sullustan_Spacer",
+        "name": "Sullustan Spacer",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/255.png",
         "type": "Unit",
@@ -1896,7 +1896,7 @@
         "success": true
     },
     {
-        "name": "Superheavy_Ion_Cannon",
+        "name": "Superheavy Ion Cannon",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/227.png",
         "type": "Upgrade",
@@ -1904,7 +1904,7 @@
         "success": true
     },
     {
-        "name": "Supporting_Eta-2",
+        "name": "Supporting Eta-2",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/160.png",
         "type": "Unit",
@@ -1912,7 +1912,7 @@
         "success": true
     },
     {
-        "name": "Swarming_Vulture_Droid",
+        "name": "Swarming Vulture Droid",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/256.png",
         "type": "Unit",
@@ -1920,7 +1920,7 @@
         "success": true
     },
     {
-        "name": "Sweep_the_Area",
+        "name": "Sweep the Area",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/233.png",
         "type": "Event",
@@ -1928,7 +1928,7 @@
         "success": true
     },
     {
-        "name": "System_Shock",
+        "name": "System Shock",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/175.png",
         "type": "Event",
@@ -1936,7 +1936,7 @@
         "success": true
     },
     {
-        "name": "TIE_Ambush_Squadron",
+        "name": "TIE Ambush Squadron",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/087.png",
         "type": "Unit",
@@ -1944,7 +1944,7 @@
         "success": true
     },
     {
-        "name": "TIE_Bomber",
+        "name": "TIE Bomber",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/237.png",
         "type": "Unit",
@@ -1952,7 +1952,7 @@
         "success": true
     },
     {
-        "name": "TIE_Dagger_Vanguard",
+        "name": "TIE Dagger Vanguard",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/239.png",
         "type": "Unit",
@@ -1960,7 +1960,7 @@
         "success": true
     },
     {
-        "name": "Tactical_Heavy_Bomber",
+        "name": "Tactical Heavy Bomber",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/152.png",
         "type": "Unit",
@@ -1968,7 +1968,7 @@
         "success": true
     },
     {
-        "name": "Tam_Ryvora",
+        "name": "Tam Ryvora",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/035.png",
         "type": "Unit",
@@ -1976,7 +1976,7 @@
         "success": true
     },
     {
-        "name": "Tandem_Assault",
+        "name": "Tandem Assault",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/124.png",
         "type": "Event",
@@ -1984,7 +1984,7 @@
         "success": true
     },
     {
-        "name": "Tantive_IV - Fleeing_the_Empire",
+        "name": "Tantive IV - Fleeing the Empire",
         "subtitle": "Fleeing the Empire",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1050.png",
         "type": "Unit",
@@ -1992,7 +1992,7 @@
         "success": true
     },
     {
-        "name": "Targeting_Computer",
+        "name": "Targeting Computer",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/171.png",
         "type": "Upgrade",
@@ -2000,7 +2000,7 @@
         "success": true
     },
     {
-        "name": "Techno_Union_Transport",
+        "name": "Techno Union Transport",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/190.png",
         "type": "Unit",
@@ -2008,7 +2008,7 @@
         "success": true
     },
     {
-        "name": "The_Ghost - Heart_of_the_Family",
+        "name": "The Ghost - Heart of the Family",
         "subtitle": "Heart of the Family",
         "url": "https://cdn.swu-db.com/images/cards/JTL/053.png",
         "type": "Unit",
@@ -2016,7 +2016,7 @@
         "success": true
     },
     {
-        "name": "The_Invisible_Hand - Crawling_With_Vultures",
+        "name": "The Invisible Hand - Crawling With Vultures",
         "subtitle": "Crawling With Vultures",
         "url": "https://cdn.swu-db.com/images/cards/JTL/089.png",
         "type": "Unit",
@@ -2024,7 +2024,7 @@
         "success": true
     },
     {
-        "name": "The_Mandalorian - Weathered_Pilot",
+        "name": "The Mandalorian - Weathered Pilot",
         "subtitle": "Weathered Pilot",
         "url": "https://cdn.swu-db.com/images/cards/JTL/210.png",
         "type": "Unit",
@@ -2032,7 +2032,7 @@
         "success": true
     },
     {
-        "name": "The_Starhawk - Prototype_Battleship",
+        "name": "The Starhawk - Prototype Battleship",
         "subtitle": "Prototype Battleship",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1029.png",
         "type": "Unit",
@@ -2040,7 +2040,7 @@
         "success": true
     },
     {
-        "name": "Theed_Palace - Naboo",
+        "name": "Theed Palace - Naboo",
         "subtitle": "Naboo",
         "url": "https://cdn.swu-db.com/images/cards/JTL/023.png",
         "type": "Base",
@@ -2048,7 +2048,7 @@
         "success": true
     },
     {
-        "name": "There_Is_No_Escape",
+        "name": "There Is No Escape",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/244.png",
         "type": "Event",
@@ -2056,7 +2056,7 @@
         "success": true
     },
     {
-        "name": "Thermal_Oscillator - Starkiller_Base",
+        "name": "Thermal Oscillator - Starkiller Base",
         "subtitle": "Starkiller Base",
         "url": "https://cdn.swu-db.com/images/cards/JTL/025.png",
         "type": "Base",
@@ -2064,7 +2064,7 @@
         "success": true
     },
     {
-        "name": "They_Hate_That_Ship",
+        "name": "They Hate That Ship",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/155.png",
         "type": "Event",
@@ -2072,7 +2072,7 @@
         "success": true
     },
     {
-        "name": "Timely_Reinforcements",
+        "name": "Timely Reinforcements",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/130.png",
         "type": "Event",
@@ -2080,7 +2080,7 @@
         "success": true
     },
     {
-        "name": "Torpedo_Barrage",
+        "name": "Torpedo Barrage",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/234.png",
         "type": "Event",
@@ -2088,7 +2088,7 @@
         "success": true
     },
     {
-        "name": "Trace_Martez - Trusting_Sister",
+        "name": "Trace Martez - Trusting Sister",
         "subtitle": "Trusting Sister",
         "url": "https://cdn.swu-db.com/images/cards/JTL/066.png",
         "type": "Unit",
@@ -2096,7 +2096,7 @@
         "success": true
     },
     {
-        "name": "Trench_Run",
+        "name": "Trench Run",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/156.png",
         "type": "Event",
@@ -2104,7 +2104,7 @@
         "success": true
     },
     {
-        "name": "Turbolaser_Salvo",
+        "name": "Turbolaser Salvo",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/131.png",
         "type": "Event",
@@ -2112,7 +2112,7 @@
         "success": true
     },
     {
-        "name": "Twin_Laser_Turret",
+        "name": "Twin Laser Turret",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/172.png",
         "type": "Upgrade",
@@ -2120,7 +2120,7 @@
         "success": true
     },
     {
-        "name": "U-Wing_Lander",
+        "name": "U-Wing Lander",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/070.png",
         "type": "Unit",
@@ -2128,7 +2128,7 @@
         "success": true
     },
     {
-        "name": "Unity_of_Purpose",
+        "name": "Unity of Purpose",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/106.png",
         "type": "Event",
@@ -2136,7 +2136,7 @@
         "success": true
     },
     {
-        "name": "Veteran_Fleet_Officer",
+        "name": "Veteran Fleet Officer",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/099.png",
         "type": "Unit",
@@ -2144,7 +2144,7 @@
         "success": true
     },
     {
-        "name": "Victor_Leader - Leading_From_the_Front",
+        "name": "Victor Leader - Leading From the Front",
         "subtitle": "Leading From the Front",
         "url": "https://cdn.swu-db.com/images/cards/JTL/085.png",
         "type": "Unit",
@@ -2152,7 +2152,7 @@
         "success": true
     },
     {
-        "name": "Vonregs_TIE_Interceptor - Ace_of_the_First_Order",
+        "name": "Vonreg's TIE Interceptor - Ace of the First Order",
         "subtitle": "Ace of the First Order",
         "url": "https://cdn.swu-db.com/images/cards/JTL/1030.png",
         "type": "Unit",
@@ -2160,7 +2160,7 @@
         "success": true
     },
     {
-        "name": "War_Juggernaut",
+        "name": "War Juggernaut",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/170.png",
         "type": "Unit",
@@ -2168,7 +2168,7 @@
         "success": true
     },
     {
-        "name": "Wedge_Antilles - Leader_of_Red_Squadron",
+        "name": "Wedge Antilles - Leader of Red Squadron",
         "subtitle": "Leader of Red Squadron",
         "url": "https://cdn.swu-db.com/images/cards/JTL/008.png",
         "type": "Leader",
@@ -2176,7 +2176,7 @@
         "success": true
     },
     {
-        "name": "Wedge_Antilles - Leader_of_Red_Squadron_back",
+        "name": "Wedge Antilles - Leader of Red Squadron [Back]",
         "subtitle": "Leader of Red Squadron",
         "url": "https://cdn.swu-db.com/images/cards/JTL/008-b.png",
         "type": "Leader",
@@ -2184,7 +2184,7 @@
         "success": true
     },
     {
-        "name": "Wing_Guard_Security_Team",
+        "name": "Wing Guard Security Team",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/072.png",
         "type": "Unit",
@@ -2192,7 +2192,7 @@
         "success": true
     },
     {
-        "name": "Wingman_Victor_Three - Backstabber",
+        "name": "Wingman Victor Three - Backstabber",
         "subtitle": "Backstabber",
         "url": "https://cdn.swu-db.com/images/cards/JTL/086.png",
         "type": "Unit",
@@ -2200,7 +2200,7 @@
         "success": true
     },
     {
-        "name": "Wingman_Victor_Two - Mauler_Mithel",
+        "name": "Wingman Victor Two - Mauler Mithel",
         "subtitle": "Mauler Mithel",
         "url": "https://cdn.swu-db.com/images/cards/JTL/084.png",
         "type": "Unit",
@@ -2208,7 +2208,7 @@
         "success": true
     },
     {
-        "name": "X-34_Landspeeder",
+        "name": "X-34 Landspeeder",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/214.png",
         "type": "Unit",
@@ -2216,7 +2216,7 @@
         "success": true
     },
     {
-        "name": "Youre_All_Clear_Kid",
+        "name": "You're All Clear, Kid",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/055.png",
         "type": "Event",
@@ -2224,7 +2224,7 @@
         "success": true
     },
     {
-        "name": "Zygerrian_Starhopper",
+        "name": "Zygerrian Starhopper",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/183.png",
         "type": "Unit",
@@ -2232,7 +2232,7 @@
         "success": true
     },
     {
-        "name": "indoctrinated_Conscript",
+        "name": "indoctrinated Conscript",
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/JTL/236.png",
         "type": "Unit",

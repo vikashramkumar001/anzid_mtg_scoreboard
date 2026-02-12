@@ -1,3572 +1,2162 @@
 [
     {
         "name": "2-1B Surgical Droid",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/059.png",
         "type": "Unit",
-        "image": "SOR\\2-1B_Surgical_Droid",
+        "image": "SOR\\2-1B_Surgical_Droid.png",
         "success": true
     },
     {
-        "name": "2-1B Surgical Droid",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/324.png",
-        "type": "Unit",
-        "image": "SOR\\2-1B_Surgical_Droid",
-        "success": true
-    },
-    {
-        "name": "97th Legion",
+        "name": "97th Legion - Keeping the Peace on Sullust",
+        "subtitle": "Keeping the Peace on Sullust",
         "url": "https://cdn.swu-db.com/images/cards/SOR/118.png",
         "type": "Unit",
-        "image": "SOR\\97th_Legion",
-        "success": true
-    },
-    {
-        "name": "97th Legion",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/382.png",
-        "type": "Unit",
-        "image": "SOR\\97th_Legion",
+        "image": "SOR\\97th_Legion - Keeping_the_Peace_on_Sullust.png",
         "success": true
     },
     {
         "name": "AT-AT Suppressor",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/039.png",
         "type": "Unit",
-        "image": "SOR\\AT-AT_Suppressor",
-        "success": true
-    },
-    {
-        "name": "AT-AT Suppressor",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/305.png",
-        "type": "Unit",
-        "image": "SOR\\AT-AT_Suppressor",
+        "image": "SOR\\AT-AT_Suppressor.png",
         "success": true
     },
     {
         "name": "AT-ST",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/232.png",
         "type": "Unit",
-        "image": "SOR\\AT-ST",
-        "success": true
-    },
-    {
-        "name": "AT-ST",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/493.png",
-        "type": "Unit",
-        "image": "SOR\\AT-ST",
+        "image": "SOR\\AT-ST.png",
         "success": true
     },
     {
         "name": "Academy Defense Walker",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/037.png",
         "type": "Unit",
-        "image": "SOR\\Academy_Defense_Walker",
-        "success": true
-    },
-    {
-        "name": "Academy Defense Walker",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/303.png",
-        "type": "Unit",
-        "image": "SOR\\Academy_Defense_Walker",
+        "image": "SOR\\Academy_Defense_Walker.png",
         "success": true
     },
     {
         "name": "Academy Training",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/120.png",
         "type": "Upgrade",
-        "image": "SOR\\Academy_Training",
+        "image": "SOR\\Academy_Training.png",
         "success": true
     },
     {
-        "name": "Academy Training",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/384.png",
-        "type": "Upgrade",
-        "image": "SOR\\Academy_Training",
-        "success": true
-    },
-    {
-        "name": "Administrator's Tower",
+        "name": "Administrator's Tower - Cloud City",
+        "subtitle": "Cloud City",
         "url": "https://cdn.swu-db.com/images/cards/SOR/029.png",
         "type": "Base",
-        "image": "SOR\\Administrators_Tower",
+        "image": "SOR\\Administrators_Tower - Cloud_City.png",
         "success": true
     },
     {
-        "name": "Administrator's Tower",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/295.png",
-        "type": "Base",
-        "image": "SOR\\Administrators_Tower",
-        "success": true
-    },
-    {
-        "name": "Admiral Ackbar",
+        "name": "Admiral Ackbar - Brilliant Strategist",
+        "subtitle": "Brilliant Strategist",
         "url": "https://cdn.swu-db.com/images/cards/SOR/097.png",
         "type": "Unit",
-        "image": "SOR\\Admiral_Ackbar",
+        "image": "SOR\\Admiral_Ackbar - Brilliant_Strategist.png",
         "success": true
     },
     {
-        "name": "Admiral Ackbar",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/361.png",
-        "type": "Unit",
-        "image": "SOR\\Admiral_Ackbar",
-        "success": true
-    },
-    {
-        "name": "Admiral Motti",
+        "name": "Admiral Motti - Brazen and Scornful",
+        "subtitle": "Brazen and Scornful",
         "url": "https://cdn.swu-db.com/images/cards/SOR/226.png",
         "type": "Unit",
-        "image": "SOR\\Admiral_Motti",
+        "image": "SOR\\Admiral_Motti - Brazen_and_Scornful.png",
         "success": true
     },
     {
-        "name": "Admiral Ozzel",
+        "name": "Admiral Ozzel - Overconfident",
+        "subtitle": "Overconfident",
         "url": "https://cdn.swu-db.com/images/cards/SOR/129.png",
         "type": "Unit",
-        "image": "SOR\\Admiral_Ozzel",
+        "image": "SOR\\Admiral_Ozzel - Overconfident.png",
         "success": true
     },
     {
-        "name": "Admiral Ozzel",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/393.png",
-        "type": "Unit",
-        "image": "SOR\\Admiral_Ozzel",
-        "success": true
-    },
-    {
-        "name": "Admiral Piett",
+        "name": "Admiral Piett - Captain of the Executor",
+        "subtitle": "Captain of the Executor",
         "url": "https://cdn.swu-db.com/images/cards/SOR/079.png",
         "type": "Unit",
-        "image": "SOR\\Admiral_Piett",
+        "image": "SOR\\Admiral_Piett - Captain_of_the_Executor.png",
         "success": true
     },
     {
-        "name": "Admiral Piett",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/344.png",
-        "type": "Unit",
-        "image": "SOR\\Admiral_Piett",
-        "success": true
-    },
-    {
-        "name": "Agent Kallus",
+        "name": "Agent Kallus - Seeking the Rebels",
+        "subtitle": "Seeking the Rebels",
         "url": "https://cdn.swu-db.com/images/cards/SOR/115.png",
         "type": "Unit",
-        "image": "SOR\\Agent_Kallus",
-        "success": true
-    },
-    {
-        "name": "Agent Kallus",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/379.png",
-        "type": "Unit",
-        "image": "SOR\\Agent_Kallus",
+        "image": "SOR\\Agent_Kallus - Seeking_the_Rebels.png",
         "success": true
     },
     {
         "name": "Aggression",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/155.png",
         "type": "Event",
-        "image": "SOR\\Aggression",
-        "success": true
-    },
-    {
-        "name": "Aggression",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/418.png",
-        "type": "Event",
-        "image": "SOR\\Aggression",
+        "image": "SOR\\Aggression.png",
         "success": true
     },
     {
         "name": "Alliance Dispatcher",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/093.png",
         "type": "Unit",
-        "image": "SOR\\Alliance_Dispatcher",
-        "success": true
-    },
-    {
-        "name": "Alliance Dispatcher",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/357.png",
-        "type": "Unit",
-        "image": "SOR\\Alliance_Dispatcher",
+        "image": "SOR\\Alliance_Dispatcher.png",
         "success": true
     },
     {
         "name": "Alliance X-Wing",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/237.png",
         "type": "Unit",
-        "image": "SOR\\Alliance_X-Wing",
-        "success": true
-    },
-    {
-        "name": "Alliance X-Wing",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/496.png",
-        "type": "Unit",
-        "image": "SOR\\Alliance_X-Wing",
+        "image": "SOR\\Alliance_X-Wing.png",
         "success": true
     },
     {
         "name": "Ardent Sympathizer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/161.png",
         "type": "Unit",
-        "image": "SOR\\Ardent_Sympathizer",
-        "success": true
-    },
-    {
-        "name": "Ardent Sympathizer",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/424.png",
-        "type": "Unit",
-        "image": "SOR\\Ardent_Sympathizer",
+        "image": "SOR\\Ardent_Sympathizer.png",
         "success": true
     },
     {
         "name": "Asteroid Sanctuary",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/218.png",
         "type": "Event",
-        "image": "SOR\\Asteroid_Sanctuary",
-        "success": true
-    },
-    {
-        "name": "Asteroid Sanctuary",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/480.png",
-        "type": "Event",
-        "image": "SOR\\Asteroid_Sanctuary",
+        "image": "SOR\\Asteroid_Sanctuary.png",
         "success": true
     },
     {
         "name": "Attack Pattern Delta",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/106.png",
         "type": "Event",
-        "image": "SOR\\Attack_Pattern_Delta",
-        "success": true
-    },
-    {
-        "name": "Attack Pattern Delta",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/370.png",
-        "type": "Event",
-        "image": "SOR\\Attack_Pattern_Delta",
+        "image": "SOR\\Attack_Pattern_Delta.png",
         "success": true
     },
     {
         "name": "Auzituck Liberator Gunship",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/195.png",
         "type": "Unit",
-        "image": "SOR\\Auzituck_Liberator_Gunship",
+        "image": "SOR\\Auzituck_Liberator_Gunship.png",
         "success": true
     },
     {
-        "name": "Auzituck Liberator Gunship",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/457.png",
-        "type": "Unit",
-        "image": "SOR\\Auzituck_Liberator_Gunship",
-        "success": true
-    },
-    {
-        "name": "Avenger",
+        "name": "Avenger - Hunting Star Destroyer",
+        "subtitle": "Hunting Star Destroyer",
         "url": "https://cdn.swu-db.com/images/cards/SOR/040.png",
         "type": "Unit",
-        "image": "SOR\\Avenger",
+        "image": "SOR\\Avenger - Hunting_Star_Destroyer.png",
         "success": true
     },
     {
-        "name": "Avenger",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/306.png",
-        "type": "Unit",
-        "image": "SOR\\Avenger",
-        "success": true
-    },
-    {
-        "name": "Bail Organa",
+        "name": "Bail Organa - Rebel Councilor",
+        "subtitle": "Rebel Councilor",
         "url": "https://cdn.swu-db.com/images/cards/SOR/094.png",
         "type": "Unit",
-        "image": "SOR\\Bail_Organa",
-        "success": true
-    },
-    {
-        "name": "Bail Organa",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/358.png",
-        "type": "Unit",
-        "image": "SOR\\Bail_Organa",
+        "image": "SOR\\Bail_Organa - Rebel_Councilor.png",
         "success": true
     },
     {
         "name": "Bamboozle",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/199.png",
         "type": "Event",
-        "image": "SOR\\Bamboozle",
-        "success": true
-    },
-    {
-        "name": "Bamboozle",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/461.png",
-        "type": "Event",
-        "image": "SOR\\Bamboozle",
+        "image": "SOR\\Bamboozle.png",
         "success": true
     },
     {
         "name": "Battlefield Marine",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/095.png",
         "type": "Unit",
-        "image": "SOR\\Battlefield_Marine",
+        "image": "SOR\\Battlefield_Marine.png",
         "success": true
     },
     {
-        "name": "Battlefield Marine",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/359.png",
-        "type": "Unit",
-        "image": "SOR\\Battlefield_Marine",
-        "success": true
-    },
-    {
-        "name": "Baze Malbus",
+        "name": "Baze Malbus - Temple Guardian",
+        "subtitle": "Temple Guardian",
         "url": "https://cdn.swu-db.com/images/cards/SOR/065.png",
         "type": "Unit",
-        "image": "SOR\\Baze_Malbus",
+        "image": "SOR\\Baze_Malbus - Temple_Guardian.png",
         "success": true
     },
     {
-        "name": "Baze Malbus",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/330.png",
-        "type": "Unit",
-        "image": "SOR\\Baze_Malbus",
-        "success": true
-    },
-    {
-        "name": "Bendu",
+        "name": "Bendu - The One in the Middle",
+        "subtitle": "The One in the Middle",
         "url": "https://cdn.swu-db.com/images/cards/SOR/056.png",
         "type": "Unit",
-        "image": "SOR\\Bendu",
+        "image": "SOR\\Bendu - The_One_in_the_Middle.png",
         "success": true
     },
     {
-        "name": "Bendu",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/321.png",
-        "type": "Unit",
-        "image": "SOR\\Bendu",
-        "success": true
-    },
-    {
-        "name": "Benthic \"Two Tubes\"",
+        "name": "Benthic \"Two Tubes\" - Partisan Lieutenant",
+        "subtitle": "Partisan Lieutenant",
         "url": "https://cdn.swu-db.com/images/cards/SOR/156.png",
         "type": "Unit",
-        "image": "SOR\\Benthic_Two_Tubes",
+        "image": "SOR\\Benthic_Two_Tubes - Partisan_Lieutenant.png",
         "success": true
     },
     {
-        "name": "Benthic \"Two Tubes\"",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/419.png",
-        "type": "Unit",
-        "image": "SOR\\Benthic_Two_Tubes",
-        "success": true
-    },
-    {
-        "name": "Bib Fortuna",
+        "name": "Bib Fortuna - Jabba's Majordomo",
+        "subtitle": "Jabba's Majordomo",
         "url": "https://cdn.swu-db.com/images/cards/SOR/177.png",
         "type": "Unit",
-        "image": "SOR\\Bib_Fortuna",
+        "image": "SOR\\Bib_Fortuna - Jabbas_Majordomo.png",
         "success": true
     },
     {
-        "name": "Bib Fortuna",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/440.png",
-        "type": "Unit",
-        "image": "SOR\\Bib_Fortuna",
-        "success": true
-    },
-    {
-        "name": "Black One",
+        "name": "Black One - Scourge of Starkiller Base",
+        "subtitle": "Scourge of Starkiller Base",
         "url": "https://cdn.swu-db.com/images/cards/SOR/147.png",
         "type": "Unit",
-        "image": "SOR\\Black_One",
-        "success": true
-    },
-    {
-        "name": "Black One",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/410.png",
-        "type": "Unit",
-        "image": "SOR\\Black_One",
+        "image": "SOR\\Black_One - Scourge_of_Starkiller_Base.png",
         "success": true
     },
     {
         "name": "Blizzard Assault AT-AT",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/088.png",
         "type": "Unit",
-        "image": "SOR\\Blizzard_Assault_AT-AT",
+        "image": "SOR\\Blizzard_Assault_AT-AT.png",
         "success": true
     },
     {
-        "name": "Blizzard Assault AT-AT",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/352.png",
-        "type": "Unit",
-        "image": "SOR\\Blizzard_Assault_AT-AT",
-        "success": true
-    },
-    {
-        "name": "Boba Fett",
+        "name": "Boba Fett - Collecting the Bounty",
+        "subtitle": "Collecting the Bounty",
         "url": "https://cdn.swu-db.com/images/cards/SOR/015.png",
         "type": "Leader",
-        "image": "SOR\\Boba_Fett",
+        "image": "SOR\\Boba_Fett - Collecting_the_Bounty.png",
         "success": true
     },
     {
-        "name": "Boba Fett",
+        "name": "Boba Fett - Collecting the Bounty [Back]",
+        "subtitle": "Collecting the Bounty",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/015-b.png",
+        "type": "Leader",
+        "image": "SOR\\Boba_Fett - Collecting_the_Bounty_back.png",
+        "success": true
+    },
+    {
+        "name": "Boba Fett - Disintegrator",
+        "subtitle": "Disintegrator",
         "url": "https://cdn.swu-db.com/images/cards/SOR/179.png",
         "type": "Unit",
-        "image": "SOR\\Boba_Fett",
+        "image": "SOR\\Boba_Fett - Disintegrator.png",
         "success": true
     },
     {
-        "name": "Boba Fett",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/265.png",
-        "type": "Leader",
-        "image": "SOR\\Boba_Fett",
-        "success": true
-    },
-    {
-        "name": "Boba Fett",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/281.png",
-        "type": "Leader",
-        "image": "SOR\\Boba_Fett",
-        "success": true
-    },
-    {
-        "name": "Boba Fett",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/442.png",
-        "type": "Unit",
-        "image": "SOR\\Boba_Fett",
-        "success": true
-    },
-    {
-        "name": "Bodhi Rook",
+        "name": "Bodhi Rook - Imperial Defector",
+        "subtitle": "Imperial Defector",
         "url": "https://cdn.swu-db.com/images/cards/SOR/201.png",
         "type": "Unit",
-        "image": "SOR\\Bodhi_Rook",
-        "success": true
-    },
-    {
-        "name": "Bodhi Rook",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/463.png",
-        "type": "Unit",
-        "image": "SOR\\Bodhi_Rook",
+        "image": "SOR\\Bodhi_Rook - Imperial_Defector.png",
         "success": true
     },
     {
         "name": "Bombing Run",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/173.png",
         "type": "Event",
-        "image": "SOR\\Bombing_Run",
+        "image": "SOR\\Bombing_Run.png",
         "success": true
     },
     {
-        "name": "Bombing Run",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/436.png",
-        "type": "Event",
-        "image": "SOR\\Bombing_Run",
-        "success": true
-    },
-    {
-        "name": "Bossk",
+        "name": "Bossk - Deadly Stalker",
+        "subtitle": "Deadly Stalker",
         "url": "https://cdn.swu-db.com/images/cards/SOR/182.png",
         "type": "Unit",
-        "image": "SOR\\Bossk",
-        "success": true
-    },
-    {
-        "name": "Bossk",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/445.png",
-        "type": "Unit",
-        "image": "SOR\\Bossk",
+        "image": "SOR\\Bossk - Deadly_Stalker.png",
         "success": true
     },
     {
         "name": "Bounty Hunter Crew",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/183.png",
         "type": "Unit",
-        "image": "SOR\\Bounty_Hunter_Crew",
+        "image": "SOR\\Bounty_Hunter_Crew.png",
         "success": true
     },
     {
-        "name": "Bounty Hunter Crew",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/446.png",
-        "type": "Unit",
-        "image": "SOR\\Bounty_Hunter_Crew",
-        "success": true
-    },
-    {
-        "name": "Bright Hope",
+        "name": "Bright Hope - The Last Transport",
+        "subtitle": "The Last Transport",
         "url": "https://cdn.swu-db.com/images/cards/SOR/099.png",
         "type": "Unit",
-        "image": "SOR\\Bright_Hope",
+        "image": "SOR\\Bright_Hope - The_Last_Transport.png",
         "success": true
     },
     {
-        "name": "Bright Hope",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/363.png",
-        "type": "Unit",
-        "image": "SOR\\Bright_Hope",
-        "success": true
-    },
-    {
-        "name": "C-3P0",
+        "name": "C-3P0 - Protocol Droid",
+        "subtitle": "Protocol Droid",
         "url": "https://cdn.swu-db.com/images/cards/SOR/238.png",
         "type": "Unit",
-        "image": "SOR\\C-3P0",
+        "image": "SOR\\C-3P0 - Protocol_Droid.png",
         "success": true
     },
     {
         "name": "Cantina Bouncer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/202.png",
         "type": "Unit",
-        "image": "SOR\\Cantina_Bouncer",
-        "success": true
-    },
-    {
-        "name": "Cantina Bouncer",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/464.png",
-        "type": "Unit",
-        "image": "SOR\\Cantina_Bouncer",
+        "image": "SOR\\Cantina_Bouncer.png",
         "success": true
     },
     {
         "name": "Cantina Braggart",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/157.png",
         "type": "Unit",
-        "image": "SOR\\Cantina_Braggart",
+        "image": "SOR\\Cantina_Braggart.png",
         "success": true
     },
     {
-        "name": "Cantina Braggart",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/420.png",
-        "type": "Unit",
-        "image": "SOR\\Cantina_Braggart",
-        "success": true
-    },
-    {
-        "name": "Capital City",
+        "name": "Capital City - Lothal",
+        "subtitle": "Lothal",
         "url": "https://cdn.swu-db.com/images/cards/SOR/020.png",
         "type": "Base",
-        "image": "SOR\\Capital_City",
-        "success": true
-    },
-    {
-        "name": "Capital City",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/286.png",
-        "type": "Base",
-        "image": "SOR\\Capital_City",
+        "image": "SOR\\Capital_City - Lothal.png",
         "success": true
     },
     {
         "name": "Cargo Juggernaut",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/068.png",
         "type": "Unit",
-        "image": "SOR\\Cargo_Juggernaut",
-        "success": true
-    },
-    {
-        "name": "Cargo Juggernaut",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/333.png",
-        "type": "Unit",
-        "image": "SOR\\Cargo_Juggernaut",
+        "image": "SOR\\Cargo_Juggernaut.png",
         "success": true
     },
     {
         "name": "Cartel Spacer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/178.png",
         "type": "Unit",
-        "image": "SOR\\Cartel_Spacer",
+        "image": "SOR\\Cartel_Spacer.png",
         "success": true
     },
     {
-        "name": "Cartel Spacer",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/441.png",
-        "type": "Unit",
-        "image": "SOR\\Cartel_Spacer",
-        "success": true
-    },
-    {
-        "name": "Cassian Andor",
+        "name": "Cassian Andor - Dedicated to the Rebellion",
+        "subtitle": "Dedicated to the Rebellion",
         "url": "https://cdn.swu-db.com/images/cards/SOR/013.png",
         "type": "Leader",
-        "image": "SOR\\Cassian_Andor",
+        "image": "SOR\\Cassian_Andor - Dedicated_to_the_Rebellion.png",
         "success": true
     },
     {
-        "name": "Cassian Andor",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/263.png",
+        "name": "Cassian Andor - Dedicated to the Rebellion [Back]",
+        "subtitle": "Dedicated to the Rebellion",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/013-b.png",
         "type": "Leader",
-        "image": "SOR\\Cassian_Andor",
+        "image": "SOR\\Cassian_Andor - Dedicated_to_the_Rebellion_back.png",
         "success": true
     },
     {
-        "name": "Cassian Andor",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/279.png",
-        "type": "Leader",
-        "image": "SOR\\Cassian_Andor",
-        "success": true
-    },
-    {
-        "name": "Catacombs of Cadera",
+        "name": "Catacombs of Cadera - Jedha",
+        "subtitle": "Jedha",
         "url": "https://cdn.swu-db.com/images/cards/SOR/026.png",
         "type": "Base",
-        "image": "SOR\\Catacombs_of_Cadera",
-        "success": true
-    },
-    {
-        "name": "Catacombs of Cadera",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/292.png",
-        "type": "Base",
-        "image": "SOR\\Catacombs_of_Cadera",
+        "image": "SOR\\Catacombs_of_Cadera - Jedha.png",
         "success": true
     },
     {
         "name": "Cell Block Guard",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/229.png",
         "type": "Unit",
-        "image": "SOR\\Cell_Block_Guard",
-        "success": true
-    },
-    {
-        "name": "Cell Block Guard",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/490.png",
-        "type": "Unit",
-        "image": "SOR\\Cell_Block_Guard",
+        "image": "SOR\\Cell_Block_Guard.png",
         "success": true
     },
     {
         "name": "Change of Heart",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/224.png",
         "type": "Event",
-        "image": "SOR\\Change_of_Heart",
+        "image": "SOR\\Change_of_Heart.png",
         "success": true
     },
     {
-        "name": "Change of Heart",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/486.png",
-        "type": "Event",
-        "image": "SOR\\Change_of_Heart",
-        "success": true
-    },
-    {
-        "name": "Chewbacca",
+        "name": "Chewbacca - Walking Carpet",
+        "subtitle": "Walking Carpet",
         "url": "https://cdn.swu-db.com/images/cards/SOR/003.png",
         "type": "Leader",
-        "image": "SOR\\Chewbacca",
+        "image": "SOR\\Chewbacca - Walking_Carpet.png",
         "success": true
     },
     {
-        "name": "Chewbacca",
+        "name": "Chewbacca - Walking Carpet [Back]",
+        "subtitle": "Walking Carpet",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/003-b.png",
+        "type": "Leader",
+        "image": "SOR\\Chewbacca - Walking_Carpet_back.png",
+        "success": true
+    },
+    {
+        "name": "Chewbacca - Loyal Companion",
+        "subtitle": "Loyal Companion",
         "url": "https://cdn.swu-db.com/images/cards/SOR/196.png",
         "type": "Unit",
-        "image": "SOR\\Chewbacca",
+        "image": "SOR\\Chewbacca - Loyal_Companion.png",
         "success": true
     },
     {
-        "name": "Chewbacca",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/255.png",
-        "type": "Leader",
-        "image": "SOR\\Chewbacca",
-        "success": true
-    },
-    {
-        "name": "Chewbacca",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/271.png",
-        "type": "Leader",
-        "image": "SOR\\Chewbacca",
-        "success": true
-    },
-    {
-        "name": "Chewbacca",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/458.png",
-        "type": "Unit",
-        "image": "SOR\\Chewbacca",
-        "success": true
-    },
-    {
-        "name": "Chimaera",
+        "name": "Chimaera - Flagship of the Seventh Fleet",
+        "subtitle": "Flagship of the Seventh Fleet",
         "url": "https://cdn.swu-db.com/images/cards/SOR/185.png",
         "type": "Unit",
-        "image": "SOR\\Chimaera",
+        "image": "SOR\\Chimaera - Flagship_of_the_Seventh_Fleet.png",
         "success": true
     },
     {
-        "name": "Chimaera",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/448.png",
-        "type": "Unit",
-        "image": "SOR\\Chimaera",
-        "success": true
-    },
-    {
-        "name": "Chirrut \u00cemwe",
+        "name": "Chirrut \u00cemwe - One With the Force",
+        "subtitle": "One With the Force",
         "url": "https://cdn.swu-db.com/images/cards/SOR/004.png",
         "type": "Leader",
-        "image": "SOR\\Chirrut_mwe",
+        "image": "SOR\\Chirrut_mwe - One_With_the_Force.png",
         "success": true
     },
     {
-        "name": "Chirrut \u00cemwe",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/256.png",
+        "name": "Chirrut \u00cemwe - One With the Force [Back]",
+        "subtitle": "One With the Force",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/004-b.png",
         "type": "Leader",
-        "image": "SOR\\Chirrut_mwe",
+        "image": "SOR\\Chirrut_mwe - One_With_the_Force_back.png",
         "success": true
     },
     {
-        "name": "Chirrut \u00cemwe",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/272.png",
-        "type": "Leader",
-        "image": "SOR\\Chirrut_mwe",
-        "success": true
-    },
-    {
-        "name": "Chopper",
+        "name": "Chopper - Metal Menace",
+        "subtitle": "Metal Menace",
         "url": "https://cdn.swu-db.com/images/cards/SOR/188.png",
         "type": "Unit",
-        "image": "SOR\\Chopper",
+        "image": "SOR\\Chopper - Metal_Menace.png",
         "success": true
     },
     {
-        "name": "Chopper",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/451.png",
-        "type": "Unit",
-        "image": "SOR\\Chopper",
-        "success": true
-    },
-    {
-        "name": "Chopper Base",
+        "name": "Chopper Base - Atollon",
+        "subtitle": "Atollon",
         "url": "https://cdn.swu-db.com/images/cards/SOR/030.png",
         "type": "Base",
-        "image": "SOR\\Chopper_Base",
-        "success": true
-    },
-    {
-        "name": "Chopper Base",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/296.png",
-        "type": "Base",
-        "image": "SOR\\Chopper_Base",
+        "image": "SOR\\Chopper_Base - Atollon.png",
         "success": true
     },
     {
         "name": "Cloud City Wing Guard",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/063.png",
         "type": "Unit",
-        "image": "SOR\\Cloud_City_Wing_Guard",
+        "image": "SOR\\Cloud_City_Wing_Guard.png",
         "success": true
     },
     {
-        "name": "Cloud City Wing Guard",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/328.png",
-        "type": "Unit",
-        "image": "SOR\\Cloud_City_Wing_Guard",
-        "success": true
-    },
-    {
-        "name": "Colonel Yularen",
+        "name": "Colonel Yularen - ISB Director",
+        "subtitle": "ISB Director",
         "url": "https://cdn.swu-db.com/images/cards/SOR/109.png",
         "type": "Unit",
-        "image": "SOR\\Colonel_Yularen",
-        "success": true
-    },
-    {
-        "name": "Colonel Yularen",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/373.png",
-        "type": "Unit",
-        "image": "SOR\\Colonel_Yularen",
+        "image": "SOR\\Colonel_Yularen - ISB_Director.png",
         "success": true
     },
     {
         "name": "Command",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/107.png",
         "type": "Event",
-        "image": "SOR\\Command",
+        "image": "SOR\\Command.png",
         "success": true
     },
     {
-        "name": "Command",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/371.png",
-        "type": "Event",
-        "image": "SOR\\Command",
-        "success": true
-    },
-    {
-        "name": "Command Center",
+        "name": "Command Center - Death Star",
+        "subtitle": "Death Star",
         "url": "https://cdn.swu-db.com/images/cards/SOR/023.png",
         "type": "Base",
-        "image": "SOR\\Command_Center",
-        "success": true
-    },
-    {
-        "name": "Command Center",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/289.png",
-        "type": "Base",
-        "image": "SOR\\Command_Center",
+        "image": "SOR\\Command_Center - Death_Star.png",
         "success": true
     },
     {
         "name": "Confiscate",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/251.png",
         "type": "Event",
-        "image": "SOR\\Confiscate",
-        "success": true
-    },
-    {
-        "name": "Confiscate",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/509.png",
-        "type": "Event",
-        "image": "SOR\\Confiscate",
+        "image": "SOR\\Confiscate.png",
         "success": true
     },
     {
         "name": "Consortium StarViper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/112.png",
         "type": "Unit",
-        "image": "SOR\\Consortium_StarViper",
-        "success": true
-    },
-    {
-        "name": "Consortium StarViper",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/376.png",
-        "type": "Unit",
-        "image": "SOR\\Consortium_StarViper",
+        "image": "SOR\\Consortium_StarViper.png",
         "success": true
     },
     {
         "name": "Consular Security Force",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/046.png",
         "type": "Unit",
-        "image": "SOR\\Consular_Security_Force",
-        "success": true
-    },
-    {
-        "name": "Consular Security Force",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/312.png",
-        "type": "Unit",
-        "image": "SOR\\Consular_Security_Force",
+        "image": "SOR\\Consular_Security_Force.png",
         "success": true
     },
     {
         "name": "Corellian Freighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/250.png",
         "type": "Unit",
-        "image": "SOR\\Corellian_Freighter",
+        "image": "SOR\\Corellian_Freighter.png",
         "success": true
     },
     {
-        "name": "Corellian Freighter",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/508.png",
-        "type": "Unit",
-        "image": "SOR\\Corellian_Freighter",
-        "success": true
-    },
-    {
-        "name": "Count Dooku",
+        "name": "Count Dooku - Darth Tyrannus",
+        "subtitle": "Darth Tyrannus",
         "url": "https://cdn.swu-db.com/images/cards/SOR/038.png",
         "type": "Unit",
-        "image": "SOR\\Count_Dooku",
-        "success": true
-    },
-    {
-        "name": "Count Dooku",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/304.png",
-        "type": "Unit",
-        "image": "SOR\\Count_Dooku",
+        "image": "SOR\\Count_Dooku - Darth_Tyrannus.png",
         "success": true
     },
     {
         "name": "Crafty Smuggler",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/207.png",
         "type": "Unit",
-        "image": "SOR\\Crafty_Smuggler",
-        "success": true
-    },
-    {
-        "name": "Crafty Smuggler",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/469.png",
-        "type": "Unit",
-        "image": "SOR\\Crafty_Smuggler",
+        "image": "SOR\\Crafty_Smuggler.png",
         "success": true
     },
     {
         "name": "Cunning",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/203.png",
         "type": "Event",
-        "image": "SOR\\Cunning",
+        "image": "SOR\\Cunning.png",
         "success": true
     },
     {
-        "name": "Cunning",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/465.png",
-        "type": "Event",
-        "image": "SOR\\Cunning",
-        "success": true
-    },
-    {
-        "name": "Dagobah Swamp",
+        "name": "Dagobah Swamp - Dagobah",
+        "subtitle": "Dagobah",
         "url": "https://cdn.swu-db.com/images/cards/SOR/021.png",
         "type": "Base",
-        "image": "SOR\\Dagobah_Swamp",
+        "image": "SOR\\Dagobah_Swamp - Dagobah.png",
         "success": true
     },
     {
-        "name": "Dagobah Swamp",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/287.png",
-        "type": "Base",
-        "image": "SOR\\Dagobah_Swamp",
-        "success": true
-    },
-    {
-        "name": "Darth Vader",
+        "name": "Darth Vader - Dark Lord of the Sith",
+        "subtitle": "Dark Lord of the Sith",
         "url": "https://cdn.swu-db.com/images/cards/SOR/010.png",
         "type": "Leader",
-        "image": "SOR\\Darth_Vader",
+        "image": "SOR\\Darth_Vader - Dark_Lord_of_the_Sith.png",
         "success": true
     },
     {
-        "name": "Darth Vader",
+        "name": "Darth Vader - Dark Lord of the Sith [Back]",
+        "subtitle": "Dark Lord of the Sith",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/010-b.png",
+        "type": "Leader",
+        "image": "SOR\\Darth_Vader - Dark_Lord_of_the_Sith_back.png",
+        "success": true
+    },
+    {
+        "name": "Darth Vader - Commanding the First Legion",
+        "subtitle": "Commanding the First Legion",
         "url": "https://cdn.swu-db.com/images/cards/SOR/087.png",
         "type": "Unit",
-        "image": "SOR\\Darth_Vader",
-        "success": true
-    },
-    {
-        "name": "Darth Vader",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/351.png",
-        "type": "Unit",
-        "image": "SOR\\Darth_Vader",
+        "image": "SOR\\Darth_Vader - Commanding_the_First_Legion.png",
         "success": true
     },
     {
         "name": "Death Star Stormtrooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/128.png",
         "type": "Unit",
-        "image": "SOR\\Death_Star_Stormtrooper",
-        "success": true
-    },
-    {
-        "name": "Death Star Stormtrooper",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/392.png",
-        "type": "Unit",
-        "image": "SOR\\Death_Star_Stormtrooper",
+        "image": "SOR\\Death_Star_Stormtrooper.png",
         "success": true
     },
     {
         "name": "Death Trooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/033.png",
         "type": "Unit",
-        "image": "SOR\\Death_Trooper",
+        "image": "SOR\\Death_Trooper.png",
         "success": true
     },
     {
-        "name": "Death Trooper",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/299.png",
-        "type": "Unit",
-        "image": "SOR\\Death_Trooper",
-        "success": true
-    },
-    {
-        "name": "Del Meeko",
+        "name": "Del Meeko - Providing Overwatch",
+        "subtitle": "Providing Overwatch",
         "url": "https://cdn.swu-db.com/images/cards/SOR/034.png",
         "type": "Unit",
-        "image": "SOR\\Del_Meeko",
+        "image": "SOR\\Del_Meeko - Providing_Overwatch.png",
         "success": true
     },
     {
-        "name": "Del Meeko",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/300.png",
-        "type": "Unit",
-        "image": "SOR\\Del_Meeko",
-        "success": true
-    },
-    {
-        "name": "Devastator",
+        "name": "Devastator - Inescapable",
+        "subtitle": "Inescapable",
         "url": "https://cdn.swu-db.com/images/cards/SOR/090.png",
         "type": "Unit",
-        "image": "SOR\\Devastator",
-        "success": true
-    },
-    {
-        "name": "Devastator",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/354.png",
-        "type": "Unit",
-        "image": "SOR\\Devastator",
+        "image": "SOR\\Devastator - Inescapable.png",
         "success": true
     },
     {
         "name": "Devotion",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/070.png",
         "type": "Upgrade",
-        "image": "SOR\\Devotion",
+        "image": "SOR\\Devotion.png",
         "success": true
     },
     {
-        "name": "Devotion",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/335.png",
-        "type": "Upgrade",
-        "image": "SOR\\Devotion",
-        "success": true
-    },
-    {
-        "name": "Director Krennic",
+        "name": "Director Krennic - Aspiring to Authority",
+        "subtitle": "Aspiring to Authority",
         "url": "https://cdn.swu-db.com/images/cards/SOR/001.png",
         "type": "Leader",
-        "image": "SOR\\Director_Krennic",
+        "image": "SOR\\Director_Krennic - Aspiring_to_Authority.png",
         "success": true
     },
     {
-        "name": "Director Krennic",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/253.png",
+        "name": "Director Krennic - Aspiring to Authority [Back]",
+        "subtitle": "Aspiring to Authority",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/001-b.png",
         "type": "Leader",
-        "image": "SOR\\Director_Krennic",
-        "success": true
-    },
-    {
-        "name": "Director Krennic",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/269.png",
-        "type": "Leader",
-        "image": "SOR\\Director_Krennic",
+        "image": "SOR\\Director_Krennic - Aspiring_to_Authority_back.png",
         "success": true
     },
     {
         "name": "Disabling Fang Fighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/162.png",
         "type": "Unit",
-        "image": "SOR\\Disabling_Fang_Fighter",
-        "success": true
-    },
-    {
-        "name": "Disabling Fang Fighter",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/425.png",
-        "type": "Unit",
-        "image": "SOR\\Disabling_Fang_Fighter",
+        "image": "SOR\\Disabling_Fang_Fighter.png",
         "success": true
     },
     {
         "name": "Disarm",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/216.png",
         "type": "Event",
-        "image": "SOR\\Disarm",
-        "success": true
-    },
-    {
-        "name": "Disarm",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/478.png",
-        "type": "Event",
-        "image": "SOR\\Disarm",
+        "image": "SOR\\Disarm.png",
         "success": true
     },
     {
         "name": "Distant Patroller",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/060.png",
         "type": "Unit",
-        "image": "SOR\\Distant_Patroller",
-        "success": true
-    },
-    {
-        "name": "Distant Patroller",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/325.png",
-        "type": "Unit",
-        "image": "SOR\\Distant_Patroller",
+        "image": "SOR\\Distant_Patroller.png",
         "success": true
     },
     {
         "name": "Don't Get Cocky",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/223.png",
         "type": "Event",
-        "image": "SOR\\Dont_Get_Cocky",
+        "image": "SOR\\Dont_Get_Cocky.png",
         "success": true
     },
     {
-        "name": "Don't Get Cocky",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/485.png",
-        "type": "Event",
-        "image": "SOR\\Dont_Get_Cocky",
-        "success": true
-    },
-    {
-        "name": "Echo Base",
+        "name": "Echo Base - Hoth",
+        "subtitle": "Hoth",
         "url": "https://cdn.swu-db.com/images/cards/SOR/024.png",
         "type": "Base",
-        "image": "SOR\\Echo_Base",
-        "success": true
-    },
-    {
-        "name": "Echo Base",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/290.png",
-        "type": "Base",
-        "image": "SOR\\Echo_Base",
+        "image": "SOR\\Echo_Base - Hoth.png",
         "success": true
     },
     {
         "name": "Echo Base Defender",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/098.png",
         "type": "Unit",
-        "image": "SOR\\Echo_Base_Defender",
-        "success": true
-    },
-    {
-        "name": "Echo Base Defender",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/362.png",
-        "type": "Unit",
-        "image": "SOR\\Echo_Base_Defender",
+        "image": "SOR\\Echo_Base_Defender.png",
         "success": true
     },
     {
         "name": "Electrostaff",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/071.png",
         "type": "Upgrade",
-        "image": "SOR\\Electrostaff",
+        "image": "SOR\\Electrostaff.png",
         "success": true
     },
     {
-        "name": "Electrostaff",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/336.png",
-        "type": "Upgrade",
-        "image": "SOR\\Electrostaff",
-        "success": true
-    },
-    {
-        "name": "Emperor Palpatine",
+        "name": "Emperor Palpatine - Galactic Ruler",
+        "subtitle": "Galactic Ruler",
         "url": "https://cdn.swu-db.com/images/cards/SOR/006.png",
         "type": "Leader",
-        "image": "SOR\\Emperor_Palpatine",
+        "image": "SOR\\Emperor_Palpatine - Galactic_Ruler.png",
         "success": true
     },
     {
-        "name": "Emperor Palpatine",
+        "name": "Emperor Palpatine - Galactic Ruler [Back]",
+        "subtitle": "Galactic Ruler",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/006-b.png",
+        "type": "Leader",
+        "image": "SOR\\Emperor_Palpatine - Galactic_Ruler_back.png",
+        "success": true
+    },
+    {
+        "name": "Emperor Palpatine - Master of the Dark Side",
+        "subtitle": "Master of the Dark Side",
         "url": "https://cdn.swu-db.com/images/cards/SOR/135.png",
         "type": "Unit",
-        "image": "SOR\\Emperor_Palpatine",
-        "success": true
-    },
-    {
-        "name": "Emperor Palpatine",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/257.png",
-        "type": "Leader",
-        "image": "SOR\\Emperor_Palpatine",
-        "success": true
-    },
-    {
-        "name": "Emperor Palpatine",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/273.png",
-        "type": "Leader",
-        "image": "SOR\\Emperor_Palpatine",
-        "success": true
-    },
-    {
-        "name": "Emperor Palpatine",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/399.png",
-        "type": "Unit",
-        "image": "SOR\\Emperor_Palpatine",
+        "image": "SOR\\Emperor_Palpatine - Master_of_the_Dark_Side.png",
         "success": true
     },
     {
         "name": "Emperor's Royal Guard",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/082.png",
         "type": "Unit",
-        "image": "SOR\\Emperors_Royal_Guard",
+        "image": "SOR\\Emperors_Royal_Guard.png",
         "success": true
     },
     {
-        "name": "Emperor's Royal Guard",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/347.png",
-        "type": "Unit",
-        "image": "SOR\\Emperors_Royal_Guard",
-        "success": true
-    },
-    {
-        "name": "Energy Conversion Lab",
+        "name": "Energy Conversion Lab - Eadu",
+        "subtitle": "Eadu",
         "url": "https://cdn.swu-db.com/images/cards/SOR/022.png",
         "type": "Base",
-        "image": "SOR\\Energy_Conversion_Lab",
-        "success": true
-    },
-    {
-        "name": "Energy Conversion Lab",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/288.png",
-        "type": "Base",
-        "image": "SOR\\Energy_Conversion_Lab",
+        "image": "SOR\\Energy_Conversion_Lab - Eadu.png",
         "success": true
     },
     {
         "name": "Entrenched",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/072.png",
         "type": "Upgrade",
-        "image": "SOR\\Entrenched",
-        "success": true
-    },
-    {
-        "name": "Entrenched",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/337.png",
-        "type": "Upgrade",
-        "image": "SOR\\Entrenched",
+        "image": "SOR\\Entrenched.png",
         "success": true
     },
     {
         "name": "Escort Skiff",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/114.png",
         "type": "Unit",
-        "image": "SOR\\Escort_Skiff",
+        "image": "SOR\\Escort_Skiff.png",
         "success": true
     },
     {
-        "name": "Escort Skiff",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/378.png",
-        "type": "Unit",
-        "image": "SOR\\Escort_Skiff",
-        "success": true
-    },
-    {
-        "name": "Ezra Bridger",
+        "name": "Ezra Bridger - Resourceful Troublemaker",
+        "subtitle": "Resourceful Troublemaker",
         "url": "https://cdn.swu-db.com/images/cards/SOR/192.png",
         "type": "Unit",
-        "image": "SOR\\Ezra_Bridger",
-        "success": true
-    },
-    {
-        "name": "Ezra Bridger",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/454.png",
-        "type": "Unit",
-        "image": "SOR\\Ezra_Bridger",
+        "image": "SOR\\Ezra_Bridger - Resourceful_Troublemaker.png",
         "success": true
     },
     {
         "name": "Fallen Lightsaber",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/137.png",
         "type": "Upgrade",
-        "image": "SOR\\Fallen_Lightsaber",
+        "image": "SOR\\Fallen_Lightsaber.png",
         "success": true
     },
     {
-        "name": "Fallen Lightsaber",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/400.png",
-        "type": "Upgrade",
-        "image": "SOR\\Fallen_Lightsaber",
-        "success": true
-    },
-    {
-        "name": "Fett's Firespray",
+        "name": "Fett's Firespray - Pursuing the Bounty",
+        "subtitle": "Pursuing the Bounty",
         "url": "https://cdn.swu-db.com/images/cards/SOR/184.png",
         "type": "Unit",
-        "image": "SOR\\Fetts_Firespray",
+        "image": "SOR\\Fetts_Firespray - Pursuing_the_Bounty.png",
         "success": true
     },
     {
-        "name": "Fett's Firespray",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/447.png",
-        "type": "Unit",
-        "image": "SOR\\Fetts_Firespray",
-        "success": true
-    },
-    {
-        "name": "Fifth Brother",
+        "name": "Fifth Brother - Fear Hunter",
+        "subtitle": "Fear Hunter",
         "url": "https://cdn.swu-db.com/images/cards/SOR/131.png",
         "type": "Unit",
-        "image": "SOR\\Fifth_Brother",
-        "success": true
-    },
-    {
-        "name": "Fifth Brother",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/395.png",
-        "type": "Unit",
-        "image": "SOR\\Fifth_Brother",
+        "image": "SOR\\Fifth_Brother - Fear_Hunter.png",
         "success": true
     },
     {
         "name": "Fighters For Freedom",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/143.png",
         "type": "Unit",
-        "image": "SOR\\Fighters_For_Freedom",
-        "success": true
-    },
-    {
-        "name": "Fighters For Freedom",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/406.png",
-        "type": "Unit",
-        "image": "SOR\\Fighters_For_Freedom",
+        "image": "SOR\\Fighters_For_Freedom.png",
         "success": true
     },
     {
         "name": "First Legion Snowtrooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/130.png",
         "type": "Unit",
-        "image": "SOR\\First_Legion_Snowtrooper",
-        "success": true
-    },
-    {
-        "name": "First Legion Snowtrooper",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/394.png",
-        "type": "Unit",
-        "image": "SOR\\First_Legion_Snowtrooper",
+        "image": "SOR\\First_Legion_Snowtrooper.png",
         "success": true
     },
     {
         "name": "Fleet Lieutenant",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/240.png",
         "type": "Unit",
-        "image": "SOR\\Fleet_Lieutenant",
-        "success": true
-    },
-    {
-        "name": "Fleet Lieutenant",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/498.png",
-        "type": "Unit",
-        "image": "SOR\\Fleet_Lieutenant",
+        "image": "SOR\\Fleet_Lieutenant.png",
         "success": true
     },
     {
         "name": "For a Cause I Believe In",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/152.png",
         "type": "Event",
-        "image": "SOR\\For_a_Cause_I_Believe_In",
-        "success": true
-    },
-    {
-        "name": "For a Cause I Believe In",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/415.png",
-        "type": "Event",
-        "image": "SOR\\For_a_Cause_I_Believe_In",
+        "image": "SOR\\For_a_Cause_I_Believe_In.png",
         "success": true
     },
     {
         "name": "Force Choke",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/139.png",
         "type": "Event",
-        "image": "SOR\\Force_Choke",
-        "success": true
-    },
-    {
-        "name": "Force Choke",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/402.png",
-        "type": "Event",
-        "image": "SOR\\Force_Choke",
+        "image": "SOR\\Force_Choke.png",
         "success": true
     },
     {
         "name": "Force Lightning",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/138.png",
         "type": "Event",
-        "image": "SOR\\Force_Lightning",
-        "success": true
-    },
-    {
-        "name": "Force Lightning",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/401.png",
-        "type": "Event",
-        "image": "SOR\\Force_Lightning",
+        "image": "SOR\\Force_Lightning.png",
         "success": true
     },
     {
         "name": "Force Throw",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/167.png",
         "type": "Event",
-        "image": "SOR\\Force_Throw",
-        "success": true
-    },
-    {
-        "name": "Force Throw",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/430.png",
-        "type": "Event",
-        "image": "SOR\\Force_Throw",
+        "image": "SOR\\Force_Throw.png",
         "success": true
     },
     {
         "name": "Forced Surrender",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/175.png",
         "type": "Event",
-        "image": "SOR\\Forced_Surrender",
-        "success": true
-    },
-    {
-        "name": "Forced Surrender",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/438.png",
-        "type": "Event",
-        "image": "SOR\\Forced_Surrender",
+        "image": "SOR\\Forced_Surrender.png",
         "success": true
     },
     {
         "name": "Frontier AT-RT",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/249.png",
         "type": "Unit",
-        "image": "SOR\\Frontier_AT-RT",
-        "success": true
-    },
-    {
-        "name": "Frontier AT-RT",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/507.png",
-        "type": "Unit",
-        "image": "SOR\\Frontier_AT-RT",
+        "image": "SOR\\Frontier_AT-RT.png",
         "success": true
     },
     {
         "name": "Frontline Shuttle",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/110.png",
         "type": "Unit",
-        "image": "SOR\\Frontline_Shuttle",
-        "success": true
-    },
-    {
-        "name": "Frontline Shuttle",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/374.png",
-        "type": "Unit",
-        "image": "SOR\\Frontline_Shuttle",
+        "image": "SOR\\Frontline_Shuttle.png",
         "success": true
     },
     {
         "name": "Galactic Ambition",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/235.png",
         "type": "Event",
-        "image": "SOR\\Galactic_Ambition",
-        "success": true
-    },
-    {
-        "name": "Galactic Ambition",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/495.png",
-        "type": "Event",
-        "image": "SOR\\Galactic_Ambition",
+        "image": "SOR\\Galactic_Ambition.png",
         "success": true
     },
     {
         "name": "Gamorrean Guards",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/211.png",
         "type": "Unit",
-        "image": "SOR\\Gamorrean_Guards",
+        "image": "SOR\\Gamorrean_Guards.png",
         "success": true
     },
     {
-        "name": "Gamorrean Guards",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/473.png",
-        "type": "Unit",
-        "image": "SOR\\Gamorrean_Guards",
-        "success": true
-    },
-    {
-        "name": "General Dodonna",
+        "name": "General Dodonna - Massassi Group Commander",
+        "subtitle": "Massassi Group Commander",
         "url": "https://cdn.swu-db.com/images/cards/SOR/242.png",
         "type": "Unit",
-        "image": "SOR\\General_Dodonna",
+        "image": "SOR\\General_Dodonna - Massassi_Group_Commander.png",
         "success": true
     },
     {
-        "name": "General Dodonna",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/500.png",
-        "type": "Unit",
-        "image": "SOR\\General_Dodonna",
-        "success": true
-    },
-    {
-        "name": "General Krell",
+        "name": "General Krell - Heartless Tactician",
+        "subtitle": "Heartless Tactician",
         "url": "https://cdn.swu-db.com/images/cards/SOR/105.png",
         "type": "Unit",
-        "image": "SOR\\General_Krell",
+        "image": "SOR\\General_Krell - Heartless_Tactician.png",
         "success": true
     },
     {
-        "name": "General Krell",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/369.png",
-        "type": "Unit",
-        "image": "SOR\\General_Krell",
-        "success": true
-    },
-    {
-        "name": "General Tagge",
+        "name": "General Tagge - Concerned Commander",
+        "subtitle": "Concerned Commander",
         "url": "https://cdn.swu-db.com/images/cards/SOR/080.png",
         "type": "Unit",
-        "image": "SOR\\General_Tagge",
+        "image": "SOR\\General_Tagge - Concerned_Commander.png",
         "success": true
     },
     {
-        "name": "General Tagge",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/345.png",
-        "type": "Unit",
-        "image": "SOR\\General_Tagge",
-        "success": true
-    },
-    {
-        "name": "General Veers",
+        "name": "General Veers - Blizzard Force Commander",
+        "subtitle": "Blizzard Force Commander",
         "url": "https://cdn.swu-db.com/images/cards/SOR/230.png",
         "type": "Unit",
-        "image": "SOR\\General_Veers",
+        "image": "SOR\\General_Veers - Blizzard_Force_Commander.png",
         "success": true
     },
     {
-        "name": "General Veers",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/491.png",
-        "type": "Unit",
-        "image": "SOR\\General_Veers",
-        "success": true
-    },
-    {
-        "name": "Gideon Hask",
+        "name": "Gideon Hask - Ruthless Loyalist",
+        "subtitle": "Ruthless Loyalist",
         "url": "https://cdn.swu-db.com/images/cards/SOR/036.png",
         "type": "Unit",
-        "image": "SOR\\Gideon_Hask",
-        "success": true
-    },
-    {
-        "name": "Gideon Hask",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/302.png",
-        "type": "Unit",
-        "image": "SOR\\Gideon_Hask",
+        "image": "SOR\\Gideon_Hask - Ruthless_Loyalist.png",
         "success": true
     },
     {
         "name": "Gladiator Star Destroyer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/086.png",
         "type": "Unit",
-        "image": "SOR\\Gladiator_Star_Destroyer",
+        "image": "SOR\\Gladiator_Star_Destroyer.png",
         "success": true
     },
     {
-        "name": "Gladiator Star Destroyer",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/350.png",
-        "type": "Unit",
-        "image": "SOR\\Gladiator_Star_Destroyer",
-        "success": true
-    },
-    {
-        "name": "Grand Admiral Thrawn",
+        "name": "Grand Admiral Thrawn - Patient and Insightful",
+        "subtitle": "Patient and Insightful",
         "url": "https://cdn.swu-db.com/images/cards/SOR/016.png",
         "type": "Leader",
-        "image": "SOR\\Grand_Admiral_Thrawn",
+        "image": "SOR\\Grand_Admiral_Thrawn - Patient_and_Insightful.png",
         "success": true
     },
     {
-        "name": "Grand Admiral Thrawn",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/266.png",
+        "name": "Grand Admiral Thrawn - Patient and Insightful [Back]",
+        "subtitle": "Patient and Insightful",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/016-b.png",
         "type": "Leader",
-        "image": "SOR\\Grand_Admiral_Thrawn",
+        "image": "SOR\\Grand_Admiral_Thrawn - Patient_and_Insightful_back.png",
         "success": true
     },
     {
-        "name": "Grand Admiral Thrawn",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/282.png",
-        "type": "Leader",
-        "image": "SOR\\Grand_Admiral_Thrawn",
-        "success": true
-    },
-    {
-        "name": "Grand Inquisitor",
+        "name": "Grand Inquisitor - Hunting The Jedi",
+        "subtitle": "Hunting The Jedi",
         "url": "https://cdn.swu-db.com/images/cards/SOR/011.png",
         "type": "Leader",
-        "image": "SOR\\Grand_Inquisitor",
+        "image": "SOR\\Grand_Inquisitor - Hunting_The_Jedi.png",
         "success": true
     },
     {
-        "name": "Grand Inquisitor",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/261.png",
+        "name": "Grand Inquisitor - Hunting The Jedi [Back]",
+        "subtitle": "Hunting The Jedi",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/011-b.png",
         "type": "Leader",
-        "image": "SOR\\Grand_Inquisitor",
+        "image": "SOR\\Grand_Inquisitor - Hunting_The_Jedi_back.png",
         "success": true
     },
     {
-        "name": "Grand Inquisitor",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/277.png",
-        "type": "Leader",
-        "image": "SOR\\Grand_Inquisitor",
-        "success": true
-    },
-    {
-        "name": "Grand Moff Tarkin",
+        "name": "Grand Moff Tarkin - Oversector Governor",
+        "subtitle": "Oversector Governor",
         "url": "https://cdn.swu-db.com/images/cards/SOR/007.png",
         "type": "Leader",
-        "image": "SOR\\Grand_Moff_Tarkin",
+        "image": "SOR\\Grand_Moff_Tarkin - Oversector_Governor.png",
         "success": true
     },
     {
-        "name": "Grand Moff Tarkin",
+        "name": "Grand Moff Tarkin - Oversector Governor [Back]",
+        "subtitle": "Oversector Governor",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/007-b.png",
+        "type": "Leader",
+        "image": "SOR\\Grand_Moff_Tarkin - Oversector_Governor_back.png",
+        "success": true
+    },
+    {
+        "name": "Grand Moff Tarkin - Death Star Overseer",
+        "subtitle": "Death Star Overseer",
         "url": "https://cdn.swu-db.com/images/cards/SOR/084.png",
         "type": "Unit",
-        "image": "SOR\\Grand_Moff_Tarkin",
+        "image": "SOR\\Grand_Moff_Tarkin - Death_Star_Overseer.png",
         "success": true
     },
     {
-        "name": "Grand Moff Tarkin",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/258.png",
-        "type": "Leader",
-        "image": "SOR\\Grand_Moff_Tarkin",
-        "success": true
-    },
-    {
-        "name": "Grand Moff Tarkin",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/274.png",
-        "type": "Leader",
-        "image": "SOR\\Grand_Moff_Tarkin",
-        "success": true
-    },
-    {
-        "name": "Greedo",
+        "name": "Greedo - Slow on the Draw",
+        "subtitle": "Slow on the Draw",
         "url": "https://cdn.swu-db.com/images/cards/SOR/204.png",
         "type": "Unit",
-        "image": "SOR\\Greedo",
-        "success": true
-    },
-    {
-        "name": "Greedo",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/466.png",
-        "type": "Unit",
-        "image": "SOR\\Greedo",
+        "image": "SOR\\Greedo - Slow_on_the_Draw.png",
         "success": true
     },
     {
         "name": "Green Squadron A-Wing",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/141.png",
         "type": "Unit",
-        "image": "SOR\\Green_Squadron_A-Wing",
-        "success": true
-    },
-    {
-        "name": "Green Squadron A-Wing",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/404.png",
-        "type": "Unit",
-        "image": "SOR\\Green_Squadron_A-Wing",
+        "image": "SOR\\Green_Squadron_A-Wing.png",
         "success": true
     },
     {
         "name": "Guardian of the Whills",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/061.png",
         "type": "Unit",
-        "image": "SOR\\Guardian_of_the_Whills",
-        "success": true
-    },
-    {
-        "name": "Guardian of the Whills",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/326.png",
-        "type": "Unit",
-        "image": "SOR\\Guardian_of_the_Whills",
+        "image": "SOR\\Guardian_of_the_Whills.png",
         "success": true
     },
     {
         "name": "Guerilla Attack Pod",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/148.png",
         "type": "Unit",
-        "image": "SOR\\Guerilla_Attack_Pod",
+        "image": "SOR\\Guerilla_Attack_Pod.png",
         "success": true
     },
     {
-        "name": "Guerilla Attack Pod",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/411.png",
-        "type": "Unit",
-        "image": "SOR\\Guerilla_Attack_Pod",
-        "success": true
-    },
-    {
-        "name": "Han Solo",
+        "name": "Han Solo - Audacious Smuggler",
+        "subtitle": "Audacious Smuggler",
         "url": "https://cdn.swu-db.com/images/cards/SOR/017.png",
         "type": "Leader",
-        "image": "SOR\\Han_Solo",
+        "image": "SOR\\Han_Solo - Audacious_Smuggler.png",
         "success": true
     },
     {
-        "name": "Han Solo",
+        "name": "Han Solo - Audacious Smuggler [Back]",
+        "subtitle": "Audacious Smuggler",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/017-b.png",
+        "type": "Leader",
+        "image": "SOR\\Han_Solo - Audacious_Smuggler_back.png",
+        "success": true
+    },
+    {
+        "name": "Han Solo - Reluctant Hero",
+        "subtitle": "Reluctant Hero",
         "url": "https://cdn.swu-db.com/images/cards/SOR/198.png",
         "type": "Unit",
-        "image": "SOR\\Han_Solo",
-        "success": true
-    },
-    {
-        "name": "Han Solo",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/267.png",
-        "type": "Leader",
-        "image": "SOR\\Han_Solo",
-        "success": true
-    },
-    {
-        "name": "Han Solo",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/283.png",
-        "type": "Leader",
-        "image": "SOR\\Han_Solo",
-        "success": true
-    },
-    {
-        "name": "Han Solo",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/460.png",
-        "type": "Unit",
-        "image": "SOR\\Han_Solo",
+        "image": "SOR\\Han_Solo - Reluctant_Hero.png",
         "success": true
     },
     {
         "name": "Hardpoint Heavy Blaster",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/121.png",
         "type": "Upgrade",
-        "image": "SOR\\Hardpoint_Heavy_Blaster",
+        "image": "SOR\\Hardpoint_Heavy_Blaster.png",
         "success": true
     },
     {
-        "name": "Hardpoint Heavy Blaster",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/385.png",
-        "type": "Upgrade",
-        "image": "SOR\\Hardpoint_Heavy_Blaster",
-        "success": true
-    },
-    {
-        "name": "Hera Syndulla",
+        "name": "Hera Syndulla - Spectre Two",
+        "subtitle": "Spectre Two",
         "url": "https://cdn.swu-db.com/images/cards/SOR/008.png",
         "type": "Leader",
-        "image": "SOR\\Hera_Syndulla",
+        "image": "SOR\\Hera_Syndulla - Spectre_Two.png",
         "success": true
     },
     {
-        "name": "Hera Syndulla",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/259.png",
+        "name": "Hera Syndulla - Spectre Two [Back]",
+        "subtitle": "Spectre Two",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/008-b.png",
         "type": "Leader",
-        "image": "SOR\\Hera_Syndulla",
-        "success": true
-    },
-    {
-        "name": "Hera Syndulla",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/275.png",
-        "type": "Leader",
-        "image": "SOR\\Hera_Syndulla",
+        "image": "SOR\\Hera_Syndulla - Spectre_Two_back.png",
         "success": true
     },
     {
         "name": "Heroic Sacrifice",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/150.png",
         "type": "Event",
-        "image": "SOR\\Heroic_Sacrifice",
+        "image": "SOR\\Heroic_Sacrifice.png",
         "success": true
     },
     {
-        "name": "Heroic Sacrifice",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/413.png",
-        "type": "Event",
-        "image": "SOR\\Heroic_Sacrifice",
-        "success": true
-    },
-    {
-        "name": "Home One",
+        "name": "Home One - Alliance Flagship",
+        "subtitle": "Alliance Flagship",
         "url": "https://cdn.swu-db.com/images/cards/SOR/102.png",
         "type": "Unit",
-        "image": "SOR\\Home_One",
-        "success": true
-    },
-    {
-        "name": "Home One",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/366.png",
-        "type": "Unit",
-        "image": "SOR\\Home_One",
+        "image": "SOR\\Home_One - Alliance_Flagship.png",
         "success": true
     },
     {
         "name": "Homestead Militia",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/113.png",
         "type": "Unit",
-        "image": "SOR\\Homestead_Militia",
-        "success": true
-    },
-    {
-        "name": "Homestead Militia",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/377.png",
-        "type": "Unit",
-        "image": "SOR\\Homestead_Militia",
+        "image": "SOR\\Homestead_Militia.png",
         "success": true
     },
     {
         "name": "I Am Your Father",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/233.png",
         "type": "Event",
-        "image": "SOR\\I_Am_Your_Father",
+        "image": "SOR\\I_Am_Your_Father.png",
         "success": true
     },
     {
         "name": "I Had No Choice",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/187.png",
         "type": "Event",
-        "image": "SOR\\I_Had_No_Choice",
+        "image": "SOR\\I_Had_No_Choice.png",
         "success": true
     },
     {
-        "name": "I Had No Choice",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/450.png",
-        "type": "Event",
-        "image": "SOR\\I_Had_No_Choice",
-        "success": true
-    },
-    {
-        "name": "IG-88",
+        "name": "IG-88 - Ruthless Bounty Hunter",
+        "subtitle": "Ruthless Bounty Hunter",
         "url": "https://cdn.swu-db.com/images/cards/SOR/012.png",
         "type": "Leader",
-        "image": "SOR\\IG-88",
+        "image": "SOR\\IG-88 - Ruthless_Bounty_Hunter.png",
         "success": true
     },
     {
-        "name": "IG-88",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/262.png",
+        "name": "IG-88 - Ruthless Bounty Hunter [Back]",
+        "subtitle": "Ruthless Bounty Hunter",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/012-b.png",
         "type": "Leader",
-        "image": "SOR\\IG-88",
-        "success": true
-    },
-    {
-        "name": "IG-88",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/278.png",
-        "type": "Leader",
-        "image": "SOR\\IG-88",
+        "image": "SOR\\IG-88 - Ruthless_Bounty_Hunter_back.png",
         "success": true
     },
     {
         "name": "ISB Agent",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/176.png",
         "type": "Unit",
-        "image": "SOR\\ISB_Agent",
+        "image": "SOR\\ISB_Agent.png",
         "success": true
     },
     {
-        "name": "ISB Agent",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/439.png",
-        "type": "Unit",
-        "image": "SOR\\ISB_Agent",
-        "success": true
-    },
-    {
-        "name": "Iden Versio",
+        "name": "Iden Versio - Infero Squad Commander",
+        "subtitle": "Infero Squad Commander",
         "url": "https://cdn.swu-db.com/images/cards/SOR/002.png",
         "type": "Leader",
-        "image": "SOR\\Iden_Versio",
+        "image": "SOR\\Iden_Versio - Infero_Squad_Commander.png",
         "success": true
     },
     {
-        "name": "Iden Versio",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/254.png",
+        "name": "Iden Versio - Infero Squad Commander [Back]",
+        "subtitle": "Infero Squad Commander",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/002-b.png",
         "type": "Leader",
-        "image": "SOR\\Iden_Versio",
-        "success": true
-    },
-    {
-        "name": "Iden Versio",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/270.png",
-        "type": "Leader",
-        "image": "SOR\\Iden_Versio",
+        "image": "SOR\\Iden_Versio - Infero_Squad_Commander_back.png",
         "success": true
     },
     {
         "name": "Imperial Interceptor",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/132.png",
         "type": "Unit",
-        "image": "SOR\\Imperial_Interceptor",
+        "image": "SOR\\Imperial_Interceptor.png",
         "success": true
     },
     {
-        "name": "Imperial Interceptor",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/396.png",
-        "type": "Unit",
-        "image": "SOR\\Imperial_Interceptor",
-        "success": true
-    },
-    {
-        "name": "Inferno Four",
+        "name": "Inferno Four - Unforgetting",
+        "subtitle": "Unforgetting",
         "url": "https://cdn.swu-db.com/images/cards/SOR/031.png",
         "type": "Unit",
-        "image": "SOR\\Inferno_Four",
-        "success": true
-    },
-    {
-        "name": "Inferno Four",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/297.png",
-        "type": "Unit",
-        "image": "SOR\\Inferno_Four",
+        "image": "SOR\\Inferno_Four - Unforgetting.png",
         "success": true
     },
     {
         "name": "Infiltrator's Skill",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/166.png",
         "type": "Upgrade",
-        "image": "SOR\\Infiltrators_Skill",
-        "success": true
-    },
-    {
-        "name": "Infiltrator's Skill",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/429.png",
-        "type": "Upgrade",
-        "image": "SOR\\Infiltrators_Skill",
+        "image": "SOR\\Infiltrators_Skill.png",
         "success": true
     },
     {
         "name": "It Binds All Things",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/075.png",
         "type": "Event",
-        "image": "SOR\\It_Binds_All_Things",
+        "image": "SOR\\It_Binds_All_Things.png",
         "success": true
     },
     {
-        "name": "It Binds All Things",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/340.png",
-        "type": "Event",
-        "image": "SOR\\It_Binds_All_Things",
-        "success": true
-    },
-    {
-        "name": "Jabba the Hutt",
+        "name": "Jabba the Hutt - Cunning Daimyo",
+        "subtitle": "Cunning Daimyo",
         "url": "https://cdn.swu-db.com/images/cards/SOR/181.png",
         "type": "Unit",
-        "image": "SOR\\Jabba_the_Hutt",
-        "success": true
-    },
-    {
-        "name": "Jabba the Hutt",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/444.png",
-        "type": "Unit",
-        "image": "SOR\\Jabba_the_Hutt",
+        "image": "SOR\\Jabba_the_Hutt - Cunning_Daimyo.png",
         "success": true
     },
     {
         "name": "Jawa Scavenger",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/205.png",
         "type": "Unit",
-        "image": "SOR\\Jawa_Scavenger",
-        "success": true
-    },
-    {
-        "name": "Jawa Scavenger",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/467.png",
-        "type": "Unit",
-        "image": "SOR\\Jawa_Scavenger",
+        "image": "SOR\\Jawa_Scavenger.png",
         "success": true
     },
     {
         "name": "Jedha Agitator",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/158.png",
         "type": "Unit",
-        "image": "SOR\\Jedha_Agitator",
+        "image": "SOR\\Jedha_Agitator.png",
         "success": true
     },
     {
-        "name": "Jedha Agitator",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/421.png",
-        "type": "Unit",
-        "image": "SOR\\Jedha_Agitator",
-        "success": true
-    },
-    {
-        "name": "Jedha City",
+        "name": "Jedha City - Jedha",
+        "subtitle": "Jedha",
         "url": "https://cdn.swu-db.com/images/cards/SOR/028.png",
         "type": "Base",
-        "image": "SOR\\Jedha_City",
-        "success": true
-    },
-    {
-        "name": "Jedha City",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/294.png",
-        "type": "Base",
-        "image": "SOR\\Jedha_City",
+        "image": "SOR\\Jedha_City - Jedha.png",
         "success": true
     },
     {
         "name": "Jedi Lightsaber",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/054.png",
         "type": "Upgrade",
-        "image": "SOR\\Jedi_Lightsaber",
+        "image": "SOR\\Jedi_Lightsaber.png",
         "success": true
     },
     {
-        "name": "Jedi Lightsaber",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/319.png",
-        "type": "Upgrade",
-        "image": "SOR\\Jedi_Lightsaber",
-        "success": true
-    },
-    {
-        "name": "Jyn Erso",
+        "name": "Jyn Erso - Resisting Oppression",
+        "subtitle": "Resisting Oppression",
         "url": "https://cdn.swu-db.com/images/cards/SOR/018.png",
         "type": "Leader",
-        "image": "SOR\\Jyn_Erso",
+        "image": "SOR\\Jyn_Erso - Resisting_Oppression.png",
         "success": true
     },
     {
-        "name": "Jyn Erso",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/268.png",
+        "name": "Jyn Erso - Resisting Oppression [Back]",
+        "subtitle": "Resisting Oppression",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/018-b.png",
         "type": "Leader",
-        "image": "SOR\\Jyn_Erso",
+        "image": "SOR\\Jyn_Erso - Resisting_Oppression_back.png",
         "success": true
     },
     {
-        "name": "Jyn Erso",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/284.png",
-        "type": "Leader",
-        "image": "SOR\\Jyn_Erso",
-        "success": true
-    },
-    {
-        "name": "K-2SO",
+        "name": "K-2SO - Cassian's Counterpart",
+        "subtitle": "Cassian's Counterpart",
         "url": "https://cdn.swu-db.com/images/cards/SOR/145.png",
         "type": "Unit",
-        "image": "SOR\\K-2SO",
+        "image": "SOR\\K-2SO - Cassians_Counterpart.png",
         "success": true
     },
     {
-        "name": "K-2SO",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/408.png",
-        "type": "Unit",
-        "image": "SOR\\K-2SO",
-        "success": true
-    },
-    {
-        "name": "Kanan Jarrus",
+        "name": "Kanan Jarrus - Revealed Jedi",
+        "subtitle": "Revealed Jedi",
         "url": "https://cdn.swu-db.com/images/cards/SOR/047.png",
         "type": "Unit",
-        "image": "SOR\\Kanan_Jarrus",
-        "success": true
-    },
-    {
-        "name": "Kanan Jarrus",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/313.png",
-        "type": "Unit",
-        "image": "SOR\\Kanan_Jarrus",
+        "image": "SOR\\Kanan_Jarrus - Revealed_Jedi.png",
         "success": true
     },
     {
         "name": "Karabast",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/151.png",
         "type": "Event",
-        "image": "SOR\\Karabast",
-        "success": true
-    },
-    {
-        "name": "Karabast",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/414.png",
-        "type": "Event",
-        "image": "SOR\\Karabast",
+        "image": "SOR\\Karabast.png",
         "success": true
     },
     {
         "name": "Keep Fighting",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/169.png",
         "type": "Event",
-        "image": "SOR\\Keep_Fighting",
+        "image": "SOR\\Keep_Fighting.png",
         "success": true
     },
     {
-        "name": "Keep Fighting",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/432.png",
-        "type": "Event",
-        "image": "SOR\\Keep_Fighting",
-        "success": true
-    },
-    {
-        "name": "Kestro City",
+        "name": "Kestro City - Vardos",
+        "subtitle": "Vardos",
         "url": "https://cdn.swu-db.com/images/cards/SOR/027.png",
         "type": "Base",
-        "image": "SOR\\Kestro_City",
+        "image": "SOR\\Kestro_City - Vardos.png",
         "success": true
     },
     {
-        "name": "Kestro City",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/293.png",
-        "type": "Base",
-        "image": "SOR\\Kestro_City",
-        "success": true
-    },
-    {
-        "name": "Lando Calrissian",
+        "name": "Lando Calrissian - Responsible Businessman",
+        "subtitle": "Responsible Businessman",
         "url": "https://cdn.swu-db.com/images/cards/SOR/197.png",
         "type": "Unit",
-        "image": "SOR\\Lando_Calrissian",
+        "image": "SOR\\Lando_Calrissian - Responsible_Businessman.png",
         "success": true
     },
     {
-        "name": "Lando Calrissian",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/459.png",
-        "type": "Unit",
-        "image": "SOR\\Lando_Calrissian",
-        "success": true
-    },
-    {
-        "name": "Leia Organa",
+        "name": "Leia Organa - Alliance General",
+        "subtitle": "Alliance General",
         "url": "https://cdn.swu-db.com/images/cards/SOR/009.png",
         "type": "Leader",
-        "image": "SOR\\Leia_Organa",
+        "image": "SOR\\Leia_Organa - Alliance_General.png",
         "success": true
     },
     {
-        "name": "Leia Organa",
+        "name": "Leia Organa - Alliance General [Back]",
+        "subtitle": "Alliance General",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/009-b.png",
+        "type": "Leader",
+        "image": "SOR\\Leia_Organa - Alliance_General_back.png",
+        "success": true
+    },
+    {
+        "name": "Leia Organa - Defiant Princess",
+        "subtitle": "Defiant Princess",
         "url": "https://cdn.swu-db.com/images/cards/SOR/189.png",
         "type": "Unit",
-        "image": "SOR\\Leia_Organa",
+        "image": "SOR\\Leia_Organa - Defiant_Princess.png",
         "success": true
     },
     {
-        "name": "Leia Organa",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/260.png",
-        "type": "Leader",
-        "image": "SOR\\Leia_Organa",
-        "success": true
-    },
-    {
-        "name": "Leia Organa",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/276.png",
-        "type": "Leader",
-        "image": "SOR\\Leia_Organa",
-        "success": true
-    },
-    {
-        "name": "Lieutenant Childsen",
+        "name": "Lieutenant Childsen - Death Star Prison Warden",
+        "subtitle": "Death Star Prison Warden",
         "url": "https://cdn.swu-db.com/images/cards/SOR/035.png",
         "type": "Unit",
-        "image": "SOR\\Lieutenant_Childsen",
-        "success": true
-    },
-    {
-        "name": "Lieutenant Childsen",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/301.png",
-        "type": "Unit",
-        "image": "SOR\\Lieutenant_Childsen",
+        "image": "SOR\\Lieutenant_Childsen - Death_Star_Prison_Warden.png",
         "success": true
     },
     {
         "name": "Lothal Insurgent",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/190.png",
         "type": "Unit",
-        "image": "SOR\\Lothal_Insurgent",
+        "image": "SOR\\Lothal_Insurgent.png",
         "success": true
     },
     {
-        "name": "Lothal Insurgent",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/452.png",
-        "type": "Unit",
-        "image": "SOR\\Lothal_Insurgent",
-        "success": true
-    },
-    {
-        "name": "Luke Skywalker",
+        "name": "Luke Skywalker - Faithful Friend",
+        "subtitle": "Faithful Friend",
         "url": "https://cdn.swu-db.com/images/cards/SOR/005.png",
         "type": "Leader",
-        "image": "SOR\\Luke_Skywalker",
+        "image": "SOR\\Luke_Skywalker - Faithful_Friend.png",
         "success": true
     },
     {
-        "name": "Luke Skywalker",
+        "name": "Luke Skywalker - Faithful Friend [Back]",
+        "subtitle": "Faithful Friend",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/005-b.png",
+        "type": "Leader",
+        "image": "SOR\\Luke_Skywalker - Faithful_Friend_back.png",
+        "success": true
+    },
+    {
+        "name": "Luke Skywalker - Jedi Knight",
+        "subtitle": "Jedi Knight",
         "url": "https://cdn.swu-db.com/images/cards/SOR/051.png",
         "type": "Unit",
-        "image": "SOR\\Luke_Skywalker",
-        "success": true
-    },
-    {
-        "name": "Luke Skywalker",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/317.png",
-        "type": "Unit",
-        "image": "SOR\\Luke_Skywalker",
+        "image": "SOR\\Luke_Skywalker - Jedi_Knight.png",
         "success": true
     },
     {
         "name": "Luke's Lightsaber",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/053.png",
         "type": "Upgrade",
-        "image": "SOR\\Lukes_Lightsaber",
+        "image": "SOR\\Lukes_Lightsaber.png",
         "success": true
     },
     {
-        "name": "Mace Windu",
+        "name": "Mace Windu - Party Crasher",
+        "subtitle": "Party Crasher",
         "url": "https://cdn.swu-db.com/images/cards/SOR/149.png",
         "type": "Unit",
-        "image": "SOR\\Mace_Windu",
-        "success": true
-    },
-    {
-        "name": "Mace Windu",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/412.png",
-        "type": "Unit",
-        "image": "SOR\\Mace_Windu",
+        "image": "SOR\\Mace_Windu - Party_Crasher.png",
         "success": true
     },
     {
         "name": "Make an Opening",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/076.png",
         "type": "Event",
-        "image": "SOR\\Make_an_Opening",
-        "success": true
-    },
-    {
-        "name": "Make an Opening",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/341.png",
-        "type": "Event",
-        "image": "SOR\\Make_an_Opening",
+        "image": "SOR\\Make_an_Opening.png",
         "success": true
     },
     {
         "name": "Maximum Firepower",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/234.png",
         "type": "Event",
-        "image": "SOR\\Maximum_Firepower",
-        "success": true
-    },
-    {
-        "name": "Maximum Firepower",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/494.png",
-        "type": "Event",
-        "image": "SOR\\Maximum_Firepower",
+        "image": "SOR\\Maximum_Firepower.png",
         "success": true
     },
     {
         "name": "Medal Ceremony",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/245.png",
         "type": "Event",
-        "image": "SOR\\Medal_Ceremony",
-        "success": true
-    },
-    {
-        "name": "Medal Ceremony",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/503.png",
-        "type": "Event",
-        "image": "SOR\\Medal_Ceremony",
+        "image": "SOR\\Medal_Ceremony.png",
         "success": true
     },
     {
         "name": "Mercenary Company",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/117.png",
         "type": "Unit",
-        "image": "SOR\\Mercenary_Company",
+        "image": "SOR\\Mercenary_Company.png",
         "success": true
     },
     {
-        "name": "Mercenary Company",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/381.png",
-        "type": "Unit",
-        "image": "SOR\\Mercenary_Company",
-        "success": true
-    },
-    {
-        "name": "Millennium Falcon",
+        "name": "Millennium Falcon - Piece Of Junk",
+        "subtitle": "Piece Of Junk",
         "url": "https://cdn.swu-db.com/images/cards/SOR/193.png",
         "type": "Unit",
-        "image": "SOR\\Millennium_Falcon",
-        "success": true
-    },
-    {
-        "name": "Millennium Falcon",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/455.png",
-        "type": "Unit",
-        "image": "SOR\\Millennium_Falcon",
+        "image": "SOR\\Millennium_Falcon - Piece_Of_Junk.png",
         "success": true
     },
     {
         "name": "Mining Guild TIE Fighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/206.png",
         "type": "Unit",
-        "image": "SOR\\Mining_Guild_TIE_Fighter",
-        "success": true
-    },
-    {
-        "name": "Mining Guild TIE Fighter",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/468.png",
-        "type": "Unit",
-        "image": "SOR\\Mining_Guild_TIE_Fighter",
+        "image": "SOR\\Mining_Guild_TIE_Fighter.png",
         "success": true
     },
     {
         "name": "Mission Briefing",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/171.png",
         "type": "Event",
-        "image": "SOR\\Mission_Briefing",
-        "success": true
-    },
-    {
-        "name": "Mission Briefing",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/434.png",
-        "type": "Event",
-        "image": "SOR\\Mission_Briefing",
+        "image": "SOR\\Mission_Briefing.png",
         "success": true
     },
     {
         "name": "Moment of Peace",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/073.png",
         "type": "Event",
-        "image": "SOR\\Moment_of_Peace",
+        "image": "SOR\\Moment_of_Peace.png",
         "success": true
     },
     {
-        "name": "Moment of Peace",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/338.png",
-        "type": "Event",
-        "image": "SOR\\Moment_of_Peace",
-        "success": true
-    },
-    {
-        "name": "Mon Mothma",
+        "name": "Mon Mothma - Voice of the Rebellion",
+        "subtitle": "Voice of the Rebellion",
         "url": "https://cdn.swu-db.com/images/cards/SOR/096.png",
         "type": "Unit",
-        "image": "SOR\\Mon_Mothma",
-        "success": true
-    },
-    {
-        "name": "Mon Mothma",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/360.png",
-        "type": "Unit",
-        "image": "SOR\\Mon_Mothma",
+        "image": "SOR\\Mon_Mothma - Voice_of_the_Rebellion.png",
         "success": true
     },
     {
         "name": "No Good to Me Dead",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/186.png",
         "type": "Event",
-        "image": "SOR\\No_Good_to_Me_Dead",
+        "image": "SOR\\No_Good_to_Me_Dead.png",
         "success": true
     },
     {
-        "name": "No Good to Me Dead",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/449.png",
-        "type": "Event",
-        "image": "SOR\\No_Good_to_Me_Dead",
-        "success": true
-    },
-    {
-        "name": "Obi-Wan Kenobi",
+        "name": "Obi-Wan Kenobi - Following Fate",
+        "subtitle": "Following Fate",
         "url": "https://cdn.swu-db.com/images/cards/SOR/049.png",
         "type": "Unit",
-        "image": "SOR\\Obi-Wan_Kenobi",
-        "success": true
-    },
-    {
-        "name": "Obi-Wan Kenobi",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/315.png",
-        "type": "Unit",
-        "image": "SOR\\Obi-Wan_Kenobi",
+        "image": "SOR\\Obi-Wan_Kenobi - Following_Fate.png",
         "success": true
     },
     {
         "name": "Occupier Siege Tank",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/165.png",
         "type": "Unit",
-        "image": "SOR\\Occupier_Siege_Tank",
-        "success": true
-    },
-    {
-        "name": "Occupier Siege Tank",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/428.png",
-        "type": "Unit",
-        "image": "SOR\\Occupier_Siege_Tank",
+        "image": "SOR\\Occupier_Siege_Tank.png",
         "success": true
     },
     {
         "name": "Open Fire",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/172.png",
         "type": "Event",
-        "image": "SOR\\Open_Fire",
-        "success": true
-    },
-    {
-        "name": "Open Fire",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/435.png",
-        "type": "Event",
-        "image": "SOR\\Open_Fire",
+        "image": "SOR\\Open_Fire.png",
         "success": true
     },
     {
         "name": "Outer Rim Headhunter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/208.png",
         "type": "Unit",
-        "image": "SOR\\Outer_Rim_Headhunter",
-        "success": true
-    },
-    {
-        "name": "Outer Rim Headhunter",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/470.png",
-        "type": "Unit",
-        "image": "SOR\\Outer_Rim_Headhunter",
+        "image": "SOR\\Outer_Rim_Headhunter.png",
         "success": true
     },
     {
         "name": "Outmaneuver",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/221.png",
         "type": "Event",
-        "image": "SOR\\Outmaneuver",
-        "success": true
-    },
-    {
-        "name": "Outmaneuver",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/483.png",
-        "type": "Event",
-        "image": "SOR\\Outmaneuver",
+        "image": "SOR\\Outmaneuver.png",
         "success": true
     },
     {
         "name": "Overwhelming Barrage",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/092.png",
         "type": "Event",
-        "image": "SOR\\Overwhelming_Barrage",
-        "success": true
-    },
-    {
-        "name": "Overwhelming Barrage",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/356.png",
-        "type": "Event",
-        "image": "SOR\\Overwhelming_Barrage",
+        "image": "SOR\\Overwhelming_Barrage.png",
         "success": true
     },
     {
         "name": "Partisan Insurgent",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/159.png",
         "type": "Unit",
-        "image": "SOR\\Partisan_Insurgent",
-        "success": true
-    },
-    {
-        "name": "Partisan Insurgent",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/422.png",
-        "type": "Unit",
-        "image": "SOR\\Partisan_Insurgent",
+        "image": "SOR\\Partisan_Insurgent.png",
         "success": true
     },
     {
         "name": "Patrolling V-Wing",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/111.png",
         "type": "Unit",
-        "image": "SOR\\Patrolling_V-Wing",
-        "success": true
-    },
-    {
-        "name": "Patrolling V-Wing",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/375.png",
-        "type": "Unit",
-        "image": "SOR\\Patrolling_V-Wing",
+        "image": "SOR\\Patrolling_V-Wing.png",
         "success": true
     },
     {
         "name": "Pirated Starfighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/209.png",
         "type": "Unit",
-        "image": "SOR\\Pirated_Starfighter",
-        "success": true
-    },
-    {
-        "name": "Pirated Starfighter",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/471.png",
-        "type": "Unit",
-        "image": "SOR\\Pirated_Starfighter",
+        "image": "SOR\\Pirated_Starfighter.png",
         "success": true
     },
     {
         "name": "Power Failure",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/170.png",
         "type": "Event",
-        "image": "SOR\\Power_Failure",
-        "success": true
-    },
-    {
-        "name": "Power Failure",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/433.png",
-        "type": "Event",
-        "image": "SOR\\Power_Failure",
+        "image": "SOR\\Power_Failure.png",
         "success": true
     },
     {
         "name": "Power of the Dark Side",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/041.png",
         "type": "Event",
-        "image": "SOR\\Power_of_the_Dark_Side",
-        "success": true
-    },
-    {
-        "name": "Power of the Dark Side",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/307.png",
-        "type": "Event",
-        "image": "SOR\\Power_of_the_Dark_Side",
+        "image": "SOR\\Power_of_the_Dark_Side.png",
         "success": true
     },
     {
         "name": "Precision Fire",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/168.png",
         "type": "Event",
-        "image": "SOR\\Precision_Fire",
-        "success": true
-    },
-    {
-        "name": "Precision Fire",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/431.png",
-        "type": "Event",
-        "image": "SOR\\Precision_Fire",
+        "image": "SOR\\Precision_Fire.png",
         "success": true
     },
     {
         "name": "Prepare For Takeoff",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/125.png",
         "type": "Event",
-        "image": "SOR\\Prepare_For_Takeoff",
-        "success": true
-    },
-    {
-        "name": "Prepare For Takeoff",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/389.png",
-        "type": "Event",
-        "image": "SOR\\Prepare_For_Takeoff",
+        "image": "SOR\\Prepare_For_Takeoff.png",
         "success": true
     },
     {
         "name": "Protector",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/057.png",
         "type": "Upgrade",
-        "image": "SOR\\Protector",
+        "image": "SOR\\Protector.png",
         "success": true
     },
     {
-        "name": "Protector",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/322.png",
-        "type": "Upgrade",
-        "image": "SOR\\Protector",
-        "success": true
-    },
-    {
-        "name": "R2-D2",
+        "name": "R2-D2 - Ignoring Protocol",
+        "subtitle": "Ignoring Protocol",
         "url": "https://cdn.swu-db.com/images/cards/SOR/236.png",
         "type": "Unit",
-        "image": "SOR\\R2-D2",
+        "image": "SOR\\R2-D2 - Ignoring_Protocol.png",
         "success": true
     },
     {
         "name": "Rallying Cry",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/154.png",
         "type": "Event",
-        "image": "SOR\\Rallying_Cry",
-        "success": true
-    },
-    {
-        "name": "Rallying Cry",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/417.png",
-        "type": "Event",
-        "image": "SOR\\Rallying_Cry",
+        "image": "SOR\\Rallying_Cry.png",
         "success": true
     },
     {
         "name": "Rebel Assault",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/103.png",
         "type": "Event",
-        "image": "SOR\\Rebel_Assault",
-        "success": true
-    },
-    {
-        "name": "Rebel Assault",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/367.png",
-        "type": "Event",
-        "image": "SOR\\Rebel_Assault",
+        "image": "SOR\\Rebel_Assault.png",
         "success": true
     },
     {
         "name": "Rebel Pathfinder",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/239.png",
         "type": "Unit",
-        "image": "SOR\\Rebel_Pathfinder",
-        "success": true
-    },
-    {
-        "name": "Rebel Pathfinder",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/497.png",
-        "type": "Unit",
-        "image": "SOR\\Rebel_Pathfinder",
+        "image": "SOR\\Rebel_Pathfinder.png",
         "success": true
     },
     {
         "name": "Recruit",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/123.png",
         "type": "Event",
-        "image": "SOR\\Recruit",
+        "image": "SOR\\Recruit.png",
         "success": true
     },
     {
-        "name": "Recruit",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/387.png",
-        "type": "Event",
-        "image": "SOR\\Recruit",
-        "success": true
-    },
-    {
-        "name": "Red Three",
+        "name": "Red Three - Unstoppable",
+        "subtitle": "Unstoppable",
         "url": "https://cdn.swu-db.com/images/cards/SOR/144.png",
         "type": "Unit",
-        "image": "SOR\\Red_Three",
+        "image": "SOR\\Red_Three - Unstoppable.png",
         "success": true
     },
     {
-        "name": "Red Three",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/407.png",
-        "type": "Unit",
-        "image": "SOR\\Red_Three",
-        "success": true
-    },
-    {
-        "name": "Redemption",
+        "name": "Redemption - Medical Frigate",
+        "subtitle": "Medical Frigate",
         "url": "https://cdn.swu-db.com/images/cards/SOR/052.png",
         "type": "Unit",
-        "image": "SOR\\Redemption",
-        "success": true
-    },
-    {
-        "name": "Redemption",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/318.png",
-        "type": "Unit",
-        "image": "SOR\\Redemption",
+        "image": "SOR\\Redemption - Medical_Frigate.png",
         "success": true
     },
     {
         "name": "Regional Governor",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/062.png",
         "type": "Unit",
-        "image": "SOR\\Regional_Governor",
-        "success": true
-    },
-    {
-        "name": "Regional Governor",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/327.png",
-        "type": "Unit",
-        "image": "SOR\\Regional_Governor",
+        "image": "SOR\\Regional_Governor.png",
         "success": true
     },
     {
         "name": "Regional Sympathizers",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/243.png",
         "type": "Unit",
-        "image": "SOR\\Regional_Sympathizers",
-        "success": true
-    },
-    {
-        "name": "Regional Sympathizers",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/501.png",
-        "type": "Unit",
-        "image": "SOR\\Regional_Sympathizers",
+        "image": "SOR\\Regional_Sympathizers.png",
         "success": true
     },
     {
         "name": "Reinforcement Walker",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/119.png",
         "type": "Unit",
-        "image": "SOR\\Reinforcement_Walker",
+        "image": "SOR\\Reinforcement_Walker.png",
         "success": true
     },
     {
-        "name": "Reinforcement Walker",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/383.png",
-        "type": "Unit",
-        "image": "SOR\\Reinforcement_Walker",
-        "success": true
-    },
-    {
-        "name": "Relentless",
+        "name": "Relentless - Konstantine's Folly",
+        "subtitle": "Konstantine's Folly",
         "url": "https://cdn.swu-db.com/images/cards/SOR/089.png",
         "type": "Unit",
-        "image": "SOR\\Relentless",
-        "success": true
-    },
-    {
-        "name": "Relentless",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/353.png",
-        "type": "Unit",
-        "image": "SOR\\Relentless",
+        "image": "SOR\\Relentless - Konstantines_Folly.png",
         "success": true
     },
     {
         "name": "Repair",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/074.png",
         "type": "Event",
-        "image": "SOR\\Repair",
-        "success": true
-    },
-    {
-        "name": "Repair",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/339.png",
-        "type": "Event",
-        "image": "SOR\\Repair",
+        "image": "SOR\\Repair.png",
         "success": true
     },
     {
         "name": "Resilient",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/069.png",
         "type": "Upgrade",
-        "image": "SOR\\Resilient",
-        "success": true
-    },
-    {
-        "name": "Resilient",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/334.png",
-        "type": "Upgrade",
-        "image": "SOR\\Resilient",
+        "image": "SOR\\Resilient.png",
         "success": true
     },
     {
         "name": "Restock",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/252.png",
         "type": "Event",
-        "image": "SOR\\Restock",
-        "success": true
-    },
-    {
-        "name": "Restock",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/510.png",
-        "type": "Event",
-        "image": "SOR\\Restock",
+        "image": "SOR\\Restock.png",
         "success": true
     },
     {
         "name": "Restored ARC-170",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/044.png",
         "type": "Unit",
-        "image": "SOR\\Restored_ARC-170",
-        "success": true
-    },
-    {
-        "name": "Restored ARC-170",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/310.png",
-        "type": "Unit",
-        "image": "SOR\\Restored_ARC-170",
+        "image": "SOR\\Restored_ARC-170.png",
         "success": true
     },
     {
         "name": "Resupply",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/126.png",
         "type": "Event",
-        "image": "SOR\\Resupply",
-        "success": true
-    },
-    {
-        "name": "Resupply",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/390.png",
-        "type": "Event",
-        "image": "SOR\\Resupply",
+        "image": "SOR\\Resupply.png",
         "success": true
     },
     {
         "name": "Rogue Operative",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/194.png",
         "type": "Unit",
-        "image": "SOR\\Rogue_Operative",
-        "success": true
-    },
-    {
-        "name": "Rogue Operative",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/456.png",
-        "type": "Unit",
-        "image": "SOR\\Rogue_Operative",
+        "image": "SOR\\Rogue_Operative.png",
         "success": true
     },
     {
         "name": "Rogue Squadron Skirmisher",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/101.png",
         "type": "Unit",
-        "image": "SOR\\Rogue_Squadron_Skirmisher",
-        "success": true
-    },
-    {
-        "name": "Rogue Squadron Skirmisher",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/365.png",
-        "type": "Unit",
-        "image": "SOR\\Rogue_Squadron_Skirmisher",
+        "image": "SOR\\Rogue_Squadron_Skirmisher.png",
         "success": true
     },
     {
         "name": "Rugged Survivors",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/067.png",
         "type": "Unit",
-        "image": "SOR\\Rugged_Survivors",
+        "image": "SOR\\Rugged_Survivors.png",
         "success": true
     },
     {
-        "name": "Rugged Survivors",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/332.png",
-        "type": "Unit",
-        "image": "SOR\\Rugged_Survivors",
-        "success": true
-    },
-    {
-        "name": "Rukh",
+        "name": "Rukh - Thrawn's Assassin",
+        "subtitle": "Thrawn's Assassin",
         "url": "https://cdn.swu-db.com/images/cards/SOR/085.png",
         "type": "Unit",
-        "image": "SOR\\Rukh",
-        "success": true
-    },
-    {
-        "name": "Rukh",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/349.png",
-        "type": "Unit",
-        "image": "SOR\\Rukh",
+        "image": "SOR\\Rukh - Thrawns_Assassin.png",
         "success": true
     },
     {
         "name": "Ruthless Raider",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/134.png",
         "type": "Unit",
-        "image": "SOR\\Ruthless_Raider",
+        "image": "SOR\\Ruthless_Raider.png",
         "success": true
     },
     {
-        "name": "Ruthless Raider",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/398.png",
-        "type": "Unit",
-        "image": "SOR\\Ruthless_Raider",
-        "success": true
-    },
-    {
-        "name": "Sabine Wren",
+        "name": "Sabine Wren - Galvanized Revolutionary",
+        "subtitle": "Galvanized Revolutionary",
         "url": "https://cdn.swu-db.com/images/cards/SOR/014.png",
         "type": "Leader",
-        "image": "SOR\\Sabine_Wren",
+        "image": "SOR\\Sabine_Wren - Galvanized_Revolutionary.png",
         "success": true
     },
     {
-        "name": "Sabine Wren",
+        "name": "Sabine Wren - Galvanized Revolutionary [Back]",
+        "subtitle": "Galvanized Revolutionary",
+        "url": "https://cdn.swu-db.com/images/cards/SOR/014-b.png",
+        "type": "Leader",
+        "image": "SOR\\Sabine_Wren - Galvanized_Revolutionary_back.png",
+        "success": true
+    },
+    {
+        "name": "Sabine Wren - Explosives Artist",
+        "subtitle": "Explosives Artist",
         "url": "https://cdn.swu-db.com/images/cards/SOR/142.png",
         "type": "Unit",
-        "image": "SOR\\Sabine_Wren",
+        "image": "SOR\\Sabine_Wren - Explosives_Artist.png",
         "success": true
     },
     {
-        "name": "Sabine Wren",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/264.png",
-        "type": "Leader",
-        "image": "SOR\\Sabine_Wren",
-        "success": true
-    },
-    {
-        "name": "Sabine Wren",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/280.png",
-        "type": "Leader",
-        "image": "SOR\\Sabine_Wren",
-        "success": true
-    },
-    {
-        "name": "Sabine Wren",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/405.png",
-        "type": "Unit",
-        "image": "SOR\\Sabine_Wren",
-        "success": true
-    },
-    {
-        "name": "Saw Gerrera",
+        "name": "Saw Gerrera - Extremist",
+        "subtitle": "Extremist",
         "url": "https://cdn.swu-db.com/images/cards/SOR/153.png",
         "type": "Unit",
-        "image": "SOR\\Saw_Gerrera",
-        "success": true
-    },
-    {
-        "name": "Saw Gerrera",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/416.png",
-        "type": "Unit",
-        "image": "SOR\\Saw_Gerrera",
+        "image": "SOR\\Saw_Gerrera - Extremist.png",
         "success": true
     },
     {
         "name": "Scout Bike Pursuer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/032.png",
         "type": "Unit",
-        "image": "SOR\\Scout_Bike_Pursuer",
-        "success": true
-    },
-    {
-        "name": "Scout Bike Pursuer",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/298.png",
-        "type": "Unit",
-        "image": "SOR\\Scout_Bike_Pursuer",
+        "image": "SOR\\Scout_Bike_Pursuer.png",
         "success": true
     },
     {
         "name": "Search Your Feelings",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/042.png",
         "type": "Event",
-        "image": "SOR\\Search_Your_Feelings",
-        "success": true
-    },
-    {
-        "name": "Search Your Feelings",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/308.png",
-        "type": "Event",
-        "image": "SOR\\Search_Your_Feelings",
+        "image": "SOR\\Search_Your_Feelings.png",
         "success": true
     },
     {
         "name": "Seasoned Shoretrooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/081.png",
         "type": "Unit",
-        "image": "SOR\\Seasoned_Shoretrooper",
+        "image": "SOR\\Seasoned_Shoretrooper.png",
         "success": true
     },
     {
-        "name": "Seasoned Shoretrooper",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/346.png",
-        "type": "Unit",
-        "image": "SOR\\Seasoned_Shoretrooper",
-        "success": true
-    },
-    {
-        "name": "Security Complex",
+        "name": "Security Complex - Scarif",
+        "subtitle": "Scarif",
         "url": "https://cdn.swu-db.com/images/cards/SOR/019.png",
         "type": "Base",
-        "image": "SOR\\Security_Complex",
-        "success": true
-    },
-    {
-        "name": "Security Complex",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/285.png",
-        "type": "Base",
-        "image": "SOR\\Security_Complex",
+        "image": "SOR\\Security_Complex - Scarif.png",
         "success": true
     },
     {
         "name": "Seventh Fleet Defender",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/180.png",
         "type": "Unit",
-        "image": "SOR\\Seventh_Fleet_Defender",
+        "image": "SOR\\Seventh_Fleet_Defender.png",
         "success": true
     },
     {
-        "name": "Seventh Fleet Defender",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/443.png",
-        "type": "Unit",
-        "image": "SOR\\Seventh_Fleet_Defender",
-        "success": true
-    },
-    {
-        "name": "Seventh Sister",
+        "name": "Seventh Sister - Implacable Inquisitor",
+        "subtitle": "Implacable Inquisitor",
         "url": "https://cdn.swu-db.com/images/cards/SOR/133.png",
         "type": "Unit",
-        "image": "SOR\\Seventh_Sister",
-        "success": true
-    },
-    {
-        "name": "Seventh Sister",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/397.png",
-        "type": "Unit",
-        "image": "SOR\\Seventh_Sister",
+        "image": "SOR\\Seventh_Sister - Implacable_Inquisitor.png",
         "success": true
     },
     {
         "name": "Shoot First",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/217.png",
         "type": "Event",
-        "image": "SOR\\Shoot_First",
-        "success": true
-    },
-    {
-        "name": "Shoot First",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/479.png",
-        "type": "Event",
-        "image": "SOR\\Shoot_First",
+        "image": "SOR\\Shoot_First.png",
         "success": true
     },
     {
         "name": "Smoke and Cinders",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/174.png",
         "type": "Event",
-        "image": "SOR\\Smoke_and_Cinders",
-        "success": true
-    },
-    {
-        "name": "Smoke and Cinders",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/437.png",
-        "type": "Event",
-        "image": "SOR\\Smoke_and_Cinders",
+        "image": "SOR\\Smoke_and_Cinders.png",
         "success": true
     },
     {
         "name": "Smuggling Compartment",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/214.png",
         "type": "Upgrade",
-        "image": "SOR\\Smuggling_Compartment",
-        "success": true
-    },
-    {
-        "name": "Smuggling Compartment",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/476.png",
-        "type": "Upgrade",
-        "image": "SOR\\Smuggling_Compartment",
+        "image": "SOR\\Smuggling_Compartment.png",
         "success": true
     },
     {
         "name": "Snapshot Reflexes",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/215.png",
         "type": "Event",
-        "image": "SOR\\Snapshot_Reflexes",
-        "success": true
-    },
-    {
-        "name": "Snapshot Reflexes",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/477.png",
-        "type": "Event",
-        "image": "SOR\\Snapshot_Reflexes",
+        "image": "SOR\\Snapshot_Reflexes.png",
         "success": true
     },
     {
         "name": "Sneak Attack",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/219.png",
         "type": "Event",
-        "image": "SOR\\Sneak_Attack",
-        "success": true
-    },
-    {
-        "name": "Sneak Attack",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/481.png",
-        "type": "Event",
-        "image": "SOR\\Sneak_Attack",
+        "image": "SOR\\Sneak_Attack.png",
         "success": true
     },
     {
         "name": "Snowspeeder",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/244.png",
         "type": "Unit",
-        "image": "SOR\\Snowspeeder",
-        "success": true
-    },
-    {
-        "name": "Snowspeeder",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/502.png",
-        "type": "Unit",
-        "image": "SOR\\Snowspeeder",
+        "image": "SOR\\Snowspeeder.png",
         "success": true
     },
     {
         "name": "Snowtrooper Lieutenant",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/227.png",
         "type": "Unit",
-        "image": "SOR\\Snowtrooper_Lieutenant",
-        "success": true
-    },
-    {
-        "name": "Snowtrooper Lieutenant",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/488.png",
-        "type": "Unit",
-        "image": "SOR\\Snowtrooper_Lieutenant",
+        "image": "SOR\\Snowtrooper_Lieutenant.png",
         "success": true
     },
     {
         "name": "Spark of Rebellion",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/200.png",
         "type": "Event",
-        "image": "SOR\\Spark_of_Rebellion",
-        "success": true
-    },
-    {
-        "name": "Spark of Rebellion",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/462.png",
-        "type": "Event",
-        "image": "SOR\\Spark_of_Rebellion",
+        "image": "SOR\\Spark_of_Rebellion.png",
         "success": true
     },
     {
         "name": "SpecForce Soldier",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/140.png",
         "type": "Unit",
-        "image": "SOR\\SpecForce_Soldier",
-        "success": true
-    },
-    {
-        "name": "SpecForce Soldier",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/403.png",
-        "type": "Unit",
-        "image": "SOR\\SpecForce_Soldier",
+        "image": "SOR\\SpecForce_Soldier.png",
         "success": true
     },
     {
         "name": "Star Wing Scout",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/163.png",
         "type": "Unit",
-        "image": "SOR\\Star_Wing_Scout",
-        "success": true
-    },
-    {
-        "name": "Star Wing Scout",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/426.png",
-        "type": "Unit",
-        "image": "SOR\\Star_Wing_Scout",
+        "image": "SOR\\Star_Wing_Scout.png",
         "success": true
     },
     {
         "name": "Steadfast Battalion",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/116.png",
         "type": "Unit",
-        "image": "SOR\\Steadfast_Battalion",
-        "success": true
-    },
-    {
-        "name": "Steadfast Battalion",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/380.png",
-        "type": "Unit",
-        "image": "SOR\\Steadfast_Battalion",
+        "image": "SOR\\Steadfast_Battalion.png",
         "success": true
     },
     {
         "name": "Strafing Gunship",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/212.png",
         "type": "Unit",
-        "image": "SOR\\Strafing_Gunship",
-        "success": true
-    },
-    {
-        "name": "Strafing Gunship",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/474.png",
-        "type": "Unit",
-        "image": "SOR\\Strafing_Gunship",
+        "image": "SOR\\Strafing_Gunship.png",
         "success": true
     },
     {
         "name": "Strike True",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/127.png",
         "type": "Event",
-        "image": "SOR\\Strike_True",
-        "success": true
-    },
-    {
-        "name": "Strike True",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/391.png",
-        "type": "Event",
-        "image": "SOR\\Strike_True",
+        "image": "SOR\\Strike_True.png",
         "success": true
     },
     {
         "name": "Superlaser Blast",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/043.png",
         "type": "Event",
-        "image": "SOR\\Superlaser_Blast",
-        "success": true
-    },
-    {
-        "name": "Superlaser Blast",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/309.png",
-        "type": "Event",
-        "image": "SOR\\Superlaser_Blast",
+        "image": "SOR\\Superlaser_Blast.png",
         "success": true
     },
     {
         "name": "Superlaser Technician",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/083.png",
         "type": "Unit",
-        "image": "SOR\\Superlaser_Technician",
-        "success": true
-    },
-    {
-        "name": "Superlaser Technician",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/348.png",
-        "type": "Unit",
-        "image": "SOR\\Superlaser_Technician",
+        "image": "SOR\\Superlaser_Technician.png",
         "success": true
     },
     {
         "name": "Surprise Strike",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/220.png",
         "type": "Event",
-        "image": "SOR\\Surprise_Strike",
-        "success": true
-    },
-    {
-        "name": "Surprise Strike",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/482.png",
-        "type": "Event",
-        "image": "SOR\\Surprise_Strike",
+        "image": "SOR\\Surprise_Strike.png",
         "success": true
     },
     {
         "name": "Swoop Racer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/210.png",
         "type": "Unit",
-        "image": "SOR\\Swoop_Racer",
-        "success": true
-    },
-    {
-        "name": "Swoop Racer",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/472.png",
-        "type": "Unit",
-        "image": "SOR\\Swoop_Racer",
+        "image": "SOR\\Swoop_Racer.png",
         "success": true
     },
     {
         "name": "Syndicate Lackeys",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/213.png",
         "type": "Unit",
-        "image": "SOR\\Syndicate_Lackeys",
-        "success": true
-    },
-    {
-        "name": "Syndicate Lackeys",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/475.png",
-        "type": "Unit",
-        "image": "SOR\\Syndicate_Lackeys",
+        "image": "SOR\\Syndicate_Lackeys.png",
         "success": true
     },
     {
         "name": "System Patrol Craft",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/066.png",
         "type": "Unit",
-        "image": "SOR\\System_Patrol_Craft",
-        "success": true
-    },
-    {
-        "name": "System Patrol Craft",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/331.png",
-        "type": "Unit",
-        "image": "SOR\\System_Patrol_Craft",
+        "image": "SOR\\System_Patrol_Craft.png",
         "success": true
     },
     {
         "name": "TIE Advanced",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/231.png",
         "type": "Unit",
-        "image": "SOR\\TIE_Advanced",
-        "success": true
-    },
-    {
-        "name": "TIE Advanced",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/492.png",
-        "type": "Unit",
-        "image": "SOR\\TIE_Advanced",
+        "image": "SOR\\TIE_Advanced.png",
         "success": true
     },
     {
         "name": "TIE/ln Fighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/225.png",
         "type": "Unit",
-        "image": "SOR\\TIEln_Fighter",
-        "success": true
-    },
-    {
-        "name": "TIE/ln Fighter",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/487.png",
-        "type": "Unit",
-        "image": "SOR\\TIEln_Fighter",
+        "image": "SOR\\TIEln_Fighter.png",
         "success": true
     },
     {
         "name": "Tactical Advantage",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/124.png",
         "type": "Event",
-        "image": "SOR\\Tactical_Advantage",
-        "success": true
-    },
-    {
-        "name": "Tactical Advantage",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/388.png",
-        "type": "Event",
-        "image": "SOR\\Tactical_Advantage",
+        "image": "SOR\\Tactical_Advantage.png",
         "success": true
     },
     {
         "name": "Takedown",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/077.png",
         "type": "Event",
-        "image": "SOR\\Takedown",
+        "image": "SOR\\Takedown.png",
         "success": true
     },
     {
-        "name": "Takedown",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/342.png",
-        "type": "Event",
-        "image": "SOR\\Takedown",
-        "success": true
-    },
-    {
-        "name": "Tarkintown",
+        "name": "Tarkintown - Lothal",
+        "subtitle": "Lothal",
         "url": "https://cdn.swu-db.com/images/cards/SOR/025.png",
         "type": "Base",
-        "image": "SOR\\Tarkintown",
-        "success": true
-    },
-    {
-        "name": "Tarkintown",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/291.png",
-        "type": "Base",
-        "image": "SOR\\Tarkintown",
+        "image": "SOR\\Tarkintown - Lothal.png",
         "success": true
     },
     {
         "name": "The Emperor's Legion",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/091.png",
         "type": "Event",
-        "image": "SOR\\The_Emperors_Legion",
-        "success": true
-    },
-    {
-        "name": "The Emperor's Legion",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/355.png",
-        "type": "Event",
-        "image": "SOR\\The_Emperors_Legion",
+        "image": "SOR\\The_Emperors_Legion.png",
         "success": true
     },
     {
         "name": "The Force Is With Me",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/055.png",
         "type": "Event",
-        "image": "SOR\\The_Force_Is_With_Me",
+        "image": "SOR\\The_Force_Is_With_Me.png",
         "success": true
     },
     {
-        "name": "The Force Is With Me",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/320.png",
-        "type": "Event",
-        "image": "SOR\\The_Force_Is_With_Me",
-        "success": true
-    },
-    {
-        "name": "The Ghost",
+        "name": "The Ghost - Spectre Home Base",
+        "subtitle": "Spectre Home Base",
         "url": "https://cdn.swu-db.com/images/cards/SOR/050.png",
         "type": "Unit",
-        "image": "SOR\\The_Ghost",
-        "success": true
-    },
-    {
-        "name": "The Ghost",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/316.png",
-        "type": "Unit",
-        "image": "SOR\\The_Ghost",
+        "image": "SOR\\The_Ghost - Spectre_Home_Base.png",
         "success": true
     },
     {
         "name": "Traitorous",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/122.png",
         "type": "Upgrade",
-        "image": "SOR\\Traitorous",
-        "success": true
-    },
-    {
-        "name": "Traitorous",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/386.png",
-        "type": "Upgrade",
-        "image": "SOR\\Traitorous",
+        "image": "SOR\\Traitorous.png",
         "success": true
     },
     {
         "name": "U-Wing Reinforcement",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/104.png",
         "type": "Event",
-        "image": "SOR\\U-Wing_Reinforcement",
-        "success": true
-    },
-    {
-        "name": "U-Wing Reinforcement",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/368.png",
-        "type": "Event",
-        "image": "SOR\\U-Wing_Reinforcement",
+        "image": "SOR\\U-Wing_Reinforcement.png",
         "success": true
     },
     {
         "name": "Underworld Thug",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/247.png",
         "type": "Unit",
-        "image": "SOR\\Underworld_Thug",
-        "success": true
-    },
-    {
-        "name": "Underworld Thug",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/505.png",
-        "type": "Unit",
-        "image": "SOR\\Underworld_Thug",
+        "image": "SOR\\Underworld_Thug.png",
         "success": true
     },
     {
         "name": "Vader's Lightsaber",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/136.png",
         "type": "Upgrade",
-        "image": "SOR\\Vaders_Lightsaber",
+        "image": "SOR\\Vaders_Lightsaber.png",
         "success": true
     },
     {
         "name": "Vanguard Ace",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/191.png",
         "type": "Unit",
-        "image": "SOR\\Vanguard_Ace",
-        "success": true
-    },
-    {
-        "name": "Vanguard Ace",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/453.png",
-        "type": "Unit",
-        "image": "SOR\\Vanguard_Ace",
+        "image": "SOR\\Vanguard_Ace.png",
         "success": true
     },
     {
         "name": "Vanguard Infantry",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/108.png",
         "type": "Unit",
-        "image": "SOR\\Vanguard_Infantry",
-        "success": true
-    },
-    {
-        "name": "Vanguard Infantry",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/372.png",
-        "type": "Unit",
-        "image": "SOR\\Vanguard_Infantry",
+        "image": "SOR\\Vanguard_Infantry.png",
         "success": true
     },
     {
         "name": "Vanquish",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/078.png",
         "type": "Event",
-        "image": "SOR\\Vanquish",
-        "success": true
-    },
-    {
-        "name": "Vanquish",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/343.png",
-        "type": "Event",
-        "image": "SOR\\Vanquish",
+        "image": "SOR\\Vanquish.png",
         "success": true
     },
     {
         "name": "Vigilance",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/058.png",
         "type": "Event",
-        "image": "SOR\\Vigilance",
-        "success": true
-    },
-    {
-        "name": "Vigilance",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/323.png",
-        "type": "Event",
-        "image": "SOR\\Vigilance",
+        "image": "SOR\\Vigilance.png",
         "success": true
     },
     {
         "name": "Vigilant Honor Guards",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/048.png",
         "type": "Unit",
-        "image": "SOR\\Vigilant_Honor_Guards",
-        "success": true
-    },
-    {
-        "name": "Vigilant Honor Guards",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/314.png",
-        "type": "Unit",
-        "image": "SOR\\Vigilant_Honor_Guards",
+        "image": "SOR\\Vigilant_Honor_Guards.png",
         "success": true
     },
     {
         "name": "Viper Probe Droid",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/228.png",
         "type": "Unit",
-        "image": "SOR\\Viper_Probe_Droid",
-        "success": true
-    },
-    {
-        "name": "Viper Probe Droid",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/489.png",
-        "type": "Unit",
-        "image": "SOR\\Viper_Probe_Droid",
+        "image": "SOR\\Viper_Probe_Droid.png",
         "success": true
     },
     {
         "name": "Volunteer Soldier",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/248.png",
         "type": "Unit",
-        "image": "SOR\\Volunteer_Soldier",
-        "success": true
-    },
-    {
-        "name": "Volunteer Soldier",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/506.png",
-        "type": "Unit",
-        "image": "SOR\\Volunteer_Soldier",
+        "image": "SOR\\Volunteer_Soldier.png",
         "success": true
     },
     {
         "name": "Wampa",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/164.png",
         "type": "Unit",
-        "image": "SOR\\Wampa",
-        "success": true
-    },
-    {
-        "name": "Wampa",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/427.png",
-        "type": "Unit",
-        "image": "SOR\\Wampa",
+        "image": "SOR\\Wampa.png",
         "success": true
     },
     {
         "name": "Waylay",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/222.png",
         "type": "Event",
-        "image": "SOR\\Waylay",
+        "image": "SOR\\Waylay.png",
         "success": true
     },
     {
-        "name": "Waylay",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/484.png",
-        "type": "Event",
-        "image": "SOR\\Waylay",
-        "success": true
-    },
-    {
-        "name": "Wedge Antilles",
+        "name": "Wedge Antilles - Star of the Rebellion",
+        "subtitle": "Star of the Rebellion",
         "url": "https://cdn.swu-db.com/images/cards/SOR/100.png",
         "type": "Unit",
-        "image": "SOR\\Wedge_Antilles",
-        "success": true
-    },
-    {
-        "name": "Wedge Antilles",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/364.png",
-        "type": "Unit",
-        "image": "SOR\\Wedge_Antilles",
+        "image": "SOR\\Wedge_Antilles - Star_of_the_Rebellion.png",
         "success": true
     },
     {
         "name": "Wilderness Fighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/064.png",
         "type": "Unit",
-        "image": "SOR\\Wilderness_Fighter",
-        "success": true
-    },
-    {
-        "name": "Wilderness Fighter",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/329.png",
-        "type": "Unit",
-        "image": "SOR\\Wilderness_Fighter",
+        "image": "SOR\\Wilderness_Fighter.png",
         "success": true
     },
     {
         "name": "Wing Leader",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/241.png",
         "type": "Unit",
-        "image": "SOR\\Wing_Leader",
+        "image": "SOR\\Wing_Leader.png",
         "success": true
     },
     {
-        "name": "Wing Leader",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/499.png",
-        "type": "Unit",
-        "image": "SOR\\Wing_Leader",
-        "success": true
-    },
-    {
-        "name": "Wolffe",
+        "name": "Wolffe - Suspicious Veteran",
+        "subtitle": "Suspicious Veteran",
         "url": "https://cdn.swu-db.com/images/cards/SOR/160.png",
         "type": "Unit",
-        "image": "SOR\\Wolffe",
+        "image": "SOR\\Wolffe - Suspicious_Veteran.png",
         "success": true
     },
     {
-        "name": "Wolffe",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/423.png",
-        "type": "Unit",
-        "image": "SOR\\Wolffe",
-        "success": true
-    },
-    {
-        "name": "Yoda",
+        "name": "Yoda - Old Master",
+        "subtitle": "Old Master",
         "url": "https://cdn.swu-db.com/images/cards/SOR/045.png",
         "type": "Unit",
-        "image": "SOR\\Yoda",
-        "success": true
-    },
-    {
-        "name": "Yoda",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/311.png",
-        "type": "Unit",
-        "image": "SOR\\Yoda",
+        "image": "SOR\\Yoda - Old_Master.png",
         "success": true
     },
     {
         "name": "You're My Only Hope",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SOR/246.png",
         "type": "Event",
-        "image": "SOR\\Youre_My_Only_Hope",
+        "image": "SOR\\Youre_My_Only_Hope.png",
         "success": true
     },
     {
-        "name": "You're My Only Hope",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/504.png",
-        "type": "Event",
-        "image": "SOR\\Youre_My_Only_Hope",
-        "success": true
-    },
-    {
-        "name": "Zeb Orrelios",
+        "name": "Zeb Orrelios - Headstrong Warrior",
+        "subtitle": "Headstrong Warrior",
         "url": "https://cdn.swu-db.com/images/cards/SOR/146.png",
         "type": "Unit",
-        "image": "SOR\\Zeb_Orrelios",
-        "success": true
-    },
-    {
-        "name": "Zeb Orrelios",
-        "url": "https://cdn.swu-db.com/images/cards/SOR/409.png",
-        "type": "Unit",
-        "image": "SOR\\Zeb_Orrelios",
+        "image": "SOR\\Zeb_Orrelios - Headstrong_Warrior.png",
         "success": true
     }
 ]

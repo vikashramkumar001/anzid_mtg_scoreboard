@@ -1,730 +1,426 @@
 [
     {
-        "name": "Admiral Ozzel",
+        "name": "Admiral Ozzel - As Clumsy as He Is Stupid",
+        "subtitle": "As Clumsy as He Is Stupid",
         "url": "https://cdn.swu-db.com/images/cards/IBH/82.png",
         "type": "Unit",
-        "image": "IBH\\Admiral_Ozzel",
+        "image": "IBH\\Admiral_Ozzel - As_Clumsy_as_He_Is_Stupid.png",
         "success": true
     },
     {
-        "name": "Admiral Ozzel",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/85.png",
-        "type": "Unit",
-        "image": "IBH\\Admiral_Ozzel",
-        "success": true
-    },
-    {
-        "name": "Admiral Piett",
+        "name": "Admiral Piett - In Command Now",
+        "subtitle": "In Command Now",
         "url": "https://cdn.swu-db.com/images/cards/IBH/60.png",
         "type": "Unit",
-        "image": "IBH\\Admiral_Piett",
+        "image": "IBH\\Admiral_Piett - In_Command_Now.png",
         "success": true
     },
     {
-        "name": "Admiral Piett",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/65.png",
-        "type": "Unit",
-        "image": "IBH\\Admiral_Piett",
-        "success": true
-    },
-    {
-        "name": "Avenger",
+        "name": "Avenger - Hunting the Rebels",
+        "subtitle": "Hunting the Rebels",
         "url": "https://cdn.swu-db.com/images/cards/IBH/72.png",
         "type": "Unit",
-        "image": "IBH\\Avenger",
+        "image": "IBH\\Avenger - Hunting_the_Rebels.png",
         "success": true
     },
     {
         "name": "Blizzard Force AT-ST",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/103.png",
         "type": "Unit",
-        "image": "IBH\\Blizzard_Force_AT-ST",
+        "image": "IBH\\Blizzard_Force_AT-ST.png",
         "success": true
     },
     {
-        "name": "Blizzard Force AT-ST",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/70.png",
-        "type": "Unit",
-        "image": "IBH\\Blizzard_Force_AT-ST",
-        "success": true
-    },
-    {
-        "name": "Blizzard Force AT-ST",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/89.png",
-        "type": "Unit",
-        "image": "IBH\\Blizzard_Force_AT-ST",
-        "success": true
-    },
-    {
-        "name": "Blizzard One",
+        "name": "Blizzard One - Veers at the Helm",
+        "subtitle": "Veers at the Helm",
         "url": "https://cdn.swu-db.com/images/cards/IBH/99.png",
         "type": "Unit",
-        "image": "IBH\\Blizzard_One",
+        "image": "IBH\\Blizzard_One - Veers_at_the_Helm.png",
         "success": true
     },
     {
-        "name": "Bright Hope",
+        "name": "Bright Hope - Narrow Escape",
+        "subtitle": "Narrow Escape",
         "url": "https://cdn.swu-db.com/images/cards/IBH/14.png",
         "type": "Unit",
-        "image": "IBH\\Bright_Hope",
+        "image": "IBH\\Bright_Hope - Narrow_Escape.png",
         "success": true
     },
     {
-        "name": "Bright Hope",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/26.png",
-        "type": "Unit",
-        "image": "IBH\\Bright_Hope",
-        "success": true
-    },
-    {
-        "name": "C-3P0",
+        "name": "C-3P0 - Oh Dear, Oh Dear",
+        "subtitle": "Oh Dear, Oh Dear",
         "url": "https://cdn.swu-db.com/images/cards/IBH/19.png",
         "type": "Unit",
-        "image": "IBH\\C-3P0",
+        "image": "IBH\\C-3P0 - Oh_Dear_Oh_Dear.png",
         "success": true
     },
     {
-        "name": "C-3P0",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/41.png",
-        "type": "Unit",
-        "image": "IBH\\C-3P0",
-        "success": true
-    },
-    {
-        "name": "Chewbacca",
+        "name": "Chewbacca - Rrruuuurrr",
+        "subtitle": "Rrruuuurrr",
         "url": "https://cdn.swu-db.com/images/cards/IBH/3.png",
         "type": "Unit",
-        "image": "IBH\\Chewbacca",
+        "image": "IBH\\Chewbacca - Rrruuuurrr.png",
         "success": true
     },
     {
-        "name": "Chewbacca",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/46.png",
-        "type": "Unit",
-        "image": "IBH\\Chewbacca",
-        "success": true
-    },
-    {
-        "name": "Darth Vader",
+        "name": "Darth Vader - Don't Fail Me Again",
+        "subtitle": "Don't Fail Me Again",
         "url": "https://cdn.swu-db.com/images/cards/IBH/53.png",
         "type": "Leader",
-        "image": "IBH\\Darth_Vader",
+        "image": "IBH\\Darth_Vader - Dont_Fail_Me_Again.png",
+        "success": true
+    },
+    {
+        "name": "Darth Vader - Don't Fail Me Again [Back]",
+        "subtitle": "Don't Fail Me Again",
+        "url": "https://cdn.swu-db.com/images/cards/IBH/53-b.png",
+        "type": "Leader",
+        "image": "IBH\\Darth_Vader - Dont_Fail_Me_Again_back.png",
         "success": true
     },
     {
         "name": "Death Squadron Star Destroyer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/79.png",
         "type": "Unit",
-        "image": "IBH\\Death_Squadron_Star_Destroyer",
-        "success": true
-    },
-    {
-        "name": "Death Squadron Star Destroyer",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/98.png",
-        "type": "Unit",
-        "image": "IBH\\Death_Squadron_Star_Destroyer",
+        "image": "IBH\\Death_Squadron_Star_Destroyer.png",
         "success": true
     },
     {
         "name": "E-Web Gunner",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/69.png",
         "type": "Unit",
-        "image": "IBH\\E-Web_Gunner",
+        "image": "IBH\\E-Web_Gunner.png",
         "success": true
     },
     {
-        "name": "E-Web Gunner",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/83.png",
-        "type": "Unit",
-        "image": "IBH\\E-Web_Gunner",
-        "success": true
-    },
-    {
-        "name": "Echo Caverns",
+        "name": "Echo Caverns - Hoth",
+        "subtitle": "Hoth",
         "url": "https://cdn.swu-db.com/images/cards/IBH/2.png",
         "type": "Base",
-        "image": "IBH\\Echo_Caverns",
+        "image": "IBH\\Echo_Caverns - Hoth.png",
         "success": true
     },
     {
         "name": "Echo Coordinator",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/43.png",
         "type": "Unit",
-        "image": "IBH\\Echo_Coordinator",
-        "success": true
-    },
-    {
-        "name": "Echo Coordinator",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/47.png",
-        "type": "Unit",
-        "image": "IBH\\Echo_Coordinator",
-        "success": true
-    },
-    {
-        "name": "Echo Coordinator",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/7.png",
-        "type": "Unit",
-        "image": "IBH\\Echo_Coordinator",
+        "image": "IBH\\Echo_Coordinator.png",
         "success": true
     },
     {
         "name": "Evacuation Escort",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/12.png",
         "type": "Unit",
-        "image": "IBH\\Evacuation_Escort",
-        "success": true
-    },
-    {
-        "name": "Evacuation Escort",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/35.png",
-        "type": "Unit",
-        "image": "IBH\\Evacuation_Escort",
-        "success": true
-    },
-    {
-        "name": "Evacuation Escort",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/44.png",
-        "type": "Unit",
-        "image": "IBH\\Evacuation_Escort",
+        "image": "IBH\\Evacuation_Escort.png",
         "success": true
     },
     {
         "name": "First Legion Trooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/101.png",
         "type": "Unit",
-        "image": "IBH\\First_Legion_Trooper",
+        "image": "IBH\\First_Legion_Trooper.png",
         "success": true
     },
     {
-        "name": "First Legion Trooper",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/55.png",
-        "type": "Unit",
-        "image": "IBH\\First_Legion_Trooper",
-        "success": true
-    },
-    {
-        "name": "First Legion Trooper",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/73.png",
-        "type": "Unit",
-        "image": "IBH\\First_Legion_Trooper",
-        "success": true
-    },
-    {
-        "name": "Forward Command Post",
+        "name": "Forward Command Post - Hoth",
+        "subtitle": "Hoth",
         "url": "https://cdn.swu-db.com/images/cards/IBH/54.png",
         "type": "Base",
-        "image": "IBH\\Forward_Command_Post",
+        "image": "IBH\\Forward_Command_Post - Hoth.png",
         "success": true
     },
     {
         "name": "GR-75 Medium Transport",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/22.png",
         "type": "Unit",
-        "image": "IBH\\GR-75_Medium_Transport",
+        "image": "IBH\\GR-75_Medium_Transport.png",
         "success": true
     },
     {
-        "name": "GR-75 Medium Transport",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/33.png",
-        "type": "Unit",
-        "image": "IBH\\GR-75_Medium_Transport",
-        "success": true
-    },
-    {
-        "name": "GR-75 Medium Transport",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/40.png",
-        "type": "Unit",
-        "image": "IBH\\GR-75_Medium_Transport",
-        "success": true
-    },
-    {
-        "name": "General Rieekan",
+        "name": "General Rieekan - Stalwart Tactician",
+        "subtitle": "Stalwart Tactician",
         "url": "https://cdn.swu-db.com/images/cards/IBH/23.png",
         "type": "Unit",
-        "image": "IBH\\General_Rieekan",
+        "image": "IBH\\General_Rieekan - Stalwart_Tactician.png",
         "success": true
     },
     {
-        "name": "General Rieekan",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/36.png",
-        "type": "Unit",
-        "image": "IBH\\General_Rieekan",
-        "success": true
-    },
-    {
-        "name": "General Veers",
+        "name": "General Veers - Leading the Assault",
+        "subtitle": "Leading the Assault",
         "url": "https://cdn.swu-db.com/images/cards/IBH/68.png",
         "type": "Unit",
-        "image": "IBH\\General_Veers",
-        "success": true
-    },
-    {
-        "name": "General Veers",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/88.png",
-        "type": "Unit",
-        "image": "IBH\\General_Veers",
+        "image": "IBH\\General_Veers - Leading_the_Assault.png",
         "success": true
     },
     {
         "name": "Go for the Legs",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/18.png",
         "type": "Event",
-        "image": "IBH\\Go_for_the_Legs",
-        "success": true
-    },
-    {
-        "name": "Go for the Legs",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/45.png",
-        "type": "Event",
-        "image": "IBH\\Go_for_the_Legs",
+        "image": "IBH\\Go_for_the_Legs.png",
         "success": true
     },
     {
         "name": "Ground Assault AT-AT",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/56.png",
         "type": "Unit",
-        "image": "IBH\\Ground_Assault_AT-AT",
+        "image": "IBH\\Ground_Assault_AT-AT.png",
         "success": true
     },
     {
-        "name": "Ground Assault AT-AT",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/67.png",
-        "type": "Unit",
-        "image": "IBH\\Ground_Assault_AT-AT",
-        "success": true
-    },
-    {
-        "name": "Han Solo",
+        "name": "Han Solo - Scruffy-Looking Nerf Herder",
+        "subtitle": "Scruffy-Looking Nerf Herder",
         "url": "https://cdn.swu-db.com/images/cards/IBH/10.png",
         "type": "Unit",
-        "image": "IBH\\Han_Solo",
-        "success": true
-    },
-    {
-        "name": "Han Solo",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/42.png",
-        "type": "Unit",
-        "image": "IBH\\Han_Solo",
+        "image": "IBH\\Han_Solo - Scruffy-Looking_Nerf_Herder.png",
         "success": true
     },
     {
         "name": "Hoth Lieutenant",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/64.png",
         "type": "Unit",
-        "image": "IBH\\Hoth_Lieutenant",
-        "success": true
-    },
-    {
-        "name": "Hoth Lieutenant",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/92.png",
-        "type": "Unit",
-        "image": "IBH\\Hoth_Lieutenant",
+        "image": "IBH\\Hoth_Lieutenant.png",
         "success": true
     },
     {
         "name": "Hoth Trooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/37.png",
         "type": "Unit",
-        "image": "IBH\\Hoth_Trooper",
-        "success": true
-    },
-    {
-        "name": "Hoth Trooper",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/38.png",
-        "type": "Unit",
-        "image": "IBH\\Hoth_Trooper",
-        "success": true
-    },
-    {
-        "name": "Hoth Trooper",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/48.png",
-        "type": "Unit",
-        "image": "IBH\\Hoth_Trooper",
+        "image": "IBH\\Hoth_Trooper.png",
         "success": true
     },
     {
         "name": "I Want Proof, Not Leads",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/102.png",
         "type": "Event",
-        "image": "IBH\\I_Want_Proof_Not_Leads",
-        "success": true
-    },
-    {
-        "name": "I Want Proof, Not Leads",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/74.png",
-        "type": "Event",
-        "image": "IBH\\I_Want_Proof_Not_Leads",
+        "image": "IBH\\I_Want_Proof_Not_Leads.png",
         "success": true
     },
     {
         "name": "I'll Cover For You",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/39.png",
         "type": "Event",
-        "image": "IBH\\Ill_Cover_For_You",
-        "success": true
-    },
-    {
-        "name": "I'll Cover For You",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/5.png",
-        "type": "Event",
-        "image": "IBH\\Ill_Cover_For_You",
+        "image": "IBH\\Ill_Cover_For_You.png",
         "success": true
     },
     {
         "name": "I've Found Them",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/25.png",
         "type": "Event",
-        "image": "IBH\\Ive_Found_Them",
-        "success": true
-    },
-    {
-        "name": "I've Found Them",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/9.png",
-        "type": "Event",
-        "image": "IBH\\Ive_Found_Them",
+        "image": "IBH\\Ive_Found_Them.png",
         "success": true
     },
     {
         "name": "Imperial Deck Officer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/100.png",
         "type": "Unit",
-        "image": "IBH\\Imperial_Deck_Officer",
-        "success": true
-    },
-    {
-        "name": "Imperial Deck Officer",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/62.png",
-        "type": "Unit",
-        "image": "IBH\\Imperial_Deck_Officer",
+        "image": "IBH\\Imperial_Deck_Officer.png",
         "success": true
     },
     {
         "name": "Improvised Detonation",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/21.png",
         "type": "Event",
-        "image": "IBH\\Improvised_Detonation",
-        "success": true
-    },
-    {
-        "name": "Improvised Detonation",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/30.png",
-        "type": "Event",
-        "image": "IBH\\Improvised_Detonation",
+        "image": "IBH\\Improvised_Detonation.png",
         "success": true
     },
     {
         "name": "Ion Cannon",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/16.png",
         "type": "Unit",
-        "image": "IBH\\Ion_Cannon",
-        "success": true
-    },
-    {
-        "name": "Ion Cannon",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/27.png",
-        "type": "Unit",
-        "image": "IBH\\Ion_Cannon",
+        "image": "IBH\\Ion_Cannon.png",
         "success": true
     },
     {
         "name": "Lambda Shuttle",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/58.png",
         "type": "Unit",
-        "image": "IBH\\Lambda_Shuttle",
+        "image": "IBH\\Lambda_Shuttle.png",
         "success": true
     },
     {
-        "name": "Lambda Shuttle",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/84.png",
-        "type": "Unit",
-        "image": "IBH\\Lambda_Shuttle",
-        "success": true
-    },
-    {
-        "name": "Lambda Shuttle",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/90.png",
-        "type": "Unit",
-        "image": "IBH\\Lambda_Shuttle",
-        "success": true
-    },
-    {
-        "name": "Leia Organa",
+        "name": "Leia Organa - Get to Your Transports!",
+        "subtitle": "Get to Your Transports!",
         "url": "https://cdn.swu-db.com/images/cards/IBH/1.png",
         "type": "Leader",
-        "image": "IBH\\Leia_Organa",
+        "image": "IBH\\Leia_Organa - Get_to_Your_Transports.png",
         "success": true
     },
     {
-        "name": "Luke Skywalker",
+        "name": "Leia Organa - Get to Your Transports! [Back]",
+        "subtitle": "Get to Your Transports!",
+        "url": "https://cdn.swu-db.com/images/cards/IBH/1-b.png",
+        "type": "Leader",
+        "image": "IBH\\Leia_Organa - Get_to_Your_Transports_back.png",
+        "success": true
+    },
+    {
+        "name": "Luke Skywalker - Do You Read Me?",
+        "subtitle": "Do You Read Me?",
         "url": "https://cdn.swu-db.com/images/cards/IBH/20.png",
         "type": "Unit",
-        "image": "IBH\\Luke_Skywalker",
+        "image": "IBH\\Luke_Skywalker - Do_You_Read_Me.png",
         "success": true
     },
     {
-        "name": "Millennium Falcon",
+        "name": "Millennium Falcon - Bucket of Bolts",
+        "subtitle": "Bucket of Bolts",
         "url": "https://cdn.swu-db.com/images/cards/IBH/31.png",
         "type": "Unit",
-        "image": "IBH\\Millennium_Falcon",
+        "image": "IBH\\Millennium_Falcon - Bucket_of_Bolts.png",
         "success": true
     },
     {
-        "name": "R2-D2",
+        "name": "R2-D2 - Known to Make Mistakes",
+        "subtitle": "Known to Make Mistakes",
         "url": "https://cdn.swu-db.com/images/cards/IBH/11.png",
         "type": "Unit",
-        "image": "IBH\\R2-D2",
-        "success": true
-    },
-    {
-        "name": "R2-D2",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/49.png",
-        "type": "Unit",
-        "image": "IBH\\R2-D2",
+        "image": "IBH\\R2-D2 - Known_to_Make_Mistakes.png",
         "success": true
     },
     {
         "name": "Rampaging Wampa",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/76.png",
         "type": "Unit",
-        "image": "IBH\\Rampaging_Wampa",
+        "image": "IBH\\Rampaging_Wampa.png",
         "success": true
     },
     {
         "name": "Rebellion Y-Wing",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/24.png",
         "type": "Unit",
-        "image": "IBH\\Rebellion_Y-Wing",
-        "success": true
-    },
-    {
-        "name": "Rebellion Y-Wing",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/32.png",
-        "type": "Unit",
-        "image": "IBH\\Rebellion_Y-Wing",
-        "success": true
-    },
-    {
-        "name": "Rebellion Y-Wing",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/6.png",
-        "type": "Unit",
-        "image": "IBH\\Rebellion_Y-Wing",
+        "image": "IBH\\Rebellion_Y-Wing.png",
         "success": true
     },
     {
         "name": "Recovery",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/13.png",
         "type": "Event",
-        "image": "IBH\\Recovery",
+        "image": "IBH\\Recovery.png",
         "success": true
     },
     {
         "name": "Rogue Squadron Speeder",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/17.png",
         "type": "Unit",
-        "image": "IBH\\Rogue_Squadron_Speeder",
-        "success": true
-    },
-    {
-        "name": "Rogue Squadron Speeder",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/34.png",
-        "type": "Unit",
-        "image": "IBH\\Rogue_Squadron_Speeder",
-        "success": true
-    },
-    {
-        "name": "Rogue Squadron Speeder",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/4.png",
-        "type": "Unit",
-        "image": "IBH\\Rogue_Squadron_Speeder",
+        "image": "IBH\\Rogue_Squadron_Speeder.png",
         "success": true
     },
     {
         "name": "Scouting TIE Fighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/75.png",
         "type": "Unit",
-        "image": "IBH\\Scouting_TIE_Fighter",
-        "success": true
-    },
-    {
-        "name": "Scouting TIE Fighter",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/81.png",
-        "type": "Unit",
-        "image": "IBH\\Scouting_TIE_Fighter",
-        "success": true
-    },
-    {
-        "name": "Scouting TIE Fighter",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/97.png",
-        "type": "Unit",
-        "image": "IBH\\Scouting_TIE_Fighter",
+        "image": "IBH\\Scouting_TIE_Fighter.png",
         "success": true
     },
     {
         "name": "Snowtrooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/63.png",
         "type": "Unit",
-        "image": "IBH\\Snowtrooper",
-        "success": true
-    },
-    {
-        "name": "Snowtrooper",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/77.png",
-        "type": "Unit",
-        "image": "IBH\\Snowtrooper",
-        "success": true
-    },
-    {
-        "name": "Snowtrooper",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/87.png",
-        "type": "Unit",
-        "image": "IBH\\Snowtrooper",
+        "image": "IBH\\Snowtrooper.png",
         "success": true
     },
     {
         "name": "Snowtrooper Vanguard",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/57.png",
         "type": "Unit",
-        "image": "IBH\\Snowtrooper_Vanguard",
-        "success": true
-    },
-    {
-        "name": "Snowtrooper Vanguard",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/80.png",
-        "type": "Unit",
-        "image": "IBH\\Snowtrooper_Vanguard",
-        "success": true
-    },
-    {
-        "name": "Snowtrooper Vanguard",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/96.png",
-        "type": "Unit",
-        "image": "IBH\\Snowtrooper_Vanguard",
+        "image": "IBH\\Snowtrooper_Vanguard.png",
         "success": true
     },
     {
         "name": "Surface Assault Bomber",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/78.png",
         "type": "Unit",
-        "image": "IBH\\Surface_Assault_Bomber",
-        "success": true
-    },
-    {
-        "name": "Surface Assault Bomber",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/93.png",
-        "type": "Unit",
-        "image": "IBH\\Surface_Assault_Bomber",
-        "success": true
-    },
-    {
-        "name": "Surface Assault Bomber",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/94.png",
-        "type": "Unit",
-        "image": "IBH\\Surface_Assault_Bomber",
+        "image": "IBH\\Surface_Assault_Bomber.png",
         "success": true
     },
     {
         "name": "Target the Main Generator",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/59.png",
         "type": "Event",
-        "image": "IBH\\Target_the_Main_Generator",
-        "success": true
-    },
-    {
-        "name": "Target the Main Generator",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/71.png",
-        "type": "Event",
-        "image": "IBH\\Target_the_Main_Generator",
+        "image": "IBH\\Target_the_Main_Generator.png",
         "success": true
     },
     {
         "name": "Tauntaun Mount",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/15.png",
         "type": "Unit",
-        "image": "IBH\\Tauntaun_Mount",
-        "success": true
-    },
-    {
-        "name": "Tauntaun Mount",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/28.png",
-        "type": "Unit",
-        "image": "IBH\\Tauntaun_Mount",
-        "success": true
-    },
-    {
-        "name": "Tauntaun Mount",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/51.png",
-        "type": "Unit",
-        "image": "IBH\\Tauntaun_Mount",
+        "image": "IBH\\Tauntaun_Mount.png",
         "success": true
     },
     {
         "name": "The Desolation of Hoth",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/104.png",
         "type": "Event",
-        "image": "IBH\\The_Desolation_of_Hoth",
+        "image": "IBH\\The_Desolation_of_Hoth.png",
         "success": true
     },
     {
         "name": "Too Strong for Blasters",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/66.png",
         "type": "Event",
-        "image": "IBH\\Too_Strong_for_Blasters",
-        "success": true
-    },
-    {
-        "name": "Too Strong for Blasters",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/91.png",
-        "type": "Event",
-        "image": "IBH\\Too_Strong_for_Blasters",
+        "image": "IBH\\Too_Strong_for_Blasters.png",
         "success": true
     },
     {
         "name": "Trench Defender",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/29.png",
         "type": "Unit",
-        "image": "IBH\\Trench_Defender",
-        "success": true
-    },
-    {
-        "name": "Trench Defender",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/50.png",
-        "type": "Unit",
-        "image": "IBH\\Trench_Defender",
-        "success": true
-    },
-    {
-        "name": "Trench Defender",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/8.png",
-        "type": "Unit",
-        "image": "IBH\\Trench_Defender",
+        "image": "IBH\\Trench_Defender.png",
         "success": true
     },
     {
         "name": "Watch This",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/52.png",
         "type": "Event",
-        "image": "IBH\\Watch_This",
+        "image": "IBH\\Watch_This.png",
         "success": true
     },
     {
         "name": "We're In Trouble",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/61.png",
         "type": "Event",
-        "image": "IBH\\Were_In_Trouble",
-        "success": true
-    },
-    {
-        "name": "We're In Trouble",
-        "url": "https://cdn.swu-db.com/images/cards/IBH/86.png",
-        "type": "Event",
-        "image": "IBH\\Were_In_Trouble",
+        "image": "IBH\\Were_In_Trouble.png",
         "success": true
     },
     {
         "name": "You Have Failed Me",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/IBH/95.png",
         "type": "Event",
-        "image": "IBH\\You_Have_Failed_Me",
+        "image": "IBH\\You_Have_Failed_Me.png",
         "success": true
     }
 ]

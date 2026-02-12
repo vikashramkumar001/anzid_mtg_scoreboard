@@ -1,3656 +1,2242 @@
 [
     {
-        "name": "4-LOM",
+        "name": "4-LOM - Bounty Hunter for Hire",
+        "subtitle": "Bounty Hunter for Hire",
         "url": "https://cdn.swu-db.com/images/cards/SHD/188.png",
         "type": "Unit",
-        "image": "SHD\\4-LOM",
-        "success": true
-    },
-    {
-        "name": "4-LOM",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/457.png",
-        "type": "Unit",
-        "image": "SHD\\4-LOM",
+        "image": "SHD\\4-LOM - Bounty_Hunter_for_Hire.png",
         "success": true
     },
     {
         "name": "A New Adventure",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/207.png",
         "type": "Event",
-        "image": "SHD\\A_New_Adventure",
-        "success": true
-    },
-    {
-        "name": "A New Adventure",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/475.png",
-        "type": "Event",
-        "image": "SHD\\A_New_Adventure",
+        "image": "SHD\\A_New_Adventure.png",
         "success": true
     },
     {
         "name": "Adelphi Patrol Wing",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/101.png",
         "type": "Unit",
-        "image": "SHD\\Adelphi_Patrol_Wing",
-        "success": true
-    },
-    {
-        "name": "Adelphi Patrol Wing",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/370.png",
-        "type": "Unit",
-        "image": "SHD\\Adelphi_Patrol_Wing",
+        "image": "SHD\\Adelphi_Patrol_Wing.png",
         "success": true
     },
     {
         "name": "Altering the Deal",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/243.png",
         "type": "Event",
-        "image": "SHD\\Altering_the_Deal",
-        "success": true
-    },
-    {
-        "name": "Altering the Deal",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/506.png",
-        "type": "Event",
-        "image": "SHD\\Altering_the_Deal",
+        "image": "SHD\\Altering_the_Deal.png",
         "success": true
     },
     {
         "name": "Armed to the Teeth",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/175.png",
         "type": "Upgrade",
-        "image": "SHD\\Armed_to_the_Teeth",
-        "success": true
-    },
-    {
-        "name": "Armed to the Teeth",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/444.png",
-        "type": "Upgrade",
-        "image": "SHD\\Armed_to_the_Teeth",
+        "image": "SHD\\Armed_to_the_Teeth.png",
         "success": true
     },
     {
         "name": "Arquitens Assault Cruiser",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/122.png",
         "type": "Unit",
-        "image": "SHD\\Arquitens_Assault_Cruiser",
+        "image": "SHD\\Arquitens_Assault_Cruiser.png",
         "success": true
     },
     {
-        "name": "Arquitens Assault Cruiser",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/391.png",
-        "type": "Unit",
-        "image": "SHD\\Arquitens_Assault_Cruiser",
-        "success": true
-    },
-    {
-        "name": "Bazine Netal",
+        "name": "Bazine Netal - Spy for the First Order",
+        "subtitle": "Spy for the First Order",
         "url": "https://cdn.swu-db.com/images/cards/SHD/184.png",
         "type": "Unit",
-        "image": "SHD\\Bazine_Netal",
-        "success": true
-    },
-    {
-        "name": "Bazine Netal",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/453.png",
-        "type": "Unit",
-        "image": "SHD\\Bazine_Netal",
+        "image": "SHD\\Bazine_Netal - Spy_for_the_First_Order.png",
         "success": true
     },
     {
         "name": "Black Sun Starfighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/237.png",
         "type": "Unit",
-        "image": "SHD\\Black_Sun_Starfighter",
+        "image": "SHD\\Black_Sun_Starfighter.png",
         "success": true
     },
     {
-        "name": "Black Sun Starfighter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/502.png",
-        "type": "Unit",
-        "image": "SHD\\Black_Sun_Starfighter",
-        "success": true
-    },
-    {
-        "name": "Bo-Katan Kryze",
+        "name": "Bo-Katan Kryze - Princess in Exile",
+        "subtitle": "Princess in Exile",
         "url": "https://cdn.swu-db.com/images/cards/SHD/012.png",
         "type": "Leader",
-        "image": "SHD\\Bo-Katan_Kryze",
+        "image": "SHD\\Bo-Katan_Kryze - Princess_in_Exile.png",
         "success": true
     },
     {
-        "name": "Bo-Katan Kryze",
+        "name": "Bo-Katan Kryze - Princess in Exile [Back]",
+        "subtitle": "Princess in Exile",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/012-b.png",
+        "type": "Leader",
+        "image": "SHD\\Bo-Katan_Kryze - Princess_in_Exile_back.png",
+        "success": true
+    },
+    {
+        "name": "Bo-Katan Kryze - Fighting For Mandalore",
+        "subtitle": "Fighting For Mandalore",
         "url": "https://cdn.swu-db.com/images/cards/SHD/157.png",
         "type": "Unit",
-        "image": "SHD\\Bo-Katan_Kryze",
+        "image": "SHD\\Bo-Katan_Kryze - Fighting_For_Mandalore.png",
         "success": true
     },
     {
-        "name": "Bo-Katan Kryze",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/274.png",
-        "type": "Leader",
-        "image": "SHD\\Bo-Katan_Kryze",
-        "success": true
-    },
-    {
-        "name": "Bo-Katan Kryze",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/291.png",
-        "type": "Leader",
-        "image": "SHD\\Bo-Katan_Kryze",
-        "success": true
-    },
-    {
-        "name": "Bo-Katan Kryze",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/426.png",
-        "type": "Unit",
-        "image": "SHD\\Bo-Katan_Kryze",
-        "success": true
-    },
-    {
-        "name": "Boba Fett",
+        "name": "Boba Fett - Daimyo",
+        "subtitle": "Daimyo",
         "url": "https://cdn.swu-db.com/images/cards/SHD/008.png",
         "type": "Leader",
-        "image": "SHD\\Boba_Fett",
+        "image": "SHD\\Boba_Fett - Daimyo.png",
         "success": true
     },
     {
-        "name": "Boba Fett",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/270.png",
+        "name": "Boba Fett - Daimyo [Back]",
+        "subtitle": "Daimyo",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/008-b.png",
         "type": "Leader",
-        "image": "SHD\\Boba_Fett",
-        "success": true
-    },
-    {
-        "name": "Boba Fett",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/287.png",
-        "type": "Leader",
-        "image": "SHD\\Boba_Fett",
+        "image": "SHD\\Boba_Fett - Daimyo_back.png",
         "success": true
     },
     {
         "name": "Boba Fett's Armor",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/224.png",
         "type": "Upgrade",
-        "image": "SHD\\Boba_Fetts_Armor",
+        "image": "SHD\\Boba_Fetts_Armor.png",
         "success": true
     },
     {
-        "name": "Boba Fett's Armor",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/491.png",
-        "type": "Upgrade",
-        "image": "SHD\\Boba_Fetts_Armor",
-        "success": true
-    },
-    {
-        "name": "Bossk",
+        "name": "Bossk - Hunting His Prey",
+        "subtitle": "Hunting His Prey",
         "url": "https://cdn.swu-db.com/images/cards/SHD/010.png",
         "type": "Leader",
-        "image": "SHD\\Bossk",
+        "image": "SHD\\Bossk - Hunting_His_Prey.png",
         "success": true
     },
     {
-        "name": "Bossk",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/272.png",
+        "name": "Bossk - Hunting His Prey [Back]",
+        "subtitle": "Hunting His Prey",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/010-b.png",
         "type": "Leader",
-        "image": "SHD\\Bossk",
-        "success": true
-    },
-    {
-        "name": "Bossk",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/289.png",
-        "type": "Leader",
-        "image": "SHD\\Bossk",
+        "image": "SHD\\Bossk - Hunting_His_Prey_back.png",
         "success": true
     },
     {
         "name": "Bounty Guild Initiate",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/254.png",
         "type": "Unit",
-        "image": "SHD\\Bounty_Guild_Initiate",
-        "success": true
-    },
-    {
-        "name": "Bounty Guild Initiate",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/515.png",
-        "type": "Unit",
-        "image": "SHD\\Bounty_Guild_Initiate",
+        "image": "SHD\\Bounty_Guild_Initiate.png",
         "success": true
     },
     {
         "name": "Bounty Hunter's Quarry",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/123.png",
         "type": "Upgrade",
-        "image": "SHD\\Bounty_Hunters_Quarry",
-        "success": true
-    },
-    {
-        "name": "Bounty Hunter's Quarry",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/392.png",
-        "type": "Upgrade",
-        "image": "SHD\\Bounty_Hunters_Quarry",
+        "image": "SHD\\Bounty_Hunters_Quarry.png",
         "success": true
     },
     {
         "name": "Bounty Posting",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/228.png",
         "type": "Event",
-        "image": "SHD\\Bounty_Posting",
-        "success": true
-    },
-    {
-        "name": "Bounty Posting",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/495.png",
-        "type": "Event",
-        "image": "SHD\\Bounty_Posting",
+        "image": "SHD\\Bounty_Posting.png",
         "success": true
     },
     {
         "name": "Bravado",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/182.png",
         "type": "Event",
-        "image": "SHD\\Bravado",
-        "success": true
-    },
-    {
-        "name": "Bravado",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/451.png",
-        "type": "Event",
-        "image": "SHD\\Bravado",
+        "image": "SHD\\Bravado.png",
         "success": true
     },
     {
         "name": "Brutal Traditions",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/038.png",
         "type": "Upgrade",
-        "image": "SHD\\Brutal_Traditions",
+        "image": "SHD\\Brutal_Traditions.png",
         "success": true
     },
     {
-        "name": "Brutal Traditions",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/315.png",
-        "type": "Upgrade",
-        "image": "SHD\\Brutal_Traditions",
-        "success": true
-    },
-    {
-        "name": "Cad Bane",
+        "name": "Cad Bane - He Who Needs No Introduction",
+        "subtitle": "He Who Needs No Introduction",
         "url": "https://cdn.swu-db.com/images/cards/SHD/014.png",
         "type": "Leader",
-        "image": "SHD\\Cad_Bane",
+        "image": "SHD\\Cad_Bane - He_Who_Needs_No_Introduction.png",
         "success": true
     },
     {
-        "name": "Cad Bane",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/276.png",
+        "name": "Cad Bane - He Who Needs No Introduction [Back]",
+        "subtitle": "He Who Needs No Introduction",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/014-b.png",
         "type": "Leader",
-        "image": "SHD\\Cad_Bane",
-        "success": true
-    },
-    {
-        "name": "Cad Bane",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/293.png",
-        "type": "Leader",
-        "image": "SHD\\Cad_Bane",
+        "image": "SHD\\Cad_Bane - He_Who_Needs_No_Introduction_back.png",
         "success": true
     },
     {
         "name": "Calculated Lethality",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/039.png",
         "type": "Event",
-        "image": "SHD\\Calculated_Lethality",
+        "image": "SHD\\Calculated_Lethality.png",
         "success": true
     },
     {
         "name": "Cargo Juggernaut",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/066.png",
         "type": "Unit",
-        "image": "SHD\\Cargo_Juggernaut",
-        "success": true
-    },
-    {
-        "name": "Cargo Juggernaut",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/340.png",
-        "type": "Unit",
-        "image": "SHD\\Cargo_Juggernaut",
+        "image": "SHD\\Cargo_Juggernaut.png",
         "success": true
     },
     {
         "name": "Cartel Turncoat",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/195.png",
         "type": "Unit",
-        "image": "SHD\\Cartel_Turncoat",
+        "image": "SHD\\Cartel_Turncoat.png",
         "success": true
     },
     {
-        "name": "Cartel Turncoat",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/464.png",
-        "type": "Unit",
-        "image": "SHD\\Cartel_Turncoat",
-        "success": true
-    },
-    {
-        "name": "Cassian Andor",
+        "name": "Cassian Andor - Rebellions Are Built On Hope",
+        "subtitle": "Rebellions Are Built On Hope",
         "url": "https://cdn.swu-db.com/images/cards/SHD/148.png",
         "type": "Unit",
-        "image": "SHD\\Cassian_Andor",
-        "success": true
-    },
-    {
-        "name": "Cassian Andor",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/417.png",
-        "type": "Unit",
-        "image": "SHD\\Cassian_Andor",
+        "image": "SHD\\Cassian_Andor - Rebellions_Are_Built_On_Hope.png",
         "success": true
     },
     {
         "name": "Cell Block Guard",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/238.png",
         "type": "Unit",
-        "image": "SHD\\Cell_Block_Guard",
+        "image": "SHD\\Cell_Block_Guard.png",
         "success": true
     },
     {
         "name": "Chain Code Collector",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/216.png",
         "type": "Unit",
-        "image": "SHD\\Chain_Code_Collector",
+        "image": "SHD\\Chain_Code_Collector.png",
         "success": true
     },
     {
-        "name": "Chain Code Collector",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/484.png",
-        "type": "Unit",
-        "image": "SHD\\Chain_Code_Collector",
-        "success": true
-    },
-    {
-        "name": "Chewbacca",
+        "name": "Chewbacca - Pykesbane",
+        "subtitle": "Pykesbane",
         "url": "https://cdn.swu-db.com/images/cards/SHD/050.png",
         "type": "Unit",
-        "image": "SHD\\Chewbacca",
-        "success": true
-    },
-    {
-        "name": "Chewbacca",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/325.png",
-        "type": "Unit",
-        "image": "SHD\\Chewbacca",
+        "image": "SHD\\Chewbacca - Pykesbane.png",
         "success": true
     },
     {
         "name": "Choose Sides",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/132.png",
         "type": "Event",
-        "image": "SHD\\Choose_Sides",
-        "success": true
-    },
-    {
-        "name": "Choose Sides",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/401.png",
-        "type": "Event",
-        "image": "SHD\\Choose_Sides",
+        "image": "SHD\\Choose_Sides.png",
         "success": true
     },
     {
         "name": "Clan Challengers",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/169.png",
         "type": "Unit",
-        "image": "SHD\\Clan_Challengers",
-        "success": true
-    },
-    {
-        "name": "Clan Challengers",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/438.png",
-        "type": "Unit",
-        "image": "SHD\\Clan_Challengers",
+        "image": "SHD\\Clan_Challengers.png",
         "success": true
     },
     {
         "name": "Clan Saxon Gauntlet",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/035.png",
         "type": "Unit",
-        "image": "SHD\\Clan_Saxon_Gauntlet",
-        "success": true
-    },
-    {
-        "name": "Clan Saxon Gauntlet",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/312.png",
-        "type": "Unit",
-        "image": "SHD\\Clan_Saxon_Gauntlet",
+        "image": "SHD\\Clan_Saxon_Gauntlet.png",
         "success": true
     },
     {
         "name": "Clan Wren Rescuer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/040.png",
         "type": "Unit",
-        "image": "SHD\\Clan_Wren_Rescuer",
-        "success": true
-    },
-    {
-        "name": "Clan Wren Rescuer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/316.png",
-        "type": "Unit",
-        "image": "SHD\\Clan_Wren_Rescuer",
+        "image": "SHD\\Clan_Wren_Rescuer.png",
         "success": true
     },
     {
         "name": "Clone Deserter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/095.png",
         "type": "Unit",
-        "image": "SHD\\Clone_Deserter",
-        "success": true
-    },
-    {
-        "name": "Clone Deserter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/364.png",
-        "type": "Unit",
-        "image": "SHD\\Clone_Deserter",
+        "image": "SHD\\Clone_Deserter.png",
         "success": true
     },
     {
         "name": "Cloud-Rider",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/210.png",
         "type": "Unit",
-        "image": "SHD\\Cloud-Rider",
+        "image": "SHD\\Cloud-Rider.png",
         "success": true
     },
     {
-        "name": "Cloud-Rider",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/478.png",
-        "type": "Unit",
-        "image": "SHD\\Cloud-Rider",
-        "success": true
-    },
-    {
-        "name": "Cobb Vanth",
+        "name": "Cobb Vanth - The Marshal",
+        "subtitle": "The Marshal",
         "url": "https://cdn.swu-db.com/images/cards/SHD/115.png",
         "type": "Unit",
-        "image": "SHD\\Cobb_Vanth",
-        "success": true
-    },
-    {
-        "name": "Cobb Vanth",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/384.png",
-        "type": "Unit",
-        "image": "SHD\\Cobb_Vanth",
+        "image": "SHD\\Cobb_Vanth - The_Marshal.png",
         "success": true
     },
     {
         "name": "Collections Starhopper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/111.png",
         "type": "Unit",
-        "image": "SHD\\Collections_Starhopper",
-        "success": true
-    },
-    {
-        "name": "Collections Starhopper",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/380.png",
-        "type": "Unit",
-        "image": "SHD\\Collections_Starhopper",
+        "image": "SHD\\Collections_Starhopper.png",
         "success": true
     },
     {
         "name": "Commission",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/127.png",
         "type": "Event",
-        "image": "SHD\\Commission",
-        "success": true
-    },
-    {
-        "name": "Commission",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/396.png",
-        "type": "Event",
-        "image": "SHD\\Commission",
+        "image": "SHD\\Commission.png",
         "success": true
     },
     {
         "name": "Concord Dawn Interceptors",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/042.png",
         "type": "Unit",
-        "image": "SHD\\Concord_Dawn_Interceptors",
-        "success": true
-    },
-    {
-        "name": "Concord Dawn Interceptors",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/318.png",
-        "type": "Unit",
-        "image": "SHD\\Concord_Dawn_Interceptors",
+        "image": "SHD\\Concord_Dawn_Interceptors.png",
         "success": true
     },
     {
         "name": "Confiscate",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/262.png",
         "type": "Event",
-        "image": "SHD\\Confiscate",
+        "image": "SHD\\Confiscate.png",
         "success": true
     },
     {
-        "name": "Coronet City",
+        "name": "Coronet City - Corellia",
+        "subtitle": "Corellia",
         "url": "https://cdn.swu-db.com/images/cards/SHD/025.png",
         "type": "Base",
-        "image": "SHD\\Coronet_City",
-        "success": true
-    },
-    {
-        "name": "Coronet City",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/303.png",
-        "type": "Base",
-        "image": "SHD\\Coronet_City",
+        "image": "SHD\\Coronet_City - Corellia.png",
         "success": true
     },
     {
         "name": "Coruscant Dissident",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/199.png",
         "type": "Unit",
-        "image": "SHD\\Coruscant_Dissident",
-        "success": true
-    },
-    {
-        "name": "Coruscant Dissident",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/467.png",
-        "type": "Unit",
-        "image": "SHD\\Coruscant_Dissident",
+        "image": "SHD\\Coruscant_Dissident.png",
         "success": true
     },
     {
         "name": "Covert Strength",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/075.png",
         "type": "Event",
-        "image": "SHD\\Covert_Strength",
-        "success": true
-    },
-    {
-        "name": "Covert Strength",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/348.png",
-        "type": "Event",
-        "image": "SHD\\Covert_Strength",
+        "image": "SHD\\Covert_Strength.png",
         "success": true
     },
     {
         "name": "Covetous Rivals",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/171.png",
         "type": "Unit",
-        "image": "SHD\\Covetous_Rivals",
-        "success": true
-    },
-    {
-        "name": "Covetous Rivals",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/440.png",
-        "type": "Unit",
-        "image": "SHD\\Covetous_Rivals",
+        "image": "SHD\\Covetous_Rivals.png",
         "success": true
     },
     {
         "name": "Criminal Muscle",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/209.png",
         "type": "Unit",
-        "image": "SHD\\Criminal_Muscle",
-        "success": true
-    },
-    {
-        "name": "Criminal Muscle",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/477.png",
-        "type": "Unit",
-        "image": "SHD\\Criminal_Muscle",
+        "image": "SHD\\Criminal_Muscle.png",
         "success": true
     },
     {
         "name": "Cripple Authority",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/156.png",
         "type": "Event",
-        "image": "SHD\\Cripple_Authority",
+        "image": "SHD\\Cripple_Authority.png",
         "success": true
     },
     {
-        "name": "Cripple Authority",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/425.png",
-        "type": "Event",
-        "image": "SHD\\Cripple_Authority",
-        "success": true
-    },
-    {
-        "name": "Crosshair",
+        "name": "Crosshair - Following Orders",
+        "subtitle": "Following Orders",
         "url": "https://cdn.swu-db.com/images/cards/SHD/087.png",
         "type": "Unit",
-        "image": "SHD\\Crosshair",
+        "image": "SHD\\Crosshair - Following_Orders.png",
         "success": true
     },
     {
-        "name": "Crosshair",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/356.png",
-        "type": "Unit",
-        "image": "SHD\\Crosshair",
-        "success": true
-    },
-    {
-        "name": "DJ",
+        "name": "DJ - Blatant Thief",
+        "subtitle": "Blatant Thief",
         "url": "https://cdn.swu-db.com/images/cards/SHD/213.png",
         "type": "Unit",
-        "image": "SHD\\DJ",
-        "success": true
-    },
-    {
-        "name": "DJ",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/481.png",
-        "type": "Unit",
-        "image": "SHD\\DJ",
+        "image": "SHD\\DJ - Blatant_Thief.png",
         "success": true
     },
     {
         "name": "Daring Raid",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/178.png",
         "type": "Event",
-        "image": "SHD\\Daring_Raid",
-        "success": true
-    },
-    {
-        "name": "Daring Raid",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/447.png",
-        "type": "Event",
-        "image": "SHD\\Daring_Raid",
+        "image": "SHD\\Daring_Raid.png",
         "success": true
     },
     {
         "name": "Death Mark",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/176.png",
         "type": "Upgrade",
-        "image": "SHD\\Death_Mark",
-        "success": true
-    },
-    {
-        "name": "Death Mark",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/445.png",
-        "type": "Upgrade",
-        "image": "SHD\\Death_Mark",
+        "image": "SHD\\Death_Mark.png",
         "success": true
     },
     {
         "name": "Death Trooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/030.png",
         "type": "Unit",
-        "image": "SHD\\Death_Trooper",
+        "image": "SHD\\Death_Trooper.png",
         "success": true
     },
     {
-        "name": "Death Watch Hideout",
+        "name": "Death Watch Hideout - Concordia",
+        "subtitle": "Concordia",
         "url": "https://cdn.swu-db.com/images/cards/SHD/023.png",
         "type": "Base",
-        "image": "SHD\\Death_Watch_Hideout",
-        "success": true
-    },
-    {
-        "name": "Death Watch Hideout",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/301.png",
-        "type": "Base",
-        "image": "SHD\\Death_Watch_Hideout",
+        "image": "SHD\\Death_Watch_Hideout - Concordia.png",
         "success": true
     },
     {
         "name": "Death Watch Loyalist",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/136.png",
         "type": "Unit",
-        "image": "SHD\\Death_Watch_Loyalist",
+        "image": "SHD\\Death_Watch_Loyalist.png",
         "success": true
     },
     {
-        "name": "Death Watch Loyalist",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/405.png",
-        "type": "Unit",
-        "image": "SHD\\Death_Watch_Loyalist",
-        "success": true
-    },
-    {
-        "name": "Dengar",
+        "name": "Dengar - The Demolisher",
+        "subtitle": "The Demolisher",
         "url": "https://cdn.swu-db.com/images/cards/SHD/133.png",
         "type": "Unit",
-        "image": "SHD\\Dengar",
-        "success": true
-    },
-    {
-        "name": "Dengar",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/402.png",
-        "type": "Unit",
-        "image": "SHD\\Dengar",
+        "image": "SHD\\Dengar - The_Demolisher.png",
         "success": true
     },
     {
         "name": "Desperado Freighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/152.png",
         "type": "Unit",
-        "image": "SHD\\Desperado_Freighter",
-        "success": true
-    },
-    {
-        "name": "Desperado Freighter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/421.png",
-        "type": "Unit",
-        "image": "SHD\\Desperado_Freighter",
+        "image": "SHD\\Desperado_Freighter.png",
         "success": true
     },
     {
         "name": "Desperate Attack",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/179.png",
         "type": "Event",
-        "image": "SHD\\Desperate_Attack",
-        "success": true
-    },
-    {
-        "name": "Desperate Attack",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/448.png",
-        "type": "Event",
-        "image": "SHD\\Desperate_Attack",
+        "image": "SHD\\Desperate_Attack.png",
         "success": true
     },
     {
         "name": "Detention Block Rescue",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/180.png",
         "type": "Event",
-        "image": "SHD\\Detention_Block_Rescue",
-        "success": true
-    },
-    {
-        "name": "Detention Block Rescue",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/449.png",
-        "type": "Event",
-        "image": "SHD\\Detention_Block_Rescue",
+        "image": "SHD\\Detention_Block_Rescue.png",
         "success": true
     },
     {
         "name": "Disabling Fang Fighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/166.png",
         "type": "Unit",
-        "image": "SHD\\Disabling_Fang_Fighter",
-        "success": true
-    },
-    {
-        "name": "Disabling Fang Fighter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/435.png",
-        "type": "Unit",
-        "image": "SHD\\Disabling_Fang_Fighter",
+        "image": "SHD\\Disabling_Fang_Fighter.png",
         "success": true
     },
     {
         "name": "Discerning Veteran",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/120.png",
         "type": "Unit",
-        "image": "SHD\\Discerning_Veteran",
+        "image": "SHD\\Discerning_Veteran.png",
         "success": true
     },
     {
-        "name": "Discerning Veteran",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/389.png",
-        "type": "Unit",
-        "image": "SHD\\Discerning_Veteran",
-        "success": true
-    },
-    {
-        "name": "Doctor Aphra",
+        "name": "Doctor Aphra - Rapacious Archaeologist",
+        "subtitle": "Rapacious Archaeologist",
         "url": "https://cdn.swu-db.com/images/cards/SHD/015.png",
         "type": "Leader",
-        "image": "SHD\\Doctor_Aphra",
+        "image": "SHD\\Doctor_Aphra - Rapacious_Archaeologist.png",
         "success": true
     },
     {
-        "name": "Doctor Aphra",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/277.png",
+        "name": "Doctor Aphra - Rapacious Archaeologist [Back]",
+        "subtitle": "Rapacious Archaeologist",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/015-b.png",
         "type": "Leader",
-        "image": "SHD\\Doctor_Aphra",
+        "image": "SHD\\Doctor_Aphra - Rapacious_Archaeologist_back.png",
         "success": true
     },
     {
-        "name": "Doctor Aphra",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/294.png",
-        "type": "Leader",
-        "image": "SHD\\Doctor_Aphra",
-        "success": true
-    },
-    {
-        "name": "Doctor Evazan",
+        "name": "Doctor Evazan - Wanted on Twelve Systems",
+        "subtitle": "Wanted on Twelve Systems",
         "url": "https://cdn.swu-db.com/images/cards/SHD/185.png",
         "type": "Unit",
-        "image": "SHD\\Doctor_Evazan",
+        "image": "SHD\\Doctor_Evazan - Wanted_on_Twelve_Systems.png",
         "success": true
     },
     {
-        "name": "Doctor Evazan",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/454.png",
-        "type": "Unit",
-        "image": "SHD\\Doctor_Evazan",
-        "success": true
-    },
-    {
-        "name": "Doctor Pershing",
+        "name": "Doctor Pershing - Experimenting With Life",
+        "subtitle": "Experimenting With Life",
         "url": "https://cdn.swu-db.com/images/cards/SHD/028.png",
         "type": "Unit",
-        "image": "SHD\\Doctor_Pershing",
+        "image": "SHD\\Doctor_Pershing - Experimenting_With_Life.png",
         "success": true
     },
     {
-        "name": "Doctor Pershing",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/306.png",
-        "type": "Unit",
-        "image": "SHD\\Doctor_Pershing",
-        "success": true
-    },
-    {
-        "name": "Dryden Vos",
+        "name": "Dryden Vos - Offering No Escape",
+        "subtitle": "Offering No Escape",
         "url": "https://cdn.swu-db.com/images/cards/SHD/192.png",
         "type": "Unit",
-        "image": "SHD\\Dryden_Vos",
+        "image": "SHD\\Dryden_Vos - Offering_No_Escape.png",
         "success": true
     },
     {
-        "name": "Dryden Vos",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/461.png",
-        "type": "Unit",
-        "image": "SHD\\Dryden_Vos",
-        "success": true
-    },
-    {
-        "name": "Echo",
+        "name": "Echo - Restored",
+        "subtitle": "Restored",
         "url": "https://cdn.swu-db.com/images/cards/SHD/099.png",
         "type": "Unit",
-        "image": "SHD\\Echo",
+        "image": "SHD\\Echo - Restored.png",
         "success": true
     },
     {
-        "name": "Echo",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/368.png",
-        "type": "Unit",
-        "image": "SHD\\Echo",
-        "success": true
-    },
-    {
-        "name": "Embo",
+        "name": "Embo - Stoic and Resolute",
+        "subtitle": "Stoic and Resolute",
         "url": "https://cdn.swu-db.com/images/cards/SHD/059.png",
         "type": "Unit",
-        "image": "SHD\\Embo",
-        "success": true
-    },
-    {
-        "name": "Embo",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/334.png",
-        "type": "Unit",
-        "image": "SHD\\Embo",
+        "image": "SHD\\Embo - Stoic_and_Resolute.png",
         "success": true
     },
     {
         "name": "Endless Legions",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/109.png",
         "type": "Event",
-        "image": "SHD\\Endless_Legions",
-        "success": true
-    },
-    {
-        "name": "Endless Legions",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/378.png",
-        "type": "Event",
-        "image": "SHD\\Endless_Legions",
+        "image": "SHD\\Endless_Legions.png",
         "success": true
     },
     {
         "name": "Enforced Loyalty",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/108.png",
         "type": "Event",
-        "image": "SHD\\Enforced_Loyalty",
+        "image": "SHD\\Enforced_Loyalty.png",
         "success": true
     },
     {
-        "name": "Enforced Loyalty",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/377.png",
-        "type": "Event",
-        "image": "SHD\\Enforced_Loyalty",
-        "success": true
-    },
-    {
-        "name": "Enfys Nest",
+        "name": "Enfys Nest - Marauder",
+        "subtitle": "Marauder",
         "url": "https://cdn.swu-db.com/images/cards/SHD/219.png",
         "type": "Unit",
-        "image": "SHD\\Enfys_Nest",
-        "success": true
-    },
-    {
-        "name": "Enfys Nest",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/487.png",
-        "type": "Unit",
-        "image": "SHD\\Enfys_Nest",
+        "image": "SHD\\Enfys_Nest - Marauder.png",
         "success": true
     },
     {
         "name": "Enterprising Lackeys",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/107.png",
         "type": "Unit",
-        "image": "SHD\\Enterprising_Lackeys",
-        "success": true
-    },
-    {
-        "name": "Enterprising Lackeys",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/376.png",
-        "type": "Unit",
-        "image": "SHD\\Enterprising_Lackeys",
+        "image": "SHD\\Enterprising_Lackeys.png",
         "success": true
     },
     {
         "name": "Enticing Reward",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/222.png",
         "type": "Upgrade",
-        "image": "SHD\\Enticing_Reward",
+        "image": "SHD\\Enticing_Reward.png",
         "success": true
     },
     {
-        "name": "Enticing Reward",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/490.png",
-        "type": "Upgrade",
-        "image": "SHD\\Enticing_Reward",
-        "success": true
-    },
-    {
-        "name": "Ephant Mon",
+        "name": "Ephant Mon - Head of Security",
+        "subtitle": "Head of Security",
         "url": "https://cdn.swu-db.com/images/cards/SHD/088.png",
         "type": "Unit",
-        "image": "SHD\\Ephant_Mon",
-        "success": true
-    },
-    {
-        "name": "Ephant Mon",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/357.png",
-        "type": "Unit",
-        "image": "SHD\\Ephant_Mon",
+        "image": "SHD\\Ephant_Mon - Head_of_Security.png",
         "success": true
     },
     {
         "name": "Evacuate",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/233.png",
         "type": "Event",
-        "image": "SHD\\Evacuate",
-        "success": true
-    },
-    {
-        "name": "Evacuate",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/500.png",
-        "type": "Event",
-        "image": "SHD\\Evacuate",
+        "image": "SHD\\Evacuate.png",
         "success": true
     },
     {
         "name": "Evidence of the Crime",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/077.png",
         "type": "Event",
-        "image": "SHD\\Evidence_of_the_Crime",
-        "success": true
-    },
-    {
-        "name": "Evidence of the Crime",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/350.png",
-        "type": "Event",
-        "image": "SHD\\Evidence_of_the_Crime",
+        "image": "SHD\\Evidence_of_the_Crime.png",
         "success": true
     },
     {
         "name": "Fell the Dragon",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/078.png",
         "type": "Event",
-        "image": "SHD\\Fell_the_Dragon",
+        "image": "SHD\\Fell_the_Dragon.png",
         "success": true
     },
     {
-        "name": "Fell the Dragon",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/351.png",
-        "type": "Event",
-        "image": "SHD\\Fell_the_Dragon",
-        "success": true
-    },
-    {
-        "name": "Fenn Rau",
+        "name": "Fenn Rau - Protector of Concord Dawn",
+        "subtitle": "Protector of Concord Dawn",
         "url": "https://cdn.swu-db.com/images/cards/SHD/067.png",
         "type": "Unit",
-        "image": "SHD\\Fenn_Rau",
+        "image": "SHD\\Fenn_Rau - Protector_of_Concord_Dawn.png",
         "success": true
     },
     {
-        "name": "Fenn Rau",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/341.png",
-        "type": "Unit",
-        "image": "SHD\\Fenn_Rau",
-        "success": true
-    },
-    {
-        "name": "Fennec Shand",
+        "name": "Fennec Shand - Honoring the Deal",
+        "subtitle": "Honoring the Deal",
         "url": "https://cdn.swu-db.com/images/cards/SHD/016.png",
         "type": "Leader",
-        "image": "SHD\\Fennec_Shand",
+        "image": "SHD\\Fennec_Shand - Honoring_the_Deal.png",
         "success": true
     },
     {
-        "name": "Fennec Shand",
+        "name": "Fennec Shand - Honoring the Deal [Back]",
+        "subtitle": "Honoring the Deal",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/016-b.png",
+        "type": "Leader",
+        "image": "SHD\\Fennec_Shand - Honoring_the_Deal_back.png",
+        "success": true
+    },
+    {
+        "name": "Fennec Shand - Loyal Sharpshooter",
+        "subtitle": "Loyal Sharpshooter",
         "url": "https://cdn.swu-db.com/images/cards/SHD/220.png",
         "type": "Unit",
-        "image": "SHD\\Fennec_Shand",
-        "success": true
-    },
-    {
-        "name": "Fennec Shand",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/278.png",
-        "type": "Leader",
-        "image": "SHD\\Fennec_Shand",
-        "success": true
-    },
-    {
-        "name": "Fennec Shand",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/295.png",
-        "type": "Leader",
-        "image": "SHD\\Fennec_Shand",
-        "success": true
-    },
-    {
-        "name": "Fennec Shand",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/488.png",
-        "type": "Unit",
-        "image": "SHD\\Fennec_Shand",
+        "image": "SHD\\Fennec_Shand - Loyal_Sharpshooter.png",
         "success": true
     },
     {
         "name": "Final Showdown",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/208.png",
         "type": "Event",
-        "image": "SHD\\Final_Showdown",
+        "image": "SHD\\Final_Showdown.png",
         "success": true
     },
     {
-        "name": "Final Showdown",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/476.png",
-        "type": "Event",
-        "image": "SHD\\Final_Showdown",
-        "success": true
-    },
-    {
-        "name": "Finalizer",
+        "name": "Finalizer - Might of the First Order",
+        "subtitle": "Might of the First Order",
         "url": "https://cdn.swu-db.com/images/cards/SHD/092.png",
         "type": "Unit",
-        "image": "SHD\\Finalizer",
+        "image": "SHD\\Finalizer - Might_of_the_First_Order.png",
         "success": true
     },
     {
-        "name": "Finalizer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/361.png",
-        "type": "Unit",
-        "image": "SHD\\Finalizer",
-        "success": true
-    },
-    {
-        "name": "Finn",
+        "name": "Finn - This is a Rescue",
+        "subtitle": "This is a Rescue",
         "url": "https://cdn.swu-db.com/images/cards/SHD/003.png",
         "type": "Leader",
-        "image": "SHD\\Finn",
+        "image": "SHD\\Finn - This_is_a_Rescue.png",
         "success": true
     },
     {
-        "name": "Finn",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/265.png",
+        "name": "Finn - This is a Rescue [Back]",
+        "subtitle": "This is a Rescue",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/003-b.png",
         "type": "Leader",
-        "image": "SHD\\Finn",
+        "image": "SHD\\Finn - This_is_a_Rescue_back.png",
         "success": true
     },
     {
-        "name": "Finn",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/283.png",
-        "type": "Leader",
-        "image": "SHD\\Finn",
-        "success": true
-    },
-    {
-        "name": "First Light",
+        "name": "First Light - Headquarters of the Crimson Dawn",
+        "subtitle": "Headquarters of the Crimson Dawn",
         "url": "https://cdn.swu-db.com/images/cards/SHD/036.png",
         "type": "Unit",
-        "image": "SHD\\First_Light",
-        "success": true
-    },
-    {
-        "name": "First Light",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/313.png",
-        "type": "Unit",
-        "image": "SHD\\First_Light",
+        "image": "SHD\\First_Light - Headquarters_of_the_Crimson_Dawn.png",
         "success": true
     },
     {
         "name": "Follower of The Way",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/056.png",
         "type": "Unit",
-        "image": "SHD\\Follower_of_The_Way",
-        "success": true
-    },
-    {
-        "name": "Follower of The Way",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/331.png",
-        "type": "Unit",
-        "image": "SHD\\Follower_of_The_Way",
+        "image": "SHD\\Follower_of_The_Way.png",
         "success": true
     },
     {
         "name": "Foundling",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/069.png",
         "type": "Upgrade",
-        "image": "SHD\\Foundling",
-        "success": true
-    },
-    {
-        "name": "Foundling",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/343.png",
-        "type": "Upgrade",
-        "image": "SHD\\Foundling",
+        "image": "SHD\\Foundling.png",
         "success": true
     },
     {
         "name": "Freetown Backup",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/097.png",
         "type": "Unit",
-        "image": "SHD\\Freetown_Backup",
-        "success": true
-    },
-    {
-        "name": "Freetown Backup",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/366.png",
-        "type": "Unit",
-        "image": "SHD\\Freetown_Backup",
+        "image": "SHD\\Freetown_Backup.png",
         "success": true
     },
     {
         "name": "Frontier Trader",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/214.png",
         "type": "Unit",
-        "image": "SHD\\Frontier_Trader",
-        "success": true
-    },
-    {
-        "name": "Frontier Trader",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/482.png",
-        "type": "Unit",
-        "image": "SHD\\Frontier_Trader",
+        "image": "SHD\\Frontier_Trader.png",
         "success": true
     },
     {
         "name": "Frozen in Carbonite",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/193.png",
         "type": "Upgrade",
-        "image": "SHD\\Frozen_in_Carbonite",
-        "success": true
-    },
-    {
-        "name": "Frozen in Carbonite",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/462.png",
-        "type": "Upgrade",
-        "image": "SHD\\Frozen_in_Carbonite",
+        "image": "SHD\\Frozen_in_Carbonite.png",
         "success": true
     },
     {
         "name": "Fugitive Wookiee",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/211.png",
         "type": "Unit",
-        "image": "SHD\\Fugitive_Wookiee",
-        "success": true
-    },
-    {
-        "name": "Fugitive Wookiee",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/479.png",
-        "type": "Unit",
-        "image": "SHD\\Fugitive_Wookiee",
+        "image": "SHD\\Fugitive_Wookiee.png",
         "success": true
     },
     {
         "name": "Gamorrean Retainer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/112.png",
         "type": "Unit",
-        "image": "SHD\\Gamorrean_Retainer",
+        "image": "SHD\\Gamorrean_Retainer.png",
         "success": true
     },
     {
-        "name": "Gamorrean Retainer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/381.png",
-        "type": "Unit",
-        "image": "SHD\\Gamorrean_Retainer",
-        "success": true
-    },
-    {
-        "name": "Gar Saxon",
+        "name": "Gar Saxon - Viceroy of Mandalore",
+        "subtitle": "Viceroy of Mandalore",
         "url": "https://cdn.swu-db.com/images/cards/SHD/001.png",
         "type": "Leader",
-        "image": "SHD\\Gar_Saxon",
+        "image": "SHD\\Gar_Saxon - Viceroy_of_Mandalore.png",
         "success": true
     },
     {
-        "name": "Gar Saxon",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/263.png",
+        "name": "Gar Saxon - Viceroy of Mandalore [Back]",
+        "subtitle": "Viceroy of Mandalore",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/001-b.png",
         "type": "Leader",
-        "image": "SHD\\Gar_Saxon",
+        "image": "SHD\\Gar_Saxon - Viceroy_of_Mandalore_back.png",
         "success": true
     },
     {
-        "name": "Gar Saxon",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/281.png",
-        "type": "Leader",
-        "image": "SHD\\Gar_Saxon",
-        "success": true
-    },
-    {
-        "name": "General Rieekan",
+        "name": "General Rieekan - Defensive Strategist",
+        "subtitle": "Defensive Strategist",
         "url": "https://cdn.swu-db.com/images/cards/SHD/103.png",
         "type": "Unit",
-        "image": "SHD\\General_Rieekan",
+        "image": "SHD\\General_Rieekan - Defensive_Strategist.png",
         "success": true
     },
     {
-        "name": "General Rieekan",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/372.png",
-        "type": "Unit",
-        "image": "SHD\\General_Rieekan",
-        "success": true
-    },
-    {
-        "name": "General Tagge",
+        "name": "General Tagge - Concerned Commander",
+        "subtitle": "Concerned Commander",
         "url": "https://cdn.swu-db.com/images/cards/SHD/081.png",
         "type": "Unit",
-        "image": "SHD\\General_Tagge",
+        "image": "SHD\\General_Tagge - Concerned_Commander.png",
         "success": true
     },
     {
         "name": "Gentle Giant",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/048.png",
         "type": "Unit",
-        "image": "SHD\\Gentle_Giant",
+        "image": "SHD\\Gentle_Giant.png",
         "success": true
     },
     {
-        "name": "Gentle Giant",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/323.png",
-        "type": "Unit",
-        "image": "SHD\\Gentle_Giant",
-        "success": true
-    },
-    {
-        "name": "Gideon's Light Cruiser",
+        "name": "Gideon's Light Cruiser - Dark Troopers' Station",
+        "subtitle": "Dark Troopers' Station",
         "url": "https://cdn.swu-db.com/images/cards/SHD/242.png",
         "type": "Unit",
-        "image": "SHD\\Gideons_Light_Cruiser",
+        "image": "SHD\\Gideons_Light_Cruiser - Dark_Troopers_Station.png",
         "success": true
     },
     {
         "name": "Give In to Your Anger",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/144.png",
         "type": "Event",
-        "image": "SHD\\Give_In_to_Your_Anger",
+        "image": "SHD\\Give_In_to_Your_Anger.png",
         "success": true
     },
     {
-        "name": "Give In to Your Anger",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/413.png",
-        "type": "Event",
-        "image": "SHD\\Give_In_to_Your_Anger",
-        "success": true
-    },
-    {
-        "name": "Greef Karga",
+        "name": "Greef Karga - Affable Commissioner",
+        "subtitle": "Affable Commissioner",
         "url": "https://cdn.swu-db.com/images/cards/SHD/245.png",
         "type": "Unit",
-        "image": "SHD\\Greef_Karga",
+        "image": "SHD\\Greef_Karga - Affable_Commissioner.png",
         "success": true
     },
     {
         "name": "Grey Squadron Y-Wing",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/246.png",
         "type": "Unit",
-        "image": "SHD\\Grey_Squadron_Y-Wing",
+        "image": "SHD\\Grey_Squadron_Y-Wing.png",
         "success": true
     },
     {
-        "name": "Grey Squadron Y-Wing",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/508.png",
-        "type": "Unit",
-        "image": "SHD\\Grey_Squadron_Y-Wing",
-        "success": true
-    },
-    {
-        "name": "Grogu",
+        "name": "Grogu - Irresistible",
+        "subtitle": "Irresistible",
         "url": "https://cdn.swu-db.com/images/cards/SHD/196.png",
         "type": "Unit",
-        "image": "SHD\\Grogu",
+        "image": "SHD\\Grogu - Irresistible.png",
         "success": true
     },
     {
         "name": "Guavian Antagonizer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/134.png",
         "type": "Unit",
-        "image": "SHD\\Guavian_Antagonizer",
-        "success": true
-    },
-    {
-        "name": "Guavian Antagonizer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/403.png",
-        "type": "Unit",
-        "image": "SHD\\Guavian_Antagonizer",
+        "image": "SHD\\Guavian_Antagonizer.png",
         "success": true
     },
     {
         "name": "Guild Target",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/173.png",
         "type": "Upgrade",
-        "image": "SHD\\Guild_Target",
-        "success": true
-    },
-    {
-        "name": "Guild Target",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/442.png",
-        "type": "Upgrade",
-        "image": "SHD\\Guild_Target",
+        "image": "SHD\\Guild_Target.png",
         "success": true
     },
     {
         "name": "HWK-290 Freighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/060.png",
         "type": "Unit",
-        "image": "SHD\\HWK-290_Freighter",
+        "image": "SHD\\HWK-290_Freighter.png",
         "success": true
     },
     {
-        "name": "HWK-290 Freighter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/335.png",
-        "type": "Unit",
-        "image": "SHD\\HWK-290_Freighter",
-        "success": true
-    },
-    {
-        "name": "Han Solo",
+        "name": "Han Solo - Worth the Risk",
+        "subtitle": "Worth the Risk",
         "url": "https://cdn.swu-db.com/images/cards/SHD/013.png",
         "type": "Leader",
-        "image": "SHD\\Han_Solo",
+        "image": "SHD\\Han_Solo - Worth_the_Risk.png",
         "success": true
     },
     {
-        "name": "Han Solo",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/275.png",
+        "name": "Han Solo - Worth the Risk [Back]",
+        "subtitle": "Worth the Risk",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/013-b.png",
         "type": "Leader",
-        "image": "SHD\\Han_Solo",
-        "success": true
-    },
-    {
-        "name": "Han Solo",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/292.png",
-        "type": "Leader",
-        "image": "SHD\\Han_Solo",
+        "image": "SHD\\Han_Solo - Worth_the_Risk_back.png",
         "success": true
     },
     {
         "name": "Headhunting",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/145.png",
         "type": "Event",
-        "image": "SHD\\Headhunting",
-        "success": true
-    },
-    {
-        "name": "Headhunting",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/414.png",
-        "type": "Event",
-        "image": "SHD\\Headhunting",
+        "image": "SHD\\Headhunting.png",
         "success": true
     },
     {
         "name": "Heroic Renegade",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/146.png",
         "type": "Unit",
-        "image": "SHD\\Heroic_Renegade",
-        "success": true
-    },
-    {
-        "name": "Heroic Renegade",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/415.png",
-        "type": "Unit",
-        "image": "SHD\\Heroic_Renegade",
+        "image": "SHD\\Heroic_Renegade.png",
         "success": true
     },
     {
         "name": "Heroic Resolve",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/155.png",
         "type": "Upgrade",
-        "image": "SHD\\Heroic_Resolve",
+        "image": "SHD\\Heroic_Resolve.png",
         "success": true
     },
     {
-        "name": "Heroic Resolve",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/424.png",
-        "type": "Upgrade",
-        "image": "SHD\\Heroic_Resolve",
-        "success": true
-    },
-    {
-        "name": "Hondo Ohnaka",
+        "name": "Hondo Ohnaka - That's Good Business",
+        "subtitle": "That's Good Business",
         "url": "https://cdn.swu-db.com/images/cards/SHD/005.png",
         "type": "Leader",
-        "image": "SHD\\Hondo_Ohnaka",
+        "image": "SHD\\Hondo_Ohnaka - Thats_Good_Business.png",
         "success": true
     },
     {
-        "name": "Hondo Ohnaka",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/267.png",
+        "name": "Hondo Ohnaka - That's Good Business [Back]",
+        "subtitle": "That's Good Business",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/005-b.png",
         "type": "Leader",
-        "image": "SHD\\Hondo_Ohnaka",
-        "success": true
-    },
-    {
-        "name": "Hondo Ohnaka",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/285.png",
-        "type": "Leader",
-        "image": "SHD\\Hondo_Ohnaka",
+        "image": "SHD\\Hondo_Ohnaka - Thats_Good_Business_back.png",
         "success": true
     },
     {
         "name": "Hotshot DL-44 Blaster",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/174.png",
         "type": "Upgrade",
-        "image": "SHD\\Hotshot_DL-44_Blaster",
-        "success": true
-    },
-    {
-        "name": "Hotshot DL-44 Blaster",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/443.png",
-        "type": "Upgrade",
-        "image": "SHD\\Hotshot_DL-44_Blaster",
+        "image": "SHD\\Hotshot_DL-44_Blaster.png",
         "success": true
     },
     {
         "name": "House Kast Soldier",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/162.png",
         "type": "Unit",
-        "image": "SHD\\House_Kast_Soldier",
+        "image": "SHD\\House_Kast_Soldier.png",
         "success": true
     },
     {
-        "name": "House Kast Soldier",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/431.png",
-        "type": "Unit",
-        "image": "SHD\\House_Kast_Soldier",
-        "success": true
-    },
-    {
-        "name": "Hunter",
+        "name": "Hunter - Outcast Sergeant",
+        "subtitle": "Outcast Sergeant",
         "url": "https://cdn.swu-db.com/images/cards/SHD/009.png",
         "type": "Leader",
-        "image": "SHD\\Hunter",
+        "image": "SHD\\Hunter - Outcast_Sergeant.png",
         "success": true
     },
     {
-        "name": "Hunter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/271.png",
+        "name": "Hunter - Outcast Sergeant [Back]",
+        "subtitle": "Outcast Sergeant",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/009-b.png",
         "type": "Leader",
-        "image": "SHD\\Hunter",
-        "success": true
-    },
-    {
-        "name": "Hunter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/288.png",
-        "type": "Leader",
-        "image": "SHD\\Hunter",
+        "image": "SHD\\Hunter - Outcast_Sergeant_back.png",
         "success": true
     },
     {
         "name": "Hunter of the Haxion Brood",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/186.png",
         "type": "Unit",
-        "image": "SHD\\Hunter_of_the_Haxion_Brood",
-        "success": true
-    },
-    {
-        "name": "Hunter of the Haxion Brood",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/455.png",
-        "type": "Unit",
-        "image": "SHD\\Hunter_of_the_Haxion_Brood",
+        "image": "SHD\\Hunter_of_the_Haxion_Brood.png",
         "success": true
     },
     {
         "name": "Hunting Nexu",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/168.png",
         "type": "Unit",
-        "image": "SHD\\Hunting_Nexu",
-        "success": true
-    },
-    {
-        "name": "Hunting Nexu",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/437.png",
-        "type": "Unit",
-        "image": "SHD\\Hunting_Nexu",
+        "image": "SHD\\Hunting_Nexu.png",
         "success": true
     },
     {
         "name": "Hutt's Henchmen",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/240.png",
         "type": "Unit",
-        "image": "SHD\\Hutts_Henchmen",
-        "success": true
-    },
-    {
-        "name": "Hutt's Henchmen",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/504.png",
-        "type": "Unit",
-        "image": "SHD\\Hutts_Henchmen",
+        "image": "SHD\\Hutts_Henchmen.png",
         "success": true
     },
     {
         "name": "Hylobon Enforcer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/027.png",
         "type": "Unit",
-        "image": "SHD\\Hylobon_Enforcer",
+        "image": "SHD\\Hylobon_Enforcer.png",
         "success": true
     },
     {
-        "name": "Hylobon Enforcer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/305.png",
-        "type": "Unit",
-        "image": "SHD\\Hylobon_Enforcer",
-        "success": true
-    },
-    {
-        "name": "IG-11",
+        "name": "IG-11 - I Cannot Be Captured",
+        "subtitle": "I Cannot Be Captured",
         "url": "https://cdn.swu-db.com/images/cards/SHD/170.png",
         "type": "Unit",
-        "image": "SHD\\IG-11",
-        "success": true
-    },
-    {
-        "name": "IG-11",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/439.png",
-        "type": "Unit",
-        "image": "SHD\\IG-11",
+        "image": "SHD\\IG-11 - I_Cannot_Be_Captured.png",
         "success": true
     },
     {
         "name": "Imprisoned",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/072.png",
         "type": "Upgrade",
-        "image": "SHD\\Imprisoned",
-        "success": true
-    },
-    {
-        "name": "Imprisoned",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/345.png",
-        "type": "Upgrade",
-        "image": "SHD\\Imprisoned",
+        "image": "SHD\\Imprisoned.png",
         "success": true
     },
     {
         "name": "Incinerator Trooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/234.png",
         "type": "Unit",
-        "image": "SHD\\Incinerator_Trooper",
+        "image": "SHD\\Incinerator_Trooper.png",
         "success": true
     },
     {
         "name": "Inspiring Mentor",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/104.png",
         "type": "Upgrade",
-        "image": "SHD\\Inspiring_Mentor",
+        "image": "SHD\\Inspiring_Mentor.png",
         "success": true
     },
     {
-        "name": "Inspiring Mentor",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/373.png",
-        "type": "Upgrade",
-        "image": "SHD\\Inspiring_Mentor",
-        "success": true
-    },
-    {
-        "name": "Jabba the Hutt",
+        "name": "Jabba the Hutt - His High Exaltdeness",
+        "subtitle": "His High Exaltdeness",
         "url": "https://cdn.swu-db.com/images/cards/SHD/006.png",
         "type": "Leader",
-        "image": "SHD\\Jabba_the_Hutt",
+        "image": "SHD\\Jabba_the_Hutt - His_High_Exaltdeness.png",
         "success": true
     },
     {
-        "name": "Jabba the Hutt",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/268.png",
+        "name": "Jabba the Hutt - His High Exaltdeness [Back]",
+        "subtitle": "His High Exaltdeness",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/006-b.png",
         "type": "Leader",
-        "image": "SHD\\Jabba_the_Hutt",
+        "image": "SHD\\Jabba_the_Hutt - His_High_Exaltdeness_back.png",
         "success": true
     },
     {
-        "name": "Jabba the Hutt",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/286.png",
-        "type": "Leader",
-        "image": "SHD\\Jabba_the_Hutt",
-        "success": true
-    },
-    {
-        "name": "Jabba's Palace",
+        "name": "Jabba's Palace - Tatooine",
+        "subtitle": "Tatooine",
         "url": "https://cdn.swu-db.com/images/cards/SHD/026.png",
         "type": "Base",
-        "image": "SHD\\Jabbas_Palace",
+        "image": "SHD\\Jabbas_Palace - Tatooine.png",
         "success": true
     },
     {
-        "name": "Jabba's Palace",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/304.png",
-        "type": "Base",
-        "image": "SHD\\Jabbas_Palace",
-        "success": true
-    },
-    {
-        "name": "Jabba's Rancor",
+        "name": "Jabba's Rancor - Pateesa",
+        "subtitle": "Pateesa",
         "url": "https://cdn.swu-db.com/images/cards/SHD/091.png",
         "type": "Unit",
-        "image": "SHD\\Jabbas_Rancor",
+        "image": "SHD\\Jabbas_Rancor - Pateesa.png",
         "success": true
     },
     {
-        "name": "Jabba's Rancor",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/360.png",
-        "type": "Unit",
-        "image": "SHD\\Jabbas_Rancor",
-        "success": true
-    },
-    {
-        "name": "Jango Fett",
+        "name": "Jango Fett - Renowned Bounty Hunter",
+        "subtitle": "Renowned Bounty Hunter",
         "url": "https://cdn.swu-db.com/images/cards/SHD/138.png",
         "type": "Unit",
-        "image": "SHD\\Jango_Fett",
-        "success": true
-    },
-    {
-        "name": "Jango Fett",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/407.png",
-        "type": "Unit",
-        "image": "SHD\\Jango_Fett",
+        "image": "SHD\\Jango_Fett - Renowned_Bounty_Hunter.png",
         "success": true
     },
     {
         "name": "Jetpack",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/225.png",
         "type": "Upgrade",
-        "image": "SHD\\Jetpack",
+        "image": "SHD\\Jetpack.png",
         "success": true
     },
     {
-        "name": "Jetpack",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/492.png",
-        "type": "Upgrade",
-        "image": "SHD\\Jetpack",
-        "success": true
-    },
-    {
-        "name": "Ketsu Onyo",
+        "name": "Ketsu Onyo - Old Friend",
+        "subtitle": "Old Friend",
         "url": "https://cdn.swu-db.com/images/cards/SHD/147.png",
         "type": "Unit",
-        "image": "SHD\\Ketsu_Onyo",
-        "success": true
-    },
-    {
-        "name": "Ketsu Onyo",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/416.png",
-        "type": "Unit",
-        "image": "SHD\\Ketsu_Onyo",
+        "image": "SHD\\Ketsu_Onyo - Old_Friend.png",
         "success": true
     },
     {
         "name": "Kihrazx Heavy Fighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/118.png",
         "type": "Unit",
-        "image": "SHD\\Kihrazx_Heavy_Fighter",
-        "success": true
-    },
-    {
-        "name": "Kihrazx Heavy Fighter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/387.png",
-        "type": "Unit",
-        "image": "SHD\\Kihrazx_Heavy_Fighter",
+        "image": "SHD\\Kihrazx_Heavy_Fighter.png",
         "success": true
     },
     {
         "name": "Kintan Intimidator",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/183.png",
         "type": "Unit",
-        "image": "SHD\\Kintan_Intimidator",
+        "image": "SHD\\Kintan_Intimidator.png",
         "success": true
     },
     {
-        "name": "Kintan Intimidator",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/452.png",
-        "type": "Unit",
-        "image": "SHD\\Kintan_Intimidator",
-        "success": true
-    },
-    {
-        "name": "Koska Reeves",
+        "name": "Koska Reeves - Loyal Nite Owl",
+        "subtitle": "Loyal Nite Owl",
         "url": "https://cdn.swu-db.com/images/cards/SHD/150.png",
         "type": "Unit",
-        "image": "SHD\\Koska_Reeves",
+        "image": "SHD\\Koska_Reeves - Loyal_Nite_Owl.png",
         "success": true
     },
     {
-        "name": "Koska Reeves",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/419.png",
-        "type": "Unit",
-        "image": "SHD\\Koska_Reeves",
-        "success": true
-    },
-    {
-        "name": "Kragan Gorr",
+        "name": "Kragan Gorr - Warbird Captain",
+        "subtitle": "Warbird Captain",
         "url": "https://cdn.swu-db.com/images/cards/SHD/241.png",
         "type": "Unit",
-        "image": "SHD\\Kragan_Gorr",
-        "success": true
-    },
-    {
-        "name": "Kragan Gorr",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/505.png",
-        "type": "Unit",
-        "image": "SHD\\Kragan_Gorr",
+        "image": "SHD\\Kragan_Gorr - Warbird_Captain.png",
         "success": true
     },
     {
         "name": "Krayt Dragon",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/172.png",
         "type": "Unit",
-        "image": "SHD\\Krayt_Dragon",
+        "image": "SHD\\Krayt_Dragon.png",
         "success": true
     },
     {
-        "name": "Krayt Dragon",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/441.png",
-        "type": "Unit",
-        "image": "SHD\\Krayt_Dragon",
-        "success": true
-    },
-    {
-        "name": "Krrsantan",
+        "name": "Krrsantan - Muscle for Hire",
+        "subtitle": "Muscle for Hire",
         "url": "https://cdn.swu-db.com/images/cards/SHD/139.png",
         "type": "Unit",
-        "image": "SHD\\Krrsantan",
+        "image": "SHD\\Krrsantan - Muscle_for_Hire.png",
         "success": true
     },
     {
-        "name": "Krrsantan",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/408.png",
-        "type": "Unit",
-        "image": "SHD\\Krrsantan",
-        "success": true
-    },
-    {
-        "name": "Kuiil",
+        "name": "Kuiil - I Have Spoken",
+        "subtitle": "I Have Spoken",
         "url": "https://cdn.swu-db.com/images/cards/SHD/041.png",
         "type": "Unit",
-        "image": "SHD\\Kuiil",
+        "image": "SHD\\Kuiil - I_Have_Spoken.png",
         "success": true
     },
     {
-        "name": "Kuiil",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/317.png",
-        "type": "Unit",
-        "image": "SHD\\Kuiil",
-        "success": true
-    },
-    {
-        "name": "Kylo Ren",
+        "name": "Kylo Ren - Rash and Deadly",
+        "subtitle": "Rash and Deadly",
         "url": "https://cdn.swu-db.com/images/cards/SHD/011.png",
         "type": "Leader",
-        "image": "SHD\\Kylo_Ren",
+        "image": "SHD\\Kylo_Ren - Rash_and_Deadly.png",
         "success": true
     },
     {
-        "name": "Kylo Ren",
+        "name": "Kylo Ren - Rash and Deadly [Back]",
+        "subtitle": "Rash and Deadly",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/011-b.png",
+        "type": "Leader",
+        "image": "SHD\\Kylo_Ren - Rash_and_Deadly_back.png",
+        "success": true
+    },
+    {
+        "name": "Kylo Ren - Killing the Past",
+        "subtitle": "Killing the Past",
         "url": "https://cdn.swu-db.com/images/cards/SHD/141.png",
         "type": "Unit",
-        "image": "SHD\\Kylo_Ren",
+        "image": "SHD\\Kylo_Ren - Killing_the_Past.png",
         "success": true
     },
     {
-        "name": "Kylo Ren",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/273.png",
-        "type": "Leader",
-        "image": "SHD\\Kylo_Ren",
-        "success": true
-    },
-    {
-        "name": "Kylo Ren",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/290.png",
-        "type": "Leader",
-        "image": "SHD\\Kylo_Ren",
-        "success": true
-    },
-    {
-        "name": "Kylo Ren",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/410.png",
-        "type": "Unit",
-        "image": "SHD\\Kylo_Ren",
-        "success": true
-    },
-    {
-        "name": "Kylo's TIE Silencer",
+        "name": "Kylo's TIE Silencer - Ruthlessly Efficient",
+        "subtitle": "Ruthlessly Efficient",
         "url": "https://cdn.swu-db.com/images/cards/SHD/135.png",
         "type": "Unit",
-        "image": "SHD\\Kylos_TIE_Silencer",
+        "image": "SHD\\Kylos_TIE_Silencer - Ruthlessly_Efficient.png",
         "success": true
     },
     {
-        "name": "Kylo's TIE Silencer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/404.png",
-        "type": "Unit",
-        "image": "SHD\\Kylos_TIE_Silencer",
-        "success": true
-    },
-    {
-        "name": "L3-37",
+        "name": "L3-37 - Droid Revolutionary",
+        "subtitle": "Droid Revolutionary",
         "url": "https://cdn.swu-db.com/images/cards/SHD/197.png",
         "type": "Unit",
-        "image": "SHD\\L3-37",
+        "image": "SHD\\L3-37 - Droid_Revolutionary.png",
         "success": true
     },
     {
-        "name": "L3-37",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/465.png",
-        "type": "Unit",
-        "image": "SHD\\L3-37",
-        "success": true
-    },
-    {
-        "name": "Lady Proxima",
+        "name": "Lady Proxima - White Worm Matriarch",
+        "subtitle": "White Worm Matriarch",
         "url": "https://cdn.swu-db.com/images/cards/SHD/255.png",
         "type": "Unit",
-        "image": "SHD\\Lady_Proxima",
+        "image": "SHD\\Lady_Proxima - White_Worm_Matriarch.png",
         "success": true
     },
     {
-        "name": "Lady Proxima",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/516.png",
-        "type": "Unit",
-        "image": "SHD\\Lady_Proxima",
-        "success": true
-    },
-    {
-        "name": "Lando Calrissian",
+        "name": "Lando Calrissian - With Impeccable Taste",
+        "subtitle": "With Impeccable Taste",
         "url": "https://cdn.swu-db.com/images/cards/SHD/017.png",
         "type": "Leader",
-        "image": "SHD\\Lando_Calrissian",
+        "image": "SHD\\Lando_Calrissian - With_Impeccable_Taste.png",
         "success": true
     },
     {
-        "name": "Lando Calrissian",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/279.png",
+        "name": "Lando Calrissian - With Impeccable Taste [Back]",
+        "subtitle": "With Impeccable Taste",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/017-b.png",
         "type": "Leader",
-        "image": "SHD\\Lando_Calrissian",
-        "success": true
-    },
-    {
-        "name": "Lando Calrissian",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/296.png",
-        "type": "Leader",
-        "image": "SHD\\Lando_Calrissian",
+        "image": "SHD\\Lando_Calrissian - With_Impeccable_Taste_back.png",
         "success": true
     },
     {
         "name": "Legal Authority",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/124.png",
         "type": "Upgrade",
-        "image": "SHD\\Legal_Authority",
-        "success": true
-    },
-    {
-        "name": "Legal Authority",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/393.png",
-        "type": "Upgrade",
-        "image": "SHD\\Legal_Authority",
+        "image": "SHD\\Legal_Authority.png",
         "success": true
     },
     {
         "name": "Let the Wookiee Win",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/205.png",
         "type": "Event",
-        "image": "SHD\\Let_the_Wookiee_Win",
-        "success": true
-    },
-    {
-        "name": "Let the Wookiee Win",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/473.png",
-        "type": "Event",
-        "image": "SHD\\Let_the_Wookiee_Win",
+        "image": "SHD\\Let_the_Wookiee_Win.png",
         "success": true
     },
     {
         "name": "Liberated Slaves",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/200.png",
         "type": "Unit",
-        "image": "SHD\\Liberated_Slaves",
+        "image": "SHD\\Liberated_Slaves.png",
         "success": true
     },
     {
-        "name": "Liberated Slaves",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/468.png",
-        "type": "Unit",
-        "image": "SHD\\Liberated_Slaves",
-        "success": true
-    },
-    {
-        "name": "Lom Pyke",
+        "name": "Lom Pyke - Dealer in Truths",
+        "subtitle": "Dealer in Truths",
         "url": "https://cdn.swu-db.com/images/cards/SHD/032.png",
         "type": "Unit",
-        "image": "SHD\\Lom_Pyke",
-        "success": true
-    },
-    {
-        "name": "Lom Pyke",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/309.png",
-        "type": "Unit",
-        "image": "SHD\\Lom_Pyke",
+        "image": "SHD\\Lom_Pyke - Dealer_in_Truths.png",
         "success": true
     },
     {
         "name": "Look the Other Way",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/227.png",
         "type": "Event",
-        "image": "SHD\\Look_the_Other_Way",
-        "success": true
-    },
-    {
-        "name": "Look the Other Way",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/494.png",
-        "type": "Event",
-        "image": "SHD\\Look_the_Other_Way",
+        "image": "SHD\\Look_the_Other_Way.png",
         "success": true
     },
     {
         "name": "Lurking TIE Phantom",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/187.png",
         "type": "Unit",
-        "image": "SHD\\Lurking_TIE_Phantom",
-        "success": true
-    },
-    {
-        "name": "Lurking TIE Phantom",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/456.png",
-        "type": "Unit",
-        "image": "SHD\\Lurking_TIE_Phantom",
+        "image": "SHD\\Lurking_TIE_Phantom.png",
         "success": true
     },
     {
         "name": "Ma Klounkee",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/229.png",
         "type": "Event",
-        "image": "SHD\\Ma_Klounkee",
-        "success": true
-    },
-    {
-        "name": "Ma Klounkee",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/496.png",
-        "type": "Event",
-        "image": "SHD\\Ma_Klounkee",
+        "image": "SHD\\Ma_Klounkee.png",
         "success": true
     },
     {
         "name": "Mandalorian Armor",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/073.png",
         "type": "Upgrade",
-        "image": "SHD\\Mandalorian_Armor",
-        "success": true
-    },
-    {
-        "name": "Mandalorian Armor",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/346.png",
-        "type": "Upgrade",
-        "image": "SHD\\Mandalorian_Armor",
+        "image": "SHD\\Mandalorian_Armor.png",
         "success": true
     },
     {
         "name": "Mandalorian Warrior",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/258.png",
         "type": "Unit",
-        "image": "SHD\\Mandalorian_Warrior",
+        "image": "SHD\\Mandalorian_Warrior.png",
         "success": true
     },
     {
-        "name": "Mandalorian Warrior",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/519.png",
-        "type": "Unit",
-        "image": "SHD\\Mandalorian_Warrior",
-        "success": true
-    },
-    {
-        "name": "Maul",
+        "name": "Maul - Shadow Collective Visionary",
+        "subtitle": "Shadow Collective Visionary",
         "url": "https://cdn.swu-db.com/images/cards/SHD/090.png",
         "type": "Unit",
-        "image": "SHD\\Maul",
+        "image": "SHD\\Maul - Shadow_Collective_Visionary.png",
         "success": true
     },
     {
-        "name": "Maul",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/359.png",
-        "type": "Unit",
-        "image": "SHD\\Maul",
-        "success": true
-    },
-    {
-        "name": "Maz Kanata",
+        "name": "Maz Kanata - Pirate Queen",
+        "subtitle": "Pirate Queen",
         "url": "https://cdn.swu-db.com/images/cards/SHD/096.png",
         "type": "Unit",
-        "image": "SHD\\Maz_Kanata",
+        "image": "SHD\\Maz_Kanata - Pirate_Queen.png",
         "success": true
     },
     {
-        "name": "Maz Kanata",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/365.png",
-        "type": "Unit",
-        "image": "SHD\\Maz_Kanata",
-        "success": true
-    },
-    {
-        "name": "Maz Kanata's Castle",
+        "name": "Maz Kanata's Castle - Takodana",
+        "subtitle": "Takodana",
         "url": "https://cdn.swu-db.com/images/cards/SHD/021.png",
         "type": "Base",
-        "image": "SHD\\Maz_Kanatas_Castle",
-        "success": true
-    },
-    {
-        "name": "Maz Kanata's Castle",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/299.png",
-        "type": "Base",
-        "image": "SHD\\Maz_Kanatas_Castle",
+        "image": "SHD\\Maz_Kanatas_Castle - Takodana.png",
         "success": true
     },
     {
         "name": "Mercenary Company",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/121.png",
         "type": "Unit",
-        "image": "SHD\\Mercenary_Company",
-        "success": true
-    },
-    {
-        "name": "Mercenary Company",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/390.png",
-        "type": "Unit",
-        "image": "SHD\\Mercenary_Company",
+        "image": "SHD\\Mercenary_Company.png",
         "success": true
     },
     {
         "name": "Mercenary Gunship",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/256.png",
         "type": "Unit",
-        "image": "SHD\\Mercenary_Gunship",
-        "success": true
-    },
-    {
-        "name": "Mercenary Gunship",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/517.png",
-        "type": "Unit",
-        "image": "SHD\\Mercenary_Gunship",
+        "image": "SHD\\Mercenary_Gunship.png",
         "success": true
     },
     {
         "name": "Midnight Repairs",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/054.png",
         "type": "Event",
-        "image": "SHD\\Midnight_Repairs",
+        "image": "SHD\\Midnight_Repairs.png",
         "success": true
     },
     {
-        "name": "Midnight Repairs",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/329.png",
-        "type": "Event",
-        "image": "SHD\\Midnight_Repairs",
-        "success": true
-    },
-    {
-        "name": "Migs Mayfeld",
+        "name": "Migs Mayfeld - Triggerman",
+        "subtitle": "Triggerman",
         "url": "https://cdn.swu-db.com/images/cards/SHD/163.png",
         "type": "Unit",
-        "image": "SHD\\Migs_Mayfeld",
+        "image": "SHD\\Migs_Mayfeld - Triggerman.png",
         "success": true
     },
     {
-        "name": "Migs Mayfeld",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/432.png",
-        "type": "Unit",
-        "image": "SHD\\Migs_Mayfeld",
-        "success": true
-    },
-    {
-        "name": "Millennium Falcon",
+        "name": "Millennium Falcon - Lando's Pride",
+        "subtitle": "Lando's Pride",
         "url": "https://cdn.swu-db.com/images/cards/SHD/204.png",
         "type": "Unit",
-        "image": "SHD\\Millennium_Falcon",
-        "success": true
-    },
-    {
-        "name": "Millennium Falcon",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/472.png",
-        "type": "Unit",
-        "image": "SHD\\Millennium_Falcon",
+        "image": "SHD\\Millennium_Falcon - Landos_Pride.png",
         "success": true
     },
     {
         "name": "Modded Cohort",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/100.png",
         "type": "Unit",
-        "image": "SHD\\Modded_Cohort",
+        "image": "SHD\\Modded_Cohort.png",
         "success": true
     },
     {
-        "name": "Modded Cohort",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/369.png",
-        "type": "Unit",
-        "image": "SHD\\Modded_Cohort",
-        "success": true
-    },
-    {
-        "name": "Moff Gideon",
+        "name": "Moff Gideon - Formidable Commander",
+        "subtitle": "Formidable Commander",
         "url": "https://cdn.swu-db.com/images/cards/SHD/007.png",
         "type": "Leader",
-        "image": "SHD\\Moff_Gideon",
+        "image": "SHD\\Moff_Gideon - Formidable_Commander.png",
         "success": true
     },
     {
-        "name": "Moff Gideon",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/269.png",
+        "name": "Moff Gideon - Formidable Commander [Back]",
+        "subtitle": "Formidable Commander",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/007-b.png",
         "type": "Leader",
-        "image": "SHD\\Moff_Gideon",
+        "image": "SHD\\Moff_Gideon - Formidable_Commander_back.png",
         "success": true
     },
     {
         "name": "Moisture Farmer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/055.png",
         "type": "Unit",
-        "image": "SHD\\Moisture_Farmer",
-        "success": true
-    },
-    {
-        "name": "Moisture Farmer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/330.png",
-        "type": "Unit",
-        "image": "SHD\\Moisture_Farmer",
+        "image": "SHD\\Moisture_Farmer.png",
         "success": true
     },
     {
         "name": "Moment of Glory",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/130.png",
         "type": "Event",
-        "image": "SHD\\Moment_of_Glory",
-        "success": true
-    },
-    {
-        "name": "Moment of Glory",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/399.png",
-        "type": "Event",
-        "image": "SHD\\Moment_of_Glory",
+        "image": "SHD\\Moment_of_Glory.png",
         "success": true
     },
     {
         "name": "Mystic Reflection",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/051.png",
         "type": "Event",
-        "image": "SHD\\Mystic_Reflection",
+        "image": "SHD\\Mystic_Reflection.png",
         "success": true
     },
     {
-        "name": "Mystic Reflection",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/326.png",
-        "type": "Event",
-        "image": "SHD\\Mystic_Reflection",
-        "success": true
-    },
-    {
-        "name": "Nevarro City",
+        "name": "Nevarro City - Nevarro",
+        "subtitle": "Nevarro",
         "url": "https://cdn.swu-db.com/images/cards/SHD/022.png",
         "type": "Base",
-        "image": "SHD\\Nevarro_City",
-        "success": true
-    },
-    {
-        "name": "Nevarro City",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/300.png",
-        "type": "Base",
-        "image": "SHD\\Nevarro_City",
+        "image": "SHD\\Nevarro_City - Nevarro.png",
         "success": true
     },
     {
         "name": "Niima Outpost Constables",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/062.png",
         "type": "Unit",
-        "image": "SHD\\Niima_Outpost_Constables",
-        "success": true
-    },
-    {
-        "name": "Niima Outpost Constables",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/337.png",
-        "type": "Unit",
-        "image": "SHD\\Niima_Outpost_Constables",
+        "image": "SHD\\Niima_Outpost_Constables.png",
         "success": true
     },
     {
         "name": "Nite Owl Skirmisher",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/149.png",
         "type": "Unit",
-        "image": "SHD\\Nite_Owl_Skirmisher",
-        "success": true
-    },
-    {
-        "name": "Nite Owl Skirmisher",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/418.png",
-        "type": "Unit",
-        "image": "SHD\\Nite_Owl_Skirmisher",
+        "image": "SHD\\Nite_Owl_Skirmisher.png",
         "success": true
     },
     {
         "name": "No Bargain",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/244.png",
         "type": "Event",
-        "image": "SHD\\No_Bargain",
+        "image": "SHD\\No_Bargain.png",
         "success": true
     },
     {
-        "name": "No Bargain",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/507.png",
-        "type": "Event",
-        "image": "SHD\\No_Bargain",
-        "success": true
-    },
-    {
-        "name": "Omega",
+        "name": "Omega - Part of the Squad",
+        "subtitle": "Part of the Squad",
         "url": "https://cdn.swu-db.com/images/cards/SHD/198.png",
         "type": "Unit",
-        "image": "SHD\\Omega",
-        "success": true
-    },
-    {
-        "name": "Omega",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/466.png",
-        "type": "Unit",
-        "image": "SHD\\Omega",
+        "image": "SHD\\Omega - Part_of_the_Squad.png",
         "success": true
     },
     {
         "name": "Outflank",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/128.png",
         "type": "Event",
-        "image": "SHD\\Outflank",
-        "success": true
-    },
-    {
-        "name": "Outflank",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/397.png",
-        "type": "Event",
-        "image": "SHD\\Outflank",
+        "image": "SHD\\Outflank.png",
         "success": true
     },
     {
         "name": "Outland TIE Vanguard",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/082.png",
         "type": "Unit",
-        "image": "SHD\\Outland_TIE_Vanguard",
-        "success": true
-    },
-    {
-        "name": "Outland TIE Vanguard",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/354.png",
-        "type": "Unit",
-        "image": "SHD\\Outland_TIE_Vanguard",
+        "image": "SHD\\Outland_TIE_Vanguard.png",
         "success": true
     },
     {
         "name": "Outlaw Corona",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/116.png",
         "type": "Unit",
-        "image": "SHD\\Outlaw_Corona",
-        "success": true
-    },
-    {
-        "name": "Outlaw Corona",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/385.png",
-        "type": "Unit",
-        "image": "SHD\\Outlaw_Corona",
+        "image": "SHD\\Outlaw_Corona.png",
         "success": true
     },
     {
         "name": "Palpatine's Return",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/094.png",
         "type": "Event",
-        "image": "SHD\\Palpatines_Return",
-        "success": true
-    },
-    {
-        "name": "Palpatine's Return",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/363.png",
-        "type": "Event",
-        "image": "SHD\\Palpatines_Return",
+        "image": "SHD\\Palpatines_Return.png",
         "success": true
     },
     {
         "name": "Phase-III Dark Trooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/084.png",
         "type": "Unit",
-        "image": "SHD\\Phase-III_Dark_Trooper",
+        "image": "SHD\\Phase-III_Dark_Trooper.png",
         "success": true
     },
     {
         "name": "Pillage",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/181.png",
         "type": "Event",
-        "image": "SHD\\Pillage",
-        "success": true
-    },
-    {
-        "name": "Pillage",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/450.png",
-        "type": "Event",
-        "image": "SHD\\Pillage",
+        "image": "SHD\\Pillage.png",
         "success": true
     },
     {
         "name": "Pirate Battle Tank",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/089.png",
         "type": "Unit",
-        "image": "SHD\\Pirate_Battle_Tank",
+        "image": "SHD\\Pirate_Battle_Tank.png",
         "success": true
     },
     {
-        "name": "Pirate Battle Tank",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/358.png",
-        "type": "Unit",
-        "image": "SHD\\Pirate_Battle_Tank",
-        "success": true
-    },
-    {
-        "name": "Poe Dameron",
+        "name": "Poe Dameron - Quick to Improvise",
+        "subtitle": "Quick to Improvise",
         "url": "https://cdn.swu-db.com/images/cards/SHD/153.png",
         "type": "Unit",
-        "image": "SHD\\Poe_Dameron",
+        "image": "SHD\\Poe_Dameron - Quick_to_Improvise.png",
         "success": true
     },
     {
-        "name": "Poe Dameron",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/422.png",
-        "type": "Unit",
-        "image": "SHD\\Poe_Dameron",
-        "success": true
-    },
-    {
-        "name": "Pre Vizsla",
+        "name": "Pre Vizsla - Power Hungry",
+        "subtitle": "Power Hungry",
         "url": "https://cdn.swu-db.com/images/cards/SHD/142.png",
         "type": "Unit",
-        "image": "SHD\\Pre_Vizsla",
-        "success": true
-    },
-    {
-        "name": "Pre Vizsla",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/411.png",
-        "type": "Unit",
-        "image": "SHD\\Pre_Vizsla",
+        "image": "SHD\\Pre_Vizsla - Power_Hungry.png",
         "success": true
     },
     {
         "name": "Price on Your Head",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/125.png",
         "type": "Upgrade",
-        "image": "SHD\\Price_on_Your_Head",
-        "success": true
-    },
-    {
-        "name": "Price on Your Head",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/394.png",
-        "type": "Upgrade",
-        "image": "SHD\\Price_on_Your_Head",
+        "image": "SHD\\Price_on_Your_Head.png",
         "success": true
     },
     {
         "name": "Principled Outlaw",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/201.png",
         "type": "Unit",
-        "image": "SHD\\Principled_Outlaw",
-        "success": true
-    },
-    {
-        "name": "Principled Outlaw",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/469.png",
-        "type": "Unit",
-        "image": "SHD\\Principled_Outlaw",
+        "image": "SHD\\Principled_Outlaw.png",
         "success": true
     },
     {
         "name": "Privateer Crew",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/113.png",
         "type": "Unit",
-        "image": "SHD\\Privateer_Crew",
-        "success": true
-    },
-    {
-        "name": "Privateer Crew",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/382.png",
-        "type": "Unit",
-        "image": "SHD\\Privateer_Crew",
+        "image": "SHD\\Privateer_Crew.png",
         "success": true
     },
     {
         "name": "Privateer Scyk",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/212.png",
         "type": "Unit",
-        "image": "SHD\\Privateer_Scyk",
-        "success": true
-    },
-    {
-        "name": "Privateer Scyk",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/480.png",
-        "type": "Unit",
-        "image": "SHD\\Privateer_Scyk",
+        "image": "SHD\\Privateer_Scyk.png",
         "success": true
     },
     {
         "name": "Protector of the Throne",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/247.png",
         "type": "Unit",
-        "image": "SHD\\Protector_of_the_Throne",
-        "success": true
-    },
-    {
-        "name": "Protector of the Throne",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/509.png",
-        "type": "Unit",
-        "image": "SHD\\Protector_of_the_Throne",
+        "image": "SHD\\Protector_of_the_Throne.png",
         "success": true
     },
     {
         "name": "Public Enemy",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/068.png",
         "type": "Upgrade",
-        "image": "SHD\\Public_Enemy",
+        "image": "SHD\\Public_Enemy.png",
         "success": true
     },
     {
-        "name": "Public Enemy",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/342.png",
-        "type": "Upgrade",
-        "image": "SHD\\Public_Enemy",
-        "success": true
-    },
-    {
-        "name": "Punishing One",
+        "name": "Punishing One - Dengar's Jumpmaster",
+        "subtitle": "Dengar's Jumpmaster",
         "url": "https://cdn.swu-db.com/images/cards/SHD/137.png",
         "type": "Unit",
-        "image": "SHD\\Punishing_One",
-        "success": true
-    },
-    {
-        "name": "Punishing One",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/406.png",
-        "type": "Unit",
-        "image": "SHD\\Punishing_One",
+        "image": "SHD\\Punishing_One - Dengars_Jumpmaster.png",
         "success": true
     },
     {
         "name": "Pyke Sentinel",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/029.png",
         "type": "Unit",
-        "image": "SHD\\Pyke_Sentinel",
+        "image": "SHD\\Pyke_Sentinel.png",
         "success": true
     },
     {
-        "name": "Pyke Sentinel",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/307.png",
-        "type": "Unit",
-        "image": "SHD\\Pyke_Sentinel",
-        "success": true
-    },
-    {
-        "name": "Qi'ra",
+        "name": "Qi'ra - I Alone Survived",
+        "subtitle": "I Alone Survived",
         "url": "https://cdn.swu-db.com/images/cards/SHD/002.png",
         "type": "Leader",
-        "image": "SHD\\Qira",
+        "image": "SHD\\Qira - I_Alone_Survived.png",
         "success": true
     },
     {
-        "name": "Qi'ra",
+        "name": "Qi'ra - I Alone Survived [Back]",
+        "subtitle": "I Alone Survived",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/002-b.png",
+        "type": "Leader",
+        "image": "SHD\\Qira - I_Alone_Survived_back.png",
+        "success": true
+    },
+    {
+        "name": "Qi'ra - Playing Her Part",
+        "subtitle": "Playing Her Part",
         "url": "https://cdn.swu-db.com/images/cards/SHD/202.png",
         "type": "Unit",
-        "image": "SHD\\Qira",
+        "image": "SHD\\Qira - Playing_Her_Part.png",
         "success": true
     },
     {
-        "name": "Qi'ra",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/264.png",
-        "type": "Leader",
-        "image": "SHD\\Qira",
-        "success": true
-    },
-    {
-        "name": "Qi'ra",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/282.png",
-        "type": "Leader",
-        "image": "SHD\\Qira",
-        "success": true
-    },
-    {
-        "name": "Qi'ra",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/470.png",
-        "type": "Unit",
-        "image": "SHD\\Qira",
-        "success": true
-    },
-    {
-        "name": "Razor Crest",
+        "name": "Razor Crest - Reliable Gunship",
+        "subtitle": "Reliable Gunship",
         "url": "https://cdn.swu-db.com/images/cards/SHD/044.png",
         "type": "Unit",
-        "image": "SHD\\Razor_Crest",
+        "image": "SHD\\Razor_Crest - Reliable_Gunship.png",
         "success": true
     },
     {
         "name": "Reckless Gunslinger",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/160.png",
         "type": "Unit",
-        "image": "SHD\\Reckless_Gunslinger",
-        "success": true
-    },
-    {
-        "name": "Reckless Gunslinger",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/429.png",
-        "type": "Unit",
-        "image": "SHD\\Reckless_Gunslinger",
+        "image": "SHD\\Reckless_Gunslinger.png",
         "success": true
     },
     {
         "name": "Relentless Pursuit",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/232.png",
         "type": "Event",
-        "image": "SHD\\Relentless_Pursuit",
-        "success": true
-    },
-    {
-        "name": "Relentless Pursuit",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/499.png",
-        "type": "Event",
-        "image": "SHD\\Relentless_Pursuit",
+        "image": "SHD\\Relentless_Pursuit.png",
         "success": true
     },
     {
         "name": "Remnant Reserves",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/093.png",
         "type": "Event",
-        "image": "SHD\\Remnant_Reserves",
+        "image": "SHD\\Remnant_Reserves.png",
         "success": true
     },
     {
-        "name": "Remnant Reserves",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/362.png",
-        "type": "Event",
-        "image": "SHD\\Remnant_Reserves",
-        "success": true
-    },
-    {
-        "name": "Remnant Science Facility",
+        "name": "Remnant Science Facility - Nevarro",
+        "subtitle": "Nevarro",
         "url": "https://cdn.swu-db.com/images/cards/SHD/019.png",
         "type": "Base",
-        "image": "SHD\\Remnant_Science_Facility",
+        "image": "SHD\\Remnant_Science_Facility - Nevarro.png",
         "success": true
     },
     {
-        "name": "Remnant Science Facility",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/297.png",
-        "type": "Base",
-        "image": "SHD\\Remnant_Science_Facility",
-        "success": true
-    },
-    {
-        "name": "Remote Village",
+        "name": "Remote Village - Sorgan",
+        "subtitle": "Sorgan",
         "url": "https://cdn.swu-db.com/images/cards/SHD/020.png",
         "type": "Base",
-        "image": "SHD\\Remote_Village",
-        "success": true
-    },
-    {
-        "name": "Remote Village",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/298.png",
-        "type": "Base",
-        "image": "SHD\\Remote_Village",
+        "image": "SHD\\Remote_Village - Sorgan.png",
         "success": true
     },
     {
         "name": "Reputable Hunter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/117.png",
         "type": "Unit",
-        "image": "SHD\\Reputable_Hunter",
-        "success": true
-    },
-    {
-        "name": "Reputable Hunter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/386.png",
-        "type": "Unit",
-        "image": "SHD\\Reputable_Hunter",
+        "image": "SHD\\Reputable_Hunter.png",
         "success": true
     },
     {
         "name": "Resilient",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/070.png",
         "type": "Upgrade",
-        "image": "SHD\\Resilient",
+        "image": "SHD\\Resilient.png",
         "success": true
     },
     {
         "name": "Resourceful Pursuers",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/218.png",
         "type": "Unit",
-        "image": "SHD\\Resourceful_Pursuers",
+        "image": "SHD\\Resourceful_Pursuers.png",
         "success": true
     },
     {
-        "name": "Resourceful Pursuers",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/486.png",
-        "type": "Unit",
-        "image": "SHD\\Resourceful_Pursuers",
-        "success": true
-    },
-    {
-        "name": "Rey",
+        "name": "Rey - More Than a Scavenger",
+        "subtitle": "More Than a Scavenger",
         "url": "https://cdn.swu-db.com/images/cards/SHD/004.png",
         "type": "Leader",
-        "image": "SHD\\Rey",
+        "image": "SHD\\Rey - More_Than_a_Scavenger.png",
         "success": true
     },
     {
-        "name": "Rey",
+        "name": "Rey - More Than a Scavenger [Back]",
+        "subtitle": "More Than a Scavenger",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/004-b.png",
+        "type": "Leader",
+        "image": "SHD\\Rey - More_Than_a_Scavenger_back.png",
+        "success": true
+    },
+    {
+        "name": "Rey - Keeping the Past",
+        "subtitle": "Keeping the Past",
         "url": "https://cdn.swu-db.com/images/cards/SHD/046.png",
         "type": "Unit",
-        "image": "SHD\\Rey",
-        "success": true
-    },
-    {
-        "name": "Rey",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/266.png",
-        "type": "Leader",
-        "image": "SHD\\Rey",
-        "success": true
-    },
-    {
-        "name": "Rey",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/284.png",
-        "type": "Leader",
-        "image": "SHD\\Rey",
-        "success": true
-    },
-    {
-        "name": "Rey",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/321.png",
-        "type": "Unit",
-        "image": "SHD\\Rey",
+        "image": "SHD\\Rey - Keeping_the_Past.png",
         "success": true
     },
     {
         "name": "Rhokai Gunship",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/164.png",
         "type": "Unit",
-        "image": "SHD\\Rhokai_Gunship",
-        "success": true
-    },
-    {
-        "name": "Rhokai Gunship",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/433.png",
-        "type": "Unit",
-        "image": "SHD\\Rhokai_Gunship",
+        "image": "SHD\\Rhokai_Gunship.png",
         "success": true
     },
     {
         "name": "Rich Reward",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/261.png",
         "type": "Upgrade",
-        "image": "SHD\\Rich_Reward",
-        "success": true
-    },
-    {
-        "name": "Rich Reward",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/522.png",
-        "type": "Upgrade",
-        "image": "SHD\\Rich_Reward",
+        "image": "SHD\\Rich_Reward.png",
         "success": true
     },
     {
         "name": "Rickety Quadjumper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/057.png",
         "type": "Unit",
-        "image": "SHD\\Rickety_Quadjumper",
-        "success": true
-    },
-    {
-        "name": "Rickety Quadjumper",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/332.png",
-        "type": "Unit",
-        "image": "SHD\\Rickety_Quadjumper",
+        "image": "SHD\\Rickety_Quadjumper.png",
         "success": true
     },
     {
         "name": "Rival's Fall",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/079.png",
         "type": "Event",
-        "image": "SHD\\Rivals_Fall",
+        "image": "SHD\\Rivals_Fall.png",
         "success": true
     },
     {
-        "name": "Rival's Fall",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/352.png",
-        "type": "Event",
-        "image": "SHD\\Rivals_Fall",
-        "success": true
-    },
-    {
-        "name": "Rose Tico",
+        "name": "Rose Tico - Dedicated to the Cause",
+        "subtitle": "Dedicated to the Cause",
         "url": "https://cdn.swu-db.com/images/cards/SHD/045.png",
         "type": "Unit",
-        "image": "SHD\\Rose_Tico",
-        "success": true
-    },
-    {
-        "name": "Rose Tico",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/320.png",
-        "type": "Unit",
-        "image": "SHD\\Rose_Tico",
+        "image": "SHD\\Rose_Tico - Dedicated_to_the_Cause.png",
         "success": true
     },
     {
         "name": "Rule with Respect",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/106.png",
         "type": "Event",
-        "image": "SHD\\Rule_with_Respect",
-        "success": true
-    },
-    {
-        "name": "Rule with Respect",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/375.png",
-        "type": "Event",
-        "image": "SHD\\Rule_with_Respect",
+        "image": "SHD\\Rule_with_Respect.png",
         "success": true
     },
     {
         "name": "Ruthless Assassin",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/235.png",
         "type": "Unit",
-        "image": "SHD\\Ruthless_Assassin",
-        "success": true
-    },
-    {
-        "name": "Ruthless Assassin",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/501.png",
-        "type": "Unit",
-        "image": "SHD\\Ruthless_Assassin",
+        "image": "SHD\\Ruthless_Assassin.png",
         "success": true
     },
     {
         "name": "Ruthlessness",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/143.png",
         "type": "Upgrade",
-        "image": "SHD\\Ruthlessness",
+        "image": "SHD\\Ruthlessness.png",
         "success": true
     },
     {
-        "name": "Ruthlessness",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/412.png",
-        "type": "Upgrade",
-        "image": "SHD\\Ruthlessness",
-        "success": true
-    },
-    {
-        "name": "Salacious Crumb",
+        "name": "Salacious Crumb - Obnoxious Pet",
+        "subtitle": "Obnoxious Pet",
         "url": "https://cdn.swu-db.com/images/cards/SHD/080.png",
         "type": "Unit",
-        "image": "SHD\\Salacious_Crumb",
-        "success": true
-    },
-    {
-        "name": "Salacious Crumb",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/353.png",
-        "type": "Unit",
-        "image": "SHD\\Salacious_Crumb",
+        "image": "SHD\\Salacious_Crumb - Obnoxious_Pet.png",
         "success": true
     },
     {
         "name": "Scanning Officer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/114.png",
         "type": "Unit",
-        "image": "SHD\\Scanning_Officer",
-        "success": true
-    },
-    {
-        "name": "Scanning Officer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/383.png",
-        "type": "Unit",
-        "image": "SHD\\Scanning_Officer",
+        "image": "SHD\\Scanning_Officer.png",
         "success": true
     },
     {
         "name": "Seasoned Shoretrooper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/083.png",
         "type": "Unit",
-        "image": "SHD\\Seasoned_Shoretrooper",
+        "image": "SHD\\Seasoned_Shoretrooper.png",
         "success": true
     },
     {
         "name": "Second Chance",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/053.png",
         "type": "Upgrade",
-        "image": "SHD\\Second_Chance",
-        "success": true
-    },
-    {
-        "name": "Second Chance",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/328.png",
-        "type": "Upgrade",
-        "image": "SHD\\Second_Chance",
+        "image": "SHD\\Second_Chance.png",
         "success": true
     },
     {
         "name": "Slaver's Freighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/189.png",
         "type": "Unit",
-        "image": "SHD\\Slavers_Freighter",
-        "success": true
-    },
-    {
-        "name": "Slaver's Freighter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/458.png",
-        "type": "Unit",
-        "image": "SHD\\Slavers_Freighter",
+        "image": "SHD\\Slavers_Freighter.png",
         "success": true
     },
     {
         "name": "Smuggler's Aid",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/252.png",
         "type": "Event",
-        "image": "SHD\\Smugglers_Aid",
-        "success": true
-    },
-    {
-        "name": "Smuggler's Aid",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/513.png",
-        "type": "Event",
-        "image": "SHD\\Smugglers_Aid",
+        "image": "SHD\\Smugglers_Aid.png",
         "success": true
     },
     {
         "name": "Smuggler's Starfighter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/215.png",
         "type": "Unit",
-        "image": "SHD\\Smugglers_Starfighter",
-        "success": true
-    },
-    {
-        "name": "Smuggler's Starfighter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/483.png",
-        "type": "Unit",
-        "image": "SHD\\Smugglers_Starfighter",
+        "image": "SHD\\Smugglers_Starfighter.png",
         "success": true
     },
     {
         "name": "Snapshot Reflexes",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/223.png",
         "type": "Upgrade",
-        "image": "SHD\\Snapshot_Reflexes",
+        "image": "SHD\\Snapshot_Reflexes.png",
         "success": true
     },
     {
         "name": "Snowtrooper Lieutenant",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/236.png",
         "type": "Unit",
-        "image": "SHD\\Snowtrooper_Lieutenant",
+        "image": "SHD\\Snowtrooper_Lieutenant.png",
         "success": true
     },
     {
         "name": "Spare the Target",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/206.png",
         "type": "Event",
-        "image": "SHD\\Spare_the_Target",
-        "success": true
-    },
-    {
-        "name": "Spare the Target",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/474.png",
-        "type": "Event",
-        "image": "SHD\\Spare_the_Target",
+        "image": "SHD\\Spare_the_Target.png",
         "success": true
     },
     {
         "name": "Spark of Hope",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/105.png",
         "type": "Event",
-        "image": "SHD\\Spark_of_Hope",
+        "image": "SHD\\Spark_of_Hope.png",
         "success": true
     },
     {
-        "name": "Spark of Hope",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/374.png",
-        "type": "Event",
-        "image": "SHD\\Spark_of_Hope",
-        "success": true
-    },
-    {
-        "name": "Spice Mines",
+        "name": "Spice Mines - Kessel",
+        "subtitle": "Kessel",
         "url": "https://cdn.swu-db.com/images/cards/SHD/024.png",
         "type": "Base",
-        "image": "SHD\\Spice_Mines",
-        "success": true
-    },
-    {
-        "name": "Spice Mines",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/302.png",
-        "type": "Base",
-        "image": "SHD\\Spice_Mines",
+        "image": "SHD\\Spice_Mines - Kessel.png",
         "success": true
     },
     {
         "name": "Stolen Landspeeder",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/161.png",
         "type": "Unit",
-        "image": "SHD\\Stolen_Landspeeder",
-        "success": true
-    },
-    {
-        "name": "Stolen Landspeeder",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/430.png",
-        "type": "Unit",
-        "image": "SHD\\Stolen_Landspeeder",
+        "image": "SHD\\Stolen_Landspeeder.png",
         "success": true
     },
     {
         "name": "Street Gang Recruiter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/260.png",
         "type": "Unit",
-        "image": "SHD\\Street_Gang_Recruiter",
+        "image": "SHD\\Street_Gang_Recruiter.png",
         "success": true
     },
     {
-        "name": "Street Gang Recruiter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/521.png",
-        "type": "Unit",
-        "image": "SHD\\Street_Gang_Recruiter",
-        "success": true
-    },
-    {
-        "name": "Sugi",
+        "name": "Sugi - Hired Guardian",
+        "subtitle": "Hired Guardian",
         "url": "https://cdn.swu-db.com/images/cards/SHD/052.png",
         "type": "Unit",
-        "image": "SHD\\Sugi",
-        "success": true
-    },
-    {
-        "name": "Sugi",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/327.png",
-        "type": "Unit",
-        "image": "SHD\\Sugi",
+        "image": "SHD\\Sugi - Hired_Guardian.png",
         "success": true
     },
     {
         "name": "Sundari Peacekeeper",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/098.png",
         "type": "Unit",
-        "image": "SHD\\Sundari_Peacekeeper",
-        "success": true
-    },
-    {
-        "name": "Sundari Peacekeeper",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/367.png",
-        "type": "Unit",
-        "image": "SHD\\Sundari_Peacekeeper",
+        "image": "SHD\\Sundari_Peacekeeper.png",
         "success": true
     },
     {
         "name": "Supercommando Squad",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/034.png",
         "type": "Unit",
-        "image": "SHD\\Supercommando_Squad",
-        "success": true
-    },
-    {
-        "name": "Supercommando Squad",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/311.png",
-        "type": "Unit",
-        "image": "SHD\\Supercommando_Squad",
+        "image": "SHD\\Supercommando_Squad.png",
         "success": true
     },
     {
         "name": "Superlaser Technician",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/085.png",
         "type": "Unit",
-        "image": "SHD\\Superlaser_Technician",
+        "image": "SHD\\Superlaser_Technician.png",
         "success": true
     },
     {
-        "name": "Supreme Leader Snoke",
+        "name": "Supreme Leader Snoke - Shadow Ruler",
+        "subtitle": "Shadow Ruler",
         "url": "https://cdn.swu-db.com/images/cards/SHD/037.png",
         "type": "Unit",
-        "image": "SHD\\Supreme_Leader_Snoke",
-        "success": true
-    },
-    {
-        "name": "Supreme Leader Snoke",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/314.png",
-        "type": "Unit",
-        "image": "SHD\\Supreme_Leader_Snoke",
+        "image": "SHD\\Supreme_Leader_Snoke - Shadow_Ruler.png",
         "success": true
     },
     {
         "name": "Surprise Strike",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/231.png",
         "type": "Event",
-        "image": "SHD\\Surprise_Strike",
-        "success": true
-    },
-    {
-        "name": "Surprise Strike",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/498.png",
-        "type": "Event",
-        "image": "SHD\\Surprise_Strike",
+        "image": "SHD\\Surprise_Strike.png",
         "success": true
     },
     {
         "name": "Survivors' Gauntlet",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/064.png",
         "type": "Unit",
-        "image": "SHD\\Survivors_Gauntlet",
-        "success": true
-    },
-    {
-        "name": "Survivors' Gauntlet",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/338.png",
-        "type": "Unit",
-        "image": "SHD\\Survivors_Gauntlet",
+        "image": "SHD\\Survivors_Gauntlet.png",
         "success": true
     },
     {
         "name": "Swoop Down",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/230.png",
         "type": "Event",
-        "image": "SHD\\Swoop_Down",
+        "image": "SHD\\Swoop_Down.png",
         "success": true
     },
     {
-        "name": "Swoop Down",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/497.png",
-        "type": "Event",
-        "image": "SHD\\Swoop_Down",
-        "success": true
-    },
-    {
-        "name": "Synara San",
+        "name": "Synara San - Loyal to Kragan",
+        "subtitle": "Loyal to Kragan",
         "url": "https://cdn.swu-db.com/images/cards/SHD/033.png",
         "type": "Unit",
-        "image": "SHD\\Synara_San",
-        "success": true
-    },
-    {
-        "name": "Synara San",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/310.png",
-        "type": "Unit",
-        "image": "SHD\\Synara_San",
+        "image": "SHD\\Synara_San - Loyal_to_Kragan.png",
         "success": true
     },
     {
         "name": "System Patrol Craft",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/063.png",
         "type": "Unit",
-        "image": "SHD\\System_Patrol_Craft",
+        "image": "SHD\\System_Patrol_Craft.png",
         "success": true
     },
     {
         "name": "Take Captive",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/131.png",
         "type": "Event",
-        "image": "SHD\\Take_Captive",
+        "image": "SHD\\Take_Captive.png",
         "success": true
     },
     {
-        "name": "Take Captive",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/400.png",
-        "type": "Event",
-        "image": "SHD\\Take_Captive",
-        "success": true
-    },
-    {
-        "name": "Tarfful",
+        "name": "Tarfful - Kashyyyk Chieftan",
+        "subtitle": "Kashyyyk Chieftan",
         "url": "https://cdn.swu-db.com/images/cards/SHD/250.png",
         "type": "Unit",
-        "image": "SHD\\Tarfful",
+        "image": "SHD\\Tarfful - Kashyyyk_Chieftan.png",
         "success": true
     },
     {
-        "name": "Tarfful",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/512.png",
-        "type": "Unit",
-        "image": "SHD\\Tarfful",
-        "success": true
-    },
-    {
-        "name": "Tech",
+        "name": "Tech - Source of Insight",
+        "subtitle": "Source of Insight",
         "url": "https://cdn.swu-db.com/images/cards/SHD/248.png",
         "type": "Unit",
-        "image": "SHD\\Tech",
+        "image": "SHD\\Tech - Source_of_Insight.png",
         "success": true
     },
     {
-        "name": "Tech",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/510.png",
-        "type": "Unit",
-        "image": "SHD\\Tech",
-        "success": true
-    },
-    {
-        "name": "The Armorer",
+        "name": "The Armorer - Survival Is Strength",
+        "subtitle": "Survival Is Strength",
         "url": "https://cdn.swu-db.com/images/cards/SHD/047.png",
         "type": "Unit",
-        "image": "SHD\\The_Armorer",
-        "success": true
-    },
-    {
-        "name": "The Armorer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/322.png",
-        "type": "Unit",
-        "image": "SHD\\The_Armorer",
+        "image": "SHD\\The_Armorer - Survival_Is_Strength.png",
         "success": true
     },
     {
         "name": "The Chaos of War",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/159.png",
         "type": "Event",
-        "image": "SHD\\The_Chaos_of_War",
+        "image": "SHD\\The_Chaos_of_War.png",
         "success": true
     },
     {
-        "name": "The Chaos of War",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/428.png",
-        "type": "Event",
-        "image": "SHD\\The_Chaos_of_War",
-        "success": true
-    },
-    {
-        "name": "The Client",
+        "name": "The Client - Dictated by Discretion",
+        "subtitle": "Dictated by Discretion",
         "url": "https://cdn.swu-db.com/images/cards/SHD/031.png",
         "type": "Unit",
-        "image": "SHD\\The_Client",
-        "success": true
-    },
-    {
-        "name": "The Client",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/308.png",
-        "type": "Unit",
-        "image": "SHD\\The_Client",
+        "image": "SHD\\The_Client - Dictated_by_Discretion.png",
         "success": true
     },
     {
         "name": "The Darksaber",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/126.png",
         "type": "Upgrade",
-        "image": "SHD\\The_Darksaber",
+        "image": "SHD\\The_Darksaber.png",
         "success": true
     },
     {
-        "name": "The Darksaber",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/395.png",
-        "type": "Upgrade",
-        "image": "SHD\\The_Darksaber",
-        "success": true
-    },
-    {
-        "name": "The Mandalorian",
+        "name": "The Mandalorian - Sworn to the Creed",
+        "subtitle": "Sworn to the Creed",
         "url": "https://cdn.swu-db.com/images/cards/SHD/018.png",
         "type": "Leader",
-        "image": "SHD\\The_Mandalorian",
+        "image": "SHD\\The_Mandalorian - Sworn_to_the_Creed.png",
         "success": true
     },
     {
-        "name": "The Mandalorian",
+        "name": "The Mandalorian - Sworn to the Creed [Back]",
+        "subtitle": "Sworn to the Creed",
+        "url": "https://cdn.swu-db.com/images/cards/SHD/018-b.png",
+        "type": "Leader",
+        "image": "SHD\\The_Mandalorian - Sworn_to_the_Creed_back.png",
+        "success": true
+    },
+    {
+        "name": "The Mandalorian - Wherever I Go, He Goes",
+        "subtitle": "Wherever I Go, He Goes",
         "url": "https://cdn.swu-db.com/images/cards/SHD/049.png",
         "type": "Unit",
-        "image": "SHD\\The_Mandalorian",
-        "success": true
-    },
-    {
-        "name": "The Mandalorian",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/280.png",
-        "type": "Leader",
-        "image": "SHD\\The_Mandalorian",
-        "success": true
-    },
-    {
-        "name": "The Mandalorian",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/324.png",
-        "type": "Unit",
-        "image": "SHD\\The_Mandalorian",
+        "image": "SHD\\The_Mandalorian - Wherever_I_Go_He_Goes.png",
         "success": true
     },
     {
         "name": "The Mandalorian's Rifle",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/251.png",
         "type": "Upgrade",
-        "image": "SHD\\The_Mandalorians_Rifle",
+        "image": "SHD\\The_Mandalorians_Rifle.png",
         "success": true
     },
     {
-        "name": "The Marauder",
+        "name": "The Marauder - Shuttling the Bad Batch",
+        "subtitle": "Shuttling the Bad Batch",
         "url": "https://cdn.swu-db.com/images/cards/SHD/102.png",
         "type": "Unit",
-        "image": "SHD\\The_Marauder",
-        "success": true
-    },
-    {
-        "name": "The Marauder",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/371.png",
-        "type": "Unit",
-        "image": "SHD\\The_Marauder",
+        "image": "SHD\\The_Marauder - Shuttling_the_Bad_Batch.png",
         "success": true
     },
     {
         "name": "This Is The Way",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/253.png",
         "type": "Event",
-        "image": "SHD\\This_Is_The_Way",
-        "success": true
-    },
-    {
-        "name": "This Is The Way",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/514.png",
-        "type": "Event",
-        "image": "SHD\\This_Is_The_Way",
+        "image": "SHD\\This_Is_The_Way.png",
         "success": true
     },
     {
         "name": "Timely Intervention",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/129.png",
         "type": "Event",
-        "image": "SHD\\Timely_Intervention",
+        "image": "SHD\\Timely_Intervention.png",
         "success": true
     },
     {
-        "name": "Timely Intervention",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/398.png",
-        "type": "Event",
-        "image": "SHD\\Timely_Intervention",
-        "success": true
-    },
-    {
-        "name": "Tobias Beckett",
+        "name": "Tobias Beckett - I Trust No One",
+        "subtitle": "I Trust No One",
         "url": "https://cdn.swu-db.com/images/cards/SHD/217.png",
         "type": "Unit",
-        "image": "SHD\\Tobias_Beckett",
-        "success": true
-    },
-    {
-        "name": "Tobias Beckett",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/485.png",
-        "type": "Unit",
-        "image": "SHD\\Tobias_Beckett",
+        "image": "SHD\\Tobias_Beckett - I_Trust_No_One.png",
         "success": true
     },
     {
         "name": "Top Target",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/071.png",
         "type": "Upgrade",
-        "image": "SHD\\Top_Target",
+        "image": "SHD\\Top_Target.png",
         "success": true
     },
     {
-        "name": "Top Target",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/344.png",
-        "type": "Upgrade",
-        "image": "SHD\\Top_Target",
-        "success": true
-    },
-    {
-        "name": "Toro Calican",
+        "name": "Toro Calican - Ambitious Upstart",
+        "subtitle": "Ambitious Upstart",
         "url": "https://cdn.swu-db.com/images/cards/SHD/239.png",
         "type": "Unit",
-        "image": "SHD\\Toro_Calican",
-        "success": true
-    },
-    {
-        "name": "Toro Calican",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/503.png",
-        "type": "Unit",
-        "image": "SHD\\Toro_Calican",
+        "image": "SHD\\Toro_Calican - Ambitious_Upstart.png",
         "success": true
     },
     {
         "name": "Trandoshan Hunters",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/140.png",
         "type": "Unit",
-        "image": "SHD\\Trandoshan_Hunters",
-        "success": true
-    },
-    {
-        "name": "Trandoshan Hunters",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/409.png",
-        "type": "Unit",
-        "image": "SHD\\Trandoshan_Hunters",
+        "image": "SHD\\Trandoshan_Hunters.png",
         "success": true
     },
     {
         "name": "Triple Dark Raid",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/194.png",
         "type": "Event",
-        "image": "SHD\\Triple_Dark_Raid",
-        "success": true
-    },
-    {
-        "name": "Triple Dark Raid",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/463.png",
-        "type": "Event",
-        "image": "SHD\\Triple_Dark_Raid",
+        "image": "SHD\\Triple_Dark_Raid.png",
         "success": true
     },
     {
         "name": "Twin Pod Cloud Car",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/259.png",
         "type": "Unit",
-        "image": "SHD\\Twin_Pod_Cloud_Car",
-        "success": true
-    },
-    {
-        "name": "Twin Pod Cloud Car",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/520.png",
-        "type": "Unit",
-        "image": "SHD\\Twin_Pod_Cloud_Car",
+        "image": "SHD\\Twin_Pod_Cloud_Car.png",
         "success": true
     },
     {
         "name": "Underworld Thug",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/257.png",
         "type": "Unit",
-        "image": "SHD\\Underworld_Thug",
-        "success": true
-    },
-    {
-        "name": "Underworld Thug",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/518.png",
-        "type": "Unit",
-        "image": "SHD\\Underworld_Thug",
+        "image": "SHD\\Underworld_Thug.png",
         "success": true
     },
     {
         "name": "Unexpected Escape",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/076.png",
         "type": "Event",
-        "image": "SHD\\Unexpected_Escape",
-        "success": true
-    },
-    {
-        "name": "Unexpected Escape",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/349.png",
-        "type": "Event",
-        "image": "SHD\\Unexpected_Escape",
+        "image": "SHD\\Unexpected_Escape.png",
         "success": true
     },
     {
         "name": "Unlicensed Headhunter",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/165.png",
         "type": "Unit",
-        "image": "SHD\\Unlicensed_Headhunter",
-        "success": true
-    },
-    {
-        "name": "Unlicensed Headhunter",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/434.png",
-        "type": "Unit",
-        "image": "SHD\\Unlicensed_Headhunter",
+        "image": "SHD\\Unlicensed_Headhunter.png",
         "success": true
     },
     {
         "name": "Unrefusable Offer",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/226.png",
         "type": "Upgrade",
-        "image": "SHD\\Unrefusable_Offer",
+        "image": "SHD\\Unrefusable_Offer.png",
         "success": true
     },
     {
-        "name": "Unrefusable Offer",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/493.png",
-        "type": "Upgrade",
-        "image": "SHD\\Unrefusable_Offer",
-        "success": true
-    },
-    {
-        "name": "Val",
+        "name": "Val - Loyal to the End",
+        "subtitle": "Loyal to the End",
         "url": "https://cdn.swu-db.com/images/cards/SHD/058.png",
         "type": "Unit",
-        "image": "SHD\\Val",
-        "success": true
-    },
-    {
-        "name": "Val",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/333.png",
-        "type": "Unit",
-        "image": "SHD\\Val",
+        "image": "SHD\\Val - Loyal_to_the_End.png",
         "success": true
     },
     {
         "name": "Valiant Assault Ship",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/151.png",
         "type": "Unit",
-        "image": "SHD\\Valiant_Assault_Ship",
-        "success": true
-    },
-    {
-        "name": "Valiant Assault Ship",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/420.png",
-        "type": "Unit",
-        "image": "SHD\\Valiant_Assault_Ship",
+        "image": "SHD\\Valiant_Assault_Ship.png",
         "success": true
     },
     {
         "name": "Vambrace Flamethrower",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/177.png",
         "type": "Upgrade",
-        "image": "SHD\\Vambrace_Flamethrower",
-        "success": true
-    },
-    {
-        "name": "Vambrace Flamethrower",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/446.png",
-        "type": "Upgrade",
-        "image": "SHD\\Vambrace_Flamethrower",
+        "image": "SHD\\Vambrace_Flamethrower.png",
         "success": true
     },
     {
         "name": "Vambrace Grappleshot",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/074.png",
         "type": "Upgrade",
-        "image": "SHD\\Vambrace_Grappleshot",
-        "success": true
-    },
-    {
-        "name": "Vambrace Grappleshot",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/347.png",
-        "type": "Upgrade",
-        "image": "SHD\\Vambrace_Grappleshot",
+        "image": "SHD\\Vambrace_Grappleshot.png",
         "success": true
     },
     {
         "name": "Vigilant Pursuit Craft",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/065.png",
         "type": "Unit",
-        "image": "SHD\\Vigilant_Pursuit_Craft",
-        "success": true
-    },
-    {
-        "name": "Vigilant Pursuit Craft",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/339.png",
-        "type": "Unit",
-        "image": "SHD\\Vigilant_Pursuit_Craft",
+        "image": "SHD\\Vigilant_Pursuit_Craft.png",
         "success": true
     },
     {
         "name": "Village Protectors",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/043.png",
         "type": "Unit",
-        "image": "SHD\\Village_Protectors",
-        "success": true
-    },
-    {
-        "name": "Village Protectors",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/319.png",
-        "type": "Unit",
-        "image": "SHD\\Village_Protectors",
+        "image": "SHD\\Village_Protectors.png",
         "success": true
     },
     {
         "name": "Wanted",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/221.png",
         "type": "Upgrade",
-        "image": "SHD\\Wanted",
-        "success": true
-    },
-    {
-        "name": "Wanted",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/489.png",
-        "type": "Upgrade",
-        "image": "SHD\\Wanted",
+        "image": "SHD\\Wanted.png",
         "success": true
     },
     {
         "name": "Wanted Insurgents",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/167.png",
         "type": "Unit",
-        "image": "SHD\\Wanted_Insurgents",
-        "success": true
-    },
-    {
-        "name": "Wanted Insurgents",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/436.png",
-        "type": "Unit",
-        "image": "SHD\\Wanted_Insurgents",
+        "image": "SHD\\Wanted_Insurgents.png",
         "success": true
     },
     {
         "name": "Warbird Stowaway",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/086.png",
         "type": "Unit",
-        "image": "SHD\\Warbird_Stowaway",
-        "success": true
-    },
-    {
-        "name": "Warbird Stowaway",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/355.png",
-        "type": "Unit",
-        "image": "SHD\\Warbird_Stowaway",
+        "image": "SHD\\Warbird_Stowaway.png",
         "success": true
     },
     {
         "name": "Warzone Lieutenant",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/110.png",
         "type": "Unit",
-        "image": "SHD\\Warzone_Lieutenant",
-        "success": true
-    },
-    {
-        "name": "Warzone Lieutenant",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/379.png",
-        "type": "Unit",
-        "image": "SHD\\Warzone_Lieutenant",
+        "image": "SHD\\Warzone_Lieutenant.png",
         "success": true
     },
     {
         "name": "Weequay Pirate Gang",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/119.png",
         "type": "Unit",
-        "image": "SHD\\Weequay_Pirate_Gang",
-        "success": true
-    },
-    {
-        "name": "Weequay Pirate Gang",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/388.png",
-        "type": "Unit",
-        "image": "SHD\\Weequay_Pirate_Gang",
+        "image": "SHD\\Weequay_Pirate_Gang.png",
         "success": true
     },
     {
         "name": "Wild Rancor",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/158.png",
         "type": "Unit",
-        "image": "SHD\\Wild_Rancor",
-        "success": true
-    },
-    {
-        "name": "Wild Rancor",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/427.png",
-        "type": "Unit",
-        "image": "SHD\\Wild_Rancor",
+        "image": "SHD\\Wild_Rancor.png",
         "success": true
     },
     {
         "name": "Wookiee Warrior",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/249.png",
         "type": "Unit",
-        "image": "SHD\\Wookiee_Warrior",
+        "image": "SHD\\Wookiee_Warrior.png",
         "success": true
     },
     {
-        "name": "Wookiee Warrior",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/511.png",
-        "type": "Unit",
-        "image": "SHD\\Wookiee_Warrior",
-        "success": true
-    },
-    {
-        "name": "Wrecker",
+        "name": "Wrecker - Boom!",
+        "subtitle": "Boom!",
         "url": "https://cdn.swu-db.com/images/cards/SHD/154.png",
         "type": "Unit",
-        "image": "SHD\\Wrecker",
-        "success": true
-    },
-    {
-        "name": "Wrecker",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/423.png",
-        "type": "Unit",
-        "image": "SHD\\Wrecker",
+        "image": "SHD\\Wrecker - Boom.png",
         "success": true
     },
     {
         "name": "Wroshyr Tree Tender",
+        "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/061.png",
         "type": "Unit",
-        "image": "SHD\\Wroshyr_Tree_Tender",
+        "image": "SHD\\Wroshyr_Tree_Tender.png",
         "success": true
     },
     {
-        "name": "Wroshyr Tree Tender",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/336.png",
-        "type": "Unit",
-        "image": "SHD\\Wroshyr_Tree_Tender",
-        "success": true
-    },
-    {
-        "name": "Xanadu Blood",
+        "name": "Xanadu Blood - Cad Bane's Reward",
+        "subtitle": "Cad Bane's Reward",
         "url": "https://cdn.swu-db.com/images/cards/SHD/191.png",
         "type": "Unit",
-        "image": "SHD\\Xanadu_Blood",
+        "image": "SHD\\Xanadu_Blood - Cad_Banes_Reward.png",
         "success": true
     },
     {
-        "name": "Xanadu Blood",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/460.png",
-        "type": "Unit",
-        "image": "SHD\\Xanadu_Blood",
-        "success": true
-    },
-    {
-        "name": "Zorii Bliss",
+        "name": "Zorii Bliss - Valiant Smuggler",
+        "subtitle": "Valiant Smuggler",
         "url": "https://cdn.swu-db.com/images/cards/SHD/203.png",
         "type": "Unit",
-        "image": "SHD\\Zorii_Bliss",
+        "image": "SHD\\Zorii_Bliss - Valiant_Smuggler.png",
         "success": true
     },
     {
-        "name": "Zorii Bliss",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/471.png",
-        "type": "Unit",
-        "image": "SHD\\Zorii_Bliss",
-        "success": true
-    },
-    {
-        "name": "Zuckuss",
+        "name": "Zuckuss - Bounty Hunter for Hire",
+        "subtitle": "Bounty Hunter for Hire",
         "url": "https://cdn.swu-db.com/images/cards/SHD/190.png",
         "type": "Unit",
-        "image": "SHD\\Zuckuss",
-        "success": true
-    },
-    {
-        "name": "Zuckuss",
-        "url": "https://cdn.swu-db.com/images/cards/SHD/459.png",
-        "type": "Unit",
-        "image": "SHD\\Zuckuss",
+        "image": "SHD\\Zuckuss - Bounty_Hunter_for_Hire.png",
         "success": true
     }
 ]

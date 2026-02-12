@@ -83,19 +83,20 @@ def main():
 		subtitle = card.get('Subtitle', '')
 		front_art_url = card.get('FrontArt', '')
 		back_art_url = card.get('BackArt', '')
+		raw_combined_name = raw_name + (" - " + subtitle if subtitle else "")
 
 		base_name = sanitize_filename(str(raw_name)) 
 		if subtitle != '':
 			base_name += " - " + sanitize_filename(str(subtitle))
 		filename = os.path.join(IMAGE_DIR, base_name)
 		
-		if any(c['name'] == base_name for c in manifest): 
+		if any(c['name'] == raw_combined_name for c in manifest): 
 			continue
 		else:
 			ok = download_image(front_art_url, filename)
 			force_portrait(filename + ".png")
 			manifest.append({
-				'name': base_name,
+				'name': raw_combined_name,
 				'subtitle': subtitle,
 				'url': front_art_url,
 				'type': card['Type'],
@@ -107,7 +108,7 @@ def main():
 				back_filename = os.path.join(IMAGE_DIR, base_name + "_back")
 				ok = download_image(back_art_url, back_filename)
 				manifest.append({
-					'name': base_name + "_back",
+					'name': raw_combined_name + " [Back]",
 					'subtitle': subtitle,
 					'url': back_art_url,
 					'type': card['Type'],
