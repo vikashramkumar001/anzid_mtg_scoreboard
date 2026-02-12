@@ -102,13 +102,15 @@ body {
     color: #000;
     text-align: center;
     font-weight: bold;
-    /* Animation: start hidden */
+    /* Animation: start hidden and offset left */
     clip-path: inset(0 100% 0 0);
-    transition: clip-path 1s ease-out;
+    transform: translateX(-50px);
+    transition: clip-path 1s ease-out, transform 0.6s ease-out;
 }
 
 .bracket-slot.revealed {
     clip-path: inset(0 0 0 0);
+    transform: translateX(0);
 }
 
 /* Frame background image on each slot */
@@ -184,10 +186,31 @@ body {
     z-index: 1;
 }
 
+/* Round labels */
+.round-label {
+    position: absolute;
+    font-family: var(--dynamic-font), sans-serif;
+    font-weight: var(--dynamic-font-weight);
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 2;
+    opacity: 0;
+    transform: translateX(-50%) translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.round-label.revealed {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 /* SVG bracket lines */
 #bracket-lines path {
     stroke: white;
     stroke-width: 3;
     fill: none;
-    transition: stroke-dashoffset 0.8s ease-out;
+    transition: stroke-dashoffset 3s ease-out;
 }

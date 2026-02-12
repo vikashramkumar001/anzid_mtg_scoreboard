@@ -4,40 +4,37 @@ window.roomManager = new RoomManager(socket);
 // Slot positions config: bracket ID, x/y pixel position, animation delay
 const SLOT_CONFIG = [
     // QF Match 1: 1 vs 8
-    { id: 'bracket-quarterfinal-1', x: 40, y: 120, delay: 2000 },
-    { id: 'bracket-quarterfinal-8', x: 40, y: 184, delay: 2100 },
+    { id: 'bracket-quarterfinal-1', x: 194, y: 325, delay: 2000 },
+    { id: 'bracket-quarterfinal-8', x: 194, y: 389, delay: 2100 },
     // QF Match 2: 4 vs 5
-    { id: 'bracket-quarterfinal-4', x: 40, y: 330, delay: 2200 },
-    { id: 'bracket-quarterfinal-5', x: 40, y: 394, delay: 2300 },
+    { id: 'bracket-quarterfinal-4', x: 194, y: 495, delay: 2200 },
+    { id: 'bracket-quarterfinal-5', x: 194, y: 559, delay: 2300 },
     // QF Match 3: 2 vs 7
-    { id: 'bracket-quarterfinal-2', x: 40, y: 540, delay: 2400 },
-    { id: 'bracket-quarterfinal-7', x: 40, y: 604, delay: 2500 },
+    { id: 'bracket-quarterfinal-2', x: 194, y: 665, delay: 2400 },
+    { id: 'bracket-quarterfinal-7', x: 194, y: 729, delay: 2500 },
     // QF Match 4: 3 vs 6
-    { id: 'bracket-quarterfinal-3', x: 40, y: 750, delay: 2600 },
-    { id: 'bracket-quarterfinal-6', x: 40, y: 814, delay: 2700 },
+    { id: 'bracket-quarterfinal-3', x: 194, y: 835, delay: 2600 },
+    { id: 'bracket-quarterfinal-6', x: 194, y: 899, delay: 2700 },
     // SF (tight pairs, 8px gap, centered between feeder QF pairs)
-    { id: 'bracket-semifinal-1a', x: 748, y: 225, delay: 2100 },
-    { id: 'bracket-semifinal-1b', x: 748, y: 289, delay: 2200 },
-    { id: 'bracket-semifinal-2a', x: 748, y: 645, delay: 2500 },
-    { id: 'bracket-semifinal-2b', x: 748, y: 709, delay: 2600 },
+    { id: 'bracket-semifinal-1a', x: 748, y: 410, delay: 2100 },
+    { id: 'bracket-semifinal-1b', x: 748, y: 474, delay: 2200 },
+    { id: 'bracket-semifinal-2a', x: 748, y: 750, delay: 2500 },
+    { id: 'bracket-semifinal-2b', x: 748, y: 814, delay: 2600 },
     // Finals (tight pair, 8px gap, centered between SF pairs)
-    { id: 'bracket-final-1a', x: 1456, y: 435, delay: 2300 },
-    { id: 'bracket-final-1b', x: 1456, y: 499, delay: 2400 },
+    { id: 'bracket-final-1a', x: 1302, y: 580, delay: 2300 },
+    { id: 'bracket-final-1b', x: 1302, y: 644, delay: 2400 },
 ];
 
 const SLOT_WIDTH = 424;
 const SLOT_HEIGHT = 56;
 
-// Bracket line connections: each pair merges then L-routes to its target slot
+// Bracket line connections: two pairs merge at a vertical bar, single output to target pair midpoint
 const BRACKET_CONNECTIONS = [
     // QF → SF
-    { pair: [0, 1], target: 8 },    // QF 1,8 → SF 1a
-    { pair: [2, 3], target: 9 },    // QF 4,5 → SF 1b
-    { pair: [4, 5], target: 10 },   // QF 2,7 → SF 2a
-    { pair: [6, 7], target: 11 },   // QF 3,6 → SF 2b
+    { pair1: [0, 1], pair2: [2, 3], targetPair: [8, 9] },
+    { pair1: [4, 5], pair2: [6, 7], targetPair: [10, 11] },
     // SF → Finals
-    { pair: [8, 9], target: 12 },   // SF 1 → Final 1a
-    { pair: [10, 11], target: 13 }, // SF 2 → Final 1b
+    { pair1: [8, 9], pair2: [10, 11], targetPair: [12, 13] },
 ];
 
 let bracketData = {};
@@ -67,6 +64,14 @@ function updateFontForGame(game) {
         document.documentElement.style.setProperty('--archetype-font-style', 'italic');
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
+
+    // Update bracket images for current game
+    const bg = document.getElementById('bracket-bg');
+    if (bg) bg.src = `/assets/images/${game}/bracket/bracket-bg.png`;
+
+    document.querySelectorAll('.slot-frame').forEach((frame) => {
+        frame.src = `/assets/images/${game}/bracket/bracket-frame.png`;
+    });
 }
 
 // --- Auto-scale text (same as bracket-individual-display.js) ---
@@ -97,6 +102,27 @@ function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
     document.body.removeChild(temp);
 }
 
+// --- Round labels config ---
+
+const ROUND_LABELS = [
+    { text: 'QUARTERFINAL', centerX: 194 + SLOT_WIDTH / 2, y: 280, delay: 2500 },
+    { text: 'SEMIFINAL', centerX: 748 + SLOT_WIDTH / 2, y: 365, delay: 2600 },
+    { text: 'FINAL', centerX: 1302 + SLOT_WIDTH / 2, y: 535, delay: 2800 },
+];
+
+function createRoundLabels() {
+    const container = document.getElementById('bracket-slots');
+    ROUND_LABELS.forEach((label) => {
+        const el = document.createElement('div');
+        el.className = 'round-label';
+        el.innerText = label.text;
+        el.style.top = label.y + 'px';
+        el.style.left = label.centerX + 'px';
+        el.dataset.delay = label.delay;
+        container.appendChild(el);
+    });
+}
+
 // --- Create slot DOM elements ---
 
 function createSlotElements() {
@@ -113,7 +139,7 @@ function createSlotElements() {
         // Frame background image
         const frame = document.createElement('img');
         frame.className = 'slot-frame';
-        frame.src = '/assets/images/mtg/bracket/bracket-frame.png';
+        frame.src = '';
         frame.alt = '';
 
         const rank = document.createElement('div');
@@ -223,36 +249,67 @@ function drawBracketLines() {
     function leftX(i) { return SLOT_CONFIG[i].x; }
 
     BRACKET_CONNECTIONS.forEach((conn) => {
-        const srcRightX = rightX(conn.pair[0]);
-        const tgtLeftX = leftX(conn.target);
+        const srcRightX = rightX(conn.pair1[0]);
+        const tgtLeftX = leftX(conn.targetPair[0]);
         const gap = tgtLeftX - srcRightX;
-        const mergeX = srcRightX + gap / 3;
-        const turnX = srcRightX + (2 * gap) / 3;
+        const turnX = srcRightX + gap / 2;
 
-        const topY = centerY(conn.pair[0]);
-        const botY = centerY(conn.pair[1]);
-        const pairMidY = (topY + botY) / 2;
-        const targetY = centerY(conn.target);
+        const p1MidY = (centerY(conn.pair1[0]) + centerY(conn.pair1[1])) / 2;
+        const p2MidY = (centerY(conn.pair2[0]) + centerY(conn.pair2[1])) / 2;
+        const targetMidY = (centerY(conn.targetPair[0]) + centerY(conn.targetPair[1])) / 2;
 
-        const d = [
-            // Pair merge: stubs from each slot + vertical bar
-            `M ${srcRightX} ${topY} H ${mergeX}`,
-            `M ${srcRightX} ${botY} H ${mergeX}`,
-            `M ${mergeX} ${topY} V ${botY}`,
-            // L-route from pair midpoint to target slot
-            `M ${mergeX} ${pairMidY} H ${turnX}`,
-            `M ${turnX} ${pairMidY} V ${targetY}`,
-            `M ${turnX} ${targetY} H ${tgtLeftX}`,
+        const startX = srcRightX + 30;
+
+        // 1) Horizontal stubs
+        const dStubs = [
+            `M ${startX} ${p1MidY} H ${turnX}`,
+            `M ${startX} ${p2MidY} H ${turnX}`,
         ].join(' ');
 
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', d);
-        path.dataset.delay = SLOT_CONFIG[conn.target].delay;
+        const stubsPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        stubsPath.setAttribute('d', dStubs);
+        stubsPath.dataset.delay = 2000;
 
-        svg.appendChild(path);
-        const totalLength = path.getTotalLength();
-        path.style.strokeDasharray = totalLength;
-        path.style.strokeDashoffset = totalLength;
+        svg.appendChild(stubsPath);
+        const stubsLength = stubsPath.getTotalLength();
+        stubsPath.style.transition = 'none';
+        stubsPath.style.strokeDasharray = stubsLength;
+        stubsPath.style.strokeDashoffset = stubsLength;
+        stubsPath.getBoundingClientRect();
+        stubsPath.style.transition = 'stroke-dashoffset 1s ease-out';
+
+        // 2) Vertical lines (start after stubs finish: 2000 + 1000 = 3000)
+        const dVerticals = [
+            `M ${turnX} ${p1MidY} V ${targetMidY}`,
+            `M ${turnX} ${p2MidY} V ${targetMidY}`,
+        ].join(' ');
+
+        const verticalsPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        verticalsPath.setAttribute('d', dVerticals);
+        verticalsPath.dataset.delay = 2175;
+
+        svg.appendChild(verticalsPath);
+        const verticalsLength = verticalsPath.getTotalLength();
+        verticalsPath.style.transition = 'none';
+        verticalsPath.style.strokeDasharray = verticalsLength;
+        verticalsPath.style.strokeDashoffset = verticalsLength;
+        verticalsPath.getBoundingClientRect();
+        verticalsPath.style.transition = 'stroke-dashoffset 2s ease-out';
+
+        // 3) Output line (start after verticals finish: 3000 + 2000 = 5000)
+        const dOutput = `M ${turnX} ${targetMidY} H ${turnX + (turnX - startX)}`;
+
+        const outputPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        outputPath.setAttribute('d', dOutput);
+        outputPath.dataset.delay = 2700;
+
+        svg.appendChild(outputPath);
+        const outputLength = outputPath.getTotalLength();
+        outputPath.style.transition = 'none';
+        outputPath.style.strokeDasharray = outputLength;
+        outputPath.style.strokeDashoffset = outputLength;
+        outputPath.getBoundingClientRect();
+        outputPath.style.transition = 'stroke-dashoffset 0.5s linear';
     });
 }
 
@@ -261,6 +318,7 @@ function drawBracketLines() {
 function animateReveal() {
     const slots = document.querySelectorAll('.bracket-slot');
     const paths = document.querySelectorAll('#bracket-lines path');
+    const labels = document.querySelectorAll('.round-label');
 
     // Each slot has its own delay
     slots.forEach((slot) => {
@@ -277,6 +335,14 @@ function animateReveal() {
             path.style.strokeDashoffset = '0';
         }, delay);
     });
+
+    // Round labels fade in and slide up
+    labels.forEach((label) => {
+        const delay = parseInt(label.dataset.delay) || 0;
+        setTimeout(() => {
+            label.classList.add('revealed');
+        }, delay);
+    });
 }
 
 // --- Socket events ---
@@ -291,6 +357,7 @@ socket.on('bracket-data', (data) => {
 
 // --- Initialize ---
 
+createRoundLabels();
 createSlotElements();
 drawBracketLines();
 
