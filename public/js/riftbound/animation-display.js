@@ -16,6 +16,8 @@ const match_id = pathSegments[pathSegments.length - 2]; // match ID (1-4)
 const normalizedSide = side?.toLowerCase() === 'right' ? 'right' : 'left';
 
 let selectedGame = '';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 let currentLegend = '';
 let lastControlData = null; // Store last received control data
 
@@ -245,15 +247,50 @@ socket.on('broadcast-round-data', (data) => {
     }
 });
 
+// Function to update theme with vendor overrides
+function updateTheme(game, vendor, playerCount) {
+    handleGameSelectionUpdate(game);
+    // Apply vendor overrides
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        const overrides = vc.getOverrides(game, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
+    }
+}
+
 // Listen for game selection updates
 socket.emit('get-game-selection');
-
-socket.on('game-selection-updated', ({gameSelection}) => {
-    handleGameSelectionUpdate(gameSelection);
-});
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    handleGameSelectionUpdate(gameSelection);
+    selectedGame = gameSelection?.toLowerCase() || '';
+    updateTheme(selectedGame, currentVendor, currentPlayerCount);
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    selectedGame = gameSelection?.toLowerCase() || '';
+    updateTheme(selectedGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(selectedGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(selectedGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(selectedGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(selectedGame, currentVendor, currentPlayerCount);
 });
 
 // Handle video errors

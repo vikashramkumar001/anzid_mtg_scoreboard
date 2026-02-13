@@ -11,6 +11,9 @@ const control_id = pathSegments[2];
 let round_id = '1';
 let match_id = 'match1';
 let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 
 const MANA_ORDER = ['W', 'U', 'B', 'R', 'G', 'C'];
 const MANA_SYMBOLS = {
@@ -813,20 +816,22 @@ function renderManaSymbols(inputStr, containerId, scenario = {}) {
 }
 
 // game selection logic
-function handleGameSelectionUpdate(gameSelection) {
-    const normalized = gameSelection?.toLowerCase();
-    if (!normalized || normalized === selectedGame) return;
+function updateTheme(game, vendor, playerCount) {
+    const normalized = game?.toLowerCase();
+    if (!normalized) return;
 
-    // Remove previous game class if it exists
-    if (selectedGame) {
-        document.body.classList.remove(selectedGame);
-    }
+    // --- Game switch (only when game actually changes) ---
+    if (normalized !== selectedGame) {
+        // Remove previous game class if it exists
+        if (selectedGame) {
+            document.body.classList.remove(selectedGame);
+        }
 
-    selectedGame = normalized;
-    console.log('Game selection updated:', selectedGame);
+        selectedGame = normalized;
+        console.log('Game selection updated:', selectedGame);
 
-    // Add game type class to body
-    document.body.classList.add(selectedGame);
+        // Add game type class to body
+        document.body.classList.add(selectedGame);
 
     // Show/hide appropriate scoreboard containers
     const mtgScoreboard = document.getElementById('scoreboard-mtg');
@@ -1035,18 +1040,65 @@ function handleGameSelectionUpdate(gameSelection) {
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
         if (vibesScoreboard) vibesScoreboard.style.display = 'none';
     }
+    } // end game-switch block
+
+    // --- Vendor overrides (always run) ---
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        // Clear all previous vendor overrides so defaults kick in
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        // Apply new vendor overrides
+        const overrides = vc.getOverrides(normalized, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
+
+        // Update scoreboard frame image dynamically
+        const frameSelectors = {
+            mtg: '#scoreboard-mtg .mtg-frame',
+            riftbound: '#scoreboard-riftbound .riftbound-frame',
+            vibes: '#scoreboard-vibes .vibes-frame',
+        };
+        const frameSelector = frameSelectors[normalized];
+        if (frameSelector) {
+            const frameEl = document.querySelector(frameSelector);
+            if (frameEl) {
+                const framePath = vc.getAssetPath(`/assets/images/${normalized}/scoreboard/frame/${normalized}-scoreboard-frame.png`, vendor, playerCount);
+                frameEl.style.backgroundImage = `url("${framePath}")`;
+            }
+        }
+    }
 }
 
 socket.emit('get-game-selection');
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
-socket.on('game-selection-updated', ({gameSelection}) => {
-    console.log('game selection updated socket on');
-    handleGameSelectionUpdate(gameSelection);
-});
-
-// If this is the first time receiving it (like on initial load):
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    handleGameSelectionUpdate(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
 // end game selection logic

@@ -4,6 +4,9 @@ window.roomManager = new RoomManager(socket);
 let roundData = {};
 let detailToDisplay = "";
 let selectedGame = "";
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
@@ -81,36 +84,61 @@ socket.on('update-match-global-data', (data) => {
 
 // Get game selection on load
 socket.emit('get-game-selection');
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
+
+// game selection logic
+function updateTheme(game, vendor, playerCount) {
+    selectedGame = game?.toLowerCase() || '';
+    if (selectedGame === 'mtg') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
+        document.body.classList.add('mtg');
+        document.body.classList.remove('riftbound', 'vibes');
+    } else if (selectedGame === 'riftbound') {
+        document.body.classList.add('riftbound');
+        document.body.classList.remove('mtg', 'vibes');
+    } else if (selectedGame === 'vibes') {
+        document.body.classList.add('vibes');
+        document.body.classList.remove('mtg', 'riftbound');
+    }
+
+    // Apply vendor overrides
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        const overrides = vc.getOverrides(game, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
+    }
+}
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    selectedGame = gameSelection?.toLowerCase() || '';
-    if (selectedGame === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
-        document.body.classList.add('mtg');
-        document.body.classList.remove('riftbound', 'vibes');
-    } else if (selectedGame === 'riftbound') {
-        document.body.classList.add('riftbound');
-        document.body.classList.remove('mtg', 'vibes');
-    } else if (selectedGame === 'vibes') {
-        document.body.classList.add('vibes');
-        document.body.classList.remove('mtg', 'riftbound');
-    }
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
-
 socket.on('game-selection-updated', ({gameSelection}) => {
-    selectedGame = gameSelection?.toLowerCase() || '';
-    if (selectedGame === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
-        document.body.classList.add('mtg');
-        document.body.classList.remove('riftbound', 'vibes');
-    } else if (selectedGame === 'riftbound') {
-        document.body.classList.add('riftbound');
-        document.body.classList.remove('mtg', 'vibes');
-    } else if (selectedGame === 'vibes') {
-        document.body.classList.add('vibes');
-        document.body.classList.remove('mtg', 'riftbound');
-    }
-})
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
 
 // Function to check if font family needs updating
 function checkFontFamily(globalFont, gameSelection) {

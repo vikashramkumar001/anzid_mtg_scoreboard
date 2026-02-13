@@ -1,5 +1,5 @@
 import {promises as fs} from 'fs';
-import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection} from '../config/constants.js';
+import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection, getVendorSelection, setVendorSelection, getPlayerCount, setPlayerCount} from '../config/constants.js';
 import {getSortedArchetypes} from './archetypes.js';
 import {emitBroadcastStandings} from "./standings.js";
 import { RoomUtils } from '../utils/room-utils.js';
@@ -270,6 +270,34 @@ export function emitUpdatedGameSelection(io) {
 export function updateGameSelection(gameSelection, io) {
     setGameSelection(gameSelection);
     emitUpdatedGameSelection(io);
+}
+
+// vendor selection handlers
+export function emitCurrentVendorSelection(io) {
+    RoomUtils.emitWithRoomMapping(io, 'server-current-vendor-selection', {vendorSelection: getVendorSelection()})
+}
+
+export function emitUpdatedVendorSelection(io) {
+    RoomUtils.emitWithRoomMapping(io, 'vendor-selection-updated', {vendorSelection: getVendorSelection()})
+}
+
+export function updateVendorSelection(vendorSelection, io) {
+    setVendorSelection(vendorSelection);
+    emitUpdatedVendorSelection(io);
+}
+
+// player count handlers
+export function emitCurrentPlayerCount(io) {
+    RoomUtils.emitWithRoomMapping(io, 'server-current-player-count', {playerCount: getPlayerCount()})
+}
+
+export function emitUpdatedPlayerCount(io) {
+    RoomUtils.emitWithRoomMapping(io, 'player-count-updated', {playerCount: getPlayerCount()})
+}
+
+export function updatePlayerCount(playerCount, io) {
+    setPlayerCount(playerCount);
+    emitUpdatedPlayerCount(io);
 }
 
 

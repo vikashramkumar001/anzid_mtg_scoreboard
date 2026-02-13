@@ -179,7 +179,7 @@ div {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/images/mtg/scoreboard/frame/mtg-frame.png");
+    /* background-image set dynamically by JS via getAssetPath */
     background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
@@ -203,7 +203,6 @@ div {
 #scoreboard-mtg .body .background {
     width: 1920px;
     height: 930px;
-    background: url("/assets/images/overlay_body.png");
 }
 
 #scoreboard-mtg .footer .background {
@@ -510,11 +509,11 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next'), sans-serif;
 }
 
 #scoreboard-riftbound * {
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next'), sans-serif;
 }
 
 #scoreboard-riftbound .riftbound-container {
@@ -532,7 +531,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/images/riftbound/scoreboard/frame/1-IGN-v3-frame.png");
+    /* background-image set dynamically by JS via getAssetPath */
     background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
@@ -568,8 +567,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-record-left #player-record-left {
-    color: #1DC9FF;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-record-color, #1DC9FF);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 16px;
 }
@@ -584,8 +583,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-record-right #player-record-right {
-    color: #1DFF47;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-record-color, #1DFF47);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 16px;
 }
@@ -607,8 +606,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-life-left #player-life-left {
-    color: #1DC9FF;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-points-color, #1DC9FF);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 45px;
 }
@@ -621,8 +620,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-life-right #player-life-right {
-    color: #1DFF47;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-points-color, #1DFF47);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 45px;
 }
@@ -646,8 +645,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-name-left #player-name-left {
-    color: #000000;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-name-color, #000000);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 50px;
     white-space: nowrap;
@@ -665,8 +664,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-name-right #player-name-right {
-    color: #000000;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-name-color, #000000);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 50px;
     white-space: nowrap;
@@ -812,7 +811,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-legend-left #player-legend-left {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -834,7 +833,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-legend-right #player-legend-right {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -863,7 +862,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-champion-left #player-champion-left {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -885,7 +884,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-champion-right #player-champion-right {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -996,7 +995,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-battlefield-left #player-battlefield-left {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -1018,7 +1017,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-battlefield-right #player-battlefield-right {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -1044,7 +1043,7 @@ body {
 
 #scoreboard-riftbound .riftbound-event-name-wrapper #event-name {
     color: #000000;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 20px;
     white-space: nowrap;
@@ -1069,7 +1068,7 @@ body {
 
 #scoreboard-riftbound .riftbound-event-round {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next'), sans-serif;
     font-weight: bold;
     font-size: 22px;
 }
@@ -1097,7 +1096,7 @@ body {
 
 #scoreboard-riftbound .riftbound-timer {
     color: #19c8ff;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 72px;
     font-variant-numeric: tabular-nums;
@@ -1125,7 +1124,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/images/vibes/scoreboard/frame/vibes-frame.png");
+    /* background-image set dynamically by JS via getAssetPath */
     background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
@@ -1149,7 +1148,6 @@ body {
 #scoreboard-vibes .body .background {
     width: 1920px;
     height: 930px;
-    background: url("/assets/images/overlay_body.png");
 }
 
 /*

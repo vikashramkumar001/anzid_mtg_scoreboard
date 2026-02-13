@@ -39,20 +39,44 @@ const BRACKET_CONNECTIONS = [
 
 let bracketData = {};
 
-// --- Font logic (same as bracket-individual-display.js) ---
+// --- Theme state ---
+
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 
 socket.emit('get-match-global-data');
 socket.emit('get-game-selection');
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    updateFontForGame(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
-
 socket.on('game-selection-updated', ({gameSelection}) => {
-    updateFontForGame(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
-function updateFontForGame(game) {
+function updateTheme(game, vendor, playerCount) {
+    // 1. Apply game defaults
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
         document.documentElement.style.setProperty('--dynamic-font-weight', '700');
@@ -65,13 +89,27 @@ function updateFontForGame(game) {
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
 
-    // Update bracket images for current game
-    const bg = document.getElementById('bracket-bg');
-    if (bg) bg.src = `/assets/images/${game}/bracket/bracket-bg.png`;
+    // 2. Apply vendor overrides
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        const overrides = vc.getOverrides(game, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
+    }
 
-    document.querySelectorAll('.slot-frame').forEach((frame) => {
-        frame.src = `/assets/images/${game}/bracket/bracket-frame.png`;
-    });
+    // 3. Update bracket images with vendor + player count suffix
+    const bg = document.getElementById('bracket-bg');
+    if (bg && vc) bg.src = vc.getAssetPath(`/assets/images/${game}/bracket/bracket-bg.png`, vendor, playerCount);
+
+    if (vc) {
+        document.querySelectorAll('.slot-frame').forEach((frame) => {
+            frame.src = vc.getAssetPath(`/assets/images/${game}/bracket/bracket-frame.png`, vendor, playerCount);
+        });
+    }
 }
 
 // --- Auto-scale text (same as bracket-individual-display.js) ---

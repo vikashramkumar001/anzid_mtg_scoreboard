@@ -4,6 +4,9 @@ window.roomManager = new RoomManager(socket);
 let roundData = {};
 let deckData = {};
 let selectedGame = '';
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 
 // Get slot ID from the URL
 // URL pattern: /broadcast/round/draftlist/:orientation/:slotId or /broadcast/round/draftlist/:slotId
@@ -414,7 +417,8 @@ function renderMTGHorizontalDraftList() {
 }
 
 // Handle game selection updates
-function handleGameSelectionUpdate(gameSelection) {
+function updateTheme(game, vendor, playerCount) {
+    const gameSelection = game;
     console.log('Game selection updated:', gameSelection);
 
     // Hide all sections first
@@ -441,17 +445,48 @@ function handleGameSelectionUpdate(gameSelection) {
     if (deckData.mainDeck && deckData.mainDeck.length > 0) {
         renderDraftList();
     }
+
+    // Apply vendor overrides
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        const overrides = vc.getOverrides(game, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
+    }
 }
 
 // Request game selection on load
 socket.emit('get-game-selection');
-
-socket.on('game-selection-updated', ({gameSelection}) => {
-    handleGameSelectionUpdate(gameSelection);
-});
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    handleGameSelectionUpdate(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
 // Request current draft list data on page load (wait for connection)

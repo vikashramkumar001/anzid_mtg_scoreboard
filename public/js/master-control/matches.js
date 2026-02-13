@@ -2,6 +2,8 @@ export function initMatches(socket) {
 
     const broadcastDisplay = document.getElementById('broadcasting-now-round-display');
     let currentGameSelection = 'mtg'; // Default to mtg
+    let currentVendor = 'default';
+    let currentPlayerCount = '1v1';
     const control1Display = document.getElementById('control-1-round-match-display');
     const control2Display = document.getElementById('control-2-round-match-display');
     const control3Display = document.getElementById('control-3-round-match-display');
@@ -1510,19 +1512,52 @@ export function initMatches(socket) {
         });
     }
 
-    // Listen for game selection changes
-    socket.on('game-selection-updated', ({gameSelection}) => {
-        currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
-        toggleGameFields(currentGameSelection);
-    });
+    // Function to update theme with vendor overrides
+    function updateTheme(game, vendor, playerCount) {
+        toggleGameFields(game);
+        // Apply vendor overrides
+        const vc = window.VENDOR_CONFIG;
+        if (vc) {
+            vc.getAllOverrideProperties().forEach(prop => {
+                document.documentElement.style.removeProperty(prop);
+            });
+            const overrides = vc.getOverrides(game, vendor);
+            Object.entries(overrides).forEach(([prop, value]) => {
+                document.documentElement.style.setProperty(prop, value);
+            });
+        }
+    }
 
+    // Listen for game selection changes
     socket.on('server-current-game-selection', ({gameSelection}) => {
         currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
-        toggleGameFields(currentGameSelection);
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('game-selection-updated', ({gameSelection}) => {
+        currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+        currentVendor = vendorSelection;
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('vendor-selection-updated', ({vendorSelection}) => {
+        currentVendor = vendorSelection;
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('server-current-player-count', ({playerCount}) => {
+        currentPlayerCount = playerCount;
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('player-count-updated', ({playerCount}) => {
+        currentPlayerCount = playerCount;
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
     });
 
-    // Initial fetch of game selection
+    // Initial fetch of game selection, vendor, and player count
     socket.emit('get-game-selection');
+    socket.emit('get-vendor-selection');
+    socket.emit('get-player-count');
 
     // Listen for updated archetype list from server
     socket.on('archetypeListUpdated', (archetypes) => {

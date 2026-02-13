@@ -16,9 +16,16 @@ const playerArchetype = document.getElementById('player-archetype');
 const playerPoints = document.getElementById('player-points');
 const bracketContainer = document.getElementById('bracket-details-container');
 
+// --- Theme state ---
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
+
 // ask for global match data to get game selection
 socket.emit('get-match-global-data');
 socket.emit('get-game-selection');
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
 // Listen for deck data to display
 socket.on('bracket-data', (data) => {
@@ -31,17 +38,34 @@ socket.on('bracket-data', (data) => {
     renderDetails();
 });
 
-// Listen for game selection updates
+// Listen for game/vendor/player count updates
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    updateFontForGame(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
-
 socket.on('game-selection-updated', ({gameSelection}) => {
-    updateFontForGame(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
-// Update font based on game selection
-function updateFontForGame(game) {
+function updateTheme(game, vendor, playerCount) {
+    // 1. Apply game defaults
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
         document.documentElement.style.setProperty('--dynamic-font-weight', '700');
@@ -52,6 +76,18 @@ function updateFontForGame(game) {
         document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
         document.documentElement.style.setProperty('--archetype-font-style', 'italic');
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
+    }
+
+    // 2. Apply vendor overrides
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        const overrides = vc.getOverrides(game, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
     }
 }
 

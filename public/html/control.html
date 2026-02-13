@@ -8,6 +8,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <!-- Room Manager -->
     <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
     <link href="/css/control.css" rel="stylesheet">
 </head>
 <body>
@@ -62,21 +63,18 @@
     </div>
     <div class="life-totals">
         <div class="life-total-left">
-            <div class="life-total-minus life-total-left-minus">-
-            </div>
-            <div class="life-total-plus  life-total-left-plus">+
-            </div>
+            <div class="life-total-minus life-total-left-minus-5 life-btn-5">-5</div>
+            <div class="life-total-minus life-total-left-minus">-</div>
+            <div id="player-life-left" class="life-total-value editable dynamic" contenteditable="true"></div>
+            <div class="life-total-plus  life-total-left-plus">+</div>
+            <div class="life-total-plus  life-total-left-plus-5 life-btn-5">+5</div>
         </div>
         <div class="life-total-right">
-            <div class="life-total-minus life-total-right-minus">
-                -
-            </div>
-            <div class="life-total-plus  life-total-right-plus">+
-            </div>
-        </div>
-        <div class="life-total-overlay">
-            <div id="player-life-left" class="life-total-overlay-element life-total-overlay-left dynamic"></div>
-            <div id="player-life-right" class="life-total-overlay-element life-total-overlay-right dynamic"></div>
+            <div class="life-total-minus life-total-right-minus-5 life-btn-5">-5</div>
+            <div class="life-total-minus life-total-right-minus">-</div>
+            <div id="player-life-right" class="life-total-value editable dynamic" contenteditable="true"></div>
+            <div class="life-total-plus  life-total-right-plus">+</div>
+            <div class="life-total-plus  life-total-right-plus-5 life-btn-5">+5</div>
         </div>
     </div>
     <div class="player player-right">
