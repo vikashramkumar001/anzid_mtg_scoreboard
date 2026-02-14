@@ -35,21 +35,13 @@ function resetLifeTotals() {
 
 // Add event listeners after DOM is fully loaded
 function setupLifeUpdateListeners() {
-    // Life Total Buttons +1/-1 (Left)
+    // Life Total Buttons (Left)
     document.querySelector('#control-base .life-total-left-minus')?.addEventListener('click', () => onLifeTotalChange('player-life-left', -1));
     document.querySelector('#control-base .life-total-left-plus')?.addEventListener('click', () => onLifeTotalChange('player-life-left', 1));
 
-    // Life Total Buttons +1/-1 (Right)
+    // Life Total Buttons (Right)
     document.querySelector('#control-base .life-total-right-minus')?.addEventListener('click', () => onLifeTotalChange('player-life-right', -1));
     document.querySelector('#control-base .life-total-right-plus')?.addEventListener('click', () => onLifeTotalChange('player-life-right', 1));
-
-    // Life Total Buttons +5/-5 (Left) — MTG only, hidden via CSS for other games
-    document.querySelector('#control-base .life-total-left-minus-5')?.addEventListener('click', () => onLifeTotalChange('player-life-left', -5));
-    document.querySelector('#control-base .life-total-left-plus-5')?.addEventListener('click', () => onLifeTotalChange('player-life-left', 5));
-
-    // Life Total Buttons +5/-5 (Right) — MTG only
-    document.querySelector('#control-base .life-total-right-minus-5')?.addEventListener('click', () => onLifeTotalChange('player-life-right', -5));
-    document.querySelector('#control-base .life-total-right-plus-5')?.addEventListener('click', () => onLifeTotalChange('player-life-right', 5));
 
     // Reset Button
     document.querySelector('#control-base .buttons.reset-life-button button')?.addEventListener('click', resetLifeTotals);
@@ -378,19 +370,3 @@ socket.on('update-match-global-data', (data) => {
 })
 
 // END HANDLE GLOBAL DATA
-
-// GAME SELECTION — toggle +5/-5 buttons via body class
-let currentGame = 'mtg';
-socket.emit('get-game-selection');
-
-socket.on('server-current-game-selection', ({gameSelection}) => {
-    if (currentGame) document.body.classList.remove(currentGame);
-    currentGame = gameSelection?.toLowerCase() || 'mtg';
-    document.body.classList.add(currentGame);
-});
-
-socket.on('game-selection-updated', ({gameSelection}) => {
-    if (currentGame) document.body.classList.remove(currentGame);
-    currentGame = gameSelection?.toLowerCase() || 'mtg';
-    document.body.classList.add(currentGame);
-});

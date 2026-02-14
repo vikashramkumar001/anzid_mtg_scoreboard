@@ -239,9 +239,10 @@ function updateElementText(id, value) {
     const mtgContainer = document.getElementById('scoreboard-mtg');
     const riftboundContainer = document.getElementById('scoreboard-riftbound');
     const vibesContainer = document.getElementById('scoreboard-vibes');
-    
+    const starwarsContainer = document.getElementById('scoreboard-starwars');
+
     let updated = false;
-    
+
     // Update MTG section
     if (mtgContainer) {
         const mtgEl = mtgContainer.querySelector(`#${id}`);
@@ -250,7 +251,7 @@ function updateElementText(id, value) {
             updated = true;
         }
     }
-    
+
     // Update Riftbound section
     if (riftboundContainer) {
         const riftboundEl = riftboundContainer.querySelector(`#${id}`);
@@ -262,10 +263,18 @@ function updateElementText(id, value) {
 
     // Update Vibes section
     if (vibesContainer) {
-        console.log('ping1updateelementtext');
         const vibesEl = vibesContainer.querySelector(`#${id}`);
         if (vibesEl && lastState[id] !== value) {
             vibesEl.innerHTML = value;
+            updated = true;
+        }
+    }
+
+    // Update Star Wars section
+    if (starwarsContainer) {
+        const starwarsEl = starwarsContainer.querySelector(`#${id}`);
+        if (starwarsEl && lastState[id] !== value) {
+            starwarsEl.innerHTML = value;
             updated = true;
         }
     }
@@ -837,17 +846,20 @@ function updateTheme(game, vendor, playerCount) {
     const mtgScoreboard = document.getElementById('scoreboard-mtg');
     const riftboundScoreboard = document.getElementById('scoreboard-riftbound');
     const vibesScoreboard = document.getElementById('scoreboard-vibes');
+    const starwarsScoreboard = document.getElementById('scoreboard-starwars');
 
     if (selectedGame === 'mtg') {
         console.log('Switching scoreboard to MTG mode...');
         if (mtgScoreboard) mtgScoreboard.style.display = 'block';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
         if (vibesScoreboard) vibesScoreboard.style.display = 'none';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'none';
     } else if (selectedGame === 'riftbound') {
         console.log('Switching scoreboard to Riftbound mode...');
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'block';
         if (vibesScoreboard) vibesScoreboard.style.display = 'none';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'none';
         
         // Apply battlefield images - always set a background (use default if empty or not found)
         const riftboundContainer = document.getElementById('scoreboard-riftbound');
@@ -1034,11 +1046,19 @@ function updateTheme(game, vendor, playerCount) {
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
         if (vibesScoreboard) vibesScoreboard.style.display = 'block';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'none';
+    } else if (selectedGame === 'starwars') {
+        console.log('Switching scoreboard to Star Wars mode...');
+        if (mtgScoreboard) mtgScoreboard.style.display = 'none';
+        if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
+        if (vibesScoreboard) vibesScoreboard.style.display = 'none';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'block';
     } else {
         // Default: hide all if unknown game type
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
         if (vibesScoreboard) vibesScoreboard.style.display = 'none';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'none';
     }
     } // end game-switch block
 
@@ -1060,6 +1080,7 @@ function updateTheme(game, vendor, playerCount) {
             mtg: '#scoreboard-mtg .mtg-frame',
             riftbound: '#scoreboard-riftbound .riftbound-frame',
             vibes: '#scoreboard-vibes .vibes-frame',
+            starwars: '#scoreboard-starwars .starwars-frame',
         };
         const frameSelector = frameSelectors[normalized];
         if (frameSelector) {
