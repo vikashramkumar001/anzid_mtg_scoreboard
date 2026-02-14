@@ -11,6 +11,9 @@ const control_id = pathSegments[2];
 let round_id = '1';
 let match_id = 'match1';
 let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 
 const MANA_ORDER = ['W', 'U', 'B', 'R', 'G', 'C'];
 const MANA_SYMBOLS = {
@@ -236,9 +239,10 @@ function updateElementText(id, value) {
     const mtgContainer = document.getElementById('scoreboard-mtg');
     const riftboundContainer = document.getElementById('scoreboard-riftbound');
     const vibesContainer = document.getElementById('scoreboard-vibes');
-    
+    const starwarsContainer = document.getElementById('scoreboard-starwars');
+
     let updated = false;
-    
+
     // Update MTG section
     if (mtgContainer) {
         const mtgEl = mtgContainer.querySelector(`#${id}`);
@@ -247,7 +251,7 @@ function updateElementText(id, value) {
             updated = true;
         }
     }
-    
+
     // Update Riftbound section
     if (riftboundContainer) {
         const riftboundEl = riftboundContainer.querySelector(`#${id}`);
@@ -259,10 +263,18 @@ function updateElementText(id, value) {
 
     // Update Vibes section
     if (vibesContainer) {
-        console.log('ping1updateelementtext');
         const vibesEl = vibesContainer.querySelector(`#${id}`);
         if (vibesEl && lastState[id] !== value) {
             vibesEl.innerHTML = value;
+            updated = true;
+        }
+    }
+
+    // Update Star Wars section
+    if (starwarsContainer) {
+        const starwarsEl = starwarsContainer.querySelector(`#${id}`);
+        if (starwarsEl && lastState[id] !== value) {
+            starwarsEl.innerHTML = value;
             updated = true;
         }
     }
@@ -813,36 +825,41 @@ function renderManaSymbols(inputStr, containerId, scenario = {}) {
 }
 
 // game selection logic
-function handleGameSelectionUpdate(gameSelection) {
-    const normalized = gameSelection?.toLowerCase();
-    if (!normalized || normalized === selectedGame) return;
+function updateTheme(game, vendor, playerCount) {
+    const normalized = game?.toLowerCase();
+    if (!normalized) return;
 
-    // Remove previous game class if it exists
-    if (selectedGame) {
-        document.body.classList.remove(selectedGame);
-    }
+    // --- Game switch (only when game actually changes) ---
+    if (normalized !== selectedGame) {
+        // Remove previous game class if it exists
+        if (selectedGame) {
+            document.body.classList.remove(selectedGame);
+        }
 
-    selectedGame = normalized;
-    console.log('Game selection updated:', selectedGame);
+        selectedGame = normalized;
+        console.log('Game selection updated:', selectedGame);
 
-    // Add game type class to body
-    document.body.classList.add(selectedGame);
+        // Add game type class to body
+        document.body.classList.add(selectedGame);
 
     // Show/hide appropriate scoreboard containers
     const mtgScoreboard = document.getElementById('scoreboard-mtg');
     const riftboundScoreboard = document.getElementById('scoreboard-riftbound');
     const vibesScoreboard = document.getElementById('scoreboard-vibes');
+    const starwarsScoreboard = document.getElementById('scoreboard-starwars');
 
     if (selectedGame === 'mtg') {
         console.log('Switching scoreboard to MTG mode...');
         if (mtgScoreboard) mtgScoreboard.style.display = 'block';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
         if (vibesScoreboard) vibesScoreboard.style.display = 'none';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'none';
     } else if (selectedGame === 'riftbound') {
         console.log('Switching scoreboard to Riftbound mode...');
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'block';
         if (vibesScoreboard) vibesScoreboard.style.display = 'none';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'none';
         
         // Apply battlefield images - always set a background (use default if empty or not found)
         const riftboundContainer = document.getElementById('scoreboard-riftbound');
@@ -1029,24 +1046,80 @@ function handleGameSelectionUpdate(gameSelection) {
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
         if (vibesScoreboard) vibesScoreboard.style.display = 'block';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'none';
+    } else if (selectedGame === 'starwars') {
+        console.log('Switching scoreboard to Star Wars mode...');
+        if (mtgScoreboard) mtgScoreboard.style.display = 'none';
+        if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
+        if (vibesScoreboard) vibesScoreboard.style.display = 'none';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'block';
     } else {
         // Default: hide all if unknown game type
         if (mtgScoreboard) mtgScoreboard.style.display = 'none';
         if (riftboundScoreboard) riftboundScoreboard.style.display = 'none';
         if (vibesScoreboard) vibesScoreboard.style.display = 'none';
+        if (starwarsScoreboard) starwarsScoreboard.style.display = 'none';
+    }
+    } // end game-switch block
+
+    // --- Vendor overrides (always run) ---
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        // Clear all previous vendor overrides so defaults kick in
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        // Apply new vendor overrides
+        const overrides = vc.getOverrides(normalized, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
+
+        // Update scoreboard frame image dynamically
+        const frameSelectors = {
+            mtg: '#scoreboard-mtg .mtg-frame',
+            riftbound: '#scoreboard-riftbound .riftbound-frame',
+            vibes: '#scoreboard-vibes .vibes-frame',
+            starwars: '#scoreboard-starwars .starwars-frame',
+        };
+        const frameSelector = frameSelectors[normalized];
+        if (frameSelector) {
+            const frameEl = document.querySelector(frameSelector);
+            if (frameEl) {
+                const framePath = vc.getAssetPath(`/assets/images/${normalized}/scoreboard/frame/${normalized}-scoreboard-frame.png`, vendor, playerCount);
+                frameEl.style.backgroundImage = `url("${framePath}")`;
+            }
+        }
     }
 }
 
 socket.emit('get-game-selection');
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
-socket.on('game-selection-updated', ({gameSelection}) => {
-    console.log('game selection updated socket on');
-    handleGameSelectionUpdate(gameSelection);
-});
-
-// If this is the first time receiving it (like on initial load):
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    handleGameSelectionUpdate(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
 // end game selection logic

@@ -2,6 +2,8 @@ export function initMatches(socket) {
 
     const broadcastDisplay = document.getElementById('broadcasting-now-round-display');
     let currentGameSelection = 'mtg'; // Default to mtg
+    let currentVendor = 'default';
+    let currentPlayerCount = '1v1';
     const control1Display = document.getElementById('control-1-round-match-display');
     const control2Display = document.getElementById('control-2-round-match-display');
     const control3Display = document.getElementById('control-3-round-match-display');
@@ -277,13 +279,19 @@ export function initMatches(socket) {
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">LifePoints</label>
-                                <div id="${roundId}-${matchId}-player-life-left" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="-5">-5</button>
+                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="-1">-1</button>
+                                    <div id="${roundId}-${matchId}-player-life-left" class="editable form-control text-center mx-1" contenteditable="true"></div>
+                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="1">+1</button>
+                                    <button class="btn btn-sm btn-outline-success mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="5">+5</button>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Pronouns</label>
                                 <div id="${roundId}-${matchId}-player-pronouns-left" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 archetype-field">
                                 <label class="form-label">Archetype</label>
                                 <div id="${roundId}-${matchId}-player-archetype-left" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -307,7 +315,7 @@ export function initMatches(socket) {
                                 <label class="form-label">Poison</label>
                                 <div id="${roundId}-${matchId}-player-poison-left" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label class="form-label">Mulligan</label>
                                 <div id="${roundId}-${matchId}-player-mulligan-left" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -324,8 +332,34 @@ export function initMatches(socket) {
                                 <div id="${roundId}-${matchId}-player-runes-left" class="editable form-control" contenteditable="true"></div>
                             </div>
                             <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield</label>
-                                <div id="${roundId}-${matchId}-player-battlefield-left" class="editable form-control" contenteditable="true"></div>
+                                <label class="form-label">Battlefield 1</label>
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
+                                    <div id="${roundId}-${matchId}-player-battlefield-1-left" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Battlefield 2</label>
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
+                                    <div id="${roundId}-${matchId}-player-battlefield-2-left" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Battlefield 3</label>
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
+                                    <div id="${roundId}-${matchId}-player-battlefield-3-left" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                            </div>
+                            <div id="${roundId}-${matchId}-player-battlefield-left" class="editable" style="display:none;"></div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <label class="form-label">Leader</label>
+                                <div id="${roundId}-${matchId}-player-leader-left" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <label class="form-label">Base</label>
+                                <div id="${roundId}-${matchId}-player-base-left" class="editable form-control" contenteditable="true"></div>
                             </div>
                         </div>
 
@@ -338,13 +372,19 @@ export function initMatches(socket) {
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">LifePoints</label>
-                                <div id="${roundId}-${matchId}-player-life-right" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="-5">-5</button>
+                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="-1">-1</button>
+                                    <div id="${roundId}-${matchId}-player-life-right" class="editable form-control text-center mx-1" contenteditable="true"></div>
+                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="1">+1</button>
+                                    <button class="btn btn-sm btn-outline-success mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="5">+5</button>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Pronouns</label>
                                 <div id="${roundId}-${matchId}-player-pronouns-right" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 archetype-field">
                                 <label class="form-label">Archetype</label>
                                 <div id="${roundId}-${matchId}-player-archetype-right" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -368,7 +408,7 @@ export function initMatches(socket) {
                                 <label class="form-label">Poison</label>
                                 <div id="${roundId}-${matchId}-player-poison-right" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label class="form-label">Mulligan</label>
                                 <div id="${roundId}-${matchId}-player-mulligan-right" class="editable form-control" contenteditable="true"></div>
                             </div>
@@ -385,8 +425,34 @@ export function initMatches(socket) {
                                 <div id="${roundId}-${matchId}-player-runes-right" class="editable form-control" contenteditable="true"></div>
                             </div>
                             <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield</label>
-                                <div id="${roundId}-${matchId}-player-battlefield-right" class="editable form-control" contenteditable="true"></div>
+                                <label class="form-label">Battlefield 1</label>
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
+                                    <div id="${roundId}-${matchId}-player-battlefield-1-right" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Battlefield 2</label>
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
+                                    <div id="${roundId}-${matchId}-player-battlefield-2-right" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Battlefield 3</label>
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
+                                    <div id="${roundId}-${matchId}-player-battlefield-3-right" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                            </div>
+                            <div id="${roundId}-${matchId}-player-battlefield-right" class="editable" style="display:none;"></div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <label class="form-label">Leader</label>
+                                <div id="${roundId}-${matchId}-player-leader-right" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <label class="form-label">Base</label>
+                                <div id="${roundId}-${matchId}-player-base-right" class="editable form-control" contenteditable="true"></div>
                             </div>
                         </div>
                     </div>
@@ -931,6 +997,52 @@ export function initMatches(socket) {
             socket.emit('master-control-matches-updated', allControlData);
         })
     }
+
+    // Delegated click handler for life +/- buttons
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.life-btn, .life-btn-5');
+        if (!btn) return;
+        const targetId = btn.dataset.lifeTarget;
+        const delta = parseInt(btn.dataset.lifeDelta);
+        const lifeEl = document.getElementById(targetId);
+        if (!lifeEl) return;
+        let current = parseInt(lifeEl.innerText) || 0;
+        lifeEl.innerText = current + delta;
+        lifeEl.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    // Delegated change handler for battlefield radio buttons
+    // When a radio is selected, copy that battlefield's text into the hidden player-battlefield field
+    document.addEventListener('change', (e) => {
+        if (!e.target.classList.contains('battlefield-radio')) return;
+        const radio = e.target;
+        const { side, round, match, bf } = radio.dataset;
+        const sourceEl = document.getElementById(`${round}-${match}-player-battlefield-${bf}-${side}`);
+        const mainField = document.getElementById(`${round}-${match}-player-battlefield-${side}`);
+        if (sourceEl && mainField) {
+            mainField.innerText = sourceEl.innerText;
+            mainField.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    });
+
+    // Delegated input handler for battlefield text fields
+    // When editing a battlefield input, sync to the hidden field if this battlefield's radio is selected
+    document.addEventListener('input', (e) => {
+        if (!e.target.classList.contains('battlefield-input')) return;
+        const fieldId = e.target.id; // e.g. "1-match1-player-battlefield-2-left"
+        const match = fieldId.match(/^(.+)-player-battlefield-(\d)-(left|right)$/);
+        if (!match) return;
+        const [, prefix, bfNum, side] = match;
+        const radioName = `${prefix}-bf-${side}-select`;
+        const selectedRadio = document.querySelector(`input[name="${radioName}"]:checked`);
+        if (selectedRadio && selectedRadio.dataset.bf === bfNum) {
+            const mainField = document.getElementById(`${prefix}-player-battlefield-${side}`);
+            if (mainField) {
+                mainField.innerText = e.target.innerText;
+                mainField.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        }
+    });
 
     // add click handler for commentator data
     function attachCommentatorDataUpdateClickListener() {
@@ -1498,31 +1610,72 @@ export function initMatches(socket) {
     function toggleGameFields(gameSelection) {
         const showRiftbound = gameSelection === 'riftbound';
         const showMtg = gameSelection === 'mtg';
+        const showStarwars = gameSelection === 'starwars';
+        const showArchetype = showMtg || gameSelection === 'vibes';
 
-        const riftboundFields = document.querySelectorAll('.riftbound-only-field');
-        riftboundFields.forEach(field => {
+        document.querySelectorAll('.riftbound-only-field').forEach(field => {
             field.style.display = showRiftbound ? 'block' : 'none';
         });
 
-        const mtgFields = document.querySelectorAll('.mtg-only-field');
-        mtgFields.forEach(field => {
+        document.querySelectorAll('.mtg-only-field').forEach(field => {
             field.style.display = showMtg ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('.starwars-only-field').forEach(field => {
+            field.style.display = showStarwars ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('.archetype-field').forEach(field => {
+            field.style.display = showArchetype ? 'block' : 'none';
         });
     }
 
-    // Listen for game selection changes
-    socket.on('game-selection-updated', ({gameSelection}) => {
-        currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
-        toggleGameFields(currentGameSelection);
-    });
+    // Function to update theme with vendor overrides
+    function updateTheme(game, vendor, playerCount) {
+        toggleGameFields(game);
+        // Apply vendor overrides
+        const vc = window.VENDOR_CONFIG;
+        if (vc) {
+            vc.getAllOverrideProperties().forEach(prop => {
+                document.documentElement.style.removeProperty(prop);
+            });
+            const overrides = vc.getOverrides(game, vendor);
+            Object.entries(overrides).forEach(([prop, value]) => {
+                document.documentElement.style.setProperty(prop, value);
+            });
+        }
+    }
 
+    // Listen for game selection changes
     socket.on('server-current-game-selection', ({gameSelection}) => {
         currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
-        toggleGameFields(currentGameSelection);
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('game-selection-updated', ({gameSelection}) => {
+        currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+        currentVendor = vendorSelection;
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('vendor-selection-updated', ({vendorSelection}) => {
+        currentVendor = vendorSelection;
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('server-current-player-count', ({playerCount}) => {
+        currentPlayerCount = playerCount;
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+    });
+    socket.on('player-count-updated', ({playerCount}) => {
+        currentPlayerCount = playerCount;
+        updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
     });
 
-    // Initial fetch of game selection
+    // Initial fetch of game selection, vendor, and player count
     socket.emit('get-game-selection');
+    socket.emit('get-vendor-selection');
+    socket.emit('get-player-count');
 
     // Listen for updated archetype list from server
     socket.on('archetypeListUpdated', (archetypes) => {

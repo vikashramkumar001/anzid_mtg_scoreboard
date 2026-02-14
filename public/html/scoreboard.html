@@ -9,6 +9,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <!-- Room Manager -->
     <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
     <link href="/css/scoreboard.css" rel="stylesheet">
 
 </head>
@@ -251,6 +252,62 @@
     </div>
 </div>
 
+
+<!-- Star Wars Scoreboard -->
+<div id="scoreboard-starwars" style="display: none;">
+    <div class="starwars-frame"></div>
+    <div class="header">
+        <div class="background-left">
+        </div>
+        <div class="background-right">
+        </div>
+        <div class="background">
+            <div class="scorebug">
+                <div class="scorebug-life scorebug-left-life">
+                    <div id="player-life-left" class="scorebug-life-score scorebug-left-life-score">-</div>
+                    <div id="player-wins-leftw" class="scorebug-life-wins scorebug-left-life-wins">
+                        <div id="scorebug-left-life-wins-1" class="scorebug-life-wins-dot"></div>
+                        <div id="scorebug-left-life-wins-2" class="scorebug-life-wins-dot"></div>
+                    </div>
+                </div>
+                <div class="scorebug-name scorebug-left-name">
+                    <div id="player-name-left" class="scorebug-name-title scorebug-left-name-title">-</div>
+                    <div class="scorebug-name-data scorebug-left-name-data">
+                        <span id="player-leader-left"></span>
+                        <span id="player-base-left"></span>
+                        <span id="player-pronouns-left" class="player-pronouns"></span>
+                    </div>
+                </div>
+                <div id="player-record-left" class="player-record player-record-left"></div>
+                <div class="timer-spacer"></div>
+                <div id="player-record-right" class="player-record player-record-right"></div>
+                <div class="scorebug-name scorebug-right-name">
+                    <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
+                    <div class="scorebug-name-data scorebug-right-name-data">
+                        <span id="player-pronouns-right" class="player-pronouns"></span>
+                        <span id="player-base-right"></span>
+                        <span id="player-leader-right"></span>
+                    </div>
+                </div>
+                <div class="scorebug-life scorebug-right-life">
+                    <div id="player-life-right" class="scorebug-life-score scorebug-right-life-score">-</div>
+                    <div id="player-wins-righte" class="scorebug-life-wins scorebug-right-life-wins">
+                        <div id="scorebug-right-life-wins-1" class="scorebug-life-wins-dot"></div>
+                        <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="background">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="background">
+        </div>
+    </div>
+</div>
 
 <script type="module" src="/js/scoreboard.js"></script>
 

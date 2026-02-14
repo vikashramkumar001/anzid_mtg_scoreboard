@@ -24,7 +24,9 @@ import {
     saveControlData,
     updateBroadcastTracker,
     emitScoreboardState,
-    updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection
+    updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection,
+    emitCurrentVendorSelection, updateVendorSelection,
+    emitCurrentPlayerCount, updatePlayerCount
 } from '../features/control.js';
 
 import {
@@ -225,6 +227,24 @@ export default function registerSocketHandlers(io) {
 
         socket.on('get-game-selection', () => {
             emitCurrentGameSelection(io);
+        })
+
+        // Global vendor selection
+        socket.on('update-vendor-selection', ({vendorSelection}) => {
+            updateVendorSelection(vendorSelection, io);
+        })
+
+        socket.on('get-vendor-selection', () => {
+            emitCurrentVendorSelection(io);
+        })
+
+        // Global player count
+        socket.on('update-player-count', ({playerCount}) => {
+            updatePlayerCount(playerCount, io);
+        })
+
+        socket.on('get-player-count', () => {
+            emitCurrentPlayerCount(io);
         })
 
         // Card viewer

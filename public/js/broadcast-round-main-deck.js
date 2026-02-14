@@ -4,6 +4,9 @@ window.roomManager = new RoomManager(socket);
 let roundData = {};
 let deckData = {};
 let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 let pendingSideDeckData = null;  // Store side deck data until game selection is known
 
 // Get match name from the URL
@@ -1336,7 +1339,8 @@ function requestSideDeckTransformation() {
 }
 
 // game selection logic
-function handleGameSelectionUpdate(gameSelection) {
+function updateTheme(game, vendor, playerCount) {
+    const gameSelection = game;
     const normalized = gameSelection?.toLowerCase();
     if (!normalized || normalized === selectedGame) return;
 
@@ -1367,7 +1371,7 @@ function handleGameSelectionUpdate(gameSelection) {
         if (riftboundSection) riftboundSection.style.display = 'block';
         if (vibesSection) vibesSection.style.display = 'none';
         setRiftboundBackground();
-        
+
         // Update legend description when switching to riftbound
         if (riftboundSection) {
             const container = riftboundSection.querySelector('#riftbound-main-deck-container');
@@ -1390,6 +1394,18 @@ function handleGameSelectionUpdate(gameSelection) {
 
     // Request side deck transformation now that game selection is known
     requestSideDeckTransformation();
+
+    // Apply vendor overrides
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        const overrides = vc.getOverrides(game, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
+    }
 }
 
 // Function to set the riftbound background based on side_id
@@ -1424,14 +1440,32 @@ function setRiftboundBackground() {
 }
 
 socket.emit('get-game-selection');
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
-socket.on('game-selection-updated', ({gameSelection}) => {
-    handleGameSelectionUpdate(gameSelection);
-});
-
-// If this is the first time receiving it (like on initial load):
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    handleGameSelectionUpdate(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
 // end game selection logic

@@ -140,7 +140,7 @@
     background-color: white;
     padding-bottom: 10px;
     padding-top: 10px;
-    z-index: 1;
+    z-index: 10;
     border: 1px solid;
 }
 
@@ -160,8 +160,36 @@
 }
 
 /* Only decklist textareas */
-textarea[id*="main-deck"], 
+textarea[id*="main-deck"],
 textarea[id*="side-deck"] {
   font-family: "Bebas Neue Pro", sans-serif; /* or your Bebas Neue Pro name */
   font-weight: 700;
+}
+
+/* Dark mode overrides */
+[data-bs-theme="dark"] .round-broadcast-container {
+    background-color: #212529;
+    border-color: #495057;
+}
+
+[data-bs-theme="dark"] .custom-dropdown .dropdown-list {
+    background-color: #2b3035;
+    border-color: #495057;
+}
+
+[data-bs-theme="dark"] .custom-dropdown .dropdown-item:hover {
+    background-color: #495057;
+}
+
+[data-bs-theme="dark"] .editable[contenteditable="true"] {
+    background-color: #2b3035;
+    color: #dee2e6;
+}
+
+[data-bs-theme="dark"] .editable[contenteditable="false"] {
+    background-color: #343a40;
+}
+
+[data-bs-theme="dark"] .small-button {
+    color: #dee2e6;
 }

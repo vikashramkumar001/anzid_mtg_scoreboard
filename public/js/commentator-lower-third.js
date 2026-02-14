@@ -10,7 +10,9 @@ let commentator3 = "";
 let commentator3subtext = "";
 let commentator4 = "";
 let commentator4subtext = "";
-let selectedGame = "";
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 
 // Get match name from the URL - exact pathSegment might be different
 const pathSegments = window.location.pathname.split('/');
@@ -123,51 +125,64 @@ function updateCommentatorData(){
 }
 
 socket.emit('get-game-selection');
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
-socket.on('game-selection-updated', ({gameSelection}) => {
-    //console.log('L3 - game selection updated socket on');
-    handleGameSelectionUpdate(gameSelection);
-});
-
-// If this is the first time receiving it (like on initial load):
 socket.on('server-current-game-selection', ({gameSelection}) => {
-    //console.log('L3 - server game selection updated socket on');
-    handleGameSelectionUpdate(gameSelection);
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
 // game selection logic - we only need to update the image
-function handleGameSelectionUpdate(gameSelection) {
-    //console.log('L3 - Enter handle game select: ', gameSelection);
-    const normalized = gameSelection?.toLowerCase();
-    if (!normalized || normalized === selectedGame) return;
+function updateTheme(game, vendor, playerCount) {
+    //console.log('L3 - Enter handle game select: ', game);
+    const normalized = game?.toLowerCase();
+    if (!normalized) return;
 
     // Remove previous game class if it exists
-    if (selectedGame) {
-        document.body.classList.remove(selectedGame);
+    if (currentGame) {
+        document.body.classList.remove(currentGame);
     }
 
-    selectedGame = normalized;
-    //console.log('L3 - Game selection updated:', selectedGame);
-
     // Add game type class to body
-    document.body.classList.add(selectedGame);
+    document.body.classList.add(normalized);
 
     // Show/hide appropriate commentator containers
     const mtgLowerThird = document.getElementById('lower-third-mtg');
     const riftboundLowerThird = document.getElementById('lower-third-riftbound');
     const vibesLowerThird = document.getElementById('lower-third-vibes');
 
-    if (selectedGame === 'mtg') {
+    if (normalized === 'mtg') {
         console.log('Switching lower-third to MTG mode...');
         if (mtgLowerThird) mtgLowerThird.style.display = 'block';
         if (riftboundLowerThird) riftboundLowerThird.style.display = 'none';
         if (vibesLowerThird) vibesLowerThird.style.display = 'none';
-    } else if (selectedGame === 'riftbound') {
+    } else if (normalized === 'riftbound') {
         console.log('Switching lower-third to Riftbound mode...');
         if (mtgLowerThird) mtgLowerThird.style.display = 'none';
         if (riftboundLowerThird) riftboundLowerThird.style.display = 'block';
         if (vibesLowerThird) vibesLowerThird.style.display = 'none';
-    } else if (selectedGame === 'vibes') {
+    } else if (normalized === 'vibes') {
         console.log('Switching lower-third to Vibes mode...');
         if (mtgLowerThird) mtgLowerThird.style.display = 'none';
         if (riftboundLowerThird) riftboundLowerThird.style.display = 'none';
@@ -177,5 +192,17 @@ function handleGameSelectionUpdate(gameSelection) {
         if (mtgLowerThird) mtgLowerThird.style.display = 'none';
         if (riftboundLowerThird) riftboundLowerThird.style.display = 'none';
         if (vibesLowerThird) vibesLowerThird.style.display = 'none';
+    }
+
+    // Apply vendor overrides
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+        const overrides = vc.getOverrides(game, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
     }
 }

@@ -143,6 +143,7 @@ html, body {
     text-transform: uppercase;
 }
 
+
 .life-total-overlay {
     position: absolute;
     display: flex;

@@ -179,7 +179,7 @@ div {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/images/mtg/scoreboard/frame/mtg-frame.png");
+    /* background-image set dynamically by JS via getAssetPath */
     background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
@@ -203,7 +203,6 @@ div {
 #scoreboard-mtg .body .background {
     width: 1920px;
     height: 930px;
-    background: url("/assets/images/overlay_body.png");
 }
 
 #scoreboard-mtg .footer .background {
@@ -510,11 +509,11 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next'), sans-serif;
 }
 
 #scoreboard-riftbound * {
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next'), sans-serif;
 }
 
 #scoreboard-riftbound .riftbound-container {
@@ -532,7 +531,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/images/riftbound/scoreboard/frame/1-IGN-v3-frame.png");
+    /* background-image set dynamically by JS via getAssetPath */
     background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
@@ -568,8 +567,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-record-left #player-record-left {
-    color: #1DC9FF;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-record-color, #1DC9FF);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 16px;
 }
@@ -584,8 +583,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-record-right #player-record-right {
-    color: #1DFF47;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-record-color, #1DFF47);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 16px;
 }
@@ -607,8 +606,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-life-left #player-life-left {
-    color: #1DC9FF;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-points-color, #1DC9FF);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 45px;
 }
@@ -621,8 +620,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-life-right #player-life-right {
-    color: #1DFF47;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-points-color, #1DFF47);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 45px;
 }
@@ -646,8 +645,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-name-left #player-name-left {
-    color: #000000;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-name-color, #000000);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 50px;
     white-space: nowrap;
@@ -665,8 +664,8 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-name-right #player-name-right {
-    color: #000000;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    color: var(--scoreboard-name-color, #000000);
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 50px;
     white-space: nowrap;
@@ -812,7 +811,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-legend-left #player-legend-left {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -834,7 +833,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-legend-right #player-legend-right {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -863,7 +862,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-champion-left #player-champion-left {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -885,7 +884,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-champion-right #player-champion-right {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -996,7 +995,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-battlefield-left #player-battlefield-left {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -1018,7 +1017,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-battlefield-right #player-battlefield-right {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next Med', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next Med'), sans-serif;
     font-weight: 500;
     font-style: italic;
     font-size: 13px;
@@ -1044,7 +1043,7 @@ body {
 
 #scoreboard-riftbound .riftbound-event-name-wrapper #event-name {
     color: #000000;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 20px;
     white-space: nowrap;
@@ -1069,7 +1068,7 @@ body {
 
 #scoreboard-riftbound .riftbound-event-round {
     color: #fff;
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next'), sans-serif;
     font-weight: bold;
     font-size: 22px;
 }
@@ -1097,7 +1096,7 @@ body {
 
 #scoreboard-riftbound .riftbound-timer {
     color: #19c8ff;
-    font-family: 'Akzidenz-Grotesk Next XBold', sans-serif;
+    font-family: var(--dynamic-font, 'Akzidenz-Grotesk Next XBold'), sans-serif;
     font-weight: 800;
     font-size: 72px;
     font-variant-numeric: tabular-nums;
@@ -1125,7 +1124,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/images/vibes/scoreboard/frame/vibes-frame.png");
+    /* background-image set dynamically by JS via getAssetPath */
     background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
@@ -1149,7 +1148,6 @@ body {
 #scoreboard-vibes .body .background {
     width: 1920px;
     height: 930px;
-    background: url("/assets/images/overlay_body.png");
 }
 
 /*
@@ -1414,5 +1412,177 @@ body {
 #scoreboard-vibes #player-mana-symbols-right-symbols,
 #scoreboard-vibes #player-archetype-right {
     margin-left: 5px;
+}
+
+/* ======================== */
+/* Star Wars Scoreboard     */
+/* ======================== */
+
+#scoreboard-starwars {
+    font-family: "Bebas Neue", sans-serif;
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#scoreboard-starwars * {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+#scoreboard-starwars .starwars-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-image set dynamically by JS via getAssetPath */
+    background-size: 1920px 1080px;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 5;
+    pointer-events: none;
+}
+
+#scoreboard-starwars .header .background {
+    width: 1920px;
+    height: 100px;
+}
+
+#scoreboard-starwars .body .background {
+    width: 1920px;
+    height: 880px;
+}
+
+#scoreboard-starwars .footer .background {
+    width: 1920px;
+    height: 100px;
+}
+
+#scoreboard-starwars .scorebug {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#scoreboard-starwars .scorebug-life {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 100%;
+}
+
+#scoreboard-starwars .scorebug-right-life {
+    flex-direction: column-reverse;
+}
+
+#scoreboard-starwars .scorebug-life-score {
+    font-size: var(--scoreboard-points-size, 70px);
+    line-height: 1;
+    color: var(--scoreboard-points-color, white);
+    text-align: center;
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.15);
+}
+
+#scoreboard-starwars .scorebug-life-wins {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreboard-starwars .scorebug-right-life-wins,
+#scoreboard-starwars .scorebug-left-life-wins {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreboard-starwars .scorebug-life-wins-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 3px;
+    transition: background-color 0.3s ease;
+}
+
+#scoreboard-starwars .player-record {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    font-size: var(--scoreboard-record-size, 25px);
+    color: var(--scoreboard-record-color, white);
+}
+
+#scoreboard-starwars .scorebug-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 350px;
+    height: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+#scoreboard-starwars .scorebug-name-title {
+    font-size: var(--scoreboard-name-size, 40px);
+    line-height: 1;
+    color: var(--scoreboard-name-color, white);
+    white-space: nowrap;
+}
+
+#scoreboard-starwars .scorebug-right-name {
+    align-items: flex-end;
+}
+
+#scoreboard-starwars .scorebug-name-data,
+#scoreboard-starwars .scorebug-name-data * {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: row;
+}
+
+#scoreboard-starwars .player-pronouns {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#scoreboard-starwars #player-pronouns-left {
+    margin-left: 10px;
+}
+
+#scoreboard-starwars #player-pronouns-right {
+    margin-right: 10px;
+}
+
+#scoreboard-starwars .background-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+}
+
+#scoreboard-starwars .background-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
 }
 
