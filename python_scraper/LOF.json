@@ -4,6 +4,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/222.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\A_Precarious_Predicament.png",
         "success": true
     },
@@ -12,6 +16,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/106.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Command"
+        ],
         "image": "LOF\\Acclamator_Assault_Ship.png",
         "success": true
     },
@@ -20,6 +29,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/129.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Acolyte_of_the_Beyond.png",
         "success": true
     },
@@ -28,6 +42,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/178.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Adept_of_Anger.png",
         "success": true
     },
@@ -36,6 +55,11 @@
         "subtitle": "Stern and Focused",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1060.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Adi_Gallia - Stern_and_Focused.png",
         "success": true
     },
@@ -44,6 +68,11 @@
         "subtitle": "Fighting For Peace",
         "url": "https://cdn.swu-db.com/images/cards/LOF/003.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Ahsoka_Tano - Fighting_For_Peace.png",
         "success": true
     },
@@ -52,6 +81,11 @@
         "subtitle": "Fighting For Peace",
         "url": "https://cdn.swu-db.com/images/cards/LOF/003-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Ahsoka_Tano - Fighting_For_Peace_back.png",
         "success": true
     },
@@ -60,6 +94,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/042.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Always_Two.png",
         "success": true
     },
@@ -68,6 +107,10 @@
         "subtitle": "Tempted by the Dark Side",
         "url": "https://cdn.swu-db.com/images/cards/LOF/018.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Anakin_Skywalker - Tempted_by_the_Dark_Side.png",
         "success": true
     },
@@ -76,6 +119,10 @@
         "subtitle": "Tempted by the Dark Side",
         "url": "https://cdn.swu-db.com/images/cards/LOF/018-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Anakin_Skywalker - Tempted_by_the_Dark_Side_back.png",
         "success": true
     },
@@ -84,6 +131,10 @@
         "subtitle": "Champion of Mortis",
         "url": "https://cdn.swu-db.com/images/cards/LOF/070.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Anakin_Skywalker - Champion_of_Mortis.png",
         "success": true
     },
@@ -92,6 +143,11 @@
         "subtitle": "Force Prodigy",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1052.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Anakin_Skywalker - Force_Prodigy.png",
         "success": true
     },
@@ -100,6 +156,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/236.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Army_of_the_Dead.png",
         "success": true
     },
@@ -108,6 +168,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/188.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\As_I_Have_Foreseen.png",
         "success": true
     },
@@ -116,6 +181,10 @@
         "subtitle": "Harden Your Heart",
         "url": "https://cdn.swu-db.com/images/cards/LOF/165.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Asajj_Ventress - Harden_Your_Heart.png",
         "success": true
     },
@@ -124,6 +193,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/215.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Ascension_Cable.png",
         "success": true
     },
@@ -132,6 +205,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/174.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Ataru_Onslaught.png",
         "success": true
     },
@@ -140,6 +217,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/143.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Attuned_Fyrnock.png",
         "success": true
     },
@@ -148,6 +230,11 @@
         "subtitle": "Patient and Deadly",
         "url": "https://cdn.swu-db.com/images/cards/LOF/179.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Aurra_Sing - Patient_and_Deadly.png",
         "success": true
     },
@@ -156,6 +243,11 @@
         "subtitle": "Marshal of Starlight",
         "url": "https://cdn.swu-db.com/images/cards/LOF/007.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Avar_Kriss - Marshal_of_Starlight.png",
         "success": true
     },
@@ -164,6 +256,11 @@
         "subtitle": "Marshal of Starlight",
         "url": "https://cdn.swu-db.com/images/cards/LOF/007-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Avar_Kriss - Marshal_of_Starlight_back.png",
         "success": true
     },
@@ -172,6 +269,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/066.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Awakened_Specters.png",
         "success": true
     },
@@ -180,6 +281,10 @@
         "subtitle": "Accomplished Warrior",
         "url": "https://cdn.swu-db.com/images/cards/LOF/062.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Axe_Woves - Accomplished_Warrior.png",
         "success": true
     },
@@ -188,6 +293,11 @@
         "subtitle": "Beep Boo Boo Bweep",
         "url": "https://cdn.swu-db.com/images/cards/LOF/191.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\BD-1 - Beep_Boo_Boo_Bweep.png",
         "success": true
     },
@@ -196,6 +306,10 @@
         "subtitle": "Heyyy!",
         "url": "https://cdn.swu-db.com/images/cards/LOF/206.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Babu_Frik - Heyyy.png",
         "success": true
     },
@@ -204,6 +318,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/181.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Banking_Clan_Shuttle.png",
         "success": true
     },
@@ -212,6 +331,11 @@
         "subtitle": "We Have Become Villains",
         "url": "https://cdn.swu-db.com/images/cards/LOF/013.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Barriss_Offee - We_Have_Become_Villains.png",
         "success": true
     },
@@ -220,6 +344,11 @@
         "subtitle": "We Have Become Villains",
         "url": "https://cdn.swu-db.com/images/cards/LOF/013-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Barriss_Offee - We_Have_Become_Villains_back.png",
         "success": true
     },
@@ -228,6 +357,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/139.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Battle_Fury.png",
         "success": true
     },
@@ -236,6 +370,11 @@
         "subtitle": "Enigmatic Master",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1065.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Baylan_Skoll - Enigmatic_Master.png",
         "success": true
     },
@@ -244,6 +383,10 @@
         "subtitle": "Do You Fear the Storm?",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1045.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Bendu - Do_You_Fear_the_Storm.png",
         "success": true
     },
@@ -252,6 +395,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/166.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Blockade_Runner.png",
         "success": true
     },
@@ -260,6 +407,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/251.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Blue_Squadron_Assault_Wing.png",
         "success": true
     },
@@ -268,6 +419,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/074.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Bolstered_Endurance.png",
         "success": true
     },
@@ -276,6 +431,11 @@
         "subtitle": "I Can't Keep Hiding",
         "url": "https://cdn.swu-db.com/images/cards/LOF/015.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Cal_Kestis - I_Cant_Keep_Hiding.png",
         "success": true
     },
@@ -284,6 +444,11 @@
         "subtitle": "I Can't Keep Hiding",
         "url": "https://cdn.swu-db.com/images/cards/LOF/015-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Cal_Kestis - I_Cant_Keep_Hiding_back.png",
         "success": true
     },
@@ -292,6 +457,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/054.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Calm_in_the_Storm.png",
         "success": true
     },
@@ -300,6 +470,11 @@
         "subtitle": "Captain of the Guard",
         "url": "https://cdn.swu-db.com/images/cards/LOF/083.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Captain_Enoch - Captain_of_the_Guard.png",
         "success": true
     },
@@ -308,6 +483,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/243.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Caretaker_Matron.png",
         "success": true
     },
@@ -316,6 +495,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/157.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Cartel_Interceptor.png",
         "success": true
     },
@@ -324,6 +507,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/210.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Charging_Phillak.png",
         "success": true
     },
@@ -332,6 +519,10 @@
         "subtitle": "Blind, but not Deaf",
         "url": "https://cdn.swu-db.com/images/cards/LOF/067.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Chirrut_mwe - Blind_but_not_Deaf.png",
         "success": true
     },
@@ -340,6 +531,11 @@
         "subtitle": "Esteemed Blademaster",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1059.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Cin_Drallig - Esteemed_Blademaster.png",
         "success": true
     },
@@ -348,6 +544,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1001.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Constructed_Lightsaber.png",
         "success": true
     },
@@ -356,6 +554,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/239.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Consumed_by_the_Dark_Side.png",
         "success": true
     },
@@ -364,6 +566,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/187.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Corrupted_Saber.png",
         "success": true
     },
@@ -372,6 +579,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/091.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Craving_Power.png",
         "success": true
     },
@@ -380,6 +592,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/077.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Crushing_Blow.png",
         "success": true
     },
@@ -388,6 +604,10 @@
         "subtitle": "Ilum",
         "url": "https://cdn.swu-db.com/images/cards/LOF/029.png",
         "type": "Base",
+        "hp": "28",
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Crystal_Caves - Ilum.png",
         "success": true
     },
@@ -396,6 +616,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/075.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Cure_Wounds.png",
         "success": true
     },
@@ -404,6 +628,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/255.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Curious_Flock.png",
         "success": true
     },
@@ -412,6 +638,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/155.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\DRK-1_Probe_Droid.png",
         "success": true
     },
@@ -420,6 +650,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/115.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Dagoyan_Master.png",
         "success": true
     },
@@ -428,6 +662,10 @@
         "subtitle": "Covetous Apprentice",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1068.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Malak - Covetous_Apprentice.png",
         "success": true
     },
@@ -436,6 +674,11 @@
         "subtitle": "Sith Revealed",
         "url": "https://cdn.swu-db.com/images/cards/LOF/009.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Maul - Sith_Revealed.png",
         "success": true
     },
@@ -444,6 +687,11 @@
         "subtitle": "Sith Revealed",
         "url": "https://cdn.swu-db.com/images/cards/LOF/009-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Maul - Sith_Revealed_back.png",
         "success": true
     },
@@ -452,6 +700,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/140.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Mauls_Lightsaber.png",
         "success": true
     },
@@ -460,6 +713,10 @@
         "subtitle": "Scourge of the Old Republic",
         "url": "https://cdn.swu-db.com/images/cards/LOF/017.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Revan - Scourge_of_the_Old_Republic.png",
         "success": true
     },
@@ -468,6 +725,10 @@
         "subtitle": "Scourge of the Old Republic",
         "url": "https://cdn.swu-db.com/images/cards/LOF/017-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Revan - Scourge_of_the_Old_Republic_back.png",
         "success": true
     },
@@ -476,6 +737,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/238.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Revans_Lightsaber.png",
         "success": true
     },
@@ -484,6 +749,11 @@
         "subtitle": "The Phantom Menace",
         "url": "https://cdn.swu-db.com/images/cards/LOF/039.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Sidious - The_Phantom_Menace.png",
         "success": true
     },
@@ -492,6 +762,10 @@
         "subtitle": "Servant of Sidious",
         "url": "https://cdn.swu-db.com/images/cards/LOF/231.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Tyranus - Servant_of_Sidious.png",
         "success": true
     },
@@ -500,6 +774,11 @@
         "subtitle": "Twilight of the Apprentice",
         "url": "https://cdn.swu-db.com/images/cards/LOF/037.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Darth_Vader - Twilight_of_the_Apprentice.png",
         "success": true
     },
@@ -508,6 +787,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/141.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Death_Field.png",
         "success": true
     },
@@ -516,6 +800,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/180.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Deceptive_Shade.png",
         "success": true
     },
@@ -524,6 +813,11 @@
         "subtitle": "A Higher Purpose",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1061.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Depa_Billaba - A_Higher_Purpose.png",
         "success": true
     },
@@ -532,6 +826,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/123.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Directed_by_the_Force.png",
         "success": true
     },
@@ -540,6 +838,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/216.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Disturbance_in_the_Force.png",
         "success": true
     },
@@ -548,6 +850,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/175.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Do_or_Do_Not.png",
         "success": true
     },
@@ -556,6 +862,10 @@
         "subtitle": "It is Too Late",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1043.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Dooku - It_is_Too_Late.png",
         "success": true
     },
@@ -564,6 +874,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/041.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Drain_Essence.png",
         "success": true
     },
@@ -572,6 +887,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/086.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Drengir_Spawn.png",
         "success": true
     },
@@ -580,6 +900,11 @@
         "subtitle": "Redeem the Future",
         "url": "https://cdn.swu-db.com/images/cards/LOF/055.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Vigilance"
+        ],
         "image": "LOF\\Dume - Redeem_the_Future.png",
         "success": true
     },
@@ -588,6 +913,11 @@
         "subtitle": "Spiritual Warrior",
         "url": "https://cdn.swu-db.com/images/cards/LOF/097.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Eeth_Koth - Spiritual_Warrior.png",
         "success": true
     },
@@ -596,6 +926,11 @@
         "subtitle": "Hunt Together",
         "url": "https://cdn.swu-db.com/images/cards/LOF/087.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Eighth_Brother - Hunt_Together.png",
         "success": true
     },
@@ -604,6 +939,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/080.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Exegol_Patroller.png",
         "success": true
     },
@@ -612,6 +952,11 @@
         "subtitle": "To Peridea",
         "url": "https://cdn.swu-db.com/images/cards/LOF/088.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Eye_of_Sion - To_Peridea.png",
         "success": true
     },
@@ -620,6 +965,11 @@
         "subtitle": "Attuned With Life",
         "url": "https://cdn.swu-db.com/images/cards/LOF/046.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Ezra_Bridger - Attuned_With_Life.png",
         "success": true
     },
@@ -628,6 +978,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/230.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Fallen_Jedi.png",
         "success": true
     },
@@ -636,6 +990,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/240.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Flight_of_the_Inquisitor.png",
         "success": true
     },
@@ -644,6 +1002,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/152.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Focus_Determines_Reality.png",
         "success": true
     },
@@ -652,6 +1015,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/103.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Following_the_Path.png",
         "success": true
     },
@@ -660,6 +1028,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/223.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Force_Illusion.png",
         "success": true
     },
@@ -668,6 +1040,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/217.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Force_Slow.png",
         "success": true
     },
@@ -676,6 +1052,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/205.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Cunning"
+        ],
         "image": "LOF\\Force_Speed.png",
         "success": true
     },
@@ -684,6 +1065,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/228.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Forged_Starfighter.png",
         "success": true
     },
@@ -692,6 +1077,10 @@
         "subtitle": "Mustafar",
         "url": "https://cdn.swu-db.com/images/cards/LOF/026.png",
         "type": "Base",
+        "hp": "28",
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Fortress_Vader - Mustafar.png",
         "success": true
     },
@@ -700,6 +1089,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/256.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Gifted_Urchin.png",
         "success": true
     },
@@ -708,6 +1099,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1002.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Go_Into_Hiding.png",
         "success": true
     },
@@ -716,6 +1109,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/069.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Graceful_Purrgil.png",
         "success": true
     },
@@ -724,6 +1121,11 @@
         "subtitle": "Stories Travel Quickly",
         "url": "https://cdn.swu-db.com/images/cards/LOF/014.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Grand_Inquisitor - Stories_Travel_Quickly.png",
         "success": true
     },
@@ -732,6 +1134,11 @@
         "subtitle": "Stories Travel Quickly",
         "url": "https://cdn.swu-db.com/images/cards/LOF/014-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Grand_Inquisitor - Stories_Travel_Quickly_back.png",
         "success": true
     },
@@ -740,6 +1147,11 @@
         "subtitle": "You're Right to Be Afraid",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1031.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Grand_Inquisitor - Youre_Right_to_Be_Afraid.png",
         "success": true
     },
@@ -748,6 +1160,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/071.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Grappling_Guardian.png",
         "success": true
     },
@@ -756,6 +1172,10 @@
         "subtitle": "Mysterious Child",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1039.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Grogu - Mysterious_Child.png",
         "success": true
     },
@@ -764,6 +1184,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/058.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Guardian_of_the_Whills.png",
         "success": true
     },
@@ -772,6 +1196,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/247.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Gungan_Warrior.png",
         "success": true
     },
@@ -780,6 +1208,11 @@
         "subtitle": "Finding Himself",
         "url": "https://cdn.swu-db.com/images/cards/LOF/093.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Gungi - Finding_Himself.png",
         "success": true
     },
@@ -788,6 +1221,11 @@
         "subtitle": "Exclamation: Die, Meatbag!",
         "url": "https://cdn.swu-db.com/images/cards/LOF/130.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\HK-47 - Exclamation_Die_Meatbag.png",
         "success": true
     },
@@ -796,6 +1234,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/235.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\HK-87_Assassin_Droid.png",
         "success": true
     },
@@ -804,6 +1246,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/171.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Heavy_Blaster_Cannon.png",
         "success": true
     },
@@ -812,6 +1258,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/134.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Heavy_Missile_Gunship.png",
         "success": true
     },
@@ -820,6 +1271,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/053.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Heirloom_Lightsaber.png",
         "success": true
     },
@@ -828,6 +1284,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/110.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Hive_Defense_Wing.png",
         "success": true
     },
@@ -836,6 +1296,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/162.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Hunting_Nexu.png",
         "success": true
     },
@@ -844,6 +1308,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/158.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Hyena_Bomber.png",
         "success": true
     },
@@ -852,6 +1320,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/119.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Hyperspace_Wayfarer.png",
         "success": true
     },
@@ -860,6 +1332,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/218.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Impossible_Escape.png",
         "success": true
     },
@@ -868,6 +1344,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/241.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\In_the_Shadows.png",
         "success": true
     },
@@ -876,6 +1356,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/156.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Infused_Brawler.png",
         "success": true
     },
@@ -884,6 +1368,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/090.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Inquisitors_Lightsaber.png",
         "success": true
     },
@@ -892,6 +1381,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/169.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Invasion_Control_Ship.png",
         "success": true
     },
@@ -900,6 +1393,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1004.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Its_Worse.png",
         "success": true
     },
@@ -908,6 +1403,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/048.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Itinerant_Warrior.png",
         "success": true
     },
@@ -916,6 +1416,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/194.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\J-Type_Nubian_Starship.png",
         "success": true
     },
@@ -924,6 +1429,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/094.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Jedi_Consular.png",
         "success": true
     },
@@ -932,6 +1442,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/049.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Jedi_Guardian.png",
         "success": true
     },
@@ -940,6 +1455,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/051.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Jedi_Holocron.png",
         "success": true
     },
@@ -948,6 +1468,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/159.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Jedi_In_Hiding.png",
         "success": true
     },
@@ -956,6 +1480,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/145.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Jedi_Knight.png",
         "success": true
     },
@@ -964,6 +1493,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/196.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Jedi_Sentinel.png",
         "success": true
     },
@@ -972,6 +1506,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/144.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Jedi_Starfighter.png",
         "success": true
     },
@@ -980,6 +1519,10 @@
         "subtitle": "Coruscant",
         "url": "https://cdn.swu-db.com/images/cards/LOF/023.png",
         "type": "Base",
+        "hp": "28",
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Jedi_Temple - Coruscant.png",
         "success": true
     },
@@ -988,6 +1531,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/113.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Jedi_Temple_Guards.png",
         "success": true
     },
@@ -996,6 +1543,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/052.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Jedi_Trials.png",
         "success": true
     },
@@ -1004,6 +1556,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/244.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Jedi_Vector.png",
         "success": true
     },
@@ -1012,6 +1568,10 @@
         "subtitle": "The Gift of Knowledge",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1038.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Jocasta_Nu - The_Gift_of_Knowledge.png",
         "success": true
     },
@@ -1020,6 +1580,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/114.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Kaadu.png",
         "success": true
     },
@@ -1028,6 +1592,11 @@
         "subtitle": "Help Us Survive",
         "url": "https://cdn.swu-db.com/images/cards/LOF/004.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Kanan_Jarrus - Help_Us_Survive.png",
         "success": true
     },
@@ -1036,6 +1605,11 @@
         "subtitle": "Help Us Survive",
         "url": "https://cdn.swu-db.com/images/cards/LOF/004-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Kanan_Jarrus - Help_Us_Survive_back.png",
         "success": true
     },
@@ -1044,6 +1618,11 @@
         "subtitle": "We Don't Like Strangers",
         "url": "https://cdn.swu-db.com/images/cards/LOF/031.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Karis - We_Dont_Like_Strangers.png",
         "success": true
     },
@@ -1052,6 +1631,11 @@
         "subtitle": "The Sabered Hand",
         "url": "https://cdn.swu-db.com/images/cards/LOF/100.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Kelleran_Beq - The_Sabered_Hand.png",
         "success": true
     },
@@ -1060,6 +1644,11 @@
         "subtitle": "We Must Push On",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1058.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Ki-Adi-Mundi - We_Must_Push_On.png",
         "success": true
     },
@@ -1068,6 +1657,11 @@
         "subtitle": "Focused Jedi Master",
         "url": "https://cdn.swu-db.com/images/cards/LOF/011.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Kit_Fisto - Focused_Jedi_Master.png",
         "success": true
     },
@@ -1076,6 +1670,11 @@
         "subtitle": "Focused Jedi Master",
         "url": "https://cdn.swu-db.com/images/cards/LOF/011-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Kit_Fisto - Focused_Jedi_Master_back.png",
         "success": true
     },
@@ -1084,6 +1683,11 @@
         "subtitle": "Good Hunting",
         "url": "https://cdn.swu-db.com/images/cards/LOF/147.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Kit_Fistos_Aethersprite - Good_Hunting.png",
         "success": true
     },
@@ -1092,6 +1696,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/084.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Knight_of_Ren.png",
         "success": true
     },
@@ -1100,6 +1709,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/151.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Knights_Saber.png",
         "success": true
     },
@@ -1108,6 +1722,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/257.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Kowakian_Monkey-Lizard.png",
         "success": true
     },
@@ -1116,6 +1732,11 @@
         "subtitle": "We're Not Done Yet",
         "url": "https://cdn.swu-db.com/images/cards/LOF/001.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Kylo_Ren - Were_Not_Done_Yet.png",
         "success": true
     },
@@ -1124,6 +1745,11 @@
         "subtitle": "We're Not Done Yet",
         "url": "https://cdn.swu-db.com/images/cards/LOF/001-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Kylo_Ren - Were_Not_Done_Yet_back.png",
         "success": true
     },
@@ -1132,6 +1758,10 @@
         "subtitle": "I Know Your Story",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1030.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Kylo_Ren - I_Know_Your_Story.png",
         "success": true
     },
@@ -1140,6 +1770,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/040.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Kylo_Rens_Lightsaber.png",
         "success": true
     },
@@ -1148,6 +1783,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1003.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Last_Words.png",
         "success": true
     },
@@ -1156,6 +1793,11 @@
         "subtitle": "Extraordinary",
         "url": "https://cdn.swu-db.com/images/cards/LOF/098.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Leia_Organa - Extraordinary.png",
         "success": true
     },
@@ -1164,6 +1806,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/189.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Liberated_by_Darkness.png",
         "success": true
     },
@@ -1172,6 +1819,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/212.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Life_Wind_Sage.png",
         "success": true
     },
@@ -1180,6 +1831,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/176.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Lightsaber_Throw.png",
         "success": true
     },
@@ -1188,6 +1843,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/253.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Longbeam_Cruiser.png",
         "success": true
     },
@@ -1196,6 +1855,11 @@
         "subtitle": "Secret Keeper",
         "url": "https://cdn.swu-db.com/images/cards/LOF/095.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Lor_San_Tekka - Secret_Keeper.png",
         "success": true
     },
@@ -1204,6 +1868,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/207.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Loth-Cat.png",
         "success": true
     },
@@ -1212,6 +1880,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/044.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Loth-Wolf.png",
         "success": true
     },
@@ -1220,6 +1893,10 @@
         "subtitle": "A Hero's Beginning",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1033.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Luke_Skywalker - A_Heros_Beginning.png",
         "success": true
     },
@@ -1228,6 +1905,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/104.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Luminous_Beings.png",
         "success": true
     },
@@ -1236,6 +1918,10 @@
         "subtitle": "Masquerading Antiquarian",
         "url": "https://cdn.swu-db.com/images/cards/LOF/068.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Luthen_Rael - Masquerading_Antiquarian.png",
         "success": true
     },
@@ -1244,6 +1930,11 @@
         "subtitle": "Leaping into Action",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1056.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Mace_Windu - Leaping_into_Action.png",
         "success": true
     },
@@ -1252,6 +1943,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/032.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Magistrates_Scout.png",
         "success": true
     },
@@ -1260,6 +1956,10 @@
         "subtitle": "Loving Rancor Keeper",
         "url": "https://cdn.swu-db.com/images/cards/LOF/108.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Malakili - Loving_Rancor_Keeper.png",
         "success": true
     },
@@ -1268,6 +1968,11 @@
         "subtitle": "Eye of the Nihil",
         "url": "https://cdn.swu-db.com/images/cards/LOF/186.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Marchion_Ro - Eye_of_the_Nihil.png",
         "success": true
     },
@@ -1276,6 +1981,10 @@
         "subtitle": "The Light Guides",
         "url": "https://cdn.swu-db.com/images/cards/LOF/111.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Maz_Kanata - The_Light_Guides.png",
         "success": true
     },
@@ -1284,6 +1993,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/250.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Medical_Frigate.png",
         "success": true
     },
@@ -1292,6 +2005,10 @@
         "subtitle": "Alone with the Dead",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1048.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Merrin - Alone_with_the_Dead.png",
         "success": true
     },
@@ -1300,6 +2017,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/202.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Mind_Trick.png",
         "success": true
     },
@@ -1308,6 +2030,11 @@
         "subtitle": "Following the Call",
         "url": "https://cdn.swu-db.com/images/cards/LOF/005.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Morgan_Elsbeth - Following_the_Call.png",
         "success": true
     },
@@ -1316,6 +2043,11 @@
         "subtitle": "Following the Call",
         "url": "https://cdn.swu-db.com/images/cards/LOF/005-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Morgan_Elsbeth - Following_the_Call_back.png",
         "success": true
     },
@@ -1324,6 +2056,11 @@
         "subtitle": "Power Through Magick",
         "url": "https://cdn.swu-db.com/images/cards/LOF/002.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Mother_Talzin - Power_Through_Magick.png",
         "success": true
     },
@@ -1332,6 +2069,11 @@
         "subtitle": "Power Through Magick",
         "url": "https://cdn.swu-db.com/images/cards/LOF/002-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Mother_Talzin - Power_Through_Magick_back.png",
         "success": true
     },
@@ -1340,6 +2082,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/109.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Mynock.png",
         "success": true
     },
@@ -1348,6 +2094,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/208.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Mysterious_Hermit.png",
         "success": true
     },
@@ -1356,6 +2106,10 @@
         "subtitle": "Mortis",
         "url": "https://cdn.swu-db.com/images/cards/LOF/022.png",
         "type": "Base",
+        "hp": "25",
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Mystic_Monastery - Mortis.png",
         "success": true
     },
@@ -1364,6 +2118,10 @@
         "subtitle": "Folklore Awakened",
         "url": "https://cdn.swu-db.com/images/cards/LOF/073.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Mythosaur - Folklore_Awakened.png",
         "success": true
     },
@@ -1372,6 +2130,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/192.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\N-1_Starfighter.png",
         "success": true
     },
@@ -1380,6 +2143,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/033.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Nameless_Terror.png",
         "success": true
     },
@@ -1388,6 +2156,10 @@
         "subtitle": "Dathomir",
         "url": "https://cdn.swu-db.com/images/cards/LOF/020.png",
         "type": "Base",
+        "hp": "28",
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Nightsister_Lair - Dathomir.png",
         "success": true
     },
@@ -1396,6 +2168,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/059.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Nightsister_Warrior.png",
         "success": true
     },
@@ -1404,6 +2180,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/182.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Nihil_Marauder.png",
         "success": true
     },
@@ -1412,6 +2193,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/124.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Niman_Strike.png",
         "success": true
     },
@@ -1420,6 +2205,11 @@
         "subtitle": "Courage Makes Heroes",
         "url": "https://cdn.swu-db.com/images/cards/LOF/008.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Obi-Wan_Kenobi - Courage_Makes_Heroes.png",
         "success": true
     },
@@ -1428,6 +2218,11 @@
         "subtitle": "Courage Makes Heroes",
         "url": "https://cdn.swu-db.com/images/cards/LOF/008-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Obi-Wan_Kenobi - Courage_Makes_Heroes_back.png",
         "success": true
     },
@@ -1436,6 +2231,11 @@
         "subtitle": "Protective Padawan",
         "url": "https://cdn.swu-db.com/images/cards/LOF/096.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Obi-Wan_Kenobi - Protective_Padawan.png",
         "success": true
     },
@@ -1444,6 +2244,10 @@
         "subtitle": "Bogano Brute",
         "url": "https://cdn.swu-db.com/images/cards/LOF/063.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Oggdo_Bogdo - Bogano_Brute.png",
         "success": true
     },
@@ -1452,6 +2256,11 @@
         "subtitle": "Oldest and Wisest",
         "url": "https://cdn.swu-db.com/images/cards/LOF/036.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Old_Daka - Oldest_and_Wisest.png",
         "success": true
     },
@@ -1460,6 +2269,11 @@
         "subtitle": "Ancient Councilor",
         "url": "https://cdn.swu-db.com/images/cards/LOF/105.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Command"
+        ],
         "image": "LOF\\Oppo_Rancisis - Ancient_Councilor.png",
         "success": true
     },
@@ -1468,6 +2282,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/112.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Outer_Rim_Mystic.png",
         "success": true
     },
@@ -1476,6 +2294,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/126.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Overpower.png",
         "success": true
     },
@@ -1484,6 +2306,10 @@
         "subtitle": "Devoted Uncle",
         "url": "https://cdn.swu-db.com/images/cards/LOF/057.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Owen_Lars - Devoted_Uncle.png",
         "success": true
     },
@@ -1492,6 +2318,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/060.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Padawan_Starfighter.png",
         "success": true
     },
@@ -1500,6 +2330,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/099.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Paladin_Training_Corvette.png",
         "success": true
     },
@@ -1508,6 +2343,11 @@
         "subtitle": "Unyielding Warrior",
         "url": "https://cdn.swu-db.com/images/cards/LOF/153.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Aggression"
+        ],
         "image": "LOF\\Paz_Vizsla - Unyielding_Warrior.png",
         "success": true
     },
@@ -1516,6 +2356,8 @@
         "subtitle": "I Should Charge You More",
         "url": "https://cdn.swu-db.com/images/cards/LOF/258.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Peli_Motto - I_Should_Charge_You_More.png",
         "success": true
     },
@@ -1524,6 +2366,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/122.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Pillio_Star_Compass.png",
         "success": true
     },
@@ -1532,6 +2378,11 @@
         "subtitle": "I Don't Believe in Chance",
         "url": "https://cdn.swu-db.com/images/cards/LOF/050.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Plo_Koon - I_Dont_Believe_in_Chance.png",
         "success": true
     },
@@ -1540,6 +2391,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/092.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Point_Rain_Reclaimer.png",
         "success": true
     },
@@ -1548,6 +2404,11 @@
         "subtitle": "It's Treason, Then",
         "url": "https://cdn.swu-db.com/images/cards/LOF/038.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Pong_Krell - Its_Treason_Then.png",
         "success": true
     },
@@ -1556,6 +2417,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/254.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Porg.png",
         "success": true
     },
@@ -1564,6 +2427,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/224.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Pounce.png",
         "success": true
     },
@@ -1572,6 +2439,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/085.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Praetorian_Guard.png",
         "success": true
     },
@@ -1580,6 +2452,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/203.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Premonition_of_Doom.png",
         "success": true
     },
@@ -1588,6 +2465,10 @@
         "subtitle": "Eternal",
         "url": "https://cdn.swu-db.com/images/cards/LOF/072.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Priestesses_of_the_Force - Eternal.png",
         "success": true
     },
@@ -1596,6 +2477,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/128.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Protect_the_Pod.png",
         "success": true
     },
@@ -1604,6 +2489,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/219.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Psychometry.png",
         "success": true
     },
@@ -1612,6 +2501,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/133.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Purge_Trooper.png",
         "success": true
     },
@@ -1620,6 +2514,11 @@
         "subtitle": "Student of the Living Force",
         "url": "https://cdn.swu-db.com/images/cards/LOF/016.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Qui-Gon_Jinn - Student_of_the_Living_Force.png",
         "success": true
     },
@@ -1628,6 +2527,11 @@
         "subtitle": "Student of the Living Force",
         "url": "https://cdn.swu-db.com/images/cards/LOF/016-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Qui-Gon_Jinn - Student_of_the_Living_Force_back.png",
         "success": true
     },
@@ -1636,6 +2540,11 @@
         "subtitle": "The Negotiations will be Short",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1051.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Qui-Gon_Jinn - The_Negotiations_will_be_Short.png",
         "success": true
     },
@@ -1644,6 +2553,11 @@
         "subtitle": "Guided by the Force",
         "url": "https://cdn.swu-db.com/images/cards/LOF/197.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Qui-Gon_Jinns_Aethersprite - Guided_by_the_Force.png",
         "success": true
     },
@@ -1652,6 +2566,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/201.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Qui-Gon_Jinns_Lightsaber.png",
         "success": true
     },
@@ -1660,6 +2579,10 @@
         "subtitle": "Dark Disciple",
         "url": "https://cdn.swu-db.com/images/cards/LOF/163.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Quinlan_Vos - Dark_Disciple.png",
         "success": true
     },
@@ -1668,6 +2591,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/127.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Rampage.png",
         "success": true
     },
@@ -1676,6 +2603,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/259.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\Ravening_Gundark.png",
         "success": true
     },
@@ -1684,6 +2613,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/168.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Ravenous_Rathtar.png",
         "success": true
     },
@@ -1692,6 +2625,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/242.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Refugee_of_The_Path.png",
         "success": true
     },
@@ -1700,6 +2637,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/116.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Relic_Scavenger.png",
         "success": true
     },
@@ -1708,6 +2649,11 @@
         "subtitle": "Nobody",
         "url": "https://cdn.swu-db.com/images/cards/LOF/012.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Rey - Nobody.png",
         "success": true
     },
@@ -1716,6 +2662,11 @@
         "subtitle": "Nobody",
         "url": "https://cdn.swu-db.com/images/cards/LOF/012-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Rey - Nobody_back.png",
         "success": true
     },
@@ -1724,6 +2675,11 @@
         "subtitle": "With Palpatine's Power",
         "url": "https://cdn.swu-db.com/images/cards/LOF/148.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LOF\\Rey - With_Palpatines_Power.png",
         "success": true
     },
@@ -1732,6 +2688,10 @@
         "subtitle": "Courageous Warrior",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1044.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Saesee_Tiin - Courageous_Warrior.png",
         "success": true
     },
@@ -1740,6 +2700,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/232.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Sandtrooper_Cavalry.png",
         "success": true
     },
@@ -1748,6 +2712,11 @@
         "subtitle": "Imbued With Hate",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1027.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Savage_Opress - Imbued_With_Hate.png",
         "success": true
     },
@@ -1756,6 +2725,10 @@
         "subtitle": "Sith Infiltrator",
         "url": "https://cdn.swu-db.com/images/cards/LOF/233.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\Scimitar - Sith_Infiltrator.png",
         "success": true
     },
@@ -1764,6 +2737,11 @@
         "subtitle": "Intimidating Silhouette",
         "url": "https://cdn.swu-db.com/images/cards/LOF/135.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Scythe - Intimidating_Silhouette.png",
         "success": true
     },
@@ -1772,6 +2750,11 @@
         "subtitle": "Seeking the Holocron",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1023.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Second_Sister - Seeking_the_Holocron.png",
         "success": true
     },
@@ -1780,6 +2763,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/061.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Secretive_Sage.png",
         "success": true
     },
@@ -1788,6 +2775,10 @@
         "subtitle": "Coruscant",
         "url": "https://cdn.swu-db.com/images/cards/LOF/021.png",
         "type": "Base",
+        "hp": "28",
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Shadowed_Undercity - Coruscant.png",
         "success": true
     },
@@ -1796,6 +2787,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/079.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Shatterpoint.png",
         "success": true
     },
@@ -1804,6 +2799,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/220.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Shien_Flurry.png",
         "success": true
     },
@@ -1812,6 +2811,11 @@
         "subtitle": "Overeager Apprentice",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1066.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LOF\\Shin_Hati - Overeager_Apprentice.png",
         "success": true
     },
@@ -1820,6 +2824,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1049.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Sifo-Dyas.png",
         "success": true
     },
@@ -1828,6 +2836,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/138.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Sith_Holocron.png",
         "success": true
     },
@@ -1836,6 +2849,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/081.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Sith_Legionnaire.png",
         "success": true
     },
@@ -1844,6 +2862,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/056.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Vigilance"
+        ],
         "image": "LOF\\Size_Matters_Not.png",
         "success": true
     },
@@ -1852,6 +2875,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/214.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Sorcerers_of_Tund.png",
         "success": true
     },
@@ -1860,6 +2887,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/172.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Sorcerous_Blast.png",
         "success": true
     },
@@ -1868,6 +2899,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/076.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Soresu_Stance.png",
         "success": true
     },
@@ -1876,6 +2911,10 @@
         "subtitle": "Starlight Beacon",
         "url": "https://cdn.swu-db.com/images/cards/LOF/024.png",
         "type": "Base",
+        "hp": "28",
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Starlight_Temple - Starlight_Beacon.png",
         "success": true
     },
@@ -1884,6 +2923,11 @@
         "subtitle": "Where Are We Going?",
         "url": "https://cdn.swu-db.com/images/cards/LOF/198.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Stinger_Mantis - Where_Are_We_Going.png",
         "success": true
     },
@@ -1892,6 +2936,10 @@
         "subtitle": "Dathomir",
         "url": "https://cdn.swu-db.com/images/cards/LOF/027.png",
         "type": "Base",
+        "hp": "28",
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Strangled_Cliffs - Dathomir.png",
         "success": true
     },
@@ -1900,6 +2948,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/131.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Strikeship.png",
         "success": true
     },
@@ -1908,6 +2961,11 @@
         "subtitle": "Of Unimaginable Size",
         "url": "https://cdn.swu-db.com/images/cards/LOF/089.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Supremacy - Of_Unimaginable_Size.png",
         "success": true
     },
@@ -1916,6 +2974,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/034.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Supremacy_TIEsf.png",
         "success": true
     },
@@ -1924,6 +2987,11 @@
         "subtitle": "In the Seat of Power",
         "url": "https://cdn.swu-db.com/images/cards/LOF/006.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Supreme_Leader_Snoke - In_the_Seat_of_Power.png",
         "success": true
     },
@@ -1932,6 +3000,11 @@
         "subtitle": "In the Seat of Power",
         "url": "https://cdn.swu-db.com/images/cards/LOF/006-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Supreme_Leader_Snoke - In_the_Seat_of_Power_back.png",
         "success": true
     },
@@ -1940,6 +3013,11 @@
         "subtitle": "Stay Close",
         "url": "https://cdn.swu-db.com/images/cards/LOF/047.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\T-6_Shuttle_1974 - Stay_Close.png",
         "success": true
     },
@@ -1948,6 +3026,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/035.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\Talzins_Assassin.png",
         "success": true
     },
@@ -1956,6 +3039,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/064.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Tauntaun.png",
         "success": true
     },
@@ -1964,6 +3051,10 @@
         "subtitle": "Malachor",
         "url": "https://cdn.swu-db.com/images/cards/LOF/025.png",
         "type": "Base",
+        "hp": "25",
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Temple_of_Destruction - Malachor.png",
         "success": true
     },
@@ -1972,6 +3063,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/118.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Terentatek.png",
         "success": true
     },
@@ -1980,6 +3075,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/125.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\The_Burden_of_Masters.png",
         "success": true
     },
@@ -1988,6 +3087,10 @@
         "subtitle": "Embodiment of Light",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1062.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\The_Daughter - Embodiment_of_Light.png",
         "success": true
     },
@@ -1996,6 +3099,8 @@
         "subtitle": "Maintaining Balance",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1000.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "LOF\\The_Father - Maintaining_Balance.png",
         "success": true
     },
@@ -2004,6 +3109,10 @@
         "subtitle": "Jedha",
         "url": "https://cdn.swu-db.com/images/cards/LOF/030.png",
         "type": "Base",
+        "hp": "28",
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\The_Holy_City - Jedha.png",
         "success": true
     },
@@ -2012,6 +3121,10 @@
         "subtitle": "Doomed Debris",
         "url": "https://cdn.swu-db.com/images/cards/LOF/213.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\The_Legacy_Run - Doomed_Debris.png",
         "success": true
     },
@@ -2020,6 +3133,10 @@
         "subtitle": "Leading the Journey",
         "url": "https://cdn.swu-db.com/images/cards/LOF/121.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\The_Purrgil_King - Leading_the_Journey.png",
         "success": true
     },
@@ -2028,6 +3145,10 @@
         "subtitle": "Embodiment of Darkness",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1064.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LOF\\The_Son - Embodiment_of_Darkness.png",
         "success": true
     },
@@ -2036,6 +3157,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/043.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LOF\\The_Tragedy_of_Plagueis.png",
         "success": true
     },
@@ -2044,6 +3170,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/227.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\The_Will_of_the_Force.png",
         "success": true
     },
@@ -2052,6 +3182,11 @@
         "subtitle": "Seething With Ambition",
         "url": "https://cdn.swu-db.com/images/cards/LOF/010.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Third_Sister - Seething_With_Ambition.png",
         "success": true
     },
@@ -2060,6 +3195,11 @@
         "subtitle": "Seething With Ambition",
         "url": "https://cdn.swu-db.com/images/cards/LOF/010-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Third_Sister - Seething_With_Ambition_back.png",
         "success": true
     },
@@ -2068,6 +3208,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/136.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LOF\\Thralls_of_the_Coven.png",
         "success": true
     },
@@ -2076,6 +3221,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/225.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Three_Lessons.png",
         "success": true
     },
@@ -2084,6 +3233,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/177.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Time_of_Crisis.png",
         "success": true
     },
@@ -2092,6 +3245,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/226.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Tip_the_Scale.png",
         "success": true
     },
@@ -2100,6 +3257,10 @@
         "subtitle": "Zeffo",
         "url": "https://cdn.swu-db.com/images/cards/LOF/028.png",
         "type": "Base",
+        "hp": "25",
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Tomb_of_Eilram - Zeffo.png",
         "success": true
     },
@@ -2108,6 +3269,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/120.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Trident_Assault_Ship.png",
         "success": true
     },
@@ -2116,6 +3281,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/221.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Trust_Your_Instincts.png",
         "success": true
     },
@@ -2124,6 +3293,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/161.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Tukata.png",
         "success": true
     },
@@ -2132,6 +3305,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/209.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LOF\\Tusken_Tracker.png",
         "success": true
     },
@@ -2140,6 +3317,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/173.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Unleash_Rage.png",
         "success": true
     },
@@ -2148,6 +3329,11 @@
         "subtitle": "I Live to Serve",
         "url": "https://cdn.swu-db.com/images/cards/LOF/082.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LOF\\Vane - I_Live_to_Serve.png",
         "success": true
     },
@@ -2156,6 +3342,10 @@
         "subtitle": "Lothal",
         "url": "https://cdn.swu-db.com/images/cards/LOF/019.png",
         "type": "Base",
+        "hp": "25",
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Vergence_Temple - Lothal.png",
         "success": true
     },
@@ -2164,6 +3354,11 @@
         "subtitle": "Precocious Knight",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1035.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Vernestra_Rwoh - Precocious_Knight.png",
         "success": true
     },
@@ -2172,6 +3367,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/107.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LOF\\Village_Tender.png",
         "success": true
     },
@@ -2180,6 +3379,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/245.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LOF\\Vulptex.png",
         "success": true
     },
@@ -2188,6 +3391,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/164.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Wampa.png",
         "success": true
     },
@@ -2196,6 +3403,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/065.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Watto.png",
         "success": true
     },
@@ -2204,6 +3415,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/078.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LOF\\Whirlwind_of_Power.png",
         "success": true
     },
@@ -2212,6 +3427,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/154.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LOF\\Witch_of_the_Mist.png",
         "success": true
     },
@@ -2220,6 +3439,11 @@
         "subtitle": "A Chance to Make Things Right",
         "url": "https://cdn.swu-db.com/images/cards/LOF/045.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LOF\\Yaddle - A_Chance_to_Make_Things_Right.png",
         "success": true
     },
@@ -2228,6 +3452,11 @@
         "subtitle": "My Ally is the Force",
         "url": "https://cdn.swu-db.com/images/cards/LOF/101.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Yoda - My_Ally_is_the_Force.png",
         "success": true
     },
@@ -2236,6 +3465,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/102.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LOF\\Yodas_Lightsaber.png",
         "success": true
     },
@@ -2244,6 +3478,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LOF/193.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LOF\\Youngling_Padawan.png",
         "success": true
     },
@@ -2252,6 +3491,11 @@
         "subtitle": "The Findsman",
         "url": "https://cdn.swu-db.com/images/cards/LOF/1047.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Cunning"
+        ],
         "image": "LOF\\Zuckuss - The_Findsman.png",
         "success": true
     }

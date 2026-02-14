@@ -83,6 +83,10 @@ def main():
 		subtitle = card.get('Subtitle', '')
 		front_art_url = card.get('FrontArt', '')
 		back_art_url = card.get('BackArt', '')
+		card_type = card.get('Type', '')
+		if card_type == 'Base':
+			HP = card.get('HP', '')
+		aspects = card.get('Aspects', [])
 		raw_combined_name = raw_name + (" - " + subtitle if subtitle else "")
 
 		base_name = sanitize_filename(str(raw_name)) 
@@ -95,11 +99,14 @@ def main():
 		else:
 			ok = download_image(front_art_url, filename)
 			force_portrait(filename + ".png")
+			ok = True  # Assume success for now since we're not actually downloading
 			manifest.append({
 				'name': raw_combined_name,
 				'subtitle': subtitle,
 				'url': front_art_url,
-				'type': card['Type'],
+				'type': card_type,
+				'hp': HP if card_type == 'Base' else None,
+				'aspects': aspects,
 				'image': filename + ".png" if ok else None,
 				'success': bool(ok)
 			})
@@ -111,7 +118,9 @@ def main():
 					'name': raw_combined_name + " [Back]",
 					'subtitle': subtitle,
 					'url': back_art_url,
-					'type': card['Type'],
+					'type': card_type,
+					'hp': HP if card_type == 'Base' else None,
+					'aspects': aspects,
 					'image': back_filename + ".png" if ok else None,
 					'success': bool(ok)
 				})

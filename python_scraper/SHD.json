@@ -4,6 +4,11 @@
         "subtitle": "Bounty Hunter for Hire",
         "url": "https://cdn.swu-db.com/images/cards/SHD/188.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\4-LOM - Bounty_Hunter_for_Hire.png",
         "success": true
     },
@@ -12,6 +17,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/207.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Cunning"
+        ],
         "image": "SHD\\A_New_Adventure.png",
         "success": true
     },
@@ -20,6 +30,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/101.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Adelphi_Patrol_Wing.png",
         "success": true
     },
@@ -28,6 +43,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/243.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Altering_the_Deal.png",
         "success": true
     },
@@ -36,6 +55,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/175.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Armed_to_the_Teeth.png",
         "success": true
     },
@@ -44,6 +67,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/122.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Arquitens_Assault_Cruiser.png",
         "success": true
     },
@@ -52,6 +79,11 @@
         "subtitle": "Spy for the First Order",
         "url": "https://cdn.swu-db.com/images/cards/SHD/184.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Bazine_Netal - Spy_for_the_First_Order.png",
         "success": true
     },
@@ -60,6 +92,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/237.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Black_Sun_Starfighter.png",
         "success": true
     },
@@ -68,6 +104,11 @@
         "subtitle": "Princess in Exile",
         "url": "https://cdn.swu-db.com/images/cards/SHD/012.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Bo-Katan_Kryze - Princess_in_Exile.png",
         "success": true
     },
@@ -76,6 +117,11 @@
         "subtitle": "Princess in Exile",
         "url": "https://cdn.swu-db.com/images/cards/SHD/012-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Bo-Katan_Kryze - Princess_in_Exile_back.png",
         "success": true
     },
@@ -84,6 +130,11 @@
         "subtitle": "Fighting For Mandalore",
         "url": "https://cdn.swu-db.com/images/cards/SHD/157.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Aggression"
+        ],
         "image": "SHD\\Bo-Katan_Kryze - Fighting_For_Mandalore.png",
         "success": true
     },
@@ -92,6 +143,11 @@
         "subtitle": "Daimyo",
         "url": "https://cdn.swu-db.com/images/cards/SHD/008.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Boba_Fett - Daimyo.png",
         "success": true
     },
@@ -100,6 +156,11 @@
         "subtitle": "Daimyo",
         "url": "https://cdn.swu-db.com/images/cards/SHD/008-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Boba_Fett - Daimyo_back.png",
         "success": true
     },
@@ -108,6 +169,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/224.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Boba_Fetts_Armor.png",
         "success": true
     },
@@ -116,6 +181,11 @@
         "subtitle": "Hunting His Prey",
         "url": "https://cdn.swu-db.com/images/cards/SHD/010.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Bossk - Hunting_His_Prey.png",
         "success": true
     },
@@ -124,6 +194,11 @@
         "subtitle": "Hunting His Prey",
         "url": "https://cdn.swu-db.com/images/cards/SHD/010-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Bossk - Hunting_His_Prey_back.png",
         "success": true
     },
@@ -132,6 +207,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/254.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Bounty_Guild_Initiate.png",
         "success": true
     },
@@ -140,6 +217,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/123.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Bounty_Hunters_Quarry.png",
         "success": true
     },
@@ -148,6 +229,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/228.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Bounty_Posting.png",
         "success": true
     },
@@ -156,6 +241,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/182.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Bravado.png",
         "success": true
     },
@@ -164,6 +253,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/038.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Brutal_Traditions.png",
         "success": true
     },
@@ -172,6 +266,11 @@
         "subtitle": "He Who Needs No Introduction",
         "url": "https://cdn.swu-db.com/images/cards/SHD/014.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Cad_Bane - He_Who_Needs_No_Introduction.png",
         "success": true
     },
@@ -180,6 +279,11 @@
         "subtitle": "He Who Needs No Introduction",
         "url": "https://cdn.swu-db.com/images/cards/SHD/014-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Cad_Bane - He_Who_Needs_No_Introduction_back.png",
         "success": true
     },
@@ -188,6 +292,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/039.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Calculated_Lethality.png",
         "success": true
     },
@@ -196,6 +305,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/066.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Cargo_Juggernaut.png",
         "success": true
     },
@@ -204,6 +317,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/195.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Cartel_Turncoat.png",
         "success": true
     },
@@ -212,6 +330,11 @@
         "subtitle": "Rebellions Are Built On Hope",
         "url": "https://cdn.swu-db.com/images/cards/SHD/148.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Cassian_Andor - Rebellions_Are_Built_On_Hope.png",
         "success": true
     },
@@ -220,6 +343,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/238.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Cell_Block_Guard.png",
         "success": true
     },
@@ -228,6 +355,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/216.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Chain_Code_Collector.png",
         "success": true
     },
@@ -236,6 +367,11 @@
         "subtitle": "Pykesbane",
         "url": "https://cdn.swu-db.com/images/cards/SHD/050.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Chewbacca - Pykesbane.png",
         "success": true
     },
@@ -244,6 +380,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/132.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Choose_Sides.png",
         "success": true
     },
@@ -252,6 +392,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/169.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Clan_Challengers.png",
         "success": true
     },
@@ -260,6 +404,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/035.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Clan_Saxon_Gauntlet.png",
         "success": true
     },
@@ -268,6 +417,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/040.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Clan_Wren_Rescuer.png",
         "success": true
     },
@@ -276,6 +430,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/095.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Clone_Deserter.png",
         "success": true
     },
@@ -284,6 +443,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/210.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Cloud-Rider.png",
         "success": true
     },
@@ -292,6 +455,10 @@
         "subtitle": "The Marshal",
         "url": "https://cdn.swu-db.com/images/cards/SHD/115.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Cobb_Vanth - The_Marshal.png",
         "success": true
     },
@@ -300,6 +467,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/111.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Collections_Starhopper.png",
         "success": true
     },
@@ -308,6 +479,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/127.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Commission.png",
         "success": true
     },
@@ -316,6 +491,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/042.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Concord_Dawn_Interceptors.png",
         "success": true
     },
@@ -324,6 +504,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/262.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Confiscate.png",
         "success": true
     },
@@ -332,6 +514,10 @@
         "subtitle": "Corellia",
         "url": "https://cdn.swu-db.com/images/cards/SHD/025.png",
         "type": "Base",
+        "hp": "30",
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Coronet_City - Corellia.png",
         "success": true
     },
@@ -340,6 +526,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/199.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Coruscant_Dissident.png",
         "success": true
     },
@@ -348,6 +539,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/075.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Covert_Strength.png",
         "success": true
     },
@@ -356,6 +551,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/171.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Covetous_Rivals.png",
         "success": true
     },
@@ -364,6 +563,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/209.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Criminal_Muscle.png",
         "success": true
     },
@@ -372,6 +575,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/156.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Cripple_Authority.png",
         "success": true
     },
@@ -380,6 +588,11 @@
         "subtitle": "Following Orders",
         "url": "https://cdn.swu-db.com/images/cards/SHD/087.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Crosshair - Following_Orders.png",
         "success": true
     },
@@ -388,6 +601,10 @@
         "subtitle": "Blatant Thief",
         "url": "https://cdn.swu-db.com/images/cards/SHD/213.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\DJ - Blatant_Thief.png",
         "success": true
     },
@@ -396,6 +613,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/178.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Daring_Raid.png",
         "success": true
     },
@@ -404,6 +625,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/176.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Death_Mark.png",
         "success": true
     },
@@ -412,6 +637,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/030.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Death_Trooper.png",
         "success": true
     },
@@ -420,6 +650,10 @@
         "subtitle": "Concordia",
         "url": "https://cdn.swu-db.com/images/cards/SHD/023.png",
         "type": "Base",
+        "hp": "30",
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Death_Watch_Hideout - Concordia.png",
         "success": true
     },
@@ -428,6 +662,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/136.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Death_Watch_Loyalist.png",
         "success": true
     },
@@ -436,6 +675,11 @@
         "subtitle": "The Demolisher",
         "url": "https://cdn.swu-db.com/images/cards/SHD/133.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Dengar - The_Demolisher.png",
         "success": true
     },
@@ -444,6 +688,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/152.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Desperado_Freighter.png",
         "success": true
     },
@@ -452,6 +701,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/179.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Desperate_Attack.png",
         "success": true
     },
@@ -460,6 +713,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/180.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Detention_Block_Rescue.png",
         "success": true
     },
@@ -468,6 +725,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/166.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Disabling_Fang_Fighter.png",
         "success": true
     },
@@ -476,6 +737,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/120.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Discerning_Veteran.png",
         "success": true
     },
@@ -484,6 +749,11 @@
         "subtitle": "Rapacious Archaeologist",
         "url": "https://cdn.swu-db.com/images/cards/SHD/015.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Doctor_Aphra - Rapacious_Archaeologist.png",
         "success": true
     },
@@ -492,6 +762,11 @@
         "subtitle": "Rapacious Archaeologist",
         "url": "https://cdn.swu-db.com/images/cards/SHD/015-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Doctor_Aphra - Rapacious_Archaeologist_back.png",
         "success": true
     },
@@ -500,6 +775,11 @@
         "subtitle": "Wanted on Twelve Systems",
         "url": "https://cdn.swu-db.com/images/cards/SHD/185.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Doctor_Evazan - Wanted_on_Twelve_Systems.png",
         "success": true
     },
@@ -508,6 +788,11 @@
         "subtitle": "Experimenting With Life",
         "url": "https://cdn.swu-db.com/images/cards/SHD/028.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Doctor_Pershing - Experimenting_With_Life.png",
         "success": true
     },
@@ -516,6 +801,11 @@
         "subtitle": "Offering No Escape",
         "url": "https://cdn.swu-db.com/images/cards/SHD/192.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Dryden_Vos - Offering_No_Escape.png",
         "success": true
     },
@@ -524,6 +814,11 @@
         "subtitle": "Restored",
         "url": "https://cdn.swu-db.com/images/cards/SHD/099.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Echo - Restored.png",
         "success": true
     },
@@ -532,6 +827,10 @@
         "subtitle": "Stoic and Resolute",
         "url": "https://cdn.swu-db.com/images/cards/SHD/059.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Embo - Stoic_and_Resolute.png",
         "success": true
     },
@@ -540,6 +839,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/109.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Command"
+        ],
         "image": "SHD\\Endless_Legions.png",
         "success": true
     },
@@ -548,6 +852,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/108.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Command"
+        ],
         "image": "SHD\\Enforced_Loyalty.png",
         "success": true
     },
@@ -556,6 +865,10 @@
         "subtitle": "Marauder",
         "url": "https://cdn.swu-db.com/images/cards/SHD/219.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Enfys_Nest - Marauder.png",
         "success": true
     },
@@ -564,6 +877,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/107.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Command"
+        ],
         "image": "SHD\\Enterprising_Lackeys.png",
         "success": true
     },
@@ -572,6 +890,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/222.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Enticing_Reward.png",
         "success": true
     },
@@ -580,6 +902,11 @@
         "subtitle": "Head of Security",
         "url": "https://cdn.swu-db.com/images/cards/SHD/088.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Ephant_Mon - Head_of_Security.png",
         "success": true
     },
@@ -588,6 +915,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/233.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Evacuate.png",
         "success": true
     },
@@ -596,6 +927,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/077.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Evidence_of_the_Crime.png",
         "success": true
     },
@@ -604,6 +939,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/078.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Fell_the_Dragon.png",
         "success": true
     },
@@ -612,6 +951,10 @@
         "subtitle": "Protector of Concord Dawn",
         "url": "https://cdn.swu-db.com/images/cards/SHD/067.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Fenn_Rau - Protector_of_Concord_Dawn.png",
         "success": true
     },
@@ -620,6 +963,11 @@
         "subtitle": "Honoring the Deal",
         "url": "https://cdn.swu-db.com/images/cards/SHD/016.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Fennec_Shand - Honoring_the_Deal.png",
         "success": true
     },
@@ -628,6 +976,11 @@
         "subtitle": "Honoring the Deal",
         "url": "https://cdn.swu-db.com/images/cards/SHD/016-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Fennec_Shand - Honoring_the_Deal_back.png",
         "success": true
     },
@@ -636,6 +989,10 @@
         "subtitle": "Loyal Sharpshooter",
         "url": "https://cdn.swu-db.com/images/cards/SHD/220.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Fennec_Shand - Loyal_Sharpshooter.png",
         "success": true
     },
@@ -644,6 +1001,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/208.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Cunning"
+        ],
         "image": "SHD\\Final_Showdown.png",
         "success": true
     },
@@ -652,6 +1014,11 @@
         "subtitle": "Might of the First Order",
         "url": "https://cdn.swu-db.com/images/cards/SHD/092.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Finalizer - Might_of_the_First_Order.png",
         "success": true
     },
@@ -660,6 +1027,11 @@
         "subtitle": "This is a Rescue",
         "url": "https://cdn.swu-db.com/images/cards/SHD/003.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Finn - This_is_a_Rescue.png",
         "success": true
     },
@@ -668,6 +1040,11 @@
         "subtitle": "This is a Rescue",
         "url": "https://cdn.swu-db.com/images/cards/SHD/003-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Finn - This_is_a_Rescue_back.png",
         "success": true
     },
@@ -676,6 +1053,11 @@
         "subtitle": "Headquarters of the Crimson Dawn",
         "url": "https://cdn.swu-db.com/images/cards/SHD/036.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\First_Light - Headquarters_of_the_Crimson_Dawn.png",
         "success": true
     },
@@ -684,6 +1066,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/056.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Follower_of_The_Way.png",
         "success": true
     },
@@ -692,6 +1078,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/069.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Foundling.png",
         "success": true
     },
@@ -700,6 +1090,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/097.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Freetown_Backup.png",
         "success": true
     },
@@ -708,6 +1103,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/214.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Frontier_Trader.png",
         "success": true
     },
@@ -716,6 +1115,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/193.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Frozen_in_Carbonite.png",
         "success": true
     },
@@ -724,6 +1128,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/211.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Fugitive_Wookiee.png",
         "success": true
     },
@@ -732,6 +1140,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/112.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Gamorrean_Retainer.png",
         "success": true
     },
@@ -740,6 +1152,11 @@
         "subtitle": "Viceroy of Mandalore",
         "url": "https://cdn.swu-db.com/images/cards/SHD/001.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Gar_Saxon - Viceroy_of_Mandalore.png",
         "success": true
     },
@@ -748,6 +1165,11 @@
         "subtitle": "Viceroy of Mandalore",
         "url": "https://cdn.swu-db.com/images/cards/SHD/001-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Gar_Saxon - Viceroy_of_Mandalore_back.png",
         "success": true
     },
@@ -756,6 +1178,11 @@
         "subtitle": "Defensive Strategist",
         "url": "https://cdn.swu-db.com/images/cards/SHD/103.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\General_Rieekan - Defensive_Strategist.png",
         "success": true
     },
@@ -764,6 +1191,11 @@
         "subtitle": "Concerned Commander",
         "url": "https://cdn.swu-db.com/images/cards/SHD/081.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\General_Tagge - Concerned_Commander.png",
         "success": true
     },
@@ -772,6 +1204,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/048.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Gentle_Giant.png",
         "success": true
     },
@@ -780,6 +1217,10 @@
         "subtitle": "Dark Troopers' Station",
         "url": "https://cdn.swu-db.com/images/cards/SHD/242.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Gideons_Light_Cruiser - Dark_Troopers_Station.png",
         "success": true
     },
@@ -788,6 +1229,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/144.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Give_In_to_Your_Anger.png",
         "success": true
     },
@@ -796,6 +1242,10 @@
         "subtitle": "Affable Commissioner",
         "url": "https://cdn.swu-db.com/images/cards/SHD/245.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\Greef_Karga - Affable_Commissioner.png",
         "success": true
     },
@@ -804,6 +1254,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/246.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\Grey_Squadron_Y-Wing.png",
         "success": true
     },
@@ -812,6 +1266,11 @@
         "subtitle": "Irresistible",
         "url": "https://cdn.swu-db.com/images/cards/SHD/196.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Grogu - Irresistible.png",
         "success": true
     },
@@ -820,6 +1279,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/134.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Guavian_Antagonizer.png",
         "success": true
     },
@@ -828,6 +1292,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/173.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Guild_Target.png",
         "success": true
     },
@@ -836,6 +1304,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/060.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\HWK-290_Freighter.png",
         "success": true
     },
@@ -844,6 +1316,11 @@
         "subtitle": "Worth the Risk",
         "url": "https://cdn.swu-db.com/images/cards/SHD/013.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Han_Solo - Worth_the_Risk.png",
         "success": true
     },
@@ -852,6 +1329,11 @@
         "subtitle": "Worth the Risk",
         "url": "https://cdn.swu-db.com/images/cards/SHD/013-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Han_Solo - Worth_the_Risk_back.png",
         "success": true
     },
@@ -860,6 +1342,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/145.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Headhunting.png",
         "success": true
     },
@@ -868,6 +1355,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/146.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Heroic_Renegade.png",
         "success": true
     },
@@ -876,6 +1368,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/155.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Heroic_Resolve.png",
         "success": true
     },
@@ -884,6 +1381,11 @@
         "subtitle": "That's Good Business",
         "url": "https://cdn.swu-db.com/images/cards/SHD/005.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Hondo_Ohnaka - Thats_Good_Business.png",
         "success": true
     },
@@ -892,6 +1394,11 @@
         "subtitle": "That's Good Business",
         "url": "https://cdn.swu-db.com/images/cards/SHD/005-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Hondo_Ohnaka - Thats_Good_Business_back.png",
         "success": true
     },
@@ -900,6 +1407,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/174.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Hotshot_DL-44_Blaster.png",
         "success": true
     },
@@ -908,6 +1419,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/162.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\House_Kast_Soldier.png",
         "success": true
     },
@@ -916,6 +1431,11 @@
         "subtitle": "Outcast Sergeant",
         "url": "https://cdn.swu-db.com/images/cards/SHD/009.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Hunter - Outcast_Sergeant.png",
         "success": true
     },
@@ -924,6 +1444,11 @@
         "subtitle": "Outcast Sergeant",
         "url": "https://cdn.swu-db.com/images/cards/SHD/009-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Hunter - Outcast_Sergeant_back.png",
         "success": true
     },
@@ -932,6 +1457,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/186.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Hunter_of_the_Haxion_Brood.png",
         "success": true
     },
@@ -940,6 +1470,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/168.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Hunting_Nexu.png",
         "success": true
     },
@@ -948,6 +1482,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/240.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Hutts_Henchmen.png",
         "success": true
     },
@@ -956,6 +1494,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/027.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Hylobon_Enforcer.png",
         "success": true
     },
@@ -964,6 +1507,10 @@
         "subtitle": "I Cannot Be Captured",
         "url": "https://cdn.swu-db.com/images/cards/SHD/170.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\IG-11 - I_Cannot_Be_Captured.png",
         "success": true
     },
@@ -972,6 +1519,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/072.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Imprisoned.png",
         "success": true
     },
@@ -980,6 +1531,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/234.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Incinerator_Trooper.png",
         "success": true
     },
@@ -988,6 +1543,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/104.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Inspiring_Mentor.png",
         "success": true
     },
@@ -996,6 +1556,11 @@
         "subtitle": "His High Exaltdeness",
         "url": "https://cdn.swu-db.com/images/cards/SHD/006.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Jabba_the_Hutt - His_High_Exaltdeness.png",
         "success": true
     },
@@ -1004,6 +1569,11 @@
         "subtitle": "His High Exaltdeness",
         "url": "https://cdn.swu-db.com/images/cards/SHD/006-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Jabba_the_Hutt - His_High_Exaltdeness_back.png",
         "success": true
     },
@@ -1012,6 +1582,10 @@
         "subtitle": "Tatooine",
         "url": "https://cdn.swu-db.com/images/cards/SHD/026.png",
         "type": "Base",
+        "hp": "30",
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Jabbas_Palace - Tatooine.png",
         "success": true
     },
@@ -1020,6 +1594,11 @@
         "subtitle": "Pateesa",
         "url": "https://cdn.swu-db.com/images/cards/SHD/091.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Jabbas_Rancor - Pateesa.png",
         "success": true
     },
@@ -1028,6 +1607,11 @@
         "subtitle": "Renowned Bounty Hunter",
         "url": "https://cdn.swu-db.com/images/cards/SHD/138.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Jango_Fett - Renowned_Bounty_Hunter.png",
         "success": true
     },
@@ -1036,6 +1620,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/225.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Jetpack.png",
         "success": true
     },
@@ -1044,6 +1632,11 @@
         "subtitle": "Old Friend",
         "url": "https://cdn.swu-db.com/images/cards/SHD/147.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Ketsu_Onyo - Old_Friend.png",
         "success": true
     },
@@ -1052,6 +1645,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/118.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Kihrazx_Heavy_Fighter.png",
         "success": true
     },
@@ -1060,6 +1657,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/183.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Kintan_Intimidator.png",
         "success": true
     },
@@ -1068,6 +1670,11 @@
         "subtitle": "Loyal Nite Owl",
         "url": "https://cdn.swu-db.com/images/cards/SHD/150.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Koska_Reeves - Loyal_Nite_Owl.png",
         "success": true
     },
@@ -1076,6 +1683,10 @@
         "subtitle": "Warbird Captain",
         "url": "https://cdn.swu-db.com/images/cards/SHD/241.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Kragan_Gorr - Warbird_Captain.png",
         "success": true
     },
@@ -1084,6 +1695,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/172.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Krayt_Dragon.png",
         "success": true
     },
@@ -1092,6 +1707,11 @@
         "subtitle": "Muscle for Hire",
         "url": "https://cdn.swu-db.com/images/cards/SHD/139.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Krrsantan - Muscle_for_Hire.png",
         "success": true
     },
@@ -1100,6 +1720,11 @@
         "subtitle": "I Have Spoken",
         "url": "https://cdn.swu-db.com/images/cards/SHD/041.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Kuiil - I_Have_Spoken.png",
         "success": true
     },
@@ -1108,6 +1733,11 @@
         "subtitle": "Rash and Deadly",
         "url": "https://cdn.swu-db.com/images/cards/SHD/011.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Kylo_Ren - Rash_and_Deadly.png",
         "success": true
     },
@@ -1116,6 +1746,11 @@
         "subtitle": "Rash and Deadly",
         "url": "https://cdn.swu-db.com/images/cards/SHD/011-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Kylo_Ren - Rash_and_Deadly_back.png",
         "success": true
     },
@@ -1124,6 +1759,11 @@
         "subtitle": "Killing the Past",
         "url": "https://cdn.swu-db.com/images/cards/SHD/141.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Kylo_Ren - Killing_the_Past.png",
         "success": true
     },
@@ -1132,6 +1772,11 @@
         "subtitle": "Ruthlessly Efficient",
         "url": "https://cdn.swu-db.com/images/cards/SHD/135.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Kylos_TIE_Silencer - Ruthlessly_Efficient.png",
         "success": true
     },
@@ -1140,6 +1785,11 @@
         "subtitle": "Droid Revolutionary",
         "url": "https://cdn.swu-db.com/images/cards/SHD/197.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\L3-37 - Droid_Revolutionary.png",
         "success": true
     },
@@ -1148,6 +1798,8 @@
         "subtitle": "White Worm Matriarch",
         "url": "https://cdn.swu-db.com/images/cards/SHD/255.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Lady_Proxima - White_Worm_Matriarch.png",
         "success": true
     },
@@ -1156,6 +1808,11 @@
         "subtitle": "With Impeccable Taste",
         "url": "https://cdn.swu-db.com/images/cards/SHD/017.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Lando_Calrissian - With_Impeccable_Taste.png",
         "success": true
     },
@@ -1164,6 +1821,11 @@
         "subtitle": "With Impeccable Taste",
         "url": "https://cdn.swu-db.com/images/cards/SHD/017-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Lando_Calrissian - With_Impeccable_Taste_back.png",
         "success": true
     },
@@ -1172,6 +1834,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/124.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Legal_Authority.png",
         "success": true
     },
@@ -1180,6 +1846,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/205.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Let_the_Wookiee_Win.png",
         "success": true
     },
@@ -1188,6 +1859,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/200.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Liberated_Slaves.png",
         "success": true
     },
@@ -1196,6 +1872,11 @@
         "subtitle": "Dealer in Truths",
         "url": "https://cdn.swu-db.com/images/cards/SHD/032.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Lom_Pyke - Dealer_in_Truths.png",
         "success": true
     },
@@ -1204,6 +1885,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/227.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Look_the_Other_Way.png",
         "success": true
     },
@@ -1212,6 +1897,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/187.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Lurking_TIE_Phantom.png",
         "success": true
     },
@@ -1220,6 +1910,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/229.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Ma_Klounkee.png",
         "success": true
     },
@@ -1228,6 +1922,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/073.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Mandalorian_Armor.png",
         "success": true
     },
@@ -1236,6 +1934,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/258.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Mandalorian_Warrior.png",
         "success": true
     },
@@ -1244,6 +1944,11 @@
         "subtitle": "Shadow Collective Visionary",
         "url": "https://cdn.swu-db.com/images/cards/SHD/090.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Maul - Shadow_Collective_Visionary.png",
         "success": true
     },
@@ -1252,6 +1957,11 @@
         "subtitle": "Pirate Queen",
         "url": "https://cdn.swu-db.com/images/cards/SHD/096.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Maz_Kanata - Pirate_Queen.png",
         "success": true
     },
@@ -1260,6 +1970,10 @@
         "subtitle": "Takodana",
         "url": "https://cdn.swu-db.com/images/cards/SHD/021.png",
         "type": "Base",
+        "hp": "30",
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Maz_Kanatas_Castle - Takodana.png",
         "success": true
     },
@@ -1268,6 +1982,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/121.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Mercenary_Company.png",
         "success": true
     },
@@ -1276,6 +1994,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/256.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Mercenary_Gunship.png",
         "success": true
     },
@@ -1284,6 +2004,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/054.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Vigilance"
+        ],
         "image": "SHD\\Midnight_Repairs.png",
         "success": true
     },
@@ -1292,6 +2017,10 @@
         "subtitle": "Triggerman",
         "url": "https://cdn.swu-db.com/images/cards/SHD/163.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Migs_Mayfeld - Triggerman.png",
         "success": true
     },
@@ -1300,6 +2029,11 @@
         "subtitle": "Lando's Pride",
         "url": "https://cdn.swu-db.com/images/cards/SHD/204.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Millennium_Falcon - Landos_Pride.png",
         "success": true
     },
@@ -1308,6 +2042,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/100.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Modded_Cohort.png",
         "success": true
     },
@@ -1316,6 +2055,11 @@
         "subtitle": "Formidable Commander",
         "url": "https://cdn.swu-db.com/images/cards/SHD/007.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Moff_Gideon - Formidable_Commander.png",
         "success": true
     },
@@ -1324,6 +2068,11 @@
         "subtitle": "Formidable Commander",
         "url": "https://cdn.swu-db.com/images/cards/SHD/007-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Moff_Gideon - Formidable_Commander_back.png",
         "success": true
     },
@@ -1332,6 +2081,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/055.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Moisture_Farmer.png",
         "success": true
     },
@@ -1340,6 +2093,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/130.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Moment_of_Glory.png",
         "success": true
     },
@@ -1348,6 +2105,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/051.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Mystic_Reflection.png",
         "success": true
     },
@@ -1356,6 +2118,10 @@
         "subtitle": "Nevarro",
         "url": "https://cdn.swu-db.com/images/cards/SHD/022.png",
         "type": "Base",
+        "hp": "30",
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Nevarro_City - Nevarro.png",
         "success": true
     },
@@ -1364,6 +2130,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/062.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Niima_Outpost_Constables.png",
         "success": true
     },
@@ -1372,6 +2142,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/149.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Nite_Owl_Skirmisher.png",
         "success": true
     },
@@ -1380,6 +2155,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/244.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\No_Bargain.png",
         "success": true
     },
@@ -1388,6 +2167,11 @@
         "subtitle": "Part of the Squad",
         "url": "https://cdn.swu-db.com/images/cards/SHD/198.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Omega - Part_of_the_Squad.png",
         "success": true
     },
@@ -1396,6 +2180,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/128.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Outflank.png",
         "success": true
     },
@@ -1404,6 +2192,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/082.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Outland_TIE_Vanguard.png",
         "success": true
     },
@@ -1412,6 +2205,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/116.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Outlaw_Corona.png",
         "success": true
     },
@@ -1420,6 +2217,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/094.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Palpatines_Return.png",
         "success": true
     },
@@ -1428,6 +2230,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/084.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Phase-III_Dark_Trooper.png",
         "success": true
     },
@@ -1436,6 +2243,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/181.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Pillage.png",
         "success": true
     },
@@ -1444,6 +2255,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/089.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Pirate_Battle_Tank.png",
         "success": true
     },
@@ -1452,6 +2268,11 @@
         "subtitle": "Quick to Improvise",
         "url": "https://cdn.swu-db.com/images/cards/SHD/153.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Poe_Dameron - Quick_to_Improvise.png",
         "success": true
     },
@@ -1460,6 +2281,11 @@
         "subtitle": "Power Hungry",
         "url": "https://cdn.swu-db.com/images/cards/SHD/142.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Pre_Vizsla - Power_Hungry.png",
         "success": true
     },
@@ -1468,6 +2294,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/125.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Price_on_Your_Head.png",
         "success": true
     },
@@ -1476,6 +2306,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/201.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Principled_Outlaw.png",
         "success": true
     },
@@ -1484,6 +2319,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/113.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Privateer_Crew.png",
         "success": true
     },
@@ -1492,6 +2331,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/212.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Privateer_Scyk.png",
         "success": true
     },
@@ -1500,6 +2343,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/247.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\Protector_of_the_Throne.png",
         "success": true
     },
@@ -1508,6 +2355,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/068.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Public_Enemy.png",
         "success": true
     },
@@ -1516,6 +2367,11 @@
         "subtitle": "Dengar's Jumpmaster",
         "url": "https://cdn.swu-db.com/images/cards/SHD/137.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Punishing_One - Dengars_Jumpmaster.png",
         "success": true
     },
@@ -1524,6 +2380,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/029.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Pyke_Sentinel.png",
         "success": true
     },
@@ -1532,6 +2393,11 @@
         "subtitle": "I Alone Survived",
         "url": "https://cdn.swu-db.com/images/cards/SHD/002.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Qira - I_Alone_Survived.png",
         "success": true
     },
@@ -1540,6 +2406,11 @@
         "subtitle": "I Alone Survived",
         "url": "https://cdn.swu-db.com/images/cards/SHD/002-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Qira - I_Alone_Survived_back.png",
         "success": true
     },
@@ -1548,6 +2419,11 @@
         "subtitle": "Playing Her Part",
         "url": "https://cdn.swu-db.com/images/cards/SHD/202.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Qira - Playing_Her_Part.png",
         "success": true
     },
@@ -1556,6 +2432,11 @@
         "subtitle": "Reliable Gunship",
         "url": "https://cdn.swu-db.com/images/cards/SHD/044.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Razor_Crest - Reliable_Gunship.png",
         "success": true
     },
@@ -1564,6 +2445,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/160.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Reckless_Gunslinger.png",
         "success": true
     },
@@ -1572,6 +2457,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/232.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Relentless_Pursuit.png",
         "success": true
     },
@@ -1580,6 +2469,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/093.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Remnant_Reserves.png",
         "success": true
     },
@@ -1588,6 +2482,10 @@
         "subtitle": "Nevarro",
         "url": "https://cdn.swu-db.com/images/cards/SHD/019.png",
         "type": "Base",
+        "hp": "30",
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Remnant_Science_Facility - Nevarro.png",
         "success": true
     },
@@ -1596,6 +2494,10 @@
         "subtitle": "Sorgan",
         "url": "https://cdn.swu-db.com/images/cards/SHD/020.png",
         "type": "Base",
+        "hp": "30",
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Remote_Village - Sorgan.png",
         "success": true
     },
@@ -1604,6 +2506,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/117.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Reputable_Hunter.png",
         "success": true
     },
@@ -1612,6 +2518,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/070.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Resilient.png",
         "success": true
     },
@@ -1620,6 +2530,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/218.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Resourceful_Pursuers.png",
         "success": true
     },
@@ -1628,6 +2542,11 @@
         "subtitle": "More Than a Scavenger",
         "url": "https://cdn.swu-db.com/images/cards/SHD/004.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Rey - More_Than_a_Scavenger.png",
         "success": true
     },
@@ -1636,6 +2555,11 @@
         "subtitle": "More Than a Scavenger",
         "url": "https://cdn.swu-db.com/images/cards/SHD/004-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Rey - More_Than_a_Scavenger_back.png",
         "success": true
     },
@@ -1644,6 +2568,11 @@
         "subtitle": "Keeping the Past",
         "url": "https://cdn.swu-db.com/images/cards/SHD/046.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Rey - Keeping_the_Past.png",
         "success": true
     },
@@ -1652,6 +2581,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/164.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Rhokai_Gunship.png",
         "success": true
     },
@@ -1660,6 +2593,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/261.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Rich_Reward.png",
         "success": true
     },
@@ -1668,6 +2603,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/057.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Rickety_Quadjumper.png",
         "success": true
     },
@@ -1676,6 +2615,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/079.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Rivals_Fall.png",
         "success": true
     },
@@ -1684,6 +2627,11 @@
         "subtitle": "Dedicated to the Cause",
         "url": "https://cdn.swu-db.com/images/cards/SHD/045.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Rose_Tico - Dedicated_to_the_Cause.png",
         "success": true
     },
@@ -1692,6 +2640,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/106.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Rule_with_Respect.png",
         "success": true
     },
@@ -1700,6 +2653,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/235.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Ruthless_Assassin.png",
         "success": true
     },
@@ -1708,6 +2665,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/143.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Ruthlessness.png",
         "success": true
     },
@@ -1716,6 +2678,11 @@
         "subtitle": "Obnoxious Pet",
         "url": "https://cdn.swu-db.com/images/cards/SHD/080.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Salacious_Crumb - Obnoxious_Pet.png",
         "success": true
     },
@@ -1724,6 +2691,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/114.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Scanning_Officer.png",
         "success": true
     },
@@ -1732,6 +2703,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/083.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Seasoned_Shoretrooper.png",
         "success": true
     },
@@ -1740,6 +2716,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/053.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Vigilance"
+        ],
         "image": "SHD\\Second_Chance.png",
         "success": true
     },
@@ -1748,6 +2729,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/189.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Slavers_Freighter.png",
         "success": true
     },
@@ -1756,6 +2742,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/252.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\Smugglers_Aid.png",
         "success": true
     },
@@ -1764,6 +2754,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/215.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Smugglers_Starfighter.png",
         "success": true
     },
@@ -1772,6 +2766,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/223.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Snapshot_Reflexes.png",
         "success": true
     },
@@ -1780,6 +2778,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/236.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Snowtrooper_Lieutenant.png",
         "success": true
     },
@@ -1788,6 +2790,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/206.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Spare_the_Target.png",
         "success": true
     },
@@ -1796,6 +2803,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/105.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Spark_of_Hope.png",
         "success": true
     },
@@ -1804,6 +2816,10 @@
         "subtitle": "Kessel",
         "url": "https://cdn.swu-db.com/images/cards/SHD/024.png",
         "type": "Base",
+        "hp": "30",
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Spice_Mines - Kessel.png",
         "success": true
     },
@@ -1812,6 +2828,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/161.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Stolen_Landspeeder.png",
         "success": true
     },
@@ -1820,6 +2840,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/260.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Street_Gang_Recruiter.png",
         "success": true
     },
@@ -1828,6 +2850,11 @@
         "subtitle": "Hired Guardian",
         "url": "https://cdn.swu-db.com/images/cards/SHD/052.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Vigilance"
+        ],
         "image": "SHD\\Sugi - Hired_Guardian.png",
         "success": true
     },
@@ -1836,6 +2863,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/098.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\Sundari_Peacekeeper.png",
         "success": true
     },
@@ -1844,6 +2876,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/034.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Supercommando_Squad.png",
         "success": true
     },
@@ -1852,6 +2889,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/085.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Superlaser_Technician.png",
         "success": true
     },
@@ -1860,6 +2902,11 @@
         "subtitle": "Shadow Ruler",
         "url": "https://cdn.swu-db.com/images/cards/SHD/037.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Supreme_Leader_Snoke - Shadow_Ruler.png",
         "success": true
     },
@@ -1868,6 +2915,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/231.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Surprise_Strike.png",
         "success": true
     },
@@ -1876,6 +2927,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/064.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Survivors_Gauntlet.png",
         "success": true
     },
@@ -1884,6 +2939,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/230.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Swoop_Down.png",
         "success": true
     },
@@ -1892,6 +2951,11 @@
         "subtitle": "Loyal to Kragan",
         "url": "https://cdn.swu-db.com/images/cards/SHD/033.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\Synara_San - Loyal_to_Kragan.png",
         "success": true
     },
@@ -1900,6 +2964,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/063.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\System_Patrol_Craft.png",
         "success": true
     },
@@ -1908,6 +2976,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/131.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Take_Captive.png",
         "success": true
     },
@@ -1916,6 +2988,10 @@
         "subtitle": "Kashyyyk Chieftan",
         "url": "https://cdn.swu-db.com/images/cards/SHD/250.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\Tarfful - Kashyyyk_Chieftan.png",
         "success": true
     },
@@ -1924,6 +3000,10 @@
         "subtitle": "Source of Insight",
         "url": "https://cdn.swu-db.com/images/cards/SHD/248.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\Tech - Source_of_Insight.png",
         "success": true
     },
@@ -1932,6 +3012,11 @@
         "subtitle": "Survival Is Strength",
         "url": "https://cdn.swu-db.com/images/cards/SHD/047.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\The_Armorer - Survival_Is_Strength.png",
         "success": true
     },
@@ -1940,6 +3025,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/159.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Aggression"
+        ],
         "image": "SHD\\The_Chaos_of_War.png",
         "success": true
     },
@@ -1948,6 +3038,11 @@
         "subtitle": "Dictated by Discretion",
         "url": "https://cdn.swu-db.com/images/cards/SHD/031.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "SHD\\The_Client - Dictated_by_Discretion.png",
         "success": true
     },
@@ -1956,6 +3051,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/126.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\The_Darksaber.png",
         "success": true
     },
@@ -1964,6 +3063,11 @@
         "subtitle": "Sworn to the Creed",
         "url": "https://cdn.swu-db.com/images/cards/SHD/018.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\The_Mandalorian - Sworn_to_the_Creed.png",
         "success": true
     },
@@ -1972,6 +3076,11 @@
         "subtitle": "Sworn to the Creed",
         "url": "https://cdn.swu-db.com/images/cards/SHD/018-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\The_Mandalorian - Sworn_to_the_Creed_back.png",
         "success": true
     },
@@ -1980,6 +3089,11 @@
         "subtitle": "Wherever I Go, He Goes",
         "url": "https://cdn.swu-db.com/images/cards/SHD/049.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\The_Mandalorian - Wherever_I_Go_He_Goes.png",
         "success": true
     },
@@ -1988,6 +3102,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/251.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\The_Mandalorians_Rifle.png",
         "success": true
     },
@@ -1996,6 +3114,11 @@
         "subtitle": "Shuttling the Bad Batch",
         "url": "https://cdn.swu-db.com/images/cards/SHD/102.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "SHD\\The_Marauder - Shuttling_the_Bad_Batch.png",
         "success": true
     },
@@ -2004,6 +3127,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/253.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\This_Is_The_Way.png",
         "success": true
     },
@@ -2012,6 +3139,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/129.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Timely_Intervention.png",
         "success": true
     },
@@ -2020,6 +3151,10 @@
         "subtitle": "I Trust No One",
         "url": "https://cdn.swu-db.com/images/cards/SHD/217.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Tobias_Beckett - I_Trust_No_One.png",
         "success": true
     },
@@ -2028,6 +3163,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/071.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Top_Target.png",
         "success": true
     },
@@ -2036,6 +3175,10 @@
         "subtitle": "Ambitious Upstart",
         "url": "https://cdn.swu-db.com/images/cards/SHD/239.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "SHD\\Toro_Calican - Ambitious_Upstart.png",
         "success": true
     },
@@ -2044,6 +3187,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/140.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "SHD\\Trandoshan_Hunters.png",
         "success": true
     },
@@ -2052,6 +3200,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/194.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Triple_Dark_Raid.png",
         "success": true
     },
@@ -2060,6 +3213,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/259.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Twin_Pod_Cloud_Car.png",
         "success": true
     },
@@ -2068,6 +3223,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/257.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [],
         "image": "SHD\\Underworld_Thug.png",
         "success": true
     },
@@ -2076,6 +3233,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/076.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Unexpected_Escape.png",
         "success": true
     },
@@ -2084,6 +3245,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/165.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Unlicensed_Headhunter.png",
         "success": true
     },
@@ -2092,6 +3257,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/226.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Unrefusable_Offer.png",
         "success": true
     },
@@ -2100,6 +3269,10 @@
         "subtitle": "Loyal to the End",
         "url": "https://cdn.swu-db.com/images/cards/SHD/058.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Val - Loyal_to_the_End.png",
         "success": true
     },
@@ -2108,6 +3281,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/151.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Valiant_Assault_Ship.png",
         "success": true
     },
@@ -2116,6 +3294,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/177.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Vambrace_Flamethrower.png",
         "success": true
     },
@@ -2124,6 +3306,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/074.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Vambrace_Grappleshot.png",
         "success": true
     },
@@ -2132,6 +3318,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/065.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Vigilant_Pursuit_Craft.png",
         "success": true
     },
@@ -2140,6 +3330,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/043.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "SHD\\Village_Protectors.png",
         "success": true
     },
@@ -2148,6 +3343,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/221.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "SHD\\Wanted.png",
         "success": true
     },
@@ -2156,6 +3355,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/167.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "SHD\\Wanted_Insurgents.png",
         "success": true
     },
@@ -2164,6 +3367,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/086.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "SHD\\Warbird_Stowaway.png",
         "success": true
     },
@@ -2172,6 +3380,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/110.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Warzone_Lieutenant.png",
         "success": true
     },
@@ -2180,6 +3392,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/119.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "SHD\\Weequay_Pirate_Gang.png",
         "success": true
     },
@@ -2188,6 +3404,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/158.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Aggression"
+        ],
         "image": "SHD\\Wild_Rancor.png",
         "success": true
     },
@@ -2196,6 +3417,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/249.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "SHD\\Wookiee_Warrior.png",
         "success": true
     },
@@ -2204,6 +3429,11 @@
         "subtitle": "Boom!",
         "url": "https://cdn.swu-db.com/images/cards/SHD/154.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "SHD\\Wrecker - Boom.png",
         "success": true
     },
@@ -2212,6 +3442,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/SHD/061.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "SHD\\Wroshyr_Tree_Tender.png",
         "success": true
     },
@@ -2220,6 +3454,11 @@
         "subtitle": "Cad Bane's Reward",
         "url": "https://cdn.swu-db.com/images/cards/SHD/191.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Xanadu_Blood - Cad_Banes_Reward.png",
         "success": true
     },
@@ -2228,6 +3467,11 @@
         "subtitle": "Valiant Smuggler",
         "url": "https://cdn.swu-db.com/images/cards/SHD/203.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "SHD\\Zorii_Bliss - Valiant_Smuggler.png",
         "success": true
     },
@@ -2236,6 +3480,11 @@
         "subtitle": "Bounty Hunter for Hire",
         "url": "https://cdn.swu-db.com/images/cards/SHD/190.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "SHD\\Zuckuss - Bounty_Hunter_for_Hire.png",
         "success": true
     }

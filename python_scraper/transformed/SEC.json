@@ -1,1412 +1,2678 @@
 {
   "awing": {
-    "type": "Unit",
     "image": "SEC\\A-Wing.png",
-    "name": "A-Wing"
+    "name": "A-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "aatincinerator": {
-    "type": "Unit",
     "image": "SEC\\AAT_Incinerator.png",
-    "name": "AAT Incinerator"
+    "name": "AAT Incinerator",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "asplaborer": {
-    "type": "Unit",
     "image": "SEC\\ASP_Laborer.png",
-    "name": "ASP Laborer"
+    "name": "ASP Laborer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "academydisciplinarian": {
-    "type": "Unit",
     "image": "SEC\\Academy_Disciplinarian.png",
-    "name": "Academy Disciplinarian"
+    "name": "Academy Disciplinarian",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "accelerateourplans": {
-    "type": "Event",
     "image": "SEC\\Accelerate_Our_Plans.png",
-    "name": "Accelerate Our Plans"
+    "name": "Accelerate Our Plans",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "aggressivenegotiations": {
-    "type": "Event",
     "image": "SEC\\Aggressive_Negotiations.png",
-    "name": "Aggressive Negotiations"
+    "name": "Aggressive Negotiations",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "ahsokatanoilearneditfromyou": {
-    "type": "Unit",
     "image": "SEC\\Ahsoka_Tano - I_Learned_it_From_You.png",
-    "name": "Ahsoka Tano - I Learned it From You"
+    "name": "Ahsoka Tano - I Learned it From You",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "alderaanianenvoys": {
-    "type": "Unit",
     "image": "SEC\\Alderaanian_Envoys.png",
-    "name": "Alderaanian Envoys"
+    "name": "Alderaanian Envoys",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "alexsandrkalluswithnewpurpose": {
-    "type": "Unit",
     "image": "SEC\\Alexsandr_Kallus - With_New_Purpose.png",
-    "name": "Alexsandr Kallus - With New Purpose"
+    "name": "Alexsandr Kallus - With New Purpose",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "ambitionsreward": {
-    "type": "Upgrade",
     "image": "SEC\\Ambitions_Reward.png",
-    "name": "Ambition's Reward"
+    "name": "Ambition's Reward",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "amnestyhousingcoruscant": {
-    "type": "Base",
     "image": "SEC\\Amnesty_Housing - Coruscant.png",
-    "name": "Amnesty Housing - Coruscant"
+    "name": "Amnesty Housing - Coruscant",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Cunning"
+    ]
   },
   "anakinskywalkersecrethusband": {
-    "type": "Unit",
     "image": "SEC\\Anakin_Skywalker - Secret_Husband.png",
-    "name": "Anakin Skywalker - Secret Husband"
+    "name": "Anakin Skywalker - Secret Husband",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "andocommission": {
-    "type": "Unit",
     "image": "SEC\\Ando_Commission.png",
-    "name": "Ando Commission"
+    "name": "Ando Commission",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "arihndapryceontheroadtopower": {
-    "type": "Unit",
     "image": "SEC\\Arihnda_Pryce - On_the_Road_to_Power.png",
-    "name": "Arihnda Pryce - On the Road to Power"
+    "name": "Arihnda Pryce - On the Road to Power",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "armoroffortune": {
-    "type": "Upgrade",
     "image": "SEC\\Armor_of_Fortune.png",
-    "name": "Armor of Fortune"
+    "name": "Armor of Fortune",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "arrest": {
-    "type": "Event",
     "image": "SEC\\Arrest.png",
-    "name": "Arrest"
+    "name": "Arrest",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "assassinprobe": {
-    "type": "Unit",
     "image": "SEC\\Assassin_Probe.png",
-    "name": "Assassin Probe"
+    "name": "Assassin Probe",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "b2em0thatstwolies": {
-    "type": "Unit",
     "image": "SEC\\B2EM0 - Thats_Two_Lies.png",
-    "name": "B2EM0 - That's Two Lies"
+    "name": "B2EM0 - That's Two Lies",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "bailorganadoingeverythinghecan": {
-    "type": "Leader",
     "image": "SEC\\Bail_Organa - Doing_Everything_He_Can.png",
-    "name": "Bail Organa - Doing Everything He Can"
+    "name": "Bail Organa - Doing Everything He Can",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "bailorganadoingeverythinghecanback": {
-    "type": "Leader",
     "image": "SEC\\Bail_Organa - Doing_Everything_He_Can_back.png",
-    "name": "Bail Organa - Doing Everything He Can [Back]"
+    "name": "Bail Organa - Doing Everything He Can [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "bailorganarespondingtocatastrophe": {
-    "type": "Unit",
     "image": "SEC\\Bail_Organa - Responding_to_Catastrophe.png",
-    "name": "Bail Organa - Responding to Catastrophe"
+    "name": "Bail Organa - Responding to Catastrophe",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "bardottanornithopter": {
-    "type": "Unit",
     "image": "SEC\\Bardottan_Ornithopter.png",
-    "name": "Bardottan Ornithopter"
+    "name": "Bardottan Ornithopter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "beguile": {
-    "type": "Event",
     "image": "SEC\\Beguile.png",
-    "name": "Beguile"
+    "name": "Beguile",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "belovedorator": {
-    "type": "Unit",
     "image": "SEC\\Beloved_Orator.png",
-    "name": "Beloved Orator"
+    "name": "Beloved Orator",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "blueacecolorfulracer": {
-    "type": "Unit",
     "image": "SEC\\Blue_Ace - Colorful_Racer.png",
-    "name": "Blue Ace - Colorful Racer"
+    "name": "Blue Ace - Colorful Racer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "bokatankryzealone": {
-    "type": "Unit",
     "image": "SEC\\Bo-Katan_Kryze - Alone.png",
-    "name": "Bo-Katan Kryze - Alone"
+    "name": "Bo-Katan Kryze - Alone",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "bogdowninprocedure": {
-    "type": "Event",
     "image": "SEC\\Bog_Down_in_Procedure.png",
-    "name": "Bog Down in Procedure"
+    "name": "Bog Down in Procedure",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "bravosquadronfighter": {
-    "type": "Unit",
     "image": "SEC\\Bravo_Squadron_Fighter.png",
-    "name": "Bravo Squadron Fighter"
+    "name": "Bravo Squadron Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "budgetscheming": {
-    "type": "Event",
     "image": "SEC\\Budget_Scheming.png",
-    "name": "Budget Scheming"
+    "name": "Budget Scheming",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "c3p0humancyborgrelations": {
-    "type": "Leader",
     "image": "SEC\\C-3P0 - Human-Cyborg_Relations.png",
-    "name": "C-3P0 - Human-Cyborg Relations"
+    "name": "C-3P0 - Human-Cyborg Relations",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "c3p0humancyborgrelationsback": {
-    "type": "Leader",
     "image": "SEC\\C-3P0 - Human-Cyborg_Relations_back.png",
-    "name": "C-3P0 - Human-Cyborg Relations [Back]"
+    "name": "C-3P0 - Human-Cyborg Relations [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "c3p0anythingimightdo": {
-    "type": "Unit",
     "image": "SEC\\C-3P0 - Anything_I_Might_Do.png",
-    "name": "C-3P0 - Anything I Might Do?"
+    "name": "C-3P0 - Anything I Might Do?",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "cadbaneimpressednow": {
-    "type": "Unit",
     "image": "SEC\\Cad_Bane - Impressed_Now.png",
-    "name": "Cad Bane - Impressed Now?"
+    "name": "Cad Bane - Impressed Now?",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "cantwellarrestorcruiser": {
-    "type": "Unit",
     "image": "SEC\\Cantwell_Arrestor_Cruiser.png",
-    "name": "Cantwell Arrestor Cruiser"
+    "name": "Cantwell Arrestor Cruiser",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "captainrexintothefirefight": {
-    "type": "Unit",
     "image": "SEC\\Captain_Rex - Into_the_Firefight.png",
-    "name": "Captain Rex - Into the Firefight"
+    "name": "Captain Rex - Into the Firefight",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "captaintyphoallnecessaryprecautions": {
-    "type": "Unit",
     "image": "SEC\\Captain_Typho - All_Necessary_Precautions.png",
-    "name": "Captain Typho - All Necessary Precautions"
+    "name": "Captain Typho - All Necessary Precautions",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "cassianandorclimb": {
-    "type": "Leader",
     "image": "SEC\\Cassian_Andor - Climb.png",
-    "name": "Cassian Andor - Climb!"
+    "name": "Cassian Andor - Climb!",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "cassianandorclimbback": {
-    "type": "Leader",
     "image": "SEC\\Cassian_Andor - Climb_back.png",
-    "name": "Cassian Andor - Climb! [Back]"
+    "name": "Cassian Andor - Climb! [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "cassianandorlaylow": {
-    "type": "Unit",
     "image": "SEC\\Cassian_Andor - Lay_Low.png",
-    "name": "Cassian Andor - Lay Low"
+    "name": "Cassian Andor - Lay Low",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "catchunawares": {
-    "type": "Event",
     "image": "SEC\\Catch_Unawares.png",
-    "name": "Catch Unawares"
+    "name": "Catch Unawares",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "chairmanpapanoidaundaunteddiplomat": {
-    "type": "Unit",
     "image": "SEC\\Chairman_Papanoida - Undaunted_Diplomat.png",
-    "name": "Chairman Papanoida - Undaunted Diplomat"
+    "name": "Chairman Papanoida - Undaunted Diplomat",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Aggression"
+    ]
   },
   "chancellorpalpatinehowlibertydies": {
-    "type": "Leader",
     "image": "SEC\\Chancellor_Palpatine - How_Liberty_Dies.png",
-    "name": "Chancellor Palpatine - How Liberty Dies"
+    "name": "Chancellor Palpatine - How Liberty Dies",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "chancellorpalpatinehowlibertydiesback": {
-    "type": "Leader",
     "image": "SEC\\Chancellor_Palpatine - How_Liberty_Dies_back.png",
-    "name": "Chancellor Palpatine - How Liberty Dies [Back]"
+    "name": "Chancellor Palpatine - How Liberty Dies [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "chancellorpalpatineiamthesenate": {
-    "type": "Unit",
     "image": "SEC\\Chancellor_Palpatine - I_Am_the_Senate.png",
-    "name": "Chancellor Palpatine - I Am the Senate"
+    "name": "Chancellor Palpatine - I Am the Senate",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "chancellorvalorumcivilservant": {
-    "type": "Unit",
     "image": "SEC\\Chancellor_Valorum - Civil_Servant.png",
-    "name": "Chancellor Valorum - Civil Servant"
+    "name": "Chancellor Valorum - Civil Servant",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Command"
+    ]
   },
   "chandrilansponsor": {
-    "type": "Unit",
     "image": "SEC\\Chandrilan_Sponsor.png",
-    "name": "Chandrilan Sponsor"
+    "name": "Chandrilan Sponsor",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "chargedwithcorruption": {
-    "type": "Event",
     "image": "SEC\\Charged_with_Corruption.png",
-    "name": "Charged with Corruption"
+    "name": "Charged with Corruption",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "chargedwithespionage": {
-    "type": "Event",
     "image": "SEC\\Charged_with_Espionage.png",
-    "name": "Charged with Espionage"
+    "name": "Charged with Espionage",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "chargedwithmurder": {
-    "type": "Event",
     "image": "SEC\\Charged_with_Murder.png",
-    "name": "Charged with Murder"
+    "name": "Charged with Murder",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "chargedwithtreason": {
-    "type": "Event",
     "image": "SEC\\Charged_with_Treason.png",
-    "name": "Charged with Treason"
+    "name": "Charged with Treason",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "chopperwarhero": {
-    "type": "Unit",
     "image": "SEC\\Chopper - War_Hero.png",
-    "name": "Chopper - War Hero"
+    "name": "Chopper - War Hero",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "cikatrovizagobusinessiswhatmatters": {
-    "type": "Unit",
     "image": "SEC\\Cikatro_Vizago - Business_is_What_Matters.png",
-    "name": "Cikatro Vizago - Business is What Matters"
+    "name": "Cikatro Vizago - Business is What Matters",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "cintakazthestrugglecomesfirst": {
-    "type": "Unit",
     "image": "SEC\\Cinta_Kaz - The_Struggle_Comes_First.png",
-    "name": "Cinta Kaz - The Struggle Comes First"
+    "name": "Cinta Kaz - The Struggle Comes First",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "clandestineconnections": {
-    "type": "Upgrade",
     "image": "SEC\\Clandestine_Connections.png",
-    "name": "Clandestine Connections"
+    "name": "Clandestine Connections",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": []
   },
   "colonelyularenthisiswhyweplan": {
-    "type": "Leader",
     "image": "SEC\\Colonel_Yularen - This_is_Why_We_Plan.png",
-    "name": "Colonel Yularen - This is Why We Plan"
+    "name": "Colonel Yularen - This is Why We Plan",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "colonelyularenthisiswhyweplanback": {
-    "type": "Leader",
     "image": "SEC\\Colonel_Yularen - This_is_Why_We_Plan_back.png",
-    "name": "Colonel Yularen - This is Why We Plan [Back]"
+    "name": "Colonel Yularen - This is Why We Plan [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "condemn": {
-    "type": "Upgrade",
     "image": "SEC\\Condemn.png",
-    "name": "Condemn"
+    "name": "Condemn",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "confidenceinvictory": {
-    "type": "Event",
     "image": "SEC\\Confidence_in_Victory.png",
-    "name": "Confidence in Victory"
+    "name": "Confidence in Victory",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "congressofmalastare": {
-    "type": "Unit",
     "image": "SEC\\Congress_of_Malastare.png",
-    "name": "Congress of Malastare"
+    "name": "Congress of Malastare",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "consularscruiser": {
-    "type": "Unit",
     "image": "SEC\\Consulars_Cruiser.png",
-    "name": "Consular's Cruiser"
+    "name": "Consular's Cruiser",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "contemptforculture": {
-    "type": "Event",
     "image": "SEC\\Contempt_for_Culture.png",
-    "name": "Contempt for Culture"
+    "name": "Contempt for Culture",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "contrabandstarhopper": {
-    "type": "Unit",
     "image": "SEC\\Contraband_Starhopper.png",
-    "name": "Contraband Starhopper"
+    "name": "Contraband Starhopper",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "convenethesenate": {
-    "type": "Event",
     "image": "SEC\\Convene_the_Senate.png",
-    "name": "Convene the Senate"
+    "name": "Convene the Senate",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "corellianhounds": {
-    "type": "Unit",
     "image": "SEC\\Corellian_Hounds.png",
-    "name": "Corellian Hounds"
+    "name": "Corellian Hounds",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "coronetstatelyvessel": {
-    "type": "Unit",
     "image": "SEC\\Coronet - Stately_Vessel.png",
-    "name": "Coronet - Stately Vessel"
+    "name": "Coronet - Stately Vessel",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "corporatewarmongering": {
-    "type": "Event",
     "image": "SEC\\Corporate_Warmongering.png",
-    "name": "Corporate Warmongering"
+    "name": "Corporate Warmongering",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "corruptpolitician": {
-    "type": "Unit",
     "image": "SEC\\Corrupt_Politician.png",
-    "name": "Corrupt Politician"
+    "name": "Corrupt Politician",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "coruscantundercitypolice": {
-    "type": "Unit",
     "image": "SEC\\Coruscant_Undercity_Police.png",
-    "name": "Coruscant Undercity Police"
+    "name": "Coruscant Undercity Police",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "covertoperative": {
-    "type": "Unit",
     "image": "SEC\\Covert_Operative.png",
-    "name": "Covert Operative"
+    "name": "Covert Operative",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "craitveteran": {
-    "type": "Unit",
     "image": "SEC\\Crait_Veteran.png",
-    "name": "Crait Veteran"
+    "name": "Crait Veteran",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "creditorsclaim": {
-    "type": "Upgrade",
     "image": "SEC\\Creditors_Claim.png",
-    "name": "Creditor's Claim"
+    "name": "Creditor's Claim",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "crosshairfilledwithdoubt": {
-    "type": "Unit",
     "image": "SEC\\Crosshair - Filled_With_Doubt.png",
-    "name": "Crosshair - Filled With Doubt"
+    "name": "Crosshair - Filled With Doubt",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "cruciblecenturiesofwisdom": {
-    "type": "Unit",
     "image": "SEC\\Crucible - Centuries_of_Wisdom.png",
-    "name": "Crucible - Centuries of Wisdom"
+    "name": "Crucible - Centuries of Wisdom",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "cruelcommandos": {
-    "type": "Unit",
     "image": "SEC\\Cruel_Commandos.png",
-    "name": "Cruel Commandos"
+    "name": "Cruel Commandos",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "djneedalift": {
-    "type": "Leader",
     "image": "SEC\\DJ - Need_a_Lift.png",
-    "name": "DJ - Need a Lift?"
+    "name": "DJ - Need a Lift?",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Cunning"
+    ]
   },
   "djneedaliftback": {
-    "type": "Leader",
     "image": "SEC\\DJ - Need_a_Lift_back.png",
-    "name": "DJ - Need a Lift? [Back]"
+    "name": "DJ - Need a Lift? [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Cunning"
+    ]
   },
   "darocommando": {
-    "type": "Unit",
     "image": "SEC\\Daro_Commando.png",
-    "name": "Daro Commando"
+    "name": "Daro Commando",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "darthnihiluslordofhunger": {
-    "type": "Unit",
     "image": "SEC\\Darth_Nihilus - Lord_of_Hunger.png",
-    "name": "Darth Nihilus - Lord of Hunger"
+    "name": "Darth Nihilus - Lord of Hunger",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "darthsionlordofpain": {
-    "type": "Unit",
     "image": "SEC\\Darth_Sion - Lord_of_Pain.png",
-    "name": "Darth Sion - Lord of Pain"
+    "name": "Darth Sion - Lord of Pain",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "darthtrayalordofbetrayal": {
-    "type": "Unit",
     "image": "SEC\\Darth_Traya - Lord_of_Betrayal.png",
-    "name": "Darth Traya - Lord of Betrayal"
+    "name": "Darth Traya - Lord of Betrayal",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "deathtrooper": {
-    "type": "Unit",
     "image": "SEC\\Death_Trooper.png",
-    "name": "Death Trooper"
+    "name": "Death Trooper",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "dedrameeronotwastingtime": {
-    "type": "Leader",
     "image": "SEC\\Dedra_Meero - Not_Wasting_Time.png",
-    "name": "Dedra Meero - Not Wasting Time"
+    "name": "Dedra Meero - Not Wasting Time",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "dedrameeronotwastingtimeback": {
-    "type": "Leader",
     "image": "SEC\\Dedra_Meero - Not_Wasting_Time_back.png",
-    "name": "Dedra Meero - Not Wasting Time [Back]"
+    "name": "Dedra Meero - Not Wasting Time [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "dedrameerowithverifiabledata": {
-    "type": "Unit",
     "image": "SEC\\Dedra_Meero - With_Verifiable_Data.png",
-    "name": "Dedra Meero - With Verifiable Data"
+    "name": "Dedra Meero - With Verifiable Data",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "defensefleetxwing": {
-    "type": "Unit",
     "image": "SEC\\Defense_Fleet_X-Wing.png",
-    "name": "Defense Fleet X-Wing"
+    "name": "Defense Fleet X-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "dhanipilgrim": {
-    "type": "Unit",
     "image": "SEC\\Dhani_Pilgrim.png",
-    "name": "Dhani Pilgrim"
+    "name": "Dhani Pilgrim",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "diplomaticenvoy": {
-    "type": "Unit",
     "image": "SEC\\Diplomatic_Envoy.png",
-    "name": "Diplomatic Envoy"
+    "name": "Diplomatic Envoy",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "diplomaticimmunity": {
-    "type": "Upgrade",
     "image": "SEC\\Diplomatic_Immunity.png",
-    "name": "Diplomatic Immunity"
+    "name": "Diplomatic Immunity",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "directorkrennicilosenothingbuttime": {
-    "type": "Unit",
     "image": "SEC\\Director_Krennic - I_Lose_Nothing_But_Time.png",
-    "name": "Director Krennic - I Lose Nothing But Time"
+    "name": "Director Krennic - I Lose Nothing But Time",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "disciplesdevotion": {
-    "type": "Upgrade",
     "image": "SEC\\Disciples_Devotion.png",
-    "name": "Disciples' Devotion"
+    "name": "Disciples' Devotion",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "dismantletheconspiracy": {
-    "type": "Event",
     "image": "SEC\\Dismantle_the_Conspiracy.png",
-    "name": "Dismantle the Conspiracy"
+    "name": "Dismantle the Conspiracy",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "dogmaticshocksquad": {
-    "type": "Unit",
     "image": "SEC\\Dogmatic_Shock_Squad.png",
-    "name": "Dogmatic Shock Squad"
+    "name": "Dogmatic Shock Squad",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "dresselliancommandos": {
-    "type": "Unit",
     "image": "SEC\\Dressellian_Commandos.png",
-    "name": "Dressellian Commandos"
+    "name": "Dressellian Commandos",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "drydenvosineverasktwice": {
-    "type": "Leader",
     "image": "SEC\\Dryden_Vos - I_Never_Ask_Twice.png",
-    "name": "Dryden Vos - I Never Ask Twice"
+    "name": "Dryden Vos - I Never Ask Twice",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "drydenvosineverasktwiceback": {
-    "type": "Leader",
     "image": "SEC\\Dryden_Vos - I_Never_Ask_Twice_back.png",
-    "name": "Dryden Vos - I Never Ask Twice [Back]"
+    "name": "Dryden Vos - I Never Ask Twice [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "drydenvosigetallworkedup": {
-    "type": "Unit",
     "image": "SEC\\Dryden_Vos - I_Get_All_Worked_Up.png",
-    "name": "Dryden Vos - I Get All Worked Up"
+    "name": "Dryden Vos - I Get All Worked Up",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "duchesssinvestigators": {
-    "type": "Unit",
     "image": "SEC\\Duchesss_Investigators.png",
-    "name": "Duchess's Investigators"
+    "name": "Duchess's Investigators",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "ebonhawkcauseandeffect": {
-    "type": "Unit",
     "image": "SEC\\Ebon_Hawk - Cause_and_Effect.png",
-    "name": "Ebon Hawk - Cause and Effect"
+    "name": "Ebon Hawk - Cause and Effect",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "eliakanefalseconvert": {
-    "type": "Unit",
     "image": "SEC\\Elia_Kane - False_Convert.png",
-    "name": "Elia Kane - False Convert"
+    "name": "Elia Kane - False Convert",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "emergencypowers": {
-    "type": "Event",
     "image": "SEC\\Emergency_Powers.png",
-    "name": "Emergency Powers"
+    "name": "Emergency Powers",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "emissariesfromryloth": {
-    "type": "Unit",
     "image": "SEC\\Emissaries_from_Ryloth.png",
-    "name": "Emissaries from Ryloth"
+    "name": "Emissaries from Ryloth",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "emissaryssheathipede": {
-    "type": "Unit",
     "image": "SEC\\Emissarys_Sheathipede.png",
-    "name": "Emissary's Sheathipede"
+    "name": "Emissary's Sheathipede",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "enforcersquadron": {
-    "type": "Unit",
     "image": "SEC\\Enforcer_Squadron.png",
-    "name": "Enforcer Squadron"
+    "name": "Enforcer Squadron",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "escapepod": {
-    "type": "Unit",
     "image": "SEC\\Escape_Pod.png",
-    "name": "Escape Pod"
+    "name": "Escape Pod",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "eviliseverywhere": {
-    "type": "Event",
     "image": "SEC\\Evil_is_Everywhere.png",
-    "name": "Evil is Everywhere"
+    "name": "Evil is Everywhere",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "exiledfromtheforce": {
-    "type": "Upgrade",
     "image": "SEC\\Exiled_from_the_Force.png",
-    "name": "Exiled from the Force"
+    "name": "Exiled from the Force",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Vigilance"
+    ]
   },
   "fntroopercorps": {
-    "type": "Unit",
     "image": "SEC\\FN_Trooper_Corps.png",
-    "name": "FN Trooper Corps"
+    "name": "FN Trooper Corps",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "faithinyourfriends": {
-    "type": "Event",
     "image": "SEC\\Faith_in_Your_Friends.png",
-    "name": "Faith in Your Friends"
+    "name": "Faith in Your Friends",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "ferrixuprising": {
-    "type": "Event",
     "image": "SEC\\Ferrix_Uprising.png",
-    "name": "Ferrix Uprising"
+    "name": "Ferrix Uprising",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "figureofunity": {
-    "type": "Upgrade",
     "image": "SEC\\Figure_of_Unity.png",
-    "name": "Figure of Unity"
+    "name": "Figure of Unity",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "firstlightthreateningelegance": {
-    "type": "Unit",
     "image": "SEC\\First_Light - Threatening_Elegance.png",
-    "name": "First Light - Threatening Elegance"
+    "name": "First Light - Threatening Elegance",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "fullyarmedandoperational": {
-    "type": "Event",
     "image": "SEC\\Fully_Armed_and_Operational.png",
-    "name": "Fully Armed and Operational"
+    "name": "Fully Armed and Operational",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "fulminatrixfleetkiller": {
-    "type": "Unit",
     "image": "SEC\\Fulminatrix - Fleet_Killer.png",
-    "name": "Fulminatrix - Fleet Killer"
+    "name": "Fulminatrix - Fleet Killer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "furtivehandmaiden": {
-    "type": "Unit",
     "image": "SEC\\Furtive_Handmaiden.png",
-    "name": "Furtive Handmaiden"
+    "name": "Furtive Handmaiden",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "gnkpowerdroid": {
-    "type": "Unit",
     "image": "SEC\\GNK_Power_Droid.png",
-    "name": "GNK Power Droid"
+    "name": "GNK Power Droid",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "galenersoyoullneverwin": {
-    "type": "Unit",
     "image": "SEC\\Galen_Erso - Youll_Never_Win.png",
-    "name": "Galen Erso - You'll Never Win"
+    "name": "Galen Erso - You'll Never Win",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "garindaninformationbroker": {
-    "type": "Unit",
     "image": "SEC\\Garindan - Information_Broker.png",
-    "name": "Garindan - Information Broker"
+    "name": "Garindan - Information Broker",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "generalgrievousscuttlingtosafety": {
-    "type": "Unit",
     "image": "SEC\\General_Grievous - Scuttling_to_Safety.png",
-    "name": "General Grievous - Scuttling to Safety"
+    "name": "General Grievous - Scuttling to Safety",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "governorprycetyrantoflothal": {
-    "type": "Leader",
     "image": "SEC\\Governor_Pryce - Tyrant_of_Lothal.png",
-    "name": "Governor Pryce - Tyrant of Lothal"
+    "name": "Governor Pryce - Tyrant of Lothal",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "governorprycetyrantoflothalback": {
-    "type": "Leader",
     "image": "SEC\\Governor_Pryce - Tyrant_of_Lothal_back.png",
-    "name": "Governor Pryce - Tyrant of Lothal [Back]"
+    "name": "Governor Pryce - Tyrant of Lothal [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "grandadmiralthrawngrandschemer": {
-    "type": "Unit",
     "image": "SEC\\Grand_Admiral_Thrawn - Grand_Schemer.png",
-    "name": "Grand Admiral Thrawn - Grand Schemer"
+    "name": "Grand Admiral Thrawn - Grand Schemer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "grandmofftarkintakingkrennicsachievement": {
-    "type": "Unit",
     "image": "SEC\\Grand_Moff_Tarkin - Taking_Krennics_Achievement.png",
-    "name": "Grand Moff Tarkin - Taking Krennic's Achievement"
+    "name": "Grand Moff Tarkin - Taking Krennic's Achievement",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "grassrootsresistance": {
-    "type": "Event",
     "image": "SEC\\Grassroots_Resistance.png",
-    "name": "Grassroots Resistance"
+    "name": "Grassroots Resistance",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "heroicarc170": {
-    "type": "Unit",
     "image": "SEC\\Heroic_ARC-170.png",
-    "name": "Heroic ARC-170"
+    "name": "Heroic ARC-170",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "highcommandcouncilor": {
-    "type": "Unit",
     "image": "SEC\\High_Command_Councilor.png",
-    "name": "High Command Councilor"
+    "name": "High Command Councilor",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "hiredsplicer": {
-    "type": "Unit",
     "image": "SEC\\Hired_Splicer.png",
-    "name": "Hired Splicer"
+    "name": "Hired Splicer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "hondoohnakayoubetterhurry": {
-    "type": "Unit",
     "image": "SEC\\Hondo_Ohnaka - You_Better_Hurry.png",
-    "name": "Hondo Ohnaka - You Better Hurry"
+    "name": "Hondo Ohnaka - You Better Hurry",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "hunterextraordinarytracker": {
-    "type": "Unit",
     "image": "SEC\\Hunter - Extraordinary_Tracker.png",
-    "name": "Hunter - Extraordinary Tracker"
+    "name": "Hunter - Extraordinary Tracker",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "huntingassassindroid": {
-    "type": "Unit",
     "image": "SEC\\Hunting_Assassin_Droid.png",
-    "name": "Hunting Assassin Droid"
+    "name": "Hunting Assassin Droid",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "huttcartelstarfighter": {
-    "type": "Unit",
     "image": "SEC\\Hutt_Cartel_Starfighter.png",
-    "name": "Hutt Cartel Starfighter"
+    "name": "Hutt Cartel Starfighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "hyperspacedisaster": {
-    "type": "Event",
     "image": "SEC\\Hyperspace_Disaster.png",
-    "name": "Hyperspace Disaster"
+    "name": "Hyperspace Disaster",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "iamthesenate": {
-    "type": "Event",
     "image": "SEC\\I_Am_the_Senate.png",
-    "name": "I Am the Senate"
+    "name": "I Am the Senate",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "isbagent": {
-    "type": "Unit",
     "image": "SEC\\ISB_Agent.png",
-    "name": "ISB Agent"
+    "name": "ISB Agent",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "isbshuttle": {
-    "type": "Unit",
     "image": "SEC\\ISB_Shuttle.png",
-    "name": "ISB Shuttle"
+    "name": "ISB Shuttle",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "imperialdarktrooper": {
-    "type": "Unit",
     "image": "SEC\\Imperial_Dark_Trooper.png",
-    "name": "Imperial Dark Trooper"
+    "name": "Imperial Dark Trooper",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "imperialoccupier": {
-    "type": "Unit",
     "image": "SEC\\Imperial_Occupier.png",
-    "name": "Imperial Occupier"
+    "name": "Imperial Occupier",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "imperialprisoncomplexnarkina5": {
-    "type": "Base",
     "image": "SEC\\Imperial_Prison_Complex - Narkina_5.png",
-    "name": "Imperial Prison Complex - Narkina 5"
+    "name": "Imperial Prison Complex - Narkina 5",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Aggression"
+    ]
   },
   "implicate": {
-    "type": "Event",
     "image": "SEC\\Implicate.png",
-    "name": "Implicate"
+    "name": "Implicate",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "innerrimcoalition": {
-    "type": "Unit",
     "image": "SEC\\Inner_Rim_Coalition.png",
-    "name": "Inner Rim Coalition"
+    "name": "Inner Rim Coalition",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "inspectorsshuttle": {
-    "type": "Unit",
     "image": "SEC\\Inspectors_Shuttle.png",
-    "name": "Inspector's Shuttle"
+    "name": "Inspector's Shuttle",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "inspiringsenator": {
-    "type": "Unit",
     "image": "SEC\\Inspiring_Senator.png",
-    "name": "Inspiring Senator"
+    "name": "Inspiring Senator",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "itsnotoveryet": {
-    "type": "Event",
     "image": "SEC\\Its_Not_Over_Yet.png",
-    "name": "It's Not Over Yet"
+    "name": "It's Not Over Yet",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "jabbathehuttwonderfulhumanbeing": {
-    "type": "Leader",
     "image": "SEC\\Jabba_the_Hutt - Wonderful_Human_Being.png",
-    "name": "Jabba the Hutt - Wonderful Human Being"
+    "name": "Jabba the Hutt - Wonderful Human Being",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "jabbathehuttwonderfulhumanbeingback": {
-    "type": "Leader",
     "image": "SEC\\Jabba_the_Hutt - Wonderful_Human_Being_back.png",
-    "name": "Jabba the Hutt - Wonderful Human Being [Back]"
+    "name": "Jabba the Hutt - Wonderful Human Being [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "jadesquadronpatrol": {
-    "type": "Unit",
     "image": "SEC\\Jade_Squadron_Patrol.png",
-    "name": "Jade Squadron Patrol"
+    "name": "Jade Squadron Patrol",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "jarjarbinksmesapropose": {
-    "type": "Unit",
     "image": "SEC\\Jar_Jar_Binks - Mesa_Propose.png",
-    "name": "Jar Jar Binks - Mesa Propose"
+    "name": "Jar Jar Binks - Mesa Propose",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "juniorsenator": {
-    "type": "Unit",
     "image": "SEC\\Junior_Senator.png",
-    "name": "Junior Senator"
+    "name": "Junior Senator",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "karisnemikfreedomisapureidea": {
-    "type": "Unit",
     "image": "SEC\\Karis_Nemik - Freedom_is_a_Pure_Idea.png",
-    "name": "Karis Nemik - Freedom is a Pure Idea"
+    "name": "Karis Nemik - Freedom is a Pure Idea",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "kaydelconnixforoursurvival": {
-    "type": "Unit",
     "image": "SEC\\Kaydel_Connix - For_Our_Survival.png",
-    "name": "Kaydel Connix - For Our Survival"
+    "name": "Kaydel Connix - For Our Survival",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "kazudaxionoimnotaspy": {
-    "type": "Unit",
     "image": "SEC\\Kazuda_Xiono - Im_Not_A_Spy.png",
-    "name": "Kazuda Xiono - I'm Not A Spy"
+    "name": "Kazuda Xiono - I'm Not A Spy",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "kinoloyyouanswertome": {
-    "type": "Unit",
     "image": "SEC\\Kino_Loy - You_Answer_to_Me.png",
-    "name": "Kino Loy - You Answer to Me"
+    "name": "Kino Loy - You Answer to Me",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "knowledgeanddefense": {
-    "type": "Event",
     "image": "SEC\\Knowledge_and_Defense.png",
-    "name": "Knowledge and Defense"
+    "name": "Knowledge and Defense",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "kreiaswhispers": {
-    "type": "Event",
     "image": "SEC\\Kreias_Whispers.png",
-    "name": "Kreia's Whispers"
+    "name": "Kreia's Whispers",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "kylorenscommandshuttleiconofauthority": {
-    "type": "Unit",
     "image": "SEC\\Kylo_Rens_Command_Shuttle - Icon_of_Authority.png",
-    "name": "Kylo Ren's Command Shuttle - Icon of Authority"
+    "name": "Kylo Ren's Command Shuttle - Icon of Authority",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "lamasuwemodifiedtheirgenetics": {
-    "type": "Leader",
     "image": "SEC\\Lama_Su - We_Modified_Their_Genetics.png",
-    "name": "Lama Su - We Modified Their Genetics"
+    "name": "Lama Su - We Modified Their Genetics",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "lamasuwemodifiedtheirgeneticsback": {
-    "type": "Leader",
     "image": "SEC\\Lama_Su - We_Modified_Their_Genetics_back.png",
-    "name": "Lama Su - We Modified Their Genetics [Back]"
+    "name": "Lama Su - We Modified Their Genetics [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "landocalrissiantrustme": {
-    "type": "Unit",
     "image": "SEC\\Lando_Calrissian - Trust_Me.png",
-    "name": "Lando Calrissian - Trust Me"
+    "name": "Lando Calrissian - Trust Me",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "leiaorganaofasecretbloodline": {
-    "type": "Leader",
     "image": "SEC\\Leia_Organa - Of_A_Secret_Bloodline.png",
-    "name": "Leia Organa - Of A Secret Bloodline"
+    "name": "Leia Organa - Of A Secret Bloodline",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "leiaorganaofasecretbloodlineback": {
-    "type": "Leader",
     "image": "SEC\\Leia_Organa - Of_A_Secret_Bloodline_back.png",
-    "name": "Leia Organa - Of A Secret Bloodline [Back]"
+    "name": "Leia Organa - Of A Secret Bloodline [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "letscallitwar": {
-    "type": "Event",
     "image": "SEC\\Lets_Call_It_War.png",
-    "name": "Let's Call It War"
+    "name": "Let's Call It War",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "letstalk": {
-    "type": "Event",
     "image": "SEC\\Lets_Talk.png",
-    "name": "Let's Talk"
+    "name": "Let's Talk",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "libertineundernewownership": {
-    "type": "Unit",
     "image": "SEC\\Libertine - Under_New_Ownership.png",
-    "name": "Libertine - Under New Ownership"
+    "name": "Libertine - Under New Ownership",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Cunning"
+    ]
   },
   "lightmakerihaveanidea": {
-    "type": "Unit",
     "image": "SEC\\Lightmaker - I_Have_An_Idea.png",
-    "name": "Lightmaker - I Have An Idea"
+    "name": "Lightmaker - I Have An Idea",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "loanshark": {
-    "type": "Unit",
     "image": "SEC\\Loan_Shark.png",
-    "name": "Loan Shark"
+    "name": "Loan Shark",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "lobotcloudcitycoordinator": {
-    "type": "Unit",
     "image": "SEC\\Lobot - Cloud_City_Coordinator.png",
-    "name": "Lobot - Cloud City Coordinator"
+    "name": "Lobot - Cloud City Coordinator",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "lostjedi": {
-    "type": "Unit",
     "image": "SEC\\Lost_Jedi.png",
-    "name": "Lost Jedi"
+    "name": "Lost Jedi",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "lurkingsnubfighter": {
-    "type": "Unit",
     "image": "SEC\\Lurking_Snub_Fighter.png",
-    "name": "Lurking Snub Fighter"
+    "name": "Lurking Snub Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "luthenraeldontyouwanttofightforreal": {
-    "type": "Leader",
     "image": "SEC\\Luthen_Rael - Dont_You_Want_to_Fight_For_Real.png",
-    "name": "Luthen Rael - Don't You Want to Fight For Real?"
+    "name": "Luthen Rael - Don't You Want to Fight For Real?",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "luthenraeldontyouwanttofightforrealback": {
-    "type": "Leader",
     "image": "SEC\\Luthen_Rael - Dont_You_Want_to_Fight_For_Real_back.png",
-    "name": "Luthen Rael - Don't You Want to Fight For Real? [Back]"
+    "name": "Luthen Rael - Don't You Want to Fight For Real? [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "luthenshaulcraftcountermeasuresarmed": {
-    "type": "Unit",
     "image": "SEC\\Luthens_Haulcraft - Countermeasures_Armed.png",
-    "name": "Luthen's Haulcraft - Countermeasures Armed"
+    "name": "Luthen's Haulcraft - Countermeasures Armed",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "maarvaandorwevebeensleeping": {
-    "type": "Unit",
     "image": "SEC\\Maarva_Andor - Weve_Been_Sleeping.png",
-    "name": "Maarva Andor - We've Been Sleeping"
+    "name": "Maarva Andor - We've Been Sleeping",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "majorpartagazhealthcareprovider": {
-    "type": "Unit",
     "image": "SEC\\Major_Partagaz - Healthcare_Provider.png",
-    "name": "Major Partagaz - Healthcare Provider"
+    "name": "Major Partagaz - Healthcare Provider",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "masameddaaccomplicetopower": {
-    "type": "Unit",
     "image": "SEC\\Mas_Amedda - Accomplice_to_Power.png",
-    "name": "Mas Amedda - Accomplice to Power"
+    "name": "Mas Amedda - Accomplice to Power",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "minabonteristopthiswar": {
-    "type": "Unit",
     "image": "SEC\\Mina_Bonteri - Stop_This_War.png",
-    "name": "Mina Bonteri - Stop This War"
+    "name": "Mina Bonteri - Stop This War",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "mirajscinteltheweakdeservetokneel": {
-    "type": "Unit",
     "image": "SEC\\Miraj_Scintel - The_Weak_Deserve_to_Kneel.png",
-    "name": "Miraj Scintel - The Weak Deserve to Kneel"
+    "name": "Miraj Scintel - The Weak Deserve to Kneel",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "monmothmaformingacoalition": {
-    "type": "Leader",
     "image": "SEC\\Mon_Mothma - Forming_a_Coalition.png",
-    "name": "Mon Mothma - Forming a Coalition"
+    "name": "Mon Mothma - Forming a Coalition",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "monmothmaformingacoalitionback": {
-    "type": "Leader",
     "image": "SEC\\Mon_Mothma - Forming_a_Coalition_back.png",
-    "name": "Mon Mothma - Forming a Coalition [Back]"
+    "name": "Mon Mothma - Forming a Coalition [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "monmothmaclingingtohope": {
-    "type": "Unit",
     "image": "SEC\\Mon_Mothma - Clinging_to_Hope.png",
-    "name": "Mon Mothma - Clinging to Hope"
+    "name": "Mon Mothma - Clinging to Hope",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "moralauthority": {
-    "type": "Upgrade",
     "image": "SEC\\Moral_Authority.png",
-    "name": "Moral Authority"
+    "name": "Moral Authority",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "mounttantisswayland": {
-    "type": "Base",
     "image": "SEC\\Mount_Tantiss - Wayland.png",
-    "name": "Mount Tantiss - Wayland"
+    "name": "Mount Tantiss - Wayland",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Cunning"
+    ]
   },
   "muckrakercrabdroid": {
-    "type": "Unit",
     "image": "SEC\\Muckraker_Crab_Droid.png",
-    "name": "Muckraker Crab Droid"
+    "name": "Muckraker Crab Droid",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "nabooroyalstarshipfitforaqueen": {
-    "type": "Unit",
     "image": "SEC\\Naboo_Royal_Starship - Fit_For_A_Queen.png",
-    "name": "Naboo Royal Starship - Fit For A Queen"
+    "name": "Naboo Royal Starship - Fit For A Queen",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "naboosecurityforce": {
-    "type": "Unit",
     "image": "SEC\\Naboo_Security_Force.png",
-    "name": "Naboo Security Force"
+    "name": "Naboo Security Force",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "nalasechiefmedicalscientist": {
-    "type": "Unit",
     "image": "SEC\\Nala_Se - Chief_Medical_Scientist.png",
-    "name": "Nala Se - Chief Medical Scientist"
+    "name": "Nala Se - Chief Medical Scientist",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "navalintelligencehqcoruscant": {
-    "type": "Base",
     "image": "SEC\\Naval_Intelligence_HQ - Coruscant.png",
-    "name": "Naval Intelligence HQ - Coruscant"
+    "name": "Naval Intelligence HQ - Coruscant",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Aggression"
+    ]
   },
   "nemiksmanifesto": {
-    "type": "Upgrade",
     "image": "SEC\\Nemiks_Manifesto.png",
-    "name": "Nemik's Manifesto"
+    "name": "Nemik's Manifesto",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "nimbleprowess": {
-    "type": "Upgrade",
     "image": "SEC\\Nimble_Prowess.png",
-    "name": "Nimble Prowess"
+    "name": "Nimble Prowess",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "nooneeverknew": {
-    "type": "Event",
     "image": "SEC\\No_One_Ever_Knew.png",
-    "name": "No One Ever Knew"
+    "name": "No One Ever Knew",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "nubianstarskiff": {
-    "type": "Unit",
     "image": "SEC\\Nubian_Star_Skiff.png",
-    "name": "Nubian Star Skiff"
+    "name": "Nubian Star Skiff",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "nutegunrayescapingjustice": {
-    "type": "Unit",
     "image": "SEC\\Nute_Gunray - Escaping_Justice.png",
-    "name": "Nute Gunray - Escaping Justice"
+    "name": "Nute Gunray - Escaping Justice",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "obiwankenobifindingwhatdoesntexist": {
-    "type": "Unit",
     "image": "SEC\\Obi-Wan_Kenobi - Finding_What_Doesnt_Exist.png",
-    "name": "Obi-Wan Kenobi - Finding What Doesn't Exist"
+    "name": "Obi-Wan Kenobi - Finding What Doesn't Exist",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "onewayout": {
-    "type": "Event",
     "image": "SEC\\One_Way_Out.png",
-    "name": "One Way Out"
+    "name": "One Way Out",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "oneinamillion": {
-    "type": "Event",
     "image": "SEC\\One_in_a_Million.png",
-    "name": "One in a Million"
+    "name": "One in a Million",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "oppressionbreedsrebellion": {
-    "type": "Event",
     "image": "SEC\\Oppression_Breeds_Rebellion.png",
-    "name": "Oppression Breeds Rebellion"
+    "name": "Oppression Breeds Rebellion",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "ornfreetaapoliticalpowerbroker": {
-    "type": "Unit",
     "image": "SEC\\Orn_Free_Taa - Political_Power_Broker.png",
-    "name": "Orn Free Taa - Political Power Broker"
+    "name": "Orn Free Taa - Political Power Broker",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "outerrimconstable": {
-    "type": "Unit",
     "image": "SEC\\Outer_Rim_Constable.png",
-    "name": "Outer Rim Constable"
+    "name": "Outer Rim Constable",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "padmamidalawhatdoyouhavetohide": {
-    "type": "Leader",
     "image": "SEC\\Padm_Amidala - What_Do_You_Have_to_Hide.png",
-    "name": "Padmé Amidala - What Do You Have to Hide?"
+    "name": "Padmé Amidala - What Do You Have to Hide?",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "padmamidalawhatdoyouhavetohideback": {
-    "type": "Leader",
     "image": "SEC\\Padm_Amidala - What_Do_You_Have_to_Hide_back.png",
-    "name": "Padmé Amidala - What Do You Have to Hide? [Back]"
+    "name": "Padmé Amidala - What Do You Have to Hide? [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "politicalbully": {
-    "type": "Unit",
     "image": "SEC\\Political_Bully.png",
-    "name": "Political Bully"
+    "name": "Political Bully",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "populistadvisor": {
-    "type": "Unit",
     "image": "SEC\\Populist_Advisor.png",
-    "name": "Populist Advisor"
+    "name": "Populist Advisor",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "populistchampion": {
-    "type": "Unit",
     "image": "SEC\\Populist_Champion.png",
-    "name": "Populist Champion"
+    "name": "Populist Champion",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "premorpersonnelcarrier": {
-    "type": "Unit",
     "image": "SEC\\PreMor_Personnel_Carrier.png",
-    "name": "PreMor Personnel Carrier"
+    "name": "PreMor Personnel Carrier",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "punishingonetakesnoprisoners": {
-    "type": "Unit",
     "image": "SEC\\Punishing_One - Takes_No_Prisoners.png",
-    "name": "Punishing One - Takes No Prisoners"
+    "name": "Punishing One - Takes No Prisoners",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "pursuethelead": {
-    "type": "Event",
     "image": "SEC\\Pursue_the_Lead.png",
-    "name": "Pursue the Lead"
+    "name": "Pursue the Lead",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "queenamidalachampioningherpeople": {
-    "type": "Unit",
     "image": "SEC\\Queen_Amidala - Championing_Her_People.png",
-    "name": "Queen Amidala - Championing Her People"
+    "name": "Queen Amidala - Championing Her People",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "raxianassembly": {
-    "type": "Unit",
     "image": "SEC\\Raxian_Assembly.png",
-    "name": "Raxian Assembly"
+    "name": "Raxian Assembly",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "rebelpathfinder": {
-    "type": "Unit",
     "image": "SEC\\Rebel_Pathfinder.png",
-    "name": "Rebel Pathfinder"
+    "name": "Rebel Pathfinder",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "rebelpropagandist": {
-    "type": "Unit",
     "image": "SEC\\Rebel_Propagandist.png",
-    "name": "Rebel Propagandist"
+    "name": "Rebel Propagandist",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "rebelliousfunctionary": {
-    "type": "Unit",
     "image": "SEC\\Rebellious_Functionary.png",
-    "name": "Rebellious Functionary"
+    "name": "Rebellious Functionary",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "recklessrebel": {
-    "type": "Unit",
     "image": "SEC\\Reckless_Rebel.png",
-    "name": "Reckless Rebel"
+    "name": "Reckless Rebel",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "reconnaissance": {
-    "type": "Event",
     "image": "SEC\\Reconnaissance.png",
-    "name": "Reconnaissance"
+    "name": "Reconnaissance",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "regulationsbureaucrat": {
-    "type": "Unit",
     "image": "SEC\\Regulations_Bureaucrat.png",
-    "name": "Regulations Bureaucrat"
+    "name": "Regulations Bureaucrat",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "reliefrequest": {
-    "type": "Event",
     "image": "SEC\\Relief_Request.png",
-    "name": "Relief Request"
+    "name": "Relief Request",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "remoteescorttank": {
-    "type": "Unit",
     "image": "SEC\\Remote_Escort_Tank.png",
-    "name": "Remote Escort Tank"
+    "name": "Remote Escort Tank",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "renewedfriendship": {
-    "type": "Event",
     "image": "SEC\\Renewed_Friendship.png",
-    "name": "Renewed Friendship"
+    "name": "Renewed Friendship",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "renowneddignitaries": {
-    "type": "Unit",
     "image": "SEC\\Renowned_Dignitaries.png",
-    "name": "Renowned Dignitaries"
+    "name": "Renowned Dignitaries",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "republicaurekstarfighter": {
-    "type": "Unit",
     "image": "SEC\\Republic_Aurek_Starfighter.png",
-    "name": "Republic Aurek Starfighter"
+    "name": "Republic Aurek Starfighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "republiccityhosnianprime": {
-    "type": "Base",
     "image": "SEC\\Republic_City - Hosnian_Prime.png",
-    "name": "Republic City - Hosnian Prime"
+    "name": "Republic City - Hosnian Prime",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Command"
+    ]
   },
   "republicwarwalker": {
-    "type": "Unit",
     "image": "SEC\\Republic_War_Walker.png",
-    "name": "Republic War Walker"
+    "name": "Republic War Walker",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "restorefreedom": {
-    "type": "Event",
     "image": "SEC\\Restore_Freedom.png",
-    "name": "Restore Freedom"
+    "name": "Restore Freedom",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "retaliation": {
-    "type": "Event",
     "image": "SEC\\Retaliation.png",
-    "name": "Retaliation"
+    "name": "Retaliation",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "rixroadferrix": {
-    "type": "Base",
     "image": "SEC\\Rix_Road - Ferrix.png",
-    "name": "Rix Road - Ferrix"
+    "name": "Rix Road - Ferrix",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "rotundasenateguards": {
-    "type": "Unit",
     "image": "SEC\\Rotunda_Senate_Guards.png",
-    "name": "Rotunda Senate Guards"
+    "name": "Rotunda Senate Guards",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "sabqueensshadow": {
-    "type": "Leader",
     "image": "SEC\\Sab - Queens_Shadow.png",
-    "name": "Sabé - Queen's Shadow"
+    "name": "Sabé - Queen's Shadow",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "sabqueensshadowback": {
-    "type": "Leader",
     "image": "SEC\\Sab - Queens_Shadow_back.png",
-    "name": "Sabé - Queen's Shadow [Back]"
+    "name": "Sabé - Queen's Shadow [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "satinekryzestandingonprinciples": {
-    "type": "Leader",
     "image": "SEC\\Satine_Kryze - Standing_on_Principles.png",
-    "name": "Satine Kryze - Standing on Principles"
+    "name": "Satine Kryze - Standing on Principles",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "satinekryzestandingonprinciplesback": {
-    "type": "Leader",
     "image": "SEC\\Satine_Kryze - Standing_on_Principles_back.png",
-    "name": "Satine Kryze - Standing on Principles [Back]"
+    "name": "Satine Kryze - Standing on Principles [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "sawgerrerasuwingbreakingtherules": {
-    "type": "Unit",
     "image": "SEC\\Saw_Gerreras_U-Wing - Breaking_the_Rules.png",
-    "name": "Saw Gerrera's U-Wing - Breaking the Rules"
+    "name": "Saw Gerrera's U-Wing - Breaking the Rules",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "scourthearchives": {
-    "type": "Event",
     "image": "SEC\\Scour_the_Archives.png",
-    "name": "Scour the Archives"
+    "name": "Scour the Archives",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "screechingtiefighter": {
-    "type": "Unit",
     "image": "SEC\\Screeching_TIE_Fighter.png",
-    "name": "Screeching TIE Fighter"
+    "name": "Screeching TIE Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "senaterotundacoruscant": {
-    "type": "Base",
     "image": "SEC\\Senate_Rotunda - Coruscant.png",
-    "name": "Senate Rotunda - Coruscant"
+    "name": "Senate Rotunda - Coruscant",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Command"
+    ]
   },
   "senatewarden": {
-    "type": "Unit",
     "image": "SEC\\Senate_Warden.png",
-    "name": "Senate Warden"
+    "name": "Senate Warden",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "senatorchuchivoiceforthevoiceless": {
-    "type": "Unit",
     "image": "SEC\\Senator_Chuchi - Voice_for_the_Voiceless.png",
-    "name": "Senator Chuchi - Voice for the Voiceless"
+    "name": "Senator Chuchi - Voice for the Voiceless",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "senatorsaide": {
-    "type": "Unit",
     "image": "SEC\\Senators_Aide.png",
-    "name": "Senator's Aide"
+    "name": "Senator's Aide",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "shadowcrawler": {
-    "type": "Unit",
     "image": "SEC\\Shadow_Crawler.png",
-    "name": "Shadow Crawler"
+    "name": "Shadow Crawler",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "sithassassin": {
-    "type": "Unit",
     "image": "SEC\\Sith_Assassin.png",
-    "name": "Sith Assassin"
+    "name": "Sith Assassin",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "skyhoppercanyonrunner": {
-    "type": "Unit",
     "image": "SEC\\Skyhopper_Canyon_Runner.png",
-    "name": "Skyhopper Canyon Runner"
+    "name": "Skyhopper Canyon Runner",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "slymoorecipherinthedark": {
-    "type": "Leader",
     "image": "SEC\\Sly_Moore - Cipher_in_the_Dark.png",
-    "name": "Sly Moore - Cipher in the Dark"
+    "name": "Sly Moore - Cipher in the Dark",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "slymoorecipherinthedarkback": {
-    "type": "Leader",
     "image": "SEC\\Sly_Moore - Cipher_in_the_Dark_back.png",
-    "name": "Sly Moore - Cipher in the Dark [Back]"
+    "name": "Sly Moore - Cipher in the Dark [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "slymoorewitnesstopower": {
-    "type": "Unit",
     "image": "SEC\\Sly_Moore - Witness_to_Power.png",
-    "name": "Sly Moore - Witness to Power"
+    "name": "Sly Moore - Witness to Power",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "sneakingsuspicion": {
-    "type": "Upgrade",
     "image": "SEC\\Sneaking_Suspicion.png",
-    "name": "Sneaking Suspicion"
+    "name": "Sneaking Suspicion",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "soullessoneswiftandagile": {
-    "type": "Unit",
     "image": "SEC\\Soulless_One - Swift_and_Agile.png",
-    "name": "Soulless One - Swift and Agile"
+    "name": "Soulless One - Swift and Agile",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "specialmodifications": {
-    "type": "Upgrade",
     "image": "SEC\\Special_Modifications.png",
-    "name": "Special Modifications"
+    "name": "Special Modifications",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "stolenstarpathunit": {
-    "type": "Upgrade",
     "image": "SEC\\Stolen_Starpath_Unit.png",
-    "name": "Stolen Starpath Unit"
+    "name": "Stolen Starpath Unit",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "strikeforcexwing": {
-    "type": "Unit",
     "image": "SEC\\Strike_Force_X-Wing.png",
-    "name": "Strike Force X-Wing"
+    "name": "Strike Force X-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "suddenferocity": {
-    "type": "Upgrade",
     "image": "SEC\\Sudden_Ferocity.png",
-    "name": "Sudden Ferocity"
+    "name": "Sudden Ferocity",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "supremecouncilaide": {
-    "type": "Unit",
     "image": "SEC\\Supreme_Council_Aide.png",
-    "name": "Supreme Council Aide"
+    "name": "Supreme Council Aide",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "synarasanharboringasecret": {
-    "type": "Unit",
     "image": "SEC\\Synara_San - Harboring_a_Secret.png",
-    "name": "Synara San - Harboring a Secret"
+    "name": "Synara San - Harboring a Secret",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "syrilkarnwhereishe": {
-    "type": "Unit",
     "image": "SEC\\Syril_Karn - Where_is_He.png",
-    "name": "Syril Karn - Where is He?"
+    "name": "Syril Karn - Where is He?",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "taladurithicangetyouinside": {
-    "type": "Unit",
     "image": "SEC\\Tala_Durith - I_Can_Get_You_Inside.png",
-    "name": "Tala Durith - I Can Get You Inside"
+    "name": "Tala Durith - I Can Get You Inside",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "taylandershuttle": {
-    "type": "Unit",
     "image": "SEC\\Taylander_Shuttle.png",
-    "name": "Taylander Shuttle"
+    "name": "Taylander Shuttle",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "tempestassault": {
-    "type": "Event",
     "image": "SEC\\Tempest_Assault.png",
-    "name": "Tempest Assault"
+    "name": "Tempest Assault",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "thechancellorsshuttlegrimharbinger": {
-    "type": "Unit",
     "image": "SEC\\The_Chancellors_Shuttle - Grim_Harbinger.png",
-    "name": "The Chancellor's Shuttle - Grim Harbinger"
+    "name": "The Chancellor's Shuttle - Grim Harbinger",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "theelitesquadneutralizinginsurgents": {
-    "type": "Unit",
     "image": "SEC\\The_Elite_Squad - Neutralizing_Insurgents.png",
-    "name": "The Elite Squad - Neutralizing Insurgents"
+    "name": "The Elite Squad - Neutralizing Insurgents",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "theeyeofaldhani": {
-    "type": "Event",
     "image": "SEC\\The_Eye_of_Aldhani.png",
-    "name": "The Eye of Aldhani"
+    "name": "The Eye of Aldhani",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "thegalleonmaraudingpirateship": {
-    "type": "Unit",
     "image": "SEC\\The_Galleon - Marauding_Pirate_Ship.png",
-    "name": "The Galleon - Marauding Pirate Ship"
+    "name": "The Galleon - Marauding Pirate Ship",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "themandaloriancleaningupnevarro": {
-    "type": "Unit",
     "image": "SEC\\The_Mandalorian - Cleaning_Up_Nevarro.png",
-    "name": "The Mandalorian - Cleaning Up Nevarro"
+    "name": "The Mandalorian - Cleaning Up Nevarro",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "thewrongride": {
-    "type": "Event",
     "image": "SEC\\The_Wrong_Ride.png",
-    "name": "The Wrong Ride"
+    "name": "The Wrong Ride",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "theedsecurity": {
-    "type": "Unit",
     "image": "SEC\\Theed_Security.png",
-    "name": "Theed Security"
+    "name": "Theed Security",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "topplethesummit": {
-    "type": "Event",
     "image": "SEC\\Topple_the_Summit.png",
-    "name": "Topple the Summit"
+    "name": "Topple the Summit",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "tradefederationdelegates": {
-    "type": "Unit",
     "image": "SEC\\Trade_Federation_Delegates.png",
-    "name": "Trade Federation Delegates"
+    "name": "Trade Federation Delegates",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "traderoutetaxation": {
-    "type": "Event",
     "image": "SEC\\Trade_Route_Taxation.png",
-    "name": "Trade Route Taxation"
+    "name": "Trade Route Taxation",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "trayusacolyte": {
-    "type": "Unit",
     "image": "SEC\\Trayus_Acolyte.png",
-    "name": "Trayus Acolyte"
+    "name": "Trayus Acolyte",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "umbaranmobilecannon": {
-    "type": "Unit",
     "image": "SEC\\Umbaran_Mobile_Cannon.png",
-    "name": "Umbaran Mobile Cannon"
+    "name": "Umbaran Mobile Cannon",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "unauthorizedinvestigation": {
-    "type": "Event",
     "image": "SEC\\Unauthorized_Investigation.png",
-    "name": "Unauthorized Investigation"
+    "name": "Unauthorized Investigation",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "undercoveroperation": {
-    "type": "Event",
     "image": "SEC\\Undercover_Operation.png",
-    "name": "Undercover Operation"
+    "name": "Undercover Operation",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "unrulyastromech": {
-    "type": "Unit",
     "image": "SEC\\Unruly_Astromech.png",
-    "name": "Unruly Astromech"
+    "name": "Unruly Astromech",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "unveiledmight": {
-    "type": "Upgrade",
     "image": "SEC\\Unveiled_Might.png",
-    "name": "Unveiled Might"
+    "name": "Unveiled Might",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "uscruentertainmentdistrictcoruscant": {
-    "type": "Base",
     "image": "SEC\\Uscru_Entertainment_District - Coruscant.png",
-    "name": "Uscru Entertainment District - Coruscant"
+    "name": "Uscru Entertainment District - Coruscant",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "valiantcommando": {
-    "type": "Unit",
     "image": "SEC\\Valiant_Commando.png",
-    "name": "Valiant Commando"
+    "name": "Valiant Commando",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "velsarthaonepathonechoice": {
-    "type": "Unit",
     "image": "SEC\\Vel_Sartha - One_Path_One_Choice.png",
-    "name": "Vel Sartha - One Path, One Choice"
+    "name": "Vel Sartha - One Path, One Choice",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "viceadmiralrampartonschedule": {
-    "type": "Unit",
     "image": "SEC\\Vice_Admiral_Rampart - On_Schedule.png",
-    "name": "Vice Admiral Rampart - On Schedule"
+    "name": "Vice Admiral Rampart - On Schedule",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "vigilsecuringthefuture": {
-    "type": "Unit",
     "image": "SEC\\Vigil - Securing_the_Future.png",
-    "name": "Vigil - Securing the Future"
+    "name": "Vigil - Securing the Future",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "viperprobedroid": {
-    "type": "Unit",
     "image": "SEC\\Viper_Probe_Droid.png",
-    "name": "Viper Probe Droid"
+    "name": "Viper Probe Droid",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "vuutunpalaadroidcontrolship": {
-    "type": "Unit",
     "image": "SEC\\Vuutun_Palaa - Droid_Control_Ship.png",
-    "name": "Vuutun Palaa - Droid Control Ship"
+    "name": "Vuutun Palaa - Droid Control Ship",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "warriorofclanordo": {
-    "type": "Unit",
     "image": "SEC\\Warrior_of_Clan_Ordo.png",
-    "name": "Warrior of Clan Ordo"
+    "name": "Warrior of Clan Ordo",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "whenhasbecomenow": {
-    "type": "Event",
     "image": "SEC\\When_Has_Become_Now.png",
-    "name": "When Has Become Now"
+    "name": "When Has Become Now",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "willrowhoodontherun": {
-    "type": "Unit",
     "image": "SEC\\Willrow_Hood - On_the_Run.png",
-    "name": "Willrow Hood - On the Run"
+    "name": "Willrow Hood - On the Run",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "withthunderousapplause": {
-    "type": "Event",
     "image": "SEC\\With_Thunderous_Applause.png",
-    "name": "With Thunderous Applause"
+    "name": "With Thunderous Applause",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "zamwesellinconspicuousassassin": {
-    "type": "Unit",
     "image": "SEC\\Zam_Wesell - Inconspicuous_Assassin.png",
-    "name": "Zam Wesell - Inconspicuous Assassin"
+    "name": "Zam Wesell - Inconspicuous Assassin",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "zenuasshadowfighter": {
-    "type": "Unit",
     "image": "SEC\\Zenuas_Shadow_Fighter.png",
-    "name": "Zenuas Shadow Fighter"
+    "name": "Zenuas Shadow Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "zitonmojblacksunbully": {
-    "type": "Unit",
     "image": "SEC\\Ziton_Moj - Black_Sun_Bully.png",
-    "name": "Ziton Moj - Black Sun Bully"
+    "name": "Ziton Moj - Black Sun Bully",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   }
 }

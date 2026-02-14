@@ -34,9 +34,11 @@ for json_file in json_files:
             # Only add if we haven't seen this card before (avoid duplicates)
             if card_key not in cards_object:
                 cards_object[card_key] = {
-                    'type': card.get('type', ''),
                     'image': card.get('image', ''),
-                    'name': card_name  # Keep original name for reference
+                    'name': card_name,  # Keep original name for reference,
+                    'type': card.get('type', ''),
+                    'hp': card.get('hp', None),  # Include HP if available
+                    'aspects': card.get('aspects', [])  # Include aspects if available
                 }
         
         # Write the transformed JSON

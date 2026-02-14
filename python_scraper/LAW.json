@@ -4,6 +4,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/187.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Staccato_Lightning_Repeater.png",
         "success": true
     },
@@ -12,6 +17,11 @@
         "subtitle": "Translation and Torture",
         "url": "https://cdn.swu-db.com/images/cards/LAW/174.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\0-0-0 - Translation_and_Torture.png",
         "success": true
     },
@@ -20,6 +30,12 @@
         "subtitle": "Devious",
         "url": "https://cdn.swu-db.com/images/cards/LAW/065.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\4-LOM - Devious.png",
         "success": true
     },
@@ -28,6 +44,11 @@
         "subtitle": "Chain of Command",
         "url": "https://cdn.swu-db.com/images/cards/LAW/139.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LAW\\Admiral_Motti - Chain_of_Command.png",
         "success": true
     },
@@ -36,6 +57,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/126.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Adventurer_Sniper_Rifle.png",
         "success": true
     },
@@ -44,6 +69,11 @@
         "subtitle": "Cloud-Rider Dropship",
         "url": "https://cdn.swu-db.com/images/cards/LAW/184.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Aerie - Cloud-Rider_Dropship.png",
         "success": true
     },
@@ -52,6 +82,11 @@
         "subtitle": "Reconsider Your Allegiance",
         "url": "https://cdn.swu-db.com/images/cards/LAW/003.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\Agent_Kallus - Reconsider_Your_Allegiance.png",
         "success": true
     },
@@ -60,6 +95,11 @@
         "subtitle": "Reconsider Your Allegiance",
         "url": "https://cdn.swu-db.com/images/cards/LAW/003-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\Agent_Kallus - Reconsider_Your_Allegiance_back.png",
         "success": true
     },
@@ -68,6 +108,10 @@
         "subtitle": "Aldhani",
         "url": "https://cdn.swu-db.com/images/cards/LAW/022.png",
         "type": "Base",
+        "hp": "27",
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Aldhani_Garrison - Aldhani.png",
         "success": true
     },
@@ -76,6 +120,10 @@
         "subtitle": "Lowick",
         "url": "https://cdn.swu-db.com/images/cards/LAW/019.png",
         "type": "Base",
+        "hp": "26",
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Alliance_Outpost - Lowick.png",
         "success": true
     },
@@ -84,6 +132,12 @@
         "subtitle": "Prescient Podracer",
         "url": "https://cdn.swu-db.com/images/cards/LAW/088.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Anakin_Skywalker - Prescient_Podracer.png",
         "success": true
     },
@@ -92,6 +146,11 @@
         "subtitle": "So Wizard!",
         "url": "https://cdn.swu-db.com/images/cards/LAW/219.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Anakins_Podracer - So_Wizard.png",
         "success": true
     },
@@ -100,6 +159,10 @@
         "subtitle": "Win and Walk Away",
         "url": "https://cdn.swu-db.com/images/cards/LAW/191.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LAW\\Arvel_Skeen - Win_and_Walk_Away.png",
         "success": true
     },
@@ -108,6 +171,11 @@
         "subtitle": "Reluctant Hunter",
         "url": "https://cdn.swu-db.com/images/cards/LAW/061.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression"
+        ],
         "image": "LAW\\Asajj_Ventress - Reluctant_Hunter.png",
         "success": true
     },
@@ -116,6 +184,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/207.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LAW\\Attack_From_All_Sides.png",
         "success": true
     },
@@ -124,6 +196,11 @@
         "subtitle": "Assassin",
         "url": "https://cdn.swu-db.com/images/cards/LAW/004.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\Aurra_Sing - Assassin.png",
         "success": true
     },
@@ -132,6 +209,11 @@
         "subtitle": "Assassin",
         "url": "https://cdn.swu-db.com/images/cards/LAW/004-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\Aurra_Sing - Assassin_back.png",
         "success": true
     },
@@ -140,6 +222,11 @@
         "subtitle": "Blastomech",
         "url": "https://cdn.swu-db.com/images/cards/LAW/173.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\BT-1 - Blastomech.png",
         "success": true
     },
@@ -148,6 +235,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/247.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Backed_by_the_Hutts.png",
         "success": true
     },
@@ -156,6 +247,12 @@
         "subtitle": "Good Luck",
         "url": "https://cdn.swu-db.com/images/cards/LAW/047.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Baze_Malbus - Good_Luck.png",
         "success": true
     },
@@ -164,6 +261,11 @@
         "subtitle": "Target: Vader",
         "url": "https://cdn.swu-db.com/images/cards/LAW/051.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression"
+        ],
         "image": "LAW\\Beilert_Valance - Target_Vader.png",
         "success": true
     },
@@ -172,6 +274,11 @@
         "subtitle": "Facing the Light",
         "url": "https://cdn.swu-db.com/images/cards/LAW/185.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Ben_Solo - Facing_the_Light.png",
         "success": true
     },
@@ -180,6 +287,11 @@
         "subtitle": "The War Has Just Begun",
         "url": "https://cdn.swu-db.com/images/cards/LAW/057.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression"
+        ],
         "image": "LAW\\Benthic_Two_Tubes - The_War_Has_Just_Begun.png",
         "success": true
     },
@@ -188,6 +300,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/130.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Betrayed_Trust.png",
         "success": true
     },
@@ -196,6 +312,11 @@
         "subtitle": "Die Wanna Wanga?",
         "url": "https://cdn.swu-db.com/images/cards/LAW/134.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LAW\\Bib_Fortuna - Die_Wanna_Wanga.png",
         "success": true
     },
@@ -204,6 +325,10 @@
         "subtitle": "Selling Scrap",
         "url": "https://cdn.swu-db.com/images/cards/LAW/236.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Bix_Caleen - Selling_Scrap.png",
         "success": true
     },
@@ -212,6 +337,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/249.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LAW\\Black_Sun_Cabalist.png",
         "success": true
     },
@@ -220,7 +349,38 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/211.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Black_Sun_Patroller.png",
+        "success": true
+    },
+    {
+        "name": "Boba Fett - Krayt's Claw Commander",
+        "subtitle": "Krayt's Claw Commander",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/007.png",
+        "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
+        "image": "LAW\\Boba_Fett - Krayts_Claw_Commander.png",
+        "success": true
+    },
+    {
+        "name": "Boba Fett - Krayt's Claw Commander [Back]",
+        "subtitle": "Krayt's Claw Commander",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/007-b.png",
+        "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
+        "image": "LAW\\Boba_Fett - Krayts_Claw_Commander_back.png",
         "success": true
     },
     {
@@ -228,6 +388,11 @@
         "subtitle": "For a Price",
         "url": "https://cdn.swu-db.com/images/cards/LAW/214.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Boba_Fett - For_a_Price.png",
         "success": true
     },
@@ -236,7 +401,26 @@
         "subtitle": "Creating a Diversion",
         "url": "https://cdn.swu-db.com/images/cards/LAW/104.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Bodhi_Rook - Creating_a_Diversion.png",
+        "success": true
+    },
+    {
+        "name": "Bossk - Join Our Merry Band",
+        "subtitle": "Join Our Merry Band",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/031.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command",
+            "Villainy"
+        ],
+        "image": "LAW\\Bossk - Join_Our_Merry_Band.png",
         "success": true
     },
     {
@@ -244,6 +428,10 @@
         "subtitle": "Translation Protocol",
         "url": "https://cdn.swu-db.com/images/cards/LAW/152.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\C-3P0 - Translation_Protocol.png",
         "success": true
     },
@@ -252,6 +440,12 @@
         "subtitle": "Now it's My Turn",
         "url": "https://cdn.swu-db.com/images/cards/LAW/032.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command",
+            "Villainy"
+        ],
         "image": "LAW\\Cad_Bane - Now_its_My_Turn.png",
         "success": true
     },
@@ -260,6 +454,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/250.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LAW\\Callous_Bounty_Hunter.png",
         "success": true
     },
@@ -268,7 +466,23 @@
         "subtitle": "Cantonica",
         "url": "https://cdn.swu-db.com/images/cards/LAW/028.png",
         "type": "Base",
+        "hp": "27",
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Canto_Bight - Cantonica.png",
+        "success": true
+    },
+    {
+        "name": "Canto Bight Security",
+        "subtitle": "",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/121.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
+        "image": "LAW\\Canto_Bight_Security.png",
         "success": true
     },
     {
@@ -276,6 +490,12 @@
         "subtitle": "Everything for the Rebellion",
         "url": "https://cdn.swu-db.com/images/cards/LAW/056.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Cassian_Andor - Everything_for_the_Rebellion.png",
         "success": true
     },
@@ -284,6 +504,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/232.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Champions_KT9_Podracer.png",
         "success": true
     },
@@ -292,6 +516,12 @@
         "subtitle": "Mighty Rescuer",
         "url": "https://cdn.swu-db.com/images/cards/LAW/034.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Chewbacca - Mighty_Rescuer.png",
         "success": true
     },
@@ -300,6 +530,11 @@
         "subtitle": "Four-Armed Slicer",
         "url": "https://cdn.swu-db.com/images/cards/LAW/048.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression"
+        ],
         "image": "LAW\\Chio_Fain - Four-Armed_Slicer.png",
         "success": true
     },
@@ -308,7 +543,26 @@
         "subtitle": "I Don't Need Luck",
         "url": "https://cdn.swu-db.com/images/cards/LAW/046.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Chirrut_mwe - I_Dont_Need_Luck.png",
+        "success": true
+    },
+    {
+        "name": "Choke on Aspirations",
+        "subtitle": "",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/102.png",
+        "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
+        "image": "LAW\\Choke_on_Aspirations.png",
         "success": true
     },
     {
@@ -316,6 +570,12 @@
         "subtitle": "Spectre Three",
         "url": "https://cdn.swu-db.com/images/cards/LAW/055.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Chopper - Spectre_Three.png",
         "success": true
     },
@@ -324,6 +584,11 @@
         "subtitle": "Stone Cold and Fearless",
         "url": "https://cdn.swu-db.com/images/cards/LAW/105.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Cinta_Kaz - Stone_Cold_and_Fearless.png",
         "success": true
     },
@@ -332,6 +597,10 @@
         "subtitle": "Scarif",
         "url": "https://cdn.swu-db.com/images/cards/LAW/029.png",
         "type": "Base",
+        "hp": "26",
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Citadel_Research_Center - Scarif.png",
         "success": true
     },
@@ -340,6 +609,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/181.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Cloud-Rider_Veteran.png",
         "success": true
     },
@@ -348,6 +622,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/165.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Combat_Exercise.png",
         "success": true
     },
@@ -356,6 +634,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/167.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Common_Cause.png",
         "success": true
     },
@@ -364,6 +646,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/117.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Conveyex_Security_Captain.png",
         "success": true
     },
@@ -372,6 +658,10 @@
         "subtitle": "Tatooine",
         "url": "https://cdn.swu-db.com/images/cards/LAW/020.png",
         "type": "Base",
+        "hp": "27",
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Daimyos_Palace - Tatooine.png",
         "success": true
     },
@@ -380,6 +670,11 @@
         "subtitle": "Unstoppable",
         "url": "https://cdn.swu-db.com/images/cards/LAW/011.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Darth_Vader - Unstoppable.png",
         "success": true
     },
@@ -388,6 +683,11 @@
         "subtitle": "Unstoppable",
         "url": "https://cdn.swu-db.com/images/cards/LAW/011-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Darth_Vader - Unstoppable_back.png",
         "success": true
     },
@@ -396,6 +696,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/062.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression"
+        ],
         "image": "LAW\\Defiant_Hammerhead.png",
         "success": true
     },
@@ -404,6 +709,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/106.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Defiant_Scrapper.png",
         "success": true
     },
@@ -412,6 +722,12 @@
         "subtitle": "Take Your Shot",
         "url": "https://cdn.swu-db.com/images/cards/LAW/053.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Dengar - Take_Your_Shot.png",
         "success": true
     },
@@ -420,6 +736,11 @@
         "subtitle": "Amidst My Achievement",
         "url": "https://cdn.swu-db.com/images/cards/LAW/008.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LAW\\Director_Krennic - Amidst_My_Achievement.png",
         "success": true
     },
@@ -428,6 +749,11 @@
         "subtitle": "Amidst My Achievement",
         "url": "https://cdn.swu-db.com/images/cards/LAW/008-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LAW\\Director_Krennic - Amidst_My_Achievement_back.png",
         "success": true
     },
@@ -436,6 +762,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/103.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\Display_Piece.png",
         "success": true
     },
@@ -444,6 +775,10 @@
         "subtitle": "Digging For Answers",
         "url": "https://cdn.swu-db.com/images/cards/LAW/194.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LAW\\Doctor_Aphra - Digging_For_Answers.png",
         "success": true
     },
@@ -452,6 +787,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/170.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Double-Cross.png",
         "success": true
     },
@@ -460,6 +799,11 @@
         "subtitle": "Until We Can Go No Higher",
         "url": "https://cdn.swu-db.com/images/cards/LAW/014.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Enfy_Nest - Until_We_Can_Go_No_Higher.png",
         "success": true
     },
@@ -468,6 +812,11 @@
         "subtitle": "Until We Can Go No Higher",
         "url": "https://cdn.swu-db.com/images/cards/LAW/014-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Enfy_Nest - Until_We_Can_Go_No_Higher_back.png",
         "success": true
     },
@@ -476,6 +825,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/186.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Enfys_Nests_Helmet.png",
         "success": true
     },
@@ -484,6 +838,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/159.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Expendable_Mercenary.png",
         "success": true
     },
@@ -492,6 +850,12 @@
         "subtitle": "Spectre Six",
         "url": "https://cdn.swu-db.com/images/cards/LAW/035.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Ezra_Bridger - Spectre_Six.png",
         "success": true
     },
@@ -500,6 +864,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/179.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Fear_and_Dead_Men.png",
         "success": true
     },
@@ -508,6 +877,10 @@
         "subtitle": "In Pursuit",
         "url": "https://cdn.swu-db.com/images/cards/LAW/252.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Villainy"
+        ],
         "image": "LAW\\Fetts_FIrespray - In_Pursuit.png",
         "success": true
     },
@@ -516,6 +889,11 @@
         "subtitle": "Looking Closer",
         "url": "https://cdn.swu-db.com/images/cards/LAW/095.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Vigilance"
+        ],
         "image": "LAW\\Finn - Looking_Closer.png",
         "success": true
     },
@@ -524,6 +902,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/256.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LAW\\Fire_Across_the_Galaxy.png",
         "success": true
     },
@@ -532,6 +914,8 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/264.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [],
         "image": "LAW\\From_a_Certain_Point_of_View.png",
         "success": true
     },
@@ -540,6 +924,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/150.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Fulcrum.png",
         "success": true
     },
@@ -548,6 +937,10 @@
         "subtitle": "Destroying His Creation",
         "url": "https://cdn.swu-db.com/images/cards/LAW/233.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Galen_Erso - Destroying_His_Creation.png",
         "success": true
     },
@@ -556,6 +949,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/099.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\Governors_Shuttle.png",
         "success": true
     },
@@ -564,6 +962,10 @@
         "subtitle": "Tatooine",
         "url": "https://cdn.swu-db.com/images/cards/LAW/023.png",
         "type": "Base",
+        "hp": "27",
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Great_Pit_of_Carkoon - Tatooine.png",
         "success": true
     },
@@ -572,6 +974,11 @@
         "subtitle": "I Got a Really Good Feeling",
         "url": "https://cdn.swu-db.com/images/cards/LAW/017.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Han_Solo - I_Got_a_Really_Good_Feeling.png",
         "success": true
     },
@@ -580,6 +987,11 @@
         "subtitle": "I Got a Really Good Feeling",
         "url": "https://cdn.swu-db.com/images/cards/LAW/017-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Han_Solo - I_Got_a_Really_Good_Feeling_back.png",
         "success": true
     },
@@ -588,6 +1000,11 @@
         "subtitle": "Hibernation Sick",
         "url": "https://cdn.swu-db.com/images/cards/LAW/037.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command"
+        ],
         "image": "LAW\\Han_Solo - Hibernation_Sick.png",
         "success": true
     },
@@ -596,6 +1013,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/225.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Hans_Golden_Dice.png",
         "success": true
     },
@@ -604,6 +1026,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/168.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Haymaker.png",
         "success": true
     },
@@ -612,6 +1038,11 @@
         "subtitle": "Not Fighting Alone",
         "url": "https://cdn.swu-db.com/images/cards/LAW/009.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Hera_Syndulla - Not_Fighting_Alone.png",
         "success": true
     },
@@ -620,6 +1051,11 @@
         "subtitle": "Not Fighting Alone",
         "url": "https://cdn.swu-db.com/images/cards/LAW/009-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Hera_Syndulla - Not_Fighting_Alone_back.png",
         "success": true
     },
@@ -628,6 +1064,11 @@
         "subtitle": "Deadly Droid",
         "url": "https://cdn.swu-db.com/images/cards/LAW/059.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression"
+        ],
         "image": "LAW\\Highsinger - Deadly_Droid.png",
         "success": true
     },
@@ -636,6 +1077,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/217.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Hold_For_Questioning.png",
         "success": true
     },
@@ -644,6 +1090,11 @@
         "subtitle": "Plays By His Own Rules",
         "url": "https://cdn.swu-db.com/images/cards/LAW/094.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Vigilance"
+        ],
         "image": "LAW\\Hondo_Ohnaka - Plays_By_His_Own_Rules.png",
         "success": true
     },
@@ -652,6 +1103,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/058.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression"
+        ],
         "image": "LAW\\Honor-Bound_Partisan.png",
         "success": true
     },
@@ -660,7 +1116,25 @@
         "subtitle": "Hunters' Approach",
         "url": "https://cdn.swu-db.com/images/cards/LAW/033.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command",
+            "Villainy"
+        ],
         "image": "LAW\\Hounds_Tooth - Hunters_Approach.png",
+        "success": true
+    },
+    {
+        "name": "Hunter For Hire",
+        "subtitle": "",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/156.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
+        "image": "LAW\\Hunter_For_Hire.png",
         "success": true
     },
     {
@@ -668,7 +1142,26 @@
         "subtitle": "Programmed to Kill",
         "url": "https://cdn.swu-db.com/images/cards/LAW/042.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\IG-88 - Programmed_to_Kill.png",
+        "success": true
+    },
+    {
+        "name": "Imperial Door Technician",
+        "subtitle": "",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/097.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
+        "image": "LAW\\Imperial_Door_Technician.png",
         "success": true
     },
     {
@@ -676,6 +1169,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/242.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Improvise.png",
         "success": true
     },
@@ -684,6 +1181,12 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/075.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Interrogation_Droid.png",
         "success": true
     },
@@ -692,6 +1195,11 @@
         "subtitle": "Citadel Overwatch",
         "url": "https://cdn.swu-db.com/images/cards/LAW/140.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LAW\\Intimidator - Citadel_Overwatch.png",
         "success": true
     },
@@ -700,6 +1208,11 @@
         "subtitle": "Crime Boss",
         "url": "https://cdn.swu-db.com/images/cards/LAW/015.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Jabba_the_Hutt - Crime_Boss.png",
         "success": true
     },
@@ -708,6 +1221,11 @@
         "subtitle": "Crime Boss",
         "url": "https://cdn.swu-db.com/images/cards/LAW/015-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Jabba_the_Hutt - Crime_Boss_back.png",
         "success": true
     },
@@ -716,6 +1234,11 @@
         "subtitle": "Snack Time!",
         "url": "https://cdn.swu-db.com/images/cards/LAW/216.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Jabbas_Rancor - Snack_Time.png",
         "success": true
     },
@@ -724,6 +1247,12 @@
         "subtitle": "Wily Mercenary",
         "url": "https://cdn.swu-db.com/images/cards/LAW/087.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\Jango_Fett - Wily_Mercenary.png",
         "success": true
     },
@@ -732,6 +1261,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/147.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Jaunty_Light_Freighter.png",
         "success": true
     },
@@ -740,6 +1274,11 @@
         "subtitle": "Time to Fight",
         "url": "https://cdn.swu-db.com/images/cards/LAW/005.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Jyn_Erso - Time_to_Fight.png",
         "success": true
     },
@@ -748,6 +1287,11 @@
         "subtitle": "Time to Fight",
         "url": "https://cdn.swu-db.com/images/cards/LAW/005-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Jyn_Erso - Time_to_Fight_back.png",
         "success": true
     },
@@ -756,7 +1300,27 @@
         "subtitle": "Take the Next Chance",
         "url": "https://cdn.swu-db.com/images/cards/LAW/067.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Jyn_Erso - Take_the_Next_Chance.png",
+        "success": true
+    },
+    {
+        "name": "K-2S0 - Locking the Vault",
+        "subtitle": "Locking the Vault",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/079.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning",
+            "Heroism"
+        ],
+        "image": "LAW\\K-2S0 - Locking_the_Vault.png",
         "success": true
     },
     {
@@ -764,6 +1328,12 @@
         "subtitle": "Spectre One",
         "url": "https://cdn.swu-db.com/images/cards/LAW/089.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Kanan_Jarrus - Spectre_One.png",
         "success": true
     },
@@ -772,6 +1342,10 @@
         "subtitle": "Upon the Dune Sea",
         "url": "https://cdn.swu-db.com/images/cards/LAW/158.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Khetanna - Upon_the_Dune_Sea.png",
         "success": true
     },
@@ -780,6 +1354,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/127.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Kill_Switch.png",
         "success": true
     },
@@ -788,6 +1366,10 @@
         "subtitle": "Where's the Money?",
         "url": "https://cdn.swu-db.com/images/cards/LAW/235.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Lady_Proxima - Wheres_the_Money.png",
         "success": true
     },
@@ -796,6 +1378,11 @@
         "subtitle": "Full Sabacc",
         "url": "https://cdn.swu-db.com/images/cards/LAW/018.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Lando_Calrissian - Full_Sabacc.png",
         "success": true
     },
@@ -804,6 +1391,11 @@
         "subtitle": "Full Sabacc",
         "url": "https://cdn.swu-db.com/images/cards/LAW/018-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Lando_Calrissian - Full_Sabacc_back.png",
         "success": true
     },
@@ -812,6 +1404,11 @@
         "subtitle": "Eyes Open",
         "url": "https://cdn.swu-db.com/images/cards/LAW/108.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Lando_Calrissian - Eyes_Open.png",
         "success": true
     },
@@ -820,6 +1417,11 @@
         "subtitle": "Deadly Whipmaster",
         "url": "https://cdn.swu-db.com/images/cards/LAW/039.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command"
+        ],
         "image": "LAW\\Latts_Razzi - Deadly_Whipmaster.png",
         "success": true
     },
@@ -828,6 +1430,11 @@
         "subtitle": "Shadow Over Lothal",
         "url": "https://cdn.swu-db.com/images/cards/LAW/101.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\Lawbringer - Shadow_Over_Lothal.png",
         "success": true
     },
@@ -836,6 +1443,11 @@
         "subtitle": "Someone Who Loves You",
         "url": "https://cdn.swu-db.com/images/cards/LAW/010.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Leia_Organa - Someone_Who_Loves_You.png",
         "success": true
     },
@@ -844,6 +1456,11 @@
         "subtitle": "Someone Who Loves You",
         "url": "https://cdn.swu-db.com/images/cards/LAW/010-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Leia_Organa - Someone_Who_Loves_You_back.png",
         "success": true
     },
@@ -852,6 +1469,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/111.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Leias_Disguise.png",
         "success": true
     },
@@ -860,6 +1482,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/038.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command"
+        ],
         "image": "LAW\\Lepi_Lookout.png",
         "success": true
     },
@@ -868,7 +1495,25 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/143.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Liberated_Wookiee.png",
+        "success": true
+    },
+    {
+        "name": "Liberty - Draw Their Fire!",
+        "subtitle": "Draw Their Fire!",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/224.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
+        "image": "LAW\\Liberty - Draw_Their_Fire.png",
         "success": true
     },
     {
@@ -876,6 +1521,11 @@
         "subtitle": "I Deserve Worse",
         "url": "https://cdn.swu-db.com/images/cards/LAW/221.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Lieutenant_Gorn - I_Deserve_Worse.png",
         "success": true
     },
@@ -884,6 +1534,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/133.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Lost_and_Forgotten.png",
         "success": true
     },
@@ -892,6 +1546,12 @@
         "subtitle": "Profit or be Destroyed",
         "url": "https://cdn.swu-db.com/images/cards/LAW/080.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Luke_Skywalker - Profit_or_be_Destroyed.png",
         "success": true
     },
@@ -900,6 +1560,11 @@
         "subtitle": "Keeper of the Menagerie",
         "url": "https://cdn.swu-db.com/images/cards/LAW/212.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Malakili - Keeper_of_the_Menagerie.png",
         "success": true
     },
@@ -908,6 +1573,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/146.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Massassi_Group_Marines.png",
         "success": true
     },
@@ -916,6 +1586,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/129.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Mastery.png",
         "success": true
     },
@@ -924,6 +1598,12 @@
         "subtitle": "Master of the Shadow Collective",
         "url": "https://cdn.swu-db.com/images/cards/LAW/054.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Maul - Master_of_the_Shadow_Collective.png",
         "success": true
     },
@@ -932,6 +1612,11 @@
         "subtitle": "Encore!",
         "url": "https://cdn.swu-db.com/images/cards/LAW/072.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning"
+        ],
         "image": "LAW\\Max_Rebo - Encore.png",
         "success": true
     },
@@ -940,6 +1625,12 @@
         "subtitle": "Dodging Patrols",
         "url": "https://cdn.swu-db.com/images/cards/LAW/068.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Millennium_Falcon - Dodging_Patrols.png",
         "success": true
     },
@@ -948,6 +1639,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/041.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command"
+        ],
         "image": "LAW\\Nothing_Left_to_Fear.png",
         "success": true
     },
@@ -956,6 +1652,12 @@
         "subtitle": "Protector of Felucia",
         "url": "https://cdn.swu-db.com/images/cards/LAW/036.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Obi-Wan_Kenobi - Protector_of_Felucia.png",
         "success": true
     },
@@ -964,6 +1666,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/154.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Partisan_Infantry.png",
         "success": true
     },
@@ -972,6 +1678,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/073.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning"
+        ],
         "image": "LAW\\Patient_Hunter.png",
         "success": true
     },
@@ -980,6 +1691,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/169.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Payroll_Heist.png",
         "success": true
     },
@@ -988,6 +1703,11 @@
         "subtitle": "Fire Over Scarif",
         "url": "https://cdn.swu-db.com/images/cards/LAW/178.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Persecutor - Fire_Over_Scarif.png",
         "success": true
     },
@@ -996,6 +1716,11 @@
         "subtitle": "Spectre Shuttle",
         "url": "https://cdn.swu-db.com/images/cards/LAW/144.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Phantom - Spectre_Shuttle.png",
         "success": true
     },
@@ -1004,6 +1729,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/166.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Putting_a_Team_Together.png",
         "success": true
     },
@@ -1012,6 +1741,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/060.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression"
+        ],
         "image": "LAW\\Quarren_Contractor.png",
         "success": true
     },
@@ -1020,6 +1754,10 @@
         "subtitle": "Influencing Chance",
         "url": "https://cdn.swu-db.com/images/cards/LAW/237.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Qui-Gon_Jinn - Influencing_Chance.png",
         "success": true
     },
@@ -1028,6 +1766,11 @@
         "subtitle": "Part of the Plan",
         "url": "https://cdn.swu-db.com/images/cards/LAW/145.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\R2-D2 - Part_of_the_Plan.png",
         "success": true
     },
@@ -1036,6 +1779,11 @@
         "subtitle": "Skywalker",
         "url": "https://cdn.swu-db.com/images/cards/LAW/149.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Rey - Skywalker.png",
         "success": true
     },
@@ -1044,6 +1792,11 @@
         "subtitle": "Beckett's Right Hands",
         "url": "https://cdn.swu-db.com/images/cards/LAW/093.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Vigilance"
+        ],
         "image": "LAW\\Rio_Durant - Becketts_Right_Hands.png",
         "success": true
     },
@@ -1052,6 +1805,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/116.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Rodian_Bondsman.png",
         "success": true
     },
@@ -1060,6 +1817,10 @@
         "subtitle": "At Any Cost",
         "url": "https://cdn.swu-db.com/images/cards/LAW/119.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\Rogue_One - At_Any_Cost.png",
         "success": true
     },
@@ -1068,6 +1829,11 @@
         "subtitle": "Now it's Worth It",
         "url": "https://cdn.swu-db.com/images/cards/LAW/223.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Rose_Tico - Now_its_Worth_It.png",
         "success": true
     },
@@ -1076,6 +1842,12 @@
         "subtitle": "Spectre Five",
         "url": "https://cdn.swu-db.com/images/cards/LAW/078.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Sabine_Wren - Spectre_Five.png",
         "success": true
     },
@@ -1084,6 +1856,11 @@
         "subtitle": "Cackling Companion",
         "url": "https://cdn.swu-db.com/images/cards/LAW/210.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Salacious_Crumb - Cackling_Companion.png",
         "success": true
     },
@@ -1092,6 +1869,11 @@
         "subtitle": "Bring Down the Empire",
         "url": "https://cdn.swu-db.com/images/cards/LAW/001.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression"
+        ],
         "image": "LAW\\Saw_Gerrera - Bring_Down_the_Empire.png",
         "success": true
     },
@@ -1100,6 +1882,11 @@
         "subtitle": "Bring Down the Empire",
         "url": "https://cdn.swu-db.com/images/cards/LAW/001-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Aggression"
+        ],
         "image": "LAW\\Saw_Gerrera - Bring_Down_the_Empire_back.png",
         "success": true
     },
@@ -1108,6 +1895,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/142.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Heroism"
+        ],
         "image": "LAW\\Scarif_Lieutenant.png",
         "success": true
     },
@@ -1116,6 +1908,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/238.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Scavenging_Sandcrawler.png",
         "success": true
     },
@@ -1124,6 +1920,11 @@
         "subtitle": "Especially Dangerous Dug",
         "url": "https://cdn.swu-db.com/images/cards/LAW/012.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Sebulba - Especially_Dangerous_Dug.png",
         "success": true
     },
@@ -1132,6 +1933,11 @@
         "subtitle": "Especially Dangerous Dug",
         "url": "https://cdn.swu-db.com/images/cards/LAW/012-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Sebulba - Especially_Dangerous_Dug_back.png",
         "success": true
     },
@@ -1140,6 +1946,11 @@
         "subtitle": "Taking the Lead",
         "url": "https://cdn.swu-db.com/images/cards/LAW/176.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Sebulbas_Podracer - Taking_the_Lead.png",
         "success": true
     },
@@ -1148,6 +1959,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/226.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\Secret_Battle_of_Pretend.png",
         "success": true
     },
@@ -1156,6 +1972,12 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/043.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Shadow_Cloaking.png",
         "success": true
     },
@@ -1164,6 +1986,12 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/077.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Shadow_of_Stygeon_Prime.png",
         "success": true
     },
@@ -1172,6 +2000,10 @@
         "subtitle": "Bracca",
         "url": "https://cdn.swu-db.com/images/cards/LAW/026.png",
         "type": "Base",
+        "hp": "26",
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LAW\\Shipbreaking_Yard - Bracca.png",
         "success": true
     },
@@ -1180,6 +2012,12 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/044.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression",
+            "Villainy"
+        ],
         "image": "LAW\\Single_Reactor_Ignition.png",
         "success": true
     },
@@ -1188,6 +2026,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/254.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Heroism"
+        ],
         "image": "LAW\\Stalwart_Fleet_Trooper.png",
         "success": true
     },
@@ -1196,7 +2038,24 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/171.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\Stockpile.png",
+        "success": true
+    },
+    {
+        "name": "Storm Raider",
+        "subtitle": "",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/172.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Villainy"
+        ],
+        "image": "LAW\\Storm_Raider.png",
         "success": true
     },
     {
@@ -1204,6 +2063,10 @@
         "subtitle": "Stygeon Prime",
         "url": "https://cdn.swu-db.com/images/cards/LAW/027.png",
         "type": "Base",
+        "hp": "27",
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LAW\\Stygeon_Spire - Stygeon_Prime.png",
         "success": true
     },
@@ -1212,6 +2075,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/081.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning"
+        ],
         "image": "LAW\\Sullustan_Sapper.png",
         "success": true
     },
@@ -1220,6 +2088,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/136.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
         "image": "LAW\\Syndicate_Spice_Runner.png",
         "success": true
     },
@@ -1228,6 +2101,11 @@
         "subtitle": "Carrying Hope",
         "url": "https://cdn.swu-db.com/images/cards/LAW/109.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Tantive_IV - Carrying_Hope.png",
         "success": true
     },
@@ -1236,7 +2114,39 @@
         "subtitle": "Eyes Front!",
         "url": "https://cdn.swu-db.com/images/cards/LAW/040.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Command"
+        ],
         "image": "LAW\\Taramyn_Barcona - Eyes_Front.png",
+        "success": true
+    },
+    {
+        "name": "Targeted For Removal",
+        "subtitle": "",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/141.png",
+        "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
+        "image": "LAW\\Targeted_For_Removal.png",
+        "success": true
+    },
+    {
+        "name": "Tear This Ship Apart",
+        "subtitle": "",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/066.png",
+        "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning",
+            "Villainy"
+        ],
+        "image": "LAW\\Tear_This_Ship_Apart.png",
         "success": true
     },
     {
@@ -1244,6 +2154,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/206.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LAW\\Thats_a_Rock.png",
         "success": true
     },
@@ -1252,6 +2166,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/246.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\The_Axe_Forgets.png",
         "success": true
     },
@@ -1260,6 +2178,10 @@
         "subtitle": "The Secret of Shantipole",
         "url": "https://cdn.swu-db.com/images/cards/LAW/241.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\The_Blade_Wing - The_Secret_of_Shantipole.png",
         "success": true
     },
@@ -1268,6 +2190,11 @@
         "subtitle": "Please Lower Your Blaster",
         "url": "https://cdn.swu-db.com/images/cards/LAW/016.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\The_Client - Please_Lower_Your_Blaster.png",
         "success": true
     },
@@ -1276,6 +2203,11 @@
         "subtitle": "Please Lower Your Blaster",
         "url": "https://cdn.swu-db.com/images/cards/LAW/016-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\The_Client - Please_Lower_Your_Blaster_back.png",
         "success": true
     },
@@ -1284,6 +2216,12 @@
         "subtitle": "Home of the Spectres",
         "url": "https://cdn.swu-db.com/images/cards/LAW/069.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning",
+            "Heroism"
+        ],
         "image": "LAW\\The_Ghost - Home_of_the_Spectres.png",
         "success": true
     },
@@ -1292,6 +2230,11 @@
         "subtitle": "Let's See the Puck",
         "url": "https://cdn.swu-db.com/images/cards/LAW/052.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression"
+        ],
         "image": "LAW\\The_Mandalorian - Lets_See_the_Puck.png",
         "success": true
     },
@@ -1300,6 +2243,10 @@
         "subtitle": "High Stakes",
         "url": "https://cdn.swu-db.com/images/cards/LAW/229.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\The_Master_Codebreaker - High_Stakes.png",
         "success": true
     },
@@ -1308,6 +2255,11 @@
         "subtitle": "Jatz-Wailers",
         "url": "https://cdn.swu-db.com/images/cards/LAW/071.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning"
+        ],
         "image": "LAW\\The_Max_Rebo_Band - Jatz-Wailers.png",
         "success": true
     },
@@ -1316,6 +2268,10 @@
         "subtitle": "Horror of the Dune Sea",
         "url": "https://cdn.swu-db.com/images/cards/LAW/163.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command"
+        ],
         "image": "LAW\\The_Sarlacc_of_Carkoon - Horror_of_the_Dune_Sea.png",
         "success": true
     },
@@ -1324,6 +2280,12 @@
         "subtitle": "No Survivors",
         "url": "https://cdn.swu-db.com/images/cards/LAW/086.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Vigilance",
+            "Villainy"
+        ],
         "image": "LAW\\The_Stranger - No_Survivors.png",
         "success": true
     },
@@ -1332,6 +2294,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/132.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Vigilance"
+        ],
         "image": "LAW\\The_Tree_Remembers.png",
         "success": true
     },
@@ -1340,6 +2306,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/201.png",
         "type": "Upgrade",
+        "hp": null,
+        "aspects": [
+            "Aggression"
+        ],
         "image": "LAW\\Thermal_Detonator.png",
         "success": true
     },
@@ -1348,6 +2318,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/090.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Vigilance"
+        ],
         "image": "LAW\\Toydarian_Technician.png",
         "success": true
     },
@@ -1356,7 +2331,24 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/243.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Transmission_Jamming.png",
+        "success": true
+    },
+    {
+        "name": "Undercity Hunting Team",
+        "subtitle": "",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/138.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Villainy"
+        ],
+        "image": "LAW\\Undercity_Hunting_Team.png",
         "success": true
     },
     {
@@ -1364,6 +2356,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/244.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Unmarked_Credits.png",
         "success": true
     },
@@ -1372,6 +2368,11 @@
         "subtitle": "Elite Sharpshooter",
         "url": "https://cdn.swu-db.com/images/cards/LAW/082.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning"
+        ],
         "image": "LAW\\Urrrk - Elite_Sharpshooter.png",
         "success": true
     },
@@ -1380,6 +2381,11 @@
         "subtitle": "Aldhani Insurgent",
         "url": "https://cdn.swu-db.com/images/cards/LAW/006.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Vel_Sartha - Aldhani_Insurgent.png",
         "success": true
     },
@@ -1388,6 +2394,11 @@
         "subtitle": "Aldhani Insurgent",
         "url": "https://cdn.swu-db.com/images/cards/LAW/006-b.png",
         "type": "Leader",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Heroism"
+        ],
         "image": "LAW\\Vel_Sartha - Aldhani_Insurgent_back.png",
         "success": true
     },
@@ -1396,6 +2407,11 @@
         "subtitle": "Qi'ra's Auction House",
         "url": "https://cdn.swu-db.com/images/cards/LAW/215.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Vermillion - Qiras_Auction_House.png",
         "success": true
     },
@@ -1404,6 +2420,12 @@
         "subtitle": "Secret Project",
         "url": "https://cdn.swu-db.com/images/cards/LAW/076.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning",
+            "Villainy"
+        ],
         "image": "LAW\\Vult_Skerriss_Defender - Secret_Project.png",
         "success": true
     },
@@ -1412,6 +2434,11 @@
         "subtitle": "Fighting Back",
         "url": "https://cdn.swu-db.com/images/cards/LAW/182.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Weazel - Fighting_Back.png",
         "success": true
     },
@@ -1420,6 +2447,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/231.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Weequay_Pirate.png",
         "success": true
     },
@@ -1428,6 +2459,10 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/248.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Cunning"
+        ],
         "image": "LAW\\Windfall.png",
         "success": true
     },
@@ -1436,6 +2471,11 @@
         "subtitle": "",
         "url": "https://cdn.swu-db.com/images/cards/LAW/085.png",
         "type": "Event",
+        "hp": null,
+        "aspects": [
+            "Aggression",
+            "Cunning"
+        ],
         "image": "LAW\\You_Hold_This.png",
         "success": true
     },
@@ -1444,7 +2484,27 @@
         "subtitle": "Spectre Four",
         "url": "https://cdn.swu-db.com/images/cards/LAW/045.png",
         "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Vigilance",
+            "Aggression",
+            "Heroism"
+        ],
         "image": "LAW\\Zeb_Orellios - Spectre_Four.png",
+        "success": true
+    },
+    {
+        "name": "Zuckuss - Dangerous",
+        "subtitle": "Dangerous",
+        "url": "https://cdn.swu-db.com/images/cards/LAW/064.png",
+        "type": "Unit",
+        "hp": null,
+        "aspects": [
+            "Command",
+            "Cunning",
+            "Villainy"
+        ],
+        "image": "LAW\\Zuckuss - Dangerous.png",
         "success": true
     }
 ]

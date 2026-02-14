@@ -1,1402 +1,2646 @@
 {
   "atdpoccupier": {
-    "type": "Unit",
     "image": "JTL\\AT-DP_Occupier.png",
-    "name": "AT-DP Occupier"
+    "name": "AT-DP Occupier",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "academygraduate": {
-    "type": "Unit",
     "image": "JTL\\Academy_Graduate.png",
-    "name": "Academy Graduate"
+    "name": "Academy Graduate",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "adeptarc170": {
-    "type": "Unit",
     "image": "JTL\\Adept_ARC-170.png",
-    "name": "Adept ARC-170"
+    "name": "Adept ARC-170",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "admiralackbaritsatrap": {
-    "type": "Leader",
     "image": "JTL\\Admiral_Ackbar - Its_A_Trap.png",
-    "name": "Admiral Ackbar - It's A Trap!"
+    "name": "Admiral Ackbar - It's A Trap!",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "admiralackbaritsatrapback": {
-    "type": "Leader",
     "image": "JTL\\Admiral_Ackbar - Its_A_Trap_back.png",
-    "name": "Admiral Ackbar - It's A Trap! [Back]"
+    "name": "Admiral Ackbar - It's A Trap! [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "admiralholdowerenotalone": {
-    "type": "Leader",
     "image": "JTL\\Admiral_Holdo - Were_Not_Alone.png",
-    "name": "Admiral Holdo - We're Not Alone"
+    "name": "Admiral Holdo - We're Not Alone",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "admiralholdowerenotaloneback": {
-    "type": "Leader",
     "image": "JTL\\Admiral_Holdo - Were_Not_Alone_back.png",
-    "name": "Admiral Holdo - We're Not Alone [Back]"
+    "name": "Admiral Holdo - We're Not Alone [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "admiralpiettcommandingthearmada": {
-    "type": "Leader",
     "image": "JTL\\Admiral_Piett - Commanding_the_Armada.png",
-    "name": "Admiral Piett - Commanding the Armada"
+    "name": "Admiral Piett - Commanding the Armada",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "admiralpiettcommandingthearmadaback": {
-    "type": "Leader",
     "image": "JTL\\Admiral_Piett - Commanding_the_Armada_back.png",
-    "name": "Admiral Piett - Commanding the Armada [Back]"
+    "name": "Admiral Piett - Commanding the Armada [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "admiraltrenchchkchkchkchk": {
-    "type": "Leader",
     "image": "JTL\\Admiral_Trench - chk-chk-chk-chk.png",
-    "name": "Admiral Trench - chk-chk-chk-chk"
+    "name": "Admiral Trench - chk-chk-chk-chk",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "admiraltrenchchkchkchkchkback": {
-    "type": "Leader",
     "image": "JTL\\Admiral_Trench - chk-chk-chk-chk_back.png",
-    "name": "Admiral Trench - chk-chk-chk-chk [Back]"
+    "name": "Admiral Trench - chk-chk-chk-chk [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "admiralyularenfleetcoordinator": {
-    "type": "Unit",
     "image": "JTL\\Admiral_Yularen - Fleet_Coordinator.png",
-    "name": "Admiral Yularen - Fleet Coordinator"
+    "name": "Admiral Yularen - Fleet Coordinator",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "ahsokatanochasingwhispers": {
-    "type": "Unit",
     "image": "JTL\\Ahsoka_Tano - Chasing_Whispers.png",
-    "name": "Ahsoka Tano - Chasing Whispers"
+    "name": "Ahsoka Tano - Chasing Whispers",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "airsuperiority": {
-    "type": "Event",
     "image": "JTL\\Air_Superiority.png",
-    "name": "Air Superiority"
+    "name": "Air Superiority",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "allwingsreportin": {
-    "type": "Event",
     "image": "JTL\\All_Wings_Report_In.png",
-    "name": "All Wings Report In"
+    "name": "All Wings Report In",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "allegiantgeneralpryderuthlessandloyal": {
-    "type": "Unit",
     "image": "JTL\\Allegiant_General_Pryde - Ruthless_and_Loyal.png",
-    "name": "Allegiant General Pryde - Ruthless and Loyal"
+    "name": "Allegiant General Pryde - Ruthless and Loyal",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "anakinskywalkerilltryspinning": {
-    "type": "Unit",
     "image": "JTL\\Anakin_Skywalker - Ill_Try_Spinning.png",
-    "name": "Anakin Skywalker - I'll Try Spinning"
+    "name": "Anakin Skywalker - I'll Try Spinning",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "annihilatortaggesflagship": {
-    "type": "Unit",
     "image": "JTL\\Annihilator - Tagges_Flagship.png",
-    "name": "Annihilator - Tagge's Flagship"
+    "name": "Annihilator - Tagge's Flagship",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "apologyaccepted": {
-    "type": "Event",
     "image": "JTL\\Apology_Accepted.png",
-    "name": "Apology Accepted"
+    "name": "Apology Accepted",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "asajjventressiworkalone": {
-    "type": "Leader",
     "image": "JTL\\Asajj_Ventress - I_Work_Alone.png",
-    "name": "Asajj Ventress - I Work Alone"
+    "name": "Asajj Ventress - I Work Alone",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "asajjventressiworkaloneback": {
-    "type": "Leader",
     "image": "JTL\\Asajj_Ventress - I_Work_Alone_back.png",
-    "name": "Asajj Ventress - I Work Alone [Back]"
+    "name": "Asajj Ventress - I Work Alone [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "astromechpilot": {
-    "type": "Unit",
     "image": "JTL\\Astromech_Pilot.png",
-    "name": "Astromech Pilot"
+    "name": "Astromech Pilot",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "attackrun": {
-    "type": "Event",
     "image": "JTL\\Attack_Run.png",
-    "name": "Attack Run"
+    "name": "Attack Run",
+    "type": "Event",
+    "hp": null,
+    "aspects": []
   },
   "bb8happybeeps": {
-    "type": "Unit",
     "image": "JTL\\BB-8 - Happy_Beeps.png",
-    "name": "BB-8 - Happy Beeps"
+    "name": "BB-8 - Happy Beeps",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "bansheecripplingcommand": {
-    "type": "Unit",
     "image": "JTL\\Banshee - Crippling_Command.png",
-    "name": "Banshee - Crippling Command"
+    "name": "Banshee - Crippling Command",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "barrelroll": {
-    "type": "Event",
     "image": "JTL\\Barrel_Roll.png",
-    "name": "Barrel Roll"
+    "name": "Barrel Roll",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "biggsdarklightertheyllneverstopus": {
-    "type": "Unit",
     "image": "JTL\\Biggs_Darklighter - Theyll_Never_Stop_Us.png",
-    "name": "Biggs Darklighter - They'll Never Stop Us"
+    "name": "Biggs Darklighter - They'll Never Stop Us",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "blackonestraightatthem": {
-    "type": "Unit",
     "image": "JTL\\Black_One - Straight_At_Them.png",
-    "name": "Black One - Straight At Them"
+    "name": "Black One - Straight At Them",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "blacksquadronscoutwing": {
-    "type": "Unit",
     "image": "JTL\\Black_Squadron_Scout_Wing.png",
-    "name": "Black Squadron Scout Wing"
+    "name": "Black Squadron Scout Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "bladesquadronbwing": {
-    "type": "Unit",
     "image": "JTL\\Blade_Squadron_B-Wing.png",
-    "name": "Blade Squadron B-Wing"
+    "name": "Blade Squadron B-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "blueleaderscarifairsupport": {
-    "type": "Unit",
     "image": "JTL\\Blue_Leader - Scarif_Air_Support.png",
-    "name": "Blue Leader - Scarif Air Support"
+    "name": "Blue Leader - Scarif Air Support",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "boshekcharismaticsmuggler": {
-    "type": "Unit",
     "image": "JTL\\BoShek - Charismatic_Smuggler.png",
-    "name": "BoShek - Charismatic Smuggler"
+    "name": "BoShek - Charismatic Smuggler",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "bobafettanymethodsnecessary": {
-    "type": "Leader",
     "image": "JTL\\Boba_Fett - Any_Methods_Necessary.png",
-    "name": "Boba Fett - Any Methods Necessary"
+    "name": "Boba Fett - Any Methods Necessary",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "bobafettanymethodsnecessaryback": {
-    "type": "Leader",
     "image": "JTL\\Boba_Fett - Any_Methods_Necessary_back.png",
-    "name": "Boba Fett - Any Methods Necessary [Back]"
+    "name": "Boba Fett - Any Methods Necessary [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "bobafettfearedbountyhunter": {
-    "type": "Unit",
     "image": "JTL\\Boba_Fett - Feared_Bounty_Hunter.png",
-    "name": "Boba Fett - Feared Bounty Hunter"
+    "name": "Boba Fett - Feared Bounty Hunter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "bosskhuntbyinstinct": {
-    "type": "Unit",
     "image": "JTL\\Bossk - Hunt_By_Instinct.png",
-    "name": "Bossk - Hunt By Instinct"
+    "name": "Bossk - Hunt By Instinct",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "bunkerdefender": {
-    "type": "Unit",
     "image": "JTL\\Bunker_Defender.png",
-    "name": "Bunker Defender"
+    "name": "Bunker Defender",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "cr90reliefrunner": {
-    "type": "Unit",
     "image": "JTL\\CR90_Relief_Runner.png",
-    "name": "CR90 Relief Runner"
+    "name": "CR90 Relief Runner",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "captainphasmachromedome": {
-    "type": "Leader",
     "image": "JTL\\Captain_Phasma - Chrome_Dome.png",
-    "name": "Captain Phasma - Chrome Dome"
+    "name": "Captain Phasma - Chrome Dome",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "captainphasmachromedomeback": {
-    "type": "Leader",
     "image": "JTL\\Captain_Phasma - Chrome_Dome_back.png",
-    "name": "Captain Phasma - Chrome Dome [Back]"
+    "name": "Captain Phasma - Chrome Dome [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "captainphasmaonmycommand": {
-    "type": "Unit",
     "image": "JTL\\Captain_Phasma - On_My_Command.png",
-    "name": "Captain Phasma - On My Command"
+    "name": "Captain Phasma - On My Command",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "captaintarkinfullforwardassault": {
-    "type": "Unit",
     "image": "JTL\\Captain_Tarkin - Full_Forward_Assault.png",
-    "name": "Captain Tarkin - Full Forward Assault"
+    "name": "Captain Tarkin - Full Forward Assault",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "cassianandorthreadingtheeye": {
-    "type": "Unit",
     "image": "JTL\\Cassian_Andor - Threading_the_Eye.png",
-    "name": "Cassian Andor - Threading the Eye"
+    "name": "Cassian Andor - Threading the Eye",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "catandmouse": {
-    "type": "Event",
     "image": "JTL\\Cat_and_Mouse.png",
-    "name": "Cat and Mouse"
+    "name": "Cat and Mouse",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "chamsyndullarallyingryloth": {
-    "type": "Unit",
     "image": "JTL\\Cham_Syndulla - Rallying_Ryloth.png",
-    "name": "Cham Syndulla - Rallying Ryloth"
+    "name": "Cham Syndulla - Rallying Ryloth",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "chewbaccafaithfulfirstmate": {
-    "type": "Unit",
     "image": "JTL\\Chewbacca - Faithful_First_Mate.png",
-    "name": "Chewbacca - Faithful First Mate"
+    "name": "Chewbacca - Faithful First Mate",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "chimaerareinforcingthecenter": {
-    "type": "Unit",
     "image": "JTL\\Chimaera - Reinforcing_the_Center.png",
-    "name": "Chimaera - Reinforcing the Center"
+    "name": "Chimaera - Reinforcing the Center",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "chopperbaseatollon": {
-    "type": "Base",
     "image": "JTL\\Chopper_Base - Atollon.png",
-    "name": "Chopper Base - Atollon"
+    "name": "Chopper Base - Atollon",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Cunning"
+    ]
   },
   "cityinthecloudscloudcity": {
-    "type": "Base",
     "image": "JTL\\City_in_the_Clouds - Cloud_City.png",
-    "name": "City in the Clouds - Cloud City"
+    "name": "City in the Clouds - Cloud City",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "cloakedstarviper": {
-    "type": "Unit",
     "image": "JTL\\Cloaked_StarViper.png",
-    "name": "Cloaked StarViper"
+    "name": "Cloaked StarViper",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "clonecombatsquadron": {
-    "type": "Unit",
     "image": "JTL\\Clone_Combat_Squadron.png",
-    "name": "Clone Combat Squadron"
+    "name": "Clone Combat Squadron",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "clonepilot": {
-    "type": "Unit",
     "image": "JTL\\Clone_Pilot.png",
-    "name": "Clone Pilot"
+    "name": "Clone Pilot",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "closetheshieldgate": {
-    "type": "Event",
     "image": "JTL\\Close_the_Shield_Gate.png",
-    "name": "Close the Shield Gate"
+    "name": "Close the Shield Gate",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "colossuscastilon": {
-    "type": "Base",
     "image": "JTL\\Colossus - Castilon.png",
-    "name": "Colossus - Castilon"
+    "name": "Colossus - Castilon",
+    "type": "Base",
+    "hp": "35",
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "commandeer": {
-    "type": "Event",
     "image": "JTL\\Commandeer.png",
-    "name": "Commandeer"
+    "name": "Commandeer",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "commencepatrol": {
-    "type": "Event",
     "image": "JTL\\Commence_Patrol.png",
-    "name": "Commence Patrol"
+    "name": "Commence Patrol",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "contractedhunter": {
-    "type": "Unit",
     "image": "JTL\\Contracted_Hunter.png",
-    "name": "Contracted Hunter"
+    "name": "Contracted Hunter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "contractedjumpmaster": {
-    "type": "Unit",
     "image": "JTL\\Contracted_Jumpmaster.png",
-    "name": "Contracted Jumpmaster"
+    "name": "Contracted Jumpmaster",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "coordinatedfront": {
-    "type": "Event",
     "image": "JTL\\Coordinated_Front.png",
-    "name": "Coordinated Front"
+    "name": "Coordinated Front",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "corellianfreighter": {
-    "type": "Unit",
     "image": "JTL\\Corellian_Freighter.png",
-    "name": "Corellian Freighter"
+    "name": "Corellian Freighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "corporatedefenseshuttle": {
-    "type": "Unit",
     "image": "JTL\\Corporate_Defense_Shuttle.png",
-    "name": "Corporate Defense Shuttle"
+    "name": "Corporate Defense Shuttle",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "corporatelightcruiser": {
-    "type": "Unit",
     "image": "JTL\\Corporate_Light_Cruiser.png",
-    "name": "Corporate Light Cruiser"
+    "name": "Corporate Light Cruiser",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "corvusinfernosquadronraider": {
-    "type": "Unit",
     "image": "JTL\\Corvus - Inferno_Squadron_Raider.png",
-    "name": "Corvus - Inferno Squadron Raider"
+    "name": "Corvus - Inferno Squadron Raider",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "coveringthewing": {
-    "type": "Event",
     "image": "JTL\\Covering_the_Wing.png",
-    "name": "Covering the Wing"
+    "name": "Covering the Wing",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "crackshotvwing": {
-    "type": "Unit",
     "image": "JTL\\Crackshot_V-Wing.png",
-    "name": "Crackshot V-Wing"
+    "name": "Crackshot V-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "dqarcargofrigate": {
-    "type": "Unit",
     "image": "JTL\\DQar_Cargo_Frigate.png",
-    "name": "D'Qar Cargo Frigate"
+    "name": "D'Qar Cargo Frigate",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "daggersquadronpilot": {
-    "type": "Unit",
     "image": "JTL\\Dagger_Squadron_Pilot.png",
-    "name": "Dagger Squadron Pilot"
+    "name": "Dagger Squadron Pilot",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "darthvadervictorsquadronleader": {
-    "type": "Leader",
     "image": "JTL\\Darth_Vader - Victor_Squadron_Leader.png",
-    "name": "Darth Vader - Victor Squadron Leader"
+    "name": "Darth Vader - Victor Squadron Leader",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "darthvadervictorsquadronleaderback": {
-    "type": "Leader",
     "image": "JTL\\Darth_Vader - Victor_Squadron_Leader_back.png",
-    "name": "Darth Vader - Victor Squadron Leader [Back]"
+    "name": "Darth Vader - Victor Squadron Leader [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "darthvaderscourgeofsquadrons": {
-    "type": "Unit",
     "image": "JTL\\Darth_Vader - Scourge_of_Squadrons.png",
-    "name": "Darth Vader - Scourge of Squadrons"
+    "name": "Darth Vader - Scourge of Squadrons",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "datavaultscarif": {
-    "type": "Base",
     "image": "JTL\\Data_Vault - Scarif.png",
-    "name": "Data Vault - Scarif"
+    "name": "Data Vault - Scarif",
+    "type": "Base",
+    "hp": "33",
+    "aspects": [
+      "Command"
+    ]
   },
   "deathspaceskirmisher": {
-    "type": "Unit",
     "image": "JTL\\Death_Space_Skirmisher.png",
-    "name": "Death Space Skirmisher"
+    "name": "Death Space Skirmisher",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "deathstarplans": {
-    "type": "Upgrade",
     "image": "JTL\\Death_Star_Plans.png",
-    "name": "Death Star Plans"
+    "name": "Death Star Plans",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": []
   },
   "decimatorofdissidents": {
-    "type": "Unit",
     "image": "JTL\\Decimator_of_Dissidents.png",
-    "name": "Decimator of Dissidents"
+    "name": "Decimator of Dissidents",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "dedicatedwingmen": {
-    "type": "Event",
     "image": "JTL\\Dedicated_Wingmen.png",
-    "name": "Dedicated Wingmen"
+    "name": "Dedicated Wingmen",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "dengarcrudeandslovenly": {
-    "type": "Unit",
     "image": "JTL\\Dengar - Crude_and_Slovenly.png",
-    "name": "Dengar - Crude and Slovenly"
+    "name": "Dengar - Crude and Slovenly",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "desperatecommando": {
-    "type": "Unit",
     "image": "JTL\\Desperate_Commando.png",
-    "name": "Desperate Commando"
+    "name": "Desperate Commando",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "determinedrecruit": {
-    "type": "Unit",
     "image": "JTL\\Determined_Recruit.png",
-    "name": "Determined Recruit"
+    "name": "Determined Recruit",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "devastatorhuntingtherebellion": {
-    "type": "Unit",
     "image": "JTL\\Devastator - Hunting_the_Rebellion.png",
-    "name": "Devastator - Hunting the Rebellion"
+    "name": "Devastator - Hunting the Rebellion",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "dilapidatedskispeeder": {
-    "type": "Unit",
     "image": "JTL\\Dilapidated_Ski_Speeder.png",
-    "name": "Dilapidated Ski Speeder"
+    "name": "Dilapidated Ski Speeder",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "directhit": {
-    "type": "Event",
     "image": "JTL\\Direct_Hit.png",
-    "name": "Direct Hit"
+    "name": "Direct Hit",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "directorkrenniconthevergeofgreatness": {
-    "type": "Unit",
     "image": "JTL\\Director_Krennic - On_the_Verge_Of_Greatness.png",
-    "name": "Director Krennic - On the Verge Of Greatness"
+    "name": "Director Krennic - On the Verge Of Greatness",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "diversion": {
-    "type": "Event",
     "image": "JTL\\Diversion.png",
-    "name": "Diversion"
+    "name": "Diversion",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "dogfight": {
-    "type": "Event",
     "image": "JTL\\Dogfight.png",
-    "name": "Dogfight"
+    "name": "Dogfight",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "dorneangunship": {
-    "type": "Unit",
     "image": "JTL\\Dornean_Gunship.png",
-    "name": "Dornean Gunship"
+    "name": "Dornean Gunship",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "dorsalturret": {
-    "type": "Upgrade",
     "image": "JTL\\Dorsal_Turret.png",
-    "name": "Dorsal Turret"
+    "name": "Dorsal Turret",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "droidmissileplatform": {
-    "type": "Unit",
     "image": "JTL\\Droid_Missile_Platform.png",
-    "name": "Droid Missile Platform"
+    "name": "Droid Missile Platform",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "eagerescortfighter": {
-    "type": "Unit",
     "image": "JTL\\Eager_Escort_Fighter.png",
-    "name": "Eager Escort Fighter"
+    "name": "Eager Escort Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "echobaseengineer": {
-    "type": "Unit",
     "image": "JTL\\Echo_Base_Engineer.png",
-    "name": "Echo Base Engineer"
+    "name": "Echo Base Engineer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "eject": {
-    "type": "Event",
     "image": "JTL\\Eject.png",
-    "name": "Eject"
+    "name": "Eject",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "electromagneticpulse": {
-    "type": "Event",
     "image": "JTL\\Electromagnetic_Pulse.png",
-    "name": "Electromagnetic Pulse"
+    "name": "Electromagnetic Pulse",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "evasivemaneuver": {
-    "type": "Event",
     "image": "JTL\\Evasive_Maneuver.png",
-    "name": "Evasive Maneuver"
+    "name": "Evasive Maneuver",
+    "type": "Event",
+    "hp": null,
+    "aspects": []
   },
   "executormightoftheempire": {
-    "type": "Unit",
     "image": "JTL\\Executor - Might_of_the_Empire.png",
-    "name": "Executor - Might of the Empire"
+    "name": "Executor - Might of the Empire",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "faceoff": {
-    "type": "Event",
     "image": "JTL\\Face_Off.png",
-    "name": "Face Off"
+    "name": "Face Off",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "fettsfiresprayfearedsilhouette": {
-    "type": "Unit",
     "image": "JTL\\Fetts_Firespray - Feared_Silhouette.png",
-    "name": "Fett's Firespray - Feared Silhouette"
+    "name": "Fett's Firespray - Feared Silhouette",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "fightfirewithfire": {
-    "type": "Event",
     "image": "JTL\\Fight_Fire_With_Fire.png",
-    "name": "Fight Fire With Fire"
+    "name": "Fight Fire With Fire",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "fireballanexplosionwithwings": {
-    "type": "Unit",
     "image": "JTL\\Fireball - An_Explosion_With_Wings.png",
-    "name": "Fireball - An Explosion With Wings"
+    "name": "Fireball - An Explosion With Wings",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "firstorderstormtrooper": {
-    "type": "Unit",
     "image": "JTL\\First_Order_Stormtrooper.png",
-    "name": "First Order Stormtrooper"
+    "name": "First Order Stormtrooper",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "firstordertiefighter": {
-    "type": "Unit",
     "image": "JTL\\First_Order_TIE_Fighter.png",
-    "name": "First Order TIE Fighter"
+    "name": "First Order TIE Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "flankingfangfighter": {
-    "type": "Unit",
     "image": "JTL\\Flanking_Fang_Fighter.png",
-    "name": "Flanking Fang Fighter"
+    "name": "Flanking Fang Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "fleetinterdictor": {
-    "type": "Unit",
     "image": "JTL\\Fleet_Interdictor.png",
-    "name": "Fleet Interdictor"
+    "name": "Fleet Interdictor",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "flycasual": {
-    "type": "Event",
     "image": "JTL\\Fly_Casual.png",
-    "name": "Fly Casual"
+    "name": "Fly Casual",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "focusfire": {
-    "type": "Event",
     "image": "JTL\\Focus_Fire.png",
-    "name": "Focus Fire"
+    "name": "Focus Fire",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "friskvanguardloudmouth": {
-    "type": "Unit",
     "image": "JTL\\Frisk - Vanguard_Loudmouth.png",
-    "name": "Frisk - Vanguard Loudmouth"
+    "name": "Frisk - Vanguard Loudmouth",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "generaldravendoingwhatmustbedone": {
-    "type": "Unit",
     "image": "JTL\\General_Draven - Doing_What_Must_Be_Done.png",
-    "name": "General Draven - Doing What Must Be Done"
+    "name": "General Draven - Doing What Must Be Done",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "generalhuxnotermsnosurrender": {
-    "type": "Unit",
     "image": "JTL\\General_Hux - No_Terms_No_Surrender.png",
-    "name": "General Hux - No Terms, No Surrender"
+    "name": "General Hux - No Terms, No Surrender",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "goldleaderfastestshipinthefleet": {
-    "type": "Unit",
     "image": "JTL\\Gold_Leader - Fastest_Ship_in_the_Fleet.png",
-    "name": "Gold Leader - Fastest Ship in the Fleet"
+    "name": "Gold Leader - Fastest Ship in the Fleet",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "grandadmiralthrawnhowunfortunate": {
-    "type": "Leader",
     "image": "JTL\\Grand_Admiral_Thrawn - ...How_Unfortunate.png",
-    "name": "Grand Admiral Thrawn - ...How Unfortunate"
+    "name": "Grand Admiral Thrawn - ...How Unfortunate",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "grandadmiralthrawnhowunfortunateback": {
-    "type": "Leader",
     "image": "JTL\\Grand_Admiral_Thrawn - ...How_Unfortunate_back.png",
-    "name": "Grand Admiral Thrawn - ...How Unfortunate [Back]"
+    "name": "Grand Admiral Thrawn - ...How Unfortunate [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "grimvalor": {
-    "type": "Upgrade",
     "image": "JTL\\Grim_Valor.png",
-    "name": "Grim Valor"
+    "name": "Grim Valor",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "guerillasoldier": {
-    "type": "Unit",
     "image": "JTL\\Guerilla_Soldier.png",
-    "name": "Guerilla Soldier"
+    "name": "Guerilla Soldier",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "hansolonevertellmetheodds": {
-    "type": "Leader",
     "image": "JTL\\Han_Solo - Never_Tell_Me_the_Odds.png",
-    "name": "Han Solo - Never Tell Me the Odds"
+    "name": "Han Solo - Never Tell Me the Odds",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "hansolonevertellmetheoddsback": {
-    "type": "Leader",
     "image": "JTL\\Han_Solo - Never_Tell_Me_the_Odds_back.png",
-    "name": "Han Solo - Never Tell Me the Odds [Back]"
+    "name": "Han Solo - Never Tell Me the Odds [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "hansolohashismoments": {
-    "type": "Unit",
     "image": "JTL\\Han_Solo - Has_His_Moments.png",
-    "name": "Han Solo - Has His Moments"
+    "name": "Han Solo - Has His Moments",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "heartlesstactics": {
-    "type": "Event",
     "image": "JTL\\Heartless_Tactics.png",
-    "name": "Heartless Tactics"
+    "name": "Heartless Tactics",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "herasyndullawevelostenough": {
-    "type": "Unit",
     "image": "JTL\\Hera_Syndulla - Weve_Lost_Enough.png",
-    "name": "Hera Syndulla - We've Lost Enough"
+    "name": "Hera Syndulla - We've Lost Enough",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "homeoneonmymark": {
-    "type": "Unit",
     "image": "JTL\\Home_One - On_My_Mark.png",
-    "name": "Home One - On My Mark"
+    "name": "Home One - On My Mark",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "homesteadmilitia": {
-    "type": "Unit",
     "image": "JTL\\Homestead_Militia.png",
-    "name": "Homestead Militia"
+    "name": "Homestead Militia",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "hondoohnakasuperfluousswindler": {
-    "type": "Unit",
     "image": "JTL\\Hondo_Ohnaka - Superfluous_Swindler.png",
-    "name": "Hondo Ohnaka - Superfluous Swindler"
+    "name": "Hondo Ohnaka - Superfluous Swindler",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Vigilance"
+    ]
   },
   "hopefulvolunteer": {
-    "type": "Unit",
     "image": "JTL\\Hopeful_Volunteer.png",
-    "name": "Hopeful Volunteer"
+    "name": "Hopeful Volunteer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "hotshotmaneuver": {
-    "type": "Event",
     "image": "JTL\\Hotshot_Maneuver.png",
-    "name": "Hotshot Maneuver"
+    "name": "Hotshot Maneuver",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "houndstoothreliableanddeadly": {
-    "type": "Unit",
     "image": "JTL\\Hounds_Tooth - Reliable_and_Deadly.png",
-    "name": "Hound's Tooth - Reliable and Deadly"
+    "name": "Hound's Tooth - Reliable and Deadly",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "huntingaggressor": {
-    "type": "Unit",
     "image": "JTL\\Hunting_Aggressor.png",
-    "name": "Hunting Aggressor"
+    "name": "Hunting Aggressor",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "ihaveyounow": {
-    "type": "Event",
     "image": "JTL\\I_Have_You_Now.png",
-    "name": "I Have You Now"
+    "name": "I Have You Now",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "ig2000assassinsaggressor": {
-    "type": "Unit",
     "image": "JTL\\IG-2000 - Assassins_Aggressor.png",
-    "name": "IG-2000 - Assassin's Aggressor"
+    "name": "IG-2000 - Assassin's Aggressor",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "ig88murderousphlutdroid": {
-    "type": "Unit",
     "image": "JTL\\IG-88 - Murderous_Phlutdroid.png",
-    "name": "IG-88 - Murderous Phlutdroid"
+    "name": "IG-88 - Murderous Phlutdroid",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "idenversioadaptordie": {
-    "type": "Unit",
     "image": "JTL\\Iden_Versio - Adapt_or_Die.png",
-    "name": "Iden Versio - Adapt or Die"
+    "name": "Iden Versio - Adapt or Die",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "indebttocrimsondawn": {
-    "type": "Upgrade",
     "image": "JTL\\In_Debt_to_Crimson_Dawn.png",
-    "name": "In Debt to Crimson Dawn"
+    "name": "In Debt to Crimson Dawn",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "intheheatofbattle": {
-    "type": "Event",
     "image": "JTL\\In_the_Heat_of_Battle.png",
-    "name": "In the Heat of Battle"
+    "name": "In the Heat of Battle",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "independentsmuggler": {
-    "type": "Unit",
     "image": "JTL\\Independent_Smuggler.png",
-    "name": "Independent Smuggler"
+    "name": "Independent Smuggler",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "insurgentsaboteurs": {
-    "type": "Unit",
     "image": "JTL\\Insurgent_Saboteurs.png",
-    "name": "Insurgent Saboteurs"
+    "name": "Insurgent Saboteurs",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "interceptorace": {
-    "type": "Unit",
     "image": "JTL\\Interceptor_Ace.png",
-    "name": "Interceptor Ace"
+    "name": "Interceptor Ace",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "invinciblenavaladversary": {
-    "type": "Unit",
     "image": "JTL\\Invincible - Naval_Adversary.png",
-    "name": "Invincible - Naval Adversary"
+    "name": "Invincible - Naval Adversary",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "itsatrap": {
-    "type": "Event",
     "image": "JTL\\Its_a_Trap.png",
-    "name": "It's a Trap"
+    "name": "It's a Trap",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "jamcommunications": {
-    "type": "Event",
     "image": "JTL\\Jam_Communications.png",
-    "name": "Jam Communications"
+    "name": "Jam Communications",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "jarekyeagercoordinatingwiththeresistance": {
-    "type": "Unit",
     "image": "JTL\\Jarek_Yeager - Coordinating_With_The_Resistance.png",
-    "name": "Jarek Yeager - Coordinating With The Resistance"
+    "name": "Jarek Yeager - Coordinating With The Resistance",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "jedilightcruiser": {
-    "type": "Unit",
     "image": "JTL\\Jedi_Light_Cruiser.png",
-    "name": "Jedi Light Cruiser"
+    "name": "Jedi Light Cruiser",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "jumptolightspeed": {
-    "type": "Event",
     "image": "JTL\\Jump_to_Lightspeed.png",
-    "name": "Jump to Lightspeed"
+    "name": "Jump to Lightspeed",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "kazudaxionobestpilotinthegalaxy": {
-    "type": "Leader",
     "image": "JTL\\Kazuda_Xiono - Best_Pilot_in_the_Galaxy.png",
-    "name": "Kazuda Xiono - Best Pilot in the Galaxy"
+    "name": "Kazuda Xiono - Best Pilot in the Galaxy",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "kazudaxionobestpilotinthegalaxyback": {
-    "type": "Leader",
     "image": "JTL\\Kazuda_Xiono - Best_Pilot_in_the_Galaxy_back.png",
-    "name": "Kazuda Xiono - Best Pilot in the Galaxy [Back]"
+    "name": "Kazuda Xiono - Best Pilot in the Galaxy [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "kijimipatrollers": {
-    "type": "Unit",
     "image": "JTL\\Kijimi_Patrollers.png",
-    "name": "Kijimi Patrollers"
+    "name": "Kijimi Patrollers",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "kimogliaheavyfighter": {
-    "type": "Unit",
     "image": "JTL\\Kimoglia_Heavy_Fighter.png",
-    "name": "Kimoglia Heavy Fighter"
+    "name": "Kimoglia Heavy Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "koiogranturn": {
-    "type": "Event",
     "image": "JTL\\Koiogran_Turn.png",
-    "name": "Koiogran Turn"
+    "name": "Koiogran Turn",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "l337getoutofmyseat": {
-    "type": "Unit",
     "image": "JTL\\L3-37 - Get_Out_of_My_Seat.png",
-    "name": "L3-37 - Get Out of My Seat"
+    "name": "L3-37 - Get Out of My Seat",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "lakecountrynaboo": {
-    "type": "Base",
     "image": "JTL\\Lake_Country - Naboo.png",
-    "name": "Lake Country - Naboo"
+    "name": "Lake Country - Naboo",
+    "type": "Base",
+    "hp": "34",
+    "aspects": []
   },
   "landingshuttle": {
-    "type": "Unit",
     "image": "JTL\\Landing_Shuttle.png",
-    "name": "Landing Shuttle"
+    "name": "Landing Shuttle",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "landocalrissianbuyingtime": {
-    "type": "Leader",
     "image": "JTL\\Lando_Calrissian - Buying_Time.png",
-    "name": "Lando Calrissian - Buying Time"
+    "name": "Lando Calrissian - Buying Time",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "landocalrissianbuyingtimeback": {
-    "type": "Leader",
     "image": "JTL\\Lando_Calrissian - Buying_Time_back.png",
-    "name": "Lando Calrissian - Buying Time [Back]"
+    "name": "Lando Calrissian - Buying Time [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "leiaorganapilotstoyourstations": {
-    "type": "Unit",
     "image": "JTL\\Leia_Organa - Pilots_To_Your_Stations.png",
-    "name": "Leia Organa - Pilots, To Your Stations"
+    "name": "Leia Organa - Pilots, To Your Stations",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "lightspeedassault": {
-    "type": "Event",
     "image": "JTL\\Lightspeed_Assault.png",
-    "name": "Lightspeed Assault"
+    "name": "Lightspeed Assault",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "lukeskywalkerheroofyavin": {
-    "type": "Leader",
     "image": "JTL\\Luke_Skywalker - Hero_of_Yavin.png",
-    "name": "Luke Skywalker - Hero of Yavin"
+    "name": "Luke Skywalker - Hero of Yavin",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "lukeskywalkerheroofyavinback": {
-    "type": "Leader",
     "image": "JTL\\Luke_Skywalker - Hero_of_Yavin_back.png",
-    "name": "Luke Skywalker - Hero of Yavin [Back]"
+    "name": "Luke Skywalker - Hero of Yavin [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "lukeskywalkeryoustillwithme": {
-    "type": "Unit",
     "image": "JTL\\Luke_Skywalker - You_Still_With_Me.png",
-    "name": "Luke Skywalker - You Still With Me?"
+    "name": "Luke Skywalker - You Still With Me?",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "mc30assaultfrigate": {
-    "type": "Unit",
     "image": "JTL\\MC30_Assault_Frigate.png",
-    "name": "MC30 Assault Frigate"
+    "name": "MC30 Assault Frigate",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "majorvonregredbaron": {
-    "type": "Leader",
     "image": "JTL\\Major_Vonreg - Red_Baron.png",
-    "name": "Major Vonreg - Red Baron"
+    "name": "Major Vonreg - Red Baron",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "majorvonregredbaronback": {
-    "type": "Leader",
     "image": "JTL\\Major_Vonreg - Red_Baron_back.png",
-    "name": "Major Vonreg - Red Baron [Back]"
+    "name": "Major Vonreg - Red Baron [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "massassitacticalofficer": {
-    "type": "Unit",
     "image": "JTL\\Massassi_Tactical_Officer.png",
-    "name": "Massassi Tactical Officer"
+    "name": "Massassi Tactical Officer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "massassitempleyavin4": {
-    "type": "Base",
     "image": "JTL\\Massassi_Temple - Yavin_4.png",
-    "name": "Massassi Temple - Yavin 4"
+    "name": "Massassi Temple - Yavin 4",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Aggression"
+    ]
   },
   "millenniumfalcongetoutandpush": {
-    "type": "Unit",
     "image": "JTL\\Millennium_Falcon - Get_Out_And_Push.png",
-    "name": "Millennium Falcon - Get Out And Push"
+    "name": "Millennium Falcon - Get Out And Push",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "misthunterthefindsmanspursuit": {
-    "type": "Unit",
     "image": "JTL\\Mist_Hunter - The_Findsmans_Pursuit.png",
-    "name": "Mist Hunter - The Findsman's Pursuit"
+    "name": "Mist Hunter - The Findsman's Pursuit",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "moffgideoniknoweverything": {
-    "type": "Unit",
     "image": "JTL\\Moff_Gideon - I_Know_Everything.png",
-    "name": "Moff Gideon - I Know Everything"
+    "name": "Moff Gideon - I Know Everything",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "moseisleytatooine": {
-    "type": "Base",
     "image": "JTL\\Mos_Eisley - Tatooine.png",
-    "name": "Mos Eisley - Tatooine"
+    "name": "Mos Eisley - Tatooine",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Cunning"
+    ]
   },
   "munificentfrigate": {
-    "type": "Unit",
     "image": "JTL\\Munificent_Frigate.png",
-    "name": "Munificent Frigate"
+    "name": "Munificent Frigate",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "nabatvillageryloth": {
-    "type": "Base",
     "image": "JTL\\Nabat_Village - Ryloth.png",
-    "name": "Nabat Village - Ryloth"
+    "name": "Nabat Village - Ryloth",
+    "type": "Base",
+    "hp": "27",
+    "aspects": [
+      "Cunning"
+    ]
   },
   "nadiridockyardsnadiri": {
-    "type": "Base",
     "image": "JTL\\Nadiri_Dockyards - Nadiri.png",
-    "name": "Nadiri Dockyards - Nadiri"
+    "name": "Nadiri Dockyards - Nadiri",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Aggression"
+    ]
   },
   "nebulaignition": {
-    "type": "Event",
     "image": "JTL\\Nebula_Ignition.png",
-    "name": "Nebula Ignition"
+    "name": "Nebula Ignition",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "nevertellmetheodds": {
-    "type": "Event",
     "image": "JTL\\Never_Tell_Me_the_Odds.png",
-    "name": "Never Tell Me the Odds"
+    "name": "Never Tell Me the Odds",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "niennunbloyalcopilot": {
-    "type": "Unit",
     "image": "JTL\\Nien_Nunb - Loyal_Co-Pilot.png",
-    "name": "Nien Nunb - Loyal Co-Pilot"
+    "name": "Nien Nunb - Loyal Co-Pilot",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "nodisintegrations": {
-    "type": "Event",
     "image": "JTL\\No_Disintegrations.png",
-    "name": "No Disintegrations"
+    "name": "No Disintegrations",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "nogloryonlyresults": {
-    "type": "Event",
     "image": "JTL\\No_Glory_Only_Results.png",
-    "name": "No Glory, Only Results"
+    "name": "No Glory, Only Results",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "occupiersiegetank": {
-    "type": "Unit",
     "image": "JTL\\Occupier_Siege_Tank.png",
-    "name": "Occupier Siege Tank"
+    "name": "Occupier Siege Tank",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "omicronstrikecraft": {
-    "type": "Unit",
     "image": "JTL\\Omicron_Strike_Craft.png",
-    "name": "Omicron Strike Craft"
+    "name": "Omicron Strike Craft",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "onyxsquadronbrute": {
-    "type": "Unit",
     "image": "JTL\\Onyx_Squadron_Brute.png",
-    "name": "Onyx Squadron Brute"
+    "name": "Onyx Squadron Brute",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "orbitingkwing": {
-    "type": "Unit",
     "image": "JTL\\Orbiting_K-Wing.png",
-    "name": "Orbiting K-Wing"
+    "name": "Orbiting K-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "outtheairlock": {
-    "type": "Event",
     "image": "JTL\\Out_the_Airlock.png",
-    "name": "Out the Airlock"
+    "name": "Out the Airlock",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "outerrimoutlaws": {
-    "type": "Unit",
     "image": "JTL\\Outer_Rim_Outlaws.png",
-    "name": "Outer Rim Outlaws"
+    "name": "Outer Rim Outlaws",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "paigeticodroppingthehammer": {
-    "type": "Unit",
     "image": "JTL\\Paige_Tico - Dropping_the_Hammer.png",
-    "name": "Paige Tico - Dropping the Hammer"
+    "name": "Paige Tico - Dropping the Hammer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "pantoranstarshipthief": {
-    "type": "Unit",
     "image": "JTL\\Pantoran_Starship_Thief.png",
-    "name": "Pantoran Starship Thief"
+    "name": "Pantoran Starship Thief",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "perimeteratrt": {
-    "type": "Unit",
     "image": "JTL\\Perimeter_AT-RT.png",
-    "name": "Perimeter AT-RT"
+    "name": "Perimeter AT-RT",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "phantomiimodifiedtodock": {
-    "type": "Unit",
     "image": "JTL\\Phantom_II - Modified_to_Dock.png",
-    "name": "Phantom II - Modified to Dock"
+    "name": "Phantom II - Modified to Dock",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "phoenixsquadronawing": {
-    "type": "Unit",
     "image": "JTL\\Phoenix_Squadron_A-Wing.png",
-    "name": "Phoenix Squadron A-Wing"
+    "name": "Phoenix Squadron A-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "piercingshot": {
-    "type": "Event",
     "image": "JTL\\Piercing_Shot.png",
-    "name": "Piercing Shot"
+    "name": "Piercing Shot",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "planetarybombardment": {
-    "type": "Event",
     "image": "JTL\\Planetary_Bombardment.png",
-    "name": "Planetary Bombardment"
+    "name": "Planetary Bombardment",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "poedameronicanflyanything": {
-    "type": "Leader",
     "image": "JTL\\Poe_Dameron - I_Can_Fly_Anything.png",
-    "name": "Poe Dameron - I Can Fly Anything"
+    "name": "Poe Dameron - I Can Fly Anything",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "poedameronicanflyanythingback": {
-    "type": "Leader",
     "image": "JTL\\Poe_Dameron - I_Can_Fly_Anything_back.png",
-    "name": "Poe Dameron - I Can Fly Anything [Back]"
+    "name": "Poe Dameron - I Can Fly Anything [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "poedamerononehellofaapilot": {
-    "type": "Unit",
     "image": "JTL\\Poe_Dameron - One_Hell_of_a_a_Pilot.png",
-    "name": "Poe Dameron - One Hell of a a Pilot"
+    "name": "Poe Dameron - One Hell of a a Pilot",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "powerfrompain": {
-    "type": "Event",
     "image": "JTL\\Power_from_Pain.png",
-    "name": "Power from Pain"
+    "name": "Power from Pain",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "preparefortakeoff": {
-    "type": "Event",
     "image": "JTL\\Prepare_for_Takeoff.png",
-    "name": "Prepare for Takeoff"
+    "name": "Prepare for Takeoff",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "profunditywefight": {
-    "type": "Unit",
     "image": "JTL\\Profundity - We_Fight.png",
-    "name": "Profundity - We Fight!"
+    "name": "Profundity - We Fight!",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "prototypetieadvanced": {
-    "type": "Unit",
     "image": "JTL\\Prototype_TIE_Advanced.png",
-    "name": "Prototype TIE Advanced"
+    "name": "Prototype TIE Advanced",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "punchit": {
-    "type": "Event",
     "image": "JTL\\Punch_It.png",
-    "name": "Punch It"
+    "name": "Punch It",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "quasartiecarrier": {
-    "type": "Unit",
     "image": "JTL\\Quasar_TIE_Carrier.png",
-    "name": "Quasar TIE Carrier"
+    "name": "Quasar TIE Carrier",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "r2d2artooooooooo": {
-    "type": "Unit",
     "image": "JTL\\R2-D2 - Artooooooooo.png",
-    "name": "R2-D2 - Artooooooooo!"
+    "name": "R2-D2 - Artooooooooo!",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "raddusholdosfinalcommand": {
-    "type": "Unit",
     "image": "JTL\\Raddus - Holdos_Final_Command.png",
-    "name": "Raddus - Holdo's Final Command"
+    "name": "Raddus - Holdo's Final Command",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "radiantviiambassadorsarrival": {
-    "type": "Unit",
     "image": "JTL\\Radiant_VII - Ambassadors_Arrival.png",
-    "name": "Radiant VII - Ambassadors' Arrival"
+    "name": "Radiant VII - Ambassadors' Arrival",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "rafamartezshrewdsister": {
-    "type": "Unit",
     "image": "JTL\\Rafa_Martez - Shrewd_Sister.png",
-    "name": "Rafa Martez - Shrewd Sister"
+    "name": "Rafa Martez - Shrewd Sister",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "rampartenjoytheexit": {
-    "type": "Unit",
     "image": "JTL\\Rampart - Enjoy_the_Exit.png",
-    "name": "Rampart - Enjoy the Exit"
+    "name": "Rampart - Enjoy the Exit",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "razorcrestrideforhire": {
-    "type": "Unit",
     "image": "JTL\\Razor_Crest - Ride_For_Hire.png",
-    "name": "Razor Crest - Ride For Hire"
+    "name": "Razor Crest - Ride For Hire",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "rebellioushammerhead": {
-    "type": "Unit",
     "image": "JTL\\Rebellious_Hammerhead.png",
-    "name": "Rebellious Hammerhead"
+    "name": "Rebellious Hammerhead",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "redfiverunningthetrench": {
-    "type": "Unit",
     "image": "JTL\\Red_Five - Running_the_Trench.png",
-    "name": "Red Five - Running the Trench"
+    "name": "Red Five - Running the Trench",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "redleaderformup": {
-    "type": "Unit",
     "image": "JTL\\Red_Leader - Form_Up.png",
-    "name": "Red Leader - Form Up"
+    "name": "Red Leader - Form Up",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "redsquadronxwing": {
-    "type": "Unit",
     "image": "JTL\\Red_Squadron_X-Wing.png",
-    "name": "Red Squadron X-Wing"
+    "name": "Red Squadron X-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "redsquadronywing": {
-    "type": "Unit",
     "image": "JTL\\Red_Squadron_Y-Wing.png",
-    "name": "Red Squadron Y-Wing"
+    "name": "Red Squadron Y-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "relentlessfirespray": {
-    "type": "Unit",
     "image": "JTL\\Relentless_Firespray.png",
-    "name": "Relentless Firespray"
+    "name": "Relentless Firespray",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Aggression"
+    ]
   },
   "repair": {
-    "type": "Event",
     "image": "JTL\\Repair.png",
-    "name": "Repair"
+    "name": "Repair",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "republicywing": {
-    "type": "Unit",
     "image": "JTL\\Republic_Y-Wing.png",
-    "name": "Republic Y-Wing"
+    "name": "Republic Y-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "resistancebluesquadron": {
-    "type": "Unit",
     "image": "JTL\\Resistance_Blue_Squadron.png",
-    "name": "Resistance Blue Squadron"
+    "name": "Resistance Blue Squadron",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "resistanceheadquartersdqar": {
-    "type": "Base",
     "image": "JTL\\Resistance_Headquarters - DQar.png",
-    "name": "Resistance Headquarters - D'Qar"
+    "name": "Resistance Headquarters - D'Qar",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Command"
+    ]
   },
   "resistancexwing": {
-    "type": "Unit",
     "image": "JTL\\Resistance_X-Wing.png",
-    "name": "Resistance X-Wing"
+    "name": "Resistance X-Wing",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "resupplycarrier": {
-    "type": "Unit",
     "image": "JTL\\Resupply_Carrier.png",
-    "name": "Resupply Carrier"
+    "name": "Resupply Carrier",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "retrofittedairspeeder": {
-    "type": "Unit",
     "image": "JTL\\Retrofitted_Airspeeder.png",
-    "name": "Retrofitted Airspeeder"
+    "name": "Retrofitted Airspeeder",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "riodurantwisecrackingwheelman": {
-    "type": "Leader",
     "image": "JTL\\Rio_Durant - Wisecracking_Wheelman.png",
-    "name": "Rio Durant - Wisecracking Wheelman"
+    "name": "Rio Durant - Wisecracking Wheelman",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "riodurantwisecrackingwheelmanback": {
-    "type": "Leader",
     "image": "JTL\\Rio_Durant - Wisecracking_Wheelman_back.png",
-    "name": "Rio Durant - Wisecracking Wheelman [Back]"
+    "name": "Rio Durant - Wisecracking Wheelman [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "rogueclassstarfighter": {
-    "type": "Unit",
     "image": "JTL\\Rogue-class_Starfighter.png",
-    "name": "Rogue-class Starfighter"
+    "name": "Rogue-class Starfighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "roseticosavingwhatwelove": {
-    "type": "Leader",
     "image": "JTL\\Rose_Tico - Saving_What_We_Love.png",
-    "name": "Rose Tico - Saving What We Love"
+    "name": "Rose Tico - Saving What We Love",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "roseticosavingwhatweloveback": {
-    "type": "Leader",
     "image": "JTL\\Rose_Tico - Saving_What_We_Love_back.png",
-    "name": "Rose Tico - Saving What We Love [Back]"
+    "name": "Rose Tico - Saving What We Love [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "royalsecurityfighter": {
-    "type": "Unit",
     "image": "JTL\\Royal_Security_Fighter.png",
-    "name": "Royal Security Fighter"
+    "name": "Royal Security Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "sabinesmasterpiececrazycolorful": {
-    "type": "Unit",
     "image": "JTL\\Sabines_Masterpiece - Crazy_Colorful.png",
-    "name": "Sabine's Masterpiece - Crazy Colorful"
+    "name": "Sabine's Masterpiece - Crazy Colorful",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "salvage": {
-    "type": "Event",
     "image": "JTL\\Salvage.png",
-    "name": "Salvage"
+    "name": "Salvage",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "scoutingheadhunter": {
-    "type": "Unit",
     "image": "JTL\\Scouting_Headhunter.png",
-    "name": "Scouting Headhunter"
+    "name": "Scouting Headhunter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "scramblefighters": {
-    "type": "Event",
     "image": "JTL\\Scramble_Fighters.png",
-    "name": "Scramble Fighters"
+    "name": "Scramble Fighters",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "seasonedfleetadmiral": {
-    "type": "Unit",
     "image": "JTL\\Seasoned_Fleet_Admiral.png",
-    "name": "Seasoned Fleet Admiral"
+    "name": "Seasoned Fleet Admiral",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "shadowcasterjustbusiness": {
-    "type": "Unit",
     "image": "JTL\\Shadow_Caster - Just_Business.png",
-    "name": "Shadow Caster - Just Business"
+    "name": "Shadow Caster - Just Business",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "shadowedhovertank": {
-    "type": "Unit",
     "image": "JTL\\Shadowed_Hover_Tank.png",
-    "name": "Shadowed Hover Tank"
+    "name": "Shadowed Hover Tank",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "shieldgeneratorcomplexendor": {
-    "type": "Base",
     "image": "JTL\\Shield_Generator_Complex - Endor.png",
-    "name": "Shield Generator Complex - Endor"
+    "name": "Shield Generator Complex - Endor",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "shootdown": {
-    "type": "Event",
     "image": "JTL\\Shoot_Down.png",
-    "name": "Shoot Down"
+    "name": "Shoot Down",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "shuttlest149underkrennicsauthority": {
-    "type": "Unit",
     "image": "JTL\\Shuttle_ST-149 - Under_Krennics_Authority.png",
-    "name": "Shuttle ST-149 - Under Krennic's Authority"
+    "name": "Shuttle ST-149 - Under Krennic's Authority",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "shuttletydiriumflycasual": {
-    "type": "Unit",
     "image": "JTL\\Shuttle_Tydirium - Fly_Casual.png",
-    "name": "Shuttle Tydirium - Fly Casual"
+    "name": "Shuttle Tydirium - Fly Casual",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Heroism"
+    ]
   },
   "sidonithanothecrimsoncorsair": {
-    "type": "Unit",
     "image": "JTL\\Sidon_Ithano - The_Crimson_Corsair.png",
-    "name": "Sidon Ithano - The Crimson Corsair"
+    "name": "Sidon Ithano - The Crimson Corsair",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "silverangeltraceshope": {
-    "type": "Unit",
     "image": "JTL\\Silver_Angel - Traces_Hope.png",
-    "name": "Silver Angel - Trace's Hope"
+    "name": "Silver Angel - Trace's Hope",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "sithtrooper": {
-    "type": "Unit",
     "image": "JTL\\Sith_Trooper.png",
-    "name": "Sith Trooper"
+    "name": "Sith Trooper",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "skywaycloudcar": {
-    "type": "Unit",
     "image": "JTL\\Skyway_Cloud_Car.png",
-    "name": "Skyway Cloud Car"
+    "name": "Skyway Cloud Car",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "snapwexleyresistancereconflier": {
-    "type": "Unit",
     "image": "JTL\\Snap_Wexley - Resistance_Recon_Flier.png",
-    "name": "Snap Wexley - Resistance Recon Flier"
+    "name": "Snap Wexley - Resistance Recon Flier",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "specialforcestiefighter": {
-    "type": "Unit",
     "image": "JTL\\Special_Forces_TIE_Fighter.png",
-    "name": "Special Forces TIE Fighter"
+    "name": "Special Forces TIE Fighter",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "stayontarget": {
-    "type": "Event",
     "image": "JTL\\Stay_on_Target.png",
-    "name": "Stay on Target"
+    "name": "Stay on Target",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "stolenathauler": {
-    "type": "Unit",
     "image": "JTL\\Stolen_AT-Hauler.png",
-    "name": "Stolen AT-Hauler"
+    "name": "Stolen AT-Hauler",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "sullustanspacer": {
-    "type": "Unit",
     "image": "JTL\\Sullustan_Spacer.png",
-    "name": "Sullustan Spacer"
+    "name": "Sullustan Spacer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "superheavyioncannon": {
-    "type": "Upgrade",
     "image": "JTL\\Superheavy_Ion_Cannon.png",
-    "name": "Superheavy Ion Cannon"
+    "name": "Superheavy Ion Cannon",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "supportingeta2": {
-    "type": "Unit",
     "image": "JTL\\Supporting_Eta-2.png",
-    "name": "Supporting Eta-2"
+    "name": "Supporting Eta-2",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "swarmingvulturedroid": {
-    "type": "Unit",
     "image": "JTL\\Swarming_Vulture_Droid.png",
-    "name": "Swarming Vulture Droid"
+    "name": "Swarming Vulture Droid",
+    "type": "Unit",
+    "hp": null,
+    "aspects": []
   },
   "sweepthearea": {
-    "type": "Event",
     "image": "JTL\\Sweep_the_Area.png",
-    "name": "Sweep the Area"
+    "name": "Sweep the Area",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "systemshock": {
-    "type": "Event",
     "image": "JTL\\System_Shock.png",
-    "name": "System Shock"
+    "name": "System Shock",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "tieambushsquadron": {
-    "type": "Unit",
     "image": "JTL\\TIE_Ambush_Squadron.png",
-    "name": "TIE Ambush Squadron"
+    "name": "TIE Ambush Squadron",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "tiebomber": {
-    "type": "Unit",
     "image": "JTL\\TIE_Bomber.png",
-    "name": "TIE Bomber"
+    "name": "TIE Bomber",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "tiedaggervanguard": {
-    "type": "Unit",
     "image": "JTL\\TIE_Dagger_Vanguard.png",
-    "name": "TIE Dagger Vanguard"
+    "name": "TIE Dagger Vanguard",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "tacticalheavybomber": {
-    "type": "Unit",
     "image": "JTL\\Tactical_Heavy_Bomber.png",
-    "name": "Tactical Heavy Bomber"
+    "name": "Tactical Heavy Bomber",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "tamryvora": {
-    "type": "Unit",
     "image": "JTL\\Tam_Ryvora.png",
-    "name": "Tam Ryvora"
+    "name": "Tam Ryvora",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Villainy"
+    ]
   },
   "tandemassault": {
-    "type": "Event",
     "image": "JTL\\Tandem_Assault.png",
-    "name": "Tandem Assault"
+    "name": "Tandem Assault",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "tantiveivfleeingtheempire": {
-    "type": "Unit",
     "image": "JTL\\Tantive_IV - Fleeing_the_Empire.png",
-    "name": "Tantive IV - Fleeing the Empire"
+    "name": "Tantive IV - Fleeing the Empire",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Heroism"
+    ]
   },
   "targetingcomputer": {
-    "type": "Upgrade",
     "image": "JTL\\Targeting_Computer.png",
-    "name": "Targeting Computer"
+    "name": "Targeting Computer",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "technouniontransport": {
-    "type": "Unit",
     "image": "JTL\\Techno_Union_Transport.png",
-    "name": "Techno Union Transport"
+    "name": "Techno Union Transport",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "theghostheartofthefamily": {
-    "type": "Unit",
     "image": "JTL\\The_Ghost - Heart_of_the_Family.png",
-    "name": "The Ghost - Heart of the Family"
+    "name": "The Ghost - Heart of the Family",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "theinvisiblehandcrawlingwithvultures": {
-    "type": "Unit",
     "image": "JTL\\The_Invisible_Hand - Crawling_With_Vultures.png",
-    "name": "The Invisible Hand - Crawling With Vultures"
+    "name": "The Invisible Hand - Crawling With Vultures",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "themandalorianweatheredpilot": {
-    "type": "Unit",
     "image": "JTL\\The_Mandalorian - Weathered_Pilot.png",
-    "name": "The Mandalorian - Weathered Pilot"
+    "name": "The Mandalorian - Weathered Pilot",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Cunning"
+    ]
   },
   "thestarhawkprototypebattleship": {
-    "type": "Unit",
     "image": "JTL\\The_Starhawk - Prototype_Battleship.png",
-    "name": "The Starhawk - Prototype Battleship"
+    "name": "The Starhawk - Prototype Battleship",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "theedpalacenaboo": {
-    "type": "Base",
     "image": "JTL\\Theed_Palace - Naboo.png",
-    "name": "Theed Palace - Naboo"
+    "name": "Theed Palace - Naboo",
+    "type": "Base",
+    "hp": "30",
+    "aspects": [
+      "Command"
+    ]
   },
   "thereisnoescape": {
-    "type": "Event",
     "image": "JTL\\There_Is_No_Escape.png",
-    "name": "There Is No Escape"
+    "name": "There Is No Escape",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   },
   "thermaloscillatorstarkillerbase": {
-    "type": "Base",
     "image": "JTL\\Thermal_Oscillator - Starkiller_Base.png",
-    "name": "Thermal Oscillator - Starkiller Base"
+    "name": "Thermal Oscillator - Starkiller Base",
+    "type": "Base",
+    "hp": "27",
+    "aspects": [
+      "Aggression"
+    ]
   },
   "theyhatethatship": {
-    "type": "Event",
     "image": "JTL\\They_Hate_That_Ship.png",
-    "name": "They Hate That Ship"
+    "name": "They Hate That Ship",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "timelyreinforcements": {
-    "type": "Event",
     "image": "JTL\\Timely_Reinforcements.png",
-    "name": "Timely Reinforcements"
+    "name": "Timely Reinforcements",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "torpedobarrage": {
-    "type": "Event",
     "image": "JTL\\Torpedo_Barrage.png",
-    "name": "Torpedo Barrage"
+    "name": "Torpedo Barrage",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "tracemarteztrustingsister": {
-    "type": "Unit",
     "image": "JTL\\Trace_Martez - Trusting_Sister.png",
-    "name": "Trace Martez - Trusting Sister"
+    "name": "Trace Martez - Trusting Sister",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "trenchrun": {
-    "type": "Event",
     "image": "JTL\\Trench_Run.png",
-    "name": "Trench Run"
+    "name": "Trench Run",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Heroism"
+    ]
   },
   "turbolasersalvo": {
-    "type": "Event",
     "image": "JTL\\Turbolaser_Salvo.png",
-    "name": "Turbolaser Salvo"
+    "name": "Turbolaser Salvo",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command"
+    ]
   },
   "twinlaserturret": {
-    "type": "Upgrade",
     "image": "JTL\\Twin_Laser_Turret.png",
-    "name": "Twin Laser Turret"
+    "name": "Twin Laser Turret",
+    "type": "Upgrade",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "uwinglander": {
-    "type": "Unit",
     "image": "JTL\\U-Wing_Lander.png",
-    "name": "U-Wing Lander"
+    "name": "U-Wing Lander",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "unityofpurpose": {
-    "type": "Event",
     "image": "JTL\\Unity_of_Purpose.png",
-    "name": "Unity of Purpose"
+    "name": "Unity of Purpose",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Command"
+    ]
   },
   "veteranfleetofficer": {
-    "type": "Unit",
     "image": "JTL\\Veteran_Fleet_Officer.png",
-    "name": "Veteran Fleet Officer"
+    "name": "Veteran Fleet Officer",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "victorleaderleadingfromthefront": {
-    "type": "Unit",
     "image": "JTL\\Victor_Leader - Leading_From_the_Front.png",
-    "name": "Victor Leader - Leading From the Front"
+    "name": "Victor Leader - Leading From the Front",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "vonregstieinterceptoraceofthefirstorder": {
-    "type": "Unit",
     "image": "JTL\\Vonregs_TIE_Interceptor - Ace_of_the_First_Order.png",
-    "name": "Vonreg's TIE Interceptor - Ace of the First Order"
+    "name": "Vonreg's TIE Interceptor - Ace of the First Order",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression",
+      "Villainy"
+    ]
   },
   "warjuggernaut": {
-    "type": "Unit",
     "image": "JTL\\War_Juggernaut.png",
-    "name": "War Juggernaut"
+    "name": "War Juggernaut",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Aggression"
+    ]
   },
   "wedgeantillesleaderofredsquadron": {
-    "type": "Leader",
     "image": "JTL\\Wedge_Antilles - Leader_of_Red_Squadron.png",
-    "name": "Wedge Antilles - Leader of Red Squadron"
+    "name": "Wedge Antilles - Leader of Red Squadron",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "wedgeantillesleaderofredsquadronback": {
-    "type": "Leader",
     "image": "JTL\\Wedge_Antilles - Leader_of_Red_Squadron_back.png",
-    "name": "Wedge Antilles - Leader of Red Squadron [Back]"
+    "name": "Wedge Antilles - Leader of Red Squadron [Back]",
+    "type": "Leader",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Heroism"
+    ]
   },
   "wingguardsecurityteam": {
-    "type": "Unit",
     "image": "JTL\\Wing_Guard_Security_Team.png",
-    "name": "Wing Guard Security Team"
+    "name": "Wing Guard Security Team",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Vigilance"
+    ]
   },
   "wingmanvictorthreebackstabber": {
-    "type": "Unit",
     "image": "JTL\\Wingman_Victor_Three - Backstabber.png",
-    "name": "Wingman Victor Three - Backstabber"
+    "name": "Wingman Victor Three - Backstabber",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "wingmanvictortwomaulermithel": {
-    "type": "Unit",
     "image": "JTL\\Wingman_Victor_Two - Mauler_Mithel.png",
-    "name": "Wingman Victor Two - Mauler Mithel"
+    "name": "Wingman Victor Two - Mauler Mithel",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Command",
+      "Villainy"
+    ]
   },
   "x34landspeeder": {
-    "type": "Unit",
     "image": "JTL\\X-34_Landspeeder.png",
-    "name": "X-34 Landspeeder"
+    "name": "X-34 Landspeeder",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning"
+    ]
   },
   "youreallclearkid": {
-    "type": "Event",
     "image": "JTL\\Youre_All_Clear_Kid.png",
-    "name": "You're All Clear, Kid"
+    "name": "You're All Clear, Kid",
+    "type": "Event",
+    "hp": null,
+    "aspects": [
+      "Vigilance",
+      "Heroism"
+    ]
   },
   "zygerrianstarhopper": {
-    "type": "Unit",
     "image": "JTL\\Zygerrian_Starhopper.png",
-    "name": "Zygerrian Starhopper"
+    "name": "Zygerrian Starhopper",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Cunning",
+      "Villainy"
+    ]
   },
   "indoctrinatedconscript": {
-    "type": "Unit",
     "image": "JTL\\indoctrinated_Conscript.png",
-    "name": "indoctrinated Conscript"
+    "name": "indoctrinated Conscript",
+    "type": "Unit",
+    "hp": null,
+    "aspects": [
+      "Villainy"
+    ]
   }
 }
