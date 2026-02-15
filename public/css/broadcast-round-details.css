@@ -30,24 +30,24 @@
 /* Akzidenz-Grotesk Next Font Faces for Riftbound */
 @font-face {
     font-family: 'Akzidenz-Grotesk Next';
-    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot');
+    src: url('/fonts/AkzidGrtskNext-Bold.eot');
     src: local('Akzidenz-Grotesk Next Bold'), local('AkzidGrtskNext-Bold'),
-        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff2') format('woff2'),
-        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.woff') format('woff'),
-        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Bold.ttf') format('truetype');
+        url('/fonts/AkzidGrtskNext-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/AkzidGrtskNext-Bold.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-Bold.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akzidenz-Grotesk Next';
-    src: url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot');
+    src: url('/fonts/AkzidGrtskNext-Regular.eot');
     src: local('Akzidenz-Grotesk Next Regular'), local('AkzidGrtskNext-Regular'),
-        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.eot?#iefix') format('embedded-opentype'),
-        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff2') format('woff2'),
-        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.woff') format('woff'),
-        url('/assets/images/riftbound/scoreboard/fonts/AkzidGrtskNext-Regular.ttf') format('truetype');
+        url('/fonts/AkzidGrtskNext-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/AkzidGrtskNext-Regular.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-Regular.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -178,7 +178,7 @@ body.mtg #player-detail {
 
 /* Riftbound Winner Display Styles */
 .winner-display.riftbound .winner-bg-image {
-    background-image: url('/assets/images/riftbound/lower-third.png');
+    background-image: url('/assets/images/riftbound/broadcast/lower-third.png');
 }
 
 .winner-display.riftbound .winner-name {

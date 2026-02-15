@@ -1,6 +1,6 @@
 {
   "aprecariouspredicament": {
-    "image": "LOF\\A_Precarious_Predicament.png",
+    "image": "LOF/A_Precarious_Predicament.png",
     "name": "A Precarious Predicament",
     "type": "Event",
     "hp": null,
@@ -9,7 +9,7 @@
     ]
   },
   "acclamatorassaultship": {
-    "image": "LOF\\Acclamator_Assault_Ship.png",
+    "image": "LOF/Acclamator_Assault_Ship.png",
     "name": "Acclamator Assault Ship",
     "type": "Unit",
     "hp": null,
@@ -19,7 +19,7 @@
     ]
   },
   "acolyteofthebeyond": {
-    "image": "LOF\\Acolyte_of_the_Beyond.png",
+    "image": "LOF/Acolyte_of_the_Beyond.png",
     "name": "Acolyte of the Beyond",
     "type": "Unit",
     "hp": null,
@@ -29,7 +29,7 @@
     ]
   },
   "adeptofanger": {
-    "image": "LOF\\Adept_of_Anger.png",
+    "image": "LOF/Adept_of_Anger.png",
     "name": "Adept of Anger",
     "type": "Unit",
     "hp": null,
@@ -39,7 +39,7 @@
     ]
   },
   "adigalliasternandfocused": {
-    "image": "LOF\\Adi_Gallia - Stern_and_Focused.png",
+    "image": "LOF/Adi_Gallia - Stern_and_Focused.png",
     "name": "Adi Gallia - Stern and Focused",
     "type": "Unit",
     "hp": null,
@@ -49,7 +49,7 @@
     ]
   },
   "ahsokatanofightingforpeace": {
-    "image": "LOF\\Ahsoka_Tano - Fighting_For_Peace.png",
+    "image": "LOF/Ahsoka_Tano - Fighting_For_Peace.png",
     "name": "Ahsoka Tano - Fighting For Peace",
     "type": "Leader",
     "hp": null,
@@ -59,7 +59,7 @@
     ]
   },
   "ahsokatanofightingforpeaceback": {
-    "image": "LOF\\Ahsoka_Tano - Fighting_For_Peace_back.png",
+    "image": "LOF/Ahsoka_Tano - Fighting_For_Peace_back.png",
     "name": "Ahsoka Tano - Fighting For Peace [Back]",
     "type": "Leader",
     "hp": null,
@@ -69,7 +69,7 @@
     ]
   },
   "alwaystwo": {
-    "image": "LOF\\Always_Two.png",
+    "image": "LOF/Always_Two.png",
     "name": "Always Two",
     "type": "Event",
     "hp": null,
@@ -79,7 +79,7 @@
     ]
   },
   "anakinskywalkertemptedbythedarkside": {
-    "image": "LOF\\Anakin_Skywalker - Tempted_by_the_Dark_Side.png",
+    "image": "LOF/Anakin_Skywalker - Tempted_by_the_Dark_Side.png",
     "name": "Anakin Skywalker - Tempted by the Dark Side",
     "type": "Leader",
     "hp": null,
@@ -88,7 +88,7 @@
     ]
   },
   "anakinskywalkertemptedbythedarksideback": {
-    "image": "LOF\\Anakin_Skywalker - Tempted_by_the_Dark_Side_back.png",
+    "image": "LOF/Anakin_Skywalker - Tempted_by_the_Dark_Side_back.png",
     "name": "Anakin Skywalker - Tempted by the Dark Side [Back]",
     "type": "Leader",
     "hp": null,
@@ -97,7 +97,7 @@
     ]
   },
   "anakinskywalkerchampionofmortis": {
-    "image": "LOF\\Anakin_Skywalker - Champion_of_Mortis.png",
+    "image": "LOF/Anakin_Skywalker - Champion_of_Mortis.png",
     "name": "Anakin Skywalker - Champion of Mortis",
     "type": "Unit",
     "hp": null,
@@ -106,7 +106,7 @@
     ]
   },
   "anakinskywalkerforceprodigy": {
-    "image": "LOF\\Anakin_Skywalker - Force_Prodigy.png",
+    "image": "LOF/Anakin_Skywalker - Force_Prodigy.png",
     "name": "Anakin Skywalker - Force Prodigy",
     "type": "Unit",
     "hp": null,
@@ -116,7 +116,7 @@
     ]
   },
   "armyofthedead": {
-    "image": "LOF\\Army_of_the_Dead.png",
+    "image": "LOF/Army_of_the_Dead.png",
     "name": "Army of the Dead",
     "type": "Unit",
     "hp": null,
@@ -125,7 +125,7 @@
     ]
   },
   "asihaveforeseen": {
-    "image": "LOF\\As_I_Have_Foreseen.png",
+    "image": "LOF/As_I_Have_Foreseen.png",
     "name": "As I Have Foreseen",
     "type": "Event",
     "hp": null,
@@ -135,7 +135,7 @@
     ]
   },
   "asajjventresshardenyourheart": {
-    "image": "LOF\\Asajj_Ventress - Harden_Your_Heart.png",
+    "image": "LOF/Asajj_Ventress - Harden_Your_Heart.png",
     "name": "Asajj Ventress - Harden Your Heart",
     "type": "Unit",
     "hp": null,
@@ -144,7 +144,7 @@
     ]
   },
   "ascensioncable": {
-    "image": "LOF\\Ascension_Cable.png",
+    "image": "LOF/Ascension_Cable.png",
     "name": "Ascension Cable",
     "type": "Upgrade",
     "hp": null,
@@ -153,7 +153,7 @@
     ]
   },
   "ataruonslaught": {
-    "image": "LOF\\Ataru_Onslaught.png",
+    "image": "LOF/Ataru_Onslaught.png",
     "name": "Ataru Onslaught",
     "type": "Event",
     "hp": null,
@@ -162,7 +162,7 @@
     ]
   },
   "attunedfyrnock": {
-    "image": "LOF\\Attuned_Fyrnock.png",
+    "image": "LOF/Attuned_Fyrnock.png",
     "name": "Attuned Fyrnock",
     "type": "Unit",
     "hp": null,
@@ -172,7 +172,7 @@
     ]
   },
   "aurrasingpatientanddeadly": {
-    "image": "LOF\\Aurra_Sing - Patient_and_Deadly.png",
+    "image": "LOF/Aurra_Sing - Patient_and_Deadly.png",
     "name": "Aurra Sing - Patient and Deadly",
     "type": "Unit",
     "hp": null,
@@ -182,7 +182,7 @@
     ]
   },
   "avarkrissmarshalofstarlight": {
-    "image": "LOF\\Avar_Kriss - Marshal_of_Starlight.png",
+    "image": "LOF/Avar_Kriss - Marshal_of_Starlight.png",
     "name": "Avar Kriss - Marshal of Starlight",
     "type": "Leader",
     "hp": null,
@@ -192,7 +192,7 @@
     ]
   },
   "avarkrissmarshalofstarlightback": {
-    "image": "LOF\\Avar_Kriss - Marshal_of_Starlight_back.png",
+    "image": "LOF/Avar_Kriss - Marshal_of_Starlight_back.png",
     "name": "Avar Kriss - Marshal of Starlight [Back]",
     "type": "Leader",
     "hp": null,
@@ -202,7 +202,7 @@
     ]
   },
   "awakenedspecters": {
-    "image": "LOF\\Awakened_Specters.png",
+    "image": "LOF/Awakened_Specters.png",
     "name": "Awakened Specters",
     "type": "Unit",
     "hp": null,
@@ -211,7 +211,7 @@
     ]
   },
   "axewovesaccomplishedwarrior": {
-    "image": "LOF\\Axe_Woves - Accomplished_Warrior.png",
+    "image": "LOF/Axe_Woves - Accomplished_Warrior.png",
     "name": "Axe Woves - Accomplished Warrior",
     "type": "Unit",
     "hp": null,
@@ -220,7 +220,7 @@
     ]
   },
   "bd1beepbooboobweep": {
-    "image": "LOF\\BD-1 - Beep_Boo_Boo_Bweep.png",
+    "image": "LOF/BD-1 - Beep_Boo_Boo_Bweep.png",
     "name": "BD-1 - Beep Boo Boo Bweep",
     "type": "Unit",
     "hp": null,
@@ -230,7 +230,7 @@
     ]
   },
   "babufrikheyyy": {
-    "image": "LOF\\Babu_Frik - Heyyy.png",
+    "image": "LOF/Babu_Frik - Heyyy.png",
     "name": "Babu Frik - Heyyy!",
     "type": "Unit",
     "hp": null,
@@ -239,7 +239,7 @@
     ]
   },
   "bankingclanshuttle": {
-    "image": "LOF\\Banking_Clan_Shuttle.png",
+    "image": "LOF/Banking_Clan_Shuttle.png",
     "name": "Banking Clan Shuttle",
     "type": "Unit",
     "hp": null,
@@ -249,7 +249,7 @@
     ]
   },
   "barrissoffeewehavebecomevillains": {
-    "image": "LOF\\Barriss_Offee - We_Have_Become_Villains.png",
+    "image": "LOF/Barriss_Offee - We_Have_Become_Villains.png",
     "name": "Barriss Offee - We Have Become Villains",
     "type": "Leader",
     "hp": null,
@@ -259,7 +259,7 @@
     ]
   },
   "barrissoffeewehavebecomevillainsback": {
-    "image": "LOF\\Barriss_Offee - We_Have_Become_Villains_back.png",
+    "image": "LOF/Barriss_Offee - We_Have_Become_Villains_back.png",
     "name": "Barriss Offee - We Have Become Villains [Back]",
     "type": "Leader",
     "hp": null,
@@ -269,7 +269,7 @@
     ]
   },
   "battlefury": {
-    "image": "LOF\\Battle_Fury.png",
+    "image": "LOF/Battle_Fury.png",
     "name": "Battle Fury",
     "type": "Upgrade",
     "hp": null,
@@ -279,7 +279,7 @@
     ]
   },
   "baylanskollenigmaticmaster": {
-    "image": "LOF\\Baylan_Skoll - Enigmatic_Master.png",
+    "image": "LOF/Baylan_Skoll - Enigmatic_Master.png",
     "name": "Baylan Skoll - Enigmatic Master",
     "type": "Unit",
     "hp": null,
@@ -289,7 +289,7 @@
     ]
   },
   "bendudoyoufearthestorm": {
-    "image": "LOF\\Bendu - Do_You_Fear_the_Storm.png",
+    "image": "LOF/Bendu - Do_You_Fear_the_Storm.png",
     "name": "Bendu - Do You Fear the Storm?",
     "type": "Unit",
     "hp": null,
@@ -298,7 +298,7 @@
     ]
   },
   "blockaderunner": {
-    "image": "LOF\\Blockade_Runner.png",
+    "image": "LOF/Blockade_Runner.png",
     "name": "Blockade Runner",
     "type": "Unit",
     "hp": null,
@@ -307,7 +307,7 @@
     ]
   },
   "bluesquadronassaultwing": {
-    "image": "LOF\\Blue_Squadron_Assault_Wing.png",
+    "image": "LOF/Blue_Squadron_Assault_Wing.png",
     "name": "Blue Squadron Assault Wing",
     "type": "Unit",
     "hp": null,
@@ -316,7 +316,7 @@
     ]
   },
   "bolsteredendurance": {
-    "image": "LOF\\Bolstered_Endurance.png",
+    "image": "LOF/Bolstered_Endurance.png",
     "name": "Bolstered Endurance",
     "type": "Upgrade",
     "hp": null,
@@ -325,7 +325,7 @@
     ]
   },
   "calkestisicantkeephiding": {
-    "image": "LOF\\Cal_Kestis - I_Cant_Keep_Hiding.png",
+    "image": "LOF/Cal_Kestis - I_Cant_Keep_Hiding.png",
     "name": "Cal Kestis - I Can't Keep Hiding",
     "type": "Leader",
     "hp": null,
@@ -335,7 +335,7 @@
     ]
   },
   "calkestisicantkeephidingback": {
-    "image": "LOF\\Cal_Kestis - I_Cant_Keep_Hiding_back.png",
+    "image": "LOF/Cal_Kestis - I_Cant_Keep_Hiding_back.png",
     "name": "Cal Kestis - I Can't Keep Hiding [Back]",
     "type": "Leader",
     "hp": null,
@@ -345,7 +345,7 @@
     ]
   },
   "calminthestorm": {
-    "image": "LOF\\Calm_in_the_Storm.png",
+    "image": "LOF/Calm_in_the_Storm.png",
     "name": "Calm in the Storm",
     "type": "Event",
     "hp": null,
@@ -355,7 +355,7 @@
     ]
   },
   "captainenochcaptainoftheguard": {
-    "image": "LOF\\Captain_Enoch - Captain_of_the_Guard.png",
+    "image": "LOF/Captain_Enoch - Captain_of_the_Guard.png",
     "name": "Captain Enoch - Captain of the Guard",
     "type": "Unit",
     "hp": null,
@@ -365,7 +365,7 @@
     ]
   },
   "caretakermatron": {
-    "image": "LOF\\Caretaker_Matron.png",
+    "image": "LOF/Caretaker_Matron.png",
     "name": "Caretaker Matron",
     "type": "Unit",
     "hp": null,
@@ -374,7 +374,7 @@
     ]
   },
   "cartelinterceptor": {
-    "image": "LOF\\Cartel_Interceptor.png",
+    "image": "LOF/Cartel_Interceptor.png",
     "name": "Cartel Interceptor",
     "type": "Unit",
     "hp": null,
@@ -383,7 +383,7 @@
     ]
   },
   "chargingphillak": {
-    "image": "LOF\\Charging_Phillak.png",
+    "image": "LOF/Charging_Phillak.png",
     "name": "Charging Phillak",
     "type": "Unit",
     "hp": null,
@@ -392,7 +392,7 @@
     ]
   },
   "chirrutmweblindbutnotdeaf": {
-    "image": "LOF\\Chirrut_mwe - Blind_but_not_Deaf.png",
+    "image": "LOF/Chirrut_mwe - Blind_but_not_Deaf.png",
     "name": "Chirrut Îmwe - Blind, but not Deaf",
     "type": "Unit",
     "hp": null,
@@ -401,7 +401,7 @@
     ]
   },
   "cindralligesteemedblademaster": {
-    "image": "LOF\\Cin_Drallig - Esteemed_Blademaster.png",
+    "image": "LOF/Cin_Drallig - Esteemed_Blademaster.png",
     "name": "Cin Drallig - Esteemed Blademaster",
     "type": "Unit",
     "hp": null,
@@ -411,14 +411,14 @@
     ]
   },
   "constructedlightsaber": {
-    "image": "LOF\\Constructed_Lightsaber.png",
+    "image": "LOF/Constructed_Lightsaber.png",
     "name": "Constructed Lightsaber",
     "type": "Upgrade",
     "hp": null,
     "aspects": []
   },
   "consumedbythedarkside": {
-    "image": "LOF\\Consumed_by_the_Dark_Side.png",
+    "image": "LOF/Consumed_by_the_Dark_Side.png",
     "name": "Consumed by the Dark Side",
     "type": "Event",
     "hp": null,
@@ -427,7 +427,7 @@
     ]
   },
   "corruptedsaber": {
-    "image": "LOF\\Corrupted_Saber.png",
+    "image": "LOF/Corrupted_Saber.png",
     "name": "Corrupted Saber",
     "type": "Upgrade",
     "hp": null,
@@ -437,7 +437,7 @@
     ]
   },
   "cravingpower": {
-    "image": "LOF\\Craving_Power.png",
+    "image": "LOF/Craving_Power.png",
     "name": "Craving Power",
     "type": "Upgrade",
     "hp": null,
@@ -447,7 +447,7 @@
     ]
   },
   "crushingblow": {
-    "image": "LOF\\Crushing_Blow.png",
+    "image": "LOF/Crushing_Blow.png",
     "name": "Crushing Blow",
     "type": "Event",
     "hp": null,
@@ -455,9 +455,9 @@
       "Vigilance"
     ]
   },
-  "crystalcavesilum": {
-    "image": "LOF\\Crystal_Caves - Ilum.png",
-    "name": "Crystal Caves - Ilum",
+  "crystalcaves": {
+    "image": "LOF/Crystal_Caves - Ilum.png",
+    "name": "Crystal Caves",
     "type": "Base",
     "hp": "28",
     "aspects": [
@@ -465,7 +465,7 @@
     ]
   },
   "curewounds": {
-    "image": "LOF\\Cure_Wounds.png",
+    "image": "LOF/Cure_Wounds.png",
     "name": "Cure Wounds",
     "type": "Event",
     "hp": null,
@@ -474,14 +474,14 @@
     ]
   },
   "curiousflock": {
-    "image": "LOF\\Curious_Flock.png",
+    "image": "LOF/Curious_Flock.png",
     "name": "Curious Flock",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "drk1probedroid": {
-    "image": "LOF\\DRK-1_Probe_Droid.png",
+    "image": "LOF/DRK-1_Probe_Droid.png",
     "name": "DRK-1 Probe Droid",
     "type": "Unit",
     "hp": null,
@@ -490,7 +490,7 @@
     ]
   },
   "dagoyanmaster": {
-    "image": "LOF\\Dagoyan_Master.png",
+    "image": "LOF/Dagoyan_Master.png",
     "name": "Dagoyan Master",
     "type": "Unit",
     "hp": null,
@@ -499,7 +499,7 @@
     ]
   },
   "darthmalakcovetousapprentice": {
-    "image": "LOF\\Darth_Malak - Covetous_Apprentice.png",
+    "image": "LOF/Darth_Malak - Covetous_Apprentice.png",
     "name": "Darth Malak - Covetous Apprentice",
     "type": "Unit",
     "hp": null,
@@ -508,7 +508,7 @@
     ]
   },
   "darthmaulsithrevealed": {
-    "image": "LOF\\Darth_Maul - Sith_Revealed.png",
+    "image": "LOF/Darth_Maul - Sith_Revealed.png",
     "name": "Darth Maul - Sith Revealed",
     "type": "Leader",
     "hp": null,
@@ -518,7 +518,7 @@
     ]
   },
   "darthmaulsithrevealedback": {
-    "image": "LOF\\Darth_Maul - Sith_Revealed_back.png",
+    "image": "LOF/Darth_Maul - Sith_Revealed_back.png",
     "name": "Darth Maul - Sith Revealed [Back]",
     "type": "Leader",
     "hp": null,
@@ -528,7 +528,7 @@
     ]
   },
   "darthmaulslightsaber": {
-    "image": "LOF\\Darth_Mauls_Lightsaber.png",
+    "image": "LOF/Darth_Mauls_Lightsaber.png",
     "name": "Darth Maul's Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -538,7 +538,7 @@
     ]
   },
   "darthrevanscourgeoftheoldrepublic": {
-    "image": "LOF\\Darth_Revan - Scourge_of_the_Old_Republic.png",
+    "image": "LOF/Darth_Revan - Scourge_of_the_Old_Republic.png",
     "name": "Darth Revan - Scourge of the Old Republic",
     "type": "Leader",
     "hp": null,
@@ -547,7 +547,7 @@
     ]
   },
   "darthrevanscourgeoftheoldrepublicback": {
-    "image": "LOF\\Darth_Revan - Scourge_of_the_Old_Republic_back.png",
+    "image": "LOF/Darth_Revan - Scourge_of_the_Old_Republic_back.png",
     "name": "Darth Revan - Scourge of the Old Republic [Back]",
     "type": "Leader",
     "hp": null,
@@ -556,7 +556,7 @@
     ]
   },
   "darthrevanslightsaber": {
-    "image": "LOF\\Darth_Revans_Lightsaber.png",
+    "image": "LOF/Darth_Revans_Lightsaber.png",
     "name": "Darth Revan's Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -565,7 +565,7 @@
     ]
   },
   "darthsidiousthephantommenace": {
-    "image": "LOF\\Darth_Sidious - The_Phantom_Menace.png",
+    "image": "LOF/Darth_Sidious - The_Phantom_Menace.png",
     "name": "Darth Sidious - The Phantom Menace",
     "type": "Unit",
     "hp": null,
@@ -575,7 +575,7 @@
     ]
   },
   "darthtyranusservantofsidious": {
-    "image": "LOF\\Darth_Tyranus - Servant_of_Sidious.png",
+    "image": "LOF/Darth_Tyranus - Servant_of_Sidious.png",
     "name": "Darth Tyranus - Servant of Sidious",
     "type": "Unit",
     "hp": null,
@@ -584,7 +584,7 @@
     ]
   },
   "darthvadertwilightoftheapprentice": {
-    "image": "LOF\\Darth_Vader - Twilight_of_the_Apprentice.png",
+    "image": "LOF/Darth_Vader - Twilight_of_the_Apprentice.png",
     "name": "Darth Vader - Twilight of the Apprentice",
     "type": "Unit",
     "hp": null,
@@ -594,7 +594,7 @@
     ]
   },
   "deathfield": {
-    "image": "LOF\\Death_Field.png",
+    "image": "LOF/Death_Field.png",
     "name": "Death Field",
     "type": "Event",
     "hp": null,
@@ -604,7 +604,7 @@
     ]
   },
   "deceptiveshade": {
-    "image": "LOF\\Deceptive_Shade.png",
+    "image": "LOF/Deceptive_Shade.png",
     "name": "Deceptive Shade",
     "type": "Unit",
     "hp": null,
@@ -614,7 +614,7 @@
     ]
   },
   "depabillabaahigherpurpose": {
-    "image": "LOF\\Depa_Billaba - A_Higher_Purpose.png",
+    "image": "LOF/Depa_Billaba - A_Higher_Purpose.png",
     "name": "Depa Billaba - A Higher Purpose",
     "type": "Unit",
     "hp": null,
@@ -624,7 +624,7 @@
     ]
   },
   "directedbytheforce": {
-    "image": "LOF\\Directed_by_the_Force.png",
+    "image": "LOF/Directed_by_the_Force.png",
     "name": "Directed by the Force",
     "type": "Event",
     "hp": null,
@@ -633,7 +633,7 @@
     ]
   },
   "disturbanceintheforce": {
-    "image": "LOF\\Disturbance_in_the_Force.png",
+    "image": "LOF/Disturbance_in_the_Force.png",
     "name": "Disturbance in the Force",
     "type": "Event",
     "hp": null,
@@ -642,7 +642,7 @@
     ]
   },
   "doordonot": {
-    "image": "LOF\\Do_or_Do_Not.png",
+    "image": "LOF/Do_or_Do_Not.png",
     "name": "Do or Do Not",
     "type": "Event",
     "hp": null,
@@ -651,7 +651,7 @@
     ]
   },
   "dookuitistoolate": {
-    "image": "LOF\\Dooku - It_is_Too_Late.png",
+    "image": "LOF/Dooku - It_is_Too_Late.png",
     "name": "Dooku - It is Too Late",
     "type": "Unit",
     "hp": null,
@@ -660,7 +660,7 @@
     ]
   },
   "drainessence": {
-    "image": "LOF\\Drain_Essence.png",
+    "image": "LOF/Drain_Essence.png",
     "name": "Drain Essence",
     "type": "Event",
     "hp": null,
@@ -670,7 +670,7 @@
     ]
   },
   "drengirspawn": {
-    "image": "LOF\\Drengir_Spawn.png",
+    "image": "LOF/Drengir_Spawn.png",
     "name": "Drengir Spawn",
     "type": "Unit",
     "hp": null,
@@ -680,7 +680,7 @@
     ]
   },
   "dumeredeemthefuture": {
-    "image": "LOF\\Dume - Redeem_the_Future.png",
+    "image": "LOF/Dume - Redeem_the_Future.png",
     "name": "Dume - Redeem the Future",
     "type": "Unit",
     "hp": null,
@@ -690,7 +690,7 @@
     ]
   },
   "eethkothspiritualwarrior": {
-    "image": "LOF\\Eeth_Koth - Spiritual_Warrior.png",
+    "image": "LOF/Eeth_Koth - Spiritual_Warrior.png",
     "name": "Eeth Koth - Spiritual Warrior",
     "type": "Unit",
     "hp": null,
@@ -700,7 +700,7 @@
     ]
   },
   "eighthbrotherhunttogether": {
-    "image": "LOF\\Eighth_Brother - Hunt_Together.png",
+    "image": "LOF/Eighth_Brother - Hunt_Together.png",
     "name": "Eighth Brother - Hunt Together",
     "type": "Unit",
     "hp": null,
@@ -710,7 +710,7 @@
     ]
   },
   "exegolpatroller": {
-    "image": "LOF\\Exegol_Patroller.png",
+    "image": "LOF/Exegol_Patroller.png",
     "name": "Exegol Patroller",
     "type": "Unit",
     "hp": null,
@@ -720,7 +720,7 @@
     ]
   },
   "eyeofsiontoperidea": {
-    "image": "LOF\\Eye_of_Sion - To_Peridea.png",
+    "image": "LOF/Eye_of_Sion - To_Peridea.png",
     "name": "Eye of Sion - To Peridea",
     "type": "Unit",
     "hp": null,
@@ -730,7 +730,7 @@
     ]
   },
   "ezrabridgerattunedwithlife": {
-    "image": "LOF\\Ezra_Bridger - Attuned_With_Life.png",
+    "image": "LOF/Ezra_Bridger - Attuned_With_Life.png",
     "name": "Ezra Bridger - Attuned With Life",
     "type": "Unit",
     "hp": null,
@@ -740,7 +740,7 @@
     ]
   },
   "fallenjedi": {
-    "image": "LOF\\Fallen_Jedi.png",
+    "image": "LOF/Fallen_Jedi.png",
     "name": "Fallen Jedi",
     "type": "Unit",
     "hp": null,
@@ -749,7 +749,7 @@
     ]
   },
   "flightoftheinquisitor": {
-    "image": "LOF\\Flight_of_the_Inquisitor.png",
+    "image": "LOF/Flight_of_the_Inquisitor.png",
     "name": "Flight of the Inquisitor",
     "type": "Event",
     "hp": null,
@@ -758,7 +758,7 @@
     ]
   },
   "focusdeterminesreality": {
-    "image": "LOF\\Focus_Determines_Reality.png",
+    "image": "LOF/Focus_Determines_Reality.png",
     "name": "Focus Determines Reality",
     "type": "Event",
     "hp": null,
@@ -768,7 +768,7 @@
     ]
   },
   "followingthepath": {
-    "image": "LOF\\Following_the_Path.png",
+    "image": "LOF/Following_the_Path.png",
     "name": "Following the Path",
     "type": "Event",
     "hp": null,
@@ -778,7 +778,7 @@
     ]
   },
   "forceillusion": {
-    "image": "LOF\\Force_Illusion.png",
+    "image": "LOF/Force_Illusion.png",
     "name": "Force Illusion",
     "type": "Event",
     "hp": null,
@@ -787,7 +787,7 @@
     ]
   },
   "forceslow": {
-    "image": "LOF\\Force_Slow.png",
+    "image": "LOF/Force_Slow.png",
     "name": "Force Slow",
     "type": "Event",
     "hp": null,
@@ -796,7 +796,7 @@
     ]
   },
   "forcespeed": {
-    "image": "LOF\\Force_Speed.png",
+    "image": "LOF/Force_Speed.png",
     "name": "Force Speed",
     "type": "Event",
     "hp": null,
@@ -806,7 +806,7 @@
     ]
   },
   "forgedstarfighter": {
-    "image": "LOF\\Forged_Starfighter.png",
+    "image": "LOF/Forged_Starfighter.png",
     "name": "Forged Starfighter",
     "type": "Unit",
     "hp": null,
@@ -814,9 +814,9 @@
       "Villainy"
     ]
   },
-  "fortressvadermustafar": {
-    "image": "LOF\\Fortress_Vader - Mustafar.png",
-    "name": "Fortress Vader - Mustafar",
+  "fortressvader": {
+    "image": "LOF/Fortress_Vader - Mustafar.png",
+    "name": "Fortress Vader",
     "type": "Base",
     "hp": "28",
     "aspects": [
@@ -824,21 +824,21 @@
     ]
   },
   "giftedurchin": {
-    "image": "LOF\\Gifted_Urchin.png",
+    "image": "LOF/Gifted_Urchin.png",
     "name": "Gifted Urchin",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "gointohiding": {
-    "image": "LOF\\Go_Into_Hiding.png",
+    "image": "LOF/Go_Into_Hiding.png",
     "name": "Go Into Hiding",
     "type": "Event",
     "hp": null,
     "aspects": []
   },
   "gracefulpurrgil": {
-    "image": "LOF\\Graceful_Purrgil.png",
+    "image": "LOF/Graceful_Purrgil.png",
     "name": "Graceful Purrgil",
     "type": "Unit",
     "hp": null,
@@ -847,7 +847,7 @@
     ]
   },
   "grandinquisitorstoriestravelquickly": {
-    "image": "LOF\\Grand_Inquisitor - Stories_Travel_Quickly.png",
+    "image": "LOF/Grand_Inquisitor - Stories_Travel_Quickly.png",
     "name": "Grand Inquisitor - Stories Travel Quickly",
     "type": "Leader",
     "hp": null,
@@ -857,7 +857,7 @@
     ]
   },
   "grandinquisitorstoriestravelquicklyback": {
-    "image": "LOF\\Grand_Inquisitor - Stories_Travel_Quickly_back.png",
+    "image": "LOF/Grand_Inquisitor - Stories_Travel_Quickly_back.png",
     "name": "Grand Inquisitor - Stories Travel Quickly [Back]",
     "type": "Leader",
     "hp": null,
@@ -867,7 +867,7 @@
     ]
   },
   "grandinquisitoryourerighttobeafraid": {
-    "image": "LOF\\Grand_Inquisitor - Youre_Right_to_Be_Afraid.png",
+    "image": "LOF/Grand_Inquisitor - Youre_Right_to_Be_Afraid.png",
     "name": "Grand Inquisitor - You're Right to Be Afraid",
     "type": "Unit",
     "hp": null,
@@ -877,7 +877,7 @@
     ]
   },
   "grapplingguardian": {
-    "image": "LOF\\Grappling_Guardian.png",
+    "image": "LOF/Grappling_Guardian.png",
     "name": "Grappling Guardian",
     "type": "Unit",
     "hp": null,
@@ -886,7 +886,7 @@
     ]
   },
   "grogumysteriouschild": {
-    "image": "LOF\\Grogu - Mysterious_Child.png",
+    "image": "LOF/Grogu - Mysterious_Child.png",
     "name": "Grogu - Mysterious Child",
     "type": "Unit",
     "hp": null,
@@ -895,7 +895,7 @@
     ]
   },
   "guardianofthewhills": {
-    "image": "LOF\\Guardian_of_the_Whills.png",
+    "image": "LOF/Guardian_of_the_Whills.png",
     "name": "Guardian of the Whills",
     "type": "Unit",
     "hp": null,
@@ -904,7 +904,7 @@
     ]
   },
   "gunganwarrior": {
-    "image": "LOF\\Gungan_Warrior.png",
+    "image": "LOF/Gungan_Warrior.png",
     "name": "Gungan Warrior",
     "type": "Unit",
     "hp": null,
@@ -913,7 +913,7 @@
     ]
   },
   "gungifindinghimself": {
-    "image": "LOF\\Gungi - Finding_Himself.png",
+    "image": "LOF/Gungi - Finding_Himself.png",
     "name": "Gungi - Finding Himself",
     "type": "Unit",
     "hp": null,
@@ -923,7 +923,7 @@
     ]
   },
   "hk47exclamationdiemeatbag": {
-    "image": "LOF\\HK-47 - Exclamation_Die_Meatbag.png",
+    "image": "LOF/HK-47 - Exclamation_Die_Meatbag.png",
     "name": "HK-47 - Exclamation: Die, Meatbag!",
     "type": "Unit",
     "hp": null,
@@ -933,7 +933,7 @@
     ]
   },
   "hk87assassindroid": {
-    "image": "LOF\\HK-87_Assassin_Droid.png",
+    "image": "LOF/HK-87_Assassin_Droid.png",
     "name": "HK-87 Assassin Droid",
     "type": "Unit",
     "hp": null,
@@ -942,7 +942,7 @@
     ]
   },
   "heavyblastercannon": {
-    "image": "LOF\\Heavy_Blaster_Cannon.png",
+    "image": "LOF/Heavy_Blaster_Cannon.png",
     "name": "Heavy Blaster Cannon",
     "type": "Upgrade",
     "hp": null,
@@ -951,7 +951,7 @@
     ]
   },
   "heavymissilegunship": {
-    "image": "LOF\\Heavy_Missile_Gunship.png",
+    "image": "LOF/Heavy_Missile_Gunship.png",
     "name": "Heavy Missile Gunship",
     "type": "Unit",
     "hp": null,
@@ -961,7 +961,7 @@
     ]
   },
   "heirloomlightsaber": {
-    "image": "LOF\\Heirloom_Lightsaber.png",
+    "image": "LOF/Heirloom_Lightsaber.png",
     "name": "Heirloom Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -971,7 +971,7 @@
     ]
   },
   "hivedefensewing": {
-    "image": "LOF\\Hive_Defense_Wing.png",
+    "image": "LOF/Hive_Defense_Wing.png",
     "name": "Hive Defense Wing",
     "type": "Unit",
     "hp": null,
@@ -980,7 +980,7 @@
     ]
   },
   "huntingnexu": {
-    "image": "LOF\\Hunting_Nexu.png",
+    "image": "LOF/Hunting_Nexu.png",
     "name": "Hunting Nexu",
     "type": "Unit",
     "hp": null,
@@ -989,7 +989,7 @@
     ]
   },
   "hyenabomber": {
-    "image": "LOF\\Hyena_Bomber.png",
+    "image": "LOF/Hyena_Bomber.png",
     "name": "Hyena Bomber",
     "type": "Unit",
     "hp": null,
@@ -998,7 +998,7 @@
     ]
   },
   "hyperspacewayfarer": {
-    "image": "LOF\\Hyperspace_Wayfarer.png",
+    "image": "LOF/Hyperspace_Wayfarer.png",
     "name": "Hyperspace Wayfarer",
     "type": "Unit",
     "hp": null,
@@ -1007,7 +1007,7 @@
     ]
   },
   "impossibleescape": {
-    "image": "LOF\\Impossible_Escape.png",
+    "image": "LOF/Impossible_Escape.png",
     "name": "Impossible Escape",
     "type": "Event",
     "hp": null,
@@ -1016,7 +1016,7 @@
     ]
   },
   "intheshadows": {
-    "image": "LOF\\In_the_Shadows.png",
+    "image": "LOF/In_the_Shadows.png",
     "name": "In the Shadows",
     "type": "Event",
     "hp": null,
@@ -1025,7 +1025,7 @@
     ]
   },
   "infusedbrawler": {
-    "image": "LOF\\Infused_Brawler.png",
+    "image": "LOF/Infused_Brawler.png",
     "name": "Infused Brawler ",
     "type": "Unit",
     "hp": null,
@@ -1034,7 +1034,7 @@
     ]
   },
   "inquisitorslightsaber": {
-    "image": "LOF\\Inquisitors_Lightsaber.png",
+    "image": "LOF/Inquisitors_Lightsaber.png",
     "name": "Inquisitor's Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -1044,7 +1044,7 @@
     ]
   },
   "invasioncontrolship": {
-    "image": "LOF\\Invasion_Control_Ship.png",
+    "image": "LOF/Invasion_Control_Ship.png",
     "name": "Invasion Control Ship",
     "type": "Unit",
     "hp": null,
@@ -1053,14 +1053,14 @@
     ]
   },
   "itsworse": {
-    "image": "LOF\\Its_Worse.png",
+    "image": "LOF/Its_Worse.png",
     "name": "It's Worse",
     "type": "Event",
     "hp": null,
     "aspects": []
   },
   "itinerantwarrior": {
-    "image": "LOF\\Itinerant_Warrior.png",
+    "image": "LOF/Itinerant_Warrior.png",
     "name": "Itinerant Warrior",
     "type": "Unit",
     "hp": null,
@@ -1070,7 +1070,7 @@
     ]
   },
   "jtypenubianstarship": {
-    "image": "LOF\\J-Type_Nubian_Starship.png",
+    "image": "LOF/J-Type_Nubian_Starship.png",
     "name": "J-Type Nubian Starship",
     "type": "Unit",
     "hp": null,
@@ -1080,7 +1080,7 @@
     ]
   },
   "jediconsular": {
-    "image": "LOF\\Jedi_Consular.png",
+    "image": "LOF/Jedi_Consular.png",
     "name": "Jedi Consular",
     "type": "Unit",
     "hp": null,
@@ -1090,7 +1090,7 @@
     ]
   },
   "jediguardian": {
-    "image": "LOF\\Jedi_Guardian.png",
+    "image": "LOF/Jedi_Guardian.png",
     "name": "Jedi Guardian",
     "type": "Unit",
     "hp": null,
@@ -1100,7 +1100,7 @@
     ]
   },
   "jediholocron": {
-    "image": "LOF\\Jedi_Holocron.png",
+    "image": "LOF/Jedi_Holocron.png",
     "name": "Jedi Holocron",
     "type": "Upgrade",
     "hp": null,
@@ -1110,7 +1110,7 @@
     ]
   },
   "jediinhiding": {
-    "image": "LOF\\Jedi_In_Hiding.png",
+    "image": "LOF/Jedi_In_Hiding.png",
     "name": "Jedi In Hiding",
     "type": "Unit",
     "hp": null,
@@ -1119,7 +1119,7 @@
     ]
   },
   "jediknight": {
-    "image": "LOF\\Jedi_Knight.png",
+    "image": "LOF/Jedi_Knight.png",
     "name": "Jedi Knight",
     "type": "Unit",
     "hp": null,
@@ -1129,7 +1129,7 @@
     ]
   },
   "jedisentinel": {
-    "image": "LOF\\Jedi_Sentinel.png",
+    "image": "LOF/Jedi_Sentinel.png",
     "name": "Jedi Sentinel",
     "type": "Unit",
     "hp": null,
@@ -1139,7 +1139,7 @@
     ]
   },
   "jedistarfighter": {
-    "image": "LOF\\Jedi_Starfighter.png",
+    "image": "LOF/Jedi_Starfighter.png",
     "name": "Jedi Starfighter",
     "type": "Unit",
     "hp": null,
@@ -1148,9 +1148,9 @@
       "Heroism"
     ]
   },
-  "jeditemplecoruscant": {
-    "image": "LOF\\Jedi_Temple - Coruscant.png",
-    "name": "Jedi Temple - Coruscant",
+  "jeditemple": {
+    "image": "LOF/Jedi_Temple - Coruscant.png",
+    "name": "Jedi Temple",
     "type": "Base",
     "hp": "28",
     "aspects": [
@@ -1158,7 +1158,7 @@
     ]
   },
   "jeditempleguards": {
-    "image": "LOF\\Jedi_Temple_Guards.png",
+    "image": "LOF/Jedi_Temple_Guards.png",
     "name": "Jedi Temple Guards",
     "type": "Unit",
     "hp": null,
@@ -1167,7 +1167,7 @@
     ]
   },
   "jeditrials": {
-    "image": "LOF\\Jedi_Trials.png",
+    "image": "LOF/Jedi_Trials.png",
     "name": "Jedi Trials",
     "type": "Upgrade",
     "hp": null,
@@ -1177,7 +1177,7 @@
     ]
   },
   "jedivector": {
-    "image": "LOF\\Jedi_Vector.png",
+    "image": "LOF/Jedi_Vector.png",
     "name": "Jedi Vector",
     "type": "Unit",
     "hp": null,
@@ -1186,7 +1186,7 @@
     ]
   },
   "jocastanuthegiftofknowledge": {
-    "image": "LOF\\Jocasta_Nu - The_Gift_of_Knowledge.png",
+    "image": "LOF/Jocasta_Nu - The_Gift_of_Knowledge.png",
     "name": "Jocasta Nu - The Gift of Knowledge",
     "type": "Unit",
     "hp": null,
@@ -1195,7 +1195,7 @@
     ]
   },
   "kaadu": {
-    "image": "LOF\\Kaadu.png",
+    "image": "LOF/Kaadu.png",
     "name": "Kaadu",
     "type": "Unit",
     "hp": null,
@@ -1204,7 +1204,7 @@
     ]
   },
   "kananjarrushelpussurvive": {
-    "image": "LOF\\Kanan_Jarrus - Help_Us_Survive.png",
+    "image": "LOF/Kanan_Jarrus - Help_Us_Survive.png",
     "name": "Kanan Jarrus - Help Us Survive",
     "type": "Leader",
     "hp": null,
@@ -1214,7 +1214,7 @@
     ]
   },
   "kananjarrushelpussurviveback": {
-    "image": "LOF\\Kanan_Jarrus - Help_Us_Survive_back.png",
+    "image": "LOF/Kanan_Jarrus - Help_Us_Survive_back.png",
     "name": "Kanan Jarrus - Help Us Survive [Back]",
     "type": "Leader",
     "hp": null,
@@ -1224,7 +1224,7 @@
     ]
   },
   "kariswedontlikestrangers": {
-    "image": "LOF\\Karis - We_Dont_Like_Strangers.png",
+    "image": "LOF/Karis - We_Dont_Like_Strangers.png",
     "name": "Karis - We Don't Like Strangers",
     "type": "Unit",
     "hp": null,
@@ -1234,7 +1234,7 @@
     ]
   },
   "kelleranbeqthesaberedhand": {
-    "image": "LOF\\Kelleran_Beq - The_Sabered_Hand.png",
+    "image": "LOF/Kelleran_Beq - The_Sabered_Hand.png",
     "name": "Kelleran Beq - The Sabered Hand",
     "type": "Unit",
     "hp": null,
@@ -1244,7 +1244,7 @@
     ]
   },
   "kiadimundiwemustpushon": {
-    "image": "LOF\\Ki-Adi-Mundi - We_Must_Push_On.png",
+    "image": "LOF/Ki-Adi-Mundi - We_Must_Push_On.png",
     "name": "Ki-Adi-Mundi - We Must Push On",
     "type": "Unit",
     "hp": null,
@@ -1254,7 +1254,7 @@
     ]
   },
   "kitfistofocusedjedimaster": {
-    "image": "LOF\\Kit_Fisto - Focused_Jedi_Master.png",
+    "image": "LOF/Kit_Fisto - Focused_Jedi_Master.png",
     "name": "Kit Fisto - Focused Jedi Master",
     "type": "Leader",
     "hp": null,
@@ -1264,7 +1264,7 @@
     ]
   },
   "kitfistofocusedjedimasterback": {
-    "image": "LOF\\Kit_Fisto - Focused_Jedi_Master_back.png",
+    "image": "LOF/Kit_Fisto - Focused_Jedi_Master_back.png",
     "name": "Kit Fisto - Focused Jedi Master [Back]",
     "type": "Leader",
     "hp": null,
@@ -1274,7 +1274,7 @@
     ]
   },
   "kitfistosaetherspritegoodhunting": {
-    "image": "LOF\\Kit_Fistos_Aethersprite - Good_Hunting.png",
+    "image": "LOF/Kit_Fistos_Aethersprite - Good_Hunting.png",
     "name": "Kit Fisto's Aethersprite - Good Hunting",
     "type": "Unit",
     "hp": null,
@@ -1284,7 +1284,7 @@
     ]
   },
   "knightofren": {
-    "image": "LOF\\Knight_of_Ren.png",
+    "image": "LOF/Knight_of_Ren.png",
     "name": "Knight of Ren",
     "type": "Unit",
     "hp": null,
@@ -1294,7 +1294,7 @@
     ]
   },
   "knightssaber": {
-    "image": "LOF\\Knights_Saber.png",
+    "image": "LOF/Knights_Saber.png",
     "name": "Knight's Saber",
     "type": "Upgrade",
     "hp": null,
@@ -1304,14 +1304,14 @@
     ]
   },
   "kowakianmonkeylizard": {
-    "image": "LOF\\Kowakian_Monkey-Lizard.png",
+    "image": "LOF/Kowakian_Monkey-Lizard.png",
     "name": "Kowakian Monkey-Lizard",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "kylorenwerenotdoneyet": {
-    "image": "LOF\\Kylo_Ren - Were_Not_Done_Yet.png",
+    "image": "LOF/Kylo_Ren - Were_Not_Done_Yet.png",
     "name": "Kylo Ren - We're Not Done Yet",
     "type": "Leader",
     "hp": null,
@@ -1321,7 +1321,7 @@
     ]
   },
   "kylorenwerenotdoneyetback": {
-    "image": "LOF\\Kylo_Ren - Were_Not_Done_Yet_back.png",
+    "image": "LOF/Kylo_Ren - Were_Not_Done_Yet_back.png",
     "name": "Kylo Ren - We're Not Done Yet [Back]",
     "type": "Leader",
     "hp": null,
@@ -1331,7 +1331,7 @@
     ]
   },
   "kyloreniknowyourstory": {
-    "image": "LOF\\Kylo_Ren - I_Know_Your_Story.png",
+    "image": "LOF/Kylo_Ren - I_Know_Your_Story.png",
     "name": "Kylo Ren - I Know Your Story",
     "type": "Unit",
     "hp": null,
@@ -1340,7 +1340,7 @@
     ]
   },
   "kylorenslightsaber": {
-    "image": "LOF\\Kylo_Rens_Lightsaber.png",
+    "image": "LOF/Kylo_Rens_Lightsaber.png",
     "name": "Kylo Ren's Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -1350,14 +1350,14 @@
     ]
   },
   "lastwords": {
-    "image": "LOF\\Last_Words.png",
+    "image": "LOF/Last_Words.png",
     "name": "Last Words",
     "type": "Event",
     "hp": null,
     "aspects": []
   },
   "leiaorganaextraordinary": {
-    "image": "LOF\\Leia_Organa - Extraordinary.png",
+    "image": "LOF/Leia_Organa - Extraordinary.png",
     "name": "Leia Organa - Extraordinary",
     "type": "Unit",
     "hp": null,
@@ -1367,7 +1367,7 @@
     ]
   },
   "liberatedbydarkness": {
-    "image": "LOF\\Liberated_by_Darkness.png",
+    "image": "LOF/Liberated_by_Darkness.png",
     "name": "Liberated by Darkness",
     "type": "Event",
     "hp": null,
@@ -1377,7 +1377,7 @@
     ]
   },
   "lifewindsage": {
-    "image": "LOF\\Life_Wind_Sage.png",
+    "image": "LOF/Life_Wind_Sage.png",
     "name": "Life Wind Sage",
     "type": "Unit",
     "hp": null,
@@ -1386,7 +1386,7 @@
     ]
   },
   "lightsaberthrow": {
-    "image": "LOF\\Lightsaber_Throw.png",
+    "image": "LOF/Lightsaber_Throw.png",
     "name": "Lightsaber Throw",
     "type": "Event",
     "hp": null,
@@ -1395,7 +1395,7 @@
     ]
   },
   "longbeamcruiser": {
-    "image": "LOF\\Longbeam_Cruiser.png",
+    "image": "LOF/Longbeam_Cruiser.png",
     "name": "Longbeam Cruiser",
     "type": "Unit",
     "hp": null,
@@ -1404,7 +1404,7 @@
     ]
   },
   "lorsantekkasecretkeeper": {
-    "image": "LOF\\Lor_San_Tekka - Secret_Keeper.png",
+    "image": "LOF/Lor_San_Tekka - Secret_Keeper.png",
     "name": "Lor San Tekka - Secret Keeper",
     "type": "Unit",
     "hp": null,
@@ -1414,7 +1414,7 @@
     ]
   },
   "lothcat": {
-    "image": "LOF\\Loth-Cat.png",
+    "image": "LOF/Loth-Cat.png",
     "name": "Loth-Cat",
     "type": "Unit",
     "hp": null,
@@ -1423,7 +1423,7 @@
     ]
   },
   "lothwolf": {
-    "image": "LOF\\Loth-Wolf.png",
+    "image": "LOF/Loth-Wolf.png",
     "name": "Loth-Wolf",
     "type": "Unit",
     "hp": null,
@@ -1433,7 +1433,7 @@
     ]
   },
   "lukeskywalkeraherosbeginning": {
-    "image": "LOF\\Luke_Skywalker - A_Heros_Beginning.png",
+    "image": "LOF/Luke_Skywalker - A_Heros_Beginning.png",
     "name": "Luke Skywalker - A Hero's Beginning",
     "type": "Unit",
     "hp": null,
@@ -1442,7 +1442,7 @@
     ]
   },
   "luminousbeings": {
-    "image": "LOF\\Luminous_Beings.png",
+    "image": "LOF/Luminous_Beings.png",
     "name": "Luminous Beings",
     "type": "Event",
     "hp": null,
@@ -1452,7 +1452,7 @@
     ]
   },
   "luthenraelmasqueradingantiquarian": {
-    "image": "LOF\\Luthen_Rael - Masquerading_Antiquarian.png",
+    "image": "LOF/Luthen_Rael - Masquerading_Antiquarian.png",
     "name": "Luthen Rael - Masquerading Antiquarian",
     "type": "Unit",
     "hp": null,
@@ -1461,7 +1461,7 @@
     ]
   },
   "macewinduleapingintoaction": {
-    "image": "LOF\\Mace_Windu - Leaping_into_Action.png",
+    "image": "LOF/Mace_Windu - Leaping_into_Action.png",
     "name": "Mace Windu - Leaping into Action",
     "type": "Unit",
     "hp": null,
@@ -1471,7 +1471,7 @@
     ]
   },
   "magistratesscout": {
-    "image": "LOF\\Magistrates_Scout.png",
+    "image": "LOF/Magistrates_Scout.png",
     "name": "Magistrate's Scout",
     "type": "Unit",
     "hp": null,
@@ -1481,7 +1481,7 @@
     ]
   },
   "malakililovingrancorkeeper": {
-    "image": "LOF\\Malakili - Loving_Rancor_Keeper.png",
+    "image": "LOF/Malakili - Loving_Rancor_Keeper.png",
     "name": "Malakili - Loving Rancor Keeper",
     "type": "Unit",
     "hp": null,
@@ -1490,7 +1490,7 @@
     ]
   },
   "marchionroeyeofthenihil": {
-    "image": "LOF\\Marchion_Ro - Eye_of_the_Nihil.png",
+    "image": "LOF/Marchion_Ro - Eye_of_the_Nihil.png",
     "name": "Marchion Ro - Eye of the Nihil",
     "type": "Unit",
     "hp": null,
@@ -1500,7 +1500,7 @@
     ]
   },
   "mazkanatathelightguides": {
-    "image": "LOF\\Maz_Kanata - The_Light_Guides.png",
+    "image": "LOF/Maz_Kanata - The_Light_Guides.png",
     "name": "Maz Kanata - The Light Guides",
     "type": "Unit",
     "hp": null,
@@ -1509,7 +1509,7 @@
     ]
   },
   "medicalfrigate": {
-    "image": "LOF\\Medical_Frigate.png",
+    "image": "LOF/Medical_Frigate.png",
     "name": "Medical Frigate",
     "type": "Unit",
     "hp": null,
@@ -1518,7 +1518,7 @@
     ]
   },
   "merrinalonewiththedead": {
-    "image": "LOF\\Merrin - Alone_with_the_Dead.png",
+    "image": "LOF/Merrin - Alone_with_the_Dead.png",
     "name": "Merrin - Alone with the Dead",
     "type": "Unit",
     "hp": null,
@@ -1527,7 +1527,7 @@
     ]
   },
   "mindtrick": {
-    "image": "LOF\\Mind_Trick.png",
+    "image": "LOF/Mind_Trick.png",
     "name": "Mind Trick",
     "type": "Event",
     "hp": null,
@@ -1537,7 +1537,7 @@
     ]
   },
   "morganelsbethfollowingthecall": {
-    "image": "LOF\\Morgan_Elsbeth - Following_the_Call.png",
+    "image": "LOF/Morgan_Elsbeth - Following_the_Call.png",
     "name": "Morgan Elsbeth - Following the Call",
     "type": "Leader",
     "hp": null,
@@ -1547,7 +1547,7 @@
     ]
   },
   "morganelsbethfollowingthecallback": {
-    "image": "LOF\\Morgan_Elsbeth - Following_the_Call_back.png",
+    "image": "LOF/Morgan_Elsbeth - Following_the_Call_back.png",
     "name": "Morgan Elsbeth - Following the Call [Back]",
     "type": "Leader",
     "hp": null,
@@ -1557,7 +1557,7 @@
     ]
   },
   "mothertalzinpowerthroughmagick": {
-    "image": "LOF\\Mother_Talzin - Power_Through_Magick.png",
+    "image": "LOF/Mother_Talzin - Power_Through_Magick.png",
     "name": "Mother Talzin - Power Through Magick",
     "type": "Leader",
     "hp": null,
@@ -1567,7 +1567,7 @@
     ]
   },
   "mothertalzinpowerthroughmagickback": {
-    "image": "LOF\\Mother_Talzin - Power_Through_Magick_back.png",
+    "image": "LOF/Mother_Talzin - Power_Through_Magick_back.png",
     "name": "Mother Talzin - Power Through Magick [Back]",
     "type": "Leader",
     "hp": null,
@@ -1577,7 +1577,7 @@
     ]
   },
   "mynock": {
-    "image": "LOF\\Mynock.png",
+    "image": "LOF/Mynock.png",
     "name": "Mynock",
     "type": "Unit",
     "hp": null,
@@ -1586,7 +1586,7 @@
     ]
   },
   "mysterioushermit": {
-    "image": "LOF\\Mysterious_Hermit.png",
+    "image": "LOF/Mysterious_Hermit.png",
     "name": "Mysterious Hermit",
     "type": "Unit",
     "hp": null,
@@ -1594,9 +1594,9 @@
       "Cunning"
     ]
   },
-  "mysticmonasterymortis": {
-    "image": "LOF\\Mystic_Monastery - Mortis.png",
-    "name": "Mystic Monastery - Mortis",
+  "mysticmonastery": {
+    "image": "LOF/Mystic_Monastery - Mortis.png",
+    "name": "Mystic Monastery",
     "type": "Base",
     "hp": "25",
     "aspects": [
@@ -1604,7 +1604,7 @@
     ]
   },
   "mythosaurfolkloreawakened": {
-    "image": "LOF\\Mythosaur - Folklore_Awakened.png",
+    "image": "LOF/Mythosaur - Folklore_Awakened.png",
     "name": "Mythosaur - Folklore Awakened",
     "type": "Unit",
     "hp": null,
@@ -1613,7 +1613,7 @@
     ]
   },
   "n1starfighter": {
-    "image": "LOF\\N-1_Starfighter.png",
+    "image": "LOF/N-1_Starfighter.png",
     "name": "N-1 Starfighter",
     "type": "Unit",
     "hp": null,
@@ -1623,7 +1623,7 @@
     ]
   },
   "namelessterror": {
-    "image": "LOF\\Nameless_Terror.png",
+    "image": "LOF/Nameless_Terror.png",
     "name": "Nameless Terror",
     "type": "Unit",
     "hp": null,
@@ -1632,9 +1632,9 @@
       "Villainy"
     ]
   },
-  "nightsisterlairdathomir": {
-    "image": "LOF\\Nightsister_Lair - Dathomir.png",
-    "name": "Nightsister Lair - Dathomir",
+  "nightsisterlair": {
+    "image": "LOF/Nightsister_Lair - Dathomir.png",
+    "name": "Nightsister Lair",
     "type": "Base",
     "hp": "28",
     "aspects": [
@@ -1642,7 +1642,7 @@
     ]
   },
   "nightsisterwarrior": {
-    "image": "LOF\\Nightsister_Warrior.png",
+    "image": "LOF/Nightsister_Warrior.png",
     "name": "Nightsister Warrior",
     "type": "Unit",
     "hp": null,
@@ -1651,7 +1651,7 @@
     ]
   },
   "nihilmarauder": {
-    "image": "LOF\\Nihil_Marauder.png",
+    "image": "LOF/Nihil_Marauder.png",
     "name": "Nihil Marauder",
     "type": "Unit",
     "hp": null,
@@ -1661,7 +1661,7 @@
     ]
   },
   "nimanstrike": {
-    "image": "LOF\\Niman_Strike.png",
+    "image": "LOF/Niman_Strike.png",
     "name": "Niman Strike",
     "type": "Event",
     "hp": null,
@@ -1670,7 +1670,7 @@
     ]
   },
   "obiwankenobicouragemakesheroes": {
-    "image": "LOF\\Obi-Wan_Kenobi - Courage_Makes_Heroes.png",
+    "image": "LOF/Obi-Wan_Kenobi - Courage_Makes_Heroes.png",
     "name": "Obi-Wan Kenobi - Courage Makes Heroes",
     "type": "Leader",
     "hp": null,
@@ -1680,7 +1680,7 @@
     ]
   },
   "obiwankenobicouragemakesheroesback": {
-    "image": "LOF\\Obi-Wan_Kenobi - Courage_Makes_Heroes_back.png",
+    "image": "LOF/Obi-Wan_Kenobi - Courage_Makes_Heroes_back.png",
     "name": "Obi-Wan Kenobi - Courage Makes Heroes [Back]",
     "type": "Leader",
     "hp": null,
@@ -1690,7 +1690,7 @@
     ]
   },
   "obiwankenobiprotectivepadawan": {
-    "image": "LOF\\Obi-Wan_Kenobi - Protective_Padawan.png",
+    "image": "LOF/Obi-Wan_Kenobi - Protective_Padawan.png",
     "name": "Obi-Wan Kenobi - Protective Padawan",
     "type": "Unit",
     "hp": null,
@@ -1700,7 +1700,7 @@
     ]
   },
   "oggdobogdoboganobrute": {
-    "image": "LOF\\Oggdo_Bogdo - Bogano_Brute.png",
+    "image": "LOF/Oggdo_Bogdo - Bogano_Brute.png",
     "name": "Oggdo Bogdo - Bogano Brute",
     "type": "Unit",
     "hp": null,
@@ -1709,7 +1709,7 @@
     ]
   },
   "olddakaoldestandwisest": {
-    "image": "LOF\\Old_Daka - Oldest_and_Wisest.png",
+    "image": "LOF/Old_Daka - Oldest_and_Wisest.png",
     "name": "Old Daka - Oldest and Wisest",
     "type": "Unit",
     "hp": null,
@@ -1719,7 +1719,7 @@
     ]
   },
   "opporancisisancientcouncilor": {
-    "image": "LOF\\Oppo_Rancisis - Ancient_Councilor.png",
+    "image": "LOF/Oppo_Rancisis - Ancient_Councilor.png",
     "name": "Oppo Rancisis - Ancient Councilor",
     "type": "Unit",
     "hp": null,
@@ -1729,7 +1729,7 @@
     ]
   },
   "outerrimmystic": {
-    "image": "LOF\\Outer_Rim_Mystic.png",
+    "image": "LOF/Outer_Rim_Mystic.png",
     "name": "Outer Rim Mystic",
     "type": "Unit",
     "hp": null,
@@ -1738,7 +1738,7 @@
     ]
   },
   "overpower": {
-    "image": "LOF\\Overpower.png",
+    "image": "LOF/Overpower.png",
     "name": "Overpower",
     "type": "Event",
     "hp": null,
@@ -1747,7 +1747,7 @@
     ]
   },
   "owenlarsdevoteduncle": {
-    "image": "LOF\\Owen_Lars - Devoted_Uncle.png",
+    "image": "LOF/Owen_Lars - Devoted_Uncle.png",
     "name": "Owen Lars - Devoted Uncle",
     "type": "Unit",
     "hp": null,
@@ -1756,7 +1756,7 @@
     ]
   },
   "padawanstarfighter": {
-    "image": "LOF\\Padawan_Starfighter.png",
+    "image": "LOF/Padawan_Starfighter.png",
     "name": "Padawan Starfighter",
     "type": "Unit",
     "hp": null,
@@ -1765,7 +1765,7 @@
     ]
   },
   "paladintrainingcorvette": {
-    "image": "LOF\\Paladin_Training_Corvette.png",
+    "image": "LOF/Paladin_Training_Corvette.png",
     "name": "Paladin Training Corvette",
     "type": "Unit",
     "hp": null,
@@ -1775,7 +1775,7 @@
     ]
   },
   "pazvizslaunyieldingwarrior": {
-    "image": "LOF\\Paz_Vizsla - Unyielding_Warrior.png",
+    "image": "LOF/Paz_Vizsla - Unyielding_Warrior.png",
     "name": "Paz Vizsla - Unyielding Warrior",
     "type": "Unit",
     "hp": null,
@@ -1785,14 +1785,14 @@
     ]
   },
   "pelimottoishouldchargeyoumore": {
-    "image": "LOF\\Peli_Motto - I_Should_Charge_You_More.png",
+    "image": "LOF/Peli_Motto - I_Should_Charge_You_More.png",
     "name": "Peli Motto - I Should Charge You More",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "pilliostarcompass": {
-    "image": "LOF\\Pillio_Star_Compass.png",
+    "image": "LOF/Pillio_Star_Compass.png",
     "name": "Pillio Star Compass",
     "type": "Upgrade",
     "hp": null,
@@ -1801,7 +1801,7 @@
     ]
   },
   "plokoonidontbelieveinchance": {
-    "image": "LOF\\Plo_Koon - I_Dont_Believe_in_Chance.png",
+    "image": "LOF/Plo_Koon - I_Dont_Believe_in_Chance.png",
     "name": "Plo Koon - I Don't Believe in Chance",
     "type": "Unit",
     "hp": null,
@@ -1811,7 +1811,7 @@
     ]
   },
   "pointrainreclaimer": {
-    "image": "LOF\\Point_Rain_Reclaimer.png",
+    "image": "LOF/Point_Rain_Reclaimer.png",
     "name": "Point Rain Reclaimer",
     "type": "Unit",
     "hp": null,
@@ -1821,7 +1821,7 @@
     ]
   },
   "pongkrellitstreasonthen": {
-    "image": "LOF\\Pong_Krell - Its_Treason_Then.png",
+    "image": "LOF/Pong_Krell - Its_Treason_Then.png",
     "name": "Pong Krell - It's Treason, Then",
     "type": "Unit",
     "hp": null,
@@ -1831,14 +1831,14 @@
     ]
   },
   "porg": {
-    "image": "LOF\\Porg.png",
+    "image": "LOF/Porg.png",
     "name": "Porg",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "pounce": {
-    "image": "LOF\\Pounce.png",
+    "image": "LOF/Pounce.png",
     "name": "Pounce",
     "type": "Event",
     "hp": null,
@@ -1847,7 +1847,7 @@
     ]
   },
   "praetorianguard": {
-    "image": "LOF\\Praetorian_Guard.png",
+    "image": "LOF/Praetorian_Guard.png",
     "name": "Praetorian Guard",
     "type": "Unit",
     "hp": null,
@@ -1857,7 +1857,7 @@
     ]
   },
   "premonitionofdoom": {
-    "image": "LOF\\Premonition_of_Doom.png",
+    "image": "LOF/Premonition_of_Doom.png",
     "name": "Premonition of Doom",
     "type": "Event",
     "hp": null,
@@ -1867,7 +1867,7 @@
     ]
   },
   "priestessesoftheforceeternal": {
-    "image": "LOF\\Priestesses_of_the_Force - Eternal.png",
+    "image": "LOF/Priestesses_of_the_Force - Eternal.png",
     "name": "Priestesses of the Force - Eternal",
     "type": "Unit",
     "hp": null,
@@ -1876,7 +1876,7 @@
     ]
   },
   "protectthepod": {
-    "image": "LOF\\Protect_the_Pod.png",
+    "image": "LOF/Protect_the_Pod.png",
     "name": "Protect the Pod",
     "type": "Event",
     "hp": null,
@@ -1885,7 +1885,7 @@
     ]
   },
   "psychometry": {
-    "image": "LOF\\Psychometry.png",
+    "image": "LOF/Psychometry.png",
     "name": "Psychometry",
     "type": "Event",
     "hp": null,
@@ -1894,7 +1894,7 @@
     ]
   },
   "purgetrooper": {
-    "image": "LOF\\Purge_Trooper.png",
+    "image": "LOF/Purge_Trooper.png",
     "name": "Purge Trooper",
     "type": "Unit",
     "hp": null,
@@ -1904,7 +1904,7 @@
     ]
   },
   "quigonjinnstudentofthelivingforce": {
-    "image": "LOF\\Qui-Gon_Jinn - Student_of_the_Living_Force.png",
+    "image": "LOF/Qui-Gon_Jinn - Student_of_the_Living_Force.png",
     "name": "Qui-Gon Jinn - Student of the Living Force",
     "type": "Leader",
     "hp": null,
@@ -1914,7 +1914,7 @@
     ]
   },
   "quigonjinnstudentofthelivingforceback": {
-    "image": "LOF\\Qui-Gon_Jinn - Student_of_the_Living_Force_back.png",
+    "image": "LOF/Qui-Gon_Jinn - Student_of_the_Living_Force_back.png",
     "name": "Qui-Gon Jinn - Student of the Living Force [Back]",
     "type": "Leader",
     "hp": null,
@@ -1924,7 +1924,7 @@
     ]
   },
   "quigonjinnthenegotiationswillbeshort": {
-    "image": "LOF\\Qui-Gon_Jinn - The_Negotiations_will_be_Short.png",
+    "image": "LOF/Qui-Gon_Jinn - The_Negotiations_will_be_Short.png",
     "name": "Qui-Gon Jinn - The Negotiations will be Short",
     "type": "Unit",
     "hp": null,
@@ -1934,7 +1934,7 @@
     ]
   },
   "quigonjinnsaetherspriteguidedbytheforce": {
-    "image": "LOF\\Qui-Gon_Jinns_Aethersprite - Guided_by_the_Force.png",
+    "image": "LOF/Qui-Gon_Jinns_Aethersprite - Guided_by_the_Force.png",
     "name": "Qui-Gon Jinn's Aethersprite - Guided by the Force",
     "type": "Unit",
     "hp": null,
@@ -1944,7 +1944,7 @@
     ]
   },
   "quigonjinnslightsaber": {
-    "image": "LOF\\Qui-Gon_Jinns_Lightsaber.png",
+    "image": "LOF/Qui-Gon_Jinns_Lightsaber.png",
     "name": "Qui-Gon Jinn's Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -1954,7 +1954,7 @@
     ]
   },
   "quinlanvosdarkdisciple": {
-    "image": "LOF\\Quinlan_Vos - Dark_Disciple.png",
+    "image": "LOF/Quinlan_Vos - Dark_Disciple.png",
     "name": "Quinlan Vos - Dark Disciple",
     "type": "Unit",
     "hp": null,
@@ -1963,7 +1963,7 @@
     ]
   },
   "rampage": {
-    "image": "LOF\\Rampage.png",
+    "image": "LOF/Rampage.png",
     "name": "Rampage",
     "type": "Event",
     "hp": null,
@@ -1972,14 +1972,14 @@
     ]
   },
   "raveninggundark": {
-    "image": "LOF\\Ravening_Gundark.png",
+    "image": "LOF/Ravening_Gundark.png",
     "name": "Ravening Gundark",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "ravenousrathtar": {
-    "image": "LOF\\Ravenous_Rathtar.png",
+    "image": "LOF/Ravenous_Rathtar.png",
     "name": "Ravenous Rathtar",
     "type": "Unit",
     "hp": null,
@@ -1988,7 +1988,7 @@
     ]
   },
   "refugeeofthepath": {
-    "image": "LOF\\Refugee_of_The_Path.png",
+    "image": "LOF/Refugee_of_The_Path.png",
     "name": "Refugee of The Path",
     "type": "Unit",
     "hp": null,
@@ -1997,7 +1997,7 @@
     ]
   },
   "relicscavenger": {
-    "image": "LOF\\Relic_Scavenger.png",
+    "image": "LOF/Relic_Scavenger.png",
     "name": "Relic Scavenger",
     "type": "Unit",
     "hp": null,
@@ -2006,7 +2006,7 @@
     ]
   },
   "reynobody": {
-    "image": "LOF\\Rey - Nobody.png",
+    "image": "LOF/Rey - Nobody.png",
     "name": "Rey - Nobody",
     "type": "Leader",
     "hp": null,
@@ -2016,7 +2016,7 @@
     ]
   },
   "reynobodyback": {
-    "image": "LOF\\Rey - Nobody_back.png",
+    "image": "LOF/Rey - Nobody_back.png",
     "name": "Rey - Nobody [Back]",
     "type": "Leader",
     "hp": null,
@@ -2026,7 +2026,7 @@
     ]
   },
   "reywithpalpatinespower": {
-    "image": "LOF\\Rey - With_Palpatines_Power.png",
+    "image": "LOF/Rey - With_Palpatines_Power.png",
     "name": "Rey - With Palpatine's Power",
     "type": "Unit",
     "hp": null,
@@ -2036,7 +2036,7 @@
     ]
   },
   "saeseetiincourageouswarrior": {
-    "image": "LOF\\Saesee_Tiin - Courageous_Warrior.png",
+    "image": "LOF/Saesee_Tiin - Courageous_Warrior.png",
     "name": "Saesee Tiin - Courageous Warrior",
     "type": "Unit",
     "hp": null,
@@ -2045,7 +2045,7 @@
     ]
   },
   "sandtroopercavalry": {
-    "image": "LOF\\Sandtrooper_Cavalry.png",
+    "image": "LOF/Sandtrooper_Cavalry.png",
     "name": "Sandtrooper Cavalry",
     "type": "Unit",
     "hp": null,
@@ -2054,7 +2054,7 @@
     ]
   },
   "savageopressimbuedwithhate": {
-    "image": "LOF\\Savage_Opress - Imbued_With_Hate.png",
+    "image": "LOF/Savage_Opress - Imbued_With_Hate.png",
     "name": "Savage Opress - Imbued With Hate",
     "type": "Unit",
     "hp": null,
@@ -2064,7 +2064,7 @@
     ]
   },
   "scimitarsithinfiltrator": {
-    "image": "LOF\\Scimitar - Sith_Infiltrator.png",
+    "image": "LOF/Scimitar - Sith_Infiltrator.png",
     "name": "Scimitar - Sith Infiltrator",
     "type": "Unit",
     "hp": null,
@@ -2073,7 +2073,7 @@
     ]
   },
   "scytheintimidatingsilhouette": {
-    "image": "LOF\\Scythe - Intimidating_Silhouette.png",
+    "image": "LOF/Scythe - Intimidating_Silhouette.png",
     "name": "Scythe - Intimidating Silhouette",
     "type": "Unit",
     "hp": null,
@@ -2083,7 +2083,7 @@
     ]
   },
   "secondsisterseekingtheholocron": {
-    "image": "LOF\\Second_Sister - Seeking_the_Holocron.png",
+    "image": "LOF/Second_Sister - Seeking_the_Holocron.png",
     "name": "Second Sister - Seeking the Holocron",
     "type": "Unit",
     "hp": null,
@@ -2093,7 +2093,7 @@
     ]
   },
   "secretivesage": {
-    "image": "LOF\\Secretive_Sage.png",
+    "image": "LOF/Secretive_Sage.png",
     "name": "Secretive Sage",
     "type": "Unit",
     "hp": null,
@@ -2101,9 +2101,9 @@
       "Vigilance"
     ]
   },
-  "shadowedundercitycoruscant": {
-    "image": "LOF\\Shadowed_Undercity - Coruscant.png",
-    "name": "Shadowed Undercity - Coruscant",
+  "shadowedundercity": {
+    "image": "LOF/Shadowed_Undercity - Coruscant.png",
+    "name": "Shadowed Undercity",
     "type": "Base",
     "hp": "28",
     "aspects": [
@@ -2111,7 +2111,7 @@
     ]
   },
   "shatterpoint": {
-    "image": "LOF\\Shatterpoint.png",
+    "image": "LOF/Shatterpoint.png",
     "name": "Shatterpoint",
     "type": "Event",
     "hp": null,
@@ -2120,7 +2120,7 @@
     ]
   },
   "shienflurry": {
-    "image": "LOF\\Shien_Flurry.png",
+    "image": "LOF/Shien_Flurry.png",
     "name": "Shien Flurry",
     "type": "Event",
     "hp": null,
@@ -2129,7 +2129,7 @@
     ]
   },
   "shinhatiovereagerapprentice": {
-    "image": "LOF\\Shin_Hati - Overeager_Apprentice.png",
+    "image": "LOF/Shin_Hati - Overeager_Apprentice.png",
     "name": "Shin Hati - Overeager Apprentice",
     "type": "Unit",
     "hp": null,
@@ -2139,7 +2139,7 @@
     ]
   },
   "sifodyas": {
-    "image": "LOF\\Sifo-Dyas.png",
+    "image": "LOF/Sifo-Dyas.png",
     "name": "Sifo-Dyas",
     "type": "Unit",
     "hp": null,
@@ -2148,7 +2148,7 @@
     ]
   },
   "sithholocron": {
-    "image": "LOF\\Sith_Holocron.png",
+    "image": "LOF/Sith_Holocron.png",
     "name": "Sith Holocron",
     "type": "Upgrade",
     "hp": null,
@@ -2158,7 +2158,7 @@
     ]
   },
   "sithlegionnaire": {
-    "image": "LOF\\Sith_Legionnaire.png",
+    "image": "LOF/Sith_Legionnaire.png",
     "name": "Sith Legionnaire",
     "type": "Unit",
     "hp": null,
@@ -2168,7 +2168,7 @@
     ]
   },
   "sizemattersnot": {
-    "image": "LOF\\Size_Matters_Not.png",
+    "image": "LOF/Size_Matters_Not.png",
     "name": "Size Matters Not",
     "type": "Upgrade",
     "hp": null,
@@ -2178,7 +2178,7 @@
     ]
   },
   "sorcerersoftund": {
-    "image": "LOF\\Sorcerers_of_Tund.png",
+    "image": "LOF/Sorcerers_of_Tund.png",
     "name": "Sorcerers of Tund",
     "type": "Unit",
     "hp": null,
@@ -2187,7 +2187,7 @@
     ]
   },
   "sorcerousblast": {
-    "image": "LOF\\Sorcerous_Blast.png",
+    "image": "LOF/Sorcerous_Blast.png",
     "name": "Sorcerous Blast",
     "type": "Event",
     "hp": null,
@@ -2196,7 +2196,7 @@
     ]
   },
   "soresustance": {
-    "image": "LOF\\Soresu_Stance.png",
+    "image": "LOF/Soresu_Stance.png",
     "name": "Soresu Stance",
     "type": "Event",
     "hp": null,
@@ -2204,9 +2204,9 @@
       "Vigilance"
     ]
   },
-  "starlighttemplestarlightbeacon": {
-    "image": "LOF\\Starlight_Temple - Starlight_Beacon.png",
-    "name": "Starlight Temple - Starlight Beacon",
+  "starlighttemple": {
+    "image": "LOF/Starlight_Temple - Starlight_Beacon.png",
+    "name": "Starlight Temple",
     "type": "Base",
     "hp": "28",
     "aspects": [
@@ -2214,7 +2214,7 @@
     ]
   },
   "stingermantiswherearewegoing": {
-    "image": "LOF\\Stinger_Mantis - Where_Are_We_Going.png",
+    "image": "LOF/Stinger_Mantis - Where_Are_We_Going.png",
     "name": "Stinger Mantis - Where Are We Going?",
     "type": "Unit",
     "hp": null,
@@ -2223,9 +2223,9 @@
       "Heroism"
     ]
   },
-  "strangledcliffsdathomir": {
-    "image": "LOF\\Strangled_Cliffs - Dathomir.png",
-    "name": "Strangled Cliffs - Dathomir",
+  "strangledcliffs": {
+    "image": "LOF/Strangled_Cliffs - Dathomir.png",
+    "name": "Strangled Cliffs",
     "type": "Base",
     "hp": "28",
     "aspects": [
@@ -2233,7 +2233,7 @@
     ]
   },
   "strikeship": {
-    "image": "LOF\\Strikeship.png",
+    "image": "LOF/Strikeship.png",
     "name": "Strikeship",
     "type": "Unit",
     "hp": null,
@@ -2243,7 +2243,7 @@
     ]
   },
   "supremacyofunimaginablesize": {
-    "image": "LOF\\Supremacy - Of_Unimaginable_Size.png",
+    "image": "LOF/Supremacy - Of_Unimaginable_Size.png",
     "name": "Supremacy - Of Unimaginable Size",
     "type": "Unit",
     "hp": null,
@@ -2253,7 +2253,7 @@
     ]
   },
   "supremacytiesf": {
-    "image": "LOF\\Supremacy_TIEsf.png",
+    "image": "LOF/Supremacy_TIEsf.png",
     "name": "Supremacy TIE/sf",
     "type": "Unit",
     "hp": null,
@@ -2263,7 +2263,7 @@
     ]
   },
   "supremeleadersnokeintheseatofpower": {
-    "image": "LOF\\Supreme_Leader_Snoke - In_the_Seat_of_Power.png",
+    "image": "LOF/Supreme_Leader_Snoke - In_the_Seat_of_Power.png",
     "name": "Supreme Leader Snoke - In the Seat of Power",
     "type": "Leader",
     "hp": null,
@@ -2273,7 +2273,7 @@
     ]
   },
   "supremeleadersnokeintheseatofpowerback": {
-    "image": "LOF\\Supreme_Leader_Snoke - In_the_Seat_of_Power_back.png",
+    "image": "LOF/Supreme_Leader_Snoke - In_the_Seat_of_Power_back.png",
     "name": "Supreme Leader Snoke - In the Seat of Power [Back]",
     "type": "Leader",
     "hp": null,
@@ -2283,7 +2283,7 @@
     ]
   },
   "t6shuttle1974stayclose": {
-    "image": "LOF\\T-6_Shuttle_1974 - Stay_Close.png",
+    "image": "LOF/T-6_Shuttle_1974 - Stay_Close.png",
     "name": "T-6 Shuttle 1974 - Stay Close",
     "type": "Unit",
     "hp": null,
@@ -2293,7 +2293,7 @@
     ]
   },
   "talzinsassassin": {
-    "image": "LOF\\Talzins_Assassin.png",
+    "image": "LOF/Talzins_Assassin.png",
     "name": "Talzin's Assassin",
     "type": "Unit",
     "hp": null,
@@ -2303,7 +2303,7 @@
     ]
   },
   "tauntaun": {
-    "image": "LOF\\Tauntaun.png",
+    "image": "LOF/Tauntaun.png",
     "name": "Tauntaun",
     "type": "Unit",
     "hp": null,
@@ -2311,9 +2311,9 @@
       "Vigilance"
     ]
   },
-  "templeofdestructionmalachor": {
-    "image": "LOF\\Temple_of_Destruction - Malachor.png",
-    "name": "Temple of Destruction - Malachor",
+  "templeofdestruction": {
+    "image": "LOF/Temple_of_Destruction - Malachor.png",
+    "name": "Temple of Destruction",
     "type": "Base",
     "hp": "25",
     "aspects": [
@@ -2321,7 +2321,7 @@
     ]
   },
   "terentatek": {
-    "image": "LOF\\Terentatek.png",
+    "image": "LOF/Terentatek.png",
     "name": "Terentatek",
     "type": "Unit",
     "hp": null,
@@ -2330,7 +2330,7 @@
     ]
   },
   "theburdenofmasters": {
-    "image": "LOF\\The_Burden_of_Masters.png",
+    "image": "LOF/The_Burden_of_Masters.png",
     "name": "The Burden of Masters",
     "type": "Event",
     "hp": null,
@@ -2339,7 +2339,7 @@
     ]
   },
   "thedaughterembodimentoflight": {
-    "image": "LOF\\The_Daughter - Embodiment_of_Light.png",
+    "image": "LOF/The_Daughter - Embodiment_of_Light.png",
     "name": "The Daughter - Embodiment of Light",
     "type": "Unit",
     "hp": null,
@@ -2348,15 +2348,15 @@
     ]
   },
   "thefathermaintainingbalance": {
-    "image": "LOF\\The_Father - Maintaining_Balance.png",
+    "image": "LOF/The_Father - Maintaining_Balance.png",
     "name": "The Father - Maintaining Balance",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
-  "theholycityjedha": {
-    "image": "LOF\\The_Holy_City - Jedha.png",
-    "name": "The Holy City - Jedha",
+  "theholycity": {
+    "image": "LOF/The_Holy_City - Jedha.png",
+    "name": "The Holy City",
     "type": "Base",
     "hp": "28",
     "aspects": [
@@ -2364,7 +2364,7 @@
     ]
   },
   "thelegacyrundoomeddebris": {
-    "image": "LOF\\The_Legacy_Run - Doomed_Debris.png",
+    "image": "LOF/The_Legacy_Run - Doomed_Debris.png",
     "name": "The Legacy Run - Doomed Debris",
     "type": "Unit",
     "hp": null,
@@ -2373,7 +2373,7 @@
     ]
   },
   "thepurrgilkingleadingthejourney": {
-    "image": "LOF\\The_Purrgil_King - Leading_the_Journey.png",
+    "image": "LOF/The_Purrgil_King - Leading_the_Journey.png",
     "name": "The Purrgil King - Leading the Journey",
     "type": "Unit",
     "hp": null,
@@ -2382,7 +2382,7 @@
     ]
   },
   "thesonembodimentofdarkness": {
-    "image": "LOF\\The_Son - Embodiment_of_Darkness.png",
+    "image": "LOF/The_Son - Embodiment_of_Darkness.png",
     "name": "The Son - Embodiment of Darkness",
     "type": "Unit",
     "hp": null,
@@ -2391,7 +2391,7 @@
     ]
   },
   "thetragedyofplagueis": {
-    "image": "LOF\\The_Tragedy_of_Plagueis.png",
+    "image": "LOF/The_Tragedy_of_Plagueis.png",
     "name": "The Tragedy of Plagueis",
     "type": "Event",
     "hp": null,
@@ -2401,7 +2401,7 @@
     ]
   },
   "thewilloftheforce": {
-    "image": "LOF\\The_Will_of_the_Force.png",
+    "image": "LOF/The_Will_of_the_Force.png",
     "name": "The Will of the Force",
     "type": "Event",
     "hp": null,
@@ -2410,7 +2410,7 @@
     ]
   },
   "thirdsisterseethingwithambition": {
-    "image": "LOF\\Third_Sister - Seething_With_Ambition.png",
+    "image": "LOF/Third_Sister - Seething_With_Ambition.png",
     "name": "Third Sister - Seething With Ambition",
     "type": "Leader",
     "hp": null,
@@ -2420,7 +2420,7 @@
     ]
   },
   "thirdsisterseethingwithambitionback": {
-    "image": "LOF\\Third_Sister - Seething_With_Ambition_back.png",
+    "image": "LOF/Third_Sister - Seething_With_Ambition_back.png",
     "name": "Third Sister - Seething With Ambition [Back]",
     "type": "Leader",
     "hp": null,
@@ -2430,7 +2430,7 @@
     ]
   },
   "thrallsofthecoven": {
-    "image": "LOF\\Thralls_of_the_Coven.png",
+    "image": "LOF/Thralls_of_the_Coven.png",
     "name": "Thralls of the Coven",
     "type": "Unit",
     "hp": null,
@@ -2440,7 +2440,7 @@
     ]
   },
   "threelessons": {
-    "image": "LOF\\Three_Lessons.png",
+    "image": "LOF/Three_Lessons.png",
     "name": "Three Lessons",
     "type": "Event",
     "hp": null,
@@ -2449,7 +2449,7 @@
     ]
   },
   "timeofcrisis": {
-    "image": "LOF\\Time_of_Crisis.png",
+    "image": "LOF/Time_of_Crisis.png",
     "name": "Time of Crisis",
     "type": "Event",
     "hp": null,
@@ -2458,7 +2458,7 @@
     ]
   },
   "tipthescale": {
-    "image": "LOF\\Tip_the_Scale.png",
+    "image": "LOF/Tip_the_Scale.png",
     "name": "Tip the Scale",
     "type": "Event",
     "hp": null,
@@ -2466,9 +2466,9 @@
       "Cunning"
     ]
   },
-  "tombofeilramzeffo": {
-    "image": "LOF\\Tomb_of_Eilram - Zeffo.png",
-    "name": "Tomb of Eilram - Zeffo",
+  "tombofeilram": {
+    "image": "LOF/Tomb_of_Eilram - Zeffo.png",
+    "name": "Tomb of Eilram",
     "type": "Base",
     "hp": "25",
     "aspects": [
@@ -2476,7 +2476,7 @@
     ]
   },
   "tridentassaultship": {
-    "image": "LOF\\Trident_Assault_Ship.png",
+    "image": "LOF/Trident_Assault_Ship.png",
     "name": "Trident Assault Ship",
     "type": "Unit",
     "hp": null,
@@ -2485,7 +2485,7 @@
     ]
   },
   "trustyourinstincts": {
-    "image": "LOF\\Trust_Your_Instincts.png",
+    "image": "LOF/Trust_Your_Instincts.png",
     "name": "Trust Your Instincts",
     "type": "Event",
     "hp": null,
@@ -2494,7 +2494,7 @@
     ]
   },
   "tukata": {
-    "image": "LOF\\Tukata.png",
+    "image": "LOF/Tukata.png",
     "name": "Tuk'ata",
     "type": "Unit",
     "hp": null,
@@ -2503,7 +2503,7 @@
     ]
   },
   "tuskentracker": {
-    "image": "LOF\\Tusken_Tracker.png",
+    "image": "LOF/Tusken_Tracker.png",
     "name": "Tusken Tracker",
     "type": "Unit",
     "hp": null,
@@ -2512,7 +2512,7 @@
     ]
   },
   "unleashrage": {
-    "image": "LOF\\Unleash_Rage.png",
+    "image": "LOF/Unleash_Rage.png",
     "name": "Unleash Rage",
     "type": "Event",
     "hp": null,
@@ -2521,7 +2521,7 @@
     ]
   },
   "vaneilivetoserve": {
-    "image": "LOF\\Vane - I_Live_to_Serve.png",
+    "image": "LOF/Vane - I_Live_to_Serve.png",
     "name": "Vaneé - I Live to Serve",
     "type": "Unit",
     "hp": null,
@@ -2530,9 +2530,9 @@
       "Villainy"
     ]
   },
-  "vergencetemplelothal": {
-    "image": "LOF\\Vergence_Temple - Lothal.png",
-    "name": "Vergence Temple - Lothal",
+  "vergencetemple": {
+    "image": "LOF/Vergence_Temple - Lothal.png",
+    "name": "Vergence Temple",
     "type": "Base",
     "hp": "25",
     "aspects": [
@@ -2540,7 +2540,7 @@
     ]
   },
   "vernestrarwohprecociousknight": {
-    "image": "LOF\\Vernestra_Rwoh - Precocious_Knight.png",
+    "image": "LOF/Vernestra_Rwoh - Precocious_Knight.png",
     "name": "Vernestra Rwoh - Precocious Knight",
     "type": "Unit",
     "hp": null,
@@ -2550,7 +2550,7 @@
     ]
   },
   "villagetender": {
-    "image": "LOF\\Village_Tender.png",
+    "image": "LOF/Village_Tender.png",
     "name": "Village Tender",
     "type": "Unit",
     "hp": null,
@@ -2559,7 +2559,7 @@
     ]
   },
   "vulptex": {
-    "image": "LOF\\Vulptex.png",
+    "image": "LOF/Vulptex.png",
     "name": "Vulptex",
     "type": "Unit",
     "hp": null,
@@ -2568,7 +2568,7 @@
     ]
   },
   "wampa": {
-    "image": "LOF\\Wampa.png",
+    "image": "LOF/Wampa.png",
     "name": "Wampa",
     "type": "Unit",
     "hp": null,
@@ -2577,7 +2577,7 @@
     ]
   },
   "watto": {
-    "image": "LOF\\Watto.png",
+    "image": "LOF/Watto.png",
     "name": "Watto",
     "type": "Unit",
     "hp": null,
@@ -2586,7 +2586,7 @@
     ]
   },
   "whirlwindofpower": {
-    "image": "LOF\\Whirlwind_of_Power.png",
+    "image": "LOF/Whirlwind_of_Power.png",
     "name": "Whirlwind of Power",
     "type": "Event",
     "hp": null,
@@ -2595,7 +2595,7 @@
     ]
   },
   "witchofthemist": {
-    "image": "LOF\\Witch_of_the_Mist.png",
+    "image": "LOF/Witch_of_the_Mist.png",
     "name": "Witch of the Mist",
     "type": "Unit",
     "hp": null,
@@ -2604,7 +2604,7 @@
     ]
   },
   "yaddleachancetomakethingsright": {
-    "image": "LOF\\Yaddle - A_Chance_to_Make_Things_Right.png",
+    "image": "LOF/Yaddle - A_Chance_to_Make_Things_Right.png",
     "name": "Yaddle - A Chance to Make Things Right",
     "type": "Unit",
     "hp": null,
@@ -2614,7 +2614,7 @@
     ]
   },
   "yodamyallyistheforce": {
-    "image": "LOF\\Yoda - My_Ally_is_the_Force.png",
+    "image": "LOF/Yoda - My_Ally_is_the_Force.png",
     "name": "Yoda - My Ally is the Force",
     "type": "Unit",
     "hp": null,
@@ -2624,7 +2624,7 @@
     ]
   },
   "yodaslightsaber": {
-    "image": "LOF\\Yodas_Lightsaber.png",
+    "image": "LOF/Yodas_Lightsaber.png",
     "name": "Yoda's Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -2634,7 +2634,7 @@
     ]
   },
   "younglingpadawan": {
-    "image": "LOF\\Youngling_Padawan.png",
+    "image": "LOF/Youngling_Padawan.png",
     "name": "Youngling Padawan",
     "type": "Unit",
     "hp": null,
@@ -2644,7 +2644,7 @@
     ]
   },
   "zuckussthefindsman": {
-    "image": "LOF\\Zuckuss - The_Findsman.png",
+    "image": "LOF/Zuckuss - The_Findsman.png",
     "name": "Zuckuss - The Findsman",
     "type": "Unit",
     "hp": null,

@@ -80,217 +80,217 @@ function renderCardManaSymbols(manaCost, symbolSize = 16) {
 // Files with "180" are for left side, files without "180" are for right side
 // Default image is used as fallback when a battlefield is not found or empty
 const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
-    left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png',
-    right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+    left: '/assets/images/riftbound/battlefields/_0000_Default.png',
+    right: '/assets/images/riftbound/battlefields/_0000_Default.png'
 };
 
 // Riftbound Runes Dictionary
 // Maps rune letters to their icon image URLs
 const RIFTBOUND_RUNES = {
-    'r': '/assets/images/riftbound/runes-outlined/Fury.png',
-	'g': '/assets/images/riftbound/runes-outlined/Calm.png',
-    'b': '/assets/images/riftbound/runes-outlined/Mind.png',
-    'o': '/assets/images/riftbound/runes-outlined/Body.png',
-	'p': '/assets/images/riftbound/runes-outlined/Chaos.png',
-	'y': '/assets/images/riftbound/runes-outlined/Order.png'
+    'r': '/assets/images/riftbound/icons/runes-outlined/Fury-outlined.png',
+	'g': '/assets/images/riftbound/icons/runes-outlined/Calm-outlined.png',
+    'b': '/assets/images/riftbound/icons/runes-outlined/Mind-outlined.png',
+    'o': '/assets/images/riftbound/icons/runes-outlined/Body-outlined.png',
+	'p': '/assets/images/riftbound/icons/runes-outlined/Chaos-outlined.png',
+	'y': '/assets/images/riftbound/icons/runes-outlined/Order-outlined.png'
 };
 
 const RIFTBOUND_BATTLEFIELDS = {
     'default': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+        left: '/assets/images/riftbound/battlefields/_0000_Default180.png',
+        right: '/assets/images/riftbound/battlefields/_0000_Default.png'
     },
     'Altar to Unity': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Altar-to-Unity180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0024_Altar-to-Unity.png'
+        left: '/assets/images/riftbound/battlefields/_0000_Altar-to-Unity180.png',
+        right: '/assets/images/riftbound/battlefields/_0024_Altar-to-Unity.png'
     },
     'Aspirant\'s Climb': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0001_Aspirant_s-Climb180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0025_Aspirant_s-Climb.png'
+        left: '/assets/images/riftbound/battlefields/_0001_Aspirant_s-Climb180.png',
+        right: '/assets/images/riftbound/battlefields/_0025_Aspirant_s-Climb.png'
     },
     'Back Alley Bar': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0002_Back-Alley-Bar180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0026_Back-Alley-Bar.png'
+        left: '/assets/images/riftbound/battlefields/_0002_Back-Alley-Bar180.png',
+        right: '/assets/images/riftbound/battlefields/_0026_Back-Alley-Bar.png'
     },
     'Bandle Tree': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0003_Bandle-Tree180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0027_Bandle-Tree.png'
+        left: '/assets/images/riftbound/battlefields/_0003_Bandle-Tree180.png',
+        right: '/assets/images/riftbound/battlefields/_0027_Bandle-Tree.png'
     },
     'Fortified Position': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0004_Fortified-Position180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0028_Fortified-Position.png'
+        left: '/assets/images/riftbound/battlefields/_0004_Fortified-Position180.png',
+        right: '/assets/images/riftbound/battlefields/_0028_Fortified-Position.png'
     },
     'Grove of the God Willow': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0005_Grove-of-the-God-Willow180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0029_Grove-of-the-God-Willow.png'
+        left: '/assets/images/riftbound/battlefields/_0005_Grove-of-the-God-Willow180.png',
+        right: '/assets/images/riftbound/battlefields/_0029_Grove-of-the-God-Willow.png'
     },
     'Hallowed Tomb': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0006_Hallowed-Tomb180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0030_Hallowed-Tomb.png'
+        left: '/assets/images/riftbound/battlefields/_0006_Hallowed-Tomb180.png',
+        right: '/assets/images/riftbound/battlefields/_0030_Hallowed-Tomb.png'
     },
     'Monastery of Hirana': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0007_Monastery-of-Hirana180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0031_Monastery-of-Hirana.png'
+        left: '/assets/images/riftbound/battlefields/_0007_Monastery-of-Hirana180.png',
+        right: '/assets/images/riftbound/battlefields/_0031_Monastery-of-Hirana.png'
     },
     'Navori Fighting Pit': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0008_Navori-Fighting-Pit180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0032_Navori-Fighting-Pit.png'
+        left: '/assets/images/riftbound/battlefields/_0008_Navori-Fighting-Pit180.png',
+        right: '/assets/images/riftbound/battlefields/_0032_Navori-Fighting-Pit.png'
     },
     'Obelisk of Power': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0009_Obelisk-of-Power180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0033_Obelisk-of-Power.png'
+        left: '/assets/images/riftbound/battlefields/_0009_Obelisk-of-Power180.png',
+        right: '/assets/images/riftbound/battlefields/_0033_Obelisk-of-Power.png'
     },
     'Reaver\'s Row': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0010_Reaver_s-Row180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0034_Reaver_s-Row.png'
+        left: '/assets/images/riftbound/battlefields/_0010_Reaver_s-Row180.png',
+        right: '/assets/images/riftbound/battlefields/_0034_Reaver_s-Row.png'
     },
     'Reckoner\'s Arena': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0011_Reckoner_s-Arena180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0035_Reckoner_s-Arena.png'
+        left: '/assets/images/riftbound/battlefields/_0011_Reckoner_s-Arena180.png',
+        right: '/assets/images/riftbound/battlefields/_0035_Reckoner_s-Arena.png'
     },
     'Sigil of the Storm': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0012_Sigil-of-the-Storm180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0036_Sigil-of-the-Storm.png'
+        left: '/assets/images/riftbound/battlefields/_0012_Sigil-of-the-Storm180.png',
+        right: '/assets/images/riftbound/battlefields/_0036_Sigil-of-the-Storm.png'
     },
     'Startipped Peak': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0013_Startipped-Peak180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0037_Startipped-Peak.png'
+        left: '/assets/images/riftbound/battlefields/_0013_Startipped-Peak180.png',
+        right: '/assets/images/riftbound/battlefields/_0037_Startipped-Peak.png'
     },
     'Targon\'s Peak': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0014_Targon_s-Peak180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0038_Targon_s-Peak.png'
+        left: '/assets/images/riftbound/battlefields/_0014_Targon_s-Peak180.png',
+        right: '/assets/images/riftbound/battlefields/_0038_Targon_s-Peak.png'
     },
     'The Arena\'s Greatest': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0015_The-Arena_s-Greatest180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0039_The-Arena_s-Greatest.png'
+        left: '/assets/images/riftbound/battlefields/_0015_The-Arena_s-Greatest180.png',
+        right: '/assets/images/riftbound/battlefields/_0039_The-Arena_s-Greatest.png'
     },
     'The Dreaming Tree': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0016_The-Dreaming-Tree180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0040_The-Dreaming-Tree.png'
+        left: '/assets/images/riftbound/battlefields/_0016_The-Dreaming-Tree180.png',
+        right: '/assets/images/riftbound/battlefields/_0040_The-Dreaming-Tree.png'
     },
     'The Grand Plaza': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0017_The-Grand-Plaza180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0041_The-Grand-Plaza.png'
+        left: '/assets/images/riftbound/battlefields/_0017_The-Grand-Plaza180.png',
+        right: '/assets/images/riftbound/battlefields/_0041_The-Grand-Plaza.png'
     },
     'Trifarian War Camp': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0018_Trifarian-War-Camp180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0042_Trifarian-War-Camp.png'
+        left: '/assets/images/riftbound/battlefields/_0018_Trifarian-War-Camp180.png',
+        right: '/assets/images/riftbound/battlefields/_0042_Trifarian-War-Camp.png'
     },
     'Vilemaw\'s Lair': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0019_Vilemaw_s-Lair180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0043_Vilemaw_s-Lair.png'
+        left: '/assets/images/riftbound/battlefields/_0019_Vilemaw_s-Lair180.png',
+        right: '/assets/images/riftbound/battlefields/_0043_Vilemaw_s-Lair.png'
     },
     'Void Gate': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0020_Void-Gate180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0044_Void-Gate.png'
+        left: '/assets/images/riftbound/battlefields/_0020_Void-Gate180.png',
+        right: '/assets/images/riftbound/battlefields/_0044_Void-Gate.png'
     },
     'Windswept Hillock': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0021_Windswept-Hillock180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0045_Windswept-Hillock.png'
+        left: '/assets/images/riftbound/battlefields/_0021_Windswept-Hillock180.png',
+        right: '/assets/images/riftbound/battlefields/_0045_Windswept-Hillock.png'
     },
     'Zaun Warrens': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0022_Zaun-Warrens180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0046_Zaun-Warrens.png'
+        left: '/assets/images/riftbound/battlefields/_0022_Zaun-Warrens180.png',
+        right: '/assets/images/riftbound/battlefields/_0046_Zaun-Warrens.png'
     },
     'The Candlelit Sanctum': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0023_The-Candlelit-Sanctum180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0047_The-Candlelit-Sanctum.png'
+        left: '/assets/images/riftbound/battlefields/_0023_The-Candlelit-Sanctum180.png',
+        right: '/assets/images/riftbound/battlefields/_0047_The-Candlelit-Sanctum.png'
     },
 	'Emperor\'s Dais': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0048_Emperor_s-Dais180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0072_Emperor_s-Dais.png'
+	    left: '/assets/images/riftbound/battlefields/_0048_Emperor_s-Dais180.png',
+	    right: '/assets/images/riftbound/battlefields/_0072_Emperor_s-Dais.png'
 	},
 	'Forge of the Fluft': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0049_Forge-of-the-Fluft180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0073_Forge-of-the-Fluft.png'
+	    left: '/assets/images/riftbound/battlefields/_0049_Forge-of-the-Fluft180.png',
+	    right: '/assets/images/riftbound/battlefields/_0073_Forge-of-the-Fluft.png'
 	},
 	'Forgotten Monument': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0050_Forgotten-Monument180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0074_Forgotten-Monument.png'
+	    left: '/assets/images/riftbound/battlefields/_0050_Forgotten-Monument180.png',
+	    right: '/assets/images/riftbound/battlefields/_0074_Forgotten-Monument.png'
 	},
 	'Hall of Legends': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0051_Hall-of-Legends180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0075_Hall-of-Legends.png'
+	    left: '/assets/images/riftbound/battlefields/_0051_Hall-of-Legends180.png',
+	    right: '/assets/images/riftbound/battlefields/_0075_Hall-of-Legends.png'
 	},
 	'Marai Spire': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0052_Marai-Spire180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0076_Marai-Spire.png'
+	    left: '/assets/images/riftbound/battlefields/_0052_Marai-Spire180.png',
+	    right: '/assets/images/riftbound/battlefields/_0076_Marai-Spire.png'
 	},
 	'Minefield': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0053_Minefield180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0077_Minefield.png'
+	    left: '/assets/images/riftbound/battlefields/_0053_Minefield180.png',
+	    right: '/assets/images/riftbound/battlefields/_0077_Minefield.png'
 	},
 	'Ornn\'s Forge': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0054_Ornn_s-Forge180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0078_Ornn_s-Forge.png'
+	    left: '/assets/images/riftbound/battlefields/_0054_Ornn_s-Forge180.png',
+	    right: '/assets/images/riftbound/battlefields/_0078_Ornn_s-Forge.png'
 	},
 	'Power Nexus': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0055_Power-Nexus180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0079_Power-Nexus.png'
+	    left: '/assets/images/riftbound/battlefields/_0055_Power-Nexus180.png',
+	    right: '/assets/images/riftbound/battlefields/_0079_Power-Nexus.png'
 	},
 	'Ravenbloom Conservatory': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0056_Ravenbloom-Conservatory180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0080_Ravenbloom-Conservatory.png'
+	    left: '/assets/images/riftbound/battlefields/_0056_Ravenbloom-Conservatory180.png',
+	    right: '/assets/images/riftbound/battlefields/_0080_Ravenbloom-Conservatory.png'
 	},
 	'Rockfall Path': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0057_Rockfall-Path180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0081_Rockfall-Path.png'
+	    left: '/assets/images/riftbound/battlefields/_0057_Rockfall-Path180.png',
+	    right: '/assets/images/riftbound/battlefields/_0081_Rockfall-Path.png'
 	},
 	'Seat of Power': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0058_Seat-of-Power180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0082_Seat-of-Power.png'
+	    left: '/assets/images/riftbound/battlefields/_0058_Seat-of-Power180.png',
+	    right: '/assets/images/riftbound/battlefields/_0082_Seat-of-Power.png'
 	},
 	'Sunken Temple': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0059_Sunken-Temple180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0083_Sunken-Temple.png'
+	    left: '/assets/images/riftbound/battlefields/_0059_Sunken-Temple180.png',
+	    right: '/assets/images/riftbound/battlefields/_0083_Sunken-Temple.png'
 	},
 	'The Papertree': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0060_The-Papertree180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0084_The-Papertree.png'
+	    left: '/assets/images/riftbound/battlefields/_0060_The-Papertree180.png',
+	    right: '/assets/images/riftbound/battlefields/_0084_The-Papertree.png'
 	},
 	'Treasure Hoard': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0061_Treasure-Hoard180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0085_Treasure-Hoard.png'
+	    left: '/assets/images/riftbound/battlefields/_0061_Treasure-Hoard180.png',
+	    right: '/assets/images/riftbound/battlefields/_0085_Treasure-Hoard.png'
 	},
 	'Veiled Temple': {
-	    left: '/assets/images/riftbound/scoreboard/battlefields/_0062_Veiled-Temple180.png',
-	    right: '/assets/images/riftbound/scoreboard/battlefields/_0086_Veiled-Temple.png'
+	    left: '/assets/images/riftbound/battlefields/_0062_Veiled-Temple180.png',
+	    right: '/assets/images/riftbound/battlefields/_0086_Veiled-Temple.png'
 	}
 };
 
 // Riftbound Legends Descriptions Dictionary
 // Maps legend names to their legend ability image URLs
 const RIFTBOUND_LEGENDS_DESCRIPTIONS = {
-    'default': '/assets/images/riftbound/decklist-descriptions/LegendText_0000_default.png',
-    'Kai\'sa': '/assets/images/riftbound/decklist-descriptions/LegendText_0001_Kaisa, Daughter of the Void.png',
-    'Volibear': '/assets/images/riftbound/decklist-descriptions/LegendText_0002_Volibear, Relentless Storm.png',
-    'Sett': '/assets/images/riftbound/decklist-descriptions/LegendText_0003_Sett, The Boss.png',
-    'Viktor': '/assets/images/riftbound/decklist-descriptions/LegendText_0004_Viktor, Herald of the Arcane.png',
-    'Teemo': '/assets/images/riftbound/decklist-descriptions/LegendText_0005_Teemo, Swift Scout.png',
-    'Leona': '/assets/images/riftbound/decklist-descriptions/LegendText_0006_Leona, Radiant Dawn.png',
-    'Yasuo': '/assets/images/riftbound/decklist-descriptions/LegendText_0007_Yasuo, Unforgiven.png',
-    'Yas': '/assets/images/riftbound/decklist-descriptions/LegendText_0007_Yasuo, Unforgiven.png',
-    'Lee Sin': '/assets/images/riftbound/decklist-descriptions/LegendText_0008_Lee Sin, Blind Monk.png',
-    'Ahri': '/assets/images/riftbound/decklist-descriptions/LegendText_0009_Ahri, Nine-Tailed Fox.png',
-    'Darius': '/assets/images/riftbound/decklist-descriptions/LegendText_0010_Darius, Hand of Noxus.png',
-    'Jinx': '/assets/images/riftbound/decklist-descriptions/LegendText_0011_Jinx, Loose Cannon.png',
-    'Miss Fortune': '/assets/images/riftbound/decklist-descriptions/LegendText_0012_Miss Fortune, Bounty Hunter.png',
-    'Garen': '/assets/images/riftbound/decklist-descriptions/LegendText_0013_Garen, Might of Demacia.png',
-    'Lux': '/assets/images/riftbound/decklist-descriptions/LegendText_0014_Lux, Lady of Luminosity.png',
-    'Annie': '/assets/images/riftbound/decklist-descriptions/LegendText_0015_Annie, Dark Child.png',
-    'Master Yi': '/assets/images/riftbound/decklist-descriptions/LegendText_0016_Master Yi, Wuju Bladesman.png',
-	'Rumble': '/assets/images/riftbound/decklist-descriptions/LegendText_0017_Rumble, Mechanized Menace.png',
-	'Lucian': '/assets/images/riftbound/decklist-descriptions/LegendText_0018_Lucian, Purifier.png',
-	'Draven': '/assets/images/riftbound/decklist-descriptions/LegendText_0019_Draven, Glorious Executioner.png',
-	'Rek\'Sai': '/assets/images/riftbound/decklist-descriptions/LegendText_0020_Reksai, Void Burrower.png',
-	'Ornn': '/assets/images/riftbound/decklist-descriptions/LegendText_0021_Ornn, Fire Below the Mountain.png',
-	'Jax': '/assets/images/riftbound/decklist-descriptions/LegendText_0022_Jax, Grandmaster at Arms.png',
-	'Irelia': '/assets/images/riftbound/decklist-descriptions/LegendText_0023_Irelia, Blade Dancer.png',
-	'Azir': '/assets/images/riftbound/decklist-descriptions/LegendText_0024_Azir, Emperor of the Sands.png',
-	'Ezreal': '/assets/images/riftbound/decklist-descriptions/LegendText_0025_Ezreal, Prodigal Explorer.png',
-	'Renata Glasc': '/assets/images/riftbound/decklist-descriptions/LegendText_0026_Renata Glasc, Chem-Baroness.png',
-	'Sivir': '/assets/images/riftbound/decklist-descriptions/LegendText_0027_Sivir, Battle Mistress.png',
-	'Fiora': '/assets/images/riftbound/decklist-descriptions/LegendText_0028_Fiora, Grand Duelist.png'
+    'default': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0000_default.png',
+    'Kai\'sa': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0001_Kaisa, Daughter of the Void.png',
+    'Volibear': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0002_Volibear, Relentless Storm.png',
+    'Sett': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0003_Sett, The Boss.png',
+    'Viktor': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0004_Viktor, Herald of the Arcane.png',
+    'Teemo': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0005_Teemo, Swift Scout.png',
+    'Leona': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0006_Leona, Radiant Dawn.png',
+    'Yasuo': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0007_Yasuo, Unforgiven.png',
+    'Yas': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0007_Yasuo, Unforgiven.png',
+    'Lee Sin': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0008_Lee Sin, Blind Monk.png',
+    'Ahri': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0009_Ahri, Nine-Tailed Fox.png',
+    'Darius': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0010_Darius, Hand of Noxus.png',
+    'Jinx': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0011_Jinx, Loose Cannon.png',
+    'Miss Fortune': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0012_Miss Fortune, Bounty Hunter.png',
+    'Garen': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0013_Garen, Might of Demacia.png',
+    'Lux': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0014_Lux, Lady of Luminosity.png',
+    'Annie': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0015_Annie, Dark Child.png',
+    'Master Yi': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0016_Master Yi, Wuju Bladesman.png',
+	'Rumble': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0017_Rumble, Mechanized Menace.png',
+	'Lucian': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0018_Lucian, Purifier.png',
+	'Draven': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0019_Draven, Glorious Executioner.png',
+	'Rek\'Sai': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0020_Reksai, Void Burrower.png',
+	'Ornn': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0021_Ornn, Fire Below the Mountain.png',
+	'Jax': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0022_Jax, Grandmaster at Arms.png',
+	'Irelia': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0023_Irelia, Blade Dancer.png',
+	'Azir': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0024_Azir, Emperor of the Sands.png',
+	'Ezreal': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0025_Ezreal, Prodigal Explorer.png',
+	'Renata Glasc': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0026_Renata Glasc, Chem-Baroness.png',
+	'Sivir': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0027_Sivir, Battle Mistress.png',
+	'Fiora': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0028_Fiora, Grand Duelist.png'
 };
 
 // Listen for deck data to display
@@ -1423,13 +1423,13 @@ function setRiftboundBackground() {
     
     let backgroundImage;
     if (isLeft && orientation === 'horizontal') {
-        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped-3.png';
+        backgroundImage = '/assets/images/riftbound/decklist/frame/Decklist-New-v4-Blue_Prepped-3.png';
     } else if (isRight && orientation === 'horizontal') {
-        backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Green_Prepped-3.png';
+        backgroundImage = '/assets/images/riftbound/decklist/frame/Decklist-New-v4-Green_Prepped-3.png';
     } else {
         // Default to blue if side_id is not recognized
         console.log('Unknown side_id, defaulting to blue background');
-        //backgroundImage = '/assets/images/riftbound/deckview/Decklist-New-v4-Blue_Prepped-2.png';
+        //backgroundImage = '/assets/images/riftbound/decklist/frame/Decklist-New-v4-Blue_Prepped-2.png';
     }
     
     // Set the background image with cache buster

@@ -79,7 +79,8 @@ import {
 import {
     emitStarWarsCardList,
     emitStarWarsCardView,
-    handleStarWarsIncomingDeckData
+    handleStarWarsIncomingDeckData,
+    emitSWULeadersAndBases
 } from "../features/starwars/cards.js";
 
 import { RoomUtils } from '../utils/room-utils.js';
@@ -304,6 +305,11 @@ export default function registerSocketHandlers(io) {
         socket.on('starwars-main-deck-display-clicked', (deckListData) => {
             handleStarWarsIncomingDeckData(io, deckListData)
         })
+
+        // starwars - Leaders and Bases list for dropdowns
+        socket.on('starwars-get-leaders-and-bases', () => {
+            emitSWULeadersAndBases(io);
+        });
 
         // END STARWARS
 

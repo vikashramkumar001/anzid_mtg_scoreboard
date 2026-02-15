@@ -33,6 +33,8 @@ export function initMatches(socket) {
     let baseLifePoints = '20';
     let baseTimer = '50';
     let currentArchetypeList = [];
+    let swuLeadersList = [];
+    let swuBasesList = [];
     let commentatorData = {};
     
     // Riftbound Legends List
@@ -277,7 +279,7 @@ export function initMatches(socket) {
                                 <label class="form-label">Player Name</label>
                                 <div id="${roundId}-${matchId}-player-name-left" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 life-points-field">
                                 <label class="form-label">LifePoints</label>
                                 <div class="d-flex align-items-center">
                                     <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="-5">-5</button>
@@ -354,12 +356,39 @@ export function initMatches(socket) {
                             </div>
                             <div id="${roundId}-${matchId}-player-battlefield-left" class="editable" style="display:none;"></div>
                             <div class="mb-3 starwars-only-field" style="display: none;">
-                                <label class="form-label">Leader</label>
+                                <label class="form-label">Leader & Aspects</label>
                                 <div id="${roundId}-${matchId}-player-leader-left" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex gap-2 mt-1">
+                                    <div id="${roundId}-${matchId}-player-leader-aspect-1-left" class="editable form-control" contenteditable="true" placeholder="aspect 1" style="flex: 1;"></div>
+                                    <div id="${roundId}-${matchId}-player-leader-aspect-2-left" class="editable form-control" contenteditable="true" placeholder="aspect 2" style="flex: 1;"></div>
+                                </div>
                             </div>
                             <div class="mb-3 starwars-only-field" style="display: none;">
-                                <label class="form-label">Base</label>
-                                <div id="${roundId}-${matchId}-player-base-left" class="editable form-control" contenteditable="true"></div>
+                                <label class="form-label">Base & Aspect</label>
+                                <div class="d-flex gap-2">
+                                    <div id="${roundId}-${matchId}-player-base-left" class="editable form-control" contenteditable="true" style="flex: 1;"></div>
+                                    <div id="${roundId}-${matchId}-player-base-aspects-left" class="editable form-control" contenteditable="true" placeholder="aspect" style="width: 120px; flex-shrink: 0;"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <div class="d-flex gap-3">
+                                    <div>
+                                        <label class="form-label">Base Damage</label>
+                                        <div class="d-flex align-items-center">
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-damage-left" data-life-delta="-1">-1</button>
+                                            <div id="${roundId}-${matchId}-player-base-damage-left" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">0</div>
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-damage-left" data-life-delta="1">+1</button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="form-label">Base HP</label>
+                                        <div class="d-flex align-items-center">
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-left" data-life-delta="-1">-1</button>
+                                            <div id="${roundId}-${matchId}-player-base-hp-left" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">30</div>
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-left" data-life-delta="1">+1</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -370,7 +399,7 @@ export function initMatches(socket) {
                                 <label class="form-label">Player Name</label>
                                 <div id="${roundId}-${matchId}-player-name-right" class="editable form-control" contenteditable="true"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 life-points-field">
                                 <label class="form-label">LifePoints</label>
                                 <div class="d-flex align-items-center">
                                     <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="-5">-5</button>
@@ -447,12 +476,39 @@ export function initMatches(socket) {
                             </div>
                             <div id="${roundId}-${matchId}-player-battlefield-right" class="editable" style="display:none;"></div>
                             <div class="mb-3 starwars-only-field" style="display: none;">
-                                <label class="form-label">Leader</label>
+                                <label class="form-label">Leader & Aspects</label>
                                 <div id="${roundId}-${matchId}-player-leader-right" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex gap-2 mt-1">
+                                    <div id="${roundId}-${matchId}-player-leader-aspect-1-right" class="editable form-control" contenteditable="true" placeholder="aspect 1" style="flex: 1;"></div>
+                                    <div id="${roundId}-${matchId}-player-leader-aspect-2-right" class="editable form-control" contenteditable="true" placeholder="aspect 2" style="flex: 1;"></div>
+                                </div>
                             </div>
                             <div class="mb-3 starwars-only-field" style="display: none;">
-                                <label class="form-label">Base</label>
-                                <div id="${roundId}-${matchId}-player-base-right" class="editable form-control" contenteditable="true"></div>
+                                <label class="form-label">Base & Aspect</label>
+                                <div class="d-flex gap-2">
+                                    <div id="${roundId}-${matchId}-player-base-right" class="editable form-control" contenteditable="true" style="flex: 1;"></div>
+                                    <div id="${roundId}-${matchId}-player-base-aspects-right" class="editable form-control" contenteditable="true" placeholder="aspect" style="width: 120px; flex-shrink: 0;"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <div class="d-flex gap-3">
+                                    <div>
+                                        <label class="form-label">Base Damage</label>
+                                        <div class="d-flex align-items-center">
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-damage-right" data-life-delta="-1">-1</button>
+                                            <div id="${roundId}-${matchId}-player-base-damage-right" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">0</div>
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-damage-right" data-life-delta="1">+1</button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="form-label">Base HP</label>
+                                        <div class="d-flex align-items-center">
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-right" data-life-delta="-1">-1</button>
+                                            <div id="${roundId}-${matchId}-player-base-hp-right" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">30</div>
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-right" data-life-delta="1">+1</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -716,6 +772,37 @@ export function initMatches(socket) {
         dropdownList.style.display = items.length > 0 ? 'block' : 'none';
     }
 
+    function renderSWUDropdownList(dropdownList, items, field, onSelect, nameTransform) {
+        dropdownList.innerHTML = '';
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.classList.add('dropdown-item', 'd-flex', 'align-items-center');
+            // Render aspect icons to the left
+            (item.aspects || []).forEach(aspect => {
+                const img = document.createElement('img');
+                img.src = `/assets/images/starwars/scoreboard/icons/${aspect}.png`;
+                img.alt = aspect;
+                img.style.width = '20px';
+                img.style.height = '20px';
+                img.style.marginRight = '4px';
+                div.appendChild(img);
+            });
+            // Card name
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = item.name;
+            div.appendChild(nameSpan);
+            div.addEventListener('click', () => {
+                field.textContent = nameTransform ? nameTransform(item.name) : item.name;
+                dropdownList.style.display = 'none';
+                if (onSelect) onSelect(item);
+                field.dispatchEvent(new Event('input'));
+                field.dispatchEvent(new Event('change'));
+            });
+            dropdownList.appendChild(div);
+        });
+        dropdownList.style.display = items.length > 0 ? 'block' : 'none';
+    }
+
     function setupCustomDropdowns() {
         const archetypeFields = document.querySelectorAll('[id$="-player-archetype-left"], [id$="-player-archetype-right"], [id^="bracket-"][id$="-archetype"]');
         archetypeFields.forEach(field => {
@@ -850,6 +937,163 @@ export function initMatches(socket) {
                 if (!wrapper.contains(e.target)) {
                     dropdownList.style.display = 'none';
                 }
+            });
+        });
+
+        // Setup SWU Leader autocomplete dropdowns
+        const swuLeaderFields = document.querySelectorAll('[id$="-player-leader-left"], [id$="-player-leader-right"]');
+        swuLeaderFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) return;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            const onSelect = (item) => {
+                // Auto-fill leader aspect boxes (two separate fields)
+                const aspects = (item.aspects || []).map(a => a.toLowerCase());
+                const aspect1Id = field.id.replace('player-leader-', 'player-leader-aspect-1-');
+                const aspect2Id = field.id.replace('player-leader-', 'player-leader-aspect-2-');
+                const aspect1Field = document.getElementById(aspect1Id);
+                const aspect2Field = document.getElementById(aspect2Id);
+                if (aspect1Field) {
+                    aspect1Field.textContent = aspects[0] || '';
+                    aspect1Field.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                if (aspect2Field) {
+                    aspect2Field.textContent = aspects[1] || '';
+                    aspect2Field.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            };
+
+            field.addEventListener('input', function () {
+                const value = this.textContent.trim().toLowerCase();
+                const filtered = swuLeadersList
+                    .filter(l => l.name.toLowerCase().includes(value))
+                    .slice(0, 10);
+                renderSWUDropdownList(dropdownList, filtered, field, onSelect);
+            });
+            field.addEventListener('focus', function () {
+                renderSWUDropdownList(dropdownList, swuLeadersList.slice(0, 10), field, onSelect);
+            });
+            document.addEventListener('click', (e) => {
+                if (!wrapper.contains(e.target)) dropdownList.style.display = 'none';
+            });
+        });
+
+        // Setup SWU Base autocomplete dropdowns
+        const stripBaseTrait = (name) => name.split(' - ')[0].trim();
+        const swuBaseFields = document.querySelectorAll('[id$="-player-base-left"], [id$="-player-base-right"]');
+        swuBaseFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) return;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            const onSelect = (item) => {
+                // Auto-fill base aspects field
+                const aspectsFieldId = field.id.replace('player-base-', 'player-base-aspects-');
+                const aspectsField = document.getElementById(aspectsFieldId);
+                if (aspectsField) {
+                    aspectsField.textContent = (item.aspects || []).join(', ').toLowerCase();
+                    aspectsField.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                // Auto-fill base HP
+                if (item.hp) {
+                    const hpFieldId = field.id.replace('player-base-', 'player-base-hp-');
+                    const hpField = document.getElementById(hpFieldId);
+                    if (hpField) {
+                        hpField.textContent = item.hp;
+                        hpField.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+                }
+            };
+
+            field.addEventListener('input', function () {
+                const value = this.textContent.trim().toLowerCase();
+                const filtered = swuBasesList
+                    .filter(b => b.name.toLowerCase().includes(value))
+                    .slice(0, 10);
+                renderSWUDropdownList(dropdownList, filtered, field, onSelect, stripBaseTrait);
+            });
+            field.addEventListener('focus', function () {
+                renderSWUDropdownList(dropdownList, swuBasesList.slice(0, 10), field, onSelect, stripBaseTrait);
+            });
+            document.addEventListener('click', (e) => {
+                if (!wrapper.contains(e.target)) dropdownList.style.display = 'none';
+            });
+        });
+
+        // Setup SWU Aspect autocomplete dropdowns (leader aspects + base aspects)
+        const swuAspectOptions = ['Aggression', 'Command', 'Cunning', 'Heroism', 'Vigilance', 'Villainy'];
+        const swuAspectFields = document.querySelectorAll(
+            '[id$="-player-leader-aspect-1-left"], [id$="-player-leader-aspect-1-right"], ' +
+            '[id$="-player-leader-aspect-2-left"], [id$="-player-leader-aspect-2-right"], ' +
+            '[id$="-player-base-aspects-left"], [id$="-player-base-aspects-right"]'
+        );
+        swuAspectFields.forEach(field => {
+            if (field.parentNode.classList.contains('custom-dropdown')) return;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'custom-dropdown';
+            // Transfer flex styling from field to wrapper so flex layout is preserved
+            if (field.style.flex) {
+                wrapper.style.flex = field.style.flex;
+                field.style.flex = '';
+            }
+            if (field.style.width && field.style.flexShrink) {
+                wrapper.style.width = field.style.width;
+                wrapper.style.flexShrink = field.style.flexShrink;
+                field.style.width = '100%';
+                field.style.flexShrink = '';
+            }
+            field.parentNode.insertBefore(wrapper, field);
+            wrapper.appendChild(field);
+            const dropdownList = document.createElement('div');
+            dropdownList.className = 'dropdown-list';
+            wrapper.appendChild(dropdownList);
+
+            const renderAspectDropdown = (filter) => {
+                dropdownList.innerHTML = '';
+                const filtered = swuAspectOptions.filter(a => a.toLowerCase().includes(filter.toLowerCase()));
+                filtered.forEach(aspect => {
+                    const div = document.createElement('div');
+                    div.classList.add('dropdown-item', 'd-flex', 'align-items-center');
+                    const img = document.createElement('img');
+                    img.src = `/assets/images/starwars/scoreboard/icons/${aspect}.png`;
+                    img.alt = aspect;
+                    img.style.width = '20px';
+                    img.style.height = '20px';
+                    img.style.marginRight = '6px';
+                    div.appendChild(img);
+                    const nameSpan = document.createElement('span');
+                    nameSpan.textContent = aspect;
+                    div.appendChild(nameSpan);
+                    div.addEventListener('click', () => {
+                        field.textContent = aspect.toLowerCase();
+                        dropdownList.style.display = 'none';
+                        field.dispatchEvent(new Event('input', { bubbles: true }));
+                        field.dispatchEvent(new Event('change'));
+                    });
+                    dropdownList.appendChild(div);
+                });
+                dropdownList.style.display = filtered.length > 0 ? 'block' : 'none';
+            };
+
+            field.addEventListener('input', function () {
+                renderAspectDropdown(this.textContent.trim());
+            });
+            field.addEventListener('focus', function () {
+                renderAspectDropdown('');
+            });
+            document.addEventListener('click', (e) => {
+                if (!wrapper.contains(e.target)) dropdownList.style.display = 'none';
             });
         });
     }
@@ -993,6 +1237,17 @@ export function initMatches(socket) {
             // update controlData
             allControlData[round_id][match_id]['player-life-left'] = baseLifePoints;
             allControlData[round_id][match_id]['player-life-right'] = baseLifePoints;
+            // Also reset Star Wars base damage/HP if in Star Wars mode
+            if (currentGameSelection === 'starwars') {
+                const bdl = document.querySelector(`[id="${round_id}-${match_id}-player-base-damage-left"]`);
+                const bdr = document.querySelector(`[id="${round_id}-${match_id}-player-base-damage-right"]`);
+                const bhl = document.querySelector(`[id="${round_id}-${match_id}-player-base-hp-left"]`);
+                const bhr = document.querySelector(`[id="${round_id}-${match_id}-player-base-hp-right"]`);
+                if (bdl) { bdl.innerText = '0'; allControlData[round_id][match_id]['player-base-damage-left'] = '0'; }
+                if (bdr) { bdr.innerText = '0'; allControlData[round_id][match_id]['player-base-damage-right'] = '0'; }
+                if (bhl) { bhl.innerText = '30'; allControlData[round_id][match_id]['player-base-hp-left'] = '30'; }
+                if (bhr) { bhr.innerText = '30'; allControlData[round_id][match_id]['player-base-hp-right'] = '30'; }
+            }
             // update server since control data changed
             socket.emit('master-control-matches-updated', allControlData);
         })
@@ -1628,6 +1883,10 @@ export function initMatches(socket) {
         document.querySelectorAll('.archetype-field').forEach(field => {
             field.style.display = showArchetype ? 'block' : 'none';
         });
+
+        document.querySelectorAll('.life-points-field').forEach(field => {
+            field.style.display = showStarwars ? 'none' : 'block';
+        });
     }
 
     // Function to update theme with vendor overrides
@@ -1680,6 +1939,14 @@ export function initMatches(socket) {
     // Listen for updated archetype list from server
     socket.on('archetypeListUpdated', (archetypes) => {
         currentArchetypeList = archetypes; // Update the current archetype list
+    });
+
+    // Fetch SWU leaders and bases for dropdowns
+    socket.emit('starwars-get-leaders-and-bases');
+    socket.on('starwars-leaders-and-bases', ({ leaders, bases }) => {
+        swuLeadersList = leaders;
+        swuBasesList = bases;
+        setupCustomDropdowns(); // Re-run to set up SWU dropdowns
     });
 
     // Listen for match-by-table fetch response

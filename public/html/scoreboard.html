@@ -176,12 +176,6 @@
         </div>
         <div class="background-right">
         </div>
-       <!-- <div id="poison-left" class="poison poison-left">
-            <div id="player-poison-left" class="player-poison-left"></div>
-        </div>
-        <div id="poison-right" class="poison poison-right">
-            <div id="player-poison-right" class="player-poison-right"></div>
-        </div> -->
         <div class="background">
             <div class="scorebug">
                 <div class="scorebug-life scorebug-left-life">
@@ -256,57 +250,58 @@
 <!-- Star Wars Scoreboard -->
 <div id="scoreboard-starwars" style="display: none;">
     <div class="starwars-frame"></div>
-    <div class="header">
-        <div class="background-left">
-        </div>
-        <div class="background-right">
-        </div>
-        <div class="background">
-            <div class="scorebug">
-                <div class="scorebug-life scorebug-left-life">
-                    <div id="player-life-left" class="scorebug-life-score scorebug-left-life-score">-</div>
-                    <div id="player-wins-leftw" class="scorebug-life-wins scorebug-left-life-wins">
-                        <div id="scorebug-left-life-wins-1" class="scorebug-life-wins-dot"></div>
-                        <div id="scorebug-left-life-wins-2" class="scorebug-life-wins-dot"></div>
-                    </div>
-                </div>
-                <div class="scorebug-name scorebug-left-name">
-                    <div id="player-name-left" class="scorebug-name-title scorebug-left-name-title">-</div>
-                    <div class="scorebug-name-data scorebug-left-name-data">
-                        <span id="player-leader-left"></span>
-                        <span id="player-base-left"></span>
-                        <span id="player-pronouns-left" class="player-pronouns"></span>
-                    </div>
-                </div>
-                <div id="player-record-left" class="player-record player-record-left"></div>
-                <div class="timer-spacer"></div>
-                <div id="player-record-right" class="player-record player-record-right"></div>
-                <div class="scorebug-name scorebug-right-name">
-                    <div id="player-name-right" class="scorebug-name-title scorebug-right-name-title">-</div>
-                    <div class="scorebug-name-data scorebug-right-name-data">
-                        <span id="player-pronouns-right" class="player-pronouns"></span>
-                        <span id="player-base-right"></span>
-                        <span id="player-leader-right"></span>
-                    </div>
-                </div>
-                <div class="scorebug-life scorebug-right-life">
-                    <div id="player-life-right" class="scorebug-life-score scorebug-right-life-score">-</div>
-                    <div id="player-wins-righte" class="scorebug-life-wins scorebug-right-life-wins">
-                        <div id="scorebug-right-life-wins-1" class="scorebug-life-wins-dot"></div>
-                        <div id="scorebug-right-life-wins-2" class="scorebug-life-wins-dot"></div>
-                    </div>
-                </div>
-            </div>
+
+    <!-- Player Names -->
+    <div class="swu-player-name-left"><span id="player-name-left"></span></div>
+    <div class="swu-player-name-right"><span id="player-name-right"></span></div>
+
+    <!-- Player Records -->
+    <div class="swu-player-record-left"><span id="player-record-left"></span></div>
+    <div class="swu-player-record-right"><span id="player-record-right"></span></div>
+
+    <!-- Player Wins Pips -->
+    <div class="swu-player-wins-left">
+        <div id="swu-wins-left-1" class="swu-wins-pip"></div>
+        <div id="swu-wins-left-2" class="swu-wins-pip"></div>
+    </div>
+    <div class="swu-player-wins-right">
+        <div id="swu-wins-right-1" class="swu-wins-pip"></div>
+        <div id="swu-wins-right-2" class="swu-wins-pip"></div>
+    </div>
+
+    <!-- Event Round -->
+    <div class="swu-event-round"><span id="event-round"></span></div>
+
+    <!-- Timer -->
+    <div class="swu-timer-wrapper">
+        <div class="timer-container">
+            <p id="timer" class="swu-timer">00:00</p>
         </div>
     </div>
-    <div class="body">
-        <div class="background">
-        </div>
-    </div>
-    <div class="footer">
-        <div class="background">
-        </div>
-    </div>
+
+    <!-- Left Leader -->
+    <div class="swu-leader-name-left"><span id="player-leader-left"></span></div>
+    <div class="swu-leader-image-left"><img id="swu-leader-image-left" src="" alt=""></div>
+    <div class="swu-leader-aspects-left" id="swu-leader-aspects-left"></div>
+
+    <!-- Right Leader -->
+    <div class="swu-leader-name-right"><span id="player-leader-right"></span></div>
+    <div class="swu-leader-image-right"><img id="swu-leader-image-right" src="" alt=""></div>
+    <div class="swu-leader-aspects-right" id="swu-leader-aspects-right"></div>
+
+    <!-- Left Base -->
+    <div class="swu-base-name-left"><span id="player-base-left"></span></div>
+    <div class="swu-base-image-left"><img id="swu-base-image-left" src="" alt=""></div>
+    <div class="swu-base-aspects-left" id="swu-base-aspects-left"></div>
+
+    <!-- Right Base -->
+    <div class="swu-base-name-right"><span id="player-base-right"></span></div>
+    <div class="swu-base-image-right"><img id="swu-base-image-right" src="" alt=""></div>
+    <div class="swu-base-aspects-right" id="swu-base-aspects-right"></div>
+
+    <!-- Base Stats (damage/hp) -->
+    <div class="swu-base-stats-left" id="swu-base-stats-left"></div>
+    <div class="swu-base-stats-right" id="swu-base-stats-right"></div>
 </div>
 
 <script type="module" src="/js/scoreboard.js"></script>

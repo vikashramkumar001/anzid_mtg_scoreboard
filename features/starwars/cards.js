@@ -3,7 +3,7 @@ import path from 'path';
 import { cardDataDir } from '../../config/starwars/constants.js';
 import { RoomUtils } from '../../utils/room-utils.js';
 
-let cardListData = {}; // { SETCODE: { cardKey: { name, type, image } } }
+let cardListData = {}; // { SETCODE: { cardKey: { name, type, image, aspects, hp } } }
 
 function normalizeKey(name) {
     if (!name) return '';
@@ -29,7 +29,9 @@ async function loadCardListData() {
                     cardListData[setCode][normalized] = {
                         name: entry.name || key,
                         type: entry.type || '',
-                        image: entry.image || ''
+                        image: entry.image || '',
+                        aspects: entry.aspects || [],
+                        hp: entry.hp || null
                     };
                 }
             } catch (e) {
@@ -82,7 +84,7 @@ function buildImageUrl(entry, setCode, normalizedKey) {
     base = base.split('?')[0].split('#')[0];
 
     if (!/\.[a-z0-9]+$/i.test(base)) base = base + '.png';
-    return `/assets/images/cards/starwars/${setCode}/${base}`;
+    return `/assets/images/starwars/cards/${setCode}/${base}`;
 }
 
 function emitStarWarsCardView(io, cardSelected) {
@@ -180,5 +182,32 @@ export function handleStarWarsIncomingDeckData(io, deckListData) {
     }
 }
 
-export { loadCardListData, getCardListData, emitStarWarsCardList, emitStarWarsCardView };
+function getSWULeadersAndBases() {
+    const leaders = [];
+    const bases = [];
+    const seenLeaders = new Set();
+    const seenBases = new Set();
+    for (const setCode in cardListData) {
+        for (const key in cardListData[setCode]) {
+            const card = cardListData[setCode][key];
+            if (card.type === 'Leader' && !card.name.endsWith('[Back]') && !seenLeaders.has(card.name)) {
+                seenLeaders.add(card.name);
+                leaders.push({ name: card.name, aspects: card.aspects });
+            } else if (card.type === 'Base' && !seenBases.has(card.name)) {
+                seenBases.add(card.name);
+                bases.push({ name: card.name, aspects: card.aspects, hp: card.hp });
+            }
+        }
+    }
+    leaders.sort((a, b) => a.name.localeCompare(b.name));
+    bases.sort((a, b) => a.name.localeCompare(b.name));
+    return { leaders, bases };
+}
+
+function emitSWULeadersAndBases(io) {
+    const data = getSWULeadersAndBases();
+    RoomUtils.emitWithRoomMapping(io, 'starwars-leaders-and-bases', data);
+}
+
+export { loadCardListData, getCardListData, emitStarWarsCardList, emitStarWarsCardView, emitSWULeadersAndBases };
 

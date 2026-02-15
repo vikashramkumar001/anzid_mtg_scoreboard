@@ -7,7 +7,7 @@ let cardName = null;
 const pathSegments = window.location.pathname.split('/');
 const game_id = pathSegments[4];
 const card_id = pathSegments[5];
-const fallbackUrl = `/assets/images/cards/${game_id}/${game_id === 'mtg' ? 'magic' : 'vibes'}-card-back.jpg`;
+const fallbackUrl = `/assets/images/${game_id}/cards/${game_id === 'mtg' ? 'magic' : 'vibes'}-card-back.jpg`;
 
 // Listen for card view to display
 socket.on('card-view-card-selected', (data) => {

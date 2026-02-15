@@ -1,6 +1,6 @@
 {
   "admiralozzelasclumsyasheisstupid": {
-    "image": "IBH\\Admiral_Ozzel - As_Clumsy_as_He_Is_Stupid.png",
+    "image": "IBH/Admiral_Ozzel - As_Clumsy_as_He_Is_Stupid.png",
     "name": "Admiral Ozzel - As Clumsy as He Is Stupid",
     "type": "Unit",
     "hp": null,
@@ -10,7 +10,7 @@
     ]
   },
   "admiralpiettincommandnow": {
-    "image": "IBH\\Admiral_Piett - In_Command_Now.png",
+    "image": "IBH/Admiral_Piett - In_Command_Now.png",
     "name": "Admiral Piett - In Command Now",
     "type": "Unit",
     "hp": null,
@@ -20,7 +20,7 @@
     ]
   },
   "avengerhuntingtherebels": {
-    "image": "IBH\\Avenger - Hunting_the_Rebels.png",
+    "image": "IBH/Avenger - Hunting_the_Rebels.png",
     "name": "Avenger - Hunting the Rebels",
     "type": "Unit",
     "hp": null,
@@ -30,7 +30,7 @@
     ]
   },
   "blizzardforceatst": {
-    "image": "IBH\\Blizzard_Force_AT-ST.png",
+    "image": "IBH/Blizzard_Force_AT-ST.png",
     "name": "Blizzard Force AT-ST",
     "type": "Unit",
     "hp": null,
@@ -40,7 +40,7 @@
     ]
   },
   "blizzardoneveersatthehelm": {
-    "image": "IBH\\Blizzard_One - Veers_at_the_Helm.png",
+    "image": "IBH/Blizzard_One - Veers_at_the_Helm.png",
     "name": "Blizzard One - Veers at the Helm",
     "type": "Unit",
     "hp": null,
@@ -50,7 +50,7 @@
     ]
   },
   "brighthopenarrowescape": {
-    "image": "IBH\\Bright_Hope - Narrow_Escape.png",
+    "image": "IBH/Bright_Hope - Narrow_Escape.png",
     "name": "Bright Hope - Narrow Escape",
     "type": "Unit",
     "hp": null,
@@ -60,7 +60,7 @@
     ]
   },
   "c3p0ohdearohdear": {
-    "image": "IBH\\C-3P0 - Oh_Dear_Oh_Dear.png",
+    "image": "IBH/C-3P0 - Oh_Dear_Oh_Dear.png",
     "name": "C-3P0 - Oh Dear, Oh Dear",
     "type": "Unit",
     "hp": null,
@@ -70,7 +70,7 @@
     ]
   },
   "chewbaccarrruuuurrr": {
-    "image": "IBH\\Chewbacca - Rrruuuurrr.png",
+    "image": "IBH/Chewbacca - Rrruuuurrr.png",
     "name": "Chewbacca - Rrruuuurrr",
     "type": "Unit",
     "hp": null,
@@ -80,7 +80,7 @@
     ]
   },
   "darthvaderdontfailmeagain": {
-    "image": "IBH\\Darth_Vader - Dont_Fail_Me_Again.png",
+    "image": "IBH/Darth_Vader - Dont_Fail_Me_Again.png",
     "name": "Darth Vader - Don't Fail Me Again",
     "type": "Leader",
     "hp": null,
@@ -90,7 +90,7 @@
     ]
   },
   "darthvaderdontfailmeagainback": {
-    "image": "IBH\\Darth_Vader - Dont_Fail_Me_Again_back.png",
+    "image": "IBH/Darth_Vader - Dont_Fail_Me_Again_back.png",
     "name": "Darth Vader - Don't Fail Me Again [Back]",
     "type": "Leader",
     "hp": null,
@@ -100,7 +100,7 @@
     ]
   },
   "deathsquadronstardestroyer": {
-    "image": "IBH\\Death_Squadron_Star_Destroyer.png",
+    "image": "IBH/Death_Squadron_Star_Destroyer.png",
     "name": "Death Squadron Star Destroyer",
     "type": "Unit",
     "hp": null,
@@ -110,7 +110,7 @@
     ]
   },
   "ewebgunner": {
-    "image": "IBH\\E-Web_Gunner.png",
+    "image": "IBH/E-Web_Gunner.png",
     "name": "E-Web Gunner",
     "type": "Unit",
     "hp": null,
@@ -119,9 +119,9 @@
       "Villainy"
     ]
   },
-  "echocavernshoth": {
-    "image": "IBH\\Echo_Caverns - Hoth.png",
-    "name": "Echo Caverns - Hoth",
+  "echocaverns": {
+    "image": "IBH/Echo_Caverns - Hoth.png",
+    "name": "Echo Caverns",
     "type": "Base",
     "hp": "20",
     "aspects": [
@@ -129,7 +129,7 @@
     ]
   },
   "echocoordinator": {
-    "image": "IBH\\Echo_Coordinator.png",
+    "image": "IBH/Echo_Coordinator.png",
     "name": "Echo Coordinator",
     "type": "Unit",
     "hp": null,
@@ -139,7 +139,7 @@
     ]
   },
   "evacuationescort": {
-    "image": "IBH\\Evacuation_Escort.png",
+    "image": "IBH/Evacuation_Escort.png",
     "name": "Evacuation Escort",
     "type": "Unit",
     "hp": null,
@@ -148,7 +148,7 @@
     ]
   },
   "firstlegiontrooper": {
-    "image": "IBH\\First_Legion_Trooper.png",
+    "image": "IBH/First_Legion_Trooper.png",
     "name": "First Legion Trooper",
     "type": "Unit",
     "hp": null,
@@ -157,9 +157,9 @@
       "Villainy"
     ]
   },
-  "forwardcommandposthoth": {
-    "image": "IBH\\Forward_Command_Post - Hoth.png",
-    "name": "Forward Command Post - Hoth",
+  "forwardcommandpost": {
+    "image": "IBH/Forward_Command_Post - Hoth.png",
+    "name": "Forward Command Post",
     "type": "Base",
     "hp": "20",
     "aspects": [
@@ -167,7 +167,7 @@
     ]
   },
   "gr75mediumtransport": {
-    "image": "IBH\\GR-75_Medium_Transport.png",
+    "image": "IBH/GR-75_Medium_Transport.png",
     "name": "GR-75 Medium Transport",
     "type": "Unit",
     "hp": null,
@@ -177,7 +177,7 @@
     ]
   },
   "generalrieekanstalwarttactician": {
-    "image": "IBH\\General_Rieekan - Stalwart_Tactician.png",
+    "image": "IBH/General_Rieekan - Stalwart_Tactician.png",
     "name": "General Rieekan - Stalwart Tactician",
     "type": "Unit",
     "hp": null,
@@ -187,7 +187,7 @@
     ]
   },
   "generalveersleadingtheassault": {
-    "image": "IBH\\General_Veers - Leading_the_Assault.png",
+    "image": "IBH/General_Veers - Leading_the_Assault.png",
     "name": "General Veers - Leading the Assault",
     "type": "Unit",
     "hp": null,
@@ -197,7 +197,7 @@
     ]
   },
   "goforthelegs": {
-    "image": "IBH\\Go_for_the_Legs.png",
+    "image": "IBH/Go_for_the_Legs.png",
     "name": "Go for the Legs",
     "type": "Event",
     "hp": null,
@@ -206,7 +206,7 @@
     ]
   },
   "groundassaultatat": {
-    "image": "IBH\\Ground_Assault_AT-AT.png",
+    "image": "IBH/Ground_Assault_AT-AT.png",
     "name": "Ground Assault AT-AT",
     "type": "Unit",
     "hp": null,
@@ -216,7 +216,7 @@
     ]
   },
   "hansoloscruffylookingnerfherder": {
-    "image": "IBH\\Han_Solo - Scruffy-Looking_Nerf_Herder.png",
+    "image": "IBH/Han_Solo - Scruffy-Looking_Nerf_Herder.png",
     "name": "Han Solo - Scruffy-Looking Nerf Herder",
     "type": "Unit",
     "hp": null,
@@ -226,7 +226,7 @@
     ]
   },
   "hothlieutenant": {
-    "image": "IBH\\Hoth_Lieutenant.png",
+    "image": "IBH/Hoth_Lieutenant.png",
     "name": "Hoth Lieutenant",
     "type": "Unit",
     "hp": null,
@@ -236,7 +236,7 @@
     ]
   },
   "hothtrooper": {
-    "image": "IBH\\Hoth_Trooper.png",
+    "image": "IBH/Hoth_Trooper.png",
     "name": "Hoth Trooper",
     "type": "Unit",
     "hp": null,
@@ -246,7 +246,7 @@
     ]
   },
   "iwantproofnotleads": {
-    "image": "IBH\\I_Want_Proof_Not_Leads.png",
+    "image": "IBH/I_Want_Proof_Not_Leads.png",
     "name": "I Want Proof, Not Leads",
     "type": "Event",
     "hp": null,
@@ -256,7 +256,7 @@
     ]
   },
   "illcoverforyou": {
-    "image": "IBH\\Ill_Cover_For_You.png",
+    "image": "IBH/Ill_Cover_For_You.png",
     "name": "I'll Cover For You",
     "type": "Event",
     "hp": null,
@@ -265,7 +265,7 @@
     ]
   },
   "ivefoundthem": {
-    "image": "IBH\\Ive_Found_Them.png",
+    "image": "IBH/Ive_Found_Them.png",
     "name": "I've Found Them",
     "type": "Event",
     "hp": null,
@@ -274,7 +274,7 @@
     ]
   },
   "imperialdeckofficer": {
-    "image": "IBH\\Imperial_Deck_Officer.png",
+    "image": "IBH/Imperial_Deck_Officer.png",
     "name": "Imperial Deck Officer",
     "type": "Unit",
     "hp": null,
@@ -283,7 +283,7 @@
     ]
   },
   "improviseddetonation": {
-    "image": "IBH\\Improvised_Detonation.png",
+    "image": "IBH/Improvised_Detonation.png",
     "name": "Improvised Detonation",
     "type": "Event",
     "hp": null,
@@ -292,7 +292,7 @@
     ]
   },
   "ioncannon": {
-    "image": "IBH\\Ion_Cannon.png",
+    "image": "IBH/Ion_Cannon.png",
     "name": "Ion Cannon",
     "type": "Unit",
     "hp": null,
@@ -301,7 +301,7 @@
     ]
   },
   "lambdashuttle": {
-    "image": "IBH\\Lambda_Shuttle.png",
+    "image": "IBH/Lambda_Shuttle.png",
     "name": "Lambda Shuttle",
     "type": "Unit",
     "hp": null,
@@ -310,7 +310,7 @@
     ]
   },
   "leiaorganagettoyourtransports": {
-    "image": "IBH\\Leia_Organa - Get_to_Your_Transports.png",
+    "image": "IBH/Leia_Organa - Get_to_Your_Transports.png",
     "name": "Leia Organa - Get to Your Transports!",
     "type": "Leader",
     "hp": null,
@@ -320,7 +320,7 @@
     ]
   },
   "leiaorganagettoyourtransportsback": {
-    "image": "IBH\\Leia_Organa - Get_to_Your_Transports_back.png",
+    "image": "IBH/Leia_Organa - Get_to_Your_Transports_back.png",
     "name": "Leia Organa - Get to Your Transports! [Back]",
     "type": "Leader",
     "hp": null,
@@ -330,7 +330,7 @@
     ]
   },
   "lukeskywalkerdoyoureadme": {
-    "image": "IBH\\Luke_Skywalker - Do_You_Read_Me.png",
+    "image": "IBH/Luke_Skywalker - Do_You_Read_Me.png",
     "name": "Luke Skywalker - Do You Read Me?",
     "type": "Unit",
     "hp": null,
@@ -340,7 +340,7 @@
     ]
   },
   "millenniumfalconbucketofbolts": {
-    "image": "IBH\\Millennium_Falcon - Bucket_of_Bolts.png",
+    "image": "IBH/Millennium_Falcon - Bucket_of_Bolts.png",
     "name": "Millennium Falcon - Bucket of Bolts",
     "type": "Unit",
     "hp": null,
@@ -350,7 +350,7 @@
     ]
   },
   "r2d2knowntomakemistakes": {
-    "image": "IBH\\R2-D2 - Known_to_Make_Mistakes.png",
+    "image": "IBH/R2-D2 - Known_to_Make_Mistakes.png",
     "name": "R2-D2 - Known to Make Mistakes",
     "type": "Unit",
     "hp": null,
@@ -360,7 +360,7 @@
     ]
   },
   "rampagingwampa": {
-    "image": "IBH\\Rampaging_Wampa.png",
+    "image": "IBH/Rampaging_Wampa.png",
     "name": "Rampaging Wampa",
     "type": "Unit",
     "hp": null,
@@ -369,7 +369,7 @@
     ]
   },
   "rebellionywing": {
-    "image": "IBH\\Rebellion_Y-Wing.png",
+    "image": "IBH/Rebellion_Y-Wing.png",
     "name": "Rebellion Y-Wing",
     "type": "Unit",
     "hp": null,
@@ -379,7 +379,7 @@
     ]
   },
   "recovery": {
-    "image": "IBH\\Recovery.png",
+    "image": "IBH/Recovery.png",
     "name": "Recovery",
     "type": "Event",
     "hp": null,
@@ -388,7 +388,7 @@
     ]
   },
   "roguesquadronspeeder": {
-    "image": "IBH\\Rogue_Squadron_Speeder.png",
+    "image": "IBH/Rogue_Squadron_Speeder.png",
     "name": "Rogue Squadron Speeder",
     "type": "Unit",
     "hp": null,
@@ -398,7 +398,7 @@
     ]
   },
   "scoutingtiefighter": {
-    "image": "IBH\\Scouting_TIE_Fighter.png",
+    "image": "IBH/Scouting_TIE_Fighter.png",
     "name": "Scouting TIE Fighter",
     "type": "Unit",
     "hp": null,
@@ -407,7 +407,7 @@
     ]
   },
   "snowtrooper": {
-    "image": "IBH\\Snowtrooper.png",
+    "image": "IBH/Snowtrooper.png",
     "name": "Snowtrooper",
     "type": "Unit",
     "hp": null,
@@ -417,7 +417,7 @@
     ]
   },
   "snowtroopervanguard": {
-    "image": "IBH\\Snowtrooper_Vanguard.png",
+    "image": "IBH/Snowtrooper_Vanguard.png",
     "name": "Snowtrooper Vanguard",
     "type": "Unit",
     "hp": null,
@@ -427,7 +427,7 @@
     ]
   },
   "surfaceassaultbomber": {
-    "image": "IBH\\Surface_Assault_Bomber.png",
+    "image": "IBH/Surface_Assault_Bomber.png",
     "name": "Surface Assault Bomber",
     "type": "Unit",
     "hp": null,
@@ -437,7 +437,7 @@
     ]
   },
   "targetthemaingenerator": {
-    "image": "IBH\\Target_the_Main_Generator.png",
+    "image": "IBH/Target_the_Main_Generator.png",
     "name": "Target the Main Generator",
     "type": "Event",
     "hp": null,
@@ -446,7 +446,7 @@
     ]
   },
   "tauntaunmount": {
-    "image": "IBH\\Tauntaun_Mount.png",
+    "image": "IBH/Tauntaun_Mount.png",
     "name": "Tauntaun Mount",
     "type": "Unit",
     "hp": null,
@@ -455,7 +455,7 @@
     ]
   },
   "thedesolationofhoth": {
-    "image": "IBH\\The_Desolation_of_Hoth.png",
+    "image": "IBH/The_Desolation_of_Hoth.png",
     "name": "The Desolation of Hoth",
     "type": "Event",
     "hp": null,
@@ -464,7 +464,7 @@
     ]
   },
   "toostrongforblasters": {
-    "image": "IBH\\Too_Strong_for_Blasters.png",
+    "image": "IBH/Too_Strong_for_Blasters.png",
     "name": "Too Strong for Blasters",
     "type": "Event",
     "hp": null,
@@ -473,7 +473,7 @@
     ]
   },
   "trenchdefender": {
-    "image": "IBH\\Trench_Defender.png",
+    "image": "IBH/Trench_Defender.png",
     "name": "Trench Defender",
     "type": "Unit",
     "hp": null,
@@ -483,7 +483,7 @@
     ]
   },
   "watchthis": {
-    "image": "IBH\\Watch_This.png",
+    "image": "IBH/Watch_This.png",
     "name": "Watch This",
     "type": "Event",
     "hp": null,
@@ -492,7 +492,7 @@
     ]
   },
   "wereintrouble": {
-    "image": "IBH\\Were_In_Trouble.png",
+    "image": "IBH/Were_In_Trouble.png",
     "name": "We're In Trouble",
     "type": "Event",
     "hp": null,
@@ -501,7 +501,7 @@
     ]
   },
   "youhavefailedme": {
-    "image": "IBH\\You_Have_Failed_Me.png",
+    "image": "IBH/You_Have_Failed_Me.png",
     "name": "You Have Failed Me",
     "type": "Event",
     "hp": null,

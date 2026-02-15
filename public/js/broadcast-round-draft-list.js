@@ -347,7 +347,7 @@ function renderMTGHorizontalDraftList() {
     const cardHeight = availableCardHeight / 4;
     const cardAspectRatio = 0.7179;
     const cardWidth = Math.floor(cardHeight * cardAspectRatio);
-    const cardBackUrl = '/assets/images/cards/mtg/magic-card-back.jpg';
+    const cardBackUrl = '/assets/images/mtg/cards/magic-card-back.jpg';
 
     // Always render 3 columns (even if empty)
     for (let packIndex = 0; packIndex < 3; packIndex++) {

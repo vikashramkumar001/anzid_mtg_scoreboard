@@ -1,6 +1,6 @@
 {
   "332ndstalwart": {
-    "image": "TWI\\332nd_Stalwart.png",
+    "image": "TWI/332nd_Stalwart.png",
     "name": "332nd Stalwart",
     "type": "Unit",
     "hp": null,
@@ -9,7 +9,7 @@
     ]
   },
   "41stelitecorps": {
-    "image": "TWI\\41st_Elite_Corps.png",
+    "image": "TWI/41st_Elite_Corps.png",
     "name": "41st Elite Corps",
     "type": "Unit",
     "hp": null,
@@ -19,7 +19,7 @@
     ]
   },
   "501stliberator": {
-    "image": "TWI\\501st_Liberator.png",
+    "image": "TWI/501st_Liberator.png",
     "name": "501st Liberator",
     "type": "Unit",
     "hp": null,
@@ -28,7 +28,7 @@
     ]
   },
   "afineaddition": {
-    "image": "TWI\\A_Fine_Addition.png",
+    "image": "TWI/A_Fine_Addition.png",
     "name": "A Fine Addition",
     "type": "Event",
     "hp": null,
@@ -38,7 +38,7 @@
     ]
   },
   "attevanguard": {
-    "image": "TWI\\AT-TE_Vanguard.png",
+    "image": "TWI/AT-TE_Vanguard.png",
     "name": "AT-TE Vanguard",
     "type": "Unit",
     "hp": null,
@@ -47,7 +47,7 @@
     ]
   },
   "aaylasecuramasteroftheblade": {
-    "image": "TWI\\Aayla_Secura - Master_of_the_Blade.png",
+    "image": "TWI/Aayla_Secura - Master_of_the_Blade.png",
     "name": "Aayla Secura - Master of the Blade",
     "type": "Unit",
     "hp": null,
@@ -57,7 +57,7 @@
     ]
   },
   "admiraltrenchholdingtheline": {
-    "image": "TWI\\Admiral_Trench - Holding_the_Line.png",
+    "image": "TWI/Admiral_Trench - Holding_the_Line.png",
     "name": "Admiral Trench - Holding the Line",
     "type": "Unit",
     "hp": null,
@@ -67,7 +67,7 @@
     ]
   },
   "admiralyularenadvisingcaution": {
-    "image": "TWI\\Admiral_Yularen - Advising_Caution.png",
+    "image": "TWI/Admiral_Yularen - Advising_Caution.png",
     "name": "Admiral Yularen - Advising Caution",
     "type": "Unit",
     "hp": null,
@@ -77,7 +77,7 @@
     ]
   },
   "advancedreconcommando": {
-    "image": "TWI\\Advanced_Recon_Commando.png",
+    "image": "TWI/Advanced_Recon_Commando.png",
     "name": "Advanced Recon Commando",
     "type": "Unit",
     "hp": null,
@@ -87,14 +87,14 @@
     ]
   },
   "aggrievedparliamentarian": {
-    "image": "TWI\\Aggrieved_Parliamentarian.png",
+    "image": "TWI/Aggrieved_Parliamentarian.png",
     "name": "Aggrieved Parliamentarian",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "ahsokatanosnips": {
-    "image": "TWI\\Ahsoka_Tano - Snips.png",
+    "image": "TWI/Ahsoka_Tano - Snips.png",
     "name": "Ahsoka Tano - Snips",
     "type": "Leader",
     "hp": null,
@@ -104,7 +104,7 @@
     ]
   },
   "ahsokatanosnipsback": {
-    "image": "TWI\\Ahsoka_Tano - Snips_back.png",
+    "image": "TWI/Ahsoka_Tano - Snips_back.png",
     "name": "Ahsoka Tano - Snips [Back]",
     "type": "Leader",
     "hp": null,
@@ -114,7 +114,7 @@
     ]
   },
   "ahsokatanoalwaysreadyfortrouble": {
-    "image": "TWI\\Ahsoka_Tano - Always_Ready_For_Trouble.png",
+    "image": "TWI/Ahsoka_Tano - Always_Ready_For_Trouble.png",
     "name": "Ahsoka Tano - Always Ready For Trouble",
     "type": "Unit",
     "hp": null,
@@ -124,7 +124,7 @@
     ]
   },
   "ahsokaspadawanlightsaber": {
-    "image": "TWI\\Ahsokas_Padawan_Lightsaber.png",
+    "image": "TWI/Ahsokas_Padawan_Lightsaber.png",
     "name": "Ahsoka's Padawan Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -133,7 +133,7 @@
     ]
   },
   "aidfromtheinnocent": {
-    "image": "TWI\\Aid_from_the_Innocent.png",
+    "image": "TWI/Aid_from_the_Innocent.png",
     "name": "Aid from the Innocent",
     "type": "Event",
     "hp": null,
@@ -143,7 +143,7 @@
     ]
   },
   "anakinskywalkerwhatittakestowin": {
-    "image": "TWI\\Anakin_Skywalker - What_it_Takes_to_Win.png",
+    "image": "TWI/Anakin_Skywalker - What_it_Takes_to_Win.png",
     "name": "Anakin Skywalker - What it Takes to Win",
     "type": "Leader",
     "hp": null,
@@ -153,7 +153,7 @@
     ]
   },
   "anakinskywalkerwhatittakestowinback": {
-    "image": "TWI\\Anakin_Skywalker - What_it_Takes_to_Win_back.png",
+    "image": "TWI/Anakin_Skywalker - What_it_Takes_to_Win_back.png",
     "name": "Anakin Skywalker - What it Takes to Win [Back]",
     "type": "Leader",
     "hp": null,
@@ -163,7 +163,7 @@
     ]
   },
   "anakinskywalkermaverickmentor": {
-    "image": "TWI\\Anakin_Skywalker - Maverick_Mentor.png",
+    "image": "TWI/Anakin_Skywalker - Maverick_Mentor.png",
     "name": "Anakin Skywalker - Maverick Mentor",
     "type": "Unit",
     "hp": null,
@@ -173,7 +173,7 @@
     ]
   },
   "anakinsinterceptorwherethefunbegins": {
-    "image": "TWI\\Anakins_Interceptor - Where_the_Fun_Begins.png",
+    "image": "TWI/Anakins_Interceptor - Where_the_Fun_Begins.png",
     "name": "Anakin's Interceptor - Where the Fun Begins",
     "type": "Unit",
     "hp": null,
@@ -183,7 +183,7 @@
     ]
   },
   "armoredsabertank": {
-    "image": "TWI\\Armored_Saber_Tank.png",
+    "image": "TWI/Armored_Saber_Tank.png",
     "name": "Armored Saber Tank",
     "type": "Unit",
     "hp": null,
@@ -192,7 +192,7 @@
     ]
   },
   "asajjventressunparalleledadversary": {
-    "image": "TWI\\Asajj_Ventress - Unparalleled_Adversary.png",
+    "image": "TWI/Asajj_Ventress - Unparalleled_Adversary.png",
     "name": "Asajj Ventress - Unparalleled Adversary",
     "type": "Leader",
     "hp": null,
@@ -202,7 +202,7 @@
     ]
   },
   "asajjventressunparalleledadversaryback": {
-    "image": "TWI\\Asajj_Ventress - Unparalleled_Adversary_back.png",
+    "image": "TWI/Asajj_Ventress - Unparalleled_Adversary_back.png",
     "name": "Asajj Ventress - Unparalleled Adversary [Back]",
     "type": "Leader",
     "hp": null,
@@ -212,7 +212,7 @@
     ]
   },
   "asajjventresscountdookusassassin": {
-    "image": "TWI\\Asajj_Ventress - Count_Dookus_Assassin.png",
+    "image": "TWI/Asajj_Ventress - Count_Dookus_Assassin.png",
     "name": "Asajj Ventress - Count Dooku's Assassin",
     "type": "Unit",
     "hp": null,
@@ -222,7 +222,7 @@
     ]
   },
   "aurrasingcrackshotsniper": {
-    "image": "TWI\\Aurra_Sing - Crackshot_Sniper.png",
+    "image": "TWI/Aurra_Sing - Crackshot_Sniper.png",
     "name": "Aurra Sing - Crackshot Sniper",
     "type": "Unit",
     "hp": null,
@@ -231,7 +231,7 @@
     ]
   },
   "b1attackplatform": {
-    "image": "TWI\\B1_Attack_Platform.png",
+    "image": "TWI/B1_Attack_Platform.png",
     "name": "B1 Attack Platform",
     "type": "Unit",
     "hp": null,
@@ -241,7 +241,7 @@
     ]
   },
   "b1securityteam": {
-    "image": "TWI\\B1_Security_Team.png",
+    "image": "TWI/B1_Security_Team.png",
     "name": "B1 Security Team",
     "type": "Unit",
     "hp": null,
@@ -250,7 +250,7 @@
     ]
   },
   "b2legionnaires": {
-    "image": "TWI\\B2_Legionnaires.png",
+    "image": "TWI/B2_Legionnaires.png",
     "name": "B2 Legionnaires",
     "type": "Unit",
     "hp": null,
@@ -259,7 +259,7 @@
     ]
   },
   "baktoidspiderdroid": {
-    "image": "TWI\\Baktoid_Spider_Droid.png",
+    "image": "TWI/Baktoid_Spider_Droid.png",
     "name": "Baktoid Spider Droid",
     "type": "Unit",
     "hp": null,
@@ -268,7 +268,7 @@
     ]
   },
   "barrissoffeeunassumingapprentice": {
-    "image": "TWI\\Barriss_Offee - Unassuming_Apprentice.png",
+    "image": "TWI/Barriss_Offee - Unassuming_Apprentice.png",
     "name": "Barriss Offee - Unassuming Apprentice",
     "type": "Unit",
     "hp": null,
@@ -278,7 +278,7 @@
     ]
   },
   "batchbrothers": {
-    "image": "TWI\\Batch_Brothers.png",
+    "image": "TWI/Batch_Brothers.png",
     "name": "Batch Brothers",
     "type": "Unit",
     "hp": null,
@@ -288,7 +288,7 @@
     ]
   },
   "battledroidescort": {
-    "image": "TWI\\Battle_Droid_Escort.png",
+    "image": "TWI/Battle_Droid_Escort.png",
     "name": "Battle Droid Escort",
     "type": "Unit",
     "hp": null,
@@ -297,7 +297,7 @@
     ]
   },
   "battledroidlegion": {
-    "image": "TWI\\Battle_Droid_Legion.png",
+    "image": "TWI/Battle_Droid_Legion.png",
     "name": "Battle Droid Legion",
     "type": "Unit",
     "hp": null,
@@ -306,7 +306,7 @@
     ]
   },
   "bloodsport": {
-    "image": "TWI\\Blood_Sport.png",
+    "image": "TWI/Blood_Sport.png",
     "name": "Blood Sport",
     "type": "Event",
     "hp": null,
@@ -315,7 +315,7 @@
     ]
   },
   "bokatankryzedeathwatchlieutenant": {
-    "image": "TWI\\Bo-Katan_Kryze - Death_Watch_Lieutenant.png",
+    "image": "TWI/Bo-Katan_Kryze - Death_Watch_Lieutenant.png",
     "name": "Bo-Katan Kryze - Death Watch Lieutenant",
     "type": "Unit",
     "hp": null,
@@ -325,7 +325,7 @@
     ]
   },
   "boldreconcommando": {
-    "image": "TWI\\Bold_Recon_Commando.png",
+    "image": "TWI/Bold_Recon_Commando.png",
     "name": "Bold Recon Commando",
     "type": "Unit",
     "hp": null,
@@ -334,7 +334,7 @@
     ]
   },
   "boldresistance": {
-    "image": "TWI\\Bold_Resistance.png",
+    "image": "TWI/Bold_Resistance.png",
     "name": "Bold Resistance",
     "type": "Event",
     "hp": null,
@@ -344,14 +344,14 @@
     ]
   },
   "braininvaders": {
-    "image": "TWI\\Brain_Invaders.png",
+    "image": "TWI/Brain_Invaders.png",
     "name": "Brain Invaders",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "breakingin": {
-    "image": "TWI\\Breaking_In.png",
+    "image": "TWI/Breaking_In.png",
     "name": "Breaking In",
     "type": "Event",
     "hp": null,
@@ -360,7 +360,7 @@
     ]
   },
   "cadbanehostagetaker": {
-    "image": "TWI\\Cad_Bane - Hostage_Taker.png",
+    "image": "TWI/Cad_Bane - Hostage_Taker.png",
     "name": "Cad Bane - Hostage Taker",
     "type": "Unit",
     "hp": null,
@@ -370,7 +370,7 @@
     ]
   },
   "calculatingmagnaguard": {
-    "image": "TWI\\Calculating_MagnaGuard.png",
+    "image": "TWI/Calculating_MagnaGuard.png",
     "name": "Calculating MagnaGuard",
     "type": "Unit",
     "hp": null,
@@ -380,7 +380,7 @@
     ]
   },
   "captainrexfightingforhisbrothers": {
-    "image": "TWI\\Captain_Rex - Fighting_For_His_Brothers.png",
+    "image": "TWI/Captain_Rex - Fighting_For_His_Brothers.png",
     "name": "Captain Rex - Fighting For His Brothers",
     "type": "Leader",
     "hp": null,
@@ -390,7 +390,7 @@
     ]
   },
   "captainrexfightingforhisbrothersback": {
-    "image": "TWI\\Captain_Rex - Fighting_For_His_Brothers_back.png",
+    "image": "TWI/Captain_Rex - Fighting_For_His_Brothers_back.png",
     "name": "Captain Rex - Fighting For His Brothers [Back]",
     "type": "Leader",
     "hp": null,
@@ -400,7 +400,7 @@
     ]
   },
   "captainrexleadbyexample": {
-    "image": "TWI\\Captain_Rex - Lead_by_Example.png",
+    "image": "TWI/Captain_Rex - Lead_by_Example.png",
     "name": "Captain Rex - Lead by Example",
     "type": "Unit",
     "hp": null,
@@ -410,7 +410,7 @@
     ]
   },
   "captaintyphoprotectingthesenator": {
-    "image": "TWI\\Captain_Typho - Protecting_the_Senator.png",
+    "image": "TWI/Captain_Typho - Protecting_the_Senator.png",
     "name": "Captain Typho - Protecting the Senator",
     "type": "Unit",
     "hp": null,
@@ -420,7 +420,7 @@
     ]
   },
   "caughtinthecrossfire": {
-    "image": "TWI\\Caught_in_the_Crossfire.png",
+    "image": "TWI/Caught_in_the_Crossfire.png",
     "name": "Caught in the Crossfire",
     "type": "Event",
     "hp": null,
@@ -429,7 +429,7 @@
     ]
   },
   "chancellorpalpatinewartimechancellor": {
-    "image": "TWI\\Chancellor_Palpatine - Wartime_Chancellor.png",
+    "image": "TWI/Chancellor_Palpatine - Wartime_Chancellor.png",
     "name": "Chancellor Palpatine - Wartime Chancellor",
     "type": "Unit",
     "hp": null,
@@ -439,7 +439,7 @@
     ]
   },
   "chancellorpalpatinedarthsidiousplayingbothsides": {
-    "image": "TWI\\Chancellor_Palpatine__Darth_Sidious - Playing_Both_Sides.png",
+    "image": "TWI/Chancellor_Palpatine__Darth_Sidious - Playing_Both_Sides.png",
     "name": "Chancellor Palpatine // Darth Sidious - Playing Both Sides",
     "type": "Leader",
     "hp": null,
@@ -450,7 +450,7 @@
     ]
   },
   "chancellorpalpatinedarthsidiousplayingbothsidesback": {
-    "image": "TWI\\Chancellor_Palpatine__Darth_Sidious - Playing_Both_Sides_back.png",
+    "image": "TWI/Chancellor_Palpatine__Darth_Sidious - Playing_Both_Sides_back.png",
     "name": "Chancellor Palpatine // Darth Sidious - Playing Both Sides [Back]",
     "type": "Leader",
     "hp": null,
@@ -461,7 +461,7 @@
     ]
   },
   "clearthefield": {
-    "image": "TWI\\Clear_the_Field.png",
+    "image": "TWI/Clear_the_Field.png",
     "name": "Clear the Field",
     "type": "Event",
     "hp": null,
@@ -471,7 +471,7 @@
     ]
   },
   "clone": {
-    "image": "TWI\\Clone.png",
+    "image": "TWI/Clone.png",
     "name": "Clone",
     "type": "Unit",
     "hp": null,
@@ -480,7 +480,7 @@
     ]
   },
   "clonecohort": {
-    "image": "TWI\\Clone_Cohort.png",
+    "image": "TWI/Clone_Cohort.png",
     "name": "Clone Cohort",
     "type": "Upgrade",
     "hp": null,
@@ -489,7 +489,7 @@
     ]
   },
   "clonecommandercodycommandingthe212th": {
-    "image": "TWI\\Clone_Commander_Cody - Commanding_the_212th.png",
+    "image": "TWI/Clone_Commander_Cody - Commanding_the_212th.png",
     "name": "Clone Commander Cody - Commanding the 212th",
     "type": "Unit",
     "hp": null,
@@ -498,7 +498,7 @@
     ]
   },
   "clonedivetrooper": {
-    "image": "TWI\\Clone_Dive_Trooper.png",
+    "image": "TWI/Clone_Dive_Trooper.png",
     "name": "Clone Dive Trooper",
     "type": "Unit",
     "hp": null,
@@ -507,7 +507,7 @@
     ]
   },
   "cloneheavygunner": {
-    "image": "TWI\\Clone_Heavy_Gunner.png",
+    "image": "TWI/Clone_Heavy_Gunner.png",
     "name": "Clone Heavy Gunner",
     "type": "Unit",
     "hp": null,
@@ -516,7 +516,7 @@
     ]
   },
   "compassionatesenator": {
-    "image": "TWI\\Compassionate_Senator.png",
+    "image": "TWI/Compassionate_Senator.png",
     "name": "Compassionate Senator",
     "type": "Unit",
     "hp": null,
@@ -525,7 +525,7 @@
     ]
   },
   "confederatecourier": {
-    "image": "TWI\\Confederate_Courier.png",
+    "image": "TWI/Confederate_Courier.png",
     "name": "Confederate Courier",
     "type": "Unit",
     "hp": null,
@@ -535,7 +535,7 @@
     ]
   },
   "confederatetrifighter": {
-    "image": "TWI\\Confederate_Tri-Fighter.png",
+    "image": "TWI/Confederate_Tri-Fighter.png",
     "name": "Confederate Tri-Fighter",
     "type": "Unit",
     "hp": null,
@@ -545,7 +545,7 @@
     ]
   },
   "consolidationofpower": {
-    "image": "TWI\\Consolidation_of_Power.png",
+    "image": "TWI/Consolidation_of_Power.png",
     "name": "Consolidation of Power",
     "type": "Event",
     "hp": null,
@@ -555,7 +555,7 @@
     ]
   },
   "cornertheprey": {
-    "image": "TWI\\Corner_the_Prey.png",
+    "image": "TWI/Corner_the_Prey.png",
     "name": "Corner the Prey",
     "type": "Event",
     "hp": null,
@@ -565,7 +565,7 @@
     ]
   },
   "coruscantguard": {
-    "image": "TWI\\Coruscant_Guard.png",
+    "image": "TWI/Coruscant_Guard.png",
     "name": "Coruscant Guard",
     "type": "Unit",
     "hp": null,
@@ -574,7 +574,7 @@
     ]
   },
   "countdookufaceoftheconfederacy": {
-    "image": "TWI\\Count_Dooku - Face_of_the_Confederacy.png",
+    "image": "TWI/Count_Dooku - Face_of_the_Confederacy.png",
     "name": "Count Dooku - Face of the Confederacy",
     "type": "Leader",
     "hp": null,
@@ -584,7 +584,7 @@
     ]
   },
   "countdookufaceoftheconfederacyback": {
-    "image": "TWI\\Count_Dooku - Face_of_the_Confederacy_back.png",
+    "image": "TWI/Count_Dooku - Face_of_the_Confederacy_back.png",
     "name": "Count Dooku - Face of the Confederacy [Back]",
     "type": "Leader",
     "hp": null,
@@ -594,7 +594,7 @@
     ]
   },
   "countdookufallenjedi": {
-    "image": "TWI\\Count_Dooku - Fallen_Jedi.png",
+    "image": "TWI/Count_Dooku - Fallen_Jedi.png",
     "name": "Count Dooku - Fallen Jedi",
     "type": "Unit",
     "hp": null,
@@ -604,7 +604,7 @@
     ]
   },
   "creativethinking": {
-    "image": "TWI\\Creative_Thinking.png",
+    "image": "TWI/Creative_Thinking.png",
     "name": "Creative Thinking",
     "type": "Event",
     "hp": null,
@@ -614,7 +614,7 @@
     ]
   },
   "daringraid": {
-    "image": "TWI\\Daring_Raid.png",
+    "image": "TWI/Daring_Raid.png",
     "name": "Daring Raid",
     "type": "Event",
     "hp": null,
@@ -623,7 +623,7 @@
     ]
   },
   "darthmaulrevengeatlast": {
-    "image": "TWI\\Darth_Maul - Revenge_At_Last.png",
+    "image": "TWI/Darth_Maul - Revenge_At_Last.png",
     "name": "Darth Maul - Revenge At Last",
     "type": "Unit",
     "hp": null,
@@ -633,7 +633,7 @@
     ]
   },
   "daughterofdathomir": {
-    "image": "TWI\\Daughter_of_Dathomir.png",
+    "image": "TWI/Daughter_of_Dathomir.png",
     "name": "Daughter of Dathomir",
     "type": "Unit",
     "hp": null,
@@ -642,7 +642,7 @@
     ]
   },
   "deathbydroids": {
-    "image": "TWI\\Death_by_Droids.png",
+    "image": "TWI/Death_by_Droids.png",
     "name": "Death by Droids",
     "type": "Event",
     "hp": null,
@@ -651,7 +651,7 @@
     ]
   },
   "dendupsloyalist": {
-    "image": "TWI\\Dendups_Loyalist.png",
+    "image": "TWI/Dendups_Loyalist.png",
     "name": "Dendup's Loyalist",
     "type": "Unit",
     "hp": null,
@@ -660,7 +660,7 @@
     ]
   },
   "devastatinggunship": {
-    "image": "TWI\\Devastating_Gunship.png",
+    "image": "TWI/Devastating_Gunship.png",
     "name": "Devastating Gunship",
     "type": "Unit",
     "hp": null,
@@ -670,7 +670,7 @@
     ]
   },
   "disaffectedsenator": {
-    "image": "TWI\\Disaffected_Senator.png",
+    "image": "TWI/Disaffected_Senator.png",
     "name": "Disaffected Senator",
     "type": "Unit",
     "hp": null,
@@ -679,7 +679,7 @@
     ]
   },
   "disruptiveburst": {
-    "image": "TWI\\Disruptive_Burst.png",
+    "image": "TWI/Disruptive_Burst.png",
     "name": "Disruptive Burst",
     "type": "Event",
     "hp": null,
@@ -688,7 +688,7 @@
     ]
   },
   "droidcohort": {
-    "image": "TWI\\Droid_Cohort.png",
+    "image": "TWI/Droid_Cohort.png",
     "name": "Droid Cohort",
     "type": "Upgrade",
     "hp": null,
@@ -697,7 +697,7 @@
     ]
   },
   "droidcommando": {
-    "image": "TWI\\Droid_Commando.png",
+    "image": "TWI/Droid_Commando.png",
     "name": "Droid Commando",
     "type": "Unit",
     "hp": null,
@@ -707,7 +707,7 @@
     ]
   },
   "droiddeployment": {
-    "image": "TWI\\Droid_Deployment.png",
+    "image": "TWI/Droid_Deployment.png",
     "name": "Droid Deployment",
     "type": "Event",
     "hp": null,
@@ -715,9 +715,9 @@
       "Villainy"
     ]
   },
-  "droidmanufactorygeonosis": {
-    "image": "TWI\\Droid_Manufactory - Geonosis.png",
-    "name": "Droid Manufactory - Geonosis",
+  "droidmanufactory": {
+    "image": "TWI/Droid_Manufactory - Geonosis.png",
+    "name": "Droid Manufactory",
     "type": "Base",
     "hp": "24",
     "aspects": [
@@ -725,7 +725,7 @@
     ]
   },
   "droidstarfighter": {
-    "image": "TWI\\Droid_Starfighter.png",
+    "image": "TWI/Droid_Starfighter.png",
     "name": "Droid Starfighter",
     "type": "Unit",
     "hp": null,
@@ -734,7 +734,7 @@
     ]
   },
   "droidekasecurity": {
-    "image": "TWI\\Droideka_Security.png",
+    "image": "TWI/Droideka_Security.png",
     "name": "Droideka Security",
     "type": "Unit",
     "hp": null,
@@ -744,7 +744,7 @@
     ]
   },
   "dropin": {
-    "image": "TWI\\Drop_In.png",
+    "image": "TWI/Drop_In.png",
     "name": "Drop In",
     "type": "Event",
     "hp": null,
@@ -753,7 +753,7 @@
     ]
   },
   "duchessschampion": {
-    "image": "TWI\\Duchesss_Champion.png",
+    "image": "TWI/Duchesss_Champion.png",
     "name": "Duchess's Champion",
     "type": "Unit",
     "hp": null,
@@ -763,7 +763,7 @@
     ]
   },
   "dwarfspiderdroid": {
-    "image": "TWI\\Dwarf_Spider_Droid.png",
+    "image": "TWI/Dwarf_Spider_Droid.png",
     "name": "Dwarf Spider Droid",
     "type": "Unit",
     "hp": null,
@@ -772,7 +772,7 @@
     ]
   },
   "echovaliantarctrooper": {
-    "image": "TWI\\Echo - Valiant_ARC_Trooper.png",
+    "image": "TWI/Echo - Valiant_ARC_Trooper.png",
     "name": "Echo - Valiant ARC Trooper",
     "type": "Unit",
     "hp": null,
@@ -782,7 +782,7 @@
     ]
   },
   "elitep38starfighter": {
-    "image": "TWI\\Elite_P-38_Starfighter.png",
+    "image": "TWI/Elite_P-38_Starfighter.png",
     "name": "Elite P-38 Starfighter",
     "type": "Unit",
     "hp": null,
@@ -792,7 +792,7 @@
     ]
   },
   "encouragingleadership": {
-    "image": "TWI\\Encouraging_Leadership.png",
+    "image": "TWI/Encouraging_Leadership.png",
     "name": "Encouraging Leadership",
     "type": "Event",
     "hp": null,
@@ -801,7 +801,7 @@
     ]
   },
   "enfysnestchampionofjustice": {
-    "image": "TWI\\Enfys_Nest - Champion_of_Justice.png",
+    "image": "TWI/Enfys_Nest - Champion_of_Justice.png",
     "name": "Enfys Nest - Champion of Justice",
     "type": "Unit",
     "hp": null,
@@ -811,7 +811,7 @@
     ]
   },
   "equalize": {
-    "image": "TWI\\Equalize.png",
+    "image": "TWI/Equalize.png",
     "name": "Equalize",
     "type": "Event",
     "hp": null,
@@ -821,7 +821,7 @@
     ]
   },
   "eta2lightinterceptor": {
-    "image": "TWI\\Eta-2_Light_Interceptor.png",
+    "image": "TWI/Eta-2_Light_Interceptor.png",
     "name": "Eta-2 Light Interceptor",
     "type": "Unit",
     "hp": null,
@@ -830,7 +830,7 @@
     ]
   },
   "executeorder66": {
-    "image": "TWI\\Execute_Order_66.png",
+    "image": "TWI/Execute_Order_66.png",
     "name": "Execute Order 66",
     "type": "Event",
     "hp": null,
@@ -839,7 +839,7 @@
     ]
   },
   "falchioniontank": {
-    "image": "TWI\\Falchion_Ion_Tank.png",
+    "image": "TWI/Falchion_Ion_Tank.png",
     "name": "Falchion Ion Tank",
     "type": "Unit",
     "hp": null,
@@ -848,7 +848,7 @@
     ]
   },
   "favorabledelegate": {
-    "image": "TWI\\Favorable_Delegate.png",
+    "image": "TWI/Favorable_Delegate.png",
     "name": "Favorable Delegate",
     "type": "Unit",
     "hp": null,
@@ -857,7 +857,7 @@
     ]
   },
   "finnontherun": {
-    "image": "TWI\\Finn - On_the_Run.png",
+    "image": "TWI/Finn - On_the_Run.png",
     "name": "Finn - On the Run",
     "type": "Unit",
     "hp": null,
@@ -867,7 +867,7 @@
     ]
   },
   "fivesinsearchoftruth": {
-    "image": "TWI\\Fives - In_Search_of_Truth.png",
+    "image": "TWI/Fives - In_Search_of_Truth.png",
     "name": "Fives - In Search of Truth",
     "type": "Unit",
     "hp": null,
@@ -876,7 +876,7 @@
     ]
   },
   "fortherepublic": {
-    "image": "TWI\\For_The_Republic.png",
+    "image": "TWI/For_The_Republic.png",
     "name": "For The Republic",
     "type": "Upgrade",
     "hp": null,
@@ -886,7 +886,7 @@
     ]
   },
   "foresight": {
-    "image": "TWI\\Foresight.png",
+    "image": "TWI/Foresight.png",
     "name": "Foresight",
     "type": "Upgrade",
     "hp": null,
@@ -895,7 +895,7 @@
     ]
   },
   "freelanceassassin": {
-    "image": "TWI\\Freelance_Assassin.png",
+    "image": "TWI/Freelance_Assassin.png",
     "name": "Freelance Assassin",
     "type": "Unit",
     "hp": null,
@@ -904,7 +904,7 @@
     ]
   },
   "generalgrievousgeneralofthedroidarmies": {
-    "image": "TWI\\General_Grievous - General_of_the_Droid_Armies.png",
+    "image": "TWI/General_Grievous - General_of_the_Droid_Armies.png",
     "name": "General Grievous - General of the Droid Armies",
     "type": "Leader",
     "hp": null,
@@ -914,7 +914,7 @@
     ]
   },
   "generalgrievousgeneralofthedroidarmiesback": {
-    "image": "TWI\\General_Grievous - General_of_the_Droid_Armies_back.png",
+    "image": "TWI/General_Grievous - General_of_the_Droid_Armies_back.png",
     "name": "General Grievous - General of the Droid Armies [Back]",
     "type": "Leader",
     "hp": null,
@@ -924,7 +924,7 @@
     ]
   },
   "generalgrievoustrophycollector": {
-    "image": "TWI\\General_Grievous - Trophy_Collector.png",
+    "image": "TWI/General_Grievous - Trophy_Collector.png",
     "name": "General Grievous - Trophy Collector",
     "type": "Unit",
     "hp": null,
@@ -934,7 +934,7 @@
     ]
   },
   "generalsblade": {
-    "image": "TWI\\Generals_Blade.png",
+    "image": "TWI/Generals_Blade.png",
     "name": "General's Blade",
     "type": "Upgrade",
     "hp": null,
@@ -943,7 +943,7 @@
     ]
   },
   "generalsguardian": {
-    "image": "TWI\\Generals_Guardian.png",
+    "image": "TWI/Generals_Guardian.png",
     "name": "General's Guardian",
     "type": "Unit",
     "hp": null,
@@ -953,7 +953,7 @@
     ]
   },
   "geonosispatrolfighter": {
-    "image": "TWI\\Geonosis_Patrol_Fighter.png",
+    "image": "TWI/Geonosis_Patrol_Fighter.png",
     "name": "Geonosis Patrol Fighter",
     "type": "Unit",
     "hp": null,
@@ -962,7 +962,7 @@
     ]
   },
   "gorgrievousspet": {
-    "image": "TWI\\Gor - Grievouss_Pet.png",
+    "image": "TWI/Gor - Grievouss_Pet.png",
     "name": "Gor - Grievous's Pet",
     "type": "Unit",
     "hp": null,
@@ -971,7 +971,7 @@
     ]
   },
   "grenadestrike": {
-    "image": "TWI\\Grenade_Strike.png",
+    "image": "TWI/Grenade_Strike.png",
     "name": "Grenade Strike",
     "type": "Event",
     "hp": null,
@@ -980,7 +980,7 @@
     ]
   },
   "grievousreassembly": {
-    "image": "TWI\\Grievous_Reassembly.png",
+    "image": "TWI/Grievous_Reassembly.png",
     "name": "Grievous Reassembly",
     "type": "Event",
     "hp": null,
@@ -989,7 +989,7 @@
     ]
   },
   "grievousswheelbike": {
-    "image": "TWI\\Grievouss_Wheel_Bike.png",
+    "image": "TWI/Grievouss_Wheel_Bike.png",
     "name": "Grievous's Wheel Bike",
     "type": "Upgrade",
     "hp": null,
@@ -998,7 +998,7 @@
     ]
   },
   "grimresolve": {
-    "image": "TWI\\Grim_Resolve.png",
+    "image": "TWI/Grim_Resolve.png",
     "name": "Grim Resolve",
     "type": "Event",
     "hp": null,
@@ -1007,7 +1007,7 @@
     ]
   },
   "guardingtheway": {
-    "image": "TWI\\Guarding_the_Way.png",
+    "image": "TWI/Guarding_the_Way.png",
     "name": "Guarding the Way",
     "type": "Event",
     "hp": null,
@@ -1016,7 +1016,7 @@
     ]
   },
   "guerillainsurgency": {
-    "image": "TWI\\Guerilla_Insurgency.png",
+    "image": "TWI/Guerilla_Insurgency.png",
     "name": "Guerilla Insurgency",
     "type": "Event",
     "hp": null,
@@ -1025,7 +1025,7 @@
     ]
   },
   "hailfiretank": {
-    "image": "TWI\\Hailfire_Tank.png",
+    "image": "TWI/Hailfire_Tank.png",
     "name": "Hailfire Tank",
     "type": "Unit",
     "hp": null,
@@ -1034,14 +1034,14 @@
     ]
   },
   "headhuntersquadron": {
-    "image": "TWI\\Headhunter_Squadron.png",
+    "image": "TWI/Headhunter_Squadron.png",
     "name": "Headhunter Squadron ",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "heavypersuadertank": {
-    "image": "TWI\\Heavy_Persuader_Tank.png",
+    "image": "TWI/Heavy_Persuader_Tank.png",
     "name": "Heavy Persuader Tank",
     "type": "Unit",
     "hp": null,
@@ -1050,7 +1050,7 @@
     ]
   },
   "hellothere": {
-    "image": "TWI\\Hello_There.png",
+    "image": "TWI/Hello_There.png",
     "name": "Hello There",
     "type": "Event",
     "hp": null,
@@ -1060,7 +1060,7 @@
     ]
   },
   "heroesonbothsides": {
-    "image": "TWI\\Heroes_on_Both_Sides.png",
+    "image": "TWI/Heroes_on_Both_Sides.png",
     "name": "Heroes on Both Sides",
     "type": "Event",
     "hp": null,
@@ -1069,7 +1069,7 @@
     ]
   },
   "hevystaunchmartyr": {
-    "image": "TWI\\Hevy - Staunch_Martyr.png",
+    "image": "TWI/Hevy - Staunch_Martyr.png",
     "name": "Hevy - Staunch Martyr",
     "type": "Unit",
     "hp": null,
@@ -1078,7 +1078,7 @@
     ]
   },
   "hiddensharpshooter": {
-    "image": "TWI\\Hidden_Sharpshooter.png",
+    "image": "TWI/Hidden_Sharpshooter.png",
     "name": "Hidden Sharpshooter",
     "type": "Unit",
     "hp": null,
@@ -1087,14 +1087,14 @@
     ]
   },
   "holdoutblaster": {
-    "image": "TWI\\Hold-Out_Blaster.png",
+    "image": "TWI/Hold-Out_Blaster.png",
     "name": "Hold-Out Blaster",
     "type": "Upgrade",
     "hp": null,
     "aspects": []
   },
   "hotshotvwing": {
-    "image": "TWI\\Hotshot_V-Wing.png",
+    "image": "TWI/Hotshot_V-Wing.png",
     "name": "Hotshot V-Wing",
     "type": "Unit",
     "hp": null,
@@ -1103,7 +1103,7 @@
     ]
   },
   "huyangenduringinstructor": {
-    "image": "TWI\\Huyang - Enduring_Instructor.png",
+    "image": "TWI/Huyang - Enduring_Instructor.png",
     "name": "Huyang - Enduring Instructor",
     "type": "Unit",
     "hp": null,
@@ -1112,7 +1112,7 @@
     ]
   },
   "ihavethehighground": {
-    "image": "TWI\\I_Have_the_High_Ground.png",
+    "image": "TWI/I_Have_the_High_Ground.png",
     "name": "I Have the High Ground",
     "type": "Event",
     "hp": null,
@@ -1121,7 +1121,7 @@
     ]
   },
   "improprietyamongthieves": {
-    "image": "TWI\\Impropriety_Among_Thieves.png",
+    "image": "TWI/Impropriety_Among_Thieves.png",
     "name": "Impropriety Among Thieves",
     "type": "Event",
     "hp": null,
@@ -1131,7 +1131,7 @@
     ]
   },
   "indefenseofkamino": {
-    "image": "TWI\\In_Defense_of_Kamino.png",
+    "image": "TWI/In_Defense_of_Kamino.png",
     "name": "In Defense of Kamino",
     "type": "Event",
     "hp": null,
@@ -1140,7 +1140,7 @@
     ]
   },
   "inpursuit": {
-    "image": "TWI\\In_Pursuit.png",
+    "image": "TWI/In_Pursuit.png",
     "name": "In Pursuit",
     "type": "Event",
     "hp": null,
@@ -1149,7 +1149,7 @@
     ]
   },
   "independentsenator": {
-    "image": "TWI\\Independent_Senator.png",
+    "image": "TWI/Independent_Senator.png",
     "name": "Independent Senator",
     "type": "Unit",
     "hp": null,
@@ -1158,7 +1158,7 @@
     ]
   },
   "infantryofthe212th": {
-    "image": "TWI\\Infantry_of_the_212th.png",
+    "image": "TWI/Infantry_of_the_212th.png",
     "name": "Infantry of the 212th",
     "type": "Unit",
     "hp": null,
@@ -1167,7 +1167,7 @@
     ]
   },
   "infiltratingdemolisher": {
-    "image": "TWI\\Infiltrating_Demolisher.png",
+    "image": "TWI/Infiltrating_Demolisher.png",
     "name": "Infiltrating Demolisher",
     "type": "Unit",
     "hp": null,
@@ -1177,7 +1177,7 @@
     ]
   },
   "jangofettconcealingtheconspiracy": {
-    "image": "TWI\\Jango_Fett - Concealing_the_Conspiracy.png",
+    "image": "TWI/Jango_Fett - Concealing_the_Conspiracy.png",
     "name": "Jango Fett - Concealing the Conspiracy",
     "type": "Leader",
     "hp": null,
@@ -1187,7 +1187,7 @@
     ]
   },
   "jangofettconcealingtheconspiracyback": {
-    "image": "TWI\\Jango_Fett - Concealing_the_Conspiracy_back.png",
+    "image": "TWI/Jango_Fett - Concealing_the_Conspiracy_back.png",
     "name": "Jango Fett - Concealing the Conspiracy [Back]",
     "type": "Leader",
     "hp": null,
@@ -1197,7 +1197,7 @@
     ]
   },
   "jarjarbinksfoolishgungan": {
-    "image": "TWI\\Jar_Jar_Binks - Foolish_Gungan.png",
+    "image": "TWI/Jar_Jar_Binks - Foolish_Gungan.png",
     "name": "Jar Jar Binks - Foolish Gungan",
     "type": "Unit",
     "hp": null,
@@ -1207,7 +1207,7 @@
     ]
   },
   "jessehardfightingpatriot": {
-    "image": "TWI\\Jesse - Hard-Fighting_Patriot.png",
+    "image": "TWI/Jesse - Hard-Fighting_Patriot.png",
     "name": "Jesse - Hard-Fighting Patriot",
     "type": "Unit",
     "hp": null,
@@ -1217,7 +1217,7 @@
     ]
   },
   "jynersostardust": {
-    "image": "TWI\\Jyn_Erso - Stardust.png",
+    "image": "TWI/Jyn_Erso - Stardust.png",
     "name": "Jyn Erso - Stardust",
     "type": "Unit",
     "hp": null,
@@ -1226,9 +1226,9 @@
       "Heroism"
     ]
   },
-  "kcmminingfacilitymustafar": {
-    "image": "TWI\\KCM_Mining_Facility - Mustafar.png",
-    "name": "KCM Mining Facility - Mustafar",
+  "kcmminingfacility": {
+    "image": "TWI/KCM_Mining_Facility - Mustafar.png",
+    "name": "KCM Mining Facility",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -1236,7 +1236,7 @@
     ]
   },
   "kalanianalyticalgeneral": {
-    "image": "TWI\\Kalani - Analytical_General.png",
+    "image": "TWI/Kalani - Analytical_General.png",
     "name": "Kalani - Analytical General",
     "type": "Unit",
     "hp": null,
@@ -1246,7 +1246,7 @@
     ]
   },
   "kashyyykdefender": {
-    "image": "TWI\\Kashyyyk_Defender.png",
+    "image": "TWI/Kashyyyk_Defender.png",
     "name": "Kashyyyk Defender",
     "type": "Unit",
     "hp": null,
@@ -1256,7 +1256,7 @@
     ]
   },
   "kiadimundicomposedandconfident": {
-    "image": "TWI\\Ki-Adi-Mundi - Composed_and_Confident.png",
+    "image": "TWI/Ki-Adi-Mundi - Composed_and_Confident.png",
     "name": "Ki-Adi-Mundi - Composed and Confident",
     "type": "Unit",
     "hp": null,
@@ -1265,7 +1265,7 @@
     ]
   },
   "kitfistothesmilingjedi": {
-    "image": "TWI\\Kit_Fisto - The_Smiling_Jedi.png",
+    "image": "TWI/Kit_Fisto - The_Smiling_Jedi.png",
     "name": "Kit Fisto - The Smiling Jedi",
     "type": "Unit",
     "hp": null,
@@ -1274,7 +1274,7 @@
     ]
   },
   "knightoftherepublic": {
-    "image": "TWI\\Knight_of_the_Republic.png",
+    "image": "TWI/Knight_of_the_Republic.png",
     "name": "Knight of the Republic",
     "type": "Unit",
     "hp": null,
@@ -1284,7 +1284,7 @@
     ]
   },
   "krakenconfederatetactician": {
-    "image": "TWI\\Kraken - Confederate_Tactician.png",
+    "image": "TWI/Kraken - Confederate_Tactician.png",
     "name": "Kraken - Confederate Tactician",
     "type": "Unit",
     "hp": null,
@@ -1293,9 +1293,9 @@
       "Villainy"
     ]
   },
-  "lairofgrievousvassek": {
-    "image": "TWI\\Lair_of_Grievous - Vassek.png",
-    "name": "Lair of Grievous - Vassek",
+  "lairofgrievous": {
+    "image": "TWI/Lair_of_Grievous - Vassek.png",
+    "name": "Lair of Grievous",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -1303,7 +1303,7 @@
     ]
   },
   "lethalcrackdown": {
-    "image": "TWI\\Lethal_Crackdown.png",
+    "image": "TWI/Lethal_Crackdown.png",
     "name": "Lethal Crackdown",
     "type": "Event",
     "hp": null,
@@ -1312,9 +1312,9 @@
       "Villainy"
     ]
   },
-  "level1313coruscant": {
-    "image": "TWI\\Level_1313 - Coruscant.png",
-    "name": "Level 1313 - Coruscant",
+  "level1313": {
+    "image": "TWI/Level_1313 - Coruscant.png",
+    "name": "Level 1313",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -1322,7 +1322,7 @@
     ]
   },
   "lowaltitudegunship": {
-    "image": "TWI\\Low_Altitude_Gunship.png",
+    "image": "TWI/Low_Altitude_Gunship.png",
     "name": "Low Altitude Gunship",
     "type": "Unit",
     "hp": null,
@@ -1332,7 +1332,7 @@
     ]
   },
   "luminaraundulisoftspokenmaster": {
-    "image": "TWI\\Luminara_Unduli - Soft-Spoken_Master.png",
+    "image": "TWI/Luminara_Unduli - Soft-Spoken_Master.png",
     "name": "Luminara Unduli - Soft-Spoken Master",
     "type": "Unit",
     "hp": null,
@@ -1342,7 +1342,7 @@
     ]
   },
   "luxbonterirenegadeseparatist": {
-    "image": "TWI\\Lux_Bonteri - Renegade_Separatist.png",
+    "image": "TWI/Lux_Bonteri - Renegade_Separatist.png",
     "name": "Lux Bonteri - Renegade Separatist",
     "type": "Unit",
     "hp": null,
@@ -1351,7 +1351,7 @@
     ]
   },
   "macewinduvaapadformmaster": {
-    "image": "TWI\\Mace_Windu - Vaapad_Form_Master.png",
+    "image": "TWI/Mace_Windu - Vaapad_Form_Master.png",
     "name": "Mace Windu - Vaapad Form Master",
     "type": "Leader",
     "hp": null,
@@ -1361,7 +1361,7 @@
     ]
   },
   "macewinduvaapadformmasterback": {
-    "image": "TWI\\Mace_Windu - Vaapad_Form_Master_back.png",
+    "image": "TWI/Mace_Windu - Vaapad_Form_Master_back.png",
     "name": "Mace Windu - Vaapad Form Master [Back]",
     "type": "Leader",
     "hp": null,
@@ -1371,7 +1371,7 @@
     ]
   },
   "macewinduslightsaber": {
-    "image": "TWI\\Mace_Windus_Lightsaber.png",
+    "image": "TWI/Mace_Windus_Lightsaber.png",
     "name": "Mace Windu's Lightsaber",
     "type": "Upgrade",
     "hp": null,
@@ -1381,7 +1381,7 @@
     ]
   },
   "magnaguardwingleader": {
-    "image": "TWI\\MagnaGuard_Wing_Leader.png",
+    "image": "TWI/MagnaGuard_Wing_Leader.png",
     "name": "MagnaGuard Wing Leader",
     "type": "Unit",
     "hp": null,
@@ -1391,7 +1391,7 @@
     ]
   },
   "malevolencegrievousssecretweapon": {
-    "image": "TWI\\Malevolence - Grievouss_Secret_Weapon.png",
+    "image": "TWI/Malevolence - Grievouss_Secret_Weapon.png",
     "name": "Malevolence - Grievous's Secret Weapon",
     "type": "Unit",
     "hp": null,
@@ -1401,7 +1401,7 @@
     ]
   },
   "manufacturedsoldiers": {
-    "image": "TWI\\Manufactured_Soldiers.png",
+    "image": "TWI/Manufactured_Soldiers.png",
     "name": "Manufactured Soldiers",
     "type": "Event",
     "hp": null,
@@ -1411,7 +1411,7 @@
     ]
   },
   "masameddavicechair": {
-    "image": "TWI\\Mas_Amedda - Vice_Chair.png",
+    "image": "TWI/Mas_Amedda - Vice_Chair.png",
     "name": "Mas Amedda - Vice Chair",
     "type": "Unit",
     "hp": null,
@@ -1421,7 +1421,7 @@
     ]
   },
   "maularivalindarkness": {
-    "image": "TWI\\Maul - A_Rival_in_Darkness.png",
+    "image": "TWI/Maul - A_Rival_in_Darkness.png",
     "name": "Maul - A Rival in Darkness",
     "type": "Leader",
     "hp": null,
@@ -1431,7 +1431,7 @@
     ]
   },
   "maularivalindarknessback": {
-    "image": "TWI\\Maul - A_Rival_in_Darkness_back.png",
+    "image": "TWI/Maul - A_Rival_in_Darkness_back.png",
     "name": "Maul - A Rival in Darkness [Back]",
     "type": "Leader",
     "hp": null,
@@ -1441,7 +1441,7 @@
     ]
   },
   "mercilesscontest": {
-    "image": "TWI\\Merciless_Contest.png",
+    "image": "TWI/Merciless_Contest.png",
     "name": "Merciless Contest",
     "type": "Event",
     "hp": null,
@@ -1450,7 +1450,7 @@
     ]
   },
   "misterbonesiperformedviolence": {
-    "image": "TWI\\Mister_Bones - I_Performed_Violence.png",
+    "image": "TWI/Mister_Bones - I_Performed_Violence.png",
     "name": "Mister Bones - I Performed Violence",
     "type": "Unit",
     "hp": null,
@@ -1460,7 +1460,7 @@
     ]
   },
   "morganelsbethkeeperofmanysecrets": {
-    "image": "TWI\\Morgan_Elsbeth - Keeper_of_Many_Secrets.png",
+    "image": "TWI/Morgan_Elsbeth - Keeper_of_Many_Secrets.png",
     "name": "Morgan Elsbeth - Keeper of Many Secrets",
     "type": "Unit",
     "hp": null,
@@ -1470,7 +1470,7 @@
     ]
   },
   "multitrooptransport": {
-    "image": "TWI\\Multi-Troop_Transport.png",
+    "image": "TWI/Multi-Troop_Transport.png",
     "name": "Multi-Troop Transport",
     "type": "Unit",
     "hp": null,
@@ -1479,7 +1479,7 @@
     ]
   },
   "nalasecloneengineer": {
-    "image": "TWI\\Nala_Se - Clone_Engineer.png",
+    "image": "TWI/Nala_Se - Clone_Engineer.png",
     "name": "Nala Se - Clone Engineer",
     "type": "Leader",
     "hp": null,
@@ -1489,7 +1489,7 @@
     ]
   },
   "nalasecloneengineerback": {
-    "image": "TWI\\Nala_Se - Clone_Engineer_back.png",
+    "image": "TWI/Nala_Se - Clone_Engineer_back.png",
     "name": "Nala Se - Clone Engineer [Back]",
     "type": "Leader",
     "hp": null,
@@ -1499,7 +1499,7 @@
     ]
   },
   "namelessvalor": {
-    "image": "TWI\\Nameless_Valor.png",
+    "image": "TWI/Nameless_Valor.png",
     "name": "Nameless Valor",
     "type": "Upgrade",
     "hp": null,
@@ -1508,7 +1508,7 @@
     ]
   },
   "nowtherearetwoofthem": {
-    "image": "TWI\\Now_There_Are_Two_of_Them.png",
+    "image": "TWI/Now_There_Are_Two_of_Them.png",
     "name": "Now There Are Two of Them",
     "type": "Event",
     "hp": null,
@@ -1517,7 +1517,7 @@
     ]
   },
   "nutegunrayvindictiveviceroy": {
-    "image": "TWI\\Nute_Gunray - Vindictive_Viceroy.png",
+    "image": "TWI/Nute_Gunray - Vindictive_Viceroy.png",
     "name": "Nute Gunray - Vindictive Viceroy",
     "type": "Leader",
     "hp": null,
@@ -1527,7 +1527,7 @@
     ]
   },
   "nutegunrayvindictiveviceroyback": {
-    "image": "TWI\\Nute_Gunray - Vindictive_Viceroy_back.png",
+    "image": "TWI/Nute_Gunray - Vindictive_Viceroy_back.png",
     "name": "Nute Gunray - Vindictive Viceroy [Back]",
     "type": "Leader",
     "hp": null,
@@ -1537,7 +1537,7 @@
     ]
   },
   "oomseriesofficer": {
-    "image": "TWI\\OOM-Series_Officer.png",
+    "image": "TWI/OOM-Series_Officer.png",
     "name": "OOM-Series Officer",
     "type": "Unit",
     "hp": null,
@@ -1547,7 +1547,7 @@
     ]
   },
   "obedientvanguard": {
-    "image": "TWI\\Obedient_Vanguard.png",
+    "image": "TWI/Obedient_Vanguard.png",
     "name": "Obedient Vanguard",
     "type": "Unit",
     "hp": null,
@@ -1556,7 +1556,7 @@
     ]
   },
   "obiwankenobipatientmentor": {
-    "image": "TWI\\Obi-Wan_Kenobi - Patient_Mentor.png",
+    "image": "TWI/Obi-Wan_Kenobi - Patient_Mentor.png",
     "name": "Obi-Wan Kenobi - Patient Mentor",
     "type": "Leader",
     "hp": null,
@@ -1566,7 +1566,7 @@
     ]
   },
   "obiwankenobipatientmentorback": {
-    "image": "TWI\\Obi-Wan_Kenobi - Patient_Mentor_back.png",
+    "image": "TWI/Obi-Wan_Kenobi - Patient_Mentor_back.png",
     "name": "Obi-Wan Kenobi - Patient Mentor [Back]",
     "type": "Leader",
     "hp": null,
@@ -1576,7 +1576,7 @@
     ]
   },
   "obiwansaetherspritethisiswhyihateflying": {
-    "image": "TWI\\Obi-Wans_Aethersprite - This_is_Why_I_Hate_Flying.png",
+    "image": "TWI/Obi-Wans_Aethersprite - This_is_Why_I_Hate_Flying.png",
     "name": "Obi-Wan's Aethersprite - This is Why I Hate Flying",
     "type": "Unit",
     "hp": null,
@@ -1586,7 +1586,7 @@
     ]
   },
   "oldaccesscodes": {
-    "image": "TWI\\Old_Access_Codes.png",
+    "image": "TWI/Old_Access_Codes.png",
     "name": "Old Access Codes",
     "type": "Upgrade",
     "hp": null,
@@ -1595,7 +1595,7 @@
     ]
   },
   "ontopofthings": {
-    "image": "TWI\\On_Top_of_Things.png",
+    "image": "TWI/On_Top_of_Things.png",
     "name": "On Top of Things",
     "type": "Upgrade",
     "hp": null,
@@ -1604,7 +1604,7 @@
     ]
   },
   "onthedoorstep": {
-    "image": "TWI\\On_the_Doorstep.png",
+    "image": "TWI/On_the_Doorstep.png",
     "name": "On the Doorstep",
     "type": "Event",
     "hp": null,
@@ -1614,7 +1614,7 @@
     ]
   },
   "openfire": {
-    "image": "TWI\\Open_Fire.png",
+    "image": "TWI/Open_Fire.png",
     "name": "Open Fire",
     "type": "Event",
     "hp": null,
@@ -1623,7 +1623,7 @@
     ]
   },
   "osisobeckwardenofthecitadel": {
-    "image": "TWI\\Osi_Sobeck - Warden_of_the_Citadel.png",
+    "image": "TWI/Osi_Sobeck - Warden_of_the_Citadel.png",
     "name": "Osi Sobeck - Warden of the Citadel",
     "type": "Unit",
     "hp": null,
@@ -1632,7 +1632,7 @@
     ]
   },
   "outflank": {
-    "image": "TWI\\Outflank.png",
+    "image": "TWI/Outflank.png",
     "name": "Outflank",
     "type": "Event",
     "hp": null,
@@ -1641,7 +1641,7 @@
     ]
   },
   "outspokenrepresentative": {
-    "image": "TWI\\Outspoken_Representative.png",
+    "image": "TWI/Outspoken_Representative.png",
     "name": "Outspoken Representative",
     "type": "Unit",
     "hp": null,
@@ -1651,7 +1651,7 @@
     ]
   },
   "padawanstarfighter": {
-    "image": "TWI\\Padawan_Starfighter.png",
+    "image": "TWI/Padawan_Starfighter.png",
     "name": "Padawan Starfighter",
     "type": "Unit",
     "hp": null,
@@ -1660,7 +1660,7 @@
     ]
   },
   "padmamidalaservingtherepublic": {
-    "image": "TWI\\Padm_Amidala - Serving_the_Republic.png",
+    "image": "TWI/Padm_Amidala - Serving_the_Republic.png",
     "name": "Padmé Amidala - Serving the Republic",
     "type": "Leader",
     "hp": null,
@@ -1670,7 +1670,7 @@
     ]
   },
   "padmamidalaservingtherepublicback": {
-    "image": "TWI\\Padm_Amidala - Serving_the_Republic_back.png",
+    "image": "TWI/Padm_Amidala - Serving_the_Republic_back.png",
     "name": "Padmé Amidala - Serving the Republic [Back]",
     "type": "Leader",
     "hp": null,
@@ -1680,7 +1680,7 @@
     ]
   },
   "padmamidalapursuingpeace": {
-    "image": "TWI\\Padm_Amidala - Pursuing_Peace.png",
+    "image": "TWI/Padm_Amidala - Pursuing_Peace.png",
     "name": "Padmé Amidala - Pursuing Peace",
     "type": "Unit",
     "hp": null,
@@ -1690,7 +1690,7 @@
     ]
   },
   "patrollingaat": {
-    "image": "TWI\\Patrolling_AAT.png",
+    "image": "TWI/Patrolling_AAT.png",
     "name": "Patrolling AAT",
     "type": "Unit",
     "hp": null,
@@ -1699,7 +1699,7 @@
     ]
   },
   "patrollingvwing": {
-    "image": "TWI\\Patrolling_V-Wing.png",
+    "image": "TWI/Patrolling_V-Wing.png",
     "name": "Patrolling V-Wing",
     "type": "Unit",
     "hp": null,
@@ -1707,9 +1707,9 @@
       "Command"
     ]
   },
-  "paucityutapau": {
-    "image": "TWI\\Pau_City - Utapau.png",
-    "name": "Pau City - Utapau",
+  "paucity": {
+    "image": "TWI/Pau_City - Utapau.png",
+    "name": "Pau City",
     "type": "Base",
     "hp": "26",
     "aspects": [
@@ -1717,7 +1717,7 @@
     ]
   },
   "peltasupplyfrigate": {
-    "image": "TWI\\Pelta_Supply_Frigate.png",
+    "image": "TWI/Pelta_Supply_Frigate.png",
     "name": "Pelta Supply Frigate",
     "type": "Unit",
     "hp": null,
@@ -1727,7 +1727,7 @@
     ]
   },
   "perilousposition": {
-    "image": "TWI\\Perilous_Position.png",
+    "image": "TWI/Perilous_Position.png",
     "name": "Perilous Position",
     "type": "Upgrade",
     "hp": null,
@@ -1736,7 +1736,7 @@
     ]
   },
   "petitionthesenate": {
-    "image": "TWI\\Petition_the_Senate.png",
+    "image": "TWI/Petition_the_Senate.png",
     "name": "Petition the Senate",
     "type": "Event",
     "hp": null,
@@ -1745,9 +1745,9 @@
       "Heroism"
     ]
   },
-  "petranakiarenageonosis": {
-    "image": "TWI\\Petranaki_Arena - Geonosis.png",
-    "name": "Petranaki Arena - Geonosis",
+  "petranakiarena": {
+    "image": "TWI/Petranaki_Arena - Geonosis.png",
+    "name": "Petranaki Arena",
     "type": "Base",
     "hp": "26",
     "aspects": [
@@ -1755,7 +1755,7 @@
     ]
   },
   "phaseiclonetrooper": {
-    "image": "TWI\\Phase_I_Clone_Trooper.png",
+    "image": "TWI/Phase_I_Clone_Trooper.png",
     "name": "Phase I Clone Trooper",
     "type": "Unit",
     "hp": null,
@@ -1764,7 +1764,7 @@
     ]
   },
   "phaseiiclonetrooper": {
-    "image": "TWI\\Phase_II_Clone_Trooper.png",
+    "image": "TWI/Phase_II_Clone_Trooper.png",
     "name": "Phase II Clone Trooper",
     "type": "Unit",
     "hp": null,
@@ -1773,7 +1773,7 @@
     ]
   },
   "planetaryinvasion": {
-    "image": "TWI\\Planetary_Invasion.png",
+    "image": "TWI/Planetary_Invasion.png",
     "name": "Planetary Invasion",
     "type": "Event",
     "hp": null,
@@ -1782,7 +1782,7 @@
     ]
   },
   "plokoonkohtoyah": {
-    "image": "TWI\\Plo_Koon - Koh-to-yah.png",
+    "image": "TWI/Plo_Koon - Koh-to-yah.png",
     "name": "Plo Koon - Koh-to-yah!",
     "type": "Unit",
     "hp": null,
@@ -1792,7 +1792,7 @@
     ]
   },
   "pogglethelesserarchdukeofthestalgasinhive": {
-    "image": "TWI\\Poggle_the_Lesser - Archduke_of_the_Stalgasin_Hive.png",
+    "image": "TWI/Poggle_the_Lesser - Archduke_of_the_Stalgasin_Hive.png",
     "name": "Poggle the Lesser - Archduke of the Stalgasin Hive",
     "type": "Unit",
     "hp": null,
@@ -1802,7 +1802,7 @@
     ]
   },
   "politicalpressure": {
-    "image": "TWI\\Political_Pressure.png",
+    "image": "TWI/Political_Pressure.png",
     "name": "Political Pressure",
     "type": "Event",
     "hp": null,
@@ -1811,7 +1811,7 @@
     ]
   },
   "previzslapursuingthethrone": {
-    "image": "TWI\\Pre_Vizsla - Pursuing_the_Throne.png",
+    "image": "TWI/Pre_Vizsla - Pursuing_the_Throne.png",
     "name": "Pre Vizsla - Pursuing the Throne",
     "type": "Leader",
     "hp": null,
@@ -1821,7 +1821,7 @@
     ]
   },
   "previzslapursuingthethroneback": {
-    "image": "TWI\\Pre_Vizsla - Pursuing_the_Throne_back.png",
+    "image": "TWI/Pre_Vizsla - Pursuing_the_Throne_back.png",
     "name": "Pre Vizsla - Pursuing the Throne [Back]",
     "type": "Leader",
     "hp": null,
@@ -1831,7 +1831,7 @@
     ]
   },
   "prisonerofwar": {
-    "image": "TWI\\Prisoner_of_War.png",
+    "image": "TWI/Prisoner_of_War.png",
     "name": "Prisoner of War",
     "type": "Event",
     "hp": null,
@@ -1840,14 +1840,14 @@
     ]
   },
   "privatemanufacturing": {
-    "image": "TWI\\Private_Manufacturing.png",
+    "image": "TWI/Private_Manufacturing.png",
     "name": "Private Manufacturing",
     "type": "Event",
     "hp": null,
     "aspects": []
   },
   "providencedestroyer": {
-    "image": "TWI\\Providence_Destroyer.png",
+    "image": "TWI/Providence_Destroyer.png",
     "name": "Providence Destroyer",
     "type": "Unit",
     "hp": null,
@@ -1856,9 +1856,9 @@
       "Villainy"
     ]
   },
-  "pykepalaceobadiah": {
-    "image": "TWI\\Pyke_Palace - Oba_Diah.png",
-    "name": "Pyke Palace - Oba Diah",
+  "pykepalace": {
+    "image": "TWI/Pyke_Palace - Oba_Diah.png",
+    "name": "Pyke Palace",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -1866,7 +1866,7 @@
     ]
   },
   "pyrrhicassault": {
-    "image": "TWI\\Pyrrhic_Assault.png",
+    "image": "TWI/Pyrrhic_Assault.png",
     "name": "Pyrrhic Assault",
     "type": "Event",
     "hp": null,
@@ -1876,7 +1876,7 @@
     ]
   },
   "quinlanvosstickingthelanding": {
-    "image": "TWI\\Quinlan_Vos - Sticking_the_Landing.png",
+    "image": "TWI/Quinlan_Vos - Sticking_the_Landing.png",
     "name": "Quinlan Vos - Sticking the Landing",
     "type": "Leader",
     "hp": null,
@@ -1886,7 +1886,7 @@
     ]
   },
   "quinlanvosstickingthelandingback": {
-    "image": "TWI\\Quinlan_Vos - Sticking_the_Landing_back.png",
+    "image": "TWI/Quinlan_Vos - Sticking_the_Landing_back.png",
     "name": "Quinlan Vos - Sticking the Landing [Back]",
     "type": "Leader",
     "hp": null,
@@ -1896,7 +1896,7 @@
     ]
   },
   "r2d2fullofsolutions": {
-    "image": "TWI\\R2-D2 - Full_of_Solutions.png",
+    "image": "TWI/R2-D2 - Full_of_Solutions.png",
     "name": "R2-D2 - Full of Solutions",
     "type": "Unit",
     "hp": null,
@@ -1906,7 +1906,7 @@
     ]
   },
   "recklesstorrent": {
-    "image": "TWI\\Reckless_Torrent.png",
+    "image": "TWI/Reckless_Torrent.png",
     "name": "Reckless Torrent",
     "type": "Unit",
     "hp": null,
@@ -1915,7 +1915,7 @@
     ]
   },
   "relentlessrocketdroid": {
-    "image": "TWI\\Relentless_Rocket_Droid.png",
+    "image": "TWI/Relentless_Rocket_Droid.png",
     "name": "Relentless Rocket Droid",
     "type": "Unit",
     "hp": null,
@@ -1924,7 +1924,7 @@
     ]
   },
   "reprocess": {
-    "image": "TWI\\Reprocess.png",
+    "image": "TWI/Reprocess.png",
     "name": "Reprocess",
     "type": "Event",
     "hp": null,
@@ -1934,7 +1934,7 @@
     ]
   },
   "republicarc170": {
-    "image": "TWI\\Republic_ARC-170.png",
+    "image": "TWI/Republic_ARC-170.png",
     "name": "Republic ARC-170",
     "type": "Unit",
     "hp": null,
@@ -1943,7 +1943,7 @@
     ]
   },
   "republicattackpod": {
-    "image": "TWI\\Republic_Attack_Pod.png",
+    "image": "TWI/Republic_Attack_Pod.png",
     "name": "Republic Attack Pod",
     "type": "Unit",
     "hp": null,
@@ -1953,7 +1953,7 @@
     ]
   },
   "republiccommando": {
-    "image": "TWI\\Republic_Commando.png",
+    "image": "TWI/Republic_Commando.png",
     "name": "Republic Commando",
     "type": "Unit",
     "hp": null,
@@ -1962,7 +1962,7 @@
     ]
   },
   "republicdefensecarrier": {
-    "image": "TWI\\Republic_Defense_Carrier.png",
+    "image": "TWI/Republic_Defense_Carrier.png",
     "name": "Republic Defense Carrier",
     "type": "Unit",
     "hp": null,
@@ -1972,7 +1972,7 @@
     ]
   },
   "republictacticalofficer": {
-    "image": "TWI\\Republic_Tactical_Officer.png",
+    "image": "TWI/Republic_Tactical_Officer.png",
     "name": "Republic Tactical Officer",
     "type": "Unit",
     "hp": null,
@@ -1982,7 +1982,7 @@
     ]
   },
   "resoluteunderanakinscommand": {
-    "image": "TWI\\Resolute - Under_Anakins_Command.png",
+    "image": "TWI/Resolute - Under_Anakins_Command.png",
     "name": "Resolute - Under Anakin's Command",
     "type": "Unit",
     "hp": null,
@@ -1992,7 +1992,7 @@
     ]
   },
   "resupply": {
-    "image": "TWI\\Resupply.png",
+    "image": "TWI/Resupply.png",
     "name": "Resupply",
     "type": "Event",
     "hp": null,
@@ -2001,7 +2001,7 @@
     ]
   },
   "rogerroger": {
-    "image": "TWI\\Roger_Roger.png",
+    "image": "TWI/Roger_Roger.png",
     "name": "Roger Roger",
     "type": "Upgrade",
     "hp": null,
@@ -2010,7 +2010,7 @@
     ]
   },
   "royalguardattach": {
-    "image": "TWI\\Royal_Guard_Attach.png",
+    "image": "TWI/Royal_Guard_Attach.png",
     "name": "Royal Guard Attaché",
     "type": "Unit",
     "hp": null,
@@ -2019,7 +2019,7 @@
     ]
   },
   "runehaakoschemingsecond": {
-    "image": "TWI\\Rune_Haako - Scheming_Second.png",
+    "image": "TWI/Rune_Haako - Scheming_Second.png",
     "name": "Rune Haako - Scheming Second",
     "type": "Unit",
     "hp": null,
@@ -2029,7 +2029,7 @@
     ]
   },
   "rushclovisbankingclanscion": {
-    "image": "TWI\\Rush_Clovis - Banking_Clan_Scion.png",
+    "image": "TWI/Rush_Clovis - Banking_Clan_Scion.png",
     "name": "Rush Clovis - Banking Clan Scion",
     "type": "Unit",
     "hp": null,
@@ -2039,7 +2039,7 @@
     ]
   },
   "rylothmilitia": {
-    "image": "TWI\\Ryloth_Militia.png",
+    "image": "TWI/Ryloth_Militia.png",
     "name": "Ryloth Militia",
     "type": "Unit",
     "hp": null,
@@ -2048,7 +2048,7 @@
     ]
   },
   "sabinewrenyoucancountonme": {
-    "image": "TWI\\Sabine_Wren - You_Can_Count_On_Me.png",
+    "image": "TWI/Sabine_Wren - You_Can_Count_On_Me.png",
     "name": "Sabine Wren - You Can Count On Me",
     "type": "Unit",
     "hp": null,
@@ -2058,7 +2058,7 @@
     ]
   },
   "sanhillchairmanofthebankingclan": {
-    "image": "TWI\\San_Hill - Chairman_of_the_Banking_Clan.png",
+    "image": "TWI/San_Hill - Chairman_of_the_Banking_Clan.png",
     "name": "San Hill - Chairman of the Banking Clan",
     "type": "Unit",
     "hp": null,
@@ -2068,7 +2068,7 @@
     ]
   },
   "sanctionersshuttle": {
-    "image": "TWI\\Sanctioners_Shuttle.png",
+    "image": "TWI/Sanctioners_Shuttle.png",
     "name": "Sanctioner's Shuttle",
     "type": "Unit",
     "hp": null,
@@ -2077,7 +2077,7 @@
     ]
   },
   "satinekryzecommittedtopeace": {
-    "image": "TWI\\Satine_Kryze - Committed_to_Peace.png",
+    "image": "TWI/Satine_Kryze - Committed_to_Peace.png",
     "name": "Satine Kryze - Committed to Peace",
     "type": "Unit",
     "hp": null,
@@ -2087,7 +2087,7 @@
     ]
   },
   "savageopressmonster": {
-    "image": "TWI\\Savage_Opress - Monster.png",
+    "image": "TWI/Savage_Opress - Monster.png",
     "name": "Savage Opress - Monster",
     "type": "Unit",
     "hp": null,
@@ -2097,7 +2097,7 @@
     ]
   },
   "sawgerreraresistanceisnotterrorism": {
-    "image": "TWI\\Saw_Gerrera - Resistance_is_Not_Terrorism.png",
+    "image": "TWI/Saw_Gerrera - Resistance_is_Not_Terrorism.png",
     "name": "Saw Gerrera - Resistance is Not Terrorism",
     "type": "Unit",
     "hp": null,
@@ -2107,7 +2107,7 @@
     ]
   },
   "selfdestruct": {
-    "image": "TWI\\Self-Destruct.png",
+    "image": "TWI/Self-Destruct.png",
     "name": "Self-Destruct",
     "type": "Event",
     "hp": null,
@@ -2117,7 +2117,7 @@
     ]
   },
   "senatorialcorvette": {
-    "image": "TWI\\Senatorial_Corvette.png",
+    "image": "TWI/Senatorial_Corvette.png",
     "name": "Senatorial Corvette",
     "type": "Unit",
     "hp": null,
@@ -2127,7 +2127,7 @@
     ]
   },
   "separatistcommando": {
-    "image": "TWI\\Separatist_Commando.png",
+    "image": "TWI/Separatist_Commando.png",
     "name": "Separatist Commando",
     "type": "Unit",
     "hp": null,
@@ -2137,7 +2137,7 @@
     ]
   },
   "separatistsupertank": {
-    "image": "TWI\\Separatist_Super_Tank.png",
+    "image": "TWI/Separatist_Super_Tank.png",
     "name": "Separatist Super Tank",
     "type": "Unit",
     "hp": null,
@@ -2147,7 +2147,7 @@
     ]
   },
   "shaaktiunitywinswars": {
-    "image": "TWI\\Shaak_Ti - Unity_Wins_Wars.png",
+    "image": "TWI/Shaak_Ti - Unity_Wins_Wars.png",
     "name": "Shaak Ti - Unity Wins Wars",
     "type": "Unit",
     "hp": null,
@@ -2156,9 +2156,9 @@
       "Heroism"
     ]
   },
-  "shadowcollectivecampzanbar": {
-    "image": "TWI\\Shadow_Collective_Camp - Zanbar.png",
-    "name": "Shadow Collective Camp - Zanbar",
+  "shadowcollectivecamp": {
+    "image": "TWI/Shadow_Collective_Camp - Zanbar.png",
+    "name": "Shadow Collective Camp",
     "type": "Base",
     "hp": "25",
     "aspects": [
@@ -2166,7 +2166,7 @@
     ]
   },
   "shadowedintentions": {
-    "image": "TWI\\Shadowed_Intentions.png",
+    "image": "TWI/Shadowed_Intentions.png",
     "name": "Shadowed Intentions",
     "type": "Upgrade",
     "hp": null,
@@ -2175,7 +2175,7 @@
     ]
   },
   "slymooresecretiveadvisor": {
-    "image": "TWI\\Sly_Moore - Secretive_Advisor.png",
+    "image": "TWI/Sly_Moore - Secretive_Advisor.png",
     "name": "Sly Moore - Secretive Advisor",
     "type": "Unit",
     "hp": null,
@@ -2184,7 +2184,7 @@
     ]
   },
   "soldierofthe501st": {
-    "image": "TWI\\Soldier_of_the_501st.png",
+    "image": "TWI/Soldier_of_the_501st.png",
     "name": "Soldier of the 501st",
     "type": "Unit",
     "hp": null,
@@ -2194,7 +2194,7 @@
     ]
   },
   "soullessonecustomizedforgrievous": {
-    "image": "TWI\\Soulless_One - Customized_for_Grievous.png",
+    "image": "TWI/Soulless_One - Customized_for_Grievous.png",
     "name": "Soulless One - Customized for Grievous",
     "type": "Unit",
     "hp": null,
@@ -2204,7 +2204,7 @@
     ]
   },
   "squadsupport": {
-    "image": "TWI\\Squad_Support.png",
+    "image": "TWI/Squad_Support.png",
     "name": "Squad Support",
     "type": "Upgrade",
     "hp": null,
@@ -2213,7 +2213,7 @@
     ]
   },
   "squadronofvultures": {
-    "image": "TWI\\Squadron_of_Vultures.png",
+    "image": "TWI/Squadron_of_Vultures.png",
     "name": "Squadron of Vultures",
     "type": "Unit",
     "hp": null,
@@ -2223,7 +2223,7 @@
     ]
   },
   "steadfastsenator": {
-    "image": "TWI\\Steadfast_Senator.png",
+    "image": "TWI/Steadfast_Senator.png",
     "name": "Steadfast Senator",
     "type": "Unit",
     "hp": null,
@@ -2232,7 +2232,7 @@
     ]
   },
   "steelagerrerabelovedtactician": {
-    "image": "TWI\\Steela_Gerrera - Beloved_Tactician.png",
+    "image": "TWI/Steela_Gerrera - Beloved_Tactician.png",
     "name": "Steela Gerrera - Beloved Tactician",
     "type": "Unit",
     "hp": null,
@@ -2242,7 +2242,7 @@
     ]
   },
   "strategicacumen": {
-    "image": "TWI\\Strategic_Acumen.png",
+    "image": "TWI/Strategic_Acumen.png",
     "name": "Strategic Acumen",
     "type": "Upgrade",
     "hp": null,
@@ -2251,7 +2251,7 @@
     ]
   },
   "strategicanalysis": {
-    "image": "TWI\\Strategic_Analysis.png",
+    "image": "TWI/Strategic_Analysis.png",
     "name": "Strategic Analysis",
     "type": "Event",
     "hp": null,
@@ -2260,7 +2260,7 @@
     ]
   },
   "subjugatingstarfighter": {
-    "image": "TWI\\Subjugating_Starfighter.png",
+    "image": "TWI/Subjugating_Starfighter.png",
     "name": "Subjugating Starfighter",
     "type": "Unit",
     "hp": null,
@@ -2268,9 +2268,9 @@
       "Command"
     ]
   },
-  "sundarimandalore": {
-    "image": "TWI\\Sundari - Mandalore.png",
-    "name": "Sundari - Mandalore",
+  "sundari": {
+    "image": "TWI/Sundari - Mandalore.png",
+    "name": "Sundari",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -2278,7 +2278,7 @@
     ]
   },
   "superbattledroid": {
-    "image": "TWI\\Super_Battle_Droid.png",
+    "image": "TWI/Super_Battle_Droid.png",
     "name": "Super Battle Droid",
     "type": "Unit",
     "hp": null,
@@ -2287,7 +2287,7 @@
     ]
   },
   "swordandshieldmaneuver": {
-    "image": "TWI\\Sword_and_Shield_Maneuver.png",
+    "image": "TWI/Sword_and_Shield_Maneuver.png",
     "name": "Sword and Shield Maneuver",
     "type": "Event",
     "hp": null,
@@ -2296,7 +2296,7 @@
     ]
   },
   "synchronizedstrike": {
-    "image": "TWI\\Synchronized_Strike.png",
+    "image": "TWI/Synchronized_Strike.png",
     "name": "Synchronized Strike",
     "type": "Event",
     "hp": null,
@@ -2306,7 +2306,7 @@
     ]
   },
   "tacticaladvantage": {
-    "image": "TWI\\Tactical_Advantage.png",
+    "image": "TWI/Tactical_Advantage.png",
     "name": "Tactical Advantage",
     "type": "Event",
     "hp": null,
@@ -2315,7 +2315,7 @@
     ]
   },
   "tacticaldroidcommander": {
-    "image": "TWI\\Tactical_Droid_Commander.png",
+    "image": "TWI/Tactical_Droid_Commander.png",
     "name": "Tactical Droid Commander",
     "type": "Unit",
     "hp": null,
@@ -2325,7 +2325,7 @@
     ]
   },
   "takecaptive": {
-    "image": "TWI\\Take_Captive.png",
+    "image": "TWI/Take_Captive.png",
     "name": "Take Captive",
     "type": "Event",
     "hp": null,
@@ -2334,7 +2334,7 @@
     ]
   },
   "theclonewars": {
-    "image": "TWI\\The_Clone_Wars.png",
+    "image": "TWI/The_Clone_Wars.png",
     "name": "The Clone Wars",
     "type": "Event",
     "hp": null,
@@ -2342,9 +2342,9 @@
       "Command"
     ]
   },
-  "thecrystalcitychristophsis": {
-    "image": "TWI\\The_Crystal_City - Christophsis.png",
-    "name": "The Crystal City - Christophsis",
+  "thecrystalcity": {
+    "image": "TWI/The_Crystal_City - Christophsis.png",
+    "name": "The Crystal City",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -2352,7 +2352,7 @@
     ]
   },
   "theinvasionofchristophsis": {
-    "image": "TWI\\The_Invasion_of_Christophsis.png",
+    "image": "TWI/The_Invasion_of_Christophsis.png",
     "name": "The Invasion of Christophsis",
     "type": "Event",
     "hp": null,
@@ -2361,7 +2361,7 @@
     ]
   },
   "theinvisiblehandimposingflagship": {
-    "image": "TWI\\The_Invisible_Hand - Imposing_Flagship.png",
+    "image": "TWI/The_Invisible_Hand - Imposing_Flagship.png",
     "name": "The Invisible Hand - Imposing Flagship",
     "type": "Unit",
     "hp": null,
@@ -2369,9 +2369,9 @@
       "Villainy"
     ]
   },
-  "thenestonderon": {
-    "image": "TWI\\The_Nest - Onderon.png",
-    "name": "The Nest - Onderon",
+  "thenest": {
+    "image": "TWI/The_Nest - Onderon.png",
+    "name": "The Nest",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -2379,7 +2379,7 @@
     ]
   },
   "thezillobeastawokenfromthedepths": {
-    "image": "TWI\\The_Zillo_Beast - Awoken_From_The_Depths.png",
+    "image": "TWI/The_Zillo_Beast - Awoken_From_The_Depths.png",
     "name": "The Zillo Beast - Awoken From The Depths",
     "type": "Unit",
     "hp": null,
@@ -2387,9 +2387,9 @@
       "Vigilance"
     ]
   },
-  "tipocacitykamino": {
-    "image": "TWI\\Tipoca_City - Kamino.png",
-    "name": "Tipoca City - Kamino",
+  "tipocacity": {
+    "image": "TWI/Tipoca_City - Kamino.png",
+    "name": "Tipoca City",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -2397,7 +2397,7 @@
     ]
   },
   "tradefederationshuttle": {
-    "image": "TWI\\Trade_Federation_Shuttle.png",
+    "image": "TWI/Trade_Federation_Shuttle.png",
     "name": "Trade Federation Shuttle",
     "type": "Unit",
     "hp": null,
@@ -2406,7 +2406,7 @@
     ]
   },
   "tranquilityinspiringflagship": {
-    "image": "TWI\\Tranquility - Inspiring_Flagship.png",
+    "image": "TWI/Tranquility - Inspiring_Flagship.png",
     "name": "Tranquility - Inspiring Flagship",
     "type": "Unit",
     "hp": null,
@@ -2415,7 +2415,7 @@
     ]
   },
   "tridroidsuppressor": {
-    "image": "TWI\\Tri-Droid_Suppressor.png",
+    "image": "TWI/Tri-Droid_Suppressor.png",
     "name": "Tri-Droid Suppressor",
     "type": "Unit",
     "hp": null,
@@ -2424,7 +2424,7 @@
     ]
   },
   "twicethepride": {
-    "image": "TWI\\Twice_the_Pride.png",
+    "image": "TWI/Twice_the_Pride.png",
     "name": "Twice the Pride",
     "type": "Upgrade",
     "hp": null,
@@ -2434,7 +2434,7 @@
     ]
   },
   "unlimitedpower": {
-    "image": "TWI\\Unlimited_Power.png",
+    "image": "TWI/Unlimited_Power.png",
     "name": "Unlimited Power",
     "type": "Event",
     "hp": null,
@@ -2444,7 +2444,7 @@
     ]
   },
   "unmaskingtheconspiracy": {
-    "image": "TWI\\Unmasking_the_Conspiracy.png",
+    "image": "TWI/Unmasking_the_Conspiracy.png",
     "name": "Unmasking the Conspiracy",
     "type": "Event",
     "hp": null,
@@ -2453,7 +2453,7 @@
     ]
   },
   "unnaturallife": {
-    "image": "TWI\\Unnatural_Life.png",
+    "image": "TWI/Unnatural_Life.png",
     "name": "Unnatural Life",
     "type": "Event",
     "hp": null,
@@ -2463,7 +2463,7 @@
     ]
   },
   "unshakeablewill": {
-    "image": "TWI\\Unshakeable_Will.png",
+    "image": "TWI/Unshakeable_Will.png",
     "name": "Unshakeable Will",
     "type": "Upgrade",
     "hp": null,
@@ -2472,7 +2472,7 @@
     ]
   },
   "vanguarddroidbomber": {
-    "image": "TWI\\Vanguard_Droid_Bomber.png",
+    "image": "TWI/Vanguard_Droid_Bomber.png",
     "name": "Vanguard Droid Bomber",
     "type": "Unit",
     "hp": null,
@@ -2481,7 +2481,7 @@
     ]
   },
   "vanquish": {
-    "image": "TWI\\Vanquish.png",
+    "image": "TWI/Vanquish.png",
     "name": "Vanquish",
     "type": "Event",
     "hp": null,
@@ -2490,14 +2490,14 @@
     ]
   },
   "volunteersoldier": {
-    "image": "TWI\\Volunteer_Soldier.png",
+    "image": "TWI/Volunteer_Soldier.png",
     "name": "Volunteer Soldier",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "vultureinterceptorwing": {
-    "image": "TWI\\Vulture_Interceptor_Wing.png",
+    "image": "TWI/Vulture_Interceptor_Wing.png",
     "name": "Vulture Interceptor Wing",
     "type": "Unit",
     "hp": null,
@@ -2506,7 +2506,7 @@
     ]
   },
   "warriordrone": {
-    "image": "TWI\\Warrior_Drone.png",
+    "image": "TWI/Warrior_Drone.png",
     "name": "Warrior Drone",
     "type": "Unit",
     "hp": null,
@@ -2515,7 +2515,7 @@
     ]
   },
   "wartimeprofiteering": {
-    "image": "TWI\\Wartime_Profiteering.png",
+    "image": "TWI/Wartime_Profiteering.png",
     "name": "Wartime Profiteering",
     "type": "Event",
     "hp": null,
@@ -2525,7 +2525,7 @@
     ]
   },
   "wartimetradeofficial": {
-    "image": "TWI\\Wartime_Trade_Official.png",
+    "image": "TWI/Wartime_Trade_Official.png",
     "name": "Wartime Trade Official",
     "type": "Unit",
     "hp": null,
@@ -2535,7 +2535,7 @@
     ]
   },
   "wattambortechnounionforeman": {
-    "image": "TWI\\Wat_Tambor - Techno_Union_Foreman.png",
+    "image": "TWI/Wat_Tambor - Techno_Union_Foreman.png",
     "name": "Wat Tambor - Techno Union Foreman",
     "type": "Leader",
     "hp": null,
@@ -2545,7 +2545,7 @@
     ]
   },
   "wattambortechnounionforemanback": {
-    "image": "TWI\\Wat_Tambor - Techno_Union_Foreman_back.png",
+    "image": "TWI/Wat_Tambor - Techno_Union_Foreman_back.png",
     "name": "Wat Tambor - Techno Union Foreman [Back]",
     "type": "Leader",
     "hp": null,
@@ -2555,7 +2555,7 @@
     ]
   },
   "waylay": {
-    "image": "TWI\\Waylay.png",
+    "image": "TWI/Waylay.png",
     "name": "Waylay",
     "type": "Event",
     "hp": null,
@@ -2564,7 +2564,7 @@
     ]
   },
   "wolfpackescort": {
-    "image": "TWI\\Wolf_Pack_Escort.png",
+    "image": "TWI/Wolf_Pack_Escort.png",
     "name": "Wolf Pack Escort",
     "type": "Unit",
     "hp": null,
@@ -2574,7 +2574,7 @@
     ]
   },
   "yodasensingdarkness": {
-    "image": "TWI\\Yoda - Sensing_Darkness.png",
+    "image": "TWI/Yoda - Sensing_Darkness.png",
     "name": "Yoda - Sensing Darkness",
     "type": "Leader",
     "hp": null,
@@ -2584,7 +2584,7 @@
     ]
   },
   "yodasensingdarknessback": {
-    "image": "TWI\\Yoda - Sensing_Darkness_back.png",
+    "image": "TWI/Yoda - Sensing_Darkness_back.png",
     "name": "Yoda - Sensing Darkness [Back]",
     "type": "Leader",
     "hp": null,
@@ -2594,7 +2594,7 @@
     ]
   },
   "zirothehuttcolorfulschemer": {
-    "image": "TWI\\Ziro_the_Hutt - Colorful_Schemer.png",
+    "image": "TWI/Ziro_the_Hutt - Colorful_Schemer.png",
     "name": "Ziro the Hutt - Colorful Schemer",
     "type": "Unit",
     "hp": null,

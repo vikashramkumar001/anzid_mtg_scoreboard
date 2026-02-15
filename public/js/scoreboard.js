@@ -25,115 +25,160 @@ const MANA_SYMBOLS = {
     C: {alt: 'Colorless', src: 'https://svgs.scryfall.io/card-symbols/C.svg'}
 };
 
+// Star Wars Unlimited Aspects Dictionary
+const SWU_ASPECTS = {
+    'aggression': '/assets/images/starwars/scoreboard/icons/Aggression.png',
+    'command': '/assets/images/starwars/scoreboard/icons/Command.png',
+    'cunning': '/assets/images/starwars/scoreboard/icons/Cunning.png',
+    'heroism': '/assets/images/starwars/scoreboard/icons/Heroism.png',
+    'vigilance': '/assets/images/starwars/scoreboard/icons/Vigilance.png',
+    'villainy': '/assets/images/starwars/scoreboard/icons/Villainy.png'
+};
+// SWU Leaders and Bases: empty for now, populated when card images are added
+const SWU_LEADERS = {};
+const SWU_BASES = {};
+
+// Helper: find a matching key in a dictionary (case-insensitive, partial match)
+function findDictMatch(name, dict) {
+    if (!name) return null;
+    const nameLower = name.toLowerCase();
+    // Exact match first
+    for (const key in dict) {
+        if (key.toLowerCase() === nameLower) return key;
+    }
+    // Partial match (value contains key)
+    for (const key in dict) {
+        if (nameLower.includes(key.toLowerCase())) return key;
+    }
+    return null;
+}
+
+// Helper: render SWU aspect icons into a container from comma-separated string
+function renderAspectIcons(value, container) {
+    container.innerHTML = '';
+    if (!value) return;
+    const aspects = value.split(',').map(a => a.trim().toLowerCase()).filter(Boolean);
+    aspects.forEach(aspect => {
+        const iconUrl = SWU_ASPECTS[aspect];
+        if (iconUrl) {
+            const img = document.createElement('img');
+            img.src = iconUrl;
+            img.alt = aspect;
+            img.className = 'swu-aspect-icon';
+            container.appendChild(img);
+        }
+    });
+}
+
 // Riftbound Battlefields Dictionary
 // Maps battlefield names to their left and right side image URLs
 // Files with "180" are for left side, files without "180" are for right side
 // Default image is used as fallback when a battlefield is not found or empty
 const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
-    left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png',
-    right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+    left: '/assets/images/riftbound/battlefields/_0000_Default.png',
+    right: '/assets/images/riftbound/battlefields/_0000_Default.png'
 };
 
 const RIFTBOUND_BATTLEFIELDS = {
     'default': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+        left: '/assets/images/riftbound/battlefields/_0000_Default180.png',
+        right: '/assets/images/riftbound/battlefields/_0000_Default.png'
     },
     'Altar to Unity': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Altar-to-Unity180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0024_Altar-to-Unity.png'
+        left: '/assets/images/riftbound/battlefields/_0000_Altar-to-Unity180.png',
+        right: '/assets/images/riftbound/battlefields/_0024_Altar-to-Unity.png'
     },
     'Aspirant\'s Climb': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0001_Aspirant_s-Climb180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0025_Aspirant_s-Climb.png'
+        left: '/assets/images/riftbound/battlefields/_0001_Aspirant_s-Climb180.png',
+        right: '/assets/images/riftbound/battlefields/_0025_Aspirant_s-Climb.png'
     },
     'Back Alley Bar': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0002_Back-Alley-Bar180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0026_Back-Alley-Bar.png'
+        left: '/assets/images/riftbound/battlefields/_0002_Back-Alley-Bar180.png',
+        right: '/assets/images/riftbound/battlefields/_0026_Back-Alley-Bar.png'
     },
     'Bandle Tree': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0003_Bandle-Tree180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0027_Bandle-Tree.png'
+        left: '/assets/images/riftbound/battlefields/_0003_Bandle-Tree180.png',
+        right: '/assets/images/riftbound/battlefields/_0027_Bandle-Tree.png'
     },
     'Fortified Position': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0004_Fortified-Position180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0028_Fortified-Position.png'
+        left: '/assets/images/riftbound/battlefields/_0004_Fortified-Position180.png',
+        right: '/assets/images/riftbound/battlefields/_0028_Fortified-Position.png'
     },
     'Grove of the God Willow': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0005_Grove-of-the-God-Willow180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0029_Grove-of-the-God-Willow.png'
+        left: '/assets/images/riftbound/battlefields/_0005_Grove-of-the-God-Willow180.png',
+        right: '/assets/images/riftbound/battlefields/_0029_Grove-of-the-God-Willow.png'
     },
     'Hallowed Tomb': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0006_Hallowed-Tomb180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0030_Hallowed-Tomb.png'
+        left: '/assets/images/riftbound/battlefields/_0006_Hallowed-Tomb180.png',
+        right: '/assets/images/riftbound/battlefields/_0030_Hallowed-Tomb.png'
     },
     'Monastery of Hirana': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0007_Monastery-of-Hirana180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0031_Monastery-of-Hirana.png'
+        left: '/assets/images/riftbound/battlefields/_0007_Monastery-of-Hirana180.png',
+        right: '/assets/images/riftbound/battlefields/_0031_Monastery-of-Hirana.png'
     },
     'Navori Fighting Pit': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0008_Navori-Fighting-Pit180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0032_Navori-Fighting-Pit.png'
+        left: '/assets/images/riftbound/battlefields/_0008_Navori-Fighting-Pit180.png',
+        right: '/assets/images/riftbound/battlefields/_0032_Navori-Fighting-Pit.png'
     },
     'Obelisk of Power': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0009_Obelisk-of-Power180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0033_Obelisk-of-Power.png'
+        left: '/assets/images/riftbound/battlefields/_0009_Obelisk-of-Power180.png',
+        right: '/assets/images/riftbound/battlefields/_0033_Obelisk-of-Power.png'
     },
     'Reaver\'s Row': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0010_Reaver_s-Row180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0034_Reaver_s-Row.png'
+        left: '/assets/images/riftbound/battlefields/_0010_Reaver_s-Row180.png',
+        right: '/assets/images/riftbound/battlefields/_0034_Reaver_s-Row.png'
     },
     'Reckoner\'s Arena': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0011_Reckoner_s-Arena180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0035_Reckoner_s-Arena.png'
+        left: '/assets/images/riftbound/battlefields/_0011_Reckoner_s-Arena180.png',
+        right: '/assets/images/riftbound/battlefields/_0035_Reckoner_s-Arena.png'
     },
     'Sigil of the Storm': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0012_Sigil-of-the-Storm180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0036_Sigil-of-the-Storm.png'
+        left: '/assets/images/riftbound/battlefields/_0012_Sigil-of-the-Storm180.png',
+        right: '/assets/images/riftbound/battlefields/_0036_Sigil-of-the-Storm.png'
     },
     'Startipped Peak': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0013_Startipped-Peak180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0037_Startipped-Peak.png'
+        left: '/assets/images/riftbound/battlefields/_0013_Startipped-Peak180.png',
+        right: '/assets/images/riftbound/battlefields/_0037_Startipped-Peak.png'
     },
     'Targon\'s Peak': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0014_Targon_s-Peak180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0038_Targon_s-Peak.png'
+        left: '/assets/images/riftbound/battlefields/_0014_Targon_s-Peak180.png',
+        right: '/assets/images/riftbound/battlefields/_0038_Targon_s-Peak.png'
     },
     'The Arena\'s Greatest': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0015_The-Arena_s-Greatest180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0039_The-Arena_s-Greatest.png'
+        left: '/assets/images/riftbound/battlefields/_0015_The-Arena_s-Greatest180.png',
+        right: '/assets/images/riftbound/battlefields/_0039_The-Arena_s-Greatest.png'
     },
     'The Dreaming Tree': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0016_The-Dreaming-Tree180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0040_The-Dreaming-Tree.png'
+        left: '/assets/images/riftbound/battlefields/_0016_The-Dreaming-Tree180.png',
+        right: '/assets/images/riftbound/battlefields/_0040_The-Dreaming-Tree.png'
     },
     'The Grand Plaza': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0017_The-Grand-Plaza180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0041_The-Grand-Plaza.png'
+        left: '/assets/images/riftbound/battlefields/_0017_The-Grand-Plaza180.png',
+        right: '/assets/images/riftbound/battlefields/_0041_The-Grand-Plaza.png'
     },
     'Trifarian War Camp': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0018_Trifarian-War-Camp180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0042_Trifarian-War-Camp.png'
+        left: '/assets/images/riftbound/battlefields/_0018_Trifarian-War-Camp180.png',
+        right: '/assets/images/riftbound/battlefields/_0042_Trifarian-War-Camp.png'
     },
     'Vilemaw\'s Lair': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0019_Vilemaw_s-Lair180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0043_Vilemaw_s-Lair.png'
+        left: '/assets/images/riftbound/battlefields/_0019_Vilemaw_s-Lair180.png',
+        right: '/assets/images/riftbound/battlefields/_0043_Vilemaw_s-Lair.png'
     },
     'Void Gate': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0020_Void-Gate180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0044_Void-Gate.png'
+        left: '/assets/images/riftbound/battlefields/_0020_Void-Gate180.png',
+        right: '/assets/images/riftbound/battlefields/_0044_Void-Gate.png'
     },
     'Windswept Hillock': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0021_Windswept-Hillock180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0045_Windswept-Hillock.png'
+        left: '/assets/images/riftbound/battlefields/_0021_Windswept-Hillock180.png',
+        right: '/assets/images/riftbound/battlefields/_0045_Windswept-Hillock.png'
     },
     'Zaun Warrens': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0022_Zaun-Warrens180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0046_Zaun-Warrens.png'
+        left: '/assets/images/riftbound/battlefields/_0022_Zaun-Warrens180.png',
+        right: '/assets/images/riftbound/battlefields/_0046_Zaun-Warrens.png'
     },
     'The Candlelit Sanctum': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0023_The-Candlelit-Sanctum180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0047_The-Candlelit-Sanctum.png'
+        left: '/assets/images/riftbound/battlefields/_0023_The-Candlelit-Sanctum180.png',
+        right: '/assets/images/riftbound/battlefields/_0047_The-Candlelit-Sanctum.png'
     }
 };
 
@@ -142,78 +187,78 @@ const RIFTBOUND_BATTLEFIELDS = {
 // Files with "_F_" are for right side, files without "_F_" are for left side
 // Default images are used as fallback when a legend is not found
 const RIFTBOUND_LEGENDS_DEFAULT = {
-    left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0000_Default.png',
-    right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0000_F_Default.png'
+    left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0000_Default.png',
+    right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0000_F_Default.png'
 };
 
 const RIFTBOUND_LEGENDS = {
     'Kai\'sa': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0001_Kaisa, Daughter of the Void.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0001_F_Kaisa, Daughter of the Void.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0001_Kaisa, Daughter of the Void.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0001_F_Kaisa, Daughter of the Void.png'
     },
     'Volibear': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0002_Volibear, Relentless Storm.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0002_F_Volibear, Relentless Storm.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0002_Volibear, Relentless Storm.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0002_F_Volibear, Relentless Storm.png'
     },
     'Sett': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0003_Sett, The Boss.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0003_F_Sett, The Boss.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0003_Sett, The Boss.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0003_F_Sett, The Boss.png'
     },
     'Viktor': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0004_Viktor, Herald of the Arcane.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0004_F_Viktor, Herald of the Arcane.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0004_Viktor, Herald of the Arcane.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0004_F_Viktor, Herald of the Arcane.png'
     },
     'Teemo': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0005_Teemo, Swift Scout.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0005_F_Teemo, Swift Scout.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0005_Teemo, Swift Scout.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0005_F_Teemo, Swift Scout.png'
     },
     'Leona': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0006_Leona, Radiant Dawn.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0006_F_Leona, Radiant Dawn.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0006_Leona, Radiant Dawn.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0006_F_Leona, Radiant Dawn.png'
     },
     'Yasuo': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_Yasuo, Unforgiven.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_F_Yasuo, Unforgiven.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0007_Yasuo, Unforgiven.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0007_F_Yasuo, Unforgiven.png'
     },
     'Yas': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_Yasuo, Unforgiven.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_F_Yasuo, Unforgiven.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0007_Yasuo, Unforgiven.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0007_F_Yasuo, Unforgiven.png'
     },
     'Lee Sin': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0008_Lee Sin, Blind Monk.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0008_F_Lee Sin, Blind Monk.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0008_Lee Sin, Blind Monk.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0008_F_Lee Sin, Blind Monk.png'
     },
     'Ahri': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0009_Ahri, Nine-Tailed Fox.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0009_F_Ahri, Nine-Tailed Fox.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0009_Ahri, Nine-Tailed Fox.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0009_F_Ahri, Nine-Tailed Fox.png'
     },
     'Darius': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0010_Darius, Hand of Noxus.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0010_F_Darius, Hand of Noxus.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0010_Darius, Hand of Noxus.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0010_F_Darius, Hand of Noxus.png'
     },
     'Jinx': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0011_Jinx, Loose Cannon.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0011_F_Jinx, Loose Cannon.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0011_Jinx, Loose Cannon.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0011_F_Jinx, Loose Cannon.png'
     },
     'Miss Fortune': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0012_Miss Fortune, Bounty Hunter.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0012_F_Miss Fortune, Bounty Hunter.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0012_Miss Fortune, Bounty Hunter.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0012_F_Miss Fortune, Bounty Hunter.png'
     },
     'Garen': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0013_Garen, Might of Demacia.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0013_F_Garen, Might of Demacia.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0013_Garen, Might of Demacia.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0013_F_Garen, Might of Demacia.png'
     },
     'Lux': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0014_Lux, Lady of Luminosity.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0014_F_Lux, Lady of Luminosity.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0014_Lux, Lady of Luminosity.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0014_F_Lux, Lady of Luminosity.png'
     },
     'Annie': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0015_Annie, Dark Child.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0015_F_Annie, Dark Child.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0015_Annie, Dark Child.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0015_F_Annie, Dark Child.png'
     },
     'Master Yi': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0016_Master Yi, Wuju Bladesman.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0016_F_Master Yi, Wuju Bladesman.png'
+        left: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0016_Master Yi, Wuju Bladesman.png',
+        right: '/assets/images/riftbound/scoreboard/legend-portraits/LegendPortrait_0016_F_Master Yi, Wuju Bladesman.png'
     }
 };
 
@@ -222,12 +267,12 @@ const RIFTBOUND_LEGENDS = {
 // COMMENTED OUT FOR LATER USE - Not currently displayed in scoreboard
 /*
 const RIFTBOUND_RUNES = {
-    'g': '/assets/images/riftbound/scoreboard/icons/Calm2.png',
-    'p': '/assets/images/riftbound/scoreboard/icons/Chaos2.png',
-    'r': '/assets/images/riftbound/scoreboard/icons/Fury2.png',
-    'b': '/assets/images/riftbound/scoreboard/icons/Mind.png',
-    'y': '/assets/images/riftbound/scoreboard/icons/Order2.png',
-    'o': '/assets/images/riftbound/scoreboard/icons/Body2.png'
+    'g': '/assets/images/riftbound/icons/runes/Calm2.png',
+    'p': '/assets/images/riftbound/icons/runes/Chaos2.png',
+    'r': '/assets/images/riftbound/icons/runes/Fury2.png',
+    'b': '/assets/images/riftbound/icons/runes/Mind.png',
+    'y': '/assets/images/riftbound/icons/runes/Order2.png',
+    'o': '/assets/images/riftbound/icons/runes/Body2.png'
 };
 */
 
@@ -537,6 +582,85 @@ function updateState(data) {
             }
         }
 
+        // Handle Star Wars base damage/HP composite display
+        if (["player-base-damage-left", "player-base-damage-right", "player-base-hp-left", "player-base-hp-right"].includes(key)) {
+            const side = key.includes('left') ? 'left' : 'right';
+            // Store the raw value
+            lastState[key] = value;
+            // Get both values (use stored or default)
+            const damage = lastState[`player-base-damage-${side}`] || '0';
+            const hp = lastState[`player-base-hp-${side}`] || '30';
+            const composite = `${String(damage).padStart(2, '0')}/${hp}`;
+            const statsEl = document.getElementById(`swu-base-stats-${side}`);
+            if (statsEl) {
+                statsEl.textContent = composite;
+            }
+        }
+
+        // Handle Star Wars leader image lookup
+        if (["player-leader-left", "player-leader-right"].includes(key)) {
+            const side = key === 'player-leader-left' ? 'left' : 'right';
+            const starwarsContainer = document.getElementById('scoreboard-starwars');
+            if (starwarsContainer) {
+                const imgEl = starwarsContainer.querySelector(`#swu-leader-image-${side}`);
+                if (imgEl) {
+                    const leaderName = value ? value.trim() : '';
+                    const matchedKey = findDictMatch(leaderName, SWU_LEADERS);
+                    if (matchedKey && SWU_LEADERS[matchedKey]) {
+                        imgEl.src = SWU_LEADERS[matchedKey];
+                        imgEl.style.display = 'block';
+                    } else {
+                        imgEl.src = '';
+                        imgEl.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        // Handle Star Wars base image lookup
+        if (["player-base-left", "player-base-right"].includes(key)) {
+            const side = key === 'player-base-left' ? 'left' : 'right';
+            const starwarsContainer = document.getElementById('scoreboard-starwars');
+            if (starwarsContainer) {
+                const imgEl = starwarsContainer.querySelector(`#swu-base-image-${side}`);
+                if (imgEl) {
+                    const baseName = value ? value.trim() : '';
+                    const matchedKey = findDictMatch(baseName, SWU_BASES);
+                    if (matchedKey && SWU_BASES[matchedKey]) {
+                        imgEl.src = SWU_BASES[matchedKey];
+                        imgEl.style.display = 'block';
+                    } else {
+                        imgEl.src = '';
+                        imgEl.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        // Handle Star Wars leader aspects (two separate fields)
+        if (["player-leader-aspect-1-left", "player-leader-aspect-1-right",
+             "player-leader-aspect-2-left", "player-leader-aspect-2-right"].includes(key)) {
+            const side = key.includes('left') ? 'left' : 'right';
+            lastState[key] = value;
+            const container = document.getElementById(`swu-leader-aspects-${side}`);
+            if (container) {
+                const a1 = lastState[`player-leader-aspect-1-${side}`] || '';
+                const a2 = lastState[`player-leader-aspect-2-${side}`] || '';
+                const combined = [a1, a2].filter(Boolean).join(', ');
+                renderAspectIcons(combined, container);
+            }
+        }
+
+        // Handle Star Wars base aspects
+        if (["player-base-aspects-left", "player-base-aspects-right"].includes(key)) {
+            const side = key.includes('left') ? 'left' : 'right';
+            const container = document.getElementById(`swu-base-aspects-${side}`);
+            if (container) {
+                renderAspectIcons(value, container);
+            }
+            lastState[key] = value;
+        }
+
         const el = document.getElementById(key);
 
         if (el) {
@@ -606,6 +730,18 @@ function updateState(data) {
                     }
                 }
             }
+
+            // Handle Star Wars wins display with pip filled toggle
+            const starwarsContainer = document.getElementById('scoreboard-starwars');
+            if (starwarsContainer) {
+                const swuSide = key === 'player-wins-left' ? 'left' : 'right';
+                const swuPip1 = starwarsContainer.querySelector(`#swu-wins-${swuSide}-1`);
+                const swuPip2 = starwarsContainer.querySelector(`#swu-wins-${swuSide}-2`);
+                if (swuPip1 && swuPip2) {
+                    swuPip1.classList.toggle('filled', value > 0);
+                    swuPip2.classList.toggle('filled', value > 1);
+                }
+            }
         } else if (["player-mana-symbols-left", "player-mana-symbols-right"].includes(key)) {
             if (key === 'player-mana-symbols-left') {
                 console.log(key, value)
@@ -669,7 +805,8 @@ socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
     const last = lastState['header-background'];
     if (last !== newImageUrl) {
         const cacheBuster = new Date().getTime();
-        document.querySelector('.header .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+        const el = document.querySelector(`#scoreboard-${currentGame} .header .background`);
+        if (el) el.style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
         lastState['header-background'] = newImageUrl;
     }
 });
@@ -679,7 +816,8 @@ socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
     const last = lastState['footer-background'];
     if (last !== newImageUrl) {
         const cacheBuster = new Date().getTime();
-        document.querySelector('.footer .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+        const el = document.querySelector(`#scoreboard-${currentGame} .footer .background`);
+        if (el) el.style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
         lastState['footer-background'] = newImageUrl;
     }
 });
@@ -731,6 +869,16 @@ socket.on('current-all-timer-states', ({timerState}) => {
             if (vibesTimer) {
                 vibesTimer.innerText = timerText;
                 vibesTimer.style.display = shouldShow ? 'block' : 'none';
+            }
+        }
+
+        // Update Star Wars timer
+        const starwarsContainer = document.getElementById('scoreboard-starwars');
+        if (starwarsContainer) {
+            const swuTimer = starwarsContainer.querySelector('#timer');
+            if (swuTimer) {
+                swuTimer.innerText = timerText;
+                swuTimer.style.display = shouldShow ? 'block' : 'none';
             }
         }
     }

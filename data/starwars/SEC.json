@@ -1,6 +1,6 @@
 {
   "awing": {
-    "image": "SEC\\A-Wing.png",
+    "image": "SEC/A-Wing.png",
     "name": "A-Wing",
     "type": "Unit",
     "hp": null,
@@ -9,7 +9,7 @@
     ]
   },
   "aatincinerator": {
-    "image": "SEC\\AAT_Incinerator.png",
+    "image": "SEC/AAT_Incinerator.png",
     "name": "AAT Incinerator",
     "type": "Unit",
     "hp": null,
@@ -18,14 +18,14 @@
     ]
   },
   "asplaborer": {
-    "image": "SEC\\ASP_Laborer.png",
+    "image": "SEC/ASP_Laborer.png",
     "name": "ASP Laborer",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "academydisciplinarian": {
-    "image": "SEC\\Academy_Disciplinarian.png",
+    "image": "SEC/Academy_Disciplinarian.png",
     "name": "Academy Disciplinarian",
     "type": "Unit",
     "hp": null,
@@ -34,7 +34,7 @@
     ]
   },
   "accelerateourplans": {
-    "image": "SEC\\Accelerate_Our_Plans.png",
+    "image": "SEC/Accelerate_Our_Plans.png",
     "name": "Accelerate Our Plans",
     "type": "Event",
     "hp": null,
@@ -43,7 +43,7 @@
     ]
   },
   "aggressivenegotiations": {
-    "image": "SEC\\Aggressive_Negotiations.png",
+    "image": "SEC/Aggressive_Negotiations.png",
     "name": "Aggressive Negotiations",
     "type": "Event",
     "hp": null,
@@ -52,7 +52,7 @@
     ]
   },
   "ahsokatanoilearneditfromyou": {
-    "image": "SEC\\Ahsoka_Tano - I_Learned_it_From_You.png",
+    "image": "SEC/Ahsoka_Tano - I_Learned_it_From_You.png",
     "name": "Ahsoka Tano - I Learned it From You",
     "type": "Unit",
     "hp": null,
@@ -62,7 +62,7 @@
     ]
   },
   "alderaanianenvoys": {
-    "image": "SEC\\Alderaanian_Envoys.png",
+    "image": "SEC/Alderaanian_Envoys.png",
     "name": "Alderaanian Envoys",
     "type": "Unit",
     "hp": null,
@@ -71,7 +71,7 @@
     ]
   },
   "alexsandrkalluswithnewpurpose": {
-    "image": "SEC\\Alexsandr_Kallus - With_New_Purpose.png",
+    "image": "SEC/Alexsandr_Kallus - With_New_Purpose.png",
     "name": "Alexsandr Kallus - With New Purpose",
     "type": "Unit",
     "hp": null,
@@ -81,7 +81,7 @@
     ]
   },
   "ambitionsreward": {
-    "image": "SEC\\Ambitions_Reward.png",
+    "image": "SEC/Ambitions_Reward.png",
     "name": "Ambition's Reward",
     "type": "Upgrade",
     "hp": null,
@@ -89,9 +89,9 @@
       "Aggression"
     ]
   },
-  "amnestyhousingcoruscant": {
-    "image": "SEC\\Amnesty_Housing - Coruscant.png",
-    "name": "Amnesty Housing - Coruscant",
+  "amnestyhousing": {
+    "image": "SEC/Amnesty_Housing - Coruscant.png",
+    "name": "Amnesty Housing",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -99,7 +99,7 @@
     ]
   },
   "anakinskywalkersecrethusband": {
-    "image": "SEC\\Anakin_Skywalker - Secret_Husband.png",
+    "image": "SEC/Anakin_Skywalker - Secret_Husband.png",
     "name": "Anakin Skywalker - Secret Husband",
     "type": "Unit",
     "hp": null,
@@ -109,14 +109,14 @@
     ]
   },
   "andocommission": {
-    "image": "SEC\\Ando_Commission.png",
+    "image": "SEC/Ando_Commission.png",
     "name": "Ando Commission",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "arihndapryceontheroadtopower": {
-    "image": "SEC\\Arihnda_Pryce - On_the_Road_to_Power.png",
+    "image": "SEC/Arihnda_Pryce - On_the_Road_to_Power.png",
     "name": "Arihnda Pryce - On the Road to Power",
     "type": "Unit",
     "hp": null,
@@ -126,7 +126,7 @@
     ]
   },
   "armoroffortune": {
-    "image": "SEC\\Armor_of_Fortune.png",
+    "image": "SEC/Armor_of_Fortune.png",
     "name": "Armor of Fortune",
     "type": "Upgrade",
     "hp": null,
@@ -135,7 +135,7 @@
     ]
   },
   "arrest": {
-    "image": "SEC\\Arrest.png",
+    "image": "SEC/Arrest.png",
     "name": "Arrest",
     "type": "Event",
     "hp": null,
@@ -145,14 +145,14 @@
     ]
   },
   "assassinprobe": {
-    "image": "SEC\\Assassin_Probe.png",
+    "image": "SEC/Assassin_Probe.png",
     "name": "Assassin Probe",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "b2em0thatstwolies": {
-    "image": "SEC\\B2EM0 - Thats_Two_Lies.png",
+    "image": "SEC/B2EM0 - Thats_Two_Lies.png",
     "name": "B2EM0 - That's Two Lies",
     "type": "Unit",
     "hp": null,
@@ -161,7 +161,7 @@
     ]
   },
   "bailorganadoingeverythinghecan": {
-    "image": "SEC\\Bail_Organa - Doing_Everything_He_Can.png",
+    "image": "SEC/Bail_Organa - Doing_Everything_He_Can.png",
     "name": "Bail Organa - Doing Everything He Can",
     "type": "Leader",
     "hp": null,
@@ -171,7 +171,7 @@
     ]
   },
   "bailorganadoingeverythinghecanback": {
-    "image": "SEC\\Bail_Organa - Doing_Everything_He_Can_back.png",
+    "image": "SEC/Bail_Organa - Doing_Everything_He_Can_back.png",
     "name": "Bail Organa - Doing Everything He Can [Back]",
     "type": "Leader",
     "hp": null,
@@ -181,7 +181,7 @@
     ]
   },
   "bailorganarespondingtocatastrophe": {
-    "image": "SEC\\Bail_Organa - Responding_to_Catastrophe.png",
+    "image": "SEC/Bail_Organa - Responding_to_Catastrophe.png",
     "name": "Bail Organa - Responding to Catastrophe",
     "type": "Unit",
     "hp": null,
@@ -191,7 +191,7 @@
     ]
   },
   "bardottanornithopter": {
-    "image": "SEC\\Bardottan_Ornithopter.png",
+    "image": "SEC/Bardottan_Ornithopter.png",
     "name": "Bardottan Ornithopter",
     "type": "Unit",
     "hp": null,
@@ -200,7 +200,7 @@
     ]
   },
   "beguile": {
-    "image": "SEC\\Beguile.png",
+    "image": "SEC/Beguile.png",
     "name": "Beguile",
     "type": "Event",
     "hp": null,
@@ -209,7 +209,7 @@
     ]
   },
   "belovedorator": {
-    "image": "SEC\\Beloved_Orator.png",
+    "image": "SEC/Beloved_Orator.png",
     "name": "Beloved Orator",
     "type": "Unit",
     "hp": null,
@@ -219,7 +219,7 @@
     ]
   },
   "blueacecolorfulracer": {
-    "image": "SEC\\Blue_Ace - Colorful_Racer.png",
+    "image": "SEC/Blue_Ace - Colorful_Racer.png",
     "name": "Blue Ace - Colorful Racer",
     "type": "Unit",
     "hp": null,
@@ -229,7 +229,7 @@
     ]
   },
   "bokatankryzealone": {
-    "image": "SEC\\Bo-Katan_Kryze - Alone.png",
+    "image": "SEC/Bo-Katan_Kryze - Alone.png",
     "name": "Bo-Katan Kryze - Alone",
     "type": "Unit",
     "hp": null,
@@ -239,7 +239,7 @@
     ]
   },
   "bogdowninprocedure": {
-    "image": "SEC\\Bog_Down_in_Procedure.png",
+    "image": "SEC/Bog_Down_in_Procedure.png",
     "name": "Bog Down in Procedure",
     "type": "Event",
     "hp": null,
@@ -248,7 +248,7 @@
     ]
   },
   "bravosquadronfighter": {
-    "image": "SEC\\Bravo_Squadron_Fighter.png",
+    "image": "SEC/Bravo_Squadron_Fighter.png",
     "name": "Bravo Squadron Fighter",
     "type": "Unit",
     "hp": null,
@@ -258,7 +258,7 @@
     ]
   },
   "budgetscheming": {
-    "image": "SEC\\Budget_Scheming.png",
+    "image": "SEC/Budget_Scheming.png",
     "name": "Budget Scheming",
     "type": "Event",
     "hp": null,
@@ -267,7 +267,7 @@
     ]
   },
   "c3p0humancyborgrelations": {
-    "image": "SEC\\C-3P0 - Human-Cyborg_Relations.png",
+    "image": "SEC/C-3P0 - Human-Cyborg_Relations.png",
     "name": "C-3P0 - Human-Cyborg Relations",
     "type": "Leader",
     "hp": null,
@@ -277,7 +277,7 @@
     ]
   },
   "c3p0humancyborgrelationsback": {
-    "image": "SEC\\C-3P0 - Human-Cyborg_Relations_back.png",
+    "image": "SEC/C-3P0 - Human-Cyborg_Relations_back.png",
     "name": "C-3P0 - Human-Cyborg Relations [Back]",
     "type": "Leader",
     "hp": null,
@@ -287,7 +287,7 @@
     ]
   },
   "c3p0anythingimightdo": {
-    "image": "SEC\\C-3P0 - Anything_I_Might_Do.png",
+    "image": "SEC/C-3P0 - Anything_I_Might_Do.png",
     "name": "C-3P0 - Anything I Might Do?",
     "type": "Unit",
     "hp": null,
@@ -297,7 +297,7 @@
     ]
   },
   "cadbaneimpressednow": {
-    "image": "SEC\\Cad_Bane - Impressed_Now.png",
+    "image": "SEC/Cad_Bane - Impressed_Now.png",
     "name": "Cad Bane - Impressed Now?",
     "type": "Unit",
     "hp": null,
@@ -307,7 +307,7 @@
     ]
   },
   "cantwellarrestorcruiser": {
-    "image": "SEC\\Cantwell_Arrestor_Cruiser.png",
+    "image": "SEC/Cantwell_Arrestor_Cruiser.png",
     "name": "Cantwell Arrestor Cruiser",
     "type": "Unit",
     "hp": null,
@@ -317,7 +317,7 @@
     ]
   },
   "captainrexintothefirefight": {
-    "image": "SEC\\Captain_Rex - Into_the_Firefight.png",
+    "image": "SEC/Captain_Rex - Into_the_Firefight.png",
     "name": "Captain Rex - Into the Firefight",
     "type": "Unit",
     "hp": null,
@@ -327,7 +327,7 @@
     ]
   },
   "captaintyphoallnecessaryprecautions": {
-    "image": "SEC\\Captain_Typho - All_Necessary_Precautions.png",
+    "image": "SEC/Captain_Typho - All_Necessary_Precautions.png",
     "name": "Captain Typho - All Necessary Precautions",
     "type": "Unit",
     "hp": null,
@@ -337,7 +337,7 @@
     ]
   },
   "cassianandorclimb": {
-    "image": "SEC\\Cassian_Andor - Climb.png",
+    "image": "SEC/Cassian_Andor - Climb.png",
     "name": "Cassian Andor - Climb!",
     "type": "Leader",
     "hp": null,
@@ -347,7 +347,7 @@
     ]
   },
   "cassianandorclimbback": {
-    "image": "SEC\\Cassian_Andor - Climb_back.png",
+    "image": "SEC/Cassian_Andor - Climb_back.png",
     "name": "Cassian Andor - Climb! [Back]",
     "type": "Leader",
     "hp": null,
@@ -357,7 +357,7 @@
     ]
   },
   "cassianandorlaylow": {
-    "image": "SEC\\Cassian_Andor - Lay_Low.png",
+    "image": "SEC/Cassian_Andor - Lay_Low.png",
     "name": "Cassian Andor - Lay Low",
     "type": "Unit",
     "hp": null,
@@ -367,7 +367,7 @@
     ]
   },
   "catchunawares": {
-    "image": "SEC\\Catch_Unawares.png",
+    "image": "SEC/Catch_Unawares.png",
     "name": "Catch Unawares",
     "type": "Event",
     "hp": null,
@@ -376,7 +376,7 @@
     ]
   },
   "chairmanpapanoidaundaunteddiplomat": {
-    "image": "SEC\\Chairman_Papanoida - Undaunted_Diplomat.png",
+    "image": "SEC/Chairman_Papanoida - Undaunted_Diplomat.png",
     "name": "Chairman Papanoida - Undaunted Diplomat",
     "type": "Unit",
     "hp": null,
@@ -386,7 +386,7 @@
     ]
   },
   "chancellorpalpatinehowlibertydies": {
-    "image": "SEC\\Chancellor_Palpatine - How_Liberty_Dies.png",
+    "image": "SEC/Chancellor_Palpatine - How_Liberty_Dies.png",
     "name": "Chancellor Palpatine - How Liberty Dies",
     "type": "Leader",
     "hp": null,
@@ -396,7 +396,7 @@
     ]
   },
   "chancellorpalpatinehowlibertydiesback": {
-    "image": "SEC\\Chancellor_Palpatine - How_Liberty_Dies_back.png",
+    "image": "SEC/Chancellor_Palpatine - How_Liberty_Dies_back.png",
     "name": "Chancellor Palpatine - How Liberty Dies [Back]",
     "type": "Leader",
     "hp": null,
@@ -406,7 +406,7 @@
     ]
   },
   "chancellorpalpatineiamthesenate": {
-    "image": "SEC\\Chancellor_Palpatine - I_Am_the_Senate.png",
+    "image": "SEC/Chancellor_Palpatine - I_Am_the_Senate.png",
     "name": "Chancellor Palpatine - I Am the Senate",
     "type": "Unit",
     "hp": null,
@@ -416,7 +416,7 @@
     ]
   },
   "chancellorvalorumcivilservant": {
-    "image": "SEC\\Chancellor_Valorum - Civil_Servant.png",
+    "image": "SEC/Chancellor_Valorum - Civil_Servant.png",
     "name": "Chancellor Valorum - Civil Servant",
     "type": "Unit",
     "hp": null,
@@ -426,7 +426,7 @@
     ]
   },
   "chandrilansponsor": {
-    "image": "SEC\\Chandrilan_Sponsor.png",
+    "image": "SEC/Chandrilan_Sponsor.png",
     "name": "Chandrilan Sponsor",
     "type": "Unit",
     "hp": null,
@@ -436,7 +436,7 @@
     ]
   },
   "chargedwithcorruption": {
-    "image": "SEC\\Charged_with_Corruption.png",
+    "image": "SEC/Charged_with_Corruption.png",
     "name": "Charged with Corruption",
     "type": "Event",
     "hp": null,
@@ -445,7 +445,7 @@
     ]
   },
   "chargedwithespionage": {
-    "image": "SEC\\Charged_with_Espionage.png",
+    "image": "SEC/Charged_with_Espionage.png",
     "name": "Charged with Espionage",
     "type": "Event",
     "hp": null,
@@ -454,7 +454,7 @@
     ]
   },
   "chargedwithmurder": {
-    "image": "SEC\\Charged_with_Murder.png",
+    "image": "SEC/Charged_with_Murder.png",
     "name": "Charged with Murder",
     "type": "Event",
     "hp": null,
@@ -463,7 +463,7 @@
     ]
   },
   "chargedwithtreason": {
-    "image": "SEC\\Charged_with_Treason.png",
+    "image": "SEC/Charged_with_Treason.png",
     "name": "Charged with Treason",
     "type": "Event",
     "hp": null,
@@ -472,7 +472,7 @@
     ]
   },
   "chopperwarhero": {
-    "image": "SEC\\Chopper - War_Hero.png",
+    "image": "SEC/Chopper - War_Hero.png",
     "name": "Chopper - War Hero",
     "type": "Unit",
     "hp": null,
@@ -482,7 +482,7 @@
     ]
   },
   "cikatrovizagobusinessiswhatmatters": {
-    "image": "SEC\\Cikatro_Vizago - Business_is_What_Matters.png",
+    "image": "SEC/Cikatro_Vizago - Business_is_What_Matters.png",
     "name": "Cikatro Vizago - Business is What Matters",
     "type": "Unit",
     "hp": null,
@@ -491,7 +491,7 @@
     ]
   },
   "cintakazthestrugglecomesfirst": {
-    "image": "SEC\\Cinta_Kaz - The_Struggle_Comes_First.png",
+    "image": "SEC/Cinta_Kaz - The_Struggle_Comes_First.png",
     "name": "Cinta Kaz - The Struggle Comes First",
     "type": "Unit",
     "hp": null,
@@ -500,14 +500,14 @@
     ]
   },
   "clandestineconnections": {
-    "image": "SEC\\Clandestine_Connections.png",
+    "image": "SEC/Clandestine_Connections.png",
     "name": "Clandestine Connections",
     "type": "Upgrade",
     "hp": null,
     "aspects": []
   },
   "colonelyularenthisiswhyweplan": {
-    "image": "SEC\\Colonel_Yularen - This_is_Why_We_Plan.png",
+    "image": "SEC/Colonel_Yularen - This_is_Why_We_Plan.png",
     "name": "Colonel Yularen - This is Why We Plan",
     "type": "Leader",
     "hp": null,
@@ -517,7 +517,7 @@
     ]
   },
   "colonelyularenthisiswhyweplanback": {
-    "image": "SEC\\Colonel_Yularen - This_is_Why_We_Plan_back.png",
+    "image": "SEC/Colonel_Yularen - This_is_Why_We_Plan_back.png",
     "name": "Colonel Yularen - This is Why We Plan [Back]",
     "type": "Leader",
     "hp": null,
@@ -527,7 +527,7 @@
     ]
   },
   "condemn": {
-    "image": "SEC\\Condemn.png",
+    "image": "SEC/Condemn.png",
     "name": "Condemn",
     "type": "Upgrade",
     "hp": null,
@@ -537,7 +537,7 @@
     ]
   },
   "confidenceinvictory": {
-    "image": "SEC\\Confidence_in_Victory.png",
+    "image": "SEC/Confidence_in_Victory.png",
     "name": "Confidence in Victory",
     "type": "Event",
     "hp": null,
@@ -547,7 +547,7 @@
     ]
   },
   "congressofmalastare": {
-    "image": "SEC\\Congress_of_Malastare.png",
+    "image": "SEC/Congress_of_Malastare.png",
     "name": "Congress of Malastare",
     "type": "Unit",
     "hp": null,
@@ -556,7 +556,7 @@
     ]
   },
   "consularscruiser": {
-    "image": "SEC\\Consulars_Cruiser.png",
+    "image": "SEC/Consulars_Cruiser.png",
     "name": "Consular's Cruiser",
     "type": "Unit",
     "hp": null,
@@ -565,7 +565,7 @@
     ]
   },
   "contemptforculture": {
-    "image": "SEC\\Contempt_for_Culture.png",
+    "image": "SEC/Contempt_for_Culture.png",
     "name": "Contempt for Culture",
     "type": "Event",
     "hp": null,
@@ -574,7 +574,7 @@
     ]
   },
   "contrabandstarhopper": {
-    "image": "SEC\\Contraband_Starhopper.png",
+    "image": "SEC/Contraband_Starhopper.png",
     "name": "Contraband Starhopper",
     "type": "Unit",
     "hp": null,
@@ -583,7 +583,7 @@
     ]
   },
   "convenethesenate": {
-    "image": "SEC\\Convene_the_Senate.png",
+    "image": "SEC/Convene_the_Senate.png",
     "name": "Convene the Senate",
     "type": "Event",
     "hp": null,
@@ -592,7 +592,7 @@
     ]
   },
   "corellianhounds": {
-    "image": "SEC\\Corellian_Hounds.png",
+    "image": "SEC/Corellian_Hounds.png",
     "name": "Corellian Hounds",
     "type": "Unit",
     "hp": null,
@@ -601,7 +601,7 @@
     ]
   },
   "coronetstatelyvessel": {
-    "image": "SEC\\Coronet - Stately_Vessel.png",
+    "image": "SEC/Coronet - Stately_Vessel.png",
     "name": "Coronet - Stately Vessel",
     "type": "Unit",
     "hp": null,
@@ -611,7 +611,7 @@
     ]
   },
   "corporatewarmongering": {
-    "image": "SEC\\Corporate_Warmongering.png",
+    "image": "SEC/Corporate_Warmongering.png",
     "name": "Corporate Warmongering",
     "type": "Event",
     "hp": null,
@@ -621,7 +621,7 @@
     ]
   },
   "corruptpolitician": {
-    "image": "SEC\\Corrupt_Politician.png",
+    "image": "SEC/Corrupt_Politician.png",
     "name": "Corrupt Politician",
     "type": "Unit",
     "hp": null,
@@ -631,7 +631,7 @@
     ]
   },
   "coruscantundercitypolice": {
-    "image": "SEC\\Coruscant_Undercity_Police.png",
+    "image": "SEC/Coruscant_Undercity_Police.png",
     "name": "Coruscant Undercity Police",
     "type": "Unit",
     "hp": null,
@@ -640,7 +640,7 @@
     ]
   },
   "covertoperative": {
-    "image": "SEC\\Covert_Operative.png",
+    "image": "SEC/Covert_Operative.png",
     "name": "Covert Operative",
     "type": "Unit",
     "hp": null,
@@ -649,7 +649,7 @@
     ]
   },
   "craitveteran": {
-    "image": "SEC\\Crait_Veteran.png",
+    "image": "SEC/Crait_Veteran.png",
     "name": "Crait Veteran",
     "type": "Unit",
     "hp": null,
@@ -658,7 +658,7 @@
     ]
   },
   "creditorsclaim": {
-    "image": "SEC\\Creditors_Claim.png",
+    "image": "SEC/Creditors_Claim.png",
     "name": "Creditor's Claim",
     "type": "Upgrade",
     "hp": null,
@@ -668,7 +668,7 @@
     ]
   },
   "crosshairfilledwithdoubt": {
-    "image": "SEC\\Crosshair - Filled_With_Doubt.png",
+    "image": "SEC/Crosshair - Filled_With_Doubt.png",
     "name": "Crosshair - Filled With Doubt",
     "type": "Unit",
     "hp": null,
@@ -677,7 +677,7 @@
     ]
   },
   "cruciblecenturiesofwisdom": {
-    "image": "SEC\\Crucible - Centuries_of_Wisdom.png",
+    "image": "SEC/Crucible - Centuries_of_Wisdom.png",
     "name": "Crucible - Centuries of Wisdom",
     "type": "Unit",
     "hp": null,
@@ -686,7 +686,7 @@
     ]
   },
   "cruelcommandos": {
-    "image": "SEC\\Cruel_Commandos.png",
+    "image": "SEC/Cruel_Commandos.png",
     "name": "Cruel Commandos",
     "type": "Unit",
     "hp": null,
@@ -696,7 +696,7 @@
     ]
   },
   "djneedalift": {
-    "image": "SEC\\DJ - Need_a_Lift.png",
+    "image": "SEC/DJ - Need_a_Lift.png",
     "name": "DJ - Need a Lift?",
     "type": "Leader",
     "hp": null,
@@ -706,7 +706,7 @@
     ]
   },
   "djneedaliftback": {
-    "image": "SEC\\DJ - Need_a_Lift_back.png",
+    "image": "SEC/DJ - Need_a_Lift_back.png",
     "name": "DJ - Need a Lift? [Back]",
     "type": "Leader",
     "hp": null,
@@ -716,7 +716,7 @@
     ]
   },
   "darocommando": {
-    "image": "SEC\\Daro_Commando.png",
+    "image": "SEC/Daro_Commando.png",
     "name": "Daro Commando",
     "type": "Unit",
     "hp": null,
@@ -725,7 +725,7 @@
     ]
   },
   "darthnihiluslordofhunger": {
-    "image": "SEC\\Darth_Nihilus - Lord_of_Hunger.png",
+    "image": "SEC/Darth_Nihilus - Lord_of_Hunger.png",
     "name": "Darth Nihilus - Lord of Hunger",
     "type": "Unit",
     "hp": null,
@@ -734,7 +734,7 @@
     ]
   },
   "darthsionlordofpain": {
-    "image": "SEC\\Darth_Sion - Lord_of_Pain.png",
+    "image": "SEC/Darth_Sion - Lord_of_Pain.png",
     "name": "Darth Sion - Lord of Pain",
     "type": "Unit",
     "hp": null,
@@ -744,7 +744,7 @@
     ]
   },
   "darthtrayalordofbetrayal": {
-    "image": "SEC\\Darth_Traya - Lord_of_Betrayal.png",
+    "image": "SEC/Darth_Traya - Lord_of_Betrayal.png",
     "name": "Darth Traya - Lord of Betrayal",
     "type": "Unit",
     "hp": null,
@@ -754,7 +754,7 @@
     ]
   },
   "deathtrooper": {
-    "image": "SEC\\Death_Trooper.png",
+    "image": "SEC/Death_Trooper.png",
     "name": "Death Trooper",
     "type": "Unit",
     "hp": null,
@@ -764,7 +764,7 @@
     ]
   },
   "dedrameeronotwastingtime": {
-    "image": "SEC\\Dedra_Meero - Not_Wasting_Time.png",
+    "image": "SEC/Dedra_Meero - Not_Wasting_Time.png",
     "name": "Dedra Meero - Not Wasting Time",
     "type": "Leader",
     "hp": null,
@@ -774,7 +774,7 @@
     ]
   },
   "dedrameeronotwastingtimeback": {
-    "image": "SEC\\Dedra_Meero - Not_Wasting_Time_back.png",
+    "image": "SEC/Dedra_Meero - Not_Wasting_Time_back.png",
     "name": "Dedra Meero - Not Wasting Time [Back]",
     "type": "Leader",
     "hp": null,
@@ -784,7 +784,7 @@
     ]
   },
   "dedrameerowithverifiabledata": {
-    "image": "SEC\\Dedra_Meero - With_Verifiable_Data.png",
+    "image": "SEC/Dedra_Meero - With_Verifiable_Data.png",
     "name": "Dedra Meero - With Verifiable Data",
     "type": "Unit",
     "hp": null,
@@ -794,7 +794,7 @@
     ]
   },
   "defensefleetxwing": {
-    "image": "SEC\\Defense_Fleet_X-Wing.png",
+    "image": "SEC/Defense_Fleet_X-Wing.png",
     "name": "Defense Fleet X-Wing",
     "type": "Unit",
     "hp": null,
@@ -803,7 +803,7 @@
     ]
   },
   "dhanipilgrim": {
-    "image": "SEC\\Dhani_Pilgrim.png",
+    "image": "SEC/Dhani_Pilgrim.png",
     "name": "Dhani Pilgrim",
     "type": "Unit",
     "hp": null,
@@ -812,7 +812,7 @@
     ]
   },
   "diplomaticenvoy": {
-    "image": "SEC\\Diplomatic_Envoy.png",
+    "image": "SEC/Diplomatic_Envoy.png",
     "name": "Diplomatic Envoy",
     "type": "Unit",
     "hp": null,
@@ -821,7 +821,7 @@
     ]
   },
   "diplomaticimmunity": {
-    "image": "SEC\\Diplomatic_Immunity.png",
+    "image": "SEC/Diplomatic_Immunity.png",
     "name": "Diplomatic Immunity",
     "type": "Upgrade",
     "hp": null,
@@ -831,7 +831,7 @@
     ]
   },
   "directorkrennicilosenothingbuttime": {
-    "image": "SEC\\Director_Krennic - I_Lose_Nothing_But_Time.png",
+    "image": "SEC/Director_Krennic - I_Lose_Nothing_But_Time.png",
     "name": "Director Krennic - I Lose Nothing But Time",
     "type": "Unit",
     "hp": null,
@@ -841,7 +841,7 @@
     ]
   },
   "disciplesdevotion": {
-    "image": "SEC\\Disciples_Devotion.png",
+    "image": "SEC/Disciples_Devotion.png",
     "name": "Disciples' Devotion",
     "type": "Upgrade",
     "hp": null,
@@ -850,7 +850,7 @@
     ]
   },
   "dismantletheconspiracy": {
-    "image": "SEC\\Dismantle_the_Conspiracy.png",
+    "image": "SEC/Dismantle_the_Conspiracy.png",
     "name": "Dismantle the Conspiracy",
     "type": "Event",
     "hp": null,
@@ -860,7 +860,7 @@
     ]
   },
   "dogmaticshocksquad": {
-    "image": "SEC\\Dogmatic_Shock_Squad.png",
+    "image": "SEC/Dogmatic_Shock_Squad.png",
     "name": "Dogmatic Shock Squad",
     "type": "Unit",
     "hp": null,
@@ -870,7 +870,7 @@
     ]
   },
   "dresselliancommandos": {
-    "image": "SEC\\Dressellian_Commandos.png",
+    "image": "SEC/Dressellian_Commandos.png",
     "name": "Dressellian Commandos",
     "type": "Unit",
     "hp": null,
@@ -880,7 +880,7 @@
     ]
   },
   "drydenvosineverasktwice": {
-    "image": "SEC\\Dryden_Vos - I_Never_Ask_Twice.png",
+    "image": "SEC/Dryden_Vos - I_Never_Ask_Twice.png",
     "name": "Dryden Vos - I Never Ask Twice",
     "type": "Leader",
     "hp": null,
@@ -890,7 +890,7 @@
     ]
   },
   "drydenvosineverasktwiceback": {
-    "image": "SEC\\Dryden_Vos - I_Never_Ask_Twice_back.png",
+    "image": "SEC/Dryden_Vos - I_Never_Ask_Twice_back.png",
     "name": "Dryden Vos - I Never Ask Twice [Back]",
     "type": "Leader",
     "hp": null,
@@ -900,7 +900,7 @@
     ]
   },
   "drydenvosigetallworkedup": {
-    "image": "SEC\\Dryden_Vos - I_Get_All_Worked_Up.png",
+    "image": "SEC/Dryden_Vos - I_Get_All_Worked_Up.png",
     "name": "Dryden Vos - I Get All Worked Up",
     "type": "Unit",
     "hp": null,
@@ -910,7 +910,7 @@
     ]
   },
   "duchesssinvestigators": {
-    "image": "SEC\\Duchesss_Investigators.png",
+    "image": "SEC/Duchesss_Investigators.png",
     "name": "Duchess's Investigators",
     "type": "Unit",
     "hp": null,
@@ -919,7 +919,7 @@
     ]
   },
   "ebonhawkcauseandeffect": {
-    "image": "SEC\\Ebon_Hawk - Cause_and_Effect.png",
+    "image": "SEC/Ebon_Hawk - Cause_and_Effect.png",
     "name": "Ebon Hawk - Cause and Effect",
     "type": "Unit",
     "hp": null,
@@ -928,7 +928,7 @@
     ]
   },
   "eliakanefalseconvert": {
-    "image": "SEC\\Elia_Kane - False_Convert.png",
+    "image": "SEC/Elia_Kane - False_Convert.png",
     "name": "Elia Kane - False Convert",
     "type": "Unit",
     "hp": null,
@@ -937,7 +937,7 @@
     ]
   },
   "emergencypowers": {
-    "image": "SEC\\Emergency_Powers.png",
+    "image": "SEC/Emergency_Powers.png",
     "name": "Emergency Powers",
     "type": "Event",
     "hp": null,
@@ -947,7 +947,7 @@
     ]
   },
   "emissariesfromryloth": {
-    "image": "SEC\\Emissaries_from_Ryloth.png",
+    "image": "SEC/Emissaries_from_Ryloth.png",
     "name": "Emissaries from Ryloth",
     "type": "Unit",
     "hp": null,
@@ -957,7 +957,7 @@
     ]
   },
   "emissaryssheathipede": {
-    "image": "SEC\\Emissarys_Sheathipede.png",
+    "image": "SEC/Emissarys_Sheathipede.png",
     "name": "Emissary's Sheathipede",
     "type": "Unit",
     "hp": null,
@@ -966,7 +966,7 @@
     ]
   },
   "enforcersquadron": {
-    "image": "SEC\\Enforcer_Squadron.png",
+    "image": "SEC/Enforcer_Squadron.png",
     "name": "Enforcer Squadron",
     "type": "Unit",
     "hp": null,
@@ -976,7 +976,7 @@
     ]
   },
   "escapepod": {
-    "image": "SEC\\Escape_Pod.png",
+    "image": "SEC/Escape_Pod.png",
     "name": "Escape Pod",
     "type": "Unit",
     "hp": null,
@@ -985,7 +985,7 @@
     ]
   },
   "eviliseverywhere": {
-    "image": "SEC\\Evil_is_Everywhere.png",
+    "image": "SEC/Evil_is_Everywhere.png",
     "name": "Evil is Everywhere",
     "type": "Event",
     "hp": null,
@@ -994,7 +994,7 @@
     ]
   },
   "exiledfromtheforce": {
-    "image": "SEC\\Exiled_from_the_Force.png",
+    "image": "SEC/Exiled_from_the_Force.png",
     "name": "Exiled from the Force",
     "type": "Upgrade",
     "hp": null,
@@ -1004,7 +1004,7 @@
     ]
   },
   "fntroopercorps": {
-    "image": "SEC\\FN_Trooper_Corps.png",
+    "image": "SEC/FN_Trooper_Corps.png",
     "name": "FN Trooper Corps",
     "type": "Unit",
     "hp": null,
@@ -1013,7 +1013,7 @@
     ]
   },
   "faithinyourfriends": {
-    "image": "SEC\\Faith_in_Your_Friends.png",
+    "image": "SEC/Faith_in_Your_Friends.png",
     "name": "Faith in Your Friends",
     "type": "Event",
     "hp": null,
@@ -1023,7 +1023,7 @@
     ]
   },
   "ferrixuprising": {
-    "image": "SEC\\Ferrix_Uprising.png",
+    "image": "SEC/Ferrix_Uprising.png",
     "name": "Ferrix Uprising",
     "type": "Event",
     "hp": null,
@@ -1032,7 +1032,7 @@
     ]
   },
   "figureofunity": {
-    "image": "SEC\\Figure_of_Unity.png",
+    "image": "SEC/Figure_of_Unity.png",
     "name": "Figure of Unity",
     "type": "Upgrade",
     "hp": null,
@@ -1042,7 +1042,7 @@
     ]
   },
   "firstlightthreateningelegance": {
-    "image": "SEC\\First_Light - Threatening_Elegance.png",
+    "image": "SEC/First_Light - Threatening_Elegance.png",
     "name": "First Light - Threatening Elegance",
     "type": "Unit",
     "hp": null,
@@ -1052,7 +1052,7 @@
     ]
   },
   "fullyarmedandoperational": {
-    "image": "SEC\\Fully_Armed_and_Operational.png",
+    "image": "SEC/Fully_Armed_and_Operational.png",
     "name": "Fully Armed and Operational",
     "type": "Event",
     "hp": null,
@@ -1062,7 +1062,7 @@
     ]
   },
   "fulminatrixfleetkiller": {
-    "image": "SEC\\Fulminatrix - Fleet_Killer.png",
+    "image": "SEC/Fulminatrix - Fleet_Killer.png",
     "name": "Fulminatrix - Fleet Killer",
     "type": "Unit",
     "hp": null,
@@ -1072,7 +1072,7 @@
     ]
   },
   "furtivehandmaiden": {
-    "image": "SEC\\Furtive_Handmaiden.png",
+    "image": "SEC/Furtive_Handmaiden.png",
     "name": "Furtive Handmaiden",
     "type": "Unit",
     "hp": null,
@@ -1082,7 +1082,7 @@
     ]
   },
   "gnkpowerdroid": {
-    "image": "SEC\\GNK_Power_Droid.png",
+    "image": "SEC/GNK_Power_Droid.png",
     "name": "GNK Power Droid",
     "type": "Unit",
     "hp": null,
@@ -1091,7 +1091,7 @@
     ]
   },
   "galenersoyoullneverwin": {
-    "image": "SEC\\Galen_Erso - Youll_Never_Win.png",
+    "image": "SEC/Galen_Erso - Youll_Never_Win.png",
     "name": "Galen Erso - You'll Never Win",
     "type": "Unit",
     "hp": null,
@@ -1101,7 +1101,7 @@
     ]
   },
   "garindaninformationbroker": {
-    "image": "SEC\\Garindan - Information_Broker.png",
+    "image": "SEC/Garindan - Information_Broker.png",
     "name": "Garindan - Information Broker",
     "type": "Unit",
     "hp": null,
@@ -1111,7 +1111,7 @@
     ]
   },
   "generalgrievousscuttlingtosafety": {
-    "image": "SEC\\General_Grievous - Scuttling_to_Safety.png",
+    "image": "SEC/General_Grievous - Scuttling_to_Safety.png",
     "name": "General Grievous - Scuttling to Safety",
     "type": "Unit",
     "hp": null,
@@ -1121,7 +1121,7 @@
     ]
   },
   "governorprycetyrantoflothal": {
-    "image": "SEC\\Governor_Pryce - Tyrant_of_Lothal.png",
+    "image": "SEC/Governor_Pryce - Tyrant_of_Lothal.png",
     "name": "Governor Pryce - Tyrant of Lothal",
     "type": "Leader",
     "hp": null,
@@ -1131,7 +1131,7 @@
     ]
   },
   "governorprycetyrantoflothalback": {
-    "image": "SEC\\Governor_Pryce - Tyrant_of_Lothal_back.png",
+    "image": "SEC/Governor_Pryce - Tyrant_of_Lothal_back.png",
     "name": "Governor Pryce - Tyrant of Lothal [Back]",
     "type": "Leader",
     "hp": null,
@@ -1141,7 +1141,7 @@
     ]
   },
   "grandadmiralthrawngrandschemer": {
-    "image": "SEC\\Grand_Admiral_Thrawn - Grand_Schemer.png",
+    "image": "SEC/Grand_Admiral_Thrawn - Grand_Schemer.png",
     "name": "Grand Admiral Thrawn - Grand Schemer",
     "type": "Unit",
     "hp": null,
@@ -1151,7 +1151,7 @@
     ]
   },
   "grandmofftarkintakingkrennicsachievement": {
-    "image": "SEC\\Grand_Moff_Tarkin - Taking_Krennics_Achievement.png",
+    "image": "SEC/Grand_Moff_Tarkin - Taking_Krennics_Achievement.png",
     "name": "Grand Moff Tarkin - Taking Krennic's Achievement",
     "type": "Unit",
     "hp": null,
@@ -1161,7 +1161,7 @@
     ]
   },
   "grassrootsresistance": {
-    "image": "SEC\\Grassroots_Resistance.png",
+    "image": "SEC/Grassroots_Resistance.png",
     "name": "Grassroots Resistance",
     "type": "Event",
     "hp": null,
@@ -1170,7 +1170,7 @@
     ]
   },
   "heroicarc170": {
-    "image": "SEC\\Heroic_ARC-170.png",
+    "image": "SEC/Heroic_ARC-170.png",
     "name": "Heroic ARC-170",
     "type": "Unit",
     "hp": null,
@@ -1179,7 +1179,7 @@
     ]
   },
   "highcommandcouncilor": {
-    "image": "SEC\\High_Command_Councilor.png",
+    "image": "SEC/High_Command_Councilor.png",
     "name": "High Command Councilor",
     "type": "Unit",
     "hp": null,
@@ -1188,7 +1188,7 @@
     ]
   },
   "hiredsplicer": {
-    "image": "SEC\\Hired_Splicer.png",
+    "image": "SEC/Hired_Splicer.png",
     "name": "Hired Splicer",
     "type": "Unit",
     "hp": null,
@@ -1197,7 +1197,7 @@
     ]
   },
   "hondoohnakayoubetterhurry": {
-    "image": "SEC\\Hondo_Ohnaka - You_Better_Hurry.png",
+    "image": "SEC/Hondo_Ohnaka - You_Better_Hurry.png",
     "name": "Hondo Ohnaka - You Better Hurry",
     "type": "Unit",
     "hp": null,
@@ -1207,7 +1207,7 @@
     ]
   },
   "hunterextraordinarytracker": {
-    "image": "SEC\\Hunter - Extraordinary_Tracker.png",
+    "image": "SEC/Hunter - Extraordinary_Tracker.png",
     "name": "Hunter - Extraordinary Tracker",
     "type": "Unit",
     "hp": null,
@@ -1217,7 +1217,7 @@
     ]
   },
   "huntingassassindroid": {
-    "image": "SEC\\Hunting_Assassin_Droid.png",
+    "image": "SEC/Hunting_Assassin_Droid.png",
     "name": "Hunting Assassin Droid",
     "type": "Unit",
     "hp": null,
@@ -1227,7 +1227,7 @@
     ]
   },
   "huttcartelstarfighter": {
-    "image": "SEC\\Hutt_Cartel_Starfighter.png",
+    "image": "SEC/Hutt_Cartel_Starfighter.png",
     "name": "Hutt Cartel Starfighter",
     "type": "Unit",
     "hp": null,
@@ -1236,7 +1236,7 @@
     ]
   },
   "hyperspacedisaster": {
-    "image": "SEC\\Hyperspace_Disaster.png",
+    "image": "SEC/Hyperspace_Disaster.png",
     "name": "Hyperspace Disaster",
     "type": "Event",
     "hp": null,
@@ -1245,7 +1245,7 @@
     ]
   },
   "iamthesenate": {
-    "image": "SEC\\I_Am_the_Senate.png",
+    "image": "SEC/I_Am_the_Senate.png",
     "name": "I Am the Senate",
     "type": "Event",
     "hp": null,
@@ -1255,7 +1255,7 @@
     ]
   },
   "isbagent": {
-    "image": "SEC\\ISB_Agent.png",
+    "image": "SEC/ISB_Agent.png",
     "name": "ISB Agent",
     "type": "Unit",
     "hp": null,
@@ -1265,7 +1265,7 @@
     ]
   },
   "isbshuttle": {
-    "image": "SEC\\ISB_Shuttle.png",
+    "image": "SEC/ISB_Shuttle.png",
     "name": "ISB Shuttle",
     "type": "Unit",
     "hp": null,
@@ -1275,7 +1275,7 @@
     ]
   },
   "imperialdarktrooper": {
-    "image": "SEC\\Imperial_Dark_Trooper.png",
+    "image": "SEC/Imperial_Dark_Trooper.png",
     "name": "Imperial Dark Trooper",
     "type": "Unit",
     "hp": null,
@@ -1285,7 +1285,7 @@
     ]
   },
   "imperialoccupier": {
-    "image": "SEC\\Imperial_Occupier.png",
+    "image": "SEC/Imperial_Occupier.png",
     "name": "Imperial Occupier",
     "type": "Unit",
     "hp": null,
@@ -1294,9 +1294,9 @@
       "Villainy"
     ]
   },
-  "imperialprisoncomplexnarkina5": {
-    "image": "SEC\\Imperial_Prison_Complex - Narkina_5.png",
-    "name": "Imperial Prison Complex - Narkina 5",
+  "imperialprisoncomplex": {
+    "image": "SEC/Imperial_Prison_Complex - Narkina_5.png",
+    "name": "Imperial Prison Complex",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -1304,7 +1304,7 @@
     ]
   },
   "implicate": {
-    "image": "SEC\\Implicate.png",
+    "image": "SEC/Implicate.png",
     "name": "Implicate",
     "type": "Event",
     "hp": null,
@@ -1313,7 +1313,7 @@
     ]
   },
   "innerrimcoalition": {
-    "image": "SEC\\Inner_Rim_Coalition.png",
+    "image": "SEC/Inner_Rim_Coalition.png",
     "name": "Inner Rim Coalition",
     "type": "Unit",
     "hp": null,
@@ -1323,21 +1323,21 @@
     ]
   },
   "inspectorsshuttle": {
-    "image": "SEC\\Inspectors_Shuttle.png",
+    "image": "SEC/Inspectors_Shuttle.png",
     "name": "Inspector's Shuttle",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "inspiringsenator": {
-    "image": "SEC\\Inspiring_Senator.png",
+    "image": "SEC/Inspiring_Senator.png",
     "name": "Inspiring Senator",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "itsnotoveryet": {
-    "image": "SEC\\Its_Not_Over_Yet.png",
+    "image": "SEC/Its_Not_Over_Yet.png",
     "name": "It's Not Over Yet",
     "type": "Event",
     "hp": null,
@@ -1346,7 +1346,7 @@
     ]
   },
   "jabbathehuttwonderfulhumanbeing": {
-    "image": "SEC\\Jabba_the_Hutt - Wonderful_Human_Being.png",
+    "image": "SEC/Jabba_the_Hutt - Wonderful_Human_Being.png",
     "name": "Jabba the Hutt - Wonderful Human Being",
     "type": "Leader",
     "hp": null,
@@ -1356,7 +1356,7 @@
     ]
   },
   "jabbathehuttwonderfulhumanbeingback": {
-    "image": "SEC\\Jabba_the_Hutt - Wonderful_Human_Being_back.png",
+    "image": "SEC/Jabba_the_Hutt - Wonderful_Human_Being_back.png",
     "name": "Jabba the Hutt - Wonderful Human Being [Back]",
     "type": "Leader",
     "hp": null,
@@ -1366,7 +1366,7 @@
     ]
   },
   "jadesquadronpatrol": {
-    "image": "SEC\\Jade_Squadron_Patrol.png",
+    "image": "SEC/Jade_Squadron_Patrol.png",
     "name": "Jade Squadron Patrol",
     "type": "Unit",
     "hp": null,
@@ -1376,7 +1376,7 @@
     ]
   },
   "jarjarbinksmesapropose": {
-    "image": "SEC\\Jar_Jar_Binks - Mesa_Propose.png",
+    "image": "SEC/Jar_Jar_Binks - Mesa_Propose.png",
     "name": "Jar Jar Binks - Mesa Propose",
     "type": "Unit",
     "hp": null,
@@ -1385,7 +1385,7 @@
     ]
   },
   "juniorsenator": {
-    "image": "SEC\\Junior_Senator.png",
+    "image": "SEC/Junior_Senator.png",
     "name": "Junior Senator",
     "type": "Unit",
     "hp": null,
@@ -1395,7 +1395,7 @@
     ]
   },
   "karisnemikfreedomisapureidea": {
-    "image": "SEC\\Karis_Nemik - Freedom_is_a_Pure_Idea.png",
+    "image": "SEC/Karis_Nemik - Freedom_is_a_Pure_Idea.png",
     "name": "Karis Nemik - Freedom is a Pure Idea",
     "type": "Unit",
     "hp": null,
@@ -1405,7 +1405,7 @@
     ]
   },
   "kaydelconnixforoursurvival": {
-    "image": "SEC\\Kaydel_Connix - For_Our_Survival.png",
+    "image": "SEC/Kaydel_Connix - For_Our_Survival.png",
     "name": "Kaydel Connix - For Our Survival",
     "type": "Unit",
     "hp": null,
@@ -1415,7 +1415,7 @@
     ]
   },
   "kazudaxionoimnotaspy": {
-    "image": "SEC\\Kazuda_Xiono - Im_Not_A_Spy.png",
+    "image": "SEC/Kazuda_Xiono - Im_Not_A_Spy.png",
     "name": "Kazuda Xiono - I'm Not A Spy",
     "type": "Unit",
     "hp": null,
@@ -1425,7 +1425,7 @@
     ]
   },
   "kinoloyyouanswertome": {
-    "image": "SEC\\Kino_Loy - You_Answer_to_Me.png",
+    "image": "SEC/Kino_Loy - You_Answer_to_Me.png",
     "name": "Kino Loy - You Answer to Me",
     "type": "Unit",
     "hp": null,
@@ -1434,7 +1434,7 @@
     ]
   },
   "knowledgeanddefense": {
-    "image": "SEC\\Knowledge_and_Defense.png",
+    "image": "SEC/Knowledge_and_Defense.png",
     "name": "Knowledge and Defense",
     "type": "Event",
     "hp": null,
@@ -1443,7 +1443,7 @@
     ]
   },
   "kreiaswhispers": {
-    "image": "SEC\\Kreias_Whispers.png",
+    "image": "SEC/Kreias_Whispers.png",
     "name": "Kreia's Whispers",
     "type": "Event",
     "hp": null,
@@ -1452,7 +1452,7 @@
     ]
   },
   "kylorenscommandshuttleiconofauthority": {
-    "image": "SEC\\Kylo_Rens_Command_Shuttle - Icon_of_Authority.png",
+    "image": "SEC/Kylo_Rens_Command_Shuttle - Icon_of_Authority.png",
     "name": "Kylo Ren's Command Shuttle - Icon of Authority",
     "type": "Unit",
     "hp": null,
@@ -1462,7 +1462,7 @@
     ]
   },
   "lamasuwemodifiedtheirgenetics": {
-    "image": "SEC\\Lama_Su - We_Modified_Their_Genetics.png",
+    "image": "SEC/Lama_Su - We_Modified_Their_Genetics.png",
     "name": "Lama Su - We Modified Their Genetics",
     "type": "Leader",
     "hp": null,
@@ -1472,7 +1472,7 @@
     ]
   },
   "lamasuwemodifiedtheirgeneticsback": {
-    "image": "SEC\\Lama_Su - We_Modified_Their_Genetics_back.png",
+    "image": "SEC/Lama_Su - We_Modified_Their_Genetics_back.png",
     "name": "Lama Su - We Modified Their Genetics [Back]",
     "type": "Leader",
     "hp": null,
@@ -1482,7 +1482,7 @@
     ]
   },
   "landocalrissiantrustme": {
-    "image": "SEC\\Lando_Calrissian - Trust_Me.png",
+    "image": "SEC/Lando_Calrissian - Trust_Me.png",
     "name": "Lando Calrissian - Trust Me",
     "type": "Unit",
     "hp": null,
@@ -1491,7 +1491,7 @@
     ]
   },
   "leiaorganaofasecretbloodline": {
-    "image": "SEC\\Leia_Organa - Of_A_Secret_Bloodline.png",
+    "image": "SEC/Leia_Organa - Of_A_Secret_Bloodline.png",
     "name": "Leia Organa - Of A Secret Bloodline",
     "type": "Leader",
     "hp": null,
@@ -1501,7 +1501,7 @@
     ]
   },
   "leiaorganaofasecretbloodlineback": {
-    "image": "SEC\\Leia_Organa - Of_A_Secret_Bloodline_back.png",
+    "image": "SEC/Leia_Organa - Of_A_Secret_Bloodline_back.png",
     "name": "Leia Organa - Of A Secret Bloodline [Back]",
     "type": "Leader",
     "hp": null,
@@ -1511,7 +1511,7 @@
     ]
   },
   "letscallitwar": {
-    "image": "SEC\\Lets_Call_It_War.png",
+    "image": "SEC/Lets_Call_It_War.png",
     "name": "Let's Call It War",
     "type": "Event",
     "hp": null,
@@ -1520,7 +1520,7 @@
     ]
   },
   "letstalk": {
-    "image": "SEC\\Lets_Talk.png",
+    "image": "SEC/Lets_Talk.png",
     "name": "Let's Talk",
     "type": "Event",
     "hp": null,
@@ -1529,7 +1529,7 @@
     ]
   },
   "libertineundernewownership": {
-    "image": "SEC\\Libertine - Under_New_Ownership.png",
+    "image": "SEC/Libertine - Under_New_Ownership.png",
     "name": "Libertine - Under New Ownership",
     "type": "Unit",
     "hp": null,
@@ -1539,7 +1539,7 @@
     ]
   },
   "lightmakerihaveanidea": {
-    "image": "SEC\\Lightmaker - I_Have_An_Idea.png",
+    "image": "SEC/Lightmaker - I_Have_An_Idea.png",
     "name": "Lightmaker - I Have An Idea",
     "type": "Unit",
     "hp": null,
@@ -1549,7 +1549,7 @@
     ]
   },
   "loanshark": {
-    "image": "SEC\\Loan_Shark.png",
+    "image": "SEC/Loan_Shark.png",
     "name": "Loan Shark",
     "type": "Unit",
     "hp": null,
@@ -1558,7 +1558,7 @@
     ]
   },
   "lobotcloudcitycoordinator": {
-    "image": "SEC\\Lobot - Cloud_City_Coordinator.png",
+    "image": "SEC/Lobot - Cloud_City_Coordinator.png",
     "name": "Lobot - Cloud City Coordinator",
     "type": "Unit",
     "hp": null,
@@ -1567,7 +1567,7 @@
     ]
   },
   "lostjedi": {
-    "image": "SEC\\Lost_Jedi.png",
+    "image": "SEC/Lost_Jedi.png",
     "name": "Lost Jedi",
     "type": "Unit",
     "hp": null,
@@ -1576,7 +1576,7 @@
     ]
   },
   "lurkingsnubfighter": {
-    "image": "SEC\\Lurking_Snub_Fighter.png",
+    "image": "SEC/Lurking_Snub_Fighter.png",
     "name": "Lurking Snub Fighter",
     "type": "Unit",
     "hp": null,
@@ -1586,7 +1586,7 @@
     ]
   },
   "luthenraeldontyouwanttofightforreal": {
-    "image": "SEC\\Luthen_Rael - Dont_You_Want_to_Fight_For_Real.png",
+    "image": "SEC/Luthen_Rael - Dont_You_Want_to_Fight_For_Real.png",
     "name": "Luthen Rael - Don't You Want to Fight For Real?",
     "type": "Leader",
     "hp": null,
@@ -1596,7 +1596,7 @@
     ]
   },
   "luthenraeldontyouwanttofightforrealback": {
-    "image": "SEC\\Luthen_Rael - Dont_You_Want_to_Fight_For_Real_back.png",
+    "image": "SEC/Luthen_Rael - Dont_You_Want_to_Fight_For_Real_back.png",
     "name": "Luthen Rael - Don't You Want to Fight For Real? [Back]",
     "type": "Leader",
     "hp": null,
@@ -1606,7 +1606,7 @@
     ]
   },
   "luthenshaulcraftcountermeasuresarmed": {
-    "image": "SEC\\Luthens_Haulcraft - Countermeasures_Armed.png",
+    "image": "SEC/Luthens_Haulcraft - Countermeasures_Armed.png",
     "name": "Luthen's Haulcraft - Countermeasures Armed",
     "type": "Unit",
     "hp": null,
@@ -1616,7 +1616,7 @@
     ]
   },
   "maarvaandorwevebeensleeping": {
-    "image": "SEC\\Maarva_Andor - Weve_Been_Sleeping.png",
+    "image": "SEC/Maarva_Andor - Weve_Been_Sleeping.png",
     "name": "Maarva Andor - We've Been Sleeping",
     "type": "Unit",
     "hp": null,
@@ -1625,7 +1625,7 @@
     ]
   },
   "majorpartagazhealthcareprovider": {
-    "image": "SEC\\Major_Partagaz - Healthcare_Provider.png",
+    "image": "SEC/Major_Partagaz - Healthcare_Provider.png",
     "name": "Major Partagaz - Healthcare Provider",
     "type": "Unit",
     "hp": null,
@@ -1635,7 +1635,7 @@
     ]
   },
   "masameddaaccomplicetopower": {
-    "image": "SEC\\Mas_Amedda - Accomplice_to_Power.png",
+    "image": "SEC/Mas_Amedda - Accomplice_to_Power.png",
     "name": "Mas Amedda - Accomplice to Power",
     "type": "Unit",
     "hp": null,
@@ -1645,7 +1645,7 @@
     ]
   },
   "minabonteristopthiswar": {
-    "image": "SEC\\Mina_Bonteri - Stop_This_War.png",
+    "image": "SEC/Mina_Bonteri - Stop_This_War.png",
     "name": "Mina Bonteri - Stop This War",
     "type": "Unit",
     "hp": null,
@@ -1655,7 +1655,7 @@
     ]
   },
   "mirajscinteltheweakdeservetokneel": {
-    "image": "SEC\\Miraj_Scintel - The_Weak_Deserve_to_Kneel.png",
+    "image": "SEC/Miraj_Scintel - The_Weak_Deserve_to_Kneel.png",
     "name": "Miraj Scintel - The Weak Deserve to Kneel",
     "type": "Unit",
     "hp": null,
@@ -1665,7 +1665,7 @@
     ]
   },
   "monmothmaformingacoalition": {
-    "image": "SEC\\Mon_Mothma - Forming_a_Coalition.png",
+    "image": "SEC/Mon_Mothma - Forming_a_Coalition.png",
     "name": "Mon Mothma - Forming a Coalition",
     "type": "Leader",
     "hp": null,
@@ -1675,7 +1675,7 @@
     ]
   },
   "monmothmaformingacoalitionback": {
-    "image": "SEC\\Mon_Mothma - Forming_a_Coalition_back.png",
+    "image": "SEC/Mon_Mothma - Forming_a_Coalition_back.png",
     "name": "Mon Mothma - Forming a Coalition [Back]",
     "type": "Leader",
     "hp": null,
@@ -1685,7 +1685,7 @@
     ]
   },
   "monmothmaclingingtohope": {
-    "image": "SEC\\Mon_Mothma - Clinging_to_Hope.png",
+    "image": "SEC/Mon_Mothma - Clinging_to_Hope.png",
     "name": "Mon Mothma - Clinging to Hope",
     "type": "Unit",
     "hp": null,
@@ -1695,7 +1695,7 @@
     ]
   },
   "moralauthority": {
-    "image": "SEC\\Moral_Authority.png",
+    "image": "SEC/Moral_Authority.png",
     "name": "Moral Authority",
     "type": "Upgrade",
     "hp": null,
@@ -1703,9 +1703,9 @@
       "Heroism"
     ]
   },
-  "mounttantisswayland": {
-    "image": "SEC\\Mount_Tantiss - Wayland.png",
-    "name": "Mount Tantiss - Wayland",
+  "mounttantiss": {
+    "image": "SEC/Mount_Tantiss - Wayland.png",
+    "name": "Mount Tantiss",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -1713,7 +1713,7 @@
     ]
   },
   "muckrakercrabdroid": {
-    "image": "SEC\\Muckraker_Crab_Droid.png",
+    "image": "SEC/Muckraker_Crab_Droid.png",
     "name": "Muckraker Crab Droid",
     "type": "Unit",
     "hp": null,
@@ -1723,7 +1723,7 @@
     ]
   },
   "nabooroyalstarshipfitforaqueen": {
-    "image": "SEC\\Naboo_Royal_Starship - Fit_For_A_Queen.png",
+    "image": "SEC/Naboo_Royal_Starship - Fit_For_A_Queen.png",
     "name": "Naboo Royal Starship - Fit For A Queen",
     "type": "Unit",
     "hp": null,
@@ -1733,7 +1733,7 @@
     ]
   },
   "naboosecurityforce": {
-    "image": "SEC\\Naboo_Security_Force.png",
+    "image": "SEC/Naboo_Security_Force.png",
     "name": "Naboo Security Force",
     "type": "Unit",
     "hp": null,
@@ -1742,7 +1742,7 @@
     ]
   },
   "nalasechiefmedicalscientist": {
-    "image": "SEC\\Nala_Se - Chief_Medical_Scientist.png",
+    "image": "SEC/Nala_Se - Chief_Medical_Scientist.png",
     "name": "Nala Se - Chief Medical Scientist",
     "type": "Unit",
     "hp": null,
@@ -1750,9 +1750,9 @@
       "Vigilance"
     ]
   },
-  "navalintelligencehqcoruscant": {
-    "image": "SEC\\Naval_Intelligence_HQ - Coruscant.png",
-    "name": "Naval Intelligence HQ - Coruscant",
+  "navalintelligencehq": {
+    "image": "SEC/Naval_Intelligence_HQ - Coruscant.png",
+    "name": "Naval Intelligence HQ",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -1760,7 +1760,7 @@
     ]
   },
   "nemiksmanifesto": {
-    "image": "SEC\\Nemiks_Manifesto.png",
+    "image": "SEC/Nemiks_Manifesto.png",
     "name": "Nemik's Manifesto",
     "type": "Upgrade",
     "hp": null,
@@ -1770,7 +1770,7 @@
     ]
   },
   "nimbleprowess": {
-    "image": "SEC\\Nimble_Prowess.png",
+    "image": "SEC/Nimble_Prowess.png",
     "name": "Nimble Prowess",
     "type": "Upgrade",
     "hp": null,
@@ -1779,7 +1779,7 @@
     ]
   },
   "nooneeverknew": {
-    "image": "SEC\\No_One_Ever_Knew.png",
+    "image": "SEC/No_One_Ever_Knew.png",
     "name": "No One Ever Knew",
     "type": "Event",
     "hp": null,
@@ -1789,7 +1789,7 @@
     ]
   },
   "nubianstarskiff": {
-    "image": "SEC\\Nubian_Star_Skiff.png",
+    "image": "SEC/Nubian_Star_Skiff.png",
     "name": "Nubian Star Skiff",
     "type": "Unit",
     "hp": null,
@@ -1798,7 +1798,7 @@
     ]
   },
   "nutegunrayescapingjustice": {
-    "image": "SEC\\Nute_Gunray - Escaping_Justice.png",
+    "image": "SEC/Nute_Gunray - Escaping_Justice.png",
     "name": "Nute Gunray - Escaping Justice",
     "type": "Unit",
     "hp": null,
@@ -1808,7 +1808,7 @@
     ]
   },
   "obiwankenobifindingwhatdoesntexist": {
-    "image": "SEC\\Obi-Wan_Kenobi - Finding_What_Doesnt_Exist.png",
+    "image": "SEC/Obi-Wan_Kenobi - Finding_What_Doesnt_Exist.png",
     "name": "Obi-Wan Kenobi - Finding What Doesn't Exist",
     "type": "Unit",
     "hp": null,
@@ -1818,7 +1818,7 @@
     ]
   },
   "onewayout": {
-    "image": "SEC\\One_Way_Out.png",
+    "image": "SEC/One_Way_Out.png",
     "name": "One Way Out",
     "type": "Event",
     "hp": null,
@@ -1828,7 +1828,7 @@
     ]
   },
   "oneinamillion": {
-    "image": "SEC\\One_in_a_Million.png",
+    "image": "SEC/One_in_a_Million.png",
     "name": "One in a Million",
     "type": "Event",
     "hp": null,
@@ -1838,7 +1838,7 @@
     ]
   },
   "oppressionbreedsrebellion": {
-    "image": "SEC\\Oppression_Breeds_Rebellion.png",
+    "image": "SEC/Oppression_Breeds_Rebellion.png",
     "name": "Oppression Breeds Rebellion",
     "type": "Event",
     "hp": null,
@@ -1848,7 +1848,7 @@
     ]
   },
   "ornfreetaapoliticalpowerbroker": {
-    "image": "SEC\\Orn_Free_Taa - Political_Power_Broker.png",
+    "image": "SEC/Orn_Free_Taa - Political_Power_Broker.png",
     "name": "Orn Free Taa - Political Power Broker",
     "type": "Unit",
     "hp": null,
@@ -1857,7 +1857,7 @@
     ]
   },
   "outerrimconstable": {
-    "image": "SEC\\Outer_Rim_Constable.png",
+    "image": "SEC/Outer_Rim_Constable.png",
     "name": "Outer Rim Constable",
     "type": "Unit",
     "hp": null,
@@ -1866,7 +1866,7 @@
     ]
   },
   "padmamidalawhatdoyouhavetohide": {
-    "image": "SEC\\Padm_Amidala - What_Do_You_Have_to_Hide.png",
+    "image": "SEC/Padm_Amidala - What_Do_You_Have_to_Hide.png",
     "name": "Padmé Amidala - What Do You Have to Hide?",
     "type": "Leader",
     "hp": null,
@@ -1876,7 +1876,7 @@
     ]
   },
   "padmamidalawhatdoyouhavetohideback": {
-    "image": "SEC\\Padm_Amidala - What_Do_You_Have_to_Hide_back.png",
+    "image": "SEC/Padm_Amidala - What_Do_You_Have_to_Hide_back.png",
     "name": "Padmé Amidala - What Do You Have to Hide? [Back]",
     "type": "Leader",
     "hp": null,
@@ -1886,7 +1886,7 @@
     ]
   },
   "politicalbully": {
-    "image": "SEC\\Political_Bully.png",
+    "image": "SEC/Political_Bully.png",
     "name": "Political Bully",
     "type": "Unit",
     "hp": null,
@@ -1895,7 +1895,7 @@
     ]
   },
   "populistadvisor": {
-    "image": "SEC\\Populist_Advisor.png",
+    "image": "SEC/Populist_Advisor.png",
     "name": "Populist Advisor",
     "type": "Unit",
     "hp": null,
@@ -1905,7 +1905,7 @@
     ]
   },
   "populistchampion": {
-    "image": "SEC\\Populist_Champion.png",
+    "image": "SEC/Populist_Champion.png",
     "name": "Populist Champion",
     "type": "Unit",
     "hp": null,
@@ -1915,7 +1915,7 @@
     ]
   },
   "premorpersonnelcarrier": {
-    "image": "SEC\\PreMor_Personnel_Carrier.png",
+    "image": "SEC/PreMor_Personnel_Carrier.png",
     "name": "PreMor Personnel Carrier",
     "type": "Unit",
     "hp": null,
@@ -1925,7 +1925,7 @@
     ]
   },
   "punishingonetakesnoprisoners": {
-    "image": "SEC\\Punishing_One - Takes_No_Prisoners.png",
+    "image": "SEC/Punishing_One - Takes_No_Prisoners.png",
     "name": "Punishing One - Takes No Prisoners",
     "type": "Unit",
     "hp": null,
@@ -1934,7 +1934,7 @@
     ]
   },
   "pursuethelead": {
-    "image": "SEC\\Pursue_the_Lead.png",
+    "image": "SEC/Pursue_the_Lead.png",
     "name": "Pursue the Lead",
     "type": "Event",
     "hp": null,
@@ -1943,7 +1943,7 @@
     ]
   },
   "queenamidalachampioningherpeople": {
-    "image": "SEC\\Queen_Amidala - Championing_Her_People.png",
+    "image": "SEC/Queen_Amidala - Championing_Her_People.png",
     "name": "Queen Amidala - Championing Her People",
     "type": "Unit",
     "hp": null,
@@ -1953,7 +1953,7 @@
     ]
   },
   "raxianassembly": {
-    "image": "SEC\\Raxian_Assembly.png",
+    "image": "SEC/Raxian_Assembly.png",
     "name": "Raxian Assembly",
     "type": "Unit",
     "hp": null,
@@ -1962,7 +1962,7 @@
     ]
   },
   "rebelpathfinder": {
-    "image": "SEC\\Rebel_Pathfinder.png",
+    "image": "SEC/Rebel_Pathfinder.png",
     "name": "Rebel Pathfinder",
     "type": "Unit",
     "hp": null,
@@ -1971,7 +1971,7 @@
     ]
   },
   "rebelpropagandist": {
-    "image": "SEC\\Rebel_Propagandist.png",
+    "image": "SEC/Rebel_Propagandist.png",
     "name": "Rebel Propagandist",
     "type": "Unit",
     "hp": null,
@@ -1981,7 +1981,7 @@
     ]
   },
   "rebelliousfunctionary": {
-    "image": "SEC\\Rebellious_Functionary.png",
+    "image": "SEC/Rebellious_Functionary.png",
     "name": "Rebellious Functionary",
     "type": "Unit",
     "hp": null,
@@ -1991,7 +1991,7 @@
     ]
   },
   "recklessrebel": {
-    "image": "SEC\\Reckless_Rebel.png",
+    "image": "SEC/Reckless_Rebel.png",
     "name": "Reckless Rebel",
     "type": "Unit",
     "hp": null,
@@ -2000,7 +2000,7 @@
     ]
   },
   "reconnaissance": {
-    "image": "SEC\\Reconnaissance.png",
+    "image": "SEC/Reconnaissance.png",
     "name": "Reconnaissance",
     "type": "Event",
     "hp": null,
@@ -2009,7 +2009,7 @@
     ]
   },
   "regulationsbureaucrat": {
-    "image": "SEC\\Regulations_Bureaucrat.png",
+    "image": "SEC/Regulations_Bureaucrat.png",
     "name": "Regulations Bureaucrat",
     "type": "Unit",
     "hp": null,
@@ -2018,7 +2018,7 @@
     ]
   },
   "reliefrequest": {
-    "image": "SEC\\Relief_Request.png",
+    "image": "SEC/Relief_Request.png",
     "name": "Relief Request",
     "type": "Event",
     "hp": null,
@@ -2027,7 +2027,7 @@
     ]
   },
   "remoteescorttank": {
-    "image": "SEC\\Remote_Escort_Tank.png",
+    "image": "SEC/Remote_Escort_Tank.png",
     "name": "Remote Escort Tank",
     "type": "Unit",
     "hp": null,
@@ -2036,7 +2036,7 @@
     ]
   },
   "renewedfriendship": {
-    "image": "SEC\\Renewed_Friendship.png",
+    "image": "SEC/Renewed_Friendship.png",
     "name": "Renewed Friendship",
     "type": "Event",
     "hp": null,
@@ -2046,7 +2046,7 @@
     ]
   },
   "renowneddignitaries": {
-    "image": "SEC\\Renowned_Dignitaries.png",
+    "image": "SEC/Renowned_Dignitaries.png",
     "name": "Renowned Dignitaries",
     "type": "Unit",
     "hp": null,
@@ -2056,7 +2056,7 @@
     ]
   },
   "republicaurekstarfighter": {
-    "image": "SEC\\Republic_Aurek_Starfighter.png",
+    "image": "SEC/Republic_Aurek_Starfighter.png",
     "name": "Republic Aurek Starfighter",
     "type": "Unit",
     "hp": null,
@@ -2064,9 +2064,9 @@
       "Aggression"
     ]
   },
-  "republiccityhosnianprime": {
-    "image": "SEC\\Republic_City - Hosnian_Prime.png",
-    "name": "Republic City - Hosnian Prime",
+  "republiccity": {
+    "image": "SEC/Republic_City - Hosnian_Prime.png",
+    "name": "Republic City",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -2074,7 +2074,7 @@
     ]
   },
   "republicwarwalker": {
-    "image": "SEC\\Republic_War_Walker.png",
+    "image": "SEC/Republic_War_Walker.png",
     "name": "Republic War Walker",
     "type": "Unit",
     "hp": null,
@@ -2083,7 +2083,7 @@
     ]
   },
   "restorefreedom": {
-    "image": "SEC\\Restore_Freedom.png",
+    "image": "SEC/Restore_Freedom.png",
     "name": "Restore Freedom",
     "type": "Event",
     "hp": null,
@@ -2092,7 +2092,7 @@
     ]
   },
   "retaliation": {
-    "image": "SEC\\Retaliation.png",
+    "image": "SEC/Retaliation.png",
     "name": "Retaliation",
     "type": "Event",
     "hp": null,
@@ -2100,9 +2100,9 @@
       "Vigilance"
     ]
   },
-  "rixroadferrix": {
-    "image": "SEC\\Rix_Road - Ferrix.png",
-    "name": "Rix Road - Ferrix",
+  "rixroad": {
+    "image": "SEC/Rix_Road - Ferrix.png",
+    "name": "Rix Road",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -2110,7 +2110,7 @@
     ]
   },
   "rotundasenateguards": {
-    "image": "SEC\\Rotunda_Senate_Guards.png",
+    "image": "SEC/Rotunda_Senate_Guards.png",
     "name": "Rotunda Senate Guards",
     "type": "Unit",
     "hp": null,
@@ -2119,7 +2119,7 @@
     ]
   },
   "sabqueensshadow": {
-    "image": "SEC\\Sab - Queens_Shadow.png",
+    "image": "SEC/Sab - Queens_Shadow.png",
     "name": "Sabé - Queen's Shadow",
     "type": "Leader",
     "hp": null,
@@ -2129,7 +2129,7 @@
     ]
   },
   "sabqueensshadowback": {
-    "image": "SEC\\Sab - Queens_Shadow_back.png",
+    "image": "SEC/Sab - Queens_Shadow_back.png",
     "name": "Sabé - Queen's Shadow [Back]",
     "type": "Leader",
     "hp": null,
@@ -2139,7 +2139,7 @@
     ]
   },
   "satinekryzestandingonprinciples": {
-    "image": "SEC\\Satine_Kryze - Standing_on_Principles.png",
+    "image": "SEC/Satine_Kryze - Standing_on_Principles.png",
     "name": "Satine Kryze - Standing on Principles",
     "type": "Leader",
     "hp": null,
@@ -2149,7 +2149,7 @@
     ]
   },
   "satinekryzestandingonprinciplesback": {
-    "image": "SEC\\Satine_Kryze - Standing_on_Principles_back.png",
+    "image": "SEC/Satine_Kryze - Standing_on_Principles_back.png",
     "name": "Satine Kryze - Standing on Principles [Back]",
     "type": "Leader",
     "hp": null,
@@ -2159,7 +2159,7 @@
     ]
   },
   "sawgerrerasuwingbreakingtherules": {
-    "image": "SEC\\Saw_Gerreras_U-Wing - Breaking_the_Rules.png",
+    "image": "SEC/Saw_Gerreras_U-Wing - Breaking_the_Rules.png",
     "name": "Saw Gerrera's U-Wing - Breaking the Rules",
     "type": "Unit",
     "hp": null,
@@ -2168,7 +2168,7 @@
     ]
   },
   "scourthearchives": {
-    "image": "SEC\\Scour_the_Archives.png",
+    "image": "SEC/Scour_the_Archives.png",
     "name": "Scour the Archives",
     "type": "Event",
     "hp": null,
@@ -2177,7 +2177,7 @@
     ]
   },
   "screechingtiefighter": {
-    "image": "SEC\\Screeching_TIE_Fighter.png",
+    "image": "SEC/Screeching_TIE_Fighter.png",
     "name": "Screeching TIE Fighter",
     "type": "Unit",
     "hp": null,
@@ -2186,9 +2186,9 @@
       "Villainy"
     ]
   },
-  "senaterotundacoruscant": {
-    "image": "SEC\\Senate_Rotunda - Coruscant.png",
-    "name": "Senate Rotunda - Coruscant",
+  "senaterotunda": {
+    "image": "SEC/Senate_Rotunda - Coruscant.png",
+    "name": "Senate Rotunda",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -2196,7 +2196,7 @@
     ]
   },
   "senatewarden": {
-    "image": "SEC\\Senate_Warden.png",
+    "image": "SEC/Senate_Warden.png",
     "name": "Senate Warden",
     "type": "Unit",
     "hp": null,
@@ -2205,7 +2205,7 @@
     ]
   },
   "senatorchuchivoiceforthevoiceless": {
-    "image": "SEC\\Senator_Chuchi - Voice_for_the_Voiceless.png",
+    "image": "SEC/Senator_Chuchi - Voice_for_the_Voiceless.png",
     "name": "Senator Chuchi - Voice for the Voiceless",
     "type": "Unit",
     "hp": null,
@@ -2215,7 +2215,7 @@
     ]
   },
   "senatorsaide": {
-    "image": "SEC\\Senators_Aide.png",
+    "image": "SEC/Senators_Aide.png",
     "name": "Senator's Aide",
     "type": "Unit",
     "hp": null,
@@ -2224,7 +2224,7 @@
     ]
   },
   "shadowcrawler": {
-    "image": "SEC\\Shadow_Crawler.png",
+    "image": "SEC/Shadow_Crawler.png",
     "name": "Shadow Crawler",
     "type": "Unit",
     "hp": null,
@@ -2233,7 +2233,7 @@
     ]
   },
   "sithassassin": {
-    "image": "SEC\\Sith_Assassin.png",
+    "image": "SEC/Sith_Assassin.png",
     "name": "Sith Assassin",
     "type": "Unit",
     "hp": null,
@@ -2242,7 +2242,7 @@
     ]
   },
   "skyhoppercanyonrunner": {
-    "image": "SEC\\Skyhopper_Canyon_Runner.png",
+    "image": "SEC/Skyhopper_Canyon_Runner.png",
     "name": "Skyhopper Canyon Runner",
     "type": "Unit",
     "hp": null,
@@ -2251,7 +2251,7 @@
     ]
   },
   "slymoorecipherinthedark": {
-    "image": "SEC\\Sly_Moore - Cipher_in_the_Dark.png",
+    "image": "SEC/Sly_Moore - Cipher_in_the_Dark.png",
     "name": "Sly Moore - Cipher in the Dark",
     "type": "Leader",
     "hp": null,
@@ -2261,7 +2261,7 @@
     ]
   },
   "slymoorecipherinthedarkback": {
-    "image": "SEC\\Sly_Moore - Cipher_in_the_Dark_back.png",
+    "image": "SEC/Sly_Moore - Cipher_in_the_Dark_back.png",
     "name": "Sly Moore - Cipher in the Dark [Back]",
     "type": "Leader",
     "hp": null,
@@ -2271,7 +2271,7 @@
     ]
   },
   "slymoorewitnesstopower": {
-    "image": "SEC\\Sly_Moore - Witness_to_Power.png",
+    "image": "SEC/Sly_Moore - Witness_to_Power.png",
     "name": "Sly Moore - Witness to Power",
     "type": "Unit",
     "hp": null,
@@ -2281,7 +2281,7 @@
     ]
   },
   "sneakingsuspicion": {
-    "image": "SEC\\Sneaking_Suspicion.png",
+    "image": "SEC/Sneaking_Suspicion.png",
     "name": "Sneaking Suspicion",
     "type": "Upgrade",
     "hp": null,
@@ -2290,7 +2290,7 @@
     ]
   },
   "soullessoneswiftandagile": {
-    "image": "SEC\\Soulless_One - Swift_and_Agile.png",
+    "image": "SEC/Soulless_One - Swift_and_Agile.png",
     "name": "Soulless One - Swift and Agile",
     "type": "Unit",
     "hp": null,
@@ -2300,7 +2300,7 @@
     ]
   },
   "specialmodifications": {
-    "image": "SEC\\Special_Modifications.png",
+    "image": "SEC/Special_Modifications.png",
     "name": "Special Modifications",
     "type": "Upgrade",
     "hp": null,
@@ -2309,7 +2309,7 @@
     ]
   },
   "stolenstarpathunit": {
-    "image": "SEC\\Stolen_Starpath_Unit.png",
+    "image": "SEC/Stolen_Starpath_Unit.png",
     "name": "Stolen Starpath Unit",
     "type": "Upgrade",
     "hp": null,
@@ -2319,7 +2319,7 @@
     ]
   },
   "strikeforcexwing": {
-    "image": "SEC\\Strike_Force_X-Wing.png",
+    "image": "SEC/Strike_Force_X-Wing.png",
     "name": "Strike Force X-Wing",
     "type": "Unit",
     "hp": null,
@@ -2329,7 +2329,7 @@
     ]
   },
   "suddenferocity": {
-    "image": "SEC\\Sudden_Ferocity.png",
+    "image": "SEC/Sudden_Ferocity.png",
     "name": "Sudden Ferocity",
     "type": "Upgrade",
     "hp": null,
@@ -2338,7 +2338,7 @@
     ]
   },
   "supremecouncilaide": {
-    "image": "SEC\\Supreme_Council_Aide.png",
+    "image": "SEC/Supreme_Council_Aide.png",
     "name": "Supreme Council Aide",
     "type": "Unit",
     "hp": null,
@@ -2347,7 +2347,7 @@
     ]
   },
   "synarasanharboringasecret": {
-    "image": "SEC\\Synara_San - Harboring_a_Secret.png",
+    "image": "SEC/Synara_San - Harboring_a_Secret.png",
     "name": "Synara San - Harboring a Secret",
     "type": "Unit",
     "hp": null,
@@ -2356,7 +2356,7 @@
     ]
   },
   "syrilkarnwhereishe": {
-    "image": "SEC\\Syril_Karn - Where_is_He.png",
+    "image": "SEC/Syril_Karn - Where_is_He.png",
     "name": "Syril Karn - Where is He?",
     "type": "Unit",
     "hp": null,
@@ -2366,7 +2366,7 @@
     ]
   },
   "taladurithicangetyouinside": {
-    "image": "SEC\\Tala_Durith - I_Can_Get_You_Inside.png",
+    "image": "SEC/Tala_Durith - I_Can_Get_You_Inside.png",
     "name": "Tala Durith - I Can Get You Inside",
     "type": "Unit",
     "hp": null,
@@ -2376,7 +2376,7 @@
     ]
   },
   "taylandershuttle": {
-    "image": "SEC\\Taylander_Shuttle.png",
+    "image": "SEC/Taylander_Shuttle.png",
     "name": "Taylander Shuttle",
     "type": "Unit",
     "hp": null,
@@ -2385,7 +2385,7 @@
     ]
   },
   "tempestassault": {
-    "image": "SEC\\Tempest_Assault.png",
+    "image": "SEC/Tempest_Assault.png",
     "name": "Tempest Assault",
     "type": "Event",
     "hp": null,
@@ -2395,7 +2395,7 @@
     ]
   },
   "thechancellorsshuttlegrimharbinger": {
-    "image": "SEC\\The_Chancellors_Shuttle - Grim_Harbinger.png",
+    "image": "SEC/The_Chancellors_Shuttle - Grim_Harbinger.png",
     "name": "The Chancellor's Shuttle - Grim Harbinger",
     "type": "Unit",
     "hp": null,
@@ -2405,7 +2405,7 @@
     ]
   },
   "theelitesquadneutralizinginsurgents": {
-    "image": "SEC\\The_Elite_Squad - Neutralizing_Insurgents.png",
+    "image": "SEC/The_Elite_Squad - Neutralizing_Insurgents.png",
     "name": "The Elite Squad - Neutralizing Insurgents",
     "type": "Unit",
     "hp": null,
@@ -2415,7 +2415,7 @@
     ]
   },
   "theeyeofaldhani": {
-    "image": "SEC\\The_Eye_of_Aldhani.png",
+    "image": "SEC/The_Eye_of_Aldhani.png",
     "name": "The Eye of Aldhani",
     "type": "Event",
     "hp": null,
@@ -2424,7 +2424,7 @@
     ]
   },
   "thegalleonmaraudingpirateship": {
-    "image": "SEC\\The_Galleon - Marauding_Pirate_Ship.png",
+    "image": "SEC/The_Galleon - Marauding_Pirate_Ship.png",
     "name": "The Galleon - Marauding Pirate Ship",
     "type": "Unit",
     "hp": null,
@@ -2434,7 +2434,7 @@
     ]
   },
   "themandaloriancleaningupnevarro": {
-    "image": "SEC\\The_Mandalorian - Cleaning_Up_Nevarro.png",
+    "image": "SEC/The_Mandalorian - Cleaning_Up_Nevarro.png",
     "name": "The Mandalorian - Cleaning Up Nevarro",
     "type": "Unit",
     "hp": null,
@@ -2444,7 +2444,7 @@
     ]
   },
   "thewrongride": {
-    "image": "SEC\\The_Wrong_Ride.png",
+    "image": "SEC/The_Wrong_Ride.png",
     "name": "The Wrong Ride",
     "type": "Event",
     "hp": null,
@@ -2453,7 +2453,7 @@
     ]
   },
   "theedsecurity": {
-    "image": "SEC\\Theed_Security.png",
+    "image": "SEC/Theed_Security.png",
     "name": "Theed Security",
     "type": "Unit",
     "hp": null,
@@ -2463,7 +2463,7 @@
     ]
   },
   "topplethesummit": {
-    "image": "SEC\\Topple_the_Summit.png",
+    "image": "SEC/Topple_the_Summit.png",
     "name": "Topple the Summit",
     "type": "Event",
     "hp": null,
@@ -2472,7 +2472,7 @@
     ]
   },
   "tradefederationdelegates": {
-    "image": "SEC\\Trade_Federation_Delegates.png",
+    "image": "SEC/Trade_Federation_Delegates.png",
     "name": "Trade Federation Delegates",
     "type": "Unit",
     "hp": null,
@@ -2482,7 +2482,7 @@
     ]
   },
   "traderoutetaxation": {
-    "image": "SEC\\Trade_Route_Taxation.png",
+    "image": "SEC/Trade_Route_Taxation.png",
     "name": "Trade Route Taxation",
     "type": "Event",
     "hp": null,
@@ -2491,7 +2491,7 @@
     ]
   },
   "trayusacolyte": {
-    "image": "SEC\\Trayus_Acolyte.png",
+    "image": "SEC/Trayus_Acolyte.png",
     "name": "Trayus Acolyte",
     "type": "Unit",
     "hp": null,
@@ -2501,7 +2501,7 @@
     ]
   },
   "umbaranmobilecannon": {
-    "image": "SEC\\Umbaran_Mobile_Cannon.png",
+    "image": "SEC/Umbaran_Mobile_Cannon.png",
     "name": "Umbaran Mobile Cannon",
     "type": "Unit",
     "hp": null,
@@ -2510,7 +2510,7 @@
     ]
   },
   "unauthorizedinvestigation": {
-    "image": "SEC\\Unauthorized_Investigation.png",
+    "image": "SEC/Unauthorized_Investigation.png",
     "name": "Unauthorized Investigation",
     "type": "Event",
     "hp": null,
@@ -2519,7 +2519,7 @@
     ]
   },
   "undercoveroperation": {
-    "image": "SEC\\Undercover_Operation.png",
+    "image": "SEC/Undercover_Operation.png",
     "name": "Undercover Operation",
     "type": "Event",
     "hp": null,
@@ -2528,7 +2528,7 @@
     ]
   },
   "unrulyastromech": {
-    "image": "SEC\\Unruly_Astromech.png",
+    "image": "SEC/Unruly_Astromech.png",
     "name": "Unruly Astromech",
     "type": "Unit",
     "hp": null,
@@ -2537,7 +2537,7 @@
     ]
   },
   "unveiledmight": {
-    "image": "SEC\\Unveiled_Might.png",
+    "image": "SEC/Unveiled_Might.png",
     "name": "Unveiled Might",
     "type": "Upgrade",
     "hp": null,
@@ -2545,9 +2545,9 @@
       "Command"
     ]
   },
-  "uscruentertainmentdistrictcoruscant": {
-    "image": "SEC\\Uscru_Entertainment_District - Coruscant.png",
-    "name": "Uscru Entertainment District - Coruscant",
+  "uscruentertainmentdistrict": {
+    "image": "SEC/Uscru_Entertainment_District - Coruscant.png",
+    "name": "Uscru Entertainment District",
     "type": "Base",
     "hp": "30",
     "aspects": [
@@ -2555,7 +2555,7 @@
     ]
   },
   "valiantcommando": {
-    "image": "SEC\\Valiant_Commando.png",
+    "image": "SEC/Valiant_Commando.png",
     "name": "Valiant Commando",
     "type": "Unit",
     "hp": null,
@@ -2565,7 +2565,7 @@
     ]
   },
   "velsarthaonepathonechoice": {
-    "image": "SEC\\Vel_Sartha - One_Path_One_Choice.png",
+    "image": "SEC/Vel_Sartha - One_Path_One_Choice.png",
     "name": "Vel Sartha - One Path, One Choice",
     "type": "Unit",
     "hp": null,
@@ -2574,7 +2574,7 @@
     ]
   },
   "viceadmiralrampartonschedule": {
-    "image": "SEC\\Vice_Admiral_Rampart - On_Schedule.png",
+    "image": "SEC/Vice_Admiral_Rampart - On_Schedule.png",
     "name": "Vice Admiral Rampart - On Schedule",
     "type": "Unit",
     "hp": null,
@@ -2584,7 +2584,7 @@
     ]
   },
   "vigilsecuringthefuture": {
-    "image": "SEC\\Vigil - Securing_the_Future.png",
+    "image": "SEC/Vigil - Securing_the_Future.png",
     "name": "Vigil - Securing the Future",
     "type": "Unit",
     "hp": null,
@@ -2594,7 +2594,7 @@
     ]
   },
   "viperprobedroid": {
-    "image": "SEC\\Viper_Probe_Droid.png",
+    "image": "SEC/Viper_Probe_Droid.png",
     "name": "Viper Probe Droid",
     "type": "Unit",
     "hp": null,
@@ -2603,7 +2603,7 @@
     ]
   },
   "vuutunpalaadroidcontrolship": {
-    "image": "SEC\\Vuutun_Palaa - Droid_Control_Ship.png",
+    "image": "SEC/Vuutun_Palaa - Droid_Control_Ship.png",
     "name": "Vuutun Palaa - Droid Control Ship",
     "type": "Unit",
     "hp": null,
@@ -2612,7 +2612,7 @@
     ]
   },
   "warriorofclanordo": {
-    "image": "SEC\\Warrior_of_Clan_Ordo.png",
+    "image": "SEC/Warrior_of_Clan_Ordo.png",
     "name": "Warrior of Clan Ordo",
     "type": "Unit",
     "hp": null,
@@ -2621,7 +2621,7 @@
     ]
   },
   "whenhasbecomenow": {
-    "image": "SEC\\When_Has_Become_Now.png",
+    "image": "SEC/When_Has_Become_Now.png",
     "name": "When Has Become Now",
     "type": "Event",
     "hp": null,
@@ -2630,7 +2630,7 @@
     ]
   },
   "willrowhoodontherun": {
-    "image": "SEC\\Willrow_Hood - On_the_Run.png",
+    "image": "SEC/Willrow_Hood - On_the_Run.png",
     "name": "Willrow Hood - On the Run",
     "type": "Unit",
     "hp": null,
@@ -2639,7 +2639,7 @@
     ]
   },
   "withthunderousapplause": {
-    "image": "SEC\\With_Thunderous_Applause.png",
+    "image": "SEC/With_Thunderous_Applause.png",
     "name": "With Thunderous Applause",
     "type": "Event",
     "hp": null,
@@ -2648,7 +2648,7 @@
     ]
   },
   "zamwesellinconspicuousassassin": {
-    "image": "SEC\\Zam_Wesell - Inconspicuous_Assassin.png",
+    "image": "SEC/Zam_Wesell - Inconspicuous_Assassin.png",
     "name": "Zam Wesell - Inconspicuous Assassin",
     "type": "Unit",
     "hp": null,
@@ -2658,7 +2658,7 @@
     ]
   },
   "zenuasshadowfighter": {
-    "image": "SEC\\Zenuas_Shadow_Fighter.png",
+    "image": "SEC/Zenuas_Shadow_Fighter.png",
     "name": "Zenuas Shadow Fighter",
     "type": "Unit",
     "hp": null,
@@ -2667,7 +2667,7 @@
     ]
   },
   "zitonmojblacksunbully": {
-    "image": "SEC\\Ziton_Moj - Black_Sun_Bully.png",
+    "image": "SEC/Ziton_Moj - Black_Sun_Bully.png",
     "name": "Ziton Moj - Black Sun Bully",
     "type": "Unit",
     "hp": null,

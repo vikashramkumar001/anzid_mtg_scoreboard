@@ -2,7 +2,7 @@ const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
 let cardName = null;
-const fallbackUrl = `/assets/images/cards/starwars/starwars-card-back.png`;
+const fallbackUrl = `/assets/images/starwars/cards/starwars-card-back.png`;
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
