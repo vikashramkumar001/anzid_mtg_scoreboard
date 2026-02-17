@@ -1,7 +1,7 @@
 {
   "4lombountyhunterforhire": {
-    "image": "SHD/4-LOM - Bounty_Hunter_for_Hire.png",
-    "name": "4-LOM - Bounty Hunter for Hire",
+    "image": "SHD/4-LOM, Bounty_Hunter_for_Hire.png",
+    "name": "4-LOM, Bounty Hunter for Hire",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -57,8 +57,8 @@
     ]
   },
   "bazinenetalspyforthefirstorder": {
-    "image": "SHD/Bazine_Netal - Spy_for_the_First_Order.png",
-    "name": "Bazine Netal - Spy for the First Order",
+    "image": "SHD/Bazine_Netal, Spy_for_the_First_Order.png",
+    "name": "Bazine Netal, Spy for the First Order",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -76,8 +76,8 @@
     ]
   },
   "bokatankryzeprincessinexile": {
-    "image": "SHD/Bo-Katan_Kryze - Princess_in_Exile.png",
-    "name": "Bo-Katan Kryze - Princess in Exile",
+    "image": "SHD/Bo-Katan_Kryze, Princess_in_Exile.png",
+    "name": "Bo-Katan Kryze, Princess in Exile",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -86,8 +86,8 @@
     ]
   },
   "bokatankryzeprincessinexileback": {
-    "image": "SHD/Bo-Katan_Kryze - Princess_in_Exile_back.png",
-    "name": "Bo-Katan Kryze - Princess in Exile [Back]",
+    "image": "SHD/Bo-Katan_Kryze, Princess_in_Exile_back.png",
+    "name": "Bo-Katan Kryze, Princess in Exile [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -96,8 +96,8 @@
     ]
   },
   "bokatankryzefightingformandalore": {
-    "image": "SHD/Bo-Katan_Kryze - Fighting_For_Mandalore.png",
-    "name": "Bo-Katan Kryze - Fighting For Mandalore",
+    "image": "SHD/Bo-Katan_Kryze, Fighting_For_Mandalore.png",
+    "name": "Bo-Katan Kryze, Fighting For Mandalore",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -106,8 +106,8 @@
     ]
   },
   "bobafettdaimyo": {
-    "image": "SHD/Boba_Fett - Daimyo.png",
-    "name": "Boba Fett - Daimyo",
+    "image": "SHD/Boba_Fett, Daimyo.png",
+    "name": "Boba Fett, Daimyo",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -116,8 +116,8 @@
     ]
   },
   "bobafettdaimyoback": {
-    "image": "SHD/Boba_Fett - Daimyo_back.png",
-    "name": "Boba Fett - Daimyo [Back]",
+    "image": "SHD/Boba_Fett, Daimyo_back.png",
+    "name": "Boba Fett, Daimyo [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -135,8 +135,8 @@
     ]
   },
   "bosskhuntinghisprey": {
-    "image": "SHD/Bossk - Hunting_His_Prey.png",
-    "name": "Bossk - Hunting His Prey",
+    "image": "SHD/Bossk, Hunting_His_Prey.png",
+    "name": "Bossk, Hunting His Prey",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -145,8 +145,8 @@
     ]
   },
   "bosskhuntinghispreyback": {
-    "image": "SHD/Bossk - Hunting_His_Prey_back.png",
-    "name": "Bossk - Hunting His Prey [Back]",
+    "image": "SHD/Bossk, Hunting_His_Prey_back.png",
+    "name": "Bossk, Hunting His Prey [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -199,8 +199,8 @@
     ]
   },
   "cadbanehewhoneedsnointroduction": {
-    "image": "SHD/Cad_Bane - He_Who_Needs_No_Introduction.png",
-    "name": "Cad Bane - He Who Needs No Introduction",
+    "image": "SHD/Cad_Bane, He_Who_Needs_No_Introduction.png",
+    "name": "Cad Bane, He Who Needs No Introduction",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -209,8 +209,8 @@
     ]
   },
   "cadbanehewhoneedsnointroductionback": {
-    "image": "SHD/Cad_Bane - He_Who_Needs_No_Introduction_back.png",
-    "name": "Cad Bane - He Who Needs No Introduction [Back]",
+    "image": "SHD/Cad_Bane, He_Who_Needs_No_Introduction_back.png",
+    "name": "Cad Bane, He Who Needs No Introduction [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -248,8 +248,8 @@
     ]
   },
   "cassianandorrebellionsarebuiltonhope": {
-    "image": "SHD/Cassian_Andor - Rebellions_Are_Built_On_Hope.png",
-    "name": "Cassian Andor - Rebellions Are Built On Hope",
+    "image": "SHD/Cassian_Andor, Rebellions_Are_Built_On_Hope.png",
+    "name": "Cassian Andor, Rebellions Are Built On Hope",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -276,8 +276,8 @@
     ]
   },
   "chewbaccapykesbane": {
-    "image": "SHD/Chewbacca - Pykesbane.png",
-    "name": "Chewbacca - Pykesbane",
+    "image": "SHD/Chewbacca, Pykesbane.png",
+    "name": "Chewbacca, Pykesbane",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -343,8 +343,8 @@
     ]
   },
   "cobbvanththemarshal": {
-    "image": "SHD/Cobb_Vanth - The_Marshal.png",
-    "name": "Cobb Vanth - The Marshal",
+    "image": "SHD/Cobb_Vanth, The_Marshal.png",
+    "name": "Cobb Vanth, The Marshal",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -387,7 +387,7 @@
     "aspects": []
   },
   "coronetcity": {
-    "image": "SHD/Coronet_City - Corellia.png",
+    "image": "SHD/Coronet_City, Corellia.png",
     "name": "Coronet City",
     "type": "Base",
     "hp": "30",
@@ -443,8 +443,8 @@
     ]
   },
   "crosshairfollowingorders": {
-    "image": "SHD/Crosshair - Following_Orders.png",
-    "name": "Crosshair - Following Orders",
+    "image": "SHD/Crosshair, Following_Orders.png",
+    "name": "Crosshair, Following Orders",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -453,8 +453,8 @@
     ]
   },
   "djblatantthief": {
-    "image": "SHD/DJ - Blatant_Thief.png",
-    "name": "DJ - Blatant Thief",
+    "image": "SHD/DJ, Blatant_Thief.png",
+    "name": "DJ, Blatant Thief",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -490,7 +490,7 @@
     ]
   },
   "deathwatchhideout": {
-    "image": "SHD/Death_Watch_Hideout - Concordia.png",
+    "image": "SHD/Death_Watch_Hideout, Concordia.png",
     "name": "Death Watch Hideout",
     "type": "Base",
     "hp": "30",
@@ -509,8 +509,8 @@
     ]
   },
   "dengarthedemolisher": {
-    "image": "SHD/Dengar - The_Demolisher.png",
-    "name": "Dengar - The Demolisher",
+    "image": "SHD/Dengar, The_Demolisher.png",
+    "name": "Dengar, The Demolisher",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -565,8 +565,8 @@
     ]
   },
   "doctoraphrarapaciousarchaeologist": {
-    "image": "SHD/Doctor_Aphra - Rapacious_Archaeologist.png",
-    "name": "Doctor Aphra - Rapacious Archaeologist",
+    "image": "SHD/Doctor_Aphra, Rapacious_Archaeologist.png",
+    "name": "Doctor Aphra, Rapacious Archaeologist",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -575,8 +575,8 @@
     ]
   },
   "doctoraphrarapaciousarchaeologistback": {
-    "image": "SHD/Doctor_Aphra - Rapacious_Archaeologist_back.png",
-    "name": "Doctor Aphra - Rapacious Archaeologist [Back]",
+    "image": "SHD/Doctor_Aphra, Rapacious_Archaeologist_back.png",
+    "name": "Doctor Aphra, Rapacious Archaeologist [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -585,8 +585,8 @@
     ]
   },
   "doctorevazanwantedontwelvesystems": {
-    "image": "SHD/Doctor_Evazan - Wanted_on_Twelve_Systems.png",
-    "name": "Doctor Evazan - Wanted on Twelve Systems",
+    "image": "SHD/Doctor_Evazan, Wanted_on_Twelve_Systems.png",
+    "name": "Doctor Evazan, Wanted on Twelve Systems",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -595,8 +595,8 @@
     ]
   },
   "doctorpershingexperimentingwithlife": {
-    "image": "SHD/Doctor_Pershing - Experimenting_With_Life.png",
-    "name": "Doctor Pershing - Experimenting With Life",
+    "image": "SHD/Doctor_Pershing, Experimenting_With_Life.png",
+    "name": "Doctor Pershing, Experimenting With Life",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -605,8 +605,8 @@
     ]
   },
   "drydenvosofferingnoescape": {
-    "image": "SHD/Dryden_Vos - Offering_No_Escape.png",
-    "name": "Dryden Vos - Offering No Escape",
+    "image": "SHD/Dryden_Vos, Offering_No_Escape.png",
+    "name": "Dryden Vos, Offering No Escape",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -615,8 +615,8 @@
     ]
   },
   "echorestored": {
-    "image": "SHD/Echo - Restored.png",
-    "name": "Echo - Restored",
+    "image": "SHD/Echo, Restored.png",
+    "name": "Echo, Restored",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -625,8 +625,8 @@
     ]
   },
   "embostoicandresolute": {
-    "image": "SHD/Embo - Stoic_and_Resolute.png",
-    "name": "Embo - Stoic and Resolute",
+    "image": "SHD/Embo, Stoic_and_Resolute.png",
+    "name": "Embo, Stoic and Resolute",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -654,8 +654,8 @@
     ]
   },
   "enfysnestmarauder": {
-    "image": "SHD/Enfys_Nest - Marauder.png",
-    "name": "Enfys Nest - Marauder",
+    "image": "SHD/Enfys_Nest, Marauder.png",
+    "name": "Enfys Nest, Marauder",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -682,8 +682,8 @@
     ]
   },
   "ephantmonheadofsecurity": {
-    "image": "SHD/Ephant_Mon - Head_of_Security.png",
-    "name": "Ephant Mon - Head of Security",
+    "image": "SHD/Ephant_Mon, Head_of_Security.png",
+    "name": "Ephant Mon, Head of Security",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -719,8 +719,8 @@
     ]
   },
   "fennrauprotectorofconcorddawn": {
-    "image": "SHD/Fenn_Rau - Protector_of_Concord_Dawn.png",
-    "name": "Fenn Rau - Protector of Concord Dawn",
+    "image": "SHD/Fenn_Rau, Protector_of_Concord_Dawn.png",
+    "name": "Fenn Rau, Protector of Concord Dawn",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -728,8 +728,8 @@
     ]
   },
   "fennecshandhonoringthedeal": {
-    "image": "SHD/Fennec_Shand - Honoring_the_Deal.png",
-    "name": "Fennec Shand - Honoring the Deal",
+    "image": "SHD/Fennec_Shand, Honoring_the_Deal.png",
+    "name": "Fennec Shand, Honoring the Deal",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -738,8 +738,8 @@
     ]
   },
   "fennecshandhonoringthedealback": {
-    "image": "SHD/Fennec_Shand - Honoring_the_Deal_back.png",
-    "name": "Fennec Shand - Honoring the Deal [Back]",
+    "image": "SHD/Fennec_Shand, Honoring_the_Deal_back.png",
+    "name": "Fennec Shand, Honoring the Deal [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -748,8 +748,8 @@
     ]
   },
   "fennecshandloyalsharpshooter": {
-    "image": "SHD/Fennec_Shand - Loyal_Sharpshooter.png",
-    "name": "Fennec Shand - Loyal Sharpshooter",
+    "image": "SHD/Fennec_Shand, Loyal_Sharpshooter.png",
+    "name": "Fennec Shand, Loyal Sharpshooter",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -767,8 +767,8 @@
     ]
   },
   "finalizermightofthefirstorder": {
-    "image": "SHD/Finalizer - Might_of_the_First_Order.png",
-    "name": "Finalizer - Might of the First Order",
+    "image": "SHD/Finalizer, Might_of_the_First_Order.png",
+    "name": "Finalizer, Might of the First Order",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -777,8 +777,8 @@
     ]
   },
   "finnthisisarescue": {
-    "image": "SHD/Finn - This_is_a_Rescue.png",
-    "name": "Finn - This is a Rescue",
+    "image": "SHD/Finn, This_is_a_Rescue.png",
+    "name": "Finn, This is a Rescue",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -787,8 +787,8 @@
     ]
   },
   "finnthisisarescueback": {
-    "image": "SHD/Finn - This_is_a_Rescue_back.png",
-    "name": "Finn - This is a Rescue [Back]",
+    "image": "SHD/Finn, This_is_a_Rescue_back.png",
+    "name": "Finn, This is a Rescue [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -797,8 +797,8 @@
     ]
   },
   "firstlightheadquartersofthecrimsondawn": {
-    "image": "SHD/First_Light - Headquarters_of_the_Crimson_Dawn.png",
-    "name": "First Light - Headquarters of the Crimson Dawn",
+    "image": "SHD/First_Light, Headquarters_of_the_Crimson_Dawn.png",
+    "name": "First Light, Headquarters of the Crimson Dawn",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -872,8 +872,8 @@
     ]
   },
   "garsaxonviceroyofmandalore": {
-    "image": "SHD/Gar_Saxon - Viceroy_of_Mandalore.png",
-    "name": "Gar Saxon - Viceroy of Mandalore",
+    "image": "SHD/Gar_Saxon, Viceroy_of_Mandalore.png",
+    "name": "Gar Saxon, Viceroy of Mandalore",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -882,8 +882,8 @@
     ]
   },
   "garsaxonviceroyofmandaloreback": {
-    "image": "SHD/Gar_Saxon - Viceroy_of_Mandalore_back.png",
-    "name": "Gar Saxon - Viceroy of Mandalore [Back]",
+    "image": "SHD/Gar_Saxon, Viceroy_of_Mandalore_back.png",
+    "name": "Gar Saxon, Viceroy of Mandalore [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -892,8 +892,8 @@
     ]
   },
   "generalrieekandefensivestrategist": {
-    "image": "SHD/General_Rieekan - Defensive_Strategist.png",
-    "name": "General Rieekan - Defensive Strategist",
+    "image": "SHD/General_Rieekan, Defensive_Strategist.png",
+    "name": "General Rieekan, Defensive Strategist",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -902,8 +902,8 @@
     ]
   },
   "generaltaggeconcernedcommander": {
-    "image": "SHD/General_Tagge - Concerned_Commander.png",
-    "name": "General Tagge - Concerned Commander",
+    "image": "SHD/General_Tagge, Concerned_Commander.png",
+    "name": "General Tagge, Concerned Commander",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -922,8 +922,8 @@
     ]
   },
   "gideonslightcruiserdarktroopersstation": {
-    "image": "SHD/Gideons_Light_Cruiser - Dark_Troopers_Station.png",
-    "name": "Gideon's Light Cruiser - Dark Troopers' Station",
+    "image": "SHD/Gideons_Light_Cruiser, Dark_Troopers_Station.png",
+    "name": "Gideon's Light Cruiser, Dark Troopers' Station",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -941,8 +941,8 @@
     ]
   },
   "greefkargaaffablecommissioner": {
-    "image": "SHD/Greef_Karga - Affable_Commissioner.png",
-    "name": "Greef Karga - Affable Commissioner",
+    "image": "SHD/Greef_Karga, Affable_Commissioner.png",
+    "name": "Greef Karga, Affable Commissioner",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -959,8 +959,8 @@
     ]
   },
   "groguirresistible": {
-    "image": "SHD/Grogu - Irresistible.png",
-    "name": "Grogu - Irresistible",
+    "image": "SHD/Grogu, Irresistible.png",
+    "name": "Grogu, Irresistible",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -997,8 +997,8 @@
     ]
   },
   "hansoloworththerisk": {
-    "image": "SHD/Han_Solo - Worth_the_Risk.png",
-    "name": "Han Solo - Worth the Risk",
+    "image": "SHD/Han_Solo, Worth_the_Risk.png",
+    "name": "Han Solo, Worth the Risk",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1007,8 +1007,8 @@
     ]
   },
   "hansoloworththeriskback": {
-    "image": "SHD/Han_Solo - Worth_the_Risk_back.png",
-    "name": "Han Solo - Worth the Risk [Back]",
+    "image": "SHD/Han_Solo, Worth_the_Risk_back.png",
+    "name": "Han Solo, Worth the Risk [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1047,8 +1047,8 @@
     ]
   },
   "hondoohnakathatsgoodbusiness": {
-    "image": "SHD/Hondo_Ohnaka - Thats_Good_Business.png",
-    "name": "Hondo Ohnaka - That's Good Business",
+    "image": "SHD/Hondo_Ohnaka, Thats_Good_Business.png",
+    "name": "Hondo Ohnaka, That's Good Business",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1057,8 +1057,8 @@
     ]
   },
   "hondoohnakathatsgoodbusinessback": {
-    "image": "SHD/Hondo_Ohnaka - Thats_Good_Business_back.png",
-    "name": "Hondo Ohnaka - That's Good Business [Back]",
+    "image": "SHD/Hondo_Ohnaka, Thats_Good_Business_back.png",
+    "name": "Hondo Ohnaka, That's Good Business [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1085,8 +1085,8 @@
     ]
   },
   "hunteroutcastsergeant": {
-    "image": "SHD/Hunter - Outcast_Sergeant.png",
-    "name": "Hunter - Outcast Sergeant",
+    "image": "SHD/Hunter, Outcast_Sergeant.png",
+    "name": "Hunter, Outcast Sergeant",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1095,8 +1095,8 @@
     ]
   },
   "hunteroutcastsergeantback": {
-    "image": "SHD/Hunter - Outcast_Sergeant_back.png",
-    "name": "Hunter - Outcast Sergeant [Back]",
+    "image": "SHD/Hunter, Outcast_Sergeant_back.png",
+    "name": "Hunter, Outcast Sergeant [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1143,8 +1143,8 @@
     ]
   },
   "ig11icannotbecaptured": {
-    "image": "SHD/IG-11 - I_Cannot_Be_Captured.png",
-    "name": "IG-11 - I Cannot Be Captured",
+    "image": "SHD/IG-11, I_Cannot_Be_Captured.png",
+    "name": "IG-11, I Cannot Be Captured",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1180,8 +1180,8 @@
     ]
   },
   "jabbathehutthishighexaltdeness": {
-    "image": "SHD/Jabba_the_Hutt - His_High_Exaltdeness.png",
-    "name": "Jabba the Hutt - His High Exaltdeness",
+    "image": "SHD/Jabba_the_Hutt, His_High_Exaltdeness.png",
+    "name": "Jabba the Hutt, His High Exaltdeness",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1190,8 +1190,8 @@
     ]
   },
   "jabbathehutthishighexaltdenessback": {
-    "image": "SHD/Jabba_the_Hutt - His_High_Exaltdeness_back.png",
-    "name": "Jabba the Hutt - His High Exaltdeness [Back]",
+    "image": "SHD/Jabba_the_Hutt, His_High_Exaltdeness_back.png",
+    "name": "Jabba the Hutt, His High Exaltdeness [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1200,7 +1200,7 @@
     ]
   },
   "jabbaspalace": {
-    "image": "SHD/Jabbas_Palace - Tatooine.png",
+    "image": "SHD/Jabbas_Palace, Tatooine.png",
     "name": "Jabba's Palace",
     "type": "Base",
     "hp": "30",
@@ -1209,8 +1209,8 @@
     ]
   },
   "jabbasrancorpateesa": {
-    "image": "SHD/Jabbas_Rancor - Pateesa.png",
-    "name": "Jabba's Rancor - Pateesa",
+    "image": "SHD/Jabbas_Rancor, Pateesa.png",
+    "name": "Jabba's Rancor, Pateesa",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1219,8 +1219,8 @@
     ]
   },
   "jangofettrenownedbountyhunter": {
-    "image": "SHD/Jango_Fett - Renowned_Bounty_Hunter.png",
-    "name": "Jango Fett - Renowned Bounty Hunter",
+    "image": "SHD/Jango_Fett, Renowned_Bounty_Hunter.png",
+    "name": "Jango Fett, Renowned Bounty Hunter",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1238,8 +1238,8 @@
     ]
   },
   "ketsuonyooldfriend": {
-    "image": "SHD/Ketsu_Onyo - Old_Friend.png",
-    "name": "Ketsu Onyo - Old Friend",
+    "image": "SHD/Ketsu_Onyo, Old_Friend.png",
+    "name": "Ketsu Onyo, Old Friend",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1267,8 +1267,8 @@
     ]
   },
   "koskareevesloyalniteowl": {
-    "image": "SHD/Koska_Reeves - Loyal_Nite_Owl.png",
-    "name": "Koska Reeves - Loyal Nite Owl",
+    "image": "SHD/Koska_Reeves, Loyal_Nite_Owl.png",
+    "name": "Koska Reeves, Loyal Nite Owl",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1277,8 +1277,8 @@
     ]
   },
   "kragangorrwarbirdcaptain": {
-    "image": "SHD/Kragan_Gorr - Warbird_Captain.png",
-    "name": "Kragan Gorr - Warbird Captain",
+    "image": "SHD/Kragan_Gorr, Warbird_Captain.png",
+    "name": "Kragan Gorr, Warbird Captain",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1295,8 +1295,8 @@
     ]
   },
   "krrsantanmuscleforhire": {
-    "image": "SHD/Krrsantan - Muscle_for_Hire.png",
-    "name": "Krrsantan - Muscle for Hire",
+    "image": "SHD/Krrsantan, Muscle_for_Hire.png",
+    "name": "Krrsantan, Muscle for Hire",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1305,8 +1305,8 @@
     ]
   },
   "kuiilihavespoken": {
-    "image": "SHD/Kuiil - I_Have_Spoken.png",
-    "name": "Kuiil - I Have Spoken",
+    "image": "SHD/Kuiil, I_Have_Spoken.png",
+    "name": "Kuiil, I Have Spoken",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1315,8 +1315,8 @@
     ]
   },
   "kylorenrashanddeadly": {
-    "image": "SHD/Kylo_Ren - Rash_and_Deadly.png",
-    "name": "Kylo Ren - Rash and Deadly",
+    "image": "SHD/Kylo_Ren, Rash_and_Deadly.png",
+    "name": "Kylo Ren, Rash and Deadly",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1325,8 +1325,8 @@
     ]
   },
   "kylorenrashanddeadlyback": {
-    "image": "SHD/Kylo_Ren - Rash_and_Deadly_back.png",
-    "name": "Kylo Ren - Rash and Deadly [Back]",
+    "image": "SHD/Kylo_Ren, Rash_and_Deadly_back.png",
+    "name": "Kylo Ren, Rash and Deadly [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1335,8 +1335,8 @@
     ]
   },
   "kylorenkillingthepast": {
-    "image": "SHD/Kylo_Ren - Killing_the_Past.png",
-    "name": "Kylo Ren - Killing the Past",
+    "image": "SHD/Kylo_Ren, Killing_the_Past.png",
+    "name": "Kylo Ren, Killing the Past",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1345,8 +1345,8 @@
     ]
   },
   "kylostiesilencerruthlesslyefficient": {
-    "image": "SHD/Kylos_TIE_Silencer - Ruthlessly_Efficient.png",
-    "name": "Kylo's TIE Silencer - Ruthlessly Efficient",
+    "image": "SHD/Kylos_TIE_Silencer, Ruthlessly_Efficient.png",
+    "name": "Kylo's TIE Silencer, Ruthlessly Efficient",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1355,8 +1355,8 @@
     ]
   },
   "l337droidrevolutionary": {
-    "image": "SHD/L3-37 - Droid_Revolutionary.png",
-    "name": "L3-37 - Droid Revolutionary",
+    "image": "SHD/L3-37, Droid_Revolutionary.png",
+    "name": "L3-37, Droid Revolutionary",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1365,15 +1365,15 @@
     ]
   },
   "ladyproximawhitewormmatriarch": {
-    "image": "SHD/Lady_Proxima - White_Worm_Matriarch.png",
-    "name": "Lady Proxima - White Worm Matriarch",
+    "image": "SHD/Lady_Proxima, White_Worm_Matriarch.png",
+    "name": "Lady Proxima, White Worm Matriarch",
     "type": "Unit",
     "hp": null,
     "aspects": []
   },
   "landocalrissianwithimpeccabletaste": {
-    "image": "SHD/Lando_Calrissian - With_Impeccable_Taste.png",
-    "name": "Lando Calrissian - With Impeccable Taste",
+    "image": "SHD/Lando_Calrissian, With_Impeccable_Taste.png",
+    "name": "Lando Calrissian, With Impeccable Taste",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1382,8 +1382,8 @@
     ]
   },
   "landocalrissianwithimpeccabletasteback": {
-    "image": "SHD/Lando_Calrissian - With_Impeccable_Taste_back.png",
-    "name": "Lando Calrissian - With Impeccable Taste [Back]",
+    "image": "SHD/Lando_Calrissian, With_Impeccable_Taste_back.png",
+    "name": "Lando Calrissian, With Impeccable Taste [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1421,8 +1421,8 @@
     ]
   },
   "lompykedealerintruths": {
-    "image": "SHD/Lom_Pyke - Dealer_in_Truths.png",
-    "name": "Lom Pyke - Dealer in Truths",
+    "image": "SHD/Lom_Pyke, Dealer_in_Truths.png",
+    "name": "Lom Pyke, Dealer in Truths",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1475,8 +1475,8 @@
     "aspects": []
   },
   "maulshadowcollectivevisionary": {
-    "image": "SHD/Maul - Shadow_Collective_Visionary.png",
-    "name": "Maul - Shadow Collective Visionary",
+    "image": "SHD/Maul, Shadow_Collective_Visionary.png",
+    "name": "Maul, Shadow Collective Visionary",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1485,8 +1485,8 @@
     ]
   },
   "mazkanatapiratequeen": {
-    "image": "SHD/Maz_Kanata - Pirate_Queen.png",
-    "name": "Maz Kanata - Pirate Queen",
+    "image": "SHD/Maz_Kanata, Pirate_Queen.png",
+    "name": "Maz Kanata, Pirate Queen",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1495,7 +1495,7 @@
     ]
   },
   "mazkanatascastle": {
-    "image": "SHD/Maz_Kanatas_Castle - Takodana.png",
+    "image": "SHD/Maz_Kanatas_Castle, Takodana.png",
     "name": "Maz Kanata's Castle",
     "type": "Base",
     "hp": "30",
@@ -1530,8 +1530,8 @@
     ]
   },
   "migsmayfeldtriggerman": {
-    "image": "SHD/Migs_Mayfeld - Triggerman.png",
-    "name": "Migs Mayfeld - Triggerman",
+    "image": "SHD/Migs_Mayfeld, Triggerman.png",
+    "name": "Migs Mayfeld, Triggerman",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1539,8 +1539,8 @@
     ]
   },
   "millenniumfalconlandospride": {
-    "image": "SHD/Millennium_Falcon - Landos_Pride.png",
-    "name": "Millennium Falcon - Lando's Pride",
+    "image": "SHD/Millennium_Falcon, Landos_Pride.png",
+    "name": "Millennium Falcon, Lando's Pride",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1559,8 +1559,8 @@
     ]
   },
   "moffgideonformidablecommander": {
-    "image": "SHD/Moff_Gideon - Formidable_Commander.png",
-    "name": "Moff Gideon - Formidable Commander",
+    "image": "SHD/Moff_Gideon, Formidable_Commander.png",
+    "name": "Moff Gideon, Formidable Commander",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1569,8 +1569,8 @@
     ]
   },
   "moffgideonformidablecommanderback": {
-    "image": "SHD/Moff_Gideon - Formidable_Commander_back.png",
-    "name": "Moff Gideon - Formidable Commander [Back]",
+    "image": "SHD/Moff_Gideon, Formidable_Commander_back.png",
+    "name": "Moff Gideon, Formidable Commander [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1607,7 +1607,7 @@
     ]
   },
   "nevarrocity": {
-    "image": "SHD/Nevarro_City - Nevarro.png",
+    "image": "SHD/Nevarro_City, Nevarro.png",
     "name": "Nevarro City",
     "type": "Base",
     "hp": "30",
@@ -1644,8 +1644,8 @@
     ]
   },
   "omegapartofthesquad": {
-    "image": "SHD/Omega - Part_of_the_Squad.png",
-    "name": "Omega - Part of the Squad",
+    "image": "SHD/Omega, Part_of_the_Squad.png",
+    "name": "Omega, Part of the Squad",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1721,8 +1721,8 @@
     ]
   },
   "poedameronquicktoimprovise": {
-    "image": "SHD/Poe_Dameron - Quick_to_Improvise.png",
-    "name": "Poe Dameron - Quick to Improvise",
+    "image": "SHD/Poe_Dameron, Quick_to_Improvise.png",
+    "name": "Poe Dameron, Quick to Improvise",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1731,8 +1731,8 @@
     ]
   },
   "previzslapowerhungry": {
-    "image": "SHD/Pre_Vizsla - Power_Hungry.png",
-    "name": "Pre Vizsla - Power Hungry",
+    "image": "SHD/Pre_Vizsla, Power_Hungry.png",
+    "name": "Pre Vizsla, Power Hungry",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1796,8 +1796,8 @@
     ]
   },
   "punishingonedengarsjumpmaster": {
-    "image": "SHD/Punishing_One - Dengars_Jumpmaster.png",
-    "name": "Punishing One - Dengar's Jumpmaster",
+    "image": "SHD/Punishing_One, Dengars_Jumpmaster.png",
+    "name": "Punishing One, Dengar's Jumpmaster",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1816,8 +1816,8 @@
     ]
   },
   "qiraialonesurvived": {
-    "image": "SHD/Qira - I_Alone_Survived.png",
-    "name": "Qi'ra - I Alone Survived",
+    "image": "SHD/Qira, I_Alone_Survived.png",
+    "name": "Qi'ra, I Alone Survived",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1826,8 +1826,8 @@
     ]
   },
   "qiraialonesurvivedback": {
-    "image": "SHD/Qira - I_Alone_Survived_back.png",
-    "name": "Qi'ra - I Alone Survived [Back]",
+    "image": "SHD/Qira, I_Alone_Survived_back.png",
+    "name": "Qi'ra, I Alone Survived [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1836,8 +1836,8 @@
     ]
   },
   "qiraplayingherpart": {
-    "image": "SHD/Qira - Playing_Her_Part.png",
-    "name": "Qi'ra - Playing Her Part",
+    "image": "SHD/Qira, Playing_Her_Part.png",
+    "name": "Qi'ra, Playing Her Part",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1846,8 +1846,8 @@
     ]
   },
   "razorcrestreliablegunship": {
-    "image": "SHD/Razor_Crest - Reliable_Gunship.png",
-    "name": "Razor Crest - Reliable Gunship",
+    "image": "SHD/Razor_Crest, Reliable_Gunship.png",
+    "name": "Razor Crest, Reliable Gunship",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1884,7 +1884,7 @@
     ]
   },
   "remnantsciencefacility": {
-    "image": "SHD/Remnant_Science_Facility - Nevarro.png",
+    "image": "SHD/Remnant_Science_Facility, Nevarro.png",
     "name": "Remnant Science Facility",
     "type": "Base",
     "hp": "30",
@@ -1893,7 +1893,7 @@
     ]
   },
   "remotevillage": {
-    "image": "SHD/Remote_Village - Sorgan.png",
+    "image": "SHD/Remote_Village, Sorgan.png",
     "name": "Remote Village",
     "type": "Base",
     "hp": "30",
@@ -1929,8 +1929,8 @@
     ]
   },
   "reymorethanascavenger": {
-    "image": "SHD/Rey - More_Than_a_Scavenger.png",
-    "name": "Rey - More Than a Scavenger",
+    "image": "SHD/Rey, More_Than_a_Scavenger.png",
+    "name": "Rey, More Than a Scavenger",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1939,8 +1939,8 @@
     ]
   },
   "reymorethanascavengerback": {
-    "image": "SHD/Rey - More_Than_a_Scavenger_back.png",
-    "name": "Rey - More Than a Scavenger [Back]",
+    "image": "SHD/Rey, More_Than_a_Scavenger_back.png",
+    "name": "Rey, More Than a Scavenger [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1949,8 +1949,8 @@
     ]
   },
   "reykeepingthepast": {
-    "image": "SHD/Rey - Keeping_the_Past.png",
-    "name": "Rey - Keeping the Past",
+    "image": "SHD/Rey, Keeping_the_Past.png",
+    "name": "Rey, Keeping the Past",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1993,8 +1993,8 @@
     ]
   },
   "roseticodedicatedtothecause": {
-    "image": "SHD/Rose_Tico - Dedicated_to_the_Cause.png",
-    "name": "Rose Tico - Dedicated to the Cause",
+    "image": "SHD/Rose_Tico, Dedicated_to_the_Cause.png",
+    "name": "Rose Tico, Dedicated to the Cause",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2032,8 +2032,8 @@
     ]
   },
   "salaciouscrumbobnoxiouspet": {
-    "image": "SHD/Salacious_Crumb - Obnoxious_Pet.png",
-    "name": "Salacious Crumb - Obnoxious Pet",
+    "image": "SHD/Salacious_Crumb, Obnoxious_Pet.png",
+    "name": "Salacious Crumb, Obnoxious Pet",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2137,7 +2137,7 @@
     ]
   },
   "spicemines": {
-    "image": "SHD/Spice_Mines - Kessel.png",
+    "image": "SHD/Spice_Mines, Kessel.png",
     "name": "Spice Mines",
     "type": "Base",
     "hp": "30",
@@ -2162,8 +2162,8 @@
     "aspects": []
   },
   "sugihiredguardian": {
-    "image": "SHD/Sugi - Hired_Guardian.png",
-    "name": "Sugi - Hired Guardian",
+    "image": "SHD/Sugi, Hired_Guardian.png",
+    "name": "Sugi, Hired Guardian",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2202,8 +2202,8 @@
     ]
   },
   "supremeleadersnokeshadowruler": {
-    "image": "SHD/Supreme_Leader_Snoke - Shadow_Ruler.png",
-    "name": "Supreme Leader Snoke - Shadow Ruler",
+    "image": "SHD/Supreme_Leader_Snoke, Shadow_Ruler.png",
+    "name": "Supreme Leader Snoke, Shadow Ruler",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2239,8 +2239,8 @@
     ]
   },
   "synarasanloyaltokragan": {
-    "image": "SHD/Synara_San - Loyal_to_Kragan.png",
-    "name": "Synara San - Loyal to Kragan",
+    "image": "SHD/Synara_San, Loyal_to_Kragan.png",
+    "name": "Synara San, Loyal to Kragan",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2267,8 +2267,8 @@
     ]
   },
   "tarffulkashyyykchieftan": {
-    "image": "SHD/Tarfful - Kashyyyk_Chieftan.png",
-    "name": "Tarfful - Kashyyyk Chieftan",
+    "image": "SHD/Tarfful, Kashyyyk_Chieftan.png",
+    "name": "Tarfful, Kashyyyk Chieftan",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2276,8 +2276,8 @@
     ]
   },
   "techsourceofinsight": {
-    "image": "SHD/Tech - Source_of_Insight.png",
-    "name": "Tech - Source of Insight",
+    "image": "SHD/Tech, Source_of_Insight.png",
+    "name": "Tech, Source of Insight",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2285,8 +2285,8 @@
     ]
   },
   "thearmorersurvivalisstrength": {
-    "image": "SHD/The_Armorer - Survival_Is_Strength.png",
-    "name": "The Armorer - Survival Is Strength",
+    "image": "SHD/The_Armorer, Survival_Is_Strength.png",
+    "name": "The Armorer, Survival Is Strength",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2305,8 +2305,8 @@
     ]
   },
   "theclientdictatedbydiscretion": {
-    "image": "SHD/The_Client - Dictated_by_Discretion.png",
-    "name": "The Client - Dictated by Discretion",
+    "image": "SHD/The_Client, Dictated_by_Discretion.png",
+    "name": "The Client, Dictated by Discretion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2324,8 +2324,8 @@
     ]
   },
   "themandaloriansworntothecreed": {
-    "image": "SHD/The_Mandalorian - Sworn_to_the_Creed.png",
-    "name": "The Mandalorian - Sworn to the Creed",
+    "image": "SHD/The_Mandalorian, Sworn_to_the_Creed.png",
+    "name": "The Mandalorian, Sworn to the Creed",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -2334,8 +2334,8 @@
     ]
   },
   "themandaloriansworntothecreedback": {
-    "image": "SHD/The_Mandalorian - Sworn_to_the_Creed_back.png",
-    "name": "The Mandalorian - Sworn to the Creed [Back]",
+    "image": "SHD/The_Mandalorian, Sworn_to_the_Creed_back.png",
+    "name": "The Mandalorian, Sworn to the Creed [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -2344,8 +2344,8 @@
     ]
   },
   "themandalorianwhereverigohegoes": {
-    "image": "SHD/The_Mandalorian - Wherever_I_Go_He_Goes.png",
-    "name": "The Mandalorian - Wherever I Go, He Goes",
+    "image": "SHD/The_Mandalorian, Wherever_I_Go_He_Goes.png",
+    "name": "The Mandalorian, Wherever I Go, He Goes",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2363,8 +2363,8 @@
     ]
   },
   "themaraudershuttlingthebadbatch": {
-    "image": "SHD/The_Marauder - Shuttling_the_Bad_Batch.png",
-    "name": "The Marauder - Shuttling the Bad Batch",
+    "image": "SHD/The_Marauder, Shuttling_the_Bad_Batch.png",
+    "name": "The Marauder, Shuttling the Bad Batch",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2391,8 +2391,8 @@
     ]
   },
   "tobiasbeckettitrustnoone": {
-    "image": "SHD/Tobias_Beckett - I_Trust_No_One.png",
-    "name": "Tobias Beckett - I Trust No One",
+    "image": "SHD/Tobias_Beckett, I_Trust_No_One.png",
+    "name": "Tobias Beckett, I Trust No One",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2409,8 +2409,8 @@
     ]
   },
   "torocalicanambitiousupstart": {
-    "image": "SHD/Toro_Calican - Ambitious_Upstart.png",
-    "name": "Toro Calican - Ambitious Upstart",
+    "image": "SHD/Toro_Calican, Ambitious_Upstart.png",
+    "name": "Toro Calican, Ambitious Upstart",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2479,8 +2479,8 @@
     ]
   },
   "valloyaltotheend": {
-    "image": "SHD/Val - Loyal_to_the_End.png",
-    "name": "Val - Loyal to the End",
+    "image": "SHD/Val, Loyal_to_the_End.png",
+    "name": "Val, Loyal to the End",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2600,8 +2600,8 @@
     ]
   },
   "wreckerboom": {
-    "image": "SHD/Wrecker - Boom.png",
-    "name": "Wrecker - Boom!",
+    "image": "SHD/Wrecker, Boom.png",
+    "name": "Wrecker, Boom!",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2619,8 +2619,8 @@
     ]
   },
   "xanadubloodcadbanesreward": {
-    "image": "SHD/Xanadu_Blood - Cad_Banes_Reward.png",
-    "name": "Xanadu Blood - Cad Bane's Reward",
+    "image": "SHD/Xanadu_Blood, Cad_Banes_Reward.png",
+    "name": "Xanadu Blood, Cad Bane's Reward",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2629,8 +2629,8 @@
     ]
   },
   "zoriiblissvaliantsmuggler": {
-    "image": "SHD/Zorii_Bliss - Valiant_Smuggler.png",
-    "name": "Zorii Bliss - Valiant Smuggler",
+    "image": "SHD/Zorii_Bliss, Valiant_Smuggler.png",
+    "name": "Zorii Bliss, Valiant Smuggler",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2639,8 +2639,8 @@
     ]
   },
   "zuckussbountyhunterforhire": {
-    "image": "SHD/Zuckuss - Bounty_Hunter_for_Hire.png",
-    "name": "Zuckuss - Bounty Hunter for Hire",
+    "image": "SHD/Zuckuss, Bounty_Hunter_for_Hire.png",
+    "name": "Zuckuss, Bounty Hunter for Hire",
     "type": "Unit",
     "hp": null,
     "aspects": [

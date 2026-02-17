@@ -34,6 +34,14 @@
     font-style: normal;
 }
 
+/* Barlow Font for Star Wars */
+@font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
 :root {
   --dynamic-font: 'Bebas Neue', sans-serif;
 }

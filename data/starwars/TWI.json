@@ -47,8 +47,8 @@
     ]
   },
   "aaylasecuramasteroftheblade": {
-    "image": "TWI/Aayla_Secura - Master_of_the_Blade.png",
-    "name": "Aayla Secura - Master of the Blade",
+    "image": "TWI/Aayla_Secura, Master_of_the_Blade.png",
+    "name": "Aayla Secura, Master of the Blade",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -57,8 +57,8 @@
     ]
   },
   "admiraltrenchholdingtheline": {
-    "image": "TWI/Admiral_Trench - Holding_the_Line.png",
-    "name": "Admiral Trench - Holding the Line",
+    "image": "TWI/Admiral_Trench, Holding_the_Line.png",
+    "name": "Admiral Trench, Holding the Line",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -67,8 +67,8 @@
     ]
   },
   "admiralyularenadvisingcaution": {
-    "image": "TWI/Admiral_Yularen - Advising_Caution.png",
-    "name": "Admiral Yularen - Advising Caution",
+    "image": "TWI/Admiral_Yularen, Advising_Caution.png",
+    "name": "Admiral Yularen, Advising Caution",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -94,8 +94,8 @@
     "aspects": []
   },
   "ahsokatanosnips": {
-    "image": "TWI/Ahsoka_Tano - Snips.png",
-    "name": "Ahsoka Tano - Snips",
+    "image": "TWI/Ahsoka_Tano, Snips.png",
+    "name": "Ahsoka Tano, Snips",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -104,8 +104,8 @@
     ]
   },
   "ahsokatanosnipsback": {
-    "image": "TWI/Ahsoka_Tano - Snips_back.png",
-    "name": "Ahsoka Tano - Snips [Back]",
+    "image": "TWI/Ahsoka_Tano, Snips_back.png",
+    "name": "Ahsoka Tano, Snips [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -114,8 +114,8 @@
     ]
   },
   "ahsokatanoalwaysreadyfortrouble": {
-    "image": "TWI/Ahsoka_Tano - Always_Ready_For_Trouble.png",
-    "name": "Ahsoka Tano - Always Ready For Trouble",
+    "image": "TWI/Ahsoka_Tano, Always_Ready_For_Trouble.png",
+    "name": "Ahsoka Tano, Always Ready For Trouble",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -143,8 +143,8 @@
     ]
   },
   "anakinskywalkerwhatittakestowin": {
-    "image": "TWI/Anakin_Skywalker - What_it_Takes_to_Win.png",
-    "name": "Anakin Skywalker - What it Takes to Win",
+    "image": "TWI/Anakin_Skywalker, What_it_Takes_to_Win.png",
+    "name": "Anakin Skywalker, What it Takes to Win",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -153,8 +153,8 @@
     ]
   },
   "anakinskywalkerwhatittakestowinback": {
-    "image": "TWI/Anakin_Skywalker - What_it_Takes_to_Win_back.png",
-    "name": "Anakin Skywalker - What it Takes to Win [Back]",
+    "image": "TWI/Anakin_Skywalker, What_it_Takes_to_Win_back.png",
+    "name": "Anakin Skywalker, What it Takes to Win [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -163,8 +163,8 @@
     ]
   },
   "anakinskywalkermaverickmentor": {
-    "image": "TWI/Anakin_Skywalker - Maverick_Mentor.png",
-    "name": "Anakin Skywalker - Maverick Mentor",
+    "image": "TWI/Anakin_Skywalker, Maverick_Mentor.png",
+    "name": "Anakin Skywalker, Maverick Mentor",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -173,8 +173,8 @@
     ]
   },
   "anakinsinterceptorwherethefunbegins": {
-    "image": "TWI/Anakins_Interceptor - Where_the_Fun_Begins.png",
-    "name": "Anakin's Interceptor - Where the Fun Begins",
+    "image": "TWI/Anakins_Interceptor, Where_the_Fun_Begins.png",
+    "name": "Anakin's Interceptor, Where the Fun Begins",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -192,8 +192,8 @@
     ]
   },
   "asajjventressunparalleledadversary": {
-    "image": "TWI/Asajj_Ventress - Unparalleled_Adversary.png",
-    "name": "Asajj Ventress - Unparalleled Adversary",
+    "image": "TWI/Asajj_Ventress, Unparalleled_Adversary.png",
+    "name": "Asajj Ventress, Unparalleled Adversary",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -202,8 +202,8 @@
     ]
   },
   "asajjventressunparalleledadversaryback": {
-    "image": "TWI/Asajj_Ventress - Unparalleled_Adversary_back.png",
-    "name": "Asajj Ventress - Unparalleled Adversary [Back]",
+    "image": "TWI/Asajj_Ventress, Unparalleled_Adversary_back.png",
+    "name": "Asajj Ventress, Unparalleled Adversary [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -212,8 +212,8 @@
     ]
   },
   "asajjventresscountdookusassassin": {
-    "image": "TWI/Asajj_Ventress - Count_Dookus_Assassin.png",
-    "name": "Asajj Ventress - Count Dooku's Assassin",
+    "image": "TWI/Asajj_Ventress, Count_Dookus_Assassin.png",
+    "name": "Asajj Ventress, Count Dooku's Assassin",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -222,8 +222,8 @@
     ]
   },
   "aurrasingcrackshotsniper": {
-    "image": "TWI/Aurra_Sing - Crackshot_Sniper.png",
-    "name": "Aurra Sing - Crackshot Sniper",
+    "image": "TWI/Aurra_Sing, Crackshot_Sniper.png",
+    "name": "Aurra Sing, Crackshot Sniper",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -268,8 +268,8 @@
     ]
   },
   "barrissoffeeunassumingapprentice": {
-    "image": "TWI/Barriss_Offee - Unassuming_Apprentice.png",
-    "name": "Barriss Offee - Unassuming Apprentice",
+    "image": "TWI/Barriss_Offee, Unassuming_Apprentice.png",
+    "name": "Barriss Offee, Unassuming Apprentice",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -315,8 +315,8 @@
     ]
   },
   "bokatankryzedeathwatchlieutenant": {
-    "image": "TWI/Bo-Katan_Kryze - Death_Watch_Lieutenant.png",
-    "name": "Bo-Katan Kryze - Death Watch Lieutenant",
+    "image": "TWI/Bo-Katan_Kryze, Death_Watch_Lieutenant.png",
+    "name": "Bo-Katan Kryze, Death Watch Lieutenant",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -360,8 +360,8 @@
     ]
   },
   "cadbanehostagetaker": {
-    "image": "TWI/Cad_Bane - Hostage_Taker.png",
-    "name": "Cad Bane - Hostage Taker",
+    "image": "TWI/Cad_Bane, Hostage_Taker.png",
+    "name": "Cad Bane, Hostage Taker",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -380,8 +380,8 @@
     ]
   },
   "captainrexfightingforhisbrothers": {
-    "image": "TWI/Captain_Rex - Fighting_For_His_Brothers.png",
-    "name": "Captain Rex - Fighting For His Brothers",
+    "image": "TWI/Captain_Rex, Fighting_For_His_Brothers.png",
+    "name": "Captain Rex, Fighting For His Brothers",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -390,8 +390,8 @@
     ]
   },
   "captainrexfightingforhisbrothersback": {
-    "image": "TWI/Captain_Rex - Fighting_For_His_Brothers_back.png",
-    "name": "Captain Rex - Fighting For His Brothers [Back]",
+    "image": "TWI/Captain_Rex, Fighting_For_His_Brothers_back.png",
+    "name": "Captain Rex, Fighting For His Brothers [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -400,8 +400,8 @@
     ]
   },
   "captainrexleadbyexample": {
-    "image": "TWI/Captain_Rex - Lead_by_Example.png",
-    "name": "Captain Rex - Lead by Example",
+    "image": "TWI/Captain_Rex, Lead_by_Example.png",
+    "name": "Captain Rex, Lead by Example",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -410,8 +410,8 @@
     ]
   },
   "captaintyphoprotectingthesenator": {
-    "image": "TWI/Captain_Typho - Protecting_the_Senator.png",
-    "name": "Captain Typho - Protecting the Senator",
+    "image": "TWI/Captain_Typho, Protecting_the_Senator.png",
+    "name": "Captain Typho, Protecting the Senator",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -429,8 +429,8 @@
     ]
   },
   "chancellorpalpatinewartimechancellor": {
-    "image": "TWI/Chancellor_Palpatine - Wartime_Chancellor.png",
-    "name": "Chancellor Palpatine - Wartime Chancellor",
+    "image": "TWI/Chancellor_Palpatine, Wartime_Chancellor.png",
+    "name": "Chancellor Palpatine, Wartime Chancellor",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -439,8 +439,8 @@
     ]
   },
   "chancellorpalpatinedarthsidiousplayingbothsides": {
-    "image": "TWI/Chancellor_Palpatine__Darth_Sidious - Playing_Both_Sides.png",
-    "name": "Chancellor Palpatine // Darth Sidious - Playing Both Sides",
+    "image": "TWI/Chancellor_Palpatine__Darth_Sidious, Playing_Both_Sides.png",
+    "name": "Chancellor Palpatine // Darth Sidious, Playing Both Sides",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -450,8 +450,8 @@
     ]
   },
   "chancellorpalpatinedarthsidiousplayingbothsidesback": {
-    "image": "TWI/Chancellor_Palpatine__Darth_Sidious - Playing_Both_Sides_back.png",
-    "name": "Chancellor Palpatine // Darth Sidious - Playing Both Sides [Back]",
+    "image": "TWI/Chancellor_Palpatine__Darth_Sidious, Playing_Both_Sides_back.png",
+    "name": "Chancellor Palpatine // Darth Sidious, Playing Both Sides [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -489,8 +489,8 @@
     ]
   },
   "clonecommandercodycommandingthe212th": {
-    "image": "TWI/Clone_Commander_Cody - Commanding_the_212th.png",
-    "name": "Clone Commander Cody - Commanding the 212th",
+    "image": "TWI/Clone_Commander_Cody, Commanding_the_212th.png",
+    "name": "Clone Commander Cody, Commanding the 212th",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -574,8 +574,8 @@
     ]
   },
   "countdookufaceoftheconfederacy": {
-    "image": "TWI/Count_Dooku - Face_of_the_Confederacy.png",
-    "name": "Count Dooku - Face of the Confederacy",
+    "image": "TWI/Count_Dooku, Face_of_the_Confederacy.png",
+    "name": "Count Dooku, Face of the Confederacy",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -584,8 +584,8 @@
     ]
   },
   "countdookufaceoftheconfederacyback": {
-    "image": "TWI/Count_Dooku - Face_of_the_Confederacy_back.png",
-    "name": "Count Dooku - Face of the Confederacy [Back]",
+    "image": "TWI/Count_Dooku, Face_of_the_Confederacy_back.png",
+    "name": "Count Dooku, Face of the Confederacy [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -594,8 +594,8 @@
     ]
   },
   "countdookufallenjedi": {
-    "image": "TWI/Count_Dooku - Fallen_Jedi.png",
-    "name": "Count Dooku - Fallen Jedi",
+    "image": "TWI/Count_Dooku, Fallen_Jedi.png",
+    "name": "Count Dooku, Fallen Jedi",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -623,8 +623,8 @@
     ]
   },
   "darthmaulrevengeatlast": {
-    "image": "TWI/Darth_Maul - Revenge_At_Last.png",
-    "name": "Darth Maul - Revenge At Last",
+    "image": "TWI/Darth_Maul, Revenge_At_Last.png",
+    "name": "Darth Maul, Revenge At Last",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -716,7 +716,7 @@
     ]
   },
   "droidmanufactory": {
-    "image": "TWI/Droid_Manufactory - Geonosis.png",
+    "image": "TWI/Droid_Manufactory, Geonosis.png",
     "name": "Droid Manufactory",
     "type": "Base",
     "hp": "24",
@@ -772,8 +772,8 @@
     ]
   },
   "echovaliantarctrooper": {
-    "image": "TWI/Echo - Valiant_ARC_Trooper.png",
-    "name": "Echo - Valiant ARC Trooper",
+    "image": "TWI/Echo, Valiant_ARC_Trooper.png",
+    "name": "Echo, Valiant ARC Trooper",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -801,8 +801,8 @@
     ]
   },
   "enfysnestchampionofjustice": {
-    "image": "TWI/Enfys_Nest - Champion_of_Justice.png",
-    "name": "Enfys Nest - Champion of Justice",
+    "image": "TWI/Enfys_Nest, Champion_of_Justice.png",
+    "name": "Enfys Nest, Champion of Justice",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -857,8 +857,8 @@
     ]
   },
   "finnontherun": {
-    "image": "TWI/Finn - On_the_Run.png",
-    "name": "Finn - On the Run",
+    "image": "TWI/Finn, On_the_Run.png",
+    "name": "Finn, On the Run",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -867,8 +867,8 @@
     ]
   },
   "fivesinsearchoftruth": {
-    "image": "TWI/Fives - In_Search_of_Truth.png",
-    "name": "Fives - In Search of Truth",
+    "image": "TWI/Fives, In_Search_of_Truth.png",
+    "name": "Fives, In Search of Truth",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -904,8 +904,8 @@
     ]
   },
   "generalgrievousgeneralofthedroidarmies": {
-    "image": "TWI/General_Grievous - General_of_the_Droid_Armies.png",
-    "name": "General Grievous - General of the Droid Armies",
+    "image": "TWI/General_Grievous, General_of_the_Droid_Armies.png",
+    "name": "General Grievous, General of the Droid Armies",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -914,8 +914,8 @@
     ]
   },
   "generalgrievousgeneralofthedroidarmiesback": {
-    "image": "TWI/General_Grievous - General_of_the_Droid_Armies_back.png",
-    "name": "General Grievous - General of the Droid Armies [Back]",
+    "image": "TWI/General_Grievous, General_of_the_Droid_Armies_back.png",
+    "name": "General Grievous, General of the Droid Armies [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -924,8 +924,8 @@
     ]
   },
   "generalgrievoustrophycollector": {
-    "image": "TWI/General_Grievous - Trophy_Collector.png",
-    "name": "General Grievous - Trophy Collector",
+    "image": "TWI/General_Grievous, Trophy_Collector.png",
+    "name": "General Grievous, Trophy Collector",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -962,8 +962,8 @@
     ]
   },
   "gorgrievousspet": {
-    "image": "TWI/Gor - Grievouss_Pet.png",
-    "name": "Gor - Grievous's Pet",
+    "image": "TWI/Gor, Grievouss_Pet.png",
+    "name": "Gor, Grievous's Pet",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1069,8 +1069,8 @@
     ]
   },
   "hevystaunchmartyr": {
-    "image": "TWI/Hevy - Staunch_Martyr.png",
-    "name": "Hevy - Staunch Martyr",
+    "image": "TWI/Hevy, Staunch_Martyr.png",
+    "name": "Hevy, Staunch Martyr",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1103,8 +1103,8 @@
     ]
   },
   "huyangenduringinstructor": {
-    "image": "TWI/Huyang - Enduring_Instructor.png",
-    "name": "Huyang - Enduring Instructor",
+    "image": "TWI/Huyang, Enduring_Instructor.png",
+    "name": "Huyang, Enduring Instructor",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1177,8 +1177,8 @@
     ]
   },
   "jangofettconcealingtheconspiracy": {
-    "image": "TWI/Jango_Fett - Concealing_the_Conspiracy.png",
-    "name": "Jango Fett - Concealing the Conspiracy",
+    "image": "TWI/Jango_Fett, Concealing_the_Conspiracy.png",
+    "name": "Jango Fett, Concealing the Conspiracy",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1187,8 +1187,8 @@
     ]
   },
   "jangofettconcealingtheconspiracyback": {
-    "image": "TWI/Jango_Fett - Concealing_the_Conspiracy_back.png",
-    "name": "Jango Fett - Concealing the Conspiracy [Back]",
+    "image": "TWI/Jango_Fett, Concealing_the_Conspiracy_back.png",
+    "name": "Jango Fett, Concealing the Conspiracy [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1197,8 +1197,8 @@
     ]
   },
   "jarjarbinksfoolishgungan": {
-    "image": "TWI/Jar_Jar_Binks - Foolish_Gungan.png",
-    "name": "Jar Jar Binks - Foolish Gungan",
+    "image": "TWI/Jar_Jar_Binks, Foolish_Gungan.png",
+    "name": "Jar Jar Binks, Foolish Gungan",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1207,8 +1207,8 @@
     ]
   },
   "jessehardfightingpatriot": {
-    "image": "TWI/Jesse - Hard-Fighting_Patriot.png",
-    "name": "Jesse - Hard-Fighting Patriot",
+    "image": "TWI/Jesse, Hard-Fighting_Patriot.png",
+    "name": "Jesse, Hard-Fighting Patriot",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1217,8 +1217,8 @@
     ]
   },
   "jynersostardust": {
-    "image": "TWI/Jyn_Erso - Stardust.png",
-    "name": "Jyn Erso - Stardust",
+    "image": "TWI/Jyn_Erso, Stardust.png",
+    "name": "Jyn Erso, Stardust",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1227,7 +1227,7 @@
     ]
   },
   "kcmminingfacility": {
-    "image": "TWI/KCM_Mining_Facility - Mustafar.png",
+    "image": "TWI/KCM_Mining_Facility, Mustafar.png",
     "name": "KCM Mining Facility",
     "type": "Base",
     "hp": "30",
@@ -1236,8 +1236,8 @@
     ]
   },
   "kalanianalyticalgeneral": {
-    "image": "TWI/Kalani - Analytical_General.png",
-    "name": "Kalani - Analytical General",
+    "image": "TWI/Kalani, Analytical_General.png",
+    "name": "Kalani, Analytical General",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1256,8 +1256,8 @@
     ]
   },
   "kiadimundicomposedandconfident": {
-    "image": "TWI/Ki-Adi-Mundi - Composed_and_Confident.png",
-    "name": "Ki-Adi-Mundi - Composed and Confident",
+    "image": "TWI/Ki-Adi-Mundi, Composed_and_Confident.png",
+    "name": "Ki-Adi-Mundi, Composed and Confident",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1265,8 +1265,8 @@
     ]
   },
   "kitfistothesmilingjedi": {
-    "image": "TWI/Kit_Fisto - The_Smiling_Jedi.png",
-    "name": "Kit Fisto - The Smiling Jedi",
+    "image": "TWI/Kit_Fisto, The_Smiling_Jedi.png",
+    "name": "Kit Fisto, The Smiling Jedi",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1284,8 +1284,8 @@
     ]
   },
   "krakenconfederatetactician": {
-    "image": "TWI/Kraken - Confederate_Tactician.png",
-    "name": "Kraken - Confederate Tactician",
+    "image": "TWI/Kraken, Confederate_Tactician.png",
+    "name": "Kraken, Confederate Tactician",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1294,7 +1294,7 @@
     ]
   },
   "lairofgrievous": {
-    "image": "TWI/Lair_of_Grievous - Vassek.png",
+    "image": "TWI/Lair_of_Grievous, Vassek.png",
     "name": "Lair of Grievous",
     "type": "Base",
     "hp": "30",
@@ -1313,7 +1313,7 @@
     ]
   },
   "level1313": {
-    "image": "TWI/Level_1313 - Coruscant.png",
+    "image": "TWI/Level_1313, Coruscant.png",
     "name": "Level 1313",
     "type": "Base",
     "hp": "30",
@@ -1332,8 +1332,8 @@
     ]
   },
   "luminaraundulisoftspokenmaster": {
-    "image": "TWI/Luminara_Unduli - Soft-Spoken_Master.png",
-    "name": "Luminara Unduli - Soft-Spoken Master",
+    "image": "TWI/Luminara_Unduli, Soft-Spoken_Master.png",
+    "name": "Luminara Unduli, Soft-Spoken Master",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1342,8 +1342,8 @@
     ]
   },
   "luxbonterirenegadeseparatist": {
-    "image": "TWI/Lux_Bonteri - Renegade_Separatist.png",
-    "name": "Lux Bonteri - Renegade Separatist",
+    "image": "TWI/Lux_Bonteri, Renegade_Separatist.png",
+    "name": "Lux Bonteri, Renegade Separatist",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1351,8 +1351,8 @@
     ]
   },
   "macewinduvaapadformmaster": {
-    "image": "TWI/Mace_Windu - Vaapad_Form_Master.png",
-    "name": "Mace Windu - Vaapad Form Master",
+    "image": "TWI/Mace_Windu, Vaapad_Form_Master.png",
+    "name": "Mace Windu, Vaapad Form Master",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1361,8 +1361,8 @@
     ]
   },
   "macewinduvaapadformmasterback": {
-    "image": "TWI/Mace_Windu - Vaapad_Form_Master_back.png",
-    "name": "Mace Windu - Vaapad Form Master [Back]",
+    "image": "TWI/Mace_Windu, Vaapad_Form_Master_back.png",
+    "name": "Mace Windu, Vaapad Form Master [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1391,8 +1391,8 @@
     ]
   },
   "malevolencegrievousssecretweapon": {
-    "image": "TWI/Malevolence - Grievouss_Secret_Weapon.png",
-    "name": "Malevolence - Grievous's Secret Weapon",
+    "image": "TWI/Malevolence, Grievouss_Secret_Weapon.png",
+    "name": "Malevolence, Grievous's Secret Weapon",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1411,8 +1411,8 @@
     ]
   },
   "masameddavicechair": {
-    "image": "TWI/Mas_Amedda - Vice_Chair.png",
-    "name": "Mas Amedda - Vice Chair",
+    "image": "TWI/Mas_Amedda, Vice_Chair.png",
+    "name": "Mas Amedda, Vice Chair",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1421,8 +1421,8 @@
     ]
   },
   "maularivalindarkness": {
-    "image": "TWI/Maul - A_Rival_in_Darkness.png",
-    "name": "Maul - A Rival in Darkness",
+    "image": "TWI/Maul, A_Rival_in_Darkness.png",
+    "name": "Maul, A Rival in Darkness",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1431,8 +1431,8 @@
     ]
   },
   "maularivalindarknessback": {
-    "image": "TWI/Maul - A_Rival_in_Darkness_back.png",
-    "name": "Maul - A Rival in Darkness [Back]",
+    "image": "TWI/Maul, A_Rival_in_Darkness_back.png",
+    "name": "Maul, A Rival in Darkness [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1450,8 +1450,8 @@
     ]
   },
   "misterbonesiperformedviolence": {
-    "image": "TWI/Mister_Bones - I_Performed_Violence.png",
-    "name": "Mister Bones - I Performed Violence",
+    "image": "TWI/Mister_Bones, I_Performed_Violence.png",
+    "name": "Mister Bones, I Performed Violence",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1460,8 +1460,8 @@
     ]
   },
   "morganelsbethkeeperofmanysecrets": {
-    "image": "TWI/Morgan_Elsbeth - Keeper_of_Many_Secrets.png",
-    "name": "Morgan Elsbeth - Keeper of Many Secrets",
+    "image": "TWI/Morgan_Elsbeth, Keeper_of_Many_Secrets.png",
+    "name": "Morgan Elsbeth, Keeper of Many Secrets",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1479,8 +1479,8 @@
     ]
   },
   "nalasecloneengineer": {
-    "image": "TWI/Nala_Se - Clone_Engineer.png",
-    "name": "Nala Se - Clone Engineer",
+    "image": "TWI/Nala_Se, Clone_Engineer.png",
+    "name": "Nala Se, Clone Engineer",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1489,8 +1489,8 @@
     ]
   },
   "nalasecloneengineerback": {
-    "image": "TWI/Nala_Se - Clone_Engineer_back.png",
-    "name": "Nala Se - Clone Engineer [Back]",
+    "image": "TWI/Nala_Se, Clone_Engineer_back.png",
+    "name": "Nala Se, Clone Engineer [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1517,8 +1517,8 @@
     ]
   },
   "nutegunrayvindictiveviceroy": {
-    "image": "TWI/Nute_Gunray - Vindictive_Viceroy.png",
-    "name": "Nute Gunray - Vindictive Viceroy",
+    "image": "TWI/Nute_Gunray, Vindictive_Viceroy.png",
+    "name": "Nute Gunray, Vindictive Viceroy",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1527,8 +1527,8 @@
     ]
   },
   "nutegunrayvindictiveviceroyback": {
-    "image": "TWI/Nute_Gunray - Vindictive_Viceroy_back.png",
-    "name": "Nute Gunray - Vindictive Viceroy [Back]",
+    "image": "TWI/Nute_Gunray, Vindictive_Viceroy_back.png",
+    "name": "Nute Gunray, Vindictive Viceroy [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1556,8 +1556,8 @@
     ]
   },
   "obiwankenobipatientmentor": {
-    "image": "TWI/Obi-Wan_Kenobi - Patient_Mentor.png",
-    "name": "Obi-Wan Kenobi - Patient Mentor",
+    "image": "TWI/Obi-Wan_Kenobi, Patient_Mentor.png",
+    "name": "Obi-Wan Kenobi, Patient Mentor",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1566,8 +1566,8 @@
     ]
   },
   "obiwankenobipatientmentorback": {
-    "image": "TWI/Obi-Wan_Kenobi - Patient_Mentor_back.png",
-    "name": "Obi-Wan Kenobi - Patient Mentor [Back]",
+    "image": "TWI/Obi-Wan_Kenobi, Patient_Mentor_back.png",
+    "name": "Obi-Wan Kenobi, Patient Mentor [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1576,8 +1576,8 @@
     ]
   },
   "obiwansaetherspritethisiswhyihateflying": {
-    "image": "TWI/Obi-Wans_Aethersprite - This_is_Why_I_Hate_Flying.png",
-    "name": "Obi-Wan's Aethersprite - This is Why I Hate Flying",
+    "image": "TWI/Obi-Wans_Aethersprite, This_is_Why_I_Hate_Flying.png",
+    "name": "Obi-Wan's Aethersprite, This is Why I Hate Flying",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1623,8 +1623,8 @@
     ]
   },
   "osisobeckwardenofthecitadel": {
-    "image": "TWI/Osi_Sobeck - Warden_of_the_Citadel.png",
-    "name": "Osi Sobeck - Warden of the Citadel",
+    "image": "TWI/Osi_Sobeck, Warden_of_the_Citadel.png",
+    "name": "Osi Sobeck, Warden of the Citadel",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1660,8 +1660,8 @@
     ]
   },
   "padmamidalaservingtherepublic": {
-    "image": "TWI/Padm_Amidala - Serving_the_Republic.png",
-    "name": "Padmé Amidala - Serving the Republic",
+    "image": "TWI/Padm_Amidala, Serving_the_Republic.png",
+    "name": "Padmé Amidala, Serving the Republic",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1670,8 +1670,8 @@
     ]
   },
   "padmamidalaservingtherepublicback": {
-    "image": "TWI/Padm_Amidala - Serving_the_Republic_back.png",
-    "name": "Padmé Amidala - Serving the Republic [Back]",
+    "image": "TWI/Padm_Amidala, Serving_the_Republic_back.png",
+    "name": "Padmé Amidala, Serving the Republic [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1680,8 +1680,8 @@
     ]
   },
   "padmamidalapursuingpeace": {
-    "image": "TWI/Padm_Amidala - Pursuing_Peace.png",
-    "name": "Padmé Amidala - Pursuing Peace",
+    "image": "TWI/Padm_Amidala, Pursuing_Peace.png",
+    "name": "Padmé Amidala, Pursuing Peace",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1708,7 +1708,7 @@
     ]
   },
   "paucity": {
-    "image": "TWI/Pau_City - Utapau.png",
+    "image": "TWI/Pau_City, Utapau.png",
     "name": "Pau City",
     "type": "Base",
     "hp": "26",
@@ -1746,7 +1746,7 @@
     ]
   },
   "petranakiarena": {
-    "image": "TWI/Petranaki_Arena - Geonosis.png",
+    "image": "TWI/Petranaki_Arena, Geonosis.png",
     "name": "Petranaki Arena",
     "type": "Base",
     "hp": "26",
@@ -1782,8 +1782,8 @@
     ]
   },
   "plokoonkohtoyah": {
-    "image": "TWI/Plo_Koon - Koh-to-yah.png",
-    "name": "Plo Koon - Koh-to-yah!",
+    "image": "TWI/Plo_Koon, Koh-to-yah.png",
+    "name": "Plo Koon, Koh-to-yah!",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1792,8 +1792,8 @@
     ]
   },
   "pogglethelesserarchdukeofthestalgasinhive": {
-    "image": "TWI/Poggle_the_Lesser - Archduke_of_the_Stalgasin_Hive.png",
-    "name": "Poggle the Lesser - Archduke of the Stalgasin Hive",
+    "image": "TWI/Poggle_the_Lesser, Archduke_of_the_Stalgasin_Hive.png",
+    "name": "Poggle the Lesser, Archduke of the Stalgasin Hive",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1811,8 +1811,8 @@
     ]
   },
   "previzslapursuingthethrone": {
-    "image": "TWI/Pre_Vizsla - Pursuing_the_Throne.png",
-    "name": "Pre Vizsla - Pursuing the Throne",
+    "image": "TWI/Pre_Vizsla, Pursuing_the_Throne.png",
+    "name": "Pre Vizsla, Pursuing the Throne",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1821,8 +1821,8 @@
     ]
   },
   "previzslapursuingthethroneback": {
-    "image": "TWI/Pre_Vizsla - Pursuing_the_Throne_back.png",
-    "name": "Pre Vizsla - Pursuing the Throne [Back]",
+    "image": "TWI/Pre_Vizsla, Pursuing_the_Throne_back.png",
+    "name": "Pre Vizsla, Pursuing the Throne [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1857,7 +1857,7 @@
     ]
   },
   "pykepalace": {
-    "image": "TWI/Pyke_Palace - Oba_Diah.png",
+    "image": "TWI/Pyke_Palace, Oba_Diah.png",
     "name": "Pyke Palace",
     "type": "Base",
     "hp": "30",
@@ -1876,8 +1876,8 @@
     ]
   },
   "quinlanvosstickingthelanding": {
-    "image": "TWI/Quinlan_Vos - Sticking_the_Landing.png",
-    "name": "Quinlan Vos - Sticking the Landing",
+    "image": "TWI/Quinlan_Vos, Sticking_the_Landing.png",
+    "name": "Quinlan Vos, Sticking the Landing",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1886,8 +1886,8 @@
     ]
   },
   "quinlanvosstickingthelandingback": {
-    "image": "TWI/Quinlan_Vos - Sticking_the_Landing_back.png",
-    "name": "Quinlan Vos - Sticking the Landing [Back]",
+    "image": "TWI/Quinlan_Vos, Sticking_the_Landing_back.png",
+    "name": "Quinlan Vos, Sticking the Landing [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1896,8 +1896,8 @@
     ]
   },
   "r2d2fullofsolutions": {
-    "image": "TWI/R2-D2 - Full_of_Solutions.png",
-    "name": "R2-D2 - Full of Solutions",
+    "image": "TWI/R2-D2, Full_of_Solutions.png",
+    "name": "R2-D2, Full of Solutions",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1982,8 +1982,8 @@
     ]
   },
   "resoluteunderanakinscommand": {
-    "image": "TWI/Resolute - Under_Anakins_Command.png",
-    "name": "Resolute - Under Anakin's Command",
+    "image": "TWI/Resolute, Under_Anakins_Command.png",
+    "name": "Resolute, Under Anakin's Command",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2019,8 +2019,8 @@
     ]
   },
   "runehaakoschemingsecond": {
-    "image": "TWI/Rune_Haako - Scheming_Second.png",
-    "name": "Rune Haako - Scheming Second",
+    "image": "TWI/Rune_Haako, Scheming_Second.png",
+    "name": "Rune Haako, Scheming Second",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2029,8 +2029,8 @@
     ]
   },
   "rushclovisbankingclanscion": {
-    "image": "TWI/Rush_Clovis - Banking_Clan_Scion.png",
-    "name": "Rush Clovis - Banking Clan Scion",
+    "image": "TWI/Rush_Clovis, Banking_Clan_Scion.png",
+    "name": "Rush Clovis, Banking Clan Scion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2048,8 +2048,8 @@
     ]
   },
   "sabinewrenyoucancountonme": {
-    "image": "TWI/Sabine_Wren - You_Can_Count_On_Me.png",
-    "name": "Sabine Wren - You Can Count On Me",
+    "image": "TWI/Sabine_Wren, You_Can_Count_On_Me.png",
+    "name": "Sabine Wren, You Can Count On Me",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2058,8 +2058,8 @@
     ]
   },
   "sanhillchairmanofthebankingclan": {
-    "image": "TWI/San_Hill - Chairman_of_the_Banking_Clan.png",
-    "name": "San Hill - Chairman of the Banking Clan",
+    "image": "TWI/San_Hill, Chairman_of_the_Banking_Clan.png",
+    "name": "San Hill, Chairman of the Banking Clan",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2077,8 +2077,8 @@
     ]
   },
   "satinekryzecommittedtopeace": {
-    "image": "TWI/Satine_Kryze - Committed_to_Peace.png",
-    "name": "Satine Kryze - Committed to Peace",
+    "image": "TWI/Satine_Kryze, Committed_to_Peace.png",
+    "name": "Satine Kryze, Committed to Peace",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2087,8 +2087,8 @@
     ]
   },
   "savageopressmonster": {
-    "image": "TWI/Savage_Opress - Monster.png",
-    "name": "Savage Opress - Monster",
+    "image": "TWI/Savage_Opress, Monster.png",
+    "name": "Savage Opress, Monster",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2097,8 +2097,8 @@
     ]
   },
   "sawgerreraresistanceisnotterrorism": {
-    "image": "TWI/Saw_Gerrera - Resistance_is_Not_Terrorism.png",
-    "name": "Saw Gerrera - Resistance is Not Terrorism",
+    "image": "TWI/Saw_Gerrera, Resistance_is_Not_Terrorism.png",
+    "name": "Saw Gerrera, Resistance is Not Terrorism",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2147,8 +2147,8 @@
     ]
   },
   "shaaktiunitywinswars": {
-    "image": "TWI/Shaak_Ti - Unity_Wins_Wars.png",
-    "name": "Shaak Ti - Unity Wins Wars",
+    "image": "TWI/Shaak_Ti, Unity_Wins_Wars.png",
+    "name": "Shaak Ti, Unity Wins Wars",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2157,7 +2157,7 @@
     ]
   },
   "shadowcollectivecamp": {
-    "image": "TWI/Shadow_Collective_Camp - Zanbar.png",
+    "image": "TWI/Shadow_Collective_Camp, Zanbar.png",
     "name": "Shadow Collective Camp",
     "type": "Base",
     "hp": "25",
@@ -2175,8 +2175,8 @@
     ]
   },
   "slymooresecretiveadvisor": {
-    "image": "TWI/Sly_Moore - Secretive_Advisor.png",
-    "name": "Sly Moore - Secretive Advisor",
+    "image": "TWI/Sly_Moore, Secretive_Advisor.png",
+    "name": "Sly Moore, Secretive Advisor",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2194,8 +2194,8 @@
     ]
   },
   "soullessonecustomizedforgrievous": {
-    "image": "TWI/Soulless_One - Customized_for_Grievous.png",
-    "name": "Soulless One - Customized for Grievous",
+    "image": "TWI/Soulless_One, Customized_for_Grievous.png",
+    "name": "Soulless One, Customized for Grievous",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2232,8 +2232,8 @@
     ]
   },
   "steelagerrerabelovedtactician": {
-    "image": "TWI/Steela_Gerrera - Beloved_Tactician.png",
-    "name": "Steela Gerrera - Beloved Tactician",
+    "image": "TWI/Steela_Gerrera, Beloved_Tactician.png",
+    "name": "Steela Gerrera, Beloved Tactician",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2269,7 +2269,7 @@
     ]
   },
   "sundari": {
-    "image": "TWI/Sundari - Mandalore.png",
+    "image": "TWI/Sundari, Mandalore.png",
     "name": "Sundari",
     "type": "Base",
     "hp": "30",
@@ -2343,7 +2343,7 @@
     ]
   },
   "thecrystalcity": {
-    "image": "TWI/The_Crystal_City - Christophsis.png",
+    "image": "TWI/The_Crystal_City, Christophsis.png",
     "name": "The Crystal City",
     "type": "Base",
     "hp": "30",
@@ -2361,8 +2361,8 @@
     ]
   },
   "theinvisiblehandimposingflagship": {
-    "image": "TWI/The_Invisible_Hand - Imposing_Flagship.png",
-    "name": "The Invisible Hand - Imposing Flagship",
+    "image": "TWI/The_Invisible_Hand, Imposing_Flagship.png",
+    "name": "The Invisible Hand, Imposing Flagship",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2370,7 +2370,7 @@
     ]
   },
   "thenest": {
-    "image": "TWI/The_Nest - Onderon.png",
+    "image": "TWI/The_Nest, Onderon.png",
     "name": "The Nest",
     "type": "Base",
     "hp": "30",
@@ -2379,8 +2379,8 @@
     ]
   },
   "thezillobeastawokenfromthedepths": {
-    "image": "TWI/The_Zillo_Beast - Awoken_From_The_Depths.png",
-    "name": "The Zillo Beast - Awoken From The Depths",
+    "image": "TWI/The_Zillo_Beast, Awoken_From_The_Depths.png",
+    "name": "The Zillo Beast, Awoken From The Depths",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2388,7 +2388,7 @@
     ]
   },
   "tipocacity": {
-    "image": "TWI/Tipoca_City - Kamino.png",
+    "image": "TWI/Tipoca_City, Kamino.png",
     "name": "Tipoca City",
     "type": "Base",
     "hp": "30",
@@ -2406,8 +2406,8 @@
     ]
   },
   "tranquilityinspiringflagship": {
-    "image": "TWI/Tranquility - Inspiring_Flagship.png",
-    "name": "Tranquility - Inspiring Flagship",
+    "image": "TWI/Tranquility, Inspiring_Flagship.png",
+    "name": "Tranquility, Inspiring Flagship",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2535,8 +2535,8 @@
     ]
   },
   "wattambortechnounionforeman": {
-    "image": "TWI/Wat_Tambor - Techno_Union_Foreman.png",
-    "name": "Wat Tambor - Techno Union Foreman",
+    "image": "TWI/Wat_Tambor, Techno_Union_Foreman.png",
+    "name": "Wat Tambor, Techno Union Foreman",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -2545,8 +2545,8 @@
     ]
   },
   "wattambortechnounionforemanback": {
-    "image": "TWI/Wat_Tambor - Techno_Union_Foreman_back.png",
-    "name": "Wat Tambor - Techno Union Foreman [Back]",
+    "image": "TWI/Wat_Tambor, Techno_Union_Foreman_back.png",
+    "name": "Wat Tambor, Techno Union Foreman [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -2574,8 +2574,8 @@
     ]
   },
   "yodasensingdarkness": {
-    "image": "TWI/Yoda - Sensing_Darkness.png",
-    "name": "Yoda - Sensing Darkness",
+    "image": "TWI/Yoda, Sensing_Darkness.png",
+    "name": "Yoda, Sensing Darkness",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -2584,8 +2584,8 @@
     ]
   },
   "yodasensingdarknessback": {
-    "image": "TWI/Yoda - Sensing_Darkness_back.png",
-    "name": "Yoda - Sensing Darkness [Back]",
+    "image": "TWI/Yoda, Sensing_Darkness_back.png",
+    "name": "Yoda, Sensing Darkness [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -2594,8 +2594,8 @@
     ]
   },
   "zirothehuttcolorfulschemer": {
-    "image": "TWI/Ziro_the_Hutt - Colorful_Schemer.png",
-    "name": "Ziro the Hutt - Colorful Schemer",
+    "image": "TWI/Ziro_the_Hutt, Colorful_Schemer.png",
+    "name": "Ziro the Hutt, Colorful Schemer",
     "type": "Unit",
     "hp": null,
     "aspects": [

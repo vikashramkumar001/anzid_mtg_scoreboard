@@ -138,14 +138,14 @@
 /* Barlow Font for Star Wars */
 @font-face {
     font-family: 'Barlow';
-    src: url('/fonts/Barlow SemiBold.ttf') format('truetype');
+    src: url('/fonts/Barlow-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Barlow';
-    src: url('/fonts/Barlow ExtraBold.ttf') format('truetype');
+    src: url('/fonts/Barlow-ExtraBold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
 }
@@ -353,7 +353,7 @@ div {
 }
 
 #scoreboard-mtg .poison-left {
-    background: url("/assets/images/poison_left.png");
+    background: url("/assets/images/mtg/scoreboard/poison_left.png");
     display: block;
     position: absolute;
     top: 105px;
@@ -363,7 +363,7 @@ div {
 }
 
 #scoreboard-mtg .poison-right {
-    background: url("/assets/images/poison_right.png");
+    background: url("/assets/images/mtg/scoreboard/poison_right.png");
     display: block;
     position: absolute;
     top: 105px;
@@ -1402,6 +1402,18 @@ body {
     font-weight: 600;
 }
 
+/* Background video */
+#scoreboard-starwars .starwars-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+}
+
 /* Frame overlay */
 #scoreboard-starwars .starwars-frame {
     position: absolute;
@@ -1419,90 +1431,95 @@ body {
 /* ---- LEFT PLAYER: NAME & RECORD ---- */
 #scoreboard-starwars .swu-player-name-left {
     position: absolute;
-    top: 14px;
+    top: 20px;
     left: 20px;
     z-index: 10;
     color: #ffffff;
-    font-size: 36px;
+    font-size: 28px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 240px;
+    max-width: 315px;
 }
 
 #scoreboard-starwars .swu-player-record-left {
     position: absolute;
-    top: 48px;
-    left: 20px;
+    top: 59px;
+    left: 106px;
     z-index: 10;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 28px;
 }
 
 #scoreboard-starwars .swu-player-wins-left {
     position: absolute;
     top: 18px;
-    left: 270px;
+    left: 342px;
     z-index: 10;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 0;
 }
 
 /* ---- RIGHT PLAYER: NAME & RECORD ---- */
 #scoreboard-starwars .swu-player-name-right {
     position: absolute;
-    top: 14px;
+    top: 20px;
     right: 20px;
     z-index: 10;
     color: #ffffff;
-    font-size: 36px;
+    font-size: 28px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 240px;
+    max-width: 315px;
     text-align: right;
 }
 
 #scoreboard-starwars .swu-player-record-right {
     position: absolute;
-    top: 48px;
-    right: 20px;
+    top: 59px;
+    right: 106px;
     z-index: 10;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 28px;
     text-align: right;
 }
 
 #scoreboard-starwars .swu-player-wins-right {
     position: absolute;
     top: 18px;
-    right: 270px;
+    right: 342px;
     z-index: 10;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 0;
 }
 
 /* Win pips */
 #scoreboard-starwars .swu-wins-pip {
-    width: 18px;
-    height: 18px;
-    border: 2px solid white;
-    border-radius: 50%;
-    background-color: transparent;
+    width: 42px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
 }
 
-#scoreboard-starwars .swu-wins-pip.filled {
-    background-color: white;
+#scoreboard-starwars #swu-wins-left-1,
+#scoreboard-starwars #swu-wins-left-2 {
+    background-image: url("/assets/images/starwars/scoreboard/pips/pip-left-default-1v1.png");
+}
+
+#scoreboard-starwars #swu-wins-right-1,
+#scoreboard-starwars #swu-wins-right-2 {
+    background-image: url("/assets/images/starwars/scoreboard/pips/pip-right-default-1v1.png");
 }
 
 /* ---- CENTER TOP: ROUND & TIMER ---- */
 #scoreboard-starwars .swu-event-round {
     position: absolute;
-    top: 8px;
-    left: 450px;
-    width: 200px;
+    top: 16px;
+    left: 610px;
+    width: 259px;
     z-index: 10;
     color: #ffffff;
     font-size: 28px;
@@ -1511,15 +1528,15 @@ body {
 
 #scoreboard-starwars .swu-timer-wrapper {
     position: absolute;
-    top: 8px;
-    left: 790px;
-    width: 200px;
+    top: 16px;
+    left: 1051px;
+    width: 259px;
     z-index: 10;
 }
 
 #scoreboard-starwars .swu-timer {
     color: #ffffff;
-    font-size: 36px;
+    font-size: 28px;
     text-align: center;
     font-variant-numeric: tabular-nums;
     margin: 0;
@@ -1528,41 +1545,55 @@ body {
 /* ---- LEFT PANEL: LEADER ---- */
 #scoreboard-starwars .swu-leader-name-left {
     position: absolute;
-    top: 370px;
-    left: 40px;
-    width: 220px;
+    top: 461px;
+    left: 60px;
+    width: 276px;
     z-index: 10;
     color: #bfbfbf;
     font-size: 18px;
     text-align: center;
+    line-height: 1.2;
+}
+
+#scoreboard-starwars .swu-leader-subtitle {
+    font-size: 14px;
+    font-weight: 400;
 }
 
 #scoreboard-starwars .swu-leader-image-left {
     position: absolute;
-    top: 400px;
-    left: 50px;
-    width: 195px;
-    height: 110px;
+    top: 513px;
+    left: 60px;
+    width: 276px;
+    height: 198px;
     z-index: 10;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+#scoreboard-starwars .swu-leader-image-left img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
 #scoreboard-starwars .swu-leader-aspects-left {
     position: absolute;
-    top: 415px;
-    left: 12px;
+    top: 65px;
+    left: 20px;
     z-index: 10;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-direction: row;
+    gap: 3px;
+    align-items: center;
 }
 
 /* ---- LEFT PANEL: BASE ---- */
 #scoreboard-starwars .swu-base-name-left {
     position: absolute;
-    top: 553px;
-    left: 40px;
-    width: 220px;
+    top: 718px;
+    left: 60px;
+    width: 276px;
     z-index: 10;
     color: #bfbfbf;
     font-size: 18px;
@@ -1571,44 +1602,52 @@ body {
 
 #scoreboard-starwars .swu-base-image-left {
     position: absolute;
-    top: 583px;
-    left: 50px;
-    width: 195px;
-    height: 110px;
+    top: 748px;
+    left: 60px;
+    width: 276px;
+    height: 198px;
     z-index: 10;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+#scoreboard-starwars .swu-base-image-left img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
 #scoreboard-starwars .swu-base-aspects-left {
     position: absolute;
-    top: 620px;
-    left: 12px;
+    top: 65px;
+    left: 76px;
     z-index: 10;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-direction: row;
+    gap: 3px;
+    align-items: center;
 }
 
 /* ---- LEFT PANEL: BASE DAMAGE/HP ---- */
 #scoreboard-starwars .swu-base-stats-left {
     position: absolute;
-    top: 758px;
-    left: 20px;
-    width: 260px;
+    top: 979px;
+    left: 60px;
+    width: 276px;
     z-index: 10;
     color: #ffffff;
     font-size: 58px;
     font-weight: 800;
     text-align: center;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 /* ---- RIGHT PANEL: LEADER ---- */
 #scoreboard-starwars .swu-leader-name-right {
     position: absolute;
-    top: 370px;
-    right: 40px;
-    width: 220px;
+    top: 461px;
+    right: 60px;
+    width: 276px;
     z-index: 10;
     color: #bfbfbf;
     font-size: 18px;
@@ -1617,30 +1656,38 @@ body {
 
 #scoreboard-starwars .swu-leader-image-right {
     position: absolute;
-    top: 400px;
-    right: 50px;
-    width: 195px;
-    height: 110px;
+    top: 513px;
+    right: 60px;
+    width: 276px;
+    height: 198px;
     z-index: 10;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+#scoreboard-starwars .swu-leader-image-right img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
 #scoreboard-starwars .swu-leader-aspects-right {
     position: absolute;
-    top: 415px;
-    right: 12px;
+    top: 65px;
+    right: 48px;
     z-index: 10;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-direction: row;
+    gap: 3px;
+    align-items: center;
 }
 
 /* ---- RIGHT PANEL: BASE ---- */
 #scoreboard-starwars .swu-base-name-right {
     position: absolute;
-    top: 553px;
-    right: 40px;
-    width: 220px;
+    top: 718px;
+    right: 60px;
+    width: 276px;
     z-index: 10;
     color: #bfbfbf;
     font-size: 18px;
@@ -1649,42 +1696,76 @@ body {
 
 #scoreboard-starwars .swu-base-image-right {
     position: absolute;
-    top: 583px;
-    right: 50px;
-    width: 195px;
-    height: 110px;
+    top: 748px;
+    right: 60px;
+    width: 276px;
+    height: 198px;
     z-index: 10;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+#scoreboard-starwars .swu-base-image-right img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
 #scoreboard-starwars .swu-base-aspects-right {
     position: absolute;
-    top: 620px;
-    right: 12px;
+    top: 65px;
+    right: 20px;
     z-index: 10;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-direction: row;
+    gap: 3px;
+    align-items: center;
 }
 
 /* ---- RIGHT PANEL: BASE DAMAGE/HP ---- */
 #scoreboard-starwars .swu-base-stats-right {
     position: absolute;
-    top: 758px;
-    right: 20px;
-    width: 260px;
+    top: 979px;
+    right: 60px;
+    width: 276px;
     z-index: 10;
     color: #ffffff;
     font-size: 58px;
     font-weight: 800;
     text-align: center;
-    font-style: italic;
+    /* font-style: italic; */
+}
+
+/* ---- CARD VIEW OVERLAY ---- */
+#scoreboard-starwars .swu-card-overlay {
+    position: absolute;
+    top: 462px;
+    width: 348px;
+    height: 486px;
+    z-index: 20;
+    display: none;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+#scoreboard-starwars .swu-card-overlay img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+#scoreboard-starwars .swu-card-overlay-left {
+    left: 24px;
+}
+
+#scoreboard-starwars .swu-card-overlay-right {
+    right: 24px;
 }
 
 /* Aspect icons */
 #scoreboard-starwars .swu-aspect-icon {
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
     object-fit: contain;
 }
 

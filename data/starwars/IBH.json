@@ -1,7 +1,7 @@
 {
   "admiralozzelasclumsyasheisstupid": {
-    "image": "IBH/Admiral_Ozzel - As_Clumsy_as_He_Is_Stupid.png",
-    "name": "Admiral Ozzel - As Clumsy as He Is Stupid",
+    "image": "IBH/Admiral_Ozzel, As_Clumsy_as_He_Is_Stupid.png",
+    "name": "Admiral Ozzel, As Clumsy as He Is Stupid",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -10,8 +10,8 @@
     ]
   },
   "admiralpiettincommandnow": {
-    "image": "IBH/Admiral_Piett - In_Command_Now.png",
-    "name": "Admiral Piett - In Command Now",
+    "image": "IBH/Admiral_Piett, In_Command_Now.png",
+    "name": "Admiral Piett, In Command Now",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -20,8 +20,8 @@
     ]
   },
   "avengerhuntingtherebels": {
-    "image": "IBH/Avenger - Hunting_the_Rebels.png",
-    "name": "Avenger - Hunting the Rebels",
+    "image": "IBH/Avenger, Hunting_the_Rebels.png",
+    "name": "Avenger, Hunting the Rebels",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -40,8 +40,8 @@
     ]
   },
   "blizzardoneveersatthehelm": {
-    "image": "IBH/Blizzard_One - Veers_at_the_Helm.png",
-    "name": "Blizzard One - Veers at the Helm",
+    "image": "IBH/Blizzard_One, Veers_at_the_Helm.png",
+    "name": "Blizzard One, Veers at the Helm",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -50,8 +50,8 @@
     ]
   },
   "brighthopenarrowescape": {
-    "image": "IBH/Bright_Hope - Narrow_Escape.png",
-    "name": "Bright Hope - Narrow Escape",
+    "image": "IBH/Bright_Hope, Narrow_Escape.png",
+    "name": "Bright Hope, Narrow Escape",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -60,8 +60,8 @@
     ]
   },
   "c3p0ohdearohdear": {
-    "image": "IBH/C-3P0 - Oh_Dear_Oh_Dear.png",
-    "name": "C-3P0 - Oh Dear, Oh Dear",
+    "image": "IBH/C-3P0, Oh_Dear_Oh_Dear.png",
+    "name": "C-3P0, Oh Dear, Oh Dear",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -70,8 +70,8 @@
     ]
   },
   "chewbaccarrruuuurrr": {
-    "image": "IBH/Chewbacca - Rrruuuurrr.png",
-    "name": "Chewbacca - Rrruuuurrr",
+    "image": "IBH/Chewbacca, Rrruuuurrr.png",
+    "name": "Chewbacca, Rrruuuurrr",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -80,8 +80,8 @@
     ]
   },
   "darthvaderdontfailmeagain": {
-    "image": "IBH/Darth_Vader - Dont_Fail_Me_Again.png",
-    "name": "Darth Vader - Don't Fail Me Again",
+    "image": "IBH/Darth_Vader, Dont_Fail_Me_Again.png",
+    "name": "Darth Vader, Don't Fail Me Again",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -90,8 +90,8 @@
     ]
   },
   "darthvaderdontfailmeagainback": {
-    "image": "IBH/Darth_Vader - Dont_Fail_Me_Again_back.png",
-    "name": "Darth Vader - Don't Fail Me Again [Back]",
+    "image": "IBH/Darth_Vader, Dont_Fail_Me_Again_back.png",
+    "name": "Darth Vader, Don't Fail Me Again [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -120,7 +120,7 @@
     ]
   },
   "echocaverns": {
-    "image": "IBH/Echo_Caverns - Hoth.png",
+    "image": "IBH/Echo_Caverns, Hoth.png",
     "name": "Echo Caverns",
     "type": "Base",
     "hp": "20",
@@ -158,7 +158,7 @@
     ]
   },
   "forwardcommandpost": {
-    "image": "IBH/Forward_Command_Post - Hoth.png",
+    "image": "IBH/Forward_Command_Post, Hoth.png",
     "name": "Forward Command Post",
     "type": "Base",
     "hp": "20",
@@ -177,8 +177,8 @@
     ]
   },
   "generalrieekanstalwarttactician": {
-    "image": "IBH/General_Rieekan - Stalwart_Tactician.png",
-    "name": "General Rieekan - Stalwart Tactician",
+    "image": "IBH/General_Rieekan, Stalwart_Tactician.png",
+    "name": "General Rieekan, Stalwart Tactician",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -187,8 +187,8 @@
     ]
   },
   "generalveersleadingtheassault": {
-    "image": "IBH/General_Veers - Leading_the_Assault.png",
-    "name": "General Veers - Leading the Assault",
+    "image": "IBH/General_Veers, Leading_the_Assault.png",
+    "name": "General Veers, Leading the Assault",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -216,8 +216,8 @@
     ]
   },
   "hansoloscruffylookingnerfherder": {
-    "image": "IBH/Han_Solo - Scruffy-Looking_Nerf_Herder.png",
-    "name": "Han Solo - Scruffy-Looking Nerf Herder",
+    "image": "IBH/Han_Solo, Scruffy-Looking_Nerf_Herder.png",
+    "name": "Han Solo, Scruffy-Looking Nerf Herder",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -310,8 +310,8 @@
     ]
   },
   "leiaorganagettoyourtransports": {
-    "image": "IBH/Leia_Organa - Get_to_Your_Transports.png",
-    "name": "Leia Organa - Get to Your Transports!",
+    "image": "IBH/Leia_Organa, Get_to_Your_Transports.png",
+    "name": "Leia Organa, Get to Your Transports!",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -320,8 +320,8 @@
     ]
   },
   "leiaorganagettoyourtransportsback": {
-    "image": "IBH/Leia_Organa - Get_to_Your_Transports_back.png",
-    "name": "Leia Organa - Get to Your Transports! [Back]",
+    "image": "IBH/Leia_Organa, Get_to_Your_Transports_back.png",
+    "name": "Leia Organa, Get to Your Transports! [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -330,8 +330,8 @@
     ]
   },
   "lukeskywalkerdoyoureadme": {
-    "image": "IBH/Luke_Skywalker - Do_You_Read_Me.png",
-    "name": "Luke Skywalker - Do You Read Me?",
+    "image": "IBH/Luke_Skywalker, Do_You_Read_Me.png",
+    "name": "Luke Skywalker, Do You Read Me?",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -340,8 +340,8 @@
     ]
   },
   "millenniumfalconbucketofbolts": {
-    "image": "IBH/Millennium_Falcon - Bucket_of_Bolts.png",
-    "name": "Millennium Falcon - Bucket of Bolts",
+    "image": "IBH/Millennium_Falcon, Bucket_of_Bolts.png",
+    "name": "Millennium Falcon, Bucket of Bolts",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -350,8 +350,8 @@
     ]
   },
   "r2d2knowntomakemistakes": {
-    "image": "IBH/R2-D2 - Known_to_Make_Mistakes.png",
-    "name": "R2-D2 - Known to Make Mistakes",
+    "image": "IBH/R2-D2, Known_to_Make_Mistakes.png",
+    "name": "R2-D2, Known to Make Mistakes",
     "type": "Unit",
     "hp": null,
     "aspects": [

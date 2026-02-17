@@ -96,8 +96,14 @@ router.get('/timer/:controlID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/timer.html'));
 });
 
-router.get('/display/card/view/:gameID/:cardID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/dedicated-card-view.html'));
+// Unified card view display (game-agnostic, adapts via game selection)
+router.get('/display/card/view/:cardID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/card-view-display.html'));
+});
+
+// mtg - dedicated card view
+router.get('/mtg/display/card/view/:cardID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/mtg/dedicated-card-view.html'));
 });
 
 router.get('/lower-third/commentator/:commentatorID', (req, res) => {

@@ -4,7 +4,24 @@
       "Bash(find:*)",
       "WebFetch(domain:melee.gg)",
       "WebFetch(domain:topdeck.gg)",
-      "WebFetch(domain:help.melee.gg)"
+      "WebFetch(domain:help.melee.gg)",
+      "Bash(node -e:*)",
+      "Bash(ls:*)",
+      "Bash(for game in mtg vibes riftbound starwars)",
+      "Bash(do for feature in bracket standings lower-third)",
+      "Bash(do for dir in html js css)",
+      "Bash(do mkdir -p \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/$dir/$game/$feature\")",
+      "Bash(done)",
+      "Bash(do mkdir -p \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/$dir/$game/decklist\")",
+      "Bash(do for feature in bracket standings lower-third decklist)",
+      "Bash(do rmdir \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/$dir/$game/$feature\")",
+      "Bash(do mkdir -p \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/images/$game/$feature\")",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "Bash(node scripts/test-melee-decklist.js:*)",
+      "Bash(node --input-type=module -e \"\nimport ''dotenv/config'';\nconst clientId = process.env.MELEE_CLIENT_ID;\nconst clientSecret = process.env.MELEE_CLIENT_SECRET;\nconst basicAuth = Buffer.from\\(clientId+'':''+clientSecret\\).toString\\(''base64''\\);\nconst headers = {''Accept'':''application/json'',''Authorization'':''Basic ''+basicAuth};\nconst res = await fetch\\(''https://melee.gg/api/decklist/6db7f2a2-11e2-4017-9233-b3d500f97c8d'', {headers}\\);\nconst data = await res.json\\(\\);\nconst match = data.Records.find\\(r => r.n && r.n.toLowerCase\\(\\).includes\\(''sudden''\\)\\);\nif \\(match\\) console.log\\(JSON.stringify\\(match, null, 2\\)\\);\nelse console.log\\(''Not found in this decklist''\\);\n\")",
+      "Bash(node --input-type=module -e:*)",
+      "Bash(node scripts/test-card-lookup.js:*)"
     ]
   }
 }

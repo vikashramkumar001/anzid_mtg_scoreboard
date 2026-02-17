@@ -80,11 +80,12 @@ class RoomManager {
         }
         
         // Card views
+        if (path.includes('/mtg/display/card/view/')) return 'mtg-card-view';
         if (path.includes('/vibes/display/card/view/')) return 'vibes-card-view';
         if (path.includes('/riftbound/display/card/view/')) return 'riftbound-card-view';
-        // Star Wars dedicated card view
         if (path.includes('/starwars/display/card/view/')) return 'starwars-card-view';
-        if (path.includes('/display/card/view/')) return 'mtg-card-view';
+        // Unified card view (no game prefix)
+        if (path.includes('/display/card/view/')) return 'unified-card-view';
         
         // Deck displays
         if (path.includes('/vibes/display/main/deck/')) return 'vibes-deck-display';
@@ -161,6 +162,7 @@ class RoomManager {
             'vibes-card-view': ['vibes-card-view', 'global'],
             'riftbound-card-view': ['riftbound-card-view', 'global'],
             'starwars-card-view': ['starwars-card-view', 'global'],
+            'unified-card-view': ['mtg-card-view', 'vibes-card-view', 'riftbound-card-view', 'starwars-card-view', 'global'],
             'mtg-deck-display': ['deck-display', 'global'],
             'vibes-deck-display': ['vibes-deck-display', 'global'],
             'riftbound-deck-display': ['riftbound-deck-display', 'global'],

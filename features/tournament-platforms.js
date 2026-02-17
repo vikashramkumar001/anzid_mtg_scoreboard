@@ -380,6 +380,69 @@ export async function fetchMeleeDecklists(tournamentId) {
     return decklistsArray;
 }
 
+// Fetch a single decklist by ID from Melee.gg
+export async function fetchMeleeDecklist(decklistId) {
+    const authHeaders = getMeleeAuthHeaders();
+    const url = `https://melee.gg/api/decklist/${decklistId}`;
+    console.log(`Fetching decklist from: ${url}`);
+
+    const response = await fetch(url, { headers: authHeaders });
+
+    if (!response.ok) {
+        const text = await response.text();
+        console.error('Decklist fetch error response:', text.substring(0, 500));
+        throw new Error(`Decklist fetch failed: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+}
+
+// Parse a Melee.gg decklist response into categorized card lists
+// Records fields: n=name, s=subtitle, q=quantity, c=category (0=main, 6=leader, 7=base, 99=sideboard), l=slug, t=type
+export function parseMeleeDecklist(data, game = 'starwars') {
+    if (game === 'starwars') {
+        return parseMeleeDecklistSWU(data);
+    }
+    // MTG and Vibes share the same structure (no leader/base)
+    return parseMeleeDecklistGeneric(data);
+}
+
+// Star Wars Unlimited: leader (cat 6), base (cat 7), mainDeck, sideboard (cat 99)
+function parseMeleeDecklistSWU(data) {
+    const result = { leader: null, base: null, mainDeck: [], sideboard: [] };
+    for (const r of (data.Records || [])) {
+        const name = r.n || '';
+        const subtitle = r.s || '';
+        // Use ", " separator to match melee.gg naming convention (e.g., "Han Solo, Worth the Risk")
+        const displayName = subtitle ? `${name}, ${subtitle}` : name;
+        const qty = r.q || 1;
+        const category = r.c;
+        const line = `${qty} ${displayName}`;
+
+        if (category === 6) result.leader = { name: displayName, qty };
+        else if (category === 7) result.base = { name: displayName, qty };
+        else if (category === 99) result.sideboard.push(line);
+        else result.mainDeck.push(line);
+    }
+    return result;
+}
+
+// MTG / Vibes: mainDeck and sideboard only (no leader/base)
+function parseMeleeDecklistGeneric(data) {
+    const result = { mainDeck: [], sideboard: [] };
+    for (const r of (data.Records || [])) {
+        const name = r.n || '';
+        const qty = r.q || 1;
+        const category = r.c;
+        const line = `${qty} ${name}`;
+
+        if (category === 99) result.sideboard.push(line);
+        else result.mainDeck.push(line);
+    }
+    return result;
+}
+
 // Fetch pairings for a specific round from Melee.gg
 export async function fetchMeleePairings(tournamentId, roundNumber) {
     const authHeaders = getMeleeAuthHeaders();

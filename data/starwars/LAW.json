@@ -10,8 +10,8 @@
     ]
   },
   "000translationandtorture": {
-    "image": "LAW/0-0-0 - Translation_and_Torture.png",
-    "name": "0-0-0 - Translation and Torture",
+    "image": "LAW/0-0-0, Translation_and_Torture.png",
+    "name": "0-0-0, Translation and Torture",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -20,8 +20,8 @@
     ]
   },
   "4lomdevious": {
-    "image": "LAW/4-LOM - Devious.png",
-    "name": "4-LOM - Devious",
+    "image": "LAW/4-LOM, Devious.png",
+    "name": "4-LOM, Devious",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -31,8 +31,8 @@
     ]
   },
   "admiralmottichainofcommand": {
-    "image": "LAW/Admiral_Motti - Chain_of_Command.png",
-    "name": "Admiral Motti - Chain of Command",
+    "image": "LAW/Admiral_Motti, Chain_of_Command.png",
+    "name": "Admiral Motti, Chain of Command",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -50,8 +50,8 @@
     ]
   },
   "aeriecloudriderdropship": {
-    "image": "LAW/Aerie - Cloud-Rider_Dropship.png",
-    "name": "Aerie - Cloud-Rider Dropship",
+    "image": "LAW/Aerie, Cloud-Rider_Dropship.png",
+    "name": "Aerie, Cloud-Rider Dropship",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -60,8 +60,8 @@
     ]
   },
   "agentkallusreconsideryourallegiance": {
-    "image": "LAW/Agent_Kallus - Reconsider_Your_Allegiance.png",
-    "name": "Agent Kallus - Reconsider Your Allegiance",
+    "image": "LAW/Agent_Kallus, Reconsider_Your_Allegiance.png",
+    "name": "Agent Kallus, Reconsider Your Allegiance",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -70,8 +70,8 @@
     ]
   },
   "agentkallusreconsideryourallegianceback": {
-    "image": "LAW/Agent_Kallus - Reconsider_Your_Allegiance_back.png",
-    "name": "Agent Kallus - Reconsider Your Allegiance [Back]",
+    "image": "LAW/Agent_Kallus, Reconsider_Your_Allegiance_back.png",
+    "name": "Agent Kallus, Reconsider Your Allegiance [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -80,7 +80,7 @@
     ]
   },
   "aldhanigarrison": {
-    "image": "LAW/Aldhani_Garrison - Aldhani.png",
+    "image": "LAW/Aldhani_Garrison, Aldhani.png",
     "name": "Aldhani Garrison",
     "type": "Base",
     "hp": "27",
@@ -89,7 +89,7 @@
     ]
   },
   "allianceoutpost": {
-    "image": "LAW/Alliance_Outpost - Lowick.png",
+    "image": "LAW/Alliance_Outpost, Lowick.png",
     "name": "Alliance Outpost",
     "type": "Base",
     "hp": "26",
@@ -98,8 +98,8 @@
     ]
   },
   "anakinskywalkerprescientpodracer": {
-    "image": "LAW/Anakin_Skywalker - Prescient_Podracer.png",
-    "name": "Anakin Skywalker - Prescient Podracer",
+    "image": "LAW/Anakin_Skywalker, Prescient_Podracer.png",
+    "name": "Anakin Skywalker, Prescient Podracer",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -109,8 +109,8 @@
     ]
   },
   "anakinspodracersowizard": {
-    "image": "LAW/Anakins_Podracer - So_Wizard.png",
-    "name": "Anakin's Podracer - So Wizard!",
+    "image": "LAW/Anakins_Podracer, So_Wizard.png",
+    "name": "Anakin's Podracer, So Wizard!",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -119,8 +119,8 @@
     ]
   },
   "arvelskeenwinandwalkaway": {
-    "image": "LAW/Arvel_Skeen - Win_and_Walk_Away.png",
-    "name": "Arvel Skeen - Win and Walk Away",
+    "image": "LAW/Arvel_Skeen, Win_and_Walk_Away.png",
+    "name": "Arvel Skeen, Win and Walk Away",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -128,8 +128,8 @@
     ]
   },
   "asajjventressreluctanthunter": {
-    "image": "LAW/Asajj_Ventress - Reluctant_Hunter.png",
-    "name": "Asajj Ventress - Reluctant Hunter",
+    "image": "LAW/Asajj_Ventress, Reluctant_Hunter.png",
+    "name": "Asajj Ventress, Reluctant Hunter",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -147,8 +147,8 @@
     ]
   },
   "aurrasingassassin": {
-    "image": "LAW/Aurra_Sing - Assassin.png",
-    "name": "Aurra Sing - Assassin",
+    "image": "LAW/Aurra_Sing, Assassin.png",
+    "name": "Aurra Sing, Assassin",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -157,8 +157,8 @@
     ]
   },
   "aurrasingassassinback": {
-    "image": "LAW/Aurra_Sing - Assassin_back.png",
-    "name": "Aurra Sing - Assassin [Back]",
+    "image": "LAW/Aurra_Sing, Assassin_back.png",
+    "name": "Aurra Sing, Assassin [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -167,8 +167,8 @@
     ]
   },
   "bt1blastomech": {
-    "image": "LAW/BT-1 - Blastomech.png",
-    "name": "BT-1 - Blastomech",
+    "image": "LAW/BT-1, Blastomech.png",
+    "name": "BT-1, Blastomech",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -186,8 +186,8 @@
     ]
   },
   "bazemalbusgoodluck": {
-    "image": "LAW/Baze_Malbus - Good_Luck.png",
-    "name": "Baze Malbus - Good Luck",
+    "image": "LAW/Baze_Malbus, Good_Luck.png",
+    "name": "Baze Malbus, Good Luck",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -197,8 +197,8 @@
     ]
   },
   "beilertvalancetargetvader": {
-    "image": "LAW/Beilert_Valance - Target_Vader.png",
-    "name": "Beilert Valance - Target: Vader",
+    "image": "LAW/Beilert_Valance, Target_Vader.png",
+    "name": "Beilert Valance, Target: Vader",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -207,8 +207,8 @@
     ]
   },
   "bensolofacingthelight": {
-    "image": "LAW/Ben_Solo - Facing_the_Light.png",
-    "name": "Ben Solo - Facing the Light",
+    "image": "LAW/Ben_Solo, Facing_the_Light.png",
+    "name": "Ben Solo, Facing the Light",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -217,8 +217,8 @@
     ]
   },
   "benthictwotubesthewarhasjustbegun": {
-    "image": "LAW/Benthic_Two_Tubes - The_War_Has_Just_Begun.png",
-    "name": "Benthic \"Two Tubes\" - The War Has Just Begun",
+    "image": "LAW/Benthic_Two_Tubes, The_War_Has_Just_Begun.png",
+    "name": "Benthic \"Two Tubes\", The War Has Just Begun",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -236,8 +236,8 @@
     ]
   },
   "bibfortunadiewannawanga": {
-    "image": "LAW/Bib_Fortuna - Die_Wanna_Wanga.png",
-    "name": "Bib Fortuna - Die Wanna Wanga?",
+    "image": "LAW/Bib_Fortuna, Die_Wanna_Wanga.png",
+    "name": "Bib Fortuna, Die Wanna Wanga?",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -246,8 +246,8 @@
     ]
   },
   "bixcaleensellingscrap": {
-    "image": "LAW/Bix_Caleen - Selling_Scrap.png",
-    "name": "Bix Caleen - Selling Scrap",
+    "image": "LAW/Bix_Caleen, Selling_Scrap.png",
+    "name": "Bix Caleen, Selling Scrap",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -274,8 +274,8 @@
     ]
   },
   "bobafettkraytsclawcommander": {
-    "image": "LAW/Boba_Fett - Krayts_Claw_Commander.png",
-    "name": "Boba Fett - Krayt's Claw Commander",
+    "image": "LAW/Boba_Fett, Krayts_Claw_Commander.png",
+    "name": "Boba Fett, Krayt's Claw Commander",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -284,8 +284,8 @@
     ]
   },
   "bobafettkraytsclawcommanderback": {
-    "image": "LAW/Boba_Fett - Krayts_Claw_Commander_back.png",
-    "name": "Boba Fett - Krayt's Claw Commander [Back]",
+    "image": "LAW/Boba_Fett, Krayts_Claw_Commander_back.png",
+    "name": "Boba Fett, Krayt's Claw Commander [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -294,8 +294,8 @@
     ]
   },
   "bobafettforaprice": {
-    "image": "LAW/Boba_Fett - For_a_Price.png",
-    "name": "Boba Fett - For a Price",
+    "image": "LAW/Boba_Fett, For_a_Price.png",
+    "name": "Boba Fett, For a Price",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -304,8 +304,8 @@
     ]
   },
   "bodhirookcreatingadiversion": {
-    "image": "LAW/Bodhi_Rook - Creating_a_Diversion.png",
-    "name": "Bodhi Rook - Creating a Diversion",
+    "image": "LAW/Bodhi_Rook, Creating_a_Diversion.png",
+    "name": "Bodhi Rook, Creating a Diversion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -314,8 +314,8 @@
     ]
   },
   "bosskjoinourmerryband": {
-    "image": "LAW/Bossk - Join_Our_Merry_Band.png",
-    "name": "Bossk - Join Our Merry Band",
+    "image": "LAW/Bossk, Join_Our_Merry_Band.png",
+    "name": "Bossk, Join Our Merry Band",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -325,8 +325,8 @@
     ]
   },
   "c3p0translationprotocol": {
-    "image": "LAW/C-3P0 - Translation_Protocol.png",
-    "name": "C-3P0 - Translation Protocol",
+    "image": "LAW/C-3P0, Translation_Protocol.png",
+    "name": "C-3P0, Translation Protocol",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -334,8 +334,8 @@
     ]
   },
   "cadbanenowitsmyturn": {
-    "image": "LAW/Cad_Bane - Now_its_My_Turn.png",
-    "name": "Cad Bane - Now it's My Turn",
+    "image": "LAW/Cad_Bane, Now_its_My_Turn.png",
+    "name": "Cad Bane, Now it's My Turn",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -354,7 +354,7 @@
     ]
   },
   "cantobight": {
-    "image": "LAW/Canto_Bight - Cantonica.png",
+    "image": "LAW/Canto_Bight, Cantonica.png",
     "name": "Canto Bight",
     "type": "Base",
     "hp": "27",
@@ -372,8 +372,8 @@
     ]
   },
   "cassianandoreverythingfortherebellion": {
-    "image": "LAW/Cassian_Andor - Everything_for_the_Rebellion.png",
-    "name": "Cassian Andor - Everything for the Rebellion",
+    "image": "LAW/Cassian_Andor, Everything_for_the_Rebellion.png",
+    "name": "Cassian Andor, Everything for the Rebellion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -392,8 +392,8 @@
     ]
   },
   "chewbaccamightyrescuer": {
-    "image": "LAW/Chewbacca - Mighty_Rescuer.png",
-    "name": "Chewbacca - Mighty Rescuer",
+    "image": "LAW/Chewbacca, Mighty_Rescuer.png",
+    "name": "Chewbacca, Mighty Rescuer",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -403,8 +403,8 @@
     ]
   },
   "chiofainfourarmedslicer": {
-    "image": "LAW/Chio_Fain - Four-Armed_Slicer.png",
-    "name": "Chio Fain - Four-Armed Slicer",
+    "image": "LAW/Chio_Fain, Four-Armed_Slicer.png",
+    "name": "Chio Fain, Four-Armed Slicer",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -413,8 +413,8 @@
     ]
   },
   "chirrutmweidontneedluck": {
-    "image": "LAW/Chirrut_mwe - I_Dont_Need_Luck.png",
-    "name": "Chirrut Îmwe - I Don't Need Luck",
+    "image": "LAW/Chirrut_mwe, I_Dont_Need_Luck.png",
+    "name": "Chirrut Îmwe, I Don't Need Luck",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -434,8 +434,8 @@
     ]
   },
   "chopperspectrethree": {
-    "image": "LAW/Chopper - Spectre_Three.png",
-    "name": "Chopper - Spectre Three",
+    "image": "LAW/Chopper, Spectre_Three.png",
+    "name": "Chopper, Spectre Three",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -445,8 +445,8 @@
     ]
   },
   "cintakazstonecoldandfearless": {
-    "image": "LAW/Cinta_Kaz - Stone_Cold_and_Fearless.png",
-    "name": "Cinta Kaz - Stone Cold and Fearless",
+    "image": "LAW/Cinta_Kaz, Stone_Cold_and_Fearless.png",
+    "name": "Cinta Kaz, Stone Cold and Fearless",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -455,7 +455,7 @@
     ]
   },
   "citadelresearchcenter": {
-    "image": "LAW/Citadel_Research_Center - Scarif.png",
+    "image": "LAW/Citadel_Research_Center, Scarif.png",
     "name": "Citadel Research Center",
     "type": "Base",
     "hp": "26",
@@ -501,7 +501,7 @@
     ]
   },
   "daimyospalace": {
-    "image": "LAW/Daimyos_Palace - Tatooine.png",
+    "image": "LAW/Daimyos_Palace, Tatooine.png",
     "name": "Daimyo's Palace",
     "type": "Base",
     "hp": "27",
@@ -510,8 +510,8 @@
     ]
   },
   "darthvaderunstoppable": {
-    "image": "LAW/Darth_Vader - Unstoppable.png",
-    "name": "Darth Vader - Unstoppable",
+    "image": "LAW/Darth_Vader, Unstoppable.png",
+    "name": "Darth Vader, Unstoppable",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -520,8 +520,8 @@
     ]
   },
   "darthvaderunstoppableback": {
-    "image": "LAW/Darth_Vader - Unstoppable_back.png",
-    "name": "Darth Vader - Unstoppable [Back]",
+    "image": "LAW/Darth_Vader, Unstoppable_back.png",
+    "name": "Darth Vader, Unstoppable [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -550,8 +550,8 @@
     ]
   },
   "dengartakeyourshot": {
-    "image": "LAW/Dengar - Take_Your_Shot.png",
-    "name": "Dengar - Take Your Shot",
+    "image": "LAW/Dengar, Take_Your_Shot.png",
+    "name": "Dengar, Take Your Shot",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -561,8 +561,8 @@
     ]
   },
   "directorkrennicamidstmyachievement": {
-    "image": "LAW/Director_Krennic - Amidst_My_Achievement.png",
-    "name": "Director Krennic - Amidst My Achievement",
+    "image": "LAW/Director_Krennic, Amidst_My_Achievement.png",
+    "name": "Director Krennic, Amidst My Achievement",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -571,8 +571,8 @@
     ]
   },
   "directorkrennicamidstmyachievementback": {
-    "image": "LAW/Director_Krennic - Amidst_My_Achievement_back.png",
-    "name": "Director Krennic - Amidst My Achievement [Back]",
+    "image": "LAW/Director_Krennic, Amidst_My_Achievement_back.png",
+    "name": "Director Krennic, Amidst My Achievement [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -591,8 +591,8 @@
     ]
   },
   "doctoraphradiggingforanswers": {
-    "image": "LAW/Doctor_Aphra - Digging_For_Answers.png",
-    "name": "Doctor Aphra - Digging For Answers",
+    "image": "LAW/Doctor_Aphra, Digging_For_Answers.png",
+    "name": "Doctor Aphra, Digging For Answers",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -609,8 +609,8 @@
     ]
   },
   "enfynestuntilwecangonohigher": {
-    "image": "LAW/Enfy_Nest - Until_We_Can_Go_No_Higher.png",
-    "name": "Enfy Nest - Until We Can Go No Higher",
+    "image": "LAW/Enfy_Nest, Until_We_Can_Go_No_Higher.png",
+    "name": "Enfy Nest, Until We Can Go No Higher",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -619,8 +619,8 @@
     ]
   },
   "enfynestuntilwecangonohigherback": {
-    "image": "LAW/Enfy_Nest - Until_We_Can_Go_No_Higher_back.png",
-    "name": "Enfy Nest - Until We Can Go No Higher [Back]",
+    "image": "LAW/Enfy_Nest, Until_We_Can_Go_No_Higher_back.png",
+    "name": "Enfy Nest, Until We Can Go No Higher [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -648,8 +648,8 @@
     ]
   },
   "ezrabridgerspectresix": {
-    "image": "LAW/Ezra_Bridger - Spectre_Six.png",
-    "name": "Ezra Bridger - Spectre Six",
+    "image": "LAW/Ezra_Bridger, Spectre_Six.png",
+    "name": "Ezra Bridger, Spectre Six",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -669,8 +669,8 @@
     ]
   },
   "fettsfiresprayinpursuit": {
-    "image": "LAW/Fetts_FIrespray - In_Pursuit.png",
-    "name": "Fett's FIrespray - In Pursuit",
+    "image": "LAW/Fetts_FIrespray, In_Pursuit.png",
+    "name": "Fett's FIrespray, In Pursuit",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -678,8 +678,8 @@
     ]
   },
   "finnlookingcloser": {
-    "image": "LAW/Finn - Looking_Closer.png",
-    "name": "Finn - Looking Closer",
+    "image": "LAW/Finn, Looking_Closer.png",
+    "name": "Finn, Looking Closer",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -714,8 +714,8 @@
     ]
   },
   "galenersodestroyinghiscreation": {
-    "image": "LAW/Galen_Erso - Destroying_His_Creation.png",
-    "name": "Galen Erso - Destroying His Creation",
+    "image": "LAW/Galen_Erso, Destroying_His_Creation.png",
+    "name": "Galen Erso, Destroying His Creation",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -733,7 +733,7 @@
     ]
   },
   "greatpitofcarkoon": {
-    "image": "LAW/Great_Pit_of_Carkoon - Tatooine.png",
+    "image": "LAW/Great_Pit_of_Carkoon, Tatooine.png",
     "name": "Great Pit of Carkoon",
     "type": "Base",
     "hp": "27",
@@ -742,8 +742,8 @@
     ]
   },
   "hansoloigotareallygoodfeeling": {
-    "image": "LAW/Han_Solo - I_Got_a_Really_Good_Feeling.png",
-    "name": "Han Solo - I Got a Really Good Feeling",
+    "image": "LAW/Han_Solo, I_Got_a_Really_Good_Feeling.png",
+    "name": "Han Solo, I Got a Really Good Feeling",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -752,8 +752,8 @@
     ]
   },
   "hansoloigotareallygoodfeelingback": {
-    "image": "LAW/Han_Solo - I_Got_a_Really_Good_Feeling_back.png",
-    "name": "Han Solo - I Got a Really Good Feeling [Back]",
+    "image": "LAW/Han_Solo, I_Got_a_Really_Good_Feeling_back.png",
+    "name": "Han Solo, I Got a Really Good Feeling [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -762,8 +762,8 @@
     ]
   },
   "hansolohibernationsick": {
-    "image": "LAW/Han_Solo - Hibernation_Sick.png",
-    "name": "Han Solo - Hibernation Sick",
+    "image": "LAW/Han_Solo, Hibernation_Sick.png",
+    "name": "Han Solo, Hibernation Sick",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -791,8 +791,8 @@
     ]
   },
   "herasyndullanotfightingalone": {
-    "image": "LAW/Hera_Syndulla - Not_Fighting_Alone.png",
-    "name": "Hera Syndulla - Not Fighting Alone",
+    "image": "LAW/Hera_Syndulla, Not_Fighting_Alone.png",
+    "name": "Hera Syndulla, Not Fighting Alone",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -801,8 +801,8 @@
     ]
   },
   "herasyndullanotfightingaloneback": {
-    "image": "LAW/Hera_Syndulla - Not_Fighting_Alone_back.png",
-    "name": "Hera Syndulla - Not Fighting Alone [Back]",
+    "image": "LAW/Hera_Syndulla, Not_Fighting_Alone_back.png",
+    "name": "Hera Syndulla, Not Fighting Alone [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -811,8 +811,8 @@
     ]
   },
   "highsingerdeadlydroid": {
-    "image": "LAW/Highsinger - Deadly_Droid.png",
-    "name": "Highsinger - Deadly Droid",
+    "image": "LAW/Highsinger, Deadly_Droid.png",
+    "name": "Highsinger, Deadly Droid",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -831,8 +831,8 @@
     ]
   },
   "hondoohnakaplaysbyhisownrules": {
-    "image": "LAW/Hondo_Ohnaka - Plays_By_His_Own_Rules.png",
-    "name": "Hondo Ohnaka - Plays By His Own Rules",
+    "image": "LAW/Hondo_Ohnaka, Plays_By_His_Own_Rules.png",
+    "name": "Hondo Ohnaka, Plays By His Own Rules",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -851,8 +851,8 @@
     ]
   },
   "houndstoothhuntersapproach": {
-    "image": "LAW/Hounds_Tooth - Hunters_Approach.png",
-    "name": "Hound's Tooth - Hunters' Approach",
+    "image": "LAW/Hounds_Tooth, Hunters_Approach.png",
+    "name": "Hound's Tooth, Hunters' Approach",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -871,8 +871,8 @@
     ]
   },
   "ig88programmedtokill": {
-    "image": "LAW/IG-88 - Programmed_to_Kill.png",
-    "name": "IG-88 - Programmed to Kill",
+    "image": "LAW/IG-88, Programmed_to_Kill.png",
+    "name": "IG-88, Programmed to Kill",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -912,8 +912,8 @@
     ]
   },
   "intimidatorcitadeloverwatch": {
-    "image": "LAW/Intimidator - Citadel_Overwatch.png",
-    "name": "Intimidator - Citadel Overwatch",
+    "image": "LAW/Intimidator, Citadel_Overwatch.png",
+    "name": "Intimidator, Citadel Overwatch",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -922,8 +922,8 @@
     ]
   },
   "jabbathehuttcrimeboss": {
-    "image": "LAW/Jabba_the_Hutt - Crime_Boss.png",
-    "name": "Jabba the Hutt - Crime Boss",
+    "image": "LAW/Jabba_the_Hutt, Crime_Boss.png",
+    "name": "Jabba the Hutt, Crime Boss",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -932,8 +932,8 @@
     ]
   },
   "jabbathehuttcrimebossback": {
-    "image": "LAW/Jabba_the_Hutt - Crime_Boss_back.png",
-    "name": "Jabba the Hutt - Crime Boss [Back]",
+    "image": "LAW/Jabba_the_Hutt, Crime_Boss_back.png",
+    "name": "Jabba the Hutt, Crime Boss [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -942,8 +942,8 @@
     ]
   },
   "jabbasrancorsnacktime": {
-    "image": "LAW/Jabbas_Rancor - Snack_Time.png",
-    "name": "Jabba's Rancor - Snack Time!",
+    "image": "LAW/Jabbas_Rancor, Snack_Time.png",
+    "name": "Jabba's Rancor, Snack Time!",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -952,8 +952,8 @@
     ]
   },
   "jangofettwilymercenary": {
-    "image": "LAW/Jango_Fett - Wily_Mercenary.png",
-    "name": "Jango Fett - Wily Mercenary",
+    "image": "LAW/Jango_Fett, Wily_Mercenary.png",
+    "name": "Jango Fett, Wily Mercenary",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -973,8 +973,8 @@
     ]
   },
   "jynersotimetofight": {
-    "image": "LAW/Jyn_Erso - Time_to_Fight.png",
-    "name": "Jyn Erso - Time to Fight",
+    "image": "LAW/Jyn_Erso, Time_to_Fight.png",
+    "name": "Jyn Erso, Time to Fight",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -983,8 +983,8 @@
     ]
   },
   "jynersotimetofightback": {
-    "image": "LAW/Jyn_Erso - Time_to_Fight_back.png",
-    "name": "Jyn Erso - Time to Fight [Back]",
+    "image": "LAW/Jyn_Erso, Time_to_Fight_back.png",
+    "name": "Jyn Erso, Time to Fight [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -993,8 +993,8 @@
     ]
   },
   "jynersotakethenextchance": {
-    "image": "LAW/Jyn_Erso - Take_the_Next_Chance.png",
-    "name": "Jyn Erso - Take the Next Chance",
+    "image": "LAW/Jyn_Erso, Take_the_Next_Chance.png",
+    "name": "Jyn Erso, Take the Next Chance",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1004,8 +1004,8 @@
     ]
   },
   "k2s0lockingthevault": {
-    "image": "LAW/K-2S0 - Locking_the_Vault.png",
-    "name": "K-2S0 - Locking the Vault",
+    "image": "LAW/K-2S0, Locking_the_Vault.png",
+    "name": "K-2S0, Locking the Vault",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1015,8 +1015,8 @@
     ]
   },
   "kananjarrusspectreone": {
-    "image": "LAW/Kanan_Jarrus - Spectre_One.png",
-    "name": "Kanan Jarrus - Spectre One",
+    "image": "LAW/Kanan_Jarrus, Spectre_One.png",
+    "name": "Kanan Jarrus, Spectre One",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1026,8 +1026,8 @@
     ]
   },
   "khetannauponthedunesea": {
-    "image": "LAW/Khetanna - Upon_the_Dune_Sea.png",
-    "name": "Khetanna - Upon the Dune Sea",
+    "image": "LAW/Khetanna, Upon_the_Dune_Sea.png",
+    "name": "Khetanna, Upon the Dune Sea",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1044,8 +1044,8 @@
     ]
   },
   "ladyproximawheresthemoney": {
-    "image": "LAW/Lady_Proxima - Wheres_the_Money.png",
-    "name": "Lady Proxima - Where's the Money?",
+    "image": "LAW/Lady_Proxima, Wheres_the_Money.png",
+    "name": "Lady Proxima, Where's the Money?",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1053,8 +1053,8 @@
     ]
   },
   "landocalrissianfullsabacc": {
-    "image": "LAW/Lando_Calrissian - Full_Sabacc.png",
-    "name": "Lando Calrissian - Full Sabacc",
+    "image": "LAW/Lando_Calrissian, Full_Sabacc.png",
+    "name": "Lando Calrissian, Full Sabacc",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1063,8 +1063,8 @@
     ]
   },
   "landocalrissianfullsabaccback": {
-    "image": "LAW/Lando_Calrissian - Full_Sabacc_back.png",
-    "name": "Lando Calrissian - Full Sabacc [Back]",
+    "image": "LAW/Lando_Calrissian, Full_Sabacc_back.png",
+    "name": "Lando Calrissian, Full Sabacc [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1073,8 +1073,8 @@
     ]
   },
   "landocalrissianeyesopen": {
-    "image": "LAW/Lando_Calrissian - Eyes_Open.png",
-    "name": "Lando Calrissian - Eyes Open",
+    "image": "LAW/Lando_Calrissian, Eyes_Open.png",
+    "name": "Lando Calrissian, Eyes Open",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1083,8 +1083,8 @@
     ]
   },
   "lattsrazzideadlywhipmaster": {
-    "image": "LAW/Latts_Razzi - Deadly_Whipmaster.png",
-    "name": "Latts Razzi - Deadly Whipmaster",
+    "image": "LAW/Latts_Razzi, Deadly_Whipmaster.png",
+    "name": "Latts Razzi, Deadly Whipmaster",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1093,8 +1093,8 @@
     ]
   },
   "lawbringershadowoverlothal": {
-    "image": "LAW/Lawbringer - Shadow_Over_Lothal.png",
-    "name": "Lawbringer - Shadow Over Lothal",
+    "image": "LAW/Lawbringer, Shadow_Over_Lothal.png",
+    "name": "Lawbringer, Shadow Over Lothal",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1103,8 +1103,8 @@
     ]
   },
   "leiaorganasomeonewholovesyou": {
-    "image": "LAW/Leia_Organa - Someone_Who_Loves_You.png",
-    "name": "Leia Organa - Someone Who Loves You",
+    "image": "LAW/Leia_Organa, Someone_Who_Loves_You.png",
+    "name": "Leia Organa, Someone Who Loves You",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1113,8 +1113,8 @@
     ]
   },
   "leiaorganasomeonewholovesyouback": {
-    "image": "LAW/Leia_Organa - Someone_Who_Loves_You_back.png",
-    "name": "Leia Organa - Someone Who Loves You [Back]",
+    "image": "LAW/Leia_Organa, Someone_Who_Loves_You_back.png",
+    "name": "Leia Organa, Someone Who Loves You [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1153,8 +1153,8 @@
     ]
   },
   "libertydrawtheirfire": {
-    "image": "LAW/Liberty - Draw_Their_Fire.png",
-    "name": "Liberty - Draw Their Fire!",
+    "image": "LAW/Liberty, Draw_Their_Fire.png",
+    "name": "Liberty, Draw Their Fire!",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1163,8 +1163,8 @@
     ]
   },
   "lieutenantgornideserveworse": {
-    "image": "LAW/Lieutenant_Gorn - I_Deserve_Worse.png",
-    "name": "Lieutenant Gorn - I Deserve Worse",
+    "image": "LAW/Lieutenant_Gorn, I_Deserve_Worse.png",
+    "name": "Lieutenant Gorn, I Deserve Worse",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1182,8 +1182,8 @@
     ]
   },
   "lukeskywalkerprofitorbedestroyed": {
-    "image": "LAW/Luke_Skywalker - Profit_or_be_Destroyed.png",
-    "name": "Luke Skywalker - Profit or be Destroyed",
+    "image": "LAW/Luke_Skywalker, Profit_or_be_Destroyed.png",
+    "name": "Luke Skywalker, Profit or be Destroyed",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1193,8 +1193,8 @@
     ]
   },
   "malakilikeeperofthemenagerie": {
-    "image": "LAW/Malakili - Keeper_of_the_Menagerie.png",
-    "name": "Malakili - Keeper of the Menagerie",
+    "image": "LAW/Malakili, Keeper_of_the_Menagerie.png",
+    "name": "Malakili, Keeper of the Menagerie",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1222,8 +1222,8 @@
     ]
   },
   "maulmasteroftheshadowcollective": {
-    "image": "LAW/Maul - Master_of_the_Shadow_Collective.png",
-    "name": "Maul - Master of the Shadow Collective",
+    "image": "LAW/Maul, Master_of_the_Shadow_Collective.png",
+    "name": "Maul, Master of the Shadow Collective",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1233,8 +1233,8 @@
     ]
   },
   "maxreboencore": {
-    "image": "LAW/Max_Rebo - Encore.png",
-    "name": "Max Rebo - Encore!",
+    "image": "LAW/Max_Rebo, Encore.png",
+    "name": "Max Rebo, Encore!",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1243,8 +1243,8 @@
     ]
   },
   "millenniumfalcondodgingpatrols": {
-    "image": "LAW/Millennium_Falcon - Dodging_Patrols.png",
-    "name": "Millennium Falcon - Dodging Patrols",
+    "image": "LAW/Millennium_Falcon, Dodging_Patrols.png",
+    "name": "Millennium Falcon, Dodging Patrols",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1264,8 +1264,8 @@
     ]
   },
   "obiwankenobiprotectoroffelucia": {
-    "image": "LAW/Obi-Wan_Kenobi - Protector_of_Felucia.png",
-    "name": "Obi-Wan Kenobi - Protector of Felucia",
+    "image": "LAW/Obi-Wan_Kenobi, Protector_of_Felucia.png",
+    "name": "Obi-Wan Kenobi, Protector of Felucia",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1303,8 +1303,8 @@
     ]
   },
   "persecutorfireoverscarif": {
-    "image": "LAW/Persecutor - Fire_Over_Scarif.png",
-    "name": "Persecutor - Fire Over Scarif",
+    "image": "LAW/Persecutor, Fire_Over_Scarif.png",
+    "name": "Persecutor, Fire Over Scarif",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1313,8 +1313,8 @@
     ]
   },
   "phantomspectreshuttle": {
-    "image": "LAW/Phantom - Spectre_Shuttle.png",
-    "name": "Phantom - Spectre Shuttle",
+    "image": "LAW/Phantom, Spectre_Shuttle.png",
+    "name": "Phantom, Spectre Shuttle",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1342,8 +1342,8 @@
     ]
   },
   "quigonjinninfluencingchance": {
-    "image": "LAW/Qui-Gon_Jinn - Influencing_Chance.png",
-    "name": "Qui-Gon Jinn - Influencing Chance",
+    "image": "LAW/Qui-Gon_Jinn, Influencing_Chance.png",
+    "name": "Qui-Gon Jinn, Influencing Chance",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1351,8 +1351,8 @@
     ]
   },
   "r2d2partoftheplan": {
-    "image": "LAW/R2-D2 - Part_of_the_Plan.png",
-    "name": "R2-D2 - Part of the Plan",
+    "image": "LAW/R2-D2, Part_of_the_Plan.png",
+    "name": "R2-D2, Part of the Plan",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1361,8 +1361,8 @@
     ]
   },
   "reyskywalker": {
-    "image": "LAW/Rey - Skywalker.png",
-    "name": "Rey - Skywalker",
+    "image": "LAW/Rey, Skywalker.png",
+    "name": "Rey, Skywalker",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1371,8 +1371,8 @@
     ]
   },
   "riodurantbeckettsrighthands": {
-    "image": "LAW/Rio_Durant - Becketts_Right_Hands.png",
-    "name": "Rio Durant - Beckett's Right Hands",
+    "image": "LAW/Rio_Durant, Becketts_Right_Hands.png",
+    "name": "Rio Durant, Beckett's Right Hands",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1390,8 +1390,8 @@
     ]
   },
   "rogueoneatanycost": {
-    "image": "LAW/Rogue_One - At_Any_Cost.png",
-    "name": "Rogue One - At Any Cost",
+    "image": "LAW/Rogue_One, At_Any_Cost.png",
+    "name": "Rogue One, At Any Cost",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1399,8 +1399,8 @@
     ]
   },
   "roseticonowitsworthit": {
-    "image": "LAW/Rose_Tico - Now_its_Worth_It.png",
-    "name": "Rose Tico - Now it's Worth It",
+    "image": "LAW/Rose_Tico, Now_its_Worth_It.png",
+    "name": "Rose Tico, Now it's Worth It",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1409,8 +1409,8 @@
     ]
   },
   "sabinewrenspectrefive": {
-    "image": "LAW/Sabine_Wren - Spectre_Five.png",
-    "name": "Sabine Wren - Spectre Five",
+    "image": "LAW/Sabine_Wren, Spectre_Five.png",
+    "name": "Sabine Wren, Spectre Five",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1420,8 +1420,8 @@
     ]
   },
   "salaciouscrumbcacklingcompanion": {
-    "image": "LAW/Salacious_Crumb - Cackling_Companion.png",
-    "name": "Salacious Crumb - Cackling Companion",
+    "image": "LAW/Salacious_Crumb, Cackling_Companion.png",
+    "name": "Salacious Crumb, Cackling Companion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1430,8 +1430,8 @@
     ]
   },
   "sawgerrerabringdowntheempire": {
-    "image": "LAW/Saw_Gerrera - Bring_Down_the_Empire.png",
-    "name": "Saw Gerrera - Bring Down the Empire",
+    "image": "LAW/Saw_Gerrera, Bring_Down_the_Empire.png",
+    "name": "Saw Gerrera, Bring Down the Empire",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1440,8 +1440,8 @@
     ]
   },
   "sawgerrerabringdowntheempireback": {
-    "image": "LAW/Saw_Gerrera - Bring_Down_the_Empire_back.png",
-    "name": "Saw Gerrera - Bring Down the Empire [Back]",
+    "image": "LAW/Saw_Gerrera, Bring_Down_the_Empire_back.png",
+    "name": "Saw Gerrera, Bring Down the Empire [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1469,8 +1469,8 @@
     ]
   },
   "sebulbaespeciallydangerousdug": {
-    "image": "LAW/Sebulba - Especially_Dangerous_Dug.png",
-    "name": "Sebulba - Especially Dangerous Dug",
+    "image": "LAW/Sebulba, Especially_Dangerous_Dug.png",
+    "name": "Sebulba, Especially Dangerous Dug",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1479,8 +1479,8 @@
     ]
   },
   "sebulbaespeciallydangerousdugback": {
-    "image": "LAW/Sebulba - Especially_Dangerous_Dug_back.png",
-    "name": "Sebulba - Especially Dangerous Dug [Back]",
+    "image": "LAW/Sebulba, Especially_Dangerous_Dug_back.png",
+    "name": "Sebulba, Especially Dangerous Dug [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1489,8 +1489,8 @@
     ]
   },
   "sebulbaspodracertakingthelead": {
-    "image": "LAW/Sebulbas_Podracer - Taking_the_Lead.png",
-    "name": "Sebulba's Podracer - Taking the Lead",
+    "image": "LAW/Sebulbas_Podracer, Taking_the_Lead.png",
+    "name": "Sebulba's Podracer, Taking the Lead",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1531,7 +1531,7 @@
     ]
   },
   "shipbreakingyard": {
-    "image": "LAW/Shipbreaking_Yard - Bracca.png",
+    "image": "LAW/Shipbreaking_Yard, Bracca.png",
     "name": "Shipbreaking Yard",
     "type": "Base",
     "hp": "26",
@@ -1579,7 +1579,7 @@
     ]
   },
   "stygeonspire": {
-    "image": "LAW/Stygeon_Spire - Stygeon_Prime.png",
+    "image": "LAW/Stygeon_Spire, Stygeon_Prime.png",
     "name": "Stygeon Spire",
     "type": "Base",
     "hp": "27",
@@ -1608,8 +1608,8 @@
     ]
   },
   "tantiveivcarryinghope": {
-    "image": "LAW/Tantive_IV - Carrying_Hope.png",
-    "name": "Tantive IV - Carrying Hope",
+    "image": "LAW/Tantive_IV, Carrying_Hope.png",
+    "name": "Tantive IV, Carrying Hope",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1618,8 +1618,8 @@
     ]
   },
   "taramynbarconaeyesfront": {
-    "image": "LAW/Taramyn_Barcona - Eyes_Front.png",
-    "name": "Taramyn Barcona - Eyes Front!",
+    "image": "LAW/Taramyn_Barcona, Eyes_Front.png",
+    "name": "Taramyn Barcona, Eyes Front!",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1667,8 +1667,8 @@
     ]
   },
   "thebladewingthesecretofshantipole": {
-    "image": "LAW/The_Blade_Wing - The_Secret_of_Shantipole.png",
-    "name": "The Blade Wing - The Secret of Shantipole",
+    "image": "LAW/The_Blade_Wing, The_Secret_of_Shantipole.png",
+    "name": "The Blade Wing, The Secret of Shantipole",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1676,8 +1676,8 @@
     ]
   },
   "theclientpleaseloweryourblaster": {
-    "image": "LAW/The_Client - Please_Lower_Your_Blaster.png",
-    "name": "The Client - Please Lower Your Blaster",
+    "image": "LAW/The_Client, Please_Lower_Your_Blaster.png",
+    "name": "The Client, Please Lower Your Blaster",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1686,8 +1686,8 @@
     ]
   },
   "theclientpleaseloweryourblasterback": {
-    "image": "LAW/The_Client - Please_Lower_Your_Blaster_back.png",
-    "name": "The Client - Please Lower Your Blaster [Back]",
+    "image": "LAW/The_Client, Please_Lower_Your_Blaster_back.png",
+    "name": "The Client, Please Lower Your Blaster [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1696,8 +1696,8 @@
     ]
   },
   "theghosthomeofthespectres": {
-    "image": "LAW/The_Ghost - Home_of_the_Spectres.png",
-    "name": "The Ghost - Home of the Spectres",
+    "image": "LAW/The_Ghost, Home_of_the_Spectres.png",
+    "name": "The Ghost, Home of the Spectres",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1707,8 +1707,8 @@
     ]
   },
   "themandalorianletsseethepuck": {
-    "image": "LAW/The_Mandalorian - Lets_See_the_Puck.png",
-    "name": "The Mandalorian - Let's See the Puck",
+    "image": "LAW/The_Mandalorian, Lets_See_the_Puck.png",
+    "name": "The Mandalorian, Let's See the Puck",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1717,8 +1717,8 @@
     ]
   },
   "themastercodebreakerhighstakes": {
-    "image": "LAW/The_Master_Codebreaker - High_Stakes.png",
-    "name": "The Master Codebreaker - High Stakes",
+    "image": "LAW/The_Master_Codebreaker, High_Stakes.png",
+    "name": "The Master Codebreaker, High Stakes",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1726,8 +1726,8 @@
     ]
   },
   "themaxrebobandjatzwailers": {
-    "image": "LAW/The_Max_Rebo_Band - Jatz-Wailers.png",
-    "name": "The Max Rebo Band - Jatz-Wailers",
+    "image": "LAW/The_Max_Rebo_Band, Jatz-Wailers.png",
+    "name": "The Max Rebo Band, Jatz-Wailers",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1736,8 +1736,8 @@
     ]
   },
   "thesarlaccofcarkoonhorrorofthedunesea": {
-    "image": "LAW/The_Sarlacc_of_Carkoon - Horror_of_the_Dune_Sea.png",
-    "name": "The Sarlacc of Carkoon - Horror of the Dune Sea",
+    "image": "LAW/The_Sarlacc_of_Carkoon, Horror_of_the_Dune_Sea.png",
+    "name": "The Sarlacc of Carkoon, Horror of the Dune Sea",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1745,8 +1745,8 @@
     ]
   },
   "thestrangernosurvivors": {
-    "image": "LAW/The_Stranger - No_Survivors.png",
-    "name": "The Stranger - No Survivors",
+    "image": "LAW/The_Stranger, No_Survivors.png",
+    "name": "The Stranger, No Survivors",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1812,8 +1812,8 @@
     ]
   },
   "urrrkelitesharpshooter": {
-    "image": "LAW/Urrrk - Elite_Sharpshooter.png",
-    "name": "Urrr'k - Elite Sharpshooter",
+    "image": "LAW/Urrrk, Elite_Sharpshooter.png",
+    "name": "Urrr'k, Elite Sharpshooter",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1822,8 +1822,8 @@
     ]
   },
   "velsarthaaldhaniinsurgent": {
-    "image": "LAW/Vel_Sartha - Aldhani_Insurgent.png",
-    "name": "Vel Sartha - Aldhani Insurgent",
+    "image": "LAW/Vel_Sartha, Aldhani_Insurgent.png",
+    "name": "Vel Sartha, Aldhani Insurgent",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1832,8 +1832,8 @@
     ]
   },
   "velsarthaaldhaniinsurgentback": {
-    "image": "LAW/Vel_Sartha - Aldhani_Insurgent_back.png",
-    "name": "Vel Sartha - Aldhani Insurgent [Back]",
+    "image": "LAW/Vel_Sartha, Aldhani_Insurgent_back.png",
+    "name": "Vel Sartha, Aldhani Insurgent [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1842,8 +1842,8 @@
     ]
   },
   "vermillionqirasauctionhouse": {
-    "image": "LAW/Vermillion - Qiras_Auction_House.png",
-    "name": "Vermillion - Qi'ra's Auction House",
+    "image": "LAW/Vermillion, Qiras_Auction_House.png",
+    "name": "Vermillion, Qi'ra's Auction House",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1852,8 +1852,8 @@
     ]
   },
   "vultskerrissdefendersecretproject": {
-    "image": "LAW/Vult_Skerriss_Defender - Secret_Project.png",
-    "name": "Vult Skerris's Defender - Secret Project",
+    "image": "LAW/Vult_Skerriss_Defender, Secret_Project.png",
+    "name": "Vult Skerris's Defender, Secret Project",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1863,8 +1863,8 @@
     ]
   },
   "weazelfightingback": {
-    "image": "LAW/Weazel - Fighting_Back.png",
-    "name": "Weazel - Fighting Back",
+    "image": "LAW/Weazel, Fighting_Back.png",
+    "name": "Weazel, Fighting Back",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1901,8 +1901,8 @@
     ]
   },
   "zeborelliosspectrefour": {
-    "image": "LAW/Zeb_Orellios - Spectre_Four.png",
-    "name": "Zeb Orellios - Spectre Four",
+    "image": "LAW/Zeb_Orellios, Spectre_Four.png",
+    "name": "Zeb Orellios, Spectre Four",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1912,8 +1912,8 @@
     ]
   },
   "zuckussdangerous": {
-    "image": "LAW/Zuckuss - Dangerous.png",
-    "name": "Zuckuss - Dangerous",
+    "image": "LAW/Zuckuss, Dangerous.png",
+    "name": "Zuckuss, Dangerous",
     "type": "Unit",
     "hp": null,
     "aspects": [

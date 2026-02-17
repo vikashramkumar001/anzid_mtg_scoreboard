@@ -1092,3 +1092,117 @@ body.vertical #deck-display-vibes .vertical-deck-container {
     height: 100%;
     object-fit: contain;
 }
+
+/* Star Wars Deck Display Styles */
+body.starwars * {
+    font-family: 'Barlow', sans-serif;
+}
+
+#deck-display-starwars {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+}
+
+#deck-display-starwars #starwars-deck-display-details {
+    width: 1920px;
+    height: 130px;
+    color: white;
+}
+
+#deck-display-starwars #starwars-deck-display-details h1 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 115px;
+    font-weight: 700;
+    height: 100px;
+    position: relative;
+    top: 42px;
+    left: 106px;
+    z-index: 5;
+}
+
+#deck-display-starwars #starwars-deck-display-details h5 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 45px;
+    font-weight: 400;
+    position: relative;
+    top: 48px;
+    left: 106px;
+    z-index: 5;
+}
+
+#deck-display-starwars #starwars-deck-display-container {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    z-index: 10;
+    top: 256px;
+    left: 0;
+}
+
+#deck-display-starwars #starwars-main-deck-container {
+    width: 1670px;
+    height: 756px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    padding: 5px;
+    gap: 5px;
+    position: absolute;
+    left: calc(50% + 12px);
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+body.vertical #deck-display-starwars #starwars-main-deck-container {
+    height: 1080px;
+}
+
+body.vertical #deck-display-starwars #starwars-deck-display-container {
+    top: 100px;
+    left: 0;
+}
+
+body.vertical #deck-display-starwars #starwars-main-deck-container {
+    left: 0;
+    transform: none;
+    padding: 0;
+}
+
+/* Star Wars Leader/Base Header Zone */
+.starwars-deck-header-zone {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+}
+
+.starwars-leader-card,
+.starwars-base-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leader-card-img,
+.base-card-img {
+    height: 220px;
+    width: auto;
+    border-radius: 12px;
+}
+
+.leader-label,
+.base-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 4px;
+}

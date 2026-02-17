@@ -69,7 +69,7 @@ import {
 } from "../features/archetypes.js";
 import {
     handleIncomingMetaBreakdownData
-} from "../features/metaBreakdown.js";
+} from "../features/mtg/metaBreakdown.js";
 import {
     emitRiftboundCardList,
     emitRiftboundCardView,
@@ -80,7 +80,8 @@ import {
     emitStarWarsCardList,
     emitStarWarsCardView,
     handleStarWarsIncomingDeckData,
-    emitSWULeadersAndBases
+    emitSWULeadersAndBases,
+    lookupCardByName
 } from "../features/starwars/cards.js";
 
 import { RoomUtils } from '../utils/room-utils.js';
@@ -91,6 +92,8 @@ import {
     fetchTournamentStandings,
     fetchMatchByTable,
     fetchMeleeDecklists,
+    fetchMeleeDecklist,
+    parseMeleeDecklist,
     fetchMeleePairings
 } from '../features/tournament-platforms.js';
 
@@ -452,6 +455,35 @@ export default function registerSocketHandlers(io) {
                 socket.emit('match-by-table-fetched', { matchData });
             } catch (error) {
                 socket.emit('match-by-table-fetched', { error: error.message });
+            }
+        });
+
+        // Fetch a single decklist by ID and parse it into categorized card lists
+        socket.on('fetch-decklist-by-id', async ({ decklistId, side, matchId, roundId, game }) => {
+            try {
+                const raw = await fetchMeleeDecklist(decklistId);
+                const parsed = parseMeleeDecklist(raw, game || 'starwars');
+
+                // SWU-specific: enrich leader/base with aspects and HP from local card data
+                if (game === 'starwars' || !game) {
+                    if (parsed.leader) {
+                        const cardInfo = lookupCardByName(parsed.leader.name);
+                        if (cardInfo) {
+                            parsed.leader.aspects = cardInfo.aspects;
+                        }
+                    }
+                    if (parsed.base) {
+                        const cardInfo = lookupCardByName(parsed.base.name);
+                        if (cardInfo) {
+                            parsed.base.aspects = cardInfo.aspects;
+                            parsed.base.hp = cardInfo.hp;
+                        }
+                    }
+                }
+
+                socket.emit('decklist-fetched', { side, matchId, roundId, game: game || 'starwars', ...parsed });
+            } catch (error) {
+                socket.emit('decklist-fetched', { side, matchId, roundId, error: error.message });
             }
         });
 

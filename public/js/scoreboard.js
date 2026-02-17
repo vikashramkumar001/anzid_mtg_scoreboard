@@ -27,12 +27,12 @@ const MANA_SYMBOLS = {
 
 // Star Wars Unlimited Aspects Dictionary
 const SWU_ASPECTS = {
-    'aggression': '/assets/images/starwars/scoreboard/icons/Aggression.png',
-    'command': '/assets/images/starwars/scoreboard/icons/Command.png',
-    'cunning': '/assets/images/starwars/scoreboard/icons/Cunning.png',
-    'heroism': '/assets/images/starwars/scoreboard/icons/Heroism.png',
-    'vigilance': '/assets/images/starwars/scoreboard/icons/Vigilance.png',
-    'villainy': '/assets/images/starwars/scoreboard/icons/Villainy.png'
+    'aggression': '/assets/images/starwars/icons/Aggression.png',
+    'command': '/assets/images/starwars/icons/Command.png',
+    'cunning': '/assets/images/starwars/icons/Cunning.png',
+    'heroism': '/assets/images/starwars/icons/Heroism.png',
+    'vigilance': '/assets/images/starwars/icons/Vigilance.png',
+    'villainy': '/assets/images/starwars/icons/Villainy.png'
 };
 // SWU Leaders and Bases: empty for now, populated when card images are added
 const SWU_LEADERS = {};
@@ -46,9 +46,10 @@ function findDictMatch(name, dict) {
     for (const key in dict) {
         if (key.toLowerCase() === nameLower) return key;
     }
-    // Partial match (value contains key)
+    // Partial match: input contains key OR key contains input
     for (const key in dict) {
-        if (nameLower.includes(key.toLowerCase())) return key;
+        const keyLower = key.toLowerCase();
+        if (nameLower.includes(keyLower) || keyLower.includes(nameLower)) return key;
     }
     return null;
 }
@@ -286,6 +287,11 @@ function updateElementText(id, value) {
     const vibesContainer = document.getElementById('scoreboard-vibes');
     const starwarsContainer = document.getElementById('scoreboard-starwars');
 
+    if (id === 'player-leader-left' || id === 'player-leader-right') {
+        const swEl = starwarsContainer ? starwarsContainer.querySelector(`#${id}`) : null;
+        console.log('[SWU FORMAT TRACE] id:', id, 'value:', value, 'starwarsContainer:', !!starwarsContainer, 'swEl:', !!swEl, 'lastState:', lastState[id], 'changed:', lastState[id] !== value);
+    }
+
     let updated = false;
 
     // Update MTG section
@@ -319,7 +325,23 @@ function updateElementText(id, value) {
     if (starwarsContainer) {
         const starwarsEl = starwarsContainer.querySelector(`#${id}`);
         if (starwarsEl && lastState[id] !== value) {
-            starwarsEl.innerHTML = value;
+            if (id === 'event-round') {
+                starwarsEl.innerHTML = value.replace(/\s+of\s+\d+/i, '');
+            } else if (id !== 'player-leader-left' && id !== 'player-leader-right') {
+                starwarsEl.innerHTML = value;
+            }
+            updated = true;
+        }
+        // Leader name formatting: always apply (split on comma, en-dash, em-dash, or spaced hyphen)
+        if (starwarsEl && (id === 'player-leader-left' || id === 'player-leader-right')) {
+            const raw = value ? value.trim() : '';
+            const splitMatch = raw.match(/^(.+?)(?:\s*[,\u2013\u2014]\s*|\s+[-]\s+)(.+)$/);
+            console.log('[SWU FORMAT APPLY]', id, 'raw:', raw, 'match:', splitMatch);
+            if (splitMatch) {
+                starwarsEl.innerHTML = splitMatch[1] + '<br><span class="swu-leader-subtitle">' + splitMatch[2] + '</span>';
+            } else {
+                starwarsEl.innerHTML = raw;
+            }
             updated = true;
         }
     }
@@ -582,13 +604,13 @@ function updateState(data) {
             }
         }
 
-        // Handle Star Wars base damage/HP composite display
-        if (["player-base-damage-left", "player-base-damage-right", "player-base-hp-left", "player-base-hp-right"].includes(key)) {
+        // Handle Star Wars base damage/HP composite display (uses player-life for damage)
+        if (["player-life-left", "player-life-right", "player-base-hp-left", "player-base-hp-right"].includes(key)) {
             const side = key.includes('left') ? 'left' : 'right';
             // Store the raw value
             lastState[key] = value;
             // Get both values (use stored or default)
-            const damage = lastState[`player-base-damage-${side}`] || '0';
+            const damage = lastState[`player-life-${side}`] || '0';
             const hp = lastState[`player-base-hp-${side}`] || '30';
             const composite = `${String(damage).padStart(2, '0')}/${hp}`;
             const statsEl = document.getElementById(`swu-base-stats-${side}`);
@@ -597,15 +619,20 @@ function updateState(data) {
             }
         }
 
-        // Handle Star Wars leader image lookup
+        // Handle Star Wars leader image lookup + name formatting
         if (["player-leader-left", "player-leader-right"].includes(key)) {
+            console.log('[SWU DEBUG] leader update:', key, '=', value);
+            console.log('[SWU DEBUG] SWU_LEADERS keys:', Object.keys(SWU_LEADERS).length);
             const side = key === 'player-leader-left' ? 'left' : 'right';
             const starwarsContainer = document.getElementById('scoreboard-starwars');
+            console.log('[SWU DEBUG] starwarsContainer:', !!starwarsContainer);
             if (starwarsContainer) {
                 const imgEl = starwarsContainer.querySelector(`#swu-leader-image-${side}`);
+                console.log('[SWU DEBUG] imgEl:', !!imgEl);
                 if (imgEl) {
                     const leaderName = value ? value.trim() : '';
                     const matchedKey = findDictMatch(leaderName, SWU_LEADERS);
+                    console.log('[SWU DEBUG] leaderName:', leaderName, 'matchedKey:', matchedKey);
                     if (matchedKey && SWU_LEADERS[matchedKey]) {
                         imgEl.src = SWU_LEADERS[matchedKey];
                         imgEl.style.display = 'block';
@@ -614,11 +641,14 @@ function updateState(data) {
                         imgEl.style.display = 'none';
                     }
                 }
+                // Leader name formatting moved to after updateElementText to avoid overwrite
             }
         }
 
         // Handle Star Wars base image lookup
         if (["player-base-left", "player-base-right"].includes(key)) {
+            console.log('[SWU DEBUG] base update:', key, '=', value);
+            console.log('[SWU DEBUG] SWU_BASES keys:', Object.keys(SWU_BASES).length);
             const side = key === 'player-base-left' ? 'left' : 'right';
             const starwarsContainer = document.getElementById('scoreboard-starwars');
             if (starwarsContainer) {
@@ -626,6 +656,7 @@ function updateState(data) {
                 if (imgEl) {
                     const baseName = value ? value.trim() : '';
                     const matchedKey = findDictMatch(baseName, SWU_BASES);
+                    console.log('[SWU DEBUG] baseName:', baseName, 'matchedKey:', matchedKey);
                     if (matchedKey && SWU_BASES[matchedKey]) {
                         imgEl.src = SWU_BASES[matchedKey];
                         imgEl.style.display = 'block';
@@ -643,10 +674,12 @@ function updateState(data) {
             const side = key.includes('left') ? 'left' : 'right';
             lastState[key] = value;
             const container = document.getElementById(`swu-leader-aspects-${side}`);
+            console.log('[SWU DEBUG] leader aspect update:', key, '=', value, 'container:', !!container);
             if (container) {
                 const a1 = lastState[`player-leader-aspect-1-${side}`] || '';
                 const a2 = lastState[`player-leader-aspect-2-${side}`] || '';
                 const combined = [a1, a2].filter(Boolean).join(', ');
+                console.log('[SWU DEBUG] rendering leader aspects:', combined);
                 renderAspectIcons(combined, container);
             }
         }
@@ -655,6 +688,7 @@ function updateState(data) {
         if (["player-base-aspects-left", "player-base-aspects-right"].includes(key)) {
             const side = key.includes('left') ? 'left' : 'right';
             const container = document.getElementById(`swu-base-aspects-${side}`);
+            console.log('[SWU DEBUG] base aspect update:', key, '=', value, 'container:', !!container);
             if (container) {
                 renderAspectIcons(value, container);
             }
@@ -662,6 +696,10 @@ function updateState(data) {
         }
 
         const el = document.getElementById(key);
+
+        if (["player-leader-left", "player-leader-right"].includes(key)) {
+            console.log('[SWU FORMAT CALLSITE] key:', key, 'el:', !!el);
+        }
 
         if (el) {
             if (["player-poison-left", "player-poison-right"].includes(key)) {
@@ -731,15 +769,23 @@ function updateState(data) {
                 }
             }
 
-            // Handle Star Wars wins display with pip filled toggle
+            // Handle Star Wars wins display with pip images (block/none like Riftbound)
             const starwarsContainer = document.getElementById('scoreboard-starwars');
             if (starwarsContainer) {
                 const swuSide = key === 'player-wins-left' ? 'left' : 'right';
                 const swuPip1 = starwarsContainer.querySelector(`#swu-wins-${swuSide}-1`);
                 const swuPip2 = starwarsContainer.querySelector(`#swu-wins-${swuSide}-2`);
                 if (swuPip1 && swuPip2) {
-                    swuPip1.classList.toggle('filled', value > 0);
-                    swuPip2.classList.toggle('filled', value > 1);
+                    if (value > 1) {
+                        swuPip1.style.display = 'block';
+                        swuPip2.style.display = 'block';
+                    } else if (value > 0) {
+                        swuPip1.style.display = 'block';
+                        swuPip2.style.display = 'none';
+                    } else {
+                        swuPip1.style.display = 'none';
+                        swuPip2.style.display = 'none';
+                    }
                 }
             }
         } else if (["player-mana-symbols-left", "player-mana-symbols-right"].includes(key)) {
@@ -793,11 +839,16 @@ socket.emit('getSavedControlState', {control_id});
 socket.emit('getArchetypeList');
 
 socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
-    console.log('got saved state from server', data);
-    archetypeList = data['archetypeList'];
-    round_id = data['round_id'];
-    match_id = data['match_id'];
-    updateState(data['data']);
+    try {
+        console.log('got saved state from server', data);
+        console.log('[SWU DEBUG] RECEIVED NEW STATE - leader-left:', data['data']?.['player-leader-left'], 'leader-right:', data['data']?.['player-leader-right'], 'base-left:', data['data']?.['player-base-left'], 'base-right:', data['data']?.['player-base-right']);
+        archetypeList = data['archetypeList'];
+        round_id = data['round_id'];
+        match_id = data['match_id'];
+        updateState(data['data']);
+    } catch (e) {
+        console.error('[SWU DEBUG] ERROR in saved-state handler:', e);
+    }
 });
 
 socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
@@ -1244,6 +1295,7 @@ function updateTheme(game, vendor, playerCount) {
 socket.emit('get-game-selection');
 socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
+socket.emit('starwars-get-leaders-and-bases');
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;
@@ -1270,4 +1322,64 @@ socket.on('player-count-updated', ({playerCount}) => {
     updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
+socket.on('starwars-leaders-and-bases', ({ leaders, bases }) => {
+    console.log('[SWU DEBUG] Received leaders:', leaders.length, 'bases:', bases.length);
+    leaders.forEach(l => { SWU_LEADERS[l.name] = l.image; });
+    bases.forEach(b => { SWU_BASES[b.name] = b.image; });
+    console.log('[SWU DEBUG] SWU_LEADERS populated:', Object.keys(SWU_LEADERS).length, 'SWU_BASES populated:', Object.keys(SWU_BASES).length);
+});
+
 // end game selection logic
+
+// ─── Card View Overlay on Scoreboard ───
+// card-id 1 = left, card-id 2 = right
+const CARD_VIEW_EVENTS = [
+    'card-view-card-selected',
+    'vibes-card-view-card-selected',
+    'riftbound-card-view-card-selected',
+    'starwars-card-view-card-selected'
+];
+
+// Elements to hide per side when card overlay is shown
+const SWU_LEADER_BASE_CLASSES = [
+    'swu-leader-name', 'swu-leader-image',
+    'swu-base-name', 'swu-base-image'
+];
+
+function setLeaderBaseVisibility(side, visible) {
+    const display = visible ? '' : 'none';
+    for (const cls of SWU_LEADER_BASE_CLASSES) {
+        const el = document.querySelector(`#scoreboard-starwars .${cls}-${side}`);
+        if (el) el.style.display = display;
+    }
+}
+
+function handleCardViewOnScoreboard(data) {
+    const side = data['card-id']?.toString() === '1' ? 'left' : 'right';
+    const overlay = document.getElementById(`swu-card-overlay-${side}`);
+    const img = document.getElementById(`swu-card-overlay-img-${side}`);
+    if (!overlay || !img) return;
+
+    if (data.url) {
+        img.onload = () => {
+            // Landscape cards: shift down to top 580px
+            if (img.naturalWidth > img.naturalHeight) {
+                overlay.style.top = '580px';
+            } else {
+                overlay.style.top = '';
+            }
+        };
+        img.src = data.url;
+        overlay.style.display = 'block';
+        setLeaderBaseVisibility(side, false);
+    } else {
+        // Reset: hide overlay, show leader/base
+        img.src = '';
+        overlay.style.display = 'none';
+        setLeaderBaseVisibility(side, true);
+    }
+}
+
+CARD_VIEW_EVENTS.forEach(event => {
+    socket.on(event, handleCardViewOnScoreboard);
+});

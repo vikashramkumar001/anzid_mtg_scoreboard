@@ -44,6 +44,8 @@ let bracketData = {};
 let currentGame = 'mtg';
 let currentVendor = 'default';
 let currentPlayerCount = '1v1';
+let textColorFull = 'rgba(0,0,0, 1)';
+let textColorFaded = 'rgba(0,0,0, 0.5)';
 
 socket.emit('get-match-global-data');
 socket.emit('get-game-selection');
@@ -76,12 +78,32 @@ socket.on('player-count-updated', ({playerCount}) => {
 });
 
 function updateTheme(game, vendor, playerCount) {
-    // 1. Apply game defaults
+    // 1. Clear old vendor overrides first
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+    }
+
+    // 2. Apply game defaults
+    textColorFull = 'rgba(0,0,0, 1)';
+    textColorFaded = 'rgba(0,0,0, 0.5)';
+    document.documentElement.style.setProperty('--slot-points-width', '100px');
+
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
         document.documentElement.style.setProperty('--dynamic-font-weight', '700');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '400');
+    } else if (game === 'starwars') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Barlow');
+        document.documentElement.style.setProperty('--dynamic-font-weight', '600');
+        document.documentElement.style.setProperty('--archetype-font-style', 'normal');
+        document.documentElement.style.setProperty('--archetype-font-weight', '600');
+        document.documentElement.style.setProperty('--slot-points-width', '70px');
+        textColorFull = 'rgba(255,255,255, 1)';
+        textColorFaded = 'rgba(255,255,255, 0.5)';
     } else {
         document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
         document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
@@ -89,12 +111,8 @@ function updateTheme(game, vendor, playerCount) {
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
 
-    // 2. Apply vendor overrides
-    const vc = window.VENDOR_CONFIG;
+    // 3. Apply new vendor overrides (can override game defaults)
     if (vc) {
-        vc.getAllOverrideProperties().forEach(prop => {
-            document.documentElement.style.removeProperty(prop);
-        });
         const overrides = vc.getOverrides(game, vendor);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
@@ -103,19 +121,23 @@ function updateTheme(game, vendor, playerCount) {
 
     // 3. Update bracket images with vendor + player count suffix
     const bg = document.getElementById('bracket-bg');
-    if (bg && vc) bg.src = vc.getAssetPath(`/assets/images/${game}/bracket/bracket-bg.png`, vendor, playerCount);
+    if (bg && vc) bg.src = vc.getAssetPath(`/assets/images/${game}/bracket/${game}-bracket-bg.png`, vendor, playerCount);
 
     if (vc) {
         document.querySelectorAll('.slot-frame').forEach((frame) => {
-            frame.src = vc.getAssetPath(`/assets/images/${game}/bracket/bracket-frame.png`, vendor, playerCount);
+            frame.src = vc.getAssetPath(`/assets/images/${game}/bracket/${game}-bracket-frame.png`, vendor, playerCount);
         });
     }
+
+    // Re-render slots so text colors and unified sizing update
+    renderAllSlots();
 }
 
-// --- Auto-scale text (same as bracket-individual-display.js) ---
+// --- Auto-scale text ---
 
-function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
-    if (!element || !element.innerText) return;
+// Calculate the font size needed to fit text, returns the size (does not apply it)
+function calculateFontSize(element, maxFontSize, minFontSize, maxWidth) {
+    if (!element || !element.innerText) return maxFontSize;
 
     element.style.whiteSpace = 'nowrap';
     element.style.fontSize = maxFontSize + 'px';
@@ -136,28 +158,44 @@ function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
         temp.style.fontSize = currentSize + 'px';
     }
 
-    element.style.fontSize = currentSize + 'px';
     document.body.removeChild(temp);
+    return currentSize;
 }
 
 // --- Round labels config ---
 
 const ROUND_LABELS = [
-    { text: 'QUARTERFINAL', centerX: 194 + SLOT_WIDTH / 2, y: 280, delay: 2500 },
-    { text: 'SEMIFINAL', centerX: 748 + SLOT_WIDTH / 2, y: 365, delay: 2600 },
-    { text: 'FINAL', centerX: 1302 + SLOT_WIDTH / 2, y: 535, delay: 2800 },
+    { text: 'QUARTERFINAL', centerX: 194 + SLOT_WIDTH / 2, y: 280, delay: 2500, clipBottom: 325 },
+    { text: 'SEMIFINAL', centerX: 748 + SLOT_WIDTH / 2, y: 365, delay: 2600, clipBottom: 410 },
+    { text: 'FINAL', centerX: 1302 + SLOT_WIDTH / 2, y: 535, delay: 2800, clipBottom: 580 },
 ];
 
 function createRoundLabels() {
     const container = document.getElementById('bracket-slots');
     ROUND_LABELS.forEach((label) => {
+        // Wrapper clips the label so it can't show in the frame area during animation
+        const wrapperTop = label.y - 60;
+        const wrapperHeight = label.clipBottom - wrapperTop;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'round-label-wrapper';
+        wrapper.style.position = 'absolute';
+        wrapper.style.top = wrapperTop + 'px';
+        wrapper.style.left = '0';
+        wrapper.style.width = '1920px';
+        wrapper.style.height = wrapperHeight + 'px';
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.pointerEvents = 'none';
+
         const el = document.createElement('div');
         el.className = 'round-label';
         el.innerText = label.text;
-        el.style.top = label.y + 'px';
+        el.style.top = (label.y - wrapperTop) + 'px';
         el.style.left = label.centerX + 'px';
         el.dataset.delay = label.delay;
-        container.appendChild(el);
+
+        wrapper.appendChild(el);
+        container.appendChild(wrapper);
     });
 }
 
@@ -233,39 +271,36 @@ function renderSlot(slotId, data) {
     if (archetype_key in data) {
         archetypeEl.innerText = data[archetype_key];
         archetypeEl.style.display = data[archetype_key] ? 'block' : 'none';
-        nameEl.style.lineHeight = data[archetype_key] ? '39px' : '34px';
+        nameEl.style.lineHeight = data[archetype_key] ? '39px' : '31px';
     }
     if (points_key in data) {
         pointsEl.innerText = data[points_key];
     }
 
     // Default: full opacity
-    rankEl.style.color = 'rgba(0,0,0, 1)';
-    nameEl.style.color = 'rgba(0,0,0, 1)';
-    archetypeEl.style.color = 'rgba(0,0,0, 1)';
-    pointsEl.style.color = 'rgba(0,0,0, 1)';
+    rankEl.style.color = textColorFull;
+    nameEl.style.color = textColorFull;
+    archetypeEl.style.color = textColorFull;
+    pointsEl.style.color = textColorFull;
 
     // Opacity if loss
     const win = data[win_key] || '';
     if (win === '0') {
-        rankEl.style.color = 'rgba(0,0,0, 0.5)';
-        nameEl.style.color = 'rgba(0,0,0, 0.5)';
-        archetypeEl.style.color = 'rgba(0,0,0, 0.5)';
-        pointsEl.style.color = 'rgba(0,0,0, 0.5)';
+        rankEl.style.color = textColorFaded;
+        nameEl.style.color = textColorFaded;
+        archetypeEl.style.color = textColorFaded;
+        pointsEl.style.color = textColorFaded;
     }
 
-    // Points background color
-    if (data[points_key] === '2') {
-        pointsEl.style.backgroundColor = '#E9CE89';
-    } else {
-        pointsEl.style.backgroundColor = '#fff';
+    // Swap frame image: win variant when points = 2
+    const frameEl = el.querySelector('.slot-frame');
+    const vc = window.VENDOR_CONFIG;
+    if (frameEl && vc) {
+        const frameBase = data[points_key] === '2'
+            ? `/assets/images/${currentGame}/bracket/${currentGame}-bracket-frame-win.png`
+            : `/assets/images/${currentGame}/bracket/${currentGame}-bracket-frame.png`;
+        frameEl.src = vc.getAssetPath(frameBase, currentVendor, currentPlayerCount);
     }
-
-    // Auto-scale text after fonts load
-    document.fonts.ready.then(() => {
-        autoScaleText(nameEl, 28, 16, 280);
-        autoScaleText(archetypeEl, 16, 10, 265);
-    });
 }
 
 // --- Render all slots ---
@@ -273,6 +308,37 @@ function renderSlot(slotId, data) {
 function renderAllSlots() {
     SLOT_CONFIG.forEach((slot) => {
         renderSlot(slot.id, bracketData);
+    });
+
+    // Unify font sizes: use the smallest size across all slots
+    document.fonts.ready.then(() => {
+        const nameEls = document.querySelectorAll('.slot-name');
+        const archetypeEls = document.querySelectorAll('.slot-archetype');
+
+        let minNameSize = 28;
+        let minArchetypeSize = 16;
+
+        nameEls.forEach(el => {
+            if (el.innerText) {
+                const size = calculateFontSize(el, 28, 16, 280);
+                if (size < minNameSize) minNameSize = size;
+            }
+        });
+
+        archetypeEls.forEach(el => {
+            if (el.innerText) {
+                const size = calculateFontSize(el, 16, 10, 265);
+                if (size < minArchetypeSize) minArchetypeSize = size;
+            }
+        });
+
+        nameEls.forEach(el => {
+            el.style.fontSize = minNameSize + 'px';
+        });
+
+        archetypeEls.forEach(el => {
+            el.style.fontSize = minArchetypeSize + 'px';
+        });
     });
 }
 

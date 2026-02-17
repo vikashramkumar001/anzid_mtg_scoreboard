@@ -9,8 +9,8 @@
     ]
   },
   "97thlegionkeepingthepeaceonsullust": {
-    "image": "SOR/97th_Legion - Keeping_the_Peace_on_Sullust.png",
-    "name": "97th Legion - Keeping the Peace on Sullust",
+    "image": "SOR/97th_Legion, Keeping_the_Peace_on_Sullust.png",
+    "name": "97th Legion, Keeping the Peace on Sullust",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -56,7 +56,7 @@
     ]
   },
   "administratorstower": {
-    "image": "SOR/Administrators_Tower - Cloud_City.png",
+    "image": "SOR/Administrators_Tower, Cloud_City.png",
     "name": "Administrator's Tower",
     "type": "Base",
     "hp": "30",
@@ -65,8 +65,8 @@
     ]
   },
   "admiralackbarbrilliantstrategist": {
-    "image": "SOR/Admiral_Ackbar - Brilliant_Strategist.png",
-    "name": "Admiral Ackbar - Brilliant Strategist",
+    "image": "SOR/Admiral_Ackbar, Brilliant_Strategist.png",
+    "name": "Admiral Ackbar, Brilliant Strategist",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -75,8 +75,8 @@
     ]
   },
   "admiralmottibrazenandscornful": {
-    "image": "SOR/Admiral_Motti - Brazen_and_Scornful.png",
-    "name": "Admiral Motti - Brazen and Scornful",
+    "image": "SOR/Admiral_Motti, Brazen_and_Scornful.png",
+    "name": "Admiral Motti, Brazen and Scornful",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -84,8 +84,8 @@
     ]
   },
   "admiralozzeloverconfident": {
-    "image": "SOR/Admiral_Ozzel - Overconfident.png",
-    "name": "Admiral Ozzel - Overconfident",
+    "image": "SOR/Admiral_Ozzel, Overconfident.png",
+    "name": "Admiral Ozzel, Overconfident",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -94,8 +94,8 @@
     ]
   },
   "admiralpiettcaptainoftheexecutor": {
-    "image": "SOR/Admiral_Piett - Captain_of_the_Executor.png",
-    "name": "Admiral Piett - Captain of the Executor",
+    "image": "SOR/Admiral_Piett, Captain_of_the_Executor.png",
+    "name": "Admiral Piett, Captain of the Executor",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -104,8 +104,8 @@
     ]
   },
   "agentkallusseekingtherebels": {
-    "image": "SOR/Agent_Kallus - Seeking_the_Rebels.png",
-    "name": "Agent Kallus - Seeking the Rebels",
+    "image": "SOR/Agent_Kallus, Seeking_the_Rebels.png",
+    "name": "Agent Kallus, Seeking the Rebels",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -180,8 +180,8 @@
     ]
   },
   "avengerhuntingstardestroyer": {
-    "image": "SOR/Avenger - Hunting_Star_Destroyer.png",
-    "name": "Avenger - Hunting Star Destroyer",
+    "image": "SOR/Avenger, Hunting_Star_Destroyer.png",
+    "name": "Avenger, Hunting Star Destroyer",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -190,8 +190,8 @@
     ]
   },
   "bailorganarebelcouncilor": {
-    "image": "SOR/Bail_Organa - Rebel_Councilor.png",
-    "name": "Bail Organa - Rebel Councilor",
+    "image": "SOR/Bail_Organa, Rebel_Councilor.png",
+    "name": "Bail Organa, Rebel Councilor",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -220,8 +220,8 @@
     ]
   },
   "bazemalbustempleguardian": {
-    "image": "SOR/Baze_Malbus - Temple_Guardian.png",
-    "name": "Baze Malbus - Temple Guardian",
+    "image": "SOR/Baze_Malbus, Temple_Guardian.png",
+    "name": "Baze Malbus, Temple Guardian",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -229,8 +229,8 @@
     ]
   },
   "bendutheoneinthemiddle": {
-    "image": "SOR/Bendu - The_One_in_the_Middle.png",
-    "name": "Bendu - The One in the Middle",
+    "image": "SOR/Bendu, The_One_in_the_Middle.png",
+    "name": "Bendu, The One in the Middle",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -239,8 +239,8 @@
     ]
   },
   "benthictwotubespartisanlieutenant": {
-    "image": "SOR/Benthic_Two_Tubes - Partisan_Lieutenant.png",
-    "name": "Benthic \"Two Tubes\" - Partisan Lieutenant",
+    "image": "SOR/Benthic_Two_Tubes, Partisan_Lieutenant.png",
+    "name": "Benthic \"Two Tubes\", Partisan Lieutenant",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -248,8 +248,8 @@
     ]
   },
   "bibfortunajabbasmajordomo": {
-    "image": "SOR/Bib_Fortuna - Jabbas_Majordomo.png",
-    "name": "Bib Fortuna - Jabba's Majordomo",
+    "image": "SOR/Bib_Fortuna, Jabbas_Majordomo.png",
+    "name": "Bib Fortuna, Jabba's Majordomo",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -258,8 +258,8 @@
     ]
   },
   "blackonescourgeofstarkillerbase": {
-    "image": "SOR/Black_One - Scourge_of_Starkiller_Base.png",
-    "name": "Black One - Scourge of Starkiller Base",
+    "image": "SOR/Black_One, Scourge_of_Starkiller_Base.png",
+    "name": "Black One, Scourge of Starkiller Base",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -278,8 +278,8 @@
     ]
   },
   "bobafettcollectingthebounty": {
-    "image": "SOR/Boba_Fett - Collecting_the_Bounty.png",
-    "name": "Boba Fett - Collecting the Bounty",
+    "image": "SOR/Boba_Fett, Collecting_the_Bounty.png",
+    "name": "Boba Fett, Collecting the Bounty",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -288,8 +288,8 @@
     ]
   },
   "bobafettcollectingthebountyback": {
-    "image": "SOR/Boba_Fett - Collecting_the_Bounty_back.png",
-    "name": "Boba Fett - Collecting the Bounty [Back]",
+    "image": "SOR/Boba_Fett, Collecting_the_Bounty_back.png",
+    "name": "Boba Fett, Collecting the Bounty [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -298,8 +298,8 @@
     ]
   },
   "bobafettdisintegrator": {
-    "image": "SOR/Boba_Fett - Disintegrator.png",
-    "name": "Boba Fett - Disintegrator",
+    "image": "SOR/Boba_Fett, Disintegrator.png",
+    "name": "Boba Fett, Disintegrator",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -308,8 +308,8 @@
     ]
   },
   "bodhirookimperialdefector": {
-    "image": "SOR/Bodhi_Rook - Imperial_Defector.png",
-    "name": "Bodhi Rook - Imperial Defector",
+    "image": "SOR/Bodhi_Rook, Imperial_Defector.png",
+    "name": "Bodhi Rook, Imperial Defector",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -327,8 +327,8 @@
     ]
   },
   "bosskdeadlystalker": {
-    "image": "SOR/Bossk - Deadly_Stalker.png",
-    "name": "Bossk - Deadly Stalker",
+    "image": "SOR/Bossk, Deadly_Stalker.png",
+    "name": "Bossk, Deadly Stalker",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -347,8 +347,8 @@
     ]
   },
   "brighthopethelasttransport": {
-    "image": "SOR/Bright_Hope - The_Last_Transport.png",
-    "name": "Bright Hope - The Last Transport",
+    "image": "SOR/Bright_Hope, The_Last_Transport.png",
+    "name": "Bright Hope, The Last Transport",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -357,8 +357,8 @@
     ]
   },
   "c3p0protocoldroid": {
-    "image": "SOR/C-3P0 - Protocol_Droid.png",
-    "name": "C-3P0 - Protocol Droid",
+    "image": "SOR/C-3P0, Protocol_Droid.png",
+    "name": "C-3P0, Protocol Droid",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -385,7 +385,7 @@
     ]
   },
   "capitalcity": {
-    "image": "SOR/Capital_City - Lothal.png",
+    "image": "SOR/Capital_City, Lothal.png",
     "name": "Capital City",
     "type": "Base",
     "hp": "30",
@@ -413,8 +413,8 @@
     ]
   },
   "cassianandordedicatedtotherebellion": {
-    "image": "SOR/Cassian_Andor - Dedicated_to_the_Rebellion.png",
-    "name": "Cassian Andor - Dedicated to the Rebellion",
+    "image": "SOR/Cassian_Andor, Dedicated_to_the_Rebellion.png",
+    "name": "Cassian Andor, Dedicated to the Rebellion",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -423,8 +423,8 @@
     ]
   },
   "cassianandordedicatedtotherebellionback": {
-    "image": "SOR/Cassian_Andor - Dedicated_to_the_Rebellion_back.png",
-    "name": "Cassian Andor - Dedicated to the Rebellion [Back]",
+    "image": "SOR/Cassian_Andor, Dedicated_to_the_Rebellion_back.png",
+    "name": "Cassian Andor, Dedicated to the Rebellion [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -433,7 +433,7 @@
     ]
   },
   "catacombsofcadera": {
-    "image": "SOR/Catacombs_of_Cadera - Jedha.png",
+    "image": "SOR/Catacombs_of_Cadera, Jedha.png",
     "name": "Catacombs of Cadera",
     "type": "Base",
     "hp": "30",
@@ -460,8 +460,8 @@
     ]
   },
   "chewbaccawalkingcarpet": {
-    "image": "SOR/Chewbacca - Walking_Carpet.png",
-    "name": "Chewbacca - Walking Carpet",
+    "image": "SOR/Chewbacca, Walking_Carpet.png",
+    "name": "Chewbacca, Walking Carpet",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -470,8 +470,8 @@
     ]
   },
   "chewbaccawalkingcarpetback": {
-    "image": "SOR/Chewbacca - Walking_Carpet_back.png",
-    "name": "Chewbacca - Walking Carpet [Back]",
+    "image": "SOR/Chewbacca, Walking_Carpet_back.png",
+    "name": "Chewbacca, Walking Carpet [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -480,8 +480,8 @@
     ]
   },
   "chewbaccaloyalcompanion": {
-    "image": "SOR/Chewbacca - Loyal_Companion.png",
-    "name": "Chewbacca - Loyal Companion",
+    "image": "SOR/Chewbacca, Loyal_Companion.png",
+    "name": "Chewbacca, Loyal Companion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -490,8 +490,8 @@
     ]
   },
   "chimaeraflagshipoftheseventhfleet": {
-    "image": "SOR/Chimaera - Flagship_of_the_Seventh_Fleet.png",
-    "name": "Chimaera - Flagship of the Seventh Fleet",
+    "image": "SOR/Chimaera, Flagship_of_the_Seventh_Fleet.png",
+    "name": "Chimaera, Flagship of the Seventh Fleet",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -500,8 +500,8 @@
     ]
   },
   "chirrutmweonewiththeforce": {
-    "image": "SOR/Chirrut_mwe - One_With_the_Force.png",
-    "name": "Chirrut Îmwe - One With the Force",
+    "image": "SOR/Chirrut_mwe, One_With_the_Force.png",
+    "name": "Chirrut Îmwe, One With the Force",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -510,8 +510,8 @@
     ]
   },
   "chirrutmweonewiththeforceback": {
-    "image": "SOR/Chirrut_mwe - One_With_the_Force_back.png",
-    "name": "Chirrut Îmwe - One With the Force [Back]",
+    "image": "SOR/Chirrut_mwe, One_With_the_Force_back.png",
+    "name": "Chirrut Îmwe, One With the Force [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -520,8 +520,8 @@
     ]
   },
   "choppermetalmenace": {
-    "image": "SOR/Chopper - Metal_Menace.png",
-    "name": "Chopper - Metal Menace",
+    "image": "SOR/Chopper, Metal_Menace.png",
+    "name": "Chopper, Metal Menace",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -530,7 +530,7 @@
     ]
   },
   "chopperbase": {
-    "image": "SOR/Chopper_Base - Atollon.png",
+    "image": "SOR/Chopper_Base, Atollon.png",
     "name": "Chopper Base",
     "type": "Base",
     "hp": "30",
@@ -548,8 +548,8 @@
     ]
   },
   "colonelyularenisbdirector": {
-    "image": "SOR/Colonel_Yularen - ISB_Director.png",
-    "name": "Colonel Yularen - ISB Director",
+    "image": "SOR/Colonel_Yularen, ISB_Director.png",
+    "name": "Colonel Yularen, ISB Director",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -567,7 +567,7 @@
     ]
   },
   "commandcenter": {
-    "image": "SOR/Command_Center - Death_Star.png",
+    "image": "SOR/Command_Center, Death_Star.png",
     "name": "Command Center",
     "type": "Base",
     "hp": "30",
@@ -609,8 +609,8 @@
     "aspects": []
   },
   "countdookudarthtyrannus": {
-    "image": "SOR/Count_Dooku - Darth_Tyrannus.png",
-    "name": "Count Dooku - Darth Tyrannus",
+    "image": "SOR/Count_Dooku, Darth_Tyrannus.png",
+    "name": "Count Dooku, Darth Tyrannus",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -638,7 +638,7 @@
     ]
   },
   "dagobahswamp": {
-    "image": "SOR/Dagobah_Swamp - Dagobah.png",
+    "image": "SOR/Dagobah_Swamp, Dagobah.png",
     "name": "Dagobah Swamp",
     "type": "Base",
     "hp": "30",
@@ -647,8 +647,8 @@
     ]
   },
   "darthvaderdarklordofthesith": {
-    "image": "SOR/Darth_Vader - Dark_Lord_of_the_Sith.png",
-    "name": "Darth Vader - Dark Lord of the Sith",
+    "image": "SOR/Darth_Vader, Dark_Lord_of_the_Sith.png",
+    "name": "Darth Vader, Dark Lord of the Sith",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -657,8 +657,8 @@
     ]
   },
   "darthvaderdarklordofthesithback": {
-    "image": "SOR/Darth_Vader - Dark_Lord_of_the_Sith_back.png",
-    "name": "Darth Vader - Dark Lord of the Sith [Back]",
+    "image": "SOR/Darth_Vader, Dark_Lord_of_the_Sith_back.png",
+    "name": "Darth Vader, Dark Lord of the Sith [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -667,8 +667,8 @@
     ]
   },
   "darthvadercommandingthefirstlegion": {
-    "image": "SOR/Darth_Vader - Commanding_the_First_Legion.png",
-    "name": "Darth Vader - Commanding the First Legion",
+    "image": "SOR/Darth_Vader, Commanding_the_First_Legion.png",
+    "name": "Darth Vader, Commanding the First Legion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -697,8 +697,8 @@
     ]
   },
   "delmeekoprovidingoverwatch": {
-    "image": "SOR/Del_Meeko - Providing_Overwatch.png",
-    "name": "Del Meeko - Providing Overwatch",
+    "image": "SOR/Del_Meeko, Providing_Overwatch.png",
+    "name": "Del Meeko, Providing Overwatch",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -707,8 +707,8 @@
     ]
   },
   "devastatorinescapable": {
-    "image": "SOR/Devastator - Inescapable.png",
-    "name": "Devastator - Inescapable",
+    "image": "SOR/Devastator, Inescapable.png",
+    "name": "Devastator, Inescapable",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -726,8 +726,8 @@
     ]
   },
   "directorkrennicaspiringtoauthority": {
-    "image": "SOR/Director_Krennic - Aspiring_to_Authority.png",
-    "name": "Director Krennic - Aspiring to Authority",
+    "image": "SOR/Director_Krennic, Aspiring_to_Authority.png",
+    "name": "Director Krennic, Aspiring to Authority",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -736,8 +736,8 @@
     ]
   },
   "directorkrennicaspiringtoauthorityback": {
-    "image": "SOR/Director_Krennic - Aspiring_to_Authority_back.png",
-    "name": "Director Krennic - Aspiring to Authority [Back]",
+    "image": "SOR/Director_Krennic, Aspiring_to_Authority_back.png",
+    "name": "Director Krennic, Aspiring to Authority [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -782,7 +782,7 @@
     ]
   },
   "echobase": {
-    "image": "SOR/Echo_Base - Hoth.png",
+    "image": "SOR/Echo_Base, Hoth.png",
     "name": "Echo Base",
     "type": "Base",
     "hp": "30",
@@ -810,8 +810,8 @@
     ]
   },
   "emperorpalpatinegalacticruler": {
-    "image": "SOR/Emperor_Palpatine - Galactic_Ruler.png",
-    "name": "Emperor Palpatine - Galactic Ruler",
+    "image": "SOR/Emperor_Palpatine, Galactic_Ruler.png",
+    "name": "Emperor Palpatine, Galactic Ruler",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -820,8 +820,8 @@
     ]
   },
   "emperorpalpatinegalacticrulerback": {
-    "image": "SOR/Emperor_Palpatine - Galactic_Ruler_back.png",
-    "name": "Emperor Palpatine - Galactic Ruler [Back]",
+    "image": "SOR/Emperor_Palpatine, Galactic_Ruler_back.png",
+    "name": "Emperor Palpatine, Galactic Ruler [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -830,8 +830,8 @@
     ]
   },
   "emperorpalpatinemasterofthedarkside": {
-    "image": "SOR/Emperor_Palpatine - Master_of_the_Dark_Side.png",
-    "name": "Emperor Palpatine - Master of the Dark Side",
+    "image": "SOR/Emperor_Palpatine, Master_of_the_Dark_Side.png",
+    "name": "Emperor Palpatine, Master of the Dark Side",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -850,7 +850,7 @@
     ]
   },
   "energyconversionlab": {
-    "image": "SOR/Energy_Conversion_Lab - Eadu.png",
+    "image": "SOR/Energy_Conversion_Lab, Eadu.png",
     "name": "Energy Conversion Lab",
     "type": "Base",
     "hp": "25",
@@ -877,8 +877,8 @@
     ]
   },
   "ezrabridgerresourcefultroublemaker": {
-    "image": "SOR/Ezra_Bridger - Resourceful_Troublemaker.png",
-    "name": "Ezra Bridger - Resourceful Troublemaker",
+    "image": "SOR/Ezra_Bridger, Resourceful_Troublemaker.png",
+    "name": "Ezra Bridger, Resourceful Troublemaker",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -897,8 +897,8 @@
     ]
   },
   "fettsfirespraypursuingthebounty": {
-    "image": "SOR/Fetts_Firespray - Pursuing_the_Bounty.png",
-    "name": "Fett's Firespray - Pursuing the Bounty",
+    "image": "SOR/Fetts_Firespray, Pursuing_the_Bounty.png",
+    "name": "Fett's Firespray, Pursuing the Bounty",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -907,8 +907,8 @@
     ]
   },
   "fifthbrotherfearhunter": {
-    "image": "SOR/Fifth_Brother - Fear_Hunter.png",
-    "name": "Fifth Brother - Fear Hunter",
+    "image": "SOR/Fifth_Brother, Fear_Hunter.png",
+    "name": "Fifth Brother, Fear Hunter",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1028,8 +1028,8 @@
     ]
   },
   "generaldodonnamassassigroupcommander": {
-    "image": "SOR/General_Dodonna - Massassi_Group_Commander.png",
-    "name": "General Dodonna - Massassi Group Commander",
+    "image": "SOR/General_Dodonna, Massassi_Group_Commander.png",
+    "name": "General Dodonna, Massassi Group Commander",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1037,8 +1037,8 @@
     ]
   },
   "generalkrellheartlesstactician": {
-    "image": "SOR/General_Krell - Heartless_Tactician.png",
-    "name": "General Krell - Heartless Tactician",
+    "image": "SOR/General_Krell, Heartless_Tactician.png",
+    "name": "General Krell, Heartless Tactician",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1047,8 +1047,8 @@
     ]
   },
   "generaltaggeconcernedcommander": {
-    "image": "SOR/General_Tagge - Concerned_Commander.png",
-    "name": "General Tagge - Concerned Commander",
+    "image": "SOR/General_Tagge, Concerned_Commander.png",
+    "name": "General Tagge, Concerned Commander",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1057,8 +1057,8 @@
     ]
   },
   "generalveersblizzardforcecommander": {
-    "image": "SOR/General_Veers - Blizzard_Force_Commander.png",
-    "name": "General Veers - Blizzard Force Commander",
+    "image": "SOR/General_Veers, Blizzard_Force_Commander.png",
+    "name": "General Veers, Blizzard Force Commander",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1066,8 +1066,8 @@
     ]
   },
   "gideonhaskruthlessloyalist": {
-    "image": "SOR/Gideon_Hask - Ruthless_Loyalist.png",
-    "name": "Gideon Hask - Ruthless Loyalist",
+    "image": "SOR/Gideon_Hask, Ruthless_Loyalist.png",
+    "name": "Gideon Hask, Ruthless Loyalist",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1086,8 +1086,8 @@
     ]
   },
   "grandadmiralthrawnpatientandinsightful": {
-    "image": "SOR/Grand_Admiral_Thrawn - Patient_and_Insightful.png",
-    "name": "Grand Admiral Thrawn - Patient and Insightful",
+    "image": "SOR/Grand_Admiral_Thrawn, Patient_and_Insightful.png",
+    "name": "Grand Admiral Thrawn, Patient and Insightful",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1096,8 +1096,8 @@
     ]
   },
   "grandadmiralthrawnpatientandinsightfulback": {
-    "image": "SOR/Grand_Admiral_Thrawn - Patient_and_Insightful_back.png",
-    "name": "Grand Admiral Thrawn - Patient and Insightful [Back]",
+    "image": "SOR/Grand_Admiral_Thrawn, Patient_and_Insightful_back.png",
+    "name": "Grand Admiral Thrawn, Patient and Insightful [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1106,8 +1106,8 @@
     ]
   },
   "grandinquisitorhuntingthejedi": {
-    "image": "SOR/Grand_Inquisitor - Hunting_The_Jedi.png",
-    "name": "Grand Inquisitor - Hunting The Jedi",
+    "image": "SOR/Grand_Inquisitor, Hunting_The_Jedi.png",
+    "name": "Grand Inquisitor, Hunting The Jedi",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1116,8 +1116,8 @@
     ]
   },
   "grandinquisitorhuntingthejediback": {
-    "image": "SOR/Grand_Inquisitor - Hunting_The_Jedi_back.png",
-    "name": "Grand Inquisitor - Hunting The Jedi [Back]",
+    "image": "SOR/Grand_Inquisitor, Hunting_The_Jedi_back.png",
+    "name": "Grand Inquisitor, Hunting The Jedi [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1126,8 +1126,8 @@
     ]
   },
   "grandmofftarkinoversectorgovernor": {
-    "image": "SOR/Grand_Moff_Tarkin - Oversector_Governor.png",
-    "name": "Grand Moff Tarkin - Oversector Governor",
+    "image": "SOR/Grand_Moff_Tarkin, Oversector_Governor.png",
+    "name": "Grand Moff Tarkin, Oversector Governor",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1136,8 +1136,8 @@
     ]
   },
   "grandmofftarkinoversectorgovernorback": {
-    "image": "SOR/Grand_Moff_Tarkin - Oversector_Governor_back.png",
-    "name": "Grand Moff Tarkin - Oversector Governor [Back]",
+    "image": "SOR/Grand_Moff_Tarkin, Oversector_Governor_back.png",
+    "name": "Grand Moff Tarkin, Oversector Governor [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1146,8 +1146,8 @@
     ]
   },
   "grandmofftarkindeathstaroverseer": {
-    "image": "SOR/Grand_Moff_Tarkin - Death_Star_Overseer.png",
-    "name": "Grand Moff Tarkin - Death Star Overseer",
+    "image": "SOR/Grand_Moff_Tarkin, Death_Star_Overseer.png",
+    "name": "Grand Moff Tarkin, Death Star Overseer",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1156,8 +1156,8 @@
     ]
   },
   "greedoslowonthedraw": {
-    "image": "SOR/Greedo - Slow_on_the_Draw.png",
-    "name": "Greedo - Slow on the Draw",
+    "image": "SOR/Greedo, Slow_on_the_Draw.png",
+    "name": "Greedo, Slow on the Draw",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1194,8 +1194,8 @@
     ]
   },
   "hansoloaudacioussmuggler": {
-    "image": "SOR/Han_Solo - Audacious_Smuggler.png",
-    "name": "Han Solo - Audacious Smuggler",
+    "image": "SOR/Han_Solo, Audacious_Smuggler.png",
+    "name": "Han Solo, Audacious Smuggler",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1204,8 +1204,8 @@
     ]
   },
   "hansoloaudacioussmugglerback": {
-    "image": "SOR/Han_Solo - Audacious_Smuggler_back.png",
-    "name": "Han Solo - Audacious Smuggler [Back]",
+    "image": "SOR/Han_Solo, Audacious_Smuggler_back.png",
+    "name": "Han Solo, Audacious Smuggler [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1214,8 +1214,8 @@
     ]
   },
   "hansoloreluctanthero": {
-    "image": "SOR/Han_Solo - Reluctant_Hero.png",
-    "name": "Han Solo - Reluctant Hero",
+    "image": "SOR/Han_Solo, Reluctant_Hero.png",
+    "name": "Han Solo, Reluctant Hero",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1233,8 +1233,8 @@
     ]
   },
   "herasyndullaspectretwo": {
-    "image": "SOR/Hera_Syndulla - Spectre_Two.png",
-    "name": "Hera Syndulla - Spectre Two",
+    "image": "SOR/Hera_Syndulla, Spectre_Two.png",
+    "name": "Hera Syndulla, Spectre Two",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1243,8 +1243,8 @@
     ]
   },
   "herasyndullaspectretwoback": {
-    "image": "SOR/Hera_Syndulla - Spectre_Two_back.png",
-    "name": "Hera Syndulla - Spectre Two [Back]",
+    "image": "SOR/Hera_Syndulla, Spectre_Two_back.png",
+    "name": "Hera Syndulla, Spectre Two [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1263,8 +1263,8 @@
     ]
   },
   "homeoneallianceflagship": {
-    "image": "SOR/Home_One - Alliance_Flagship.png",
-    "name": "Home One - Alliance Flagship",
+    "image": "SOR/Home_One, Alliance_Flagship.png",
+    "name": "Home One, Alliance Flagship",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1301,8 +1301,8 @@
     ]
   },
   "ig88ruthlessbountyhunter": {
-    "image": "SOR/IG-88 - Ruthless_Bounty_Hunter.png",
-    "name": "IG-88 - Ruthless Bounty Hunter",
+    "image": "SOR/IG-88, Ruthless_Bounty_Hunter.png",
+    "name": "IG-88, Ruthless Bounty Hunter",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1311,8 +1311,8 @@
     ]
   },
   "ig88ruthlessbountyhunterback": {
-    "image": "SOR/IG-88 - Ruthless_Bounty_Hunter_back.png",
-    "name": "IG-88 - Ruthless Bounty Hunter [Back]",
+    "image": "SOR/IG-88, Ruthless_Bounty_Hunter_back.png",
+    "name": "IG-88, Ruthless Bounty Hunter [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1331,8 +1331,8 @@
     ]
   },
   "idenversioinferosquadcommander": {
-    "image": "SOR/Iden_Versio - Infero_Squad_Commander.png",
-    "name": "Iden Versio - Infero Squad Commander",
+    "image": "SOR/Iden_Versio, Infero_Squad_Commander.png",
+    "name": "Iden Versio, Infero Squad Commander",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1341,8 +1341,8 @@
     ]
   },
   "idenversioinferosquadcommanderback": {
-    "image": "SOR/Iden_Versio - Infero_Squad_Commander_back.png",
-    "name": "Iden Versio - Infero Squad Commander [Back]",
+    "image": "SOR/Iden_Versio, Infero_Squad_Commander_back.png",
+    "name": "Iden Versio, Infero Squad Commander [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1361,8 +1361,8 @@
     ]
   },
   "infernofourunforgetting": {
-    "image": "SOR/Inferno_Four - Unforgetting.png",
-    "name": "Inferno Four - Unforgetting",
+    "image": "SOR/Inferno_Four, Unforgetting.png",
+    "name": "Inferno Four, Unforgetting",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1389,8 +1389,8 @@
     ]
   },
   "jabbathehuttcunningdaimyo": {
-    "image": "SOR/Jabba_the_Hutt - Cunning_Daimyo.png",
-    "name": "Jabba the Hutt - Cunning Daimyo",
+    "image": "SOR/Jabba_the_Hutt, Cunning_Daimyo.png",
+    "name": "Jabba the Hutt, Cunning Daimyo",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1417,7 +1417,7 @@
     ]
   },
   "jedhacity": {
-    "image": "SOR/Jedha_City - Jedha.png",
+    "image": "SOR/Jedha_City, Jedha.png",
     "name": "Jedha City",
     "type": "Base",
     "hp": "25",
@@ -1436,8 +1436,8 @@
     ]
   },
   "jynersoresistingoppression": {
-    "image": "SOR/Jyn_Erso - Resisting_Oppression.png",
-    "name": "Jyn Erso - Resisting Oppression",
+    "image": "SOR/Jyn_Erso, Resisting_Oppression.png",
+    "name": "Jyn Erso, Resisting Oppression",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1446,8 +1446,8 @@
     ]
   },
   "jynersoresistingoppressionback": {
-    "image": "SOR/Jyn_Erso - Resisting_Oppression_back.png",
-    "name": "Jyn Erso - Resisting Oppression [Back]",
+    "image": "SOR/Jyn_Erso, Resisting_Oppression_back.png",
+    "name": "Jyn Erso, Resisting Oppression [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1456,8 +1456,8 @@
     ]
   },
   "k2socassianscounterpart": {
-    "image": "SOR/K-2SO - Cassians_Counterpart.png",
-    "name": "K-2SO - Cassian's Counterpart",
+    "image": "SOR/K-2SO, Cassians_Counterpart.png",
+    "name": "K-2SO, Cassian's Counterpart",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1466,8 +1466,8 @@
     ]
   },
   "kananjarrusrevealedjedi": {
-    "image": "SOR/Kanan_Jarrus - Revealed_Jedi.png",
-    "name": "Kanan Jarrus - Revealed Jedi",
+    "image": "SOR/Kanan_Jarrus, Revealed_Jedi.png",
+    "name": "Kanan Jarrus, Revealed Jedi",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1495,7 +1495,7 @@
     ]
   },
   "kestrocity": {
-    "image": "SOR/Kestro_City - Vardos.png",
+    "image": "SOR/Kestro_City, Vardos.png",
     "name": "Kestro City",
     "type": "Base",
     "hp": "30",
@@ -1504,8 +1504,8 @@
     ]
   },
   "landocalrissianresponsiblebusinessman": {
-    "image": "SOR/Lando_Calrissian - Responsible_Businessman.png",
-    "name": "Lando Calrissian - Responsible Businessman",
+    "image": "SOR/Lando_Calrissian, Responsible_Businessman.png",
+    "name": "Lando Calrissian, Responsible Businessman",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1514,8 +1514,8 @@
     ]
   },
   "leiaorganaalliancegeneral": {
-    "image": "SOR/Leia_Organa - Alliance_General.png",
-    "name": "Leia Organa - Alliance General",
+    "image": "SOR/Leia_Organa, Alliance_General.png",
+    "name": "Leia Organa, Alliance General",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1524,8 +1524,8 @@
     ]
   },
   "leiaorganaalliancegeneralback": {
-    "image": "SOR/Leia_Organa - Alliance_General_back.png",
-    "name": "Leia Organa - Alliance General [Back]",
+    "image": "SOR/Leia_Organa, Alliance_General_back.png",
+    "name": "Leia Organa, Alliance General [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1534,8 +1534,8 @@
     ]
   },
   "leiaorganadefiantprincess": {
-    "image": "SOR/Leia_Organa - Defiant_Princess.png",
-    "name": "Leia Organa - Defiant Princess",
+    "image": "SOR/Leia_Organa, Defiant_Princess.png",
+    "name": "Leia Organa, Defiant Princess",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1544,8 +1544,8 @@
     ]
   },
   "lieutenantchildsendeathstarprisonwarden": {
-    "image": "SOR/Lieutenant_Childsen - Death_Star_Prison_Warden.png",
-    "name": "Lieutenant Childsen - Death Star Prison Warden",
+    "image": "SOR/Lieutenant_Childsen, Death_Star_Prison_Warden.png",
+    "name": "Lieutenant Childsen, Death Star Prison Warden",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1564,8 +1564,8 @@
     ]
   },
   "lukeskywalkerfaithfulfriend": {
-    "image": "SOR/Luke_Skywalker - Faithful_Friend.png",
-    "name": "Luke Skywalker - Faithful Friend",
+    "image": "SOR/Luke_Skywalker, Faithful_Friend.png",
+    "name": "Luke Skywalker, Faithful Friend",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1574,8 +1574,8 @@
     ]
   },
   "lukeskywalkerfaithfulfriendback": {
-    "image": "SOR/Luke_Skywalker - Faithful_Friend_back.png",
-    "name": "Luke Skywalker - Faithful Friend [Back]",
+    "image": "SOR/Luke_Skywalker, Faithful_Friend_back.png",
+    "name": "Luke Skywalker, Faithful Friend [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -1584,8 +1584,8 @@
     ]
   },
   "lukeskywalkerjediknight": {
-    "image": "SOR/Luke_Skywalker - Jedi_Knight.png",
-    "name": "Luke Skywalker - Jedi Knight",
+    "image": "SOR/Luke_Skywalker, Jedi_Knight.png",
+    "name": "Luke Skywalker, Jedi Knight",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1604,8 +1604,8 @@
     ]
   },
   "macewindupartycrasher": {
-    "image": "SOR/Mace_Windu - Party_Crasher.png",
-    "name": "Mace Windu - Party Crasher",
+    "image": "SOR/Mace_Windu, Party_Crasher.png",
+    "name": "Mace Windu, Party Crasher",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1650,8 +1650,8 @@
     ]
   },
   "millenniumfalconpieceofjunk": {
-    "image": "SOR/Millennium_Falcon - Piece_Of_Junk.png",
-    "name": "Millennium Falcon - Piece Of Junk",
+    "image": "SOR/Millennium_Falcon, Piece_Of_Junk.png",
+    "name": "Millennium Falcon, Piece Of Junk",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1687,8 +1687,8 @@
     ]
   },
   "monmothmavoiceoftherebellion": {
-    "image": "SOR/Mon_Mothma - Voice_of_the_Rebellion.png",
-    "name": "Mon Mothma - Voice of the Rebellion",
+    "image": "SOR/Mon_Mothma, Voice_of_the_Rebellion.png",
+    "name": "Mon Mothma, Voice of the Rebellion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1706,8 +1706,8 @@
     ]
   },
   "obiwankenobifollowingfate": {
-    "image": "SOR/Obi-Wan_Kenobi - Following_Fate.png",
-    "name": "Obi-Wan Kenobi - Following Fate",
+    "image": "SOR/Obi-Wan_Kenobi, Following_Fate.png",
+    "name": "Obi-Wan Kenobi, Following Fate",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1836,8 +1836,8 @@
     ]
   },
   "r2d2ignoringprotocol": {
-    "image": "SOR/R2-D2 - Ignoring_Protocol.png",
-    "name": "R2-D2 - Ignoring Protocol",
+    "image": "SOR/R2-D2, Ignoring_Protocol.png",
+    "name": "R2-D2, Ignoring Protocol",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1883,8 +1883,8 @@
     ]
   },
   "redthreeunstoppable": {
-    "image": "SOR/Red_Three - Unstoppable.png",
-    "name": "Red Three - Unstoppable",
+    "image": "SOR/Red_Three, Unstoppable.png",
+    "name": "Red Three, Unstoppable",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1893,8 +1893,8 @@
     ]
   },
   "redemptionmedicalfrigate": {
-    "image": "SOR/Redemption - Medical_Frigate.png",
-    "name": "Redemption - Medical Frigate",
+    "image": "SOR/Redemption, Medical_Frigate.png",
+    "name": "Redemption, Medical Frigate",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -1930,8 +1930,8 @@
     ]
   },
   "relentlesskonstantinesfolly": {
-    "image": "SOR/Relentless - Konstantines_Folly.png",
-    "name": "Relentless - Konstantine's Folly",
+    "image": "SOR/Relentless, Konstantines_Folly.png",
+    "name": "Relentless, Konstantine's Folly",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2013,8 +2013,8 @@
     ]
   },
   "rukhthrawnsassassin": {
-    "image": "SOR/Rukh - Thrawns_Assassin.png",
-    "name": "Rukh - Thrawn's Assassin",
+    "image": "SOR/Rukh, Thrawns_Assassin.png",
+    "name": "Rukh, Thrawn's Assassin",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2033,8 +2033,8 @@
     ]
   },
   "sabinewrengalvanizedrevolutionary": {
-    "image": "SOR/Sabine_Wren - Galvanized_Revolutionary.png",
-    "name": "Sabine Wren - Galvanized Revolutionary",
+    "image": "SOR/Sabine_Wren, Galvanized_Revolutionary.png",
+    "name": "Sabine Wren, Galvanized Revolutionary",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -2043,8 +2043,8 @@
     ]
   },
   "sabinewrengalvanizedrevolutionaryback": {
-    "image": "SOR/Sabine_Wren - Galvanized_Revolutionary_back.png",
-    "name": "Sabine Wren - Galvanized Revolutionary [Back]",
+    "image": "SOR/Sabine_Wren, Galvanized_Revolutionary_back.png",
+    "name": "Sabine Wren, Galvanized Revolutionary [Back]",
     "type": "Leader",
     "hp": null,
     "aspects": [
@@ -2053,8 +2053,8 @@
     ]
   },
   "sabinewrenexplosivesartist": {
-    "image": "SOR/Sabine_Wren - Explosives_Artist.png",
-    "name": "Sabine Wren - Explosives Artist",
+    "image": "SOR/Sabine_Wren, Explosives_Artist.png",
+    "name": "Sabine Wren, Explosives Artist",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2063,8 +2063,8 @@
     ]
   },
   "sawgerreraextremist": {
-    "image": "SOR/Saw_Gerrera - Extremist.png",
-    "name": "Saw Gerrera - Extremist",
+    "image": "SOR/Saw_Gerrera, Extremist.png",
+    "name": "Saw Gerrera, Extremist",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2103,7 +2103,7 @@
     ]
   },
   "securitycomplex": {
-    "image": "SOR/Security_Complex - Scarif.png",
+    "image": "SOR/Security_Complex, Scarif.png",
     "name": "Security Complex",
     "type": "Base",
     "hp": "25",
@@ -2122,8 +2122,8 @@
     ]
   },
   "seventhsisterimplacableinquisitor": {
-    "image": "SOR/Seventh_Sister - Implacable_Inquisitor.png",
-    "name": "Seventh Sister - Implacable Inquisitor",
+    "image": "SOR/Seventh_Sister, Implacable_Inquisitor.png",
+    "name": "Seventh Sister, Implacable Inquisitor",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2343,7 +2343,7 @@
     ]
   },
   "tarkintown": {
-    "image": "SOR/Tarkintown - Lothal.png",
+    "image": "SOR/Tarkintown, Lothal.png",
     "name": "Tarkintown",
     "type": "Base",
     "hp": "25",
@@ -2372,8 +2372,8 @@
     ]
   },
   "theghostspectrehomebase": {
-    "image": "SOR/The_Ghost - Spectre_Home_Base.png",
-    "name": "The Ghost - Spectre Home Base",
+    "image": "SOR/The_Ghost, Spectre_Home_Base.png",
+    "name": "The Ghost, Spectre Home Base",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2500,8 +2500,8 @@
     ]
   },
   "wedgeantillesstaroftherebellion": {
-    "image": "SOR/Wedge_Antilles - Star_of_the_Rebellion.png",
-    "name": "Wedge Antilles - Star of the Rebellion",
+    "image": "SOR/Wedge_Antilles, Star_of_the_Rebellion.png",
+    "name": "Wedge Antilles, Star of the Rebellion",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2528,8 +2528,8 @@
     ]
   },
   "wolffesuspiciousveteran": {
-    "image": "SOR/Wolffe - Suspicious_Veteran.png",
-    "name": "Wolffe - Suspicious Veteran",
+    "image": "SOR/Wolffe, Suspicious_Veteran.png",
+    "name": "Wolffe, Suspicious Veteran",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2537,8 +2537,8 @@
     ]
   },
   "yodaoldmaster": {
-    "image": "SOR/Yoda - Old_Master.png",
-    "name": "Yoda - Old Master",
+    "image": "SOR/Yoda, Old_Master.png",
+    "name": "Yoda, Old Master",
     "type": "Unit",
     "hp": null,
     "aspects": [
@@ -2556,8 +2556,8 @@
     ]
   },
   "zeborreliosheadstrongwarrior": {
-    "image": "SOR/Zeb_Orrelios - Headstrong_Warrior.png",
-    "name": "Zeb Orrelios - Headstrong Warrior",
+    "image": "SOR/Zeb_Orrelios, Headstrong_Warrior.png",
+    "name": "Zeb Orrelios, Headstrong Warrior",
     "type": "Unit",
     "hp": null,
     "aspects": [

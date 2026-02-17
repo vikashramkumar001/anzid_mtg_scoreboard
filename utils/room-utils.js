@@ -64,12 +64,14 @@ export class RoomUtils {
             
             // Card view events
             'mtg-card-list-data': ['mtg-card-view', 'master-control'],
-            'card-view-card-selected': ['mtg-card-view'],
+            'card-view-card-selected': ['mtg-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
             'vibes-card-list-data': ['vibes-card-view', 'master-control'],
-            'vibes-card-view-card-selected': ['vibes-card-view'],
+            'vibes-card-view-card-selected': ['vibes-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
             'riftbound-card-list-data': ['riftbound-card-view', 'master-control'],
-            'riftbound-card-view-card-selected': ['riftbound-card-view'],
-            'starwars-card-view-card-selected': ['starwars-card-view'],
+            'riftbound-card-view-card-selected': ['riftbound-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
+            'starwars-card-list-data': ['starwars-card-view', 'master-control'],
+            'starwars-card-view-card-selected': ['starwars-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
+            'starwars-leaders-and-bases': ['master-control', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
             
             // Deck events
             'deck-display-update': ['deck-display'],

@@ -456,6 +456,24 @@ function updateTheme(game, vendor, playerCount) {
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
+
+        // Update decklist background image dynamically
+        const normalized = gameSelection?.toLowerCase();
+        const bgSelectors = {
+            mtg: '#mtg-bg-image',
+            riftbound: '#riftbound-bg-image',
+        };
+        const bgSelector = bgSelectors[normalized];
+        if (bgSelector) {
+            const bgEl = document.querySelector(bgSelector);
+            if (bgEl) {
+                const bgPath = vc.getAssetPath(
+                    `/assets/images/${normalized}/decklist/${normalized}-decklist-bg.png`,
+                    vendor, playerCount
+                );
+                bgEl.style.backgroundImage = `url("${bgPath}")`;
+            }
+        }
     }
 }
 

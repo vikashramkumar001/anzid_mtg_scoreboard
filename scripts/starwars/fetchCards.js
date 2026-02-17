@@ -60,7 +60,7 @@ async function fetchSet(setCode) {
         // All other cards: combine Name + Subtitle
         const displayName = cardType === 'Base'
             ? rawName
-            : rawName + (subtitle ? ' - ' + subtitle : '');
+            : rawName + (subtitle ? ', ' + subtitle : '');
 
         if (seen.has(displayName)) continue;
         seen.add(displayName);
@@ -72,7 +72,7 @@ async function fetchSet(setCode) {
 
         // Image filename always includes subtitle for uniqueness
         let baseName = sanitizeFilename(rawName);
-        if (subtitle) baseName += ' - ' + sanitizeFilename(subtitle);
+        if (subtitle) baseName += ', ' + sanitizeFilename(subtitle);
         const imageFilename = baseName + '.png';
         const imagePath = path.join(setImageDir, imageFilename);
 

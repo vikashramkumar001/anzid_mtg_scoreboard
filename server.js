@@ -13,9 +13,9 @@ import { RoomUtils } from './utils/room-utils.js';
 import { loadControlData } from './features/control.js';
 import { loadBracketData } from './features/brackets.js';
 import { loadStandingsData } from './features/standings.js';
-import { loadCardListData } from './features/cards.js';
 import { loadArchetypeList } from './features/archetypes.js';
 import { startTimerBroadcast } from './features/timers.js';
+import {loadCardListData as mtgLoadCardListData} from './features/mtg/cards.js'
 import {loadCardListData as vibesLoadCardListData} from './features/vibes/cards.js'
 import {loadCardListData as riftboundLoadCardListData} from './features/riftbound/cards.js'
 import {loadCardListData as starwarsLoadCardListData} from './features/starwars/cards.js'
@@ -69,7 +69,7 @@ async function initialize() {
   await loadControlData();
   await loadBracketData();
   await loadStandingsData();
-  await loadCardListData();
+  await mtgLoadCardListData();
   await loadArchetypeList();
   await vibesLoadCardListData();
   await riftboundLoadCardListData();

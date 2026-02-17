@@ -20,6 +20,8 @@ const bracketContainer = document.getElementById('bracket-details-container');
 let currentGame = 'mtg';
 let currentVendor = 'default';
 let currentPlayerCount = '1v1';
+let textColorFull = 'rgba(0,0,0, 1)';
+let textColorFaded = 'rgba(0,0,0, 0.5)';
 
 // ask for global match data to get game selection
 socket.emit('get-match-global-data');
@@ -65,12 +67,30 @@ socket.on('player-count-updated', ({playerCount}) => {
 });
 
 function updateTheme(game, vendor, playerCount) {
-    // 1. Apply game defaults
+    // 1. Clear old vendor overrides first
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+    }
+
+    // 2. Apply game defaults
+    textColorFull = 'rgba(0,0,0, 1)';
+    textColorFaded = 'rgba(0,0,0, 0.5)';
+
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
         document.documentElement.style.setProperty('--dynamic-font-weight', '700');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '400');
+    } else if (game === 'starwars') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Barlow');
+        document.documentElement.style.setProperty('--dynamic-font-weight', '600');
+        document.documentElement.style.setProperty('--archetype-font-style', 'normal');
+        document.documentElement.style.setProperty('--archetype-font-weight', '600');
+        textColorFull = 'rgba(255,255,255, 1)';
+        textColorFaded = 'rgba(255,255,255, 0.5)';
     } else {
         document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
         document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
@@ -78,12 +98,8 @@ function updateTheme(game, vendor, playerCount) {
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
 
-    // 2. Apply vendor overrides
-    const vc = window.VENDOR_CONFIG;
+    // 3. Apply new vendor overrides (can override game defaults)
     if (vc) {
-        vc.getAllOverrideProperties().forEach(prop => {
-            document.documentElement.style.removeProperty(prop);
-        });
         const overrides = vc.getOverrides(game, vendor);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
@@ -134,7 +150,7 @@ function renderDetails() {
     if (archetype_key in bracketData) {
         playerArchetype.innerText = bracketData[archetype_key];
         playerArchetype.style.display = bracketData[archetype_key] ? 'block' : 'none';
-        playerName.style.lineHeight = bracketData[archetype_key] ? '39px' : '34px';
+        playerName.style.lineHeight = bracketData[archetype_key] ? '39px' : '31px';
     }
     if (points_key in bracketData) {
         playerPoints.innerText = bracketData[points_key];
@@ -143,16 +159,16 @@ function renderDetails() {
         win = bracketData[win_key];
     }
     // default is no opacity
-    playerRank.style.color = 'rgba(0,0,0, 1)';
-    playerName.style.color = 'rgba(0,0,0, 1)';
-    playerArchetype.style.color = 'rgba(0,0,0, 1)';
-    playerPoints.style.color = 'rgba(0,0,0, 1)';
+    playerRank.style.color = textColorFull;
+    playerName.style.color = textColorFull;
+    playerArchetype.style.color = textColorFull;
+    playerPoints.style.color = textColorFull;
     // opacity on color if win is false
     if (win === '0') {
-        playerRank.style.color = 'rgba(0,0,0, 0.5)';
-        playerName.style.color = 'rgba(0,0,0, 0.5)';
-        playerArchetype.style.color = 'rgba(0,0,0, 0.5)';
-        playerPoints.style.color = 'rgba(0,0,0, 0.5)';
+        playerRank.style.color = textColorFaded;
+        playerName.style.color = textColorFaded;
+        playerArchetype.style.color = textColorFaded;
+        playerPoints.style.color = textColorFaded;
     }
     // change points background color based on number of points
     if (bracketData[points_key] === '2') {

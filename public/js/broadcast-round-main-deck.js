@@ -783,6 +783,172 @@ function renderDecks() {
             if (mainDeckContainer) mainDeckContainer.innerHTML = '';
         }
     }
+    if (selectedGame === 'starwars') {
+        const starwarsSection = document.getElementById('deck-display-starwars');
+        if (!starwarsSection) return;
+
+        if (Array.isArray(deckData.mainDeck) && deckData.mainDeck.length !== 0) {
+            const deckDisplayDetails = starwarsSection.querySelector('#starwars-deck-display-details');
+            const mainDeckContainer = starwarsSection.querySelector('#starwars-main-deck-container');
+            if (mainDeckContainer) mainDeckContainer.innerHTML = '';
+
+            // Remove any previous leader/base header zone
+            const oldHeaderZone = starwarsSection.querySelector('.starwars-deck-header-zone');
+            if (oldHeaderZone) oldHeaderZone.remove();
+
+            // Get leader/base names from roundData (synced from master control)
+            const leaderName = roundData[match_id]?.[`player-leader-${side_id}`] || '';
+            const baseName = roundData[match_id]?.[`player-base-${side_id}`] || '';
+
+            // Filter out pseudo-category labels and leader/base from the main card grid
+            let actualCards = deckData.mainDeck.filter(card => {
+                const cardName = card['card-name']?.toLowerCase().trim();
+                return cardName !== 'main deck' && cardName !== 'sideboard';
+            });
+
+            // Find leader and base card images from the deck data (matched by normalized name)
+            let leaderCard = null;
+            let baseCard = null;
+            if (leaderName) {
+                const leaderNorm = leaderName.toLowerCase().replace(/[^a-z0-9]/g, '');
+                leaderCard = actualCards.find(c => c['card-name']?.toLowerCase().replace(/[^a-z0-9]/g, '') === leaderNorm);
+                if (leaderCard) {
+                    actualCards = actualCards.filter(c => c !== leaderCard);
+                }
+            }
+            if (baseName) {
+                const baseNorm = baseName.toLowerCase().replace(/[^a-z0-9]/g, '');
+                baseCard = actualCards.find(c => c['card-name']?.toLowerCase().replace(/[^a-z0-9]/g, '') === baseNorm);
+                if (baseCard) {
+                    actualCards = actualCards.filter(c => c !== baseCard);
+                }
+            }
+
+            if (orientation === 'vertical') {
+                if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
+                renderStarWarsVerticalDeck();
+            } else {
+                if (deckDisplayDetails) deckDisplayDetails.style.display = 'flex';
+
+                // Create leader/base header zone if we have either
+                if (leaderCard || baseCard) {
+                    const headerZone = document.createElement('div');
+                    headerZone.className = 'starwars-deck-header-zone';
+
+                    if (leaderCard) {
+                        const leaderEl = document.createElement('div');
+                        leaderEl.className = 'starwars-leader-card';
+                        leaderEl.innerHTML = `
+                            <img src="${leaderCard['card-url']}" class="leader-card-img">
+                            <span class="leader-label">Leader</span>
+                        `;
+                        headerZone.appendChild(leaderEl);
+                    }
+                    if (baseCard) {
+                        const baseEl = document.createElement('div');
+                        baseEl.className = 'starwars-base-card';
+                        baseEl.innerHTML = `
+                            <img src="${baseCard['card-url']}" class="base-card-img">
+                            <span class="base-label">Base</span>
+                        `;
+                        headerZone.appendChild(baseEl);
+                    }
+
+                    starwarsSection.querySelector('#starwars-deck-display-container').prepend(headerZone);
+                }
+
+                if (mainDeckContainer) {
+                    const totalCards = actualCards.length;
+
+                    let cardsPerRow;
+                    if (totalCards <= 24) {
+                        cardsPerRow = 8;
+                    } else if (totalCards <= 27) {
+                        cardsPerRow = 9;
+                    } else if (totalCards <= 30) {
+                        cardsPerRow = 10;
+                    } else {
+                        const cardsPerRow3 = Math.ceil(totalCards / 3);
+                        const cardsPerRow4 = Math.ceil(totalCards / 4);
+                        const availableWidthCalc = 1920 - 20;
+                        const cardWidth3 = (availableWidthCalc - (cardsPerRow3 - 1) * 5 - 10) / cardsPerRow3;
+                        const cardWidth4 = (availableWidthCalc - (cardsPerRow4 - 1) * 5 - 10) / cardsPerRow4;
+                        cardsPerRow = (cardWidth4 > cardWidth3) ? cardsPerRow4 : cardsPerRow3;
+                    }
+
+                    const containerHeight = mainDeckContainer.clientHeight || 756;
+                    const availableHeight = containerHeight - 10;
+                    const availableWidth = 1920 - 20;
+                    const numRows = Math.ceil(totalCards / cardsPerRow);
+                    const maxCardHeight = (availableHeight - (numRows - 1) * 5) / numRows;
+                    const cardWidthFromHeight = maxCardHeight / 1.4;
+                    const cardWidthFromWidth = (availableWidth - (cardsPerRow - 1) * 5 - 10) / cardsPerRow;
+                    const scalingCardWidth = Math.min(cardWidthFromHeight, cardWidthFromWidth);
+                    const requiredWidth = cardsPerRow * scalingCardWidth + (cardsPerRow - 1) * 5 + 10;
+                    mainDeckContainer.style.width = `${requiredWidth}px`;
+
+                    actualCards.forEach(card => {
+                        const cardElement = document.createElement('div');
+                        cardElement.className = 'main-deck-card';
+                        cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+                        cardElement.style.width = `${scalingCardWidth}px`;
+                        mainDeckContainer.appendChild(cardElement);
+                    });
+                }
+            }
+
+            if (deckDisplayDetails) {
+                deckDisplayDetails.innerHTML = `
+                    <h1 class="player-name">${deckData.playerName}</h1>
+                    <h5 class="archetype-name">${deckData.archetype}</h5>
+                `;
+
+                document.fonts.ready.then(() => {
+                    const playerNameEl = deckDisplayDetails.querySelector('.player-name');
+                    if (playerNameEl) {
+                        autoScaleText(playerNameEl, 115, 73, 1100);
+                        const scaledFontSize = parseFloat(playerNameEl.style.fontSize);
+                        const baseTop = 42;
+                        const maxFontSize = 115;
+                        const fontShrinkage = maxFontSize - scaledFontSize;
+                        playerNameEl.style.top = (baseTop + fontShrinkage) + 'px';
+                    }
+                });
+            }
+        } else {
+            console.log('starwars selected but not correct deckData type - clearing');
+            const mainDeckContainer = starwarsSection.querySelector('#starwars-main-deck-container');
+            if (mainDeckContainer) mainDeckContainer.innerHTML = '';
+            const oldHeaderZone = starwarsSection.querySelector('.starwars-deck-header-zone');
+            if (oldHeaderZone) oldHeaderZone.remove();
+        }
+    }
+}
+
+// Function to render Star Wars vertical deck
+function renderStarWarsVerticalDeck() {
+    const starwarsSection = document.getElementById('deck-display-starwars');
+    if (!starwarsSection) return;
+    const mainDeckContainer = starwarsSection.querySelector('#starwars-main-deck-container');
+    if (!mainDeckContainer) return;
+    mainDeckContainer.innerHTML = '';
+
+    const actualCards = deckData.mainDeck.filter(card => {
+        const cardName = card['card-name']?.toLowerCase().trim();
+        return cardName !== 'main deck' && cardName !== 'sideboard';
+    });
+
+    actualCards.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'vertical-card';
+        const artUrl = card['card-url'] || '';
+        cardElement.style.backgroundImage = artUrl ? `url('${artUrl}')` : 'none';
+        cardElement.innerHTML = `
+            <span class="vertical-card-count">${card['card-count']}</span>
+            <span class="vertical-card-name">${card['card-name']}</span>
+        `;
+        mainDeckContainer.appendChild(cardElement);
+    });
 }
 
 // Function to render battlefields using scoreboard-style implementation
@@ -1342,60 +1508,74 @@ function requestSideDeckTransformation() {
 function updateTheme(game, vendor, playerCount) {
     const gameSelection = game;
     const normalized = gameSelection?.toLowerCase();
-    if (!normalized || normalized === selectedGame) return;
+    if (!normalized) return;
 
-    // Remove previous game class if it exists
-    if (selectedGame) {
-        document.body.classList.remove(selectedGame);
-    }
-
-    selectedGame = normalized;
-    console.log('Game selection updated:', selectedGame);
-
-    // Add game type class to body
-    document.body.classList.add(selectedGame);
-
-    // Show/hide appropriate sections
-    const mtgSection = document.getElementById('deck-display-mtg');
-    const riftboundSection = document.getElementById('deck-display-riftbound');
-    const vibesSection = document.getElementById('deck-display-vibes');
-
-    if (selectedGame === 'mtg') {
-        console.log('Switching to MTG mode...');
-        if (mtgSection) mtgSection.style.display = 'block';
-        if (riftboundSection) riftboundSection.style.display = 'none';
-        if (vibesSection) vibesSection.style.display = 'none';
-    } else if (selectedGame === 'riftbound') {
-        console.log('Switching to Riftbound mode...');
-        if (mtgSection) mtgSection.style.display = 'none';
-        if (riftboundSection) riftboundSection.style.display = 'block';
-        if (vibesSection) vibesSection.style.display = 'none';
-        setRiftboundBackground();
-
-        // Update legend description when switching to riftbound
-        if (riftboundSection) {
-            const container = riftboundSection.querySelector('#riftbound-main-deck-container');
-            if (container && roundData[match_id] && roundData[match_id][`player-legend-${side_id}`]) {
-                const legend = roundData[match_id][`player-legend-${side_id}`] || '';
-                createLegendDescriptionSection(legend, container);
-            }
+    // --- Game switch (only when game actually changes) ---
+    if (normalized !== selectedGame) {
+        // Remove previous game class if it exists
+        if (selectedGame) {
+            document.body.classList.remove(selectedGame);
         }
-    } else if (selectedGame === 'vibes') {
-        console.log('Switching to Vibes mode...');
-        if (mtgSection) mtgSection.style.display = 'none';
-        if (riftboundSection) riftboundSection.style.display = 'none';
-        if (vibesSection) vibesSection.style.display = 'block';
-    } else {
-        // Default: hide all if unknown game type
-        if (mtgSection) mtgSection.style.display = 'none';
-        if (riftboundSection) riftboundSection.style.display = 'none';
-        if (vibesSection) vibesSection.style.display = 'none';
-    }
 
-    // Request side deck transformation now that game selection is known
-    requestSideDeckTransformation();
+        selectedGame = normalized;
+        console.log('Game selection updated:', selectedGame);
 
-    // Apply vendor overrides
+        // Add game type class to body
+        document.body.classList.add(selectedGame);
+
+        // Show/hide appropriate sections
+        const mtgSection = document.getElementById('deck-display-mtg');
+        const riftboundSection = document.getElementById('deck-display-riftbound');
+        const vibesSection = document.getElementById('deck-display-vibes');
+        const starwarsSection = document.getElementById('deck-display-starwars');
+
+        if (selectedGame === 'mtg') {
+            console.log('Switching to MTG mode...');
+            if (mtgSection) mtgSection.style.display = 'block';
+            if (riftboundSection) riftboundSection.style.display = 'none';
+            if (vibesSection) vibesSection.style.display = 'none';
+            if (starwarsSection) starwarsSection.style.display = 'none';
+        } else if (selectedGame === 'riftbound') {
+            console.log('Switching to Riftbound mode...');
+            if (mtgSection) mtgSection.style.display = 'none';
+            if (riftboundSection) riftboundSection.style.display = 'block';
+            if (vibesSection) vibesSection.style.display = 'none';
+            if (starwarsSection) starwarsSection.style.display = 'none';
+            setRiftboundBackground();
+
+            // Update legend description when switching to riftbound
+            if (riftboundSection) {
+                const container = riftboundSection.querySelector('#riftbound-main-deck-container');
+                if (container && roundData[match_id] && roundData[match_id][`player-legend-${side_id}`]) {
+                    const legend = roundData[match_id][`player-legend-${side_id}`] || '';
+                    createLegendDescriptionSection(legend, container);
+                }
+            }
+        } else if (selectedGame === 'vibes') {
+            console.log('Switching to Vibes mode...');
+            if (mtgSection) mtgSection.style.display = 'none';
+            if (riftboundSection) riftboundSection.style.display = 'none';
+            if (vibesSection) vibesSection.style.display = 'block';
+            if (starwarsSection) starwarsSection.style.display = 'none';
+        } else if (selectedGame === 'starwars') {
+            console.log('Switching to Star Wars mode...');
+            if (mtgSection) mtgSection.style.display = 'none';
+            if (riftboundSection) riftboundSection.style.display = 'none';
+            if (vibesSection) vibesSection.style.display = 'none';
+            if (starwarsSection) starwarsSection.style.display = 'block';
+        } else {
+            // Default: hide all if unknown game type
+            if (mtgSection) mtgSection.style.display = 'none';
+            if (riftboundSection) riftboundSection.style.display = 'none';
+            if (vibesSection) vibesSection.style.display = 'none';
+            if (starwarsSection) starwarsSection.style.display = 'none';
+        }
+
+        // Request side deck transformation now that game selection is known
+        requestSideDeckTransformation();
+    } // end game-switch block
+
+    // --- Vendor overrides and dynamic backgrounds (always run) ---
     const vc = window.VENDOR_CONFIG;
     if (vc) {
         vc.getAllOverrideProperties().forEach(prop => {
@@ -1405,6 +1585,25 @@ function updateTheme(game, vendor, playerCount) {
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
+
+        // Update decklist background image dynamically
+        const bgSelectors = {
+            mtg: '#mtg-bg-image',
+            riftbound: '#riftbound-bg-image',
+            vibes: '#vibes-bg-image',
+            starwars: '#starwars-bg-image',
+        };
+        const bgSelector = bgSelectors[normalized];
+        if (bgSelector) {
+            const bgEl = document.querySelector(bgSelector);
+            if (bgEl) {
+                const bgPath = vc.getAssetPath(
+                    `/assets/images/${normalized}/decklist/${normalized}-decklist-bg.png`,
+                    vendor, playerCount
+                );
+                bgEl.style.backgroundImage = `url("${bgPath}")`;
+            }
+        }
     }
 }
 

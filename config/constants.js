@@ -11,7 +11,6 @@ const rootDir = path.resolve(__dirname, '..');
 export const controlDataPath     = path.join(rootDir, 'data', 'controlData.json');
 export const bracketDataPath     = path.join(rootDir, 'data', 'bracketData.json');
 export const standingsDataPath   = path.join(rootDir, 'data', 'standingsData.json');
-export const cardListDataPath    = path.join(rootDir, 'data', 'cardNames.json');
 export const archetypeListPath   = path.join(rootDir, 'data', 'archetypeList.json');
 
 // === Defaults ===

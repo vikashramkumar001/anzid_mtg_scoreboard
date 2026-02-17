@@ -49,22 +49,39 @@ function getCardListData() {
     return cardListData;
 }
 
+// Look up a card by name across all sets, return { aspects, hp, type } or null
+function lookupCardByName(name) {
+    if (!name) return null;
+    const key = normalizeKey(name);
+    for (const setCode in cardListData) {
+        if (cardListData[setCode][key]) {
+            const card = cardListData[setCode][key];
+            return { aspects: card.aspects || [], hp: card.hp, type: card.type };
+        }
+    }
+    return null;
+}
+
 function emitStarWarsCardList(io) {
     RoomUtils.emitWithRoomMapping(io, 'starwars-card-list-data', { cardListData });
+}
+
+function isKnownSetCode(code) {
+    return cardListData.hasOwnProperty(code.toUpperCase());
 }
 
 function parseSetAndName(input) {
     if (!input || typeof input !== 'string') return { set: null, name: '' };
     input = input.trim();
-    // Pattern: SET:Name or SET|Name or SET - Name
+    // Pattern: SET:Name or SET|Name or SET-Name
     let m = input.match(/^([A-Za-z0-9]{2,6})[:|\-]\s*(.+)$/);
-    if (m) return { set: m[1].toUpperCase(), name: m[2].trim() };
+    if (m && isKnownSetCode(m[1])) return { set: m[1].toUpperCase(), name: m[2].trim() };
     // Pattern: Name (SET)
     m = input.match(/^(.+?)\s*\((\w{2,6})\)\s*$/);
-    if (m) return { set: m[2].toUpperCase(), name: m[1].trim() };
-    // Pattern: SET Name (leading set)
-    m = input.match(/^([A-Za-z0-9]{2,6})\s+\s*(.+)$/);
-    if (m && /^[A-Za-z0-9]{2,6}$/.test(m[1])) return { set: m[1].toUpperCase(), name: m[2].trim() };
+    if (m && isKnownSetCode(m[2])) return { set: m[2].toUpperCase(), name: m[1].trim() };
+    // Pattern: SET Name (leading set code)
+    m = input.match(/^([A-Za-z0-9]{2,6})\s+(.+)$/);
+    if (m && isKnownSetCode(m[1])) return { set: m[1].toUpperCase(), name: m[2].trim() };
     return { set: null, name: input };
 }
 
@@ -192,10 +209,10 @@ function getSWULeadersAndBases() {
             const card = cardListData[setCode][key];
             if (card.type === 'Leader' && !card.name.endsWith('[Back]') && !seenLeaders.has(card.name)) {
                 seenLeaders.add(card.name);
-                leaders.push({ name: card.name, aspects: card.aspects });
+                leaders.push({ name: card.name, aspects: card.aspects, image: buildImageUrl(card, setCode, key) });
             } else if (card.type === 'Base' && !seenBases.has(card.name)) {
                 seenBases.add(card.name);
-                bases.push({ name: card.name, aspects: card.aspects, hp: card.hp });
+                bases.push({ name: card.name, aspects: card.aspects, hp: card.hp, image: buildImageUrl(card, setCode, key) });
             }
         }
     }
@@ -209,5 +226,5 @@ function emitSWULeadersAndBases(io) {
     RoomUtils.emitWithRoomMapping(io, 'starwars-leaders-and-bases', data);
 }
 
-export { loadCardListData, getCardListData, emitStarWarsCardList, emitStarWarsCardView, emitSWULeadersAndBases };
+export { loadCardListData, getCardListData, lookupCardByName, emitStarWarsCardList, emitStarWarsCardView, emitSWULeadersAndBases };
 

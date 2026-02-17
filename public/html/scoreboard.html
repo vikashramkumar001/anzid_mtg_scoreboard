@@ -249,6 +249,9 @@
 
 <!-- Star Wars Scoreboard -->
 <div id="scoreboard-starwars" style="display: none;">
+    <video class="starwars-bg-video" autoplay loop muted playsinline>
+        <source src="/assets/images/starwars/overlay/bg loop.mp4" type="video/mp4">
+    </video>
     <div class="starwars-frame"></div>
 
     <!-- Player Names -->
@@ -302,6 +305,14 @@
     <!-- Base Stats (damage/hp) -->
     <div class="swu-base-stats-left" id="swu-base-stats-left"></div>
     <div class="swu-base-stats-right" id="swu-base-stats-right"></div>
+
+    <!-- Card View Overlays (shown on top of leader/base when card is viewed) -->
+    <div class="swu-card-overlay swu-card-overlay-left" id="swu-card-overlay-left" style="display: none;">
+        <img id="swu-card-overlay-img-left" src="" alt="">
+    </div>
+    <div class="swu-card-overlay swu-card-overlay-right" id="swu-card-overlay-right" style="display: none;">
+        <img id="swu-card-overlay-img-right" src="" alt="">
+    </div>
 </div>
 
 <script type="module" src="/js/scoreboard.js"></script>

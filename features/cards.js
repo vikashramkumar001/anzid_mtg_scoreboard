@@ -1,38 +1,11 @@
-import {promises as fs} from 'fs';
-import {cardListDataPath} from '../config/constants.js';
+import {getCardListData as mtgGetCardListData} from "./mtg/cards.js";
 import {getCardListData as vibesGetCardListData} from "./vibes/cards.js";
 import {getCardListData as riftboundGetCardListData} from "./riftbound/cards.js";
 import { emitStarWarsCardView, transformDeckData as starwarsTransformDeckData } from "./starwars/cards.js";
 import { RoomUtils } from '../utils/room-utils.js';
 
-let cardListData = [];
-
-// Load card list from file
-export async function loadCardListData() {
-    try {
-        const data = await fs.readFile(cardListDataPath, 'utf8');
-        cardListData = JSON.parse(data);
-        console.log('Card list data loaded.');
-    } catch (error) {
-        if (error.code === 'ENOENT') {
-            console.log('Card list file not found. Starting with empty list.');
-            cardListData = [];
-        } else {
-            console.error('Error loading card list data:', error);
-            cardListData = [];
-        }
-    }
-}
-
-// Get the current card list
-export function getCardListData() {
-    return cardListData;
-}
-
-// Emit full card list to clients
-export function emitMTGCardList(io) {
-    RoomUtils.emitWithRoomMapping(io, 'mtg-card-list-data', {cardListData});
-}
+// Re-export MTG-specific functions for backward compatibility
+export { loadCardListData, getCardListData, emitMTGCardList } from "./mtg/cards.js";
 
 function normalizeName(str, gameType) {
     if (gameType === 'vibes') {
@@ -112,7 +85,7 @@ export function emitCardView(io, cardSelected) {
         const cleanedName = normalizeName(singleFace, cardSelected['game-id']);
 
         // Clean the card list data
-        const cleanedCardListData = createCleanedCardMap(cardListData, cardSelected['game-id']);
+        const cleanedCardListData = createCleanedCardMap(mtgGetCardListData(), cardSelected['game-id']);
 
         // get card url from json (case-insensitive lookup)
         const matchedKey = Object.keys(cleanedCardListData).find(
@@ -232,7 +205,7 @@ export function transformMainDeck(data, io) {
         return;
     }
     if (gameType === 'mtg') {
-        cleanedCardsMap = createCleanedCardMap(cardListData, gameType);
+        cleanedCardsMap = createCleanedCardMap(mtgGetCardListData(), gameType);
     } else if (gameType === 'riftbound') {
         const riftboundCards = riftboundGetCardListData();
         cleanedCardsMap = createCleanedCardMap(riftboundCards, gameType);
@@ -311,7 +284,7 @@ export function transformSideDeck(data, io) {
         return;
     }
     if (gameType === 'mtg') {
-        cleanedCardsMap = createCleanedCardMap(cardListData, gameType);
+        cleanedCardsMap = createCleanedCardMap(mtgGetCardListData(), gameType);
     } else if (gameType === 'riftbound') {
         const riftboundCards = riftboundGetCardListData();
         cleanedCardsMap = createCleanedCardMap(riftboundCards, gameType);
@@ -351,7 +324,7 @@ export function transformDraftList(data, io) {
     let matchID = data.matchID;
 
     if (gameType === 'mtg') {
-        cleanedCardsMap = createCleanedCardMap(cardListData, gameType);
+        cleanedCardsMap = createCleanedCardMap(mtgGetCardListData(), gameType);
     } else if (gameType === 'riftbound') {
         const riftboundCards = riftboundGetCardListData();
         cleanedCardsMap = createCleanedCardMap(riftboundCards, gameType);

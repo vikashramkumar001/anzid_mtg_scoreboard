@@ -31,8 +31,20 @@
             <div class="col-6">
                 <h1 class="mb-4">Master Control</h1>
             </div>
-            <div class="col-6 d-flex justify-content-end align-items-center">
-                <button id="dark-mode-toggle" class="btn btn-outline-secondary btn-sm mb-4" onclick="toggleDarkMode()">Dark Mode</button>
+            <div class="col-6 d-flex justify-content-end align-items-center gap-3 mb-4">
+                <select id="global-game-selection" class="form-select form-select-sm" style="width: auto;">
+                    <option value="mtg">MTG</option>
+                    <option value="riftbound">RIFTBOUND</option>
+                    <option value="vibes">VIBES</option>
+                    <option value="starwars">STAR WARS</option>
+                </select>
+                <select id="global-vendor-selection" class="form-select form-select-sm" style="width: auto;">
+                    <!-- Populated dynamically from VENDOR_CONFIG -->
+                </select>
+                <select id="global-player-count" class="form-select form-select-sm" style="width: auto;">
+                    <!-- Populated dynamically from VENDOR_CONFIG.playerCounts -->
+                </select>
+                <button id="dark-mode-toggle" class="btn btn-outline-secondary btn-sm" onclick="toggleDarkMode()">Dark Mode</button>
             </div>
         </div>
 
@@ -599,40 +611,6 @@ CommentatorC
                                 <button class="btn btn-primary update-button" id="tournament-platform-save">
                                     Save
                                 </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <!-- Game Selection -->
-                <div class="row">
-                    <div class="col-12 my-3">
-                        <h5>Game Selection</h5>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-1">
-                                    <label for="global-game-selection" class="form-label">Select Game</label>
-                                    <select id="global-game-selection" class="form-select">
-                                        <option value="mtg">MTG</option>
-                                        <option value="riftbound">RIFTBOUND</option>
-                                        <option value="vibes">VIBES</option>
-                                        <option value="starwars">STAR WARS</option>
-                                    </select>
-                                </div>
-                                <div class="col-1">
-                                    <label for="global-vendor-selection" class="form-label">Vendor/Show</label>
-                                    <select id="global-vendor-selection" class="form-select">
-                                        <!-- Populated dynamically from VENDOR_CONFIG -->
-                                    </select>
-                                </div>
-                                <div class="col-1">
-                                    <label for="global-player-count" class="form-label">Player Count</label>
-                                    <select id="global-player-count" class="form-select">
-                                        <!-- Populated dynamically from VENDOR_CONFIG.playerCounts -->
-                                    </select>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1525,340 +1503,73 @@ CommentatorC
                     </div>
                 </div>
 
-                <!-- Card View Tabs Navigation -->
-                <ul class="nav nav-tabs my-3" id="myCardViewTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="mtg-card-view-tab" data-bs-toggle="tab"
-                            data-bs-target="#mtg-card-view" type="button" role="tab" aria-controls="mtg" aria-selected="true">
-                            MTG
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="vibes-card-view-tab" data-bs-toggle="tab" data-bs-target="#vibes-card-view"
-                            type="button" role="tab" aria-controls="vibes" aria-selected="false">
-                            Vibes
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="riftbound-card-view-tab" data-bs-toggle="tab"
-                            data-bs-target="#riftbound-card-view" type="button" role="tab" aria-controls="riftbound"
-                            aria-selected="false">
-                        Riftbound
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="starwars-card-view-tab" data-bs-toggle="tab"
-                            data-bs-target="#starwars-card-view" type="button" role="tab" aria-controls="starwars"
-                            aria-selected="false">
-                        Star Wars
-                    </button>
-                </li>
-            </ul>
-
-                <!-- Card View Tabs Content -->
-                <div class="tab-content" id="myCardViewTabContent">
-
-                    <!-- MTG Card View Tab Content -->
-                    <div class="tab-pane fade active show" id="mtg-card-view" role="tabpanel"
-                        aria-labelledby="mtg-card-view-tab">
-                        <div class="row my-3">
-                            <div class="col-12 my-3">
-                                <h1>MTG Card View</h1>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row my-3">
-                                            <div class="col-12">
-                                                <h5>Card View 1</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Card Select</label>
-                                                    <div id="card-view-mtg-input-autocomplete-1" class="editable form-control"
-                                                        contenteditable="true"></div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                                <button class="btn btn-primary update-button me-2"
-                                                    id="card-view-mtg-display-button-1">
-                                                    View Card
-                                                </button>
-                                                <button class="btn btn-primary reset-button" id="card-view-mtg-reset-button-1">
-                                                    Reset
-                                                </button>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="card-preview-mtg-1" class="my-3"></div>
-                                            </div>
+                <!-- Unified Card View (adapts to game selection) -->
+                <div id="unified-card-view">
+                    <div class="row my-3">
+                        <div class="col-12 my-3">
+                            <h4 id="card-view-game-label">Card View</h4>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row my-3">
+                                        <div class="col-12">
+                                            <h5>Card View 1</h5>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row my-3">
-                                            <div class="col-12">
-                                                <h5>Card View 2</h5>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Card Select</label>
+                                                <div id="card-view-input-autocomplete-1" class="editable form-control"
+                                                    contenteditable="true"></div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Card Select</label>
-                                                    <div id="card-view-mtg-input-autocomplete-2" class="editable form-control"
-                                                        contenteditable="true"></div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                                <button class="btn btn-primary update-button me-2"
-                                                    id="card-view-mtg-display-button-2">
-                                                    View Card
-                                                </button>
-                                                <button class="btn btn-primary reset-button" id="card-view-mtg-reset-button-2">
-                                                    Reset
-                                                </button>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="card-preview-mtg-2" class="my-3"></div>
-                                            </div>
+                                        <div
+                                            class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
+                                            <button class="btn btn-primary update-button me-2"
+                                                id="card-view-display-button-1">
+                                                View Card
+                                            </button>
+                                            <button class="btn btn-primary reset-button" id="card-view-reset-button-1">
+                                                Reset
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <div id="card-preview-1" class="my-3"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Vibes Card View Tab Content -->
-                    <div class="tab-pane fade" id="vibes-card-view" role="tabpanel" aria-labelledby="vibes-card-view-tab">
-                        <div class="row my-3">
-                            <div class="col-12 my-3">
-                                <h1>Vibes Card View</h1>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row my-3">
-                                            <div class="col-12">
-                                                <h5>Card View 1</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Card Select</label>
-                                                    <div id="card-view-vibes-input-autocomplete-1" class="editable form-control"
-                                                        contenteditable="true"></div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                                <button class="btn btn-primary update-button me-2"
-                                                    id="card-view-vibes-display-button-1">
-                                                    View Card
-                                                </button>
-                                                <button class="btn btn-primary reset-button"
-                                                    id="card-view-vibes-reset-button-1">
-                                                    Reset
-                                                </button>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="card-preview-vibes-1" class="my-3"></div>
-                                            </div>
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row my-3">
+                                        <div class="col-12">
+                                            <h5>Card View 2</h5>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row my-3">
-                                            <div class="col-12">
-                                                <h5>Card View</h5>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="mb-3">
+                                                <label class="form-label">Card Select</label>
+                                                <div id="card-view-input-autocomplete-2" class="editable form-control"
+                                                    contenteditable="true"></div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Card Select</label>
-                                                    <div id="card-view-vibes-input-autocomplete-2" class="editable form-control"
-                                                        contenteditable="true"></div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                                <button class="btn btn-primary update-button me-2"
-                                                    id="card-view-vibes-display-button-2">
-                                                    View Card
-                                                </button>
-                                                <button class="btn btn-primary reset-button"
-                                                    id="card-view-vibes-reset-button-2">
-                                                    Reset
-                                                </button>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="card-preview-vibes-2" class="my-3"></div>
-                                            </div>
+                                        <div
+                                            class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
+                                            <button class="btn btn-primary update-button me-2"
+                                                id="card-view-display-button-2">
+                                                View Card
+                                            </button>
+                                            <button class="btn btn-primary reset-button" id="card-view-reset-button-2">
+                                                Reset
+                                            </button>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Riftbound Card View Tab Content -->
-                    <div class="tab-pane fade" id="riftbound-card-view" role="tabpanel"
-                        aria-labelledby="riftbound-card-view-tab">
-                        <div class="row my-3">
-                            <div class="col-12 my-3">
-                                <h1>Riftbound Card View</h1>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row my-3">
-                                            <div class="col-12">
-                                                <h5>Card View 1</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Card Select</label>
-                                                    <div id="card-view-riftbound-input-autocomplete-1"
-                                                        class="editable form-control" contenteditable="true"></div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                                <button class="btn btn-primary update-button me-2"
-                                                    id="card-view-riftbound-display-button-1">
-                                                    View Card
-                                                </button>
-                                                <button class="btn btn-primary reset-button"
-                                                    id="card-view-riftbound-reset-button-1">
-                                                    Reset
-                                                </button>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="card-preview-riftbound-1" class="my-3"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row my-3">
-                                            <div class="col-12">
-                                                <h5>Card View</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Card Select</label>
-                                                    <div id="card-view-riftbound-input-autocomplete-2"
-                                                        class="editable form-control" contenteditable="true"></div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                                <button class="btn btn-primary update-button me-2"
-                                                    id="card-view-riftbound-display-button-2">
-                                                    View Card
-                                                </button>
-                                                <button class="btn btn-primary reset-button"
-                                                    id="card-view-riftbound-reset-button-2">
-                                                    Reset
-                                                </button>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="card-preview-riftbound-2" class="my-3"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Star Wars Card View Tab Content -->
-                    <div class="tab-pane fade" id="starwars-card-view" role="tabpanel"
-                         aria-labelledby="starwars-card-view-tab">
-                        <div class="row my-3">
-                            <div class="col-12 my-3">
-                                <h1>Star Wars Card View</h1>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row my-3">
-                                            <div class="col-12">
-                                                <h5>Card View 1</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Card Select</label>
-                                                    <div id="card-view-starwars-input-autocomplete-1"
-                                                         class="editable form-control"
-                                                         contenteditable="true"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                                <button class="btn btn-primary update-button me-2"
-                                                        id="card-view-starwars-display-button-1">
-                                                    View Card
-                                                </button>
-                                                <button class="btn btn-primary reset-button"
-                                                        id="card-view-starwars-reset-button-1">
-                                                    Reset
-                                                </button>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="card-preview-starwars-1" class="my-3"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row my-3">
-                                            <div class="col-12">
-                                                <h5>Card View</h5>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Card Select</label>
-                                                    <div id="card-view-starwars-input-autocomplete-2"
-                                                         class="editable form-control"
-                                                         contenteditable="true"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4 text-center d-flex flex-center align-items-center justify-content-end">
-                                                <button class="btn btn-primary update-button me-2"
-                                                        id="card-view-starwars-display-button-2">
-                                                    View Card
-                                                </button>
-                                                <button class="btn btn-primary reset-button"
-                                                        id="card-view-starwars-reset-button-2">
-                                                    Reset
-                                                </button>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="card-preview-starwars-2" class="my-3"></div>
-                                            </div>
+                                        <div class="col-12">
+                                            <div id="card-preview-2" class="my-3"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -2432,14 +2143,14 @@ CommentatorC
                                                 <input type="text" id="draft-list-1-player-name" class="form-control" placeholder="Player name">
                                             </div>
                                             <div class="col-4">
-                                                <label class="form-label">Pronouns</label>
-                                                <input type="text" id="draft-list-1-player-pronouns" class="form-control" placeholder="he/him">
+                                                <label class="form-label">In-Draft Subtext</label>
+                                                <input type="text" id="draft-list-1-player-pronouns" class="form-control" placeholder="Subtext">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-8">
-                                                <label class="form-label">Archetype</label>
-                                                <input type="text" id="draft-list-1-player-archetype" class="form-control" placeholder="e.g. Boros Aggro">
+                                                <label class="form-label">Draft Review - Subtext</label>
+                                                <input type="text" id="draft-list-1-player-archetype" class="form-control" placeholder="Subtext">
                                             </div>
                                             <div class="col-4">
                                                 <label class="form-label">Mana Symbols</label>
@@ -2528,14 +2239,14 @@ CommentatorC
                                                 <input type="text" id="draft-list-2-player-name" class="form-control" placeholder="Player name">
                                             </div>
                                             <div class="col-4">
-                                                <label class="form-label">Pronouns</label>
-                                                <input type="text" id="draft-list-2-player-pronouns" class="form-control" placeholder="he/him">
+                                                <label class="form-label">In-Draft Subtext</label>
+                                                <input type="text" id="draft-list-2-player-pronouns" class="form-control" placeholder="Subtext">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-8">
-                                                <label class="form-label">Archetype</label>
-                                                <input type="text" id="draft-list-2-player-archetype" class="form-control" placeholder="e.g. Boros Aggro">
+                                                <label class="form-label">Draft Review - Subtext</label>
+                                                <input type="text" id="draft-list-2-player-archetype" class="form-control" placeholder="Subtext">
                                             </div>
                                             <div class="col-4">
                                                 <label class="form-label">Mana Symbols</label>

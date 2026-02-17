@@ -334,21 +334,15 @@ export function initMatches(socket) {
                                 <div id="${roundId}-${matchId}-player-runes-left" class="editable form-control" contenteditable="true"></div>
                             </div>
                             <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield 1</label>
-                                <div class="d-flex align-items-center">
+                                <label class="form-label">Battlefield</label>
+                                <div class="d-flex align-items-center mb-1">
                                     <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
                                     <div id="${roundId}-${matchId}-player-battlefield-1-left" class="editable form-control battlefield-input" contenteditable="true"></div>
                                 </div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield 2</label>
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center mb-1">
                                     <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
                                     <div id="${roundId}-${matchId}-player-battlefield-2-left" class="editable form-control battlefield-input" contenteditable="true"></div>
                                 </div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield 3</label>
                                 <div class="d-flex align-items-center">
                                     <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
                                     <div id="${roundId}-${matchId}-player-battlefield-3-left" class="editable form-control battlefield-input" contenteditable="true"></div>
@@ -371,15 +365,7 @@ export function initMatches(socket) {
                                 </div>
                             </div>
                             <div class="mb-3 starwars-only-field" style="display: none;">
-                                <div class="d-flex gap-3">
-                                    <div>
-                                        <label class="form-label">Base Damage</label>
-                                        <div class="d-flex align-items-center">
-                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-damage-left" data-life-delta="-1">-1</button>
-                                            <div id="${roundId}-${matchId}-player-base-damage-left" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">0</div>
-                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-damage-left" data-life-delta="1">+1</button>
-                                        </div>
-                                    </div>
+                                <div class="d-flex gap-3 swu-base-stats-container">
                                     <div>
                                         <label class="form-label">Base HP</label>
                                         <div class="d-flex align-items-center">
@@ -454,21 +440,15 @@ export function initMatches(socket) {
                                 <div id="${roundId}-${matchId}-player-runes-right" class="editable form-control" contenteditable="true"></div>
                             </div>
                             <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield 1</label>
-                                <div class="d-flex align-items-center">
+                                <label class="form-label">Battlefield</label>
+                                <div class="d-flex align-items-center mb-1">
                                     <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
                                     <div id="${roundId}-${matchId}-player-battlefield-1-right" class="editable form-control battlefield-input" contenteditable="true"></div>
                                 </div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield 2</label>
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center mb-1">
                                     <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
                                     <div id="${roundId}-${matchId}-player-battlefield-2-right" class="editable form-control battlefield-input" contenteditable="true"></div>
                                 </div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield 3</label>
                                 <div class="d-flex align-items-center">
                                     <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
                                     <div id="${roundId}-${matchId}-player-battlefield-3-right" class="editable form-control battlefield-input" contenteditable="true"></div>
@@ -491,15 +471,7 @@ export function initMatches(socket) {
                                 </div>
                             </div>
                             <div class="mb-3 starwars-only-field" style="display: none;">
-                                <div class="d-flex gap-3">
-                                    <div>
-                                        <label class="form-label">Base Damage</label>
-                                        <div class="d-flex align-items-center">
-                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-damage-right" data-life-delta="-1">-1</button>
-                                            <div id="${roundId}-${matchId}-player-base-damage-right" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">0</div>
-                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-damage-right" data-life-delta="1">+1</button>
-                                        </div>
-                                    </div>
+                                <div class="d-flex gap-3 swu-base-stats-container">
                                     <div>
                                         <label class="form-label">Base HP</label>
                                         <div class="d-flex align-items-center">
@@ -647,7 +619,11 @@ export function initMatches(socket) {
                 }
 
                 // Update the local control data when a field changes
-                updateControlData(roundId, matchId, field.id.replace(`${roundId}-${matchId}-`, ''), value);
+                const fieldKey = field.id.replace(`${roundId}-${matchId}-`, '');
+                if (fieldKey.includes('leader') || fieldKey.includes('base')) {
+                    console.log('[SWU DEBUG MC] General input handler fired:', fieldKey, '=', value);
+                }
+                updateControlData(roundId, matchId, fieldKey, value);
                 // Emit the updated control data to the backend
                 console.log('updated all data', allControlData);
                 socket.emit('master-control-matches-updated', allControlData);
@@ -780,7 +756,7 @@ export function initMatches(socket) {
             // Render aspect icons to the left
             (item.aspects || []).forEach(aspect => {
                 const img = document.createElement('img');
-                img.src = `/assets/images/starwars/scoreboard/icons/${aspect}.png`;
+                img.src = `/assets/images/starwars/icons/${aspect}.png`;
                 img.alt = aspect;
                 img.style.width = '20px';
                 img.style.height = '20px';
@@ -792,11 +768,12 @@ export function initMatches(socket) {
             nameSpan.textContent = item.name;
             div.appendChild(nameSpan);
             div.addEventListener('click', () => {
+                console.log('[SWU DEBUG MC] Dropdown click:', item.name, '→ field:', field.id);
                 field.textContent = nameTransform ? nameTransform(item.name) : item.name;
                 dropdownList.style.display = 'none';
-                if (onSelect) onSelect(item);
                 field.dispatchEvent(new Event('input'));
                 field.dispatchEvent(new Event('change'));
+                if (onSelect) onSelect(item);
             });
             dropdownList.appendChild(div);
         });
@@ -1066,7 +1043,7 @@ export function initMatches(socket) {
                     const div = document.createElement('div');
                     div.classList.add('dropdown-item', 'd-flex', 'align-items-center');
                     const img = document.createElement('img');
-                    img.src = `/assets/images/starwars/scoreboard/icons/${aspect}.png`;
+                    img.src = `/assets/images/starwars/icons/${aspect}.png`;
                     img.alt = aspect;
                     img.style.width = '20px';
                     img.style.height = '20px';
@@ -1237,14 +1214,10 @@ export function initMatches(socket) {
             // update controlData
             allControlData[round_id][match_id]['player-life-left'] = baseLifePoints;
             allControlData[round_id][match_id]['player-life-right'] = baseLifePoints;
-            // Also reset Star Wars base damage/HP if in Star Wars mode
+            // Also reset Star Wars base HP if in Star Wars mode
             if (currentGameSelection === 'starwars') {
-                const bdl = document.querySelector(`[id="${round_id}-${match_id}-player-base-damage-left"]`);
-                const bdr = document.querySelector(`[id="${round_id}-${match_id}-player-base-damage-right"]`);
                 const bhl = document.querySelector(`[id="${round_id}-${match_id}-player-base-hp-left"]`);
                 const bhr = document.querySelector(`[id="${round_id}-${match_id}-player-base-hp-right"]`);
-                if (bdl) { bdl.innerText = '0'; allControlData[round_id][match_id]['player-base-damage-left'] = '0'; }
-                if (bdr) { bdr.innerText = '0'; allControlData[round_id][match_id]['player-base-damage-right'] = '0'; }
                 if (bhl) { bhl.innerText = '30'; allControlData[round_id][match_id]['player-base-hp-left'] = '30'; }
                 if (bhr) { bhr.innerText = '30'; allControlData[round_id][match_id]['player-base-hp-right'] = '30'; }
             }
@@ -1885,7 +1858,28 @@ export function initMatches(socket) {
         });
 
         document.querySelectorAll('.life-points-field').forEach(field => {
-            field.style.display = showStarwars ? 'none' : 'block';
+            if (showStarwars) {
+                // Save original position for moving back later
+                if (!field._originalParent) {
+                    field._originalParent = field.parentElement;
+                    field._originalNextSibling = field.nextElementSibling;
+                }
+                // Move into the Star Wars base stats container (before Base HP)
+                const matchCol = field.closest('.col-md-6');
+                const statsContainer = matchCol?.querySelector('.swu-base-stats-container');
+                if (statsContainer) {
+                    statsContainer.insertBefore(field, statsContainer.firstChild);
+                }
+                field.querySelector('.form-label').textContent = 'Base Damage';
+                field.style.display = 'block';
+            } else {
+                // Move back to original position
+                if (field._originalParent) {
+                    field._originalParent.insertBefore(field, field._originalNextSibling);
+                }
+                field.querySelector('.form-label').textContent = 'LifePoints';
+                field.style.display = 'block';
+            }
         });
     }
 
@@ -2014,8 +2008,99 @@ export function initMatches(socket) {
                 }
 
                 console.log('Match data populated for table', result.matchData.tableNumber);
+
+                // Auto-fetch decklists if decklistIds are available
+                if (player1.decklistId) {
+                    socket.emit('fetch-decklist-by-id', {
+                        decklistId: player1.decklistId,
+                        side: 'left',
+                        matchId,
+                        roundId,
+                        game: currentGameSelection
+                    });
+                }
+                if (player2.decklistId) {
+                    socket.emit('fetch-decklist-by-id', {
+                        decklistId: player2.decklistId,
+                        side: 'right',
+                        matchId,
+                        roundId,
+                        game: currentGameSelection
+                    });
+                }
             }
         }
+    });
+
+    // Listen for decklist fetch response (auto-populate main-deck textarea and leader/base fields)
+    socket.on('decklist-fetched', ({ side, matchId, roundId, mainDeck, sideboard, leader, base, error }) => {
+        if (error) {
+            console.warn('Decklist fetch error:', error);
+            return;
+        }
+
+        // Populate main-deck textarea with card lines
+        const deckTextarea = document.getElementById(`${roundId}-${matchId}-player-main-deck-${side}`);
+        if (deckTextarea) {
+            const lines = [...(mainDeck || [])];
+            if (sideboard && sideboard.length > 0) {
+                lines.push('');
+                lines.push('Sideboard');
+                lines.push(...sideboard);
+            }
+            deckTextarea.value = lines.join('\n');
+            deckTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+
+        // Populate leader field and aspects
+        if (leader) {
+            const leaderField = document.getElementById(`${roundId}-${matchId}-player-leader-${side}`);
+            if (leaderField) {
+                leaderField.textContent = leader.name || '';
+                leaderField.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            // Auto-fill leader aspects
+            if (leader.aspects && leader.aspects.length > 0) {
+                const aspects = leader.aspects.map(a => a.toLowerCase());
+                const aspect1Field = document.getElementById(`${roundId}-${matchId}-player-leader-aspect-1-${side}`);
+                const aspect2Field = document.getElementById(`${roundId}-${matchId}-player-leader-aspect-2-${side}`);
+                if (aspect1Field) {
+                    aspect1Field.textContent = aspects[0] || '';
+                    aspect1Field.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                if (aspect2Field) {
+                    aspect2Field.textContent = aspects[1] || '';
+                    aspect2Field.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            }
+        }
+
+        // Populate base field, aspects, and HP
+        if (base) {
+            const baseField = document.getElementById(`${roundId}-${matchId}-player-base-${side}`);
+            if (baseField) {
+                baseField.textContent = base.name || '';
+                baseField.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            // Auto-fill base aspects
+            if (base.aspects && base.aspects.length > 0) {
+                const aspectsField = document.getElementById(`${roundId}-${matchId}-player-base-aspects-${side}`);
+                if (aspectsField) {
+                    aspectsField.textContent = base.aspects.map(a => a.toLowerCase()).join(', ');
+                    aspectsField.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            }
+            // Auto-fill base HP
+            if (base.hp) {
+                const hpField = document.getElementById(`${roundId}-${matchId}-player-base-hp-${side}`);
+                if (hpField) {
+                    hpField.textContent = base.hp;
+                    hpField.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            }
+        }
+
+        console.log(`Decklist populated for ${side} player in ${roundId}-${matchId}`);
     });
 
     // Listen for updated scoreboard state from server

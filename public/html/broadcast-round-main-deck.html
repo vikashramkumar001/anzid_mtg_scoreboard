@@ -21,10 +21,7 @@
     <div id="deck-display-mtg" style="display: none;">
         <div
             class="bg-image"
-            style="
-                background-image: url('/assets/images/mtg/20260205 f2f bg info.png');
-                height: 100vh;
-            "
+            style="height: 100vh;"
             id="mtg-bg-image"
         ></div>
         <div class="row" id="deck-display-details">
@@ -37,6 +34,7 @@
 
     <!-- Riftbound Deck Display -->
     <div id="deck-display-riftbound" style="display: none;">
+        <div class="bg-image" style="height: 100vh;" id="riftbound-bg-image"></div>
         <div id="riftbound-background-parent"></div>
         <div class="row" id="riftbound-deck-display-details">
         </div>
@@ -48,13 +46,10 @@
 
     <!-- Vibes Deck Display -->
     <div id="deck-display-vibes" style="display: none;">
-        <div 
+        <div
             class="bg-image"
-            style="
-                background-image: url('/assets/images/vibes/broadcast-round-main-deck/vibes-decklist-bg.png');
-                height: 100vh;
-            "
-            id="vibes-bg-image" 
+            style="height: 100vh;"
+            id="vibes-bg-image"
         ></div>
         <iframe
             src="http://localhost:1378/vibes/display/card/view/1"
@@ -65,6 +60,17 @@
         </div>
         <div class="row" id="vibes-deck-display-container">
             <div id="vibes-main-deck-container">
+            </div>
+        </div>
+    </div>
+
+    <!-- Star Wars Deck Display -->
+    <div id="deck-display-starwars" style="display: none;">
+        <div class="bg-image" style="height: 100vh;" id="starwars-bg-image"></div>
+        <div class="row" id="starwars-deck-display-details">
+        </div>
+        <div class="row" id="starwars-deck-display-container">
+            <div id="starwars-main-deck-container">
             </div>
         </div>
     </div>
