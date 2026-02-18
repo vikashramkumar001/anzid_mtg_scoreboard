@@ -64,6 +64,9 @@ class RoomManager {
         // Draftlist scoreboard - check before generic scoreboard
         if (path.includes('/broadcast/round/draftlist/scoreboard/')) return 'broadcast-draft-list';
 
+        // Broadcast scoreboard - check before generic /scoreboard/
+        if (path.includes('/broadcast/round/scoreboard/')) return 'broadcast-scoreboard';
+
         // Scoreboard - check for /scoreboard/ in path
         if (path.includes('/scoreboard/')) {
             // Extract control ID from path (e.g., /control/1/1000)
@@ -175,6 +178,7 @@ class RoomManager {
             'broadcast-main-deck': ['broadcast-main-deck', 'global'],
             'broadcast-side-deck': ['broadcast-side-deck', 'global'],
             'broadcast-draft-list': ['broadcast-draft-list', 'global'],
+            'broadcast-scoreboard': ['broadcast-scoreboard', 'global'],
             'brackets': ['brackets', 'global'],
             'meta-breakdown': ['meta-breakdown', 'global']
         };

@@ -1753,9 +1753,9 @@
       "Heroism"
     ]
   },
-  "poedamerononehellofaapilot": {
-    "image": "JTL/Poe_Dameron, One_Hell_of_a_a_Pilot.png",
-    "name": "Poe Dameron, One Hell of a a Pilot",
+  "poedamerononehellofapilot": {
+    "image": "JTL/Poe_Dameron, One_Hell_of_a_Pilot.png",
+    "name": "Poe Dameron, One Hell of a Pilot",
     "type": "Unit",
     "hp": null,
     "aspects": [

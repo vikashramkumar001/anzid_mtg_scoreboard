@@ -7,9 +7,19 @@ const socket = io();
 window.roomManager = new RoomManager(socket);
 
 const pathSegments = window.location.pathname.split('/');
-const control_id = pathSegments[2];
-let round_id = '1';
-let match_id = 'match1';
+const isBroadcastMode = window.location.pathname.includes('/broadcast/round/scoreboard/');
+
+let control_id, match_id, round_id;
+if (isBroadcastMode) {
+    match_id = pathSegments[4]; // e.g. 'match1'
+    round_id = null; // set when server sends broadcast-scoreboard-round-id
+    control_id = null;
+} else {
+    control_id = pathSegments[2];
+    round_id = '1';
+    match_id = 'match1';
+}
+
 let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
 let currentGame = 'mtg';
 let currentVendor = 'default';
@@ -834,22 +844,41 @@ function updateBackground(side, archetypeName) {
 }
 
 // INITIAL STATE
-console.log('sending request for data');
-socket.emit('getSavedControlState', {control_id});
-socket.emit('getArchetypeList');
+if (isBroadcastMode) {
+    // Broadcast mode: request current broadcast data
+    socket.emit('get-broadcast-scoreboard-data');
+    socket.emit('getArchetypeList');
 
-socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
-    try {
-        console.log('got saved state from server', data);
-        console.log('[SWU DEBUG] RECEIVED NEW STATE - leader-left:', data['data']?.['player-leader-left'], 'leader-right:', data['data']?.['player-leader-right'], 'base-left:', data['data']?.['player-base-left'], 'base-right:', data['data']?.['player-base-right']);
-        archetypeList = data['archetypeList'];
-        round_id = data['round_id'];
-        match_id = data['match_id'];
-        updateState(data['data']);
-    } catch (e) {
-        console.error('[SWU DEBUG] ERROR in saved-state handler:', e);
-    }
-});
+    // Listen for round_id from broadcast tracker
+    socket.on('broadcast-scoreboard-round-id', ({ round_id: rid }) => {
+        round_id = rid;
+        // Re-request timer and scoreboard state now that we know round_id
+        socket.emit('get-all-timer-states');
+        socket.emit('get-scoreboard-state');
+    });
+
+    // Listen for broadcast-round-data
+    socket.on('broadcast-round-data', (data) => {
+        if (data[match_id]) {
+            updateState(data[match_id]);
+        }
+    });
+} else {
+    // Control mode: original behavior
+    socket.emit('getSavedControlState', {control_id});
+    socket.emit('getArchetypeList');
+
+    socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
+        try {
+            archetypeList = data['archetypeList'];
+            round_id = data['round_id'];
+            match_id = data['match_id'];
+            updateState(data['data']);
+        } catch (e) {
+            console.error('Error in saved-state handler:', e);
+        }
+    });
+}
 
 socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
     console.log('got header overlay from server', newImageUrl);
@@ -874,16 +903,18 @@ socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
 });
 
 socket.on('archetypeListUpdated', (archetypes) => {
-    console.log('archetype list updated', archetypes);
     archetypeList = archetypes;
-    socket.emit('getSavedControlState', {control_id});
+    if (!isBroadcastMode) {
+        socket.emit('getSavedControlState', {control_id});
+    }
 });
 
 // TIMER
 socket.emit('get-all-timer-states');
 
 socket.on('current-all-timer-states', ({timerState}) => {
-    const matchState = timerState[round_id][match_id];
+    if (!round_id) return; // Not ready yet in broadcast mode
+    const matchState = timerState[round_id]?.[match_id];
     if (matchState) {
         // For count up mode, always show the time (never show TURNS)
         // For count down mode, show TURNS when time reaches 0
@@ -978,8 +1009,8 @@ socket.emit('get-scoreboard-state');
 
 // Listen for updated scoreboard state from server
 socket.on('scoreboard-state-data', ({scoreboardState}) => {
-    console.log('got server scoreboard state', scoreboardState);
-    const matchState = scoreboardState[round_id][match_id];
+    if (!round_id) return; // Not ready yet in broadcast mode
+    const matchState = scoreboardState[round_id]?.[match_id];
     if (matchState) {
         const winsDisplays = document.querySelectorAll('#scorebug-right-life-wins-1, #scorebug-right-life-wins-2, #scorebug-left-life-wins-1, #scorebug-left-life-wins-2');
         winsDisplays.forEach(el => {

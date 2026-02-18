@@ -60,18 +60,18 @@ export class RoomUtils {
             
             // Timer events
             'update-timer-state': ['master-control', 'control-1', 'control-2', 'control-3', 'control-4', 'timer-1', 'timer-2', 'timer-3', 'timer-4', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
-            'current-all-timer-states': ['master-control', 'control-1', 'control-2', 'control-3', 'control-4', 'timer-1', 'timer-2', 'timer-3', 'timer-4', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
+            'current-all-timer-states': ['master-control', 'control-1', 'control-2', 'control-3', 'control-4', 'timer-1', 'timer-2', 'timer-3', 'timer-4', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4', 'broadcast-scoreboard'],
             
             // Card view events
             'mtg-card-list-data': ['mtg-card-view', 'master-control'],
-            'card-view-card-selected': ['mtg-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
+            'card-view-card-selected': ['mtg-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4', 'broadcast-scoreboard'],
             'vibes-card-list-data': ['vibes-card-view', 'master-control'],
-            'vibes-card-view-card-selected': ['vibes-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
+            'vibes-card-view-card-selected': ['vibes-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4', 'broadcast-scoreboard'],
             'riftbound-card-list-data': ['riftbound-card-view', 'master-control'],
-            'riftbound-card-view-card-selected': ['riftbound-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
+            'riftbound-card-view-card-selected': ['riftbound-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4', 'broadcast-scoreboard'],
             'starwars-card-list-data': ['starwars-card-view', 'master-control'],
-            'starwars-card-view-card-selected': ['starwars-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
-            'starwars-leaders-and-bases': ['master-control', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4'],
+            'starwars-card-view-card-selected': ['starwars-card-view', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4', 'broadcast-scoreboard'],
+            'starwars-leaders-and-bases': ['master-control', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4', 'broadcast-scoreboard'],
             
             // Deck events
             'deck-display-update': ['deck-display'],
@@ -94,7 +94,7 @@ export class RoomUtils {
             'receive-meta-breakdown-data': ['meta-breakdown'],
             
             // Broadcast events
-            'broadcast-round-data': ['broadcast-details', 'broadcast-main-deck', 'broadcast-side-deck', 'broadcast-draft-list', 'broadcast-standings', 'riftbound-animation-display-1', 'riftbound-animation-display-2', 'riftbound-animation-display-3', 'riftbound-animation-display-4'],
+            'broadcast-round-data': ['broadcast-details', 'broadcast-main-deck', 'broadcast-side-deck', 'broadcast-draft-list', 'broadcast-standings', 'broadcast-scoreboard', 'riftbound-animation-display-1', 'riftbound-animation-display-2', 'riftbound-animation-display-3', 'riftbound-animation-display-4'],
             
             // Overlay events
             'overlayHeaderBackgroundUpdate': ['global'],
@@ -105,7 +105,7 @@ export class RoomUtils {
             'server-current-game-selection': ['global'],
             'game-selection-updated': ['global'],
             'update-match-global-data': ['global'],
-            'scoreboard-state-data': ['master-control', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4']
+            'scoreboard-state-data': ['master-control', 'scoreboard-1', 'scoreboard-2', 'scoreboard-3', 'scoreboard-4', 'broadcast-scoreboard']
         };
         
         return eventRoomMapping[eventName] || ['global'];
@@ -187,7 +187,8 @@ export class RoomUtils {
         if (pagePath.includes('/broadcast/round/details/')) return 'broadcast-details';
         if (pagePath.includes('/broadcast/round/maindeck/')) return 'broadcast-main-deck';
         if (pagePath.includes('/broadcast/round/sidedeck/')) return 'broadcast-side-deck';
-        
+        if (pagePath.includes('/broadcast/round/scoreboard/')) return 'broadcast-scoreboard';
+
         // Bracket
         if (pagePath.includes('/display/bracket/details/') || pagePath.includes('bracket-individual-display.html')) return 'brackets';
         

@@ -36,7 +36,185 @@ export function initMatches(socket) {
     let swuLeadersList = [];
     let swuBasesList = [];
     let commentatorData = {};
-    
+
+    // ── Add Deck Modal ──
+    // Shared modal for pasting decklists (appended once to DOM)
+    let addDeckModalContext = { roundId: null, matchId: null, side: null };
+
+    const addDeckModalHTML = `
+    <div class="modal fade" id="add-deck-modal" tabindex="-1" aria-labelledby="add-deck-modal-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="add-deck-modal-label">Add Decklist</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <textarea id="add-deck-textarea" class="form-control" rows="15"
+                      placeholder="Paste your decklist here..."></textarea>
+            <div id="add-deck-error" class="text-danger mt-2" style="display:none;"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="add-deck-submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+    // Append modal to document body once
+    const modalWrapper = document.createElement('div');
+    modalWrapper.innerHTML = addDeckModalHTML;
+    document.body.appendChild(modalWrapper.firstElementChild);
+
+    const addDeckModal = new bootstrap.Modal(document.getElementById('add-deck-modal'));
+    const addDeckTextarea = document.getElementById('add-deck-textarea');
+    const addDeckError = document.getElementById('add-deck-error');
+
+    // "Add" button click — open modal
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.add-deck-btn');
+        if (!btn) return;
+        addDeckModalContext = {
+            roundId: btn.dataset.round,
+            matchId: btn.dataset.match,
+            side: btn.dataset.side
+        };
+        addDeckTextarea.value = '';
+        addDeckError.style.display = 'none';
+        addDeckModal.show();
+    });
+
+    // Submit handler
+    document.getElementById('add-deck-submit').addEventListener('click', () => {
+        const { roundId, matchId, side } = addDeckModalContext;
+        if (!roundId || !matchId || !side) return;
+
+        const raw = addDeckTextarea.value.trim();
+        if (!raw) {
+            addDeckError.textContent = 'Please paste a decklist';
+            addDeckError.style.display = 'block';
+            return;
+        }
+
+        const parsed = parseDeckString(raw);
+
+        // Check if any cards were found (at least one section with card lines)
+        const totalCards = Object.values(parsed).reduce((sum, arr) => sum + arr.length, 0);
+        if (totalCards === 0) {
+            addDeckError.textContent = 'No cards found in decklist';
+            addDeckError.style.display = 'block';
+            return;
+        }
+
+        // Populate main deck textarea (maindeck + any uncategorized lines)
+        const mainLines = parsed['maindeck'] || [];
+        const deckTextarea = document.getElementById(`${roundId}-${matchId}-player-main-deck-${side}`);
+        if (deckTextarea) {
+            deckTextarea.value = mainLines.join('\n');
+            deckTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+
+        // Populate side deck textarea
+        const sideLines = parsed['sideboard'] || [];
+        const sideTextarea = document.getElementById(`${roundId}-${matchId}-player-side-deck-${side}`);
+        if (sideTextarea) {
+            sideTextarea.value = sideLines.join('\n');
+            sideTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+
+        // Game-specific field population
+        if (currentGameSelection === 'riftbound') {
+            updateRiftboundFields(parsed, roundId, matchId, side);
+        }
+
+        if (currentGameSelection === 'starwars') {
+            let leaderName = '';
+            let baseName = '';
+            // Leader
+            if (parsed['leader'] && parsed['leader'].length > 0) {
+                leaderName = parsed['leader'][0].replace(/^\d+\s+/, '');
+                const leaderField = document.getElementById(`${roundId}-${matchId}-player-leader-${side}`);
+                if (leaderField) {
+                    leaderField.textContent = leaderName;
+                    leaderField.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                // Also prepend leader to main deck so it gets transformed with card URLs
+                if (deckTextarea) {
+                    deckTextarea.value = `1 ${leaderName}\n${deckTextarea.value}`;
+                    deckTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            }
+            // Base
+            if (parsed['base'] && parsed['base'].length > 0) {
+                baseName = parsed['base'][0].replace(/^\d+\s+/, '');
+                const baseField = document.getElementById(`${roundId}-${matchId}-player-base-${side}`);
+                if (baseField) {
+                    baseField.textContent = baseName;
+                    baseField.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                // Also prepend base to main deck so it gets transformed with card URLs
+                if (deckTextarea) {
+                    deckTextarea.value = `1 ${baseName}\n${deckTextarea.value}`;
+                    deckTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            }
+            // Update archetype field with "Leader - Base" so broadcast deck name updates
+            const archetypeField = document.getElementById(`${roundId}-${matchId}-player-archetype-${side}`);
+            if (archetypeField) {
+                const parts = [leaderName, baseName].filter(Boolean);
+                archetypeField.textContent = parts.join(' - ');
+                archetypeField.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            // Look up aspects and HP from server card database
+            if (leaderName) {
+                socket.emit('lookup-swu-card', { name: leaderName }, (info) => {
+                    if (info && info.aspects && info.aspects.length > 0) {
+                        const aspects = info.aspects.map(a => a.toLowerCase());
+                        const aspect1Field = document.getElementById(`${roundId}-${matchId}-player-leader-aspect-1-${side}`);
+                        const aspect2Field = document.getElementById(`${roundId}-${matchId}-player-leader-aspect-2-${side}`);
+                        if (aspect1Field) {
+                            aspect1Field.textContent = aspects[0] || '';
+                            aspect1Field.dispatchEvent(new Event('input', { bubbles: true }));
+                        }
+                        if (aspect2Field) {
+                            aspect2Field.textContent = aspects[1] || '';
+                            aspect2Field.dispatchEvent(new Event('input', { bubbles: true }));
+                        }
+                    }
+                });
+            }
+            if (baseName) {
+                socket.emit('lookup-swu-card', { name: baseName }, (info) => {
+                    if (info) {
+                        if (info.aspects && info.aspects.length > 0) {
+                            const aspectsField = document.getElementById(`${roundId}-${matchId}-player-base-aspects-${side}`);
+                            if (aspectsField) {
+                                aspectsField.textContent = info.aspects.map(a => a.toLowerCase()).join(', ');
+                                aspectsField.dispatchEvent(new Event('input', { bubbles: true }));
+                            }
+                        }
+                        if (info.hp) {
+                            const hpField = document.getElementById(`${roundId}-${matchId}-player-base-hp-${side}`);
+                            if (hpField) {
+                                hpField.textContent = info.hp;
+                                hpField.dispatchEvent(new Event('input', { bubbles: true }));
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Unhide deck fields
+        const deckFieldsContainer = document.getElementById(`${roundId}-${matchId}-deck-fields-${side}`);
+        if (deckFieldsContainer) {
+            deckFieldsContainer.style.display = 'block';
+        }
+
+        addDeckModal.hide();
+    });
+
     // Riftbound Legends List
     const riftboundLegendsList = [
         {name: "Kai'sa, Daughter of the Void"},
@@ -489,44 +667,54 @@ export function initMatches(socket) {
                     <div class="row">
                         <!-- Left Player Deck Information -->
                         <div class="col-md-6">
-                            <h5 class="card-title">Left Player Deck</h5>
-                            <div class="mb-3">
-                                <label class="form-label">Main Deck</label>
-                                <textarea id="${roundId}-${matchId}-player-main-deck-left" 
-                                        class="editable form-control" 
-                                        rows="5" 
-                                        placeholder="Enter main deck cards (separated by commas or new lines)"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Side Deck</label>
-                                <textarea id="${roundId}-${matchId}-player-side-deck-left" 
-                                        class="editable form-control" 
-                                        rows="3" 
-                                        placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
-                            </div>
-                            <div class="my-3">
-                                <button class="btn btn-primary" id="display-deck-left-${roundId}-${matchId}">Display Deck</button>
+                            <h5 class="card-title">Left Player Deck
+                                <button class="btn btn-sm btn-outline-primary add-deck-btn"
+                                        data-side="left" data-round="${roundId}" data-match="${matchId}">Add</button>
+                            </h5>
+                            <div class="deck-fields" id="${roundId}-${matchId}-deck-fields-left" style="display: none;">
+                                <div class="mb-3">
+                                    <label class="form-label">Main Deck</label>
+                                    <textarea id="${roundId}-${matchId}-player-main-deck-left"
+                                            class="editable form-control"
+                                            rows="5"
+                                            placeholder="Enter main deck cards (separated by commas or new lines)"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Side Deck</label>
+                                    <textarea id="${roundId}-${matchId}-player-side-deck-left"
+                                            class="editable form-control"
+                                            rows="3"
+                                            placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
+                                </div>
+                                <div class="my-3">
+                                    <button class="btn btn-primary" id="display-deck-left-${roundId}-${matchId}">Display Deck</button>
+                                </div>
                             </div>
                         </div>
                         <!-- Right Player Deck Information -->
                         <div class="col-md-6">
-                            <h5 class="card-title">Right Player Deck</h5>
-                            <div class="mb-3">
-                                <label class="form-label">Main Deck</label>
-                                <textarea id="${roundId}-${matchId}-player-main-deck-right" 
-                                        class="editable form-control" 
-                                        rows="5" 
-                                        placeholder="Enter main deck cards (separated by new lines)"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Side Deck</label>
-                                <textarea id="${roundId}-${matchId}-player-side-deck-right" 
-                                        class="editable form-control" 
-                                        rows="3" 
-                                        placeholder="Enter side deck cards (separated by new lines)"></textarea>
-                            </div>
-                            <div class="my-3">
-                                <button class="btn btn-primary" id="display-deck-right-${roundId}-${matchId}">Display Deck</button>
+                            <h5 class="card-title">Right Player Deck
+                                <button class="btn btn-sm btn-outline-primary add-deck-btn"
+                                        data-side="right" data-round="${roundId}" data-match="${matchId}">Add</button>
+                            </h5>
+                            <div class="deck-fields" id="${roundId}-${matchId}-deck-fields-right" style="display: none;">
+                                <div class="mb-3">
+                                    <label class="form-label">Main Deck</label>
+                                    <textarea id="${roundId}-${matchId}-player-main-deck-right"
+                                            class="editable form-control"
+                                            rows="5"
+                                            placeholder="Enter main deck cards (separated by new lines)"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Side Deck</label>
+                                    <textarea id="${roundId}-${matchId}-player-side-deck-right"
+                                            class="editable form-control"
+                                            rows="3"
+                                            placeholder="Enter side deck cards (separated by new lines)"></textarea>
+                                </div>
+                                <div class="my-3">
+                                    <button class="btn btn-primary" id="display-deck-right-${roundId}-${matchId}">Display Deck</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -572,6 +760,18 @@ export function initMatches(socket) {
                 }
             }
         });
+
+        // Unhide deck fields if existing deck data is present
+        for (const side of ['left', 'right']) {
+            const mainDeck = matchData[`player-main-deck-${side}`];
+            const hasDeckData = Array.isArray(mainDeck)
+                ? mainDeck.some(line => line.trim() !== '')
+                : (typeof mainDeck === 'string' && mainDeck.trim() !== '');
+            if (hasDeckData) {
+                const deckFieldsContainer = document.getElementById(`${roundId}-${matchId}-deck-fields-${side}`);
+                if (deckFieldsContainer) deckFieldsContainer.style.display = 'block';
+            }
+        }
     }
 
     // Function to attach change listeners to all editable fields for a given match ID
@@ -632,7 +832,29 @@ export function initMatches(socket) {
     }
 
     // parse deck string into an object of multiple array categories
+    // Parse a pasted decklist string into categorized sections.
+    // Recognizes section headers with or without colons across all games.
     function parseDeckString(decklist) {
+        // Known section headers (normalized) → canonical section name
+        const KNOWN_HEADERS = {
+            'maindeck':       'maindeck',
+            'main':           'maindeck',
+            'sideboard':      'sideboard',
+            'side':           'sideboard',
+            'legend':         'legend',
+            'champion':       'champion',
+            'chosenchampion': 'champion',
+            'runepool':       'runepool',
+            'runes':          'runepool',
+            'rune':           'runepool',
+            'battlefield':    'battlefield',
+            'battlefields':   'battlefield',
+            'units':          'maindeck',
+            'spells':         'maindeck',
+            'leader':         'leader',
+            'base':           'base',
+        };
+
         const result = {};
         let currentSection = null;
 
@@ -640,42 +862,45 @@ export function initMatches(socket) {
 
         for (const line of lines) {
             const trimmed = line.trim();
-
-            // skip empty lines
             if (!trimmed) continue;
 
-            // section header
-            if (trimmed.endsWith(":")) {
-                const rawHeader = trimmed.slice(0, -1);
+            // Normalize for header matching: strip colon, "(N)", non-alphanumeric
+            const normalized = trimmed
+                .replace(/:$/, '')
+                .replace(/\s*\(\d+\)\s*$/, '')
+                .toLowerCase()
+                .replace(/[^a-z0-9]/g, '');
 
-                let normalizedHeader = rawHeader
-                    .replace(/\s*\(\d+\)\s*$/, "") // remove "(number)"
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]/g, "");    // remove spaces & symbols
+            // Check if this line is a section header (with or without colon)
+            // A line is a header if it matches a known header AND doesn't start with a number (card quantity)
+            const isHeader = KNOWN_HEADERS[normalized] !== undefined
+                || (normalized.includes('rune') && !trimmed.match(/^\d/));
 
-                // game-specific normalization
-                // RIFTBOUND
-                // normalize any rune-related header to "runepool"
-                if (normalizedHeader.includes("rune")) {
-                    normalizedHeader = "runepool";
+            if (isHeader && !trimmed.match(/^\d/)) {
+                let sectionName = KNOWN_HEADERS[normalized];
+                // Fallback: rune-containing headers → runepool
+                if (!sectionName && normalized.includes('rune')) {
+                    sectionName = 'runepool';
                 }
-
-                // units / spells → maindeck
-                if (normalizedHeader === "units" || normalizedHeader === "spells") {
-                    normalizedHeader = "maindeck";
-                }
-
-                currentSection = normalizedHeader;
-                result[currentSection] = [];
+                currentSection = sectionName;
+                if (!result[currentSection]) result[currentSection] = [];
                 continue;
             }
 
-            // card line
+            // Normalize card name: convert " | " separator to ", " (SWU paste format → melee.gg convention)
+            const cardLine = trimmed.replace(/\s*\|\s*/g, ', ');
+
+            // Card line — add to current section or default bucket
             if (currentSection) {
-                result[currentSection].push(trimmed);
+                if (!result[currentSection]) result[currentSection] = [];
+                result[currentSection].push(cardLine);
+            } else {
+                // Cards before any header go to 'maindeck'
+                if (!result['maindeck']) result['maindeck'] = [];
+                result['maindeck'].push(cardLine);
             }
         }
-      return result;
+        return result;
     }
 
     // Function to update Riftbound-specific fields based on parsed deck data
@@ -2009,7 +2234,7 @@ export function initMatches(socket) {
 
                 console.log('Match data populated for table', result.matchData.tableNumber);
 
-                // Auto-fetch decklists if decklistIds are available
+                // Auto-fetch decklists if decklistIds are available, otherwise clear
                 if (player1.decklistId) {
                     socket.emit('fetch-decklist-by-id', {
                         decklistId: player1.decklistId,
@@ -2018,6 +2243,8 @@ export function initMatches(socket) {
                         roundId,
                         game: currentGameSelection
                     });
+                } else {
+                    clearDeckFields(roundId, matchId, 'left');
                 }
                 if (player2.decklistId) {
                     socket.emit('fetch-decklist-by-id', {
@@ -2027,29 +2254,67 @@ export function initMatches(socket) {
                         roundId,
                         game: currentGameSelection
                     });
+                } else {
+                    clearDeckFields(roundId, matchId, 'right');
                 }
             }
         }
     });
 
+    // Clear deck-related fields for a given side (used when player has no decklist)
+    function clearDeckFields(roundId, matchId, side) {
+        const deckTextarea = document.getElementById(`${roundId}-${matchId}-player-main-deck-${side}`);
+        if (deckTextarea) {
+            deckTextarea.value = '';
+            deckTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        const sideTextarea = document.getElementById(`${roundId}-${matchId}-player-side-deck-${side}`);
+        if (sideTextarea) {
+            sideTextarea.value = '';
+            sideTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        // Clear leader/base/aspect fields (SWU-specific but safe to clear for all games)
+        const leaderField = document.getElementById(`${roundId}-${matchId}-player-leader-${side}`);
+        if (leaderField) { leaderField.textContent = ''; leaderField.dispatchEvent(new Event('input', { bubbles: true })); }
+        const baseField = document.getElementById(`${roundId}-${matchId}-player-base-${side}`);
+        if (baseField) { baseField.textContent = ''; baseField.dispatchEvent(new Event('input', { bubbles: true })); }
+        const aspect1Field = document.getElementById(`${roundId}-${matchId}-player-leader-aspect-1-${side}`);
+        if (aspect1Field) { aspect1Field.textContent = ''; aspect1Field.dispatchEvent(new Event('input', { bubbles: true })); }
+        const aspect2Field = document.getElementById(`${roundId}-${matchId}-player-leader-aspect-2-${side}`);
+        if (aspect2Field) { aspect2Field.textContent = ''; aspect2Field.dispatchEvent(new Event('input', { bubbles: true })); }
+        const baseAspectsField = document.getElementById(`${roundId}-${matchId}-player-base-aspects-${side}`);
+        if (baseAspectsField) { baseAspectsField.textContent = ''; baseAspectsField.dispatchEvent(new Event('input', { bubbles: true })); }
+        const hpField = document.getElementById(`${roundId}-${matchId}-player-base-hp-${side}`);
+        if (hpField) { hpField.textContent = ''; hpField.dispatchEvent(new Event('input', { bubbles: true })); }
+    }
+
     // Listen for decklist fetch response (auto-populate main-deck textarea and leader/base fields)
     socket.on('decklist-fetched', ({ side, matchId, roundId, mainDeck, sideboard, leader, base, error }) => {
         if (error) {
             console.warn('Decklist fetch error:', error);
+            clearDeckFields(roundId, matchId, side);
             return;
         }
 
         // Populate main-deck textarea with card lines
+        // Include leader/base as first lines so they get transformed with card URLs
         const deckTextarea = document.getElementById(`${roundId}-${matchId}-player-main-deck-${side}`);
         if (deckTextarea) {
-            const lines = [...(mainDeck || [])];
-            if (sideboard && sideboard.length > 0) {
-                lines.push('');
-                lines.push('Sideboard');
-                lines.push(...sideboard);
-            }
+            const lines = [];
+            if (leader?.name) lines.push(`1 ${leader.name}`);
+            if (base?.name) lines.push(`1 ${base.name}`);
+            lines.push(...(mainDeck || []));
             deckTextarea.value = lines.join('\n');
             deckTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+
+        // Populate side-deck textarea with sideboard cards
+        if (sideboard && sideboard.length > 0) {
+            const sideTextarea = document.getElementById(`${roundId}-${matchId}-player-side-deck-${side}`);
+            if (sideTextarea) {
+                sideTextarea.value = sideboard.join('\n');
+                sideTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+            }
         }
 
         // Populate leader field and aspects
@@ -2099,6 +2364,10 @@ export function initMatches(socket) {
                 }
             }
         }
+
+        // Unhide deck fields after melee fetch
+        const deckFieldsContainer = document.getElementById(`${roundId}-${matchId}-deck-fields-${side}`);
+        if (deckFieldsContainer) deckFieldsContainer.style.display = 'block';
 
         console.log(`Decklist populated for ${side} player in ${roundId}-${matchId}`);
     });

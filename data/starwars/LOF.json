@@ -1026,7 +1026,7 @@
   },
   "infusedbrawler": {
     "image": "LOF/Infused_Brawler.png",
-    "name": "Infused Brawler ",
+    "name": "Infused Brawler",
     "type": "Unit",
     "hp": null,
     "aspects": [

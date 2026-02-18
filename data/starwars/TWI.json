@@ -1035,7 +1035,7 @@
   },
   "headhuntersquadron": {
     "image": "TWI/Headhunter_Squadron.png",
-    "name": "Headhunter Squadron ",
+    "name": "Headhunter Squadron",
     "type": "Unit",
     "hp": null,
     "aspects": []

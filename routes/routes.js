@@ -72,6 +72,10 @@ router.get('/broadcast/round/draftlist/:slotId', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-draft-list.html'));
 });
 
+router.get('/broadcast/round/scoreboard/:matchID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
+});
+
 router.get('/broadcast/round/standings/:rankID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings.html'));
 });

@@ -1247,9 +1247,9 @@
       "Heroism"
     ]
   },
-  "kihrazxheavyfighter": {
-    "image": "SHD/Kihrazx_Heavy_Fighter.png",
-    "name": "Kihrazx Heavy Fighter",
+  "kihraxzheavyfighter": {
+    "image": "SHD/Kihraxz_Heavy_Fighter.png",
+    "name": "Kihraxz Heavy Fighter",
     "type": "Unit",
     "hp": null,
     "aspects": [

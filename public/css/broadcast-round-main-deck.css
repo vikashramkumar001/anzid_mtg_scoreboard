@@ -1104,10 +1104,21 @@ body.starwars * {
     position: relative;
 }
 
+#deck-display-starwars #starwars-bg-image {
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    z-index: 1;
+}
+
 #deck-display-starwars #starwars-deck-display-details {
     width: 1920px;
     height: 130px;
     color: white;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #deck-display-starwars #starwars-deck-display-details h1 {
@@ -1115,6 +1126,7 @@ body.starwars * {
     font-size: 115px;
     font-weight: 700;
     height: 100px;
+    width: 100%;
     position: relative;
     top: 42px;
     left: 106px;
@@ -1125,10 +1137,13 @@ body.starwars * {
     font-family: 'Barlow', sans-serif;
     font-size: 45px;
     font-weight: 400;
+    width: 100%;
     position: relative;
     top: 48px;
     left: 106px;
     z-index: 5;
+    display: flex;
+    align-items: center;
 }
 
 #deck-display-starwars #starwars-deck-display-container {
@@ -1141,17 +1156,14 @@ body.starwars * {
 }
 
 #deck-display-starwars #starwars-main-deck-container {
-    width: 1670px;
     height: 756px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
-    padding: 5px;
+    padding: 0;
     gap: 5px;
     position: absolute;
-    left: calc(50% + 12px);
-    transform: translateX(-50%);
     z-index: 10;
 }
 
@@ -1170,16 +1182,18 @@ body.vertical #deck-display-starwars #starwars-main-deck-container {
     padding: 0;
 }
 
+#deck-display-starwars .card-src {
+    border-radius: 12px;
+}
+
 /* Star Wars Leader/Base Header Zone */
 .starwars-deck-header-zone {
     display: flex;
-    gap: 20px;
-    justify-content: center;
-    padding: 10px 0;
+    flex-direction: column;
+    gap: 10px;
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    width: fit-content;
     z-index: 15;
 }
 
@@ -1204,5 +1218,20 @@ body.vertical #deck-display-starwars #starwars-main-deck-container {
     font-weight: 600;
     color: white;
     text-transform: uppercase;
-    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* Star Wars Aspect Icons in Decklist Display */
+.swu-aspects-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.swu-decklist-aspect-icon {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
 }

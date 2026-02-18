@@ -12,6 +12,22 @@ const IMAGE_DIR = path.resolve(__dirname, '../../public/assets/images/starwars/c
 
 const SET_CODES = ['SOR', 'SHD', 'TWI', 'LOF', 'SEC', 'JTL', 'IBH', 'LAW'];
 
+// Known upstream corrections for swudb.com data issues.
+// Format: { "wrong text": "corrected text" }
+// Applied to displayName after combining Name + Subtitle.
+// Add entries here when swudb has typos so future fetches auto-fix them.
+const NAME_CORRECTIONS = {
+    'Poe Dameron, One Hell of a a Pilot': 'Poe Dameron, One Hell of a Pilot',
+    'Kihrazx Heavy Fighter': 'Kihraxz Heavy Fighter',
+};
+
+// Applied as a post-processing step to trim trailing/leading whitespace.
+// Specific names can also be listed here if trimming alone doesn't fix them.
+function applyCorrections(name) {
+    name = name.trim();
+    return NAME_CORRECTIONS[name] || name;
+}
+
 function sanitizeFilename(s) {
     return (s || '').trim().replace(/\s+/g, '_').replace(/[^A-Za-z0-9._-]/g, '') || 'unnamed';
 }
@@ -58,9 +74,10 @@ async function fetchSet(setCode) {
 
         // Bases: use rawName only (no subtitle/trait)
         // All other cards: combine Name + Subtitle
-        const displayName = cardType === 'Base'
+        let displayName = cardType === 'Base'
             ? rawName
             : rawName + (subtitle ? ', ' + subtitle : '');
+        displayName = applyCorrections(displayName);
 
         if (seen.has(displayName)) continue;
         seen.add(displayName);

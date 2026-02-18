@@ -9,6 +9,16 @@ let currentVendor = 'default';
 let currentPlayerCount = '1v1';
 let pendingSideDeckData = null;  // Store side deck data until game selection is known
 
+// Star Wars Unlimited Aspects Dictionary
+const SWU_ASPECTS = {
+    'aggression': '/assets/images/starwars/icons/Aggression.png',
+    'command': '/assets/images/starwars/icons/Command.png',
+    'cunning': '/assets/images/starwars/icons/Cunning.png',
+    'heroism': '/assets/images/starwars/icons/Heroism.png',
+    'vigilance': '/assets/images/starwars/icons/Vigilance.png',
+    'villainy': '/assets/images/starwars/icons/Villainy.png'
+};
+
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
 let orientation, match_id, side_id;
@@ -320,6 +330,9 @@ socket.on('broadcast-round-data', (data) => {
             sideID: side_id,
             matchID: match_id
         }));
+    } else if (selectedGame === 'starwars' && deckData && deckData.mainDeck) {
+        // Leader/base changed but main deck already loaded — re-render to pick up new values
+        renderDecks();
     } else {
         console.log('deck data not found for url parameters', match_id, side_id);
     }
@@ -536,6 +549,68 @@ function createLegendDescriptionSection(legend, container) {
     container.appendChild(sectionWrapper);
 }
 
+// Parse a flat array of transformed card objects into categorized sections.
+// Recognizes section headers from manual text entry across all games.
+// Melee decklists are already pre-separated at ingest using category codes (0=main, 99=sideboard).
+function filterManualEntry(cards) {
+    const HEADER_MAP = {
+        'maindeck':       'main',
+        'main':           'main',
+        'sideboard':      'sideboard',
+        'side':           'sideboard',
+        'legend':         'legend',
+        'champion':       'champion',
+        'chosenchampion': 'champion',
+        'runepool':       'runes',
+        'runes':          'runes',
+        'rune':           'runes',
+        'battlefield':    'battlefields',
+        'battlefields':   'battlefields',
+        'units':          'main',
+        'spells':         'main',
+        'leader':         'discard',
+        'base':           'discard',
+    };
+
+    const result = {
+        main: [],
+        sideboard: [],
+        legend: [],
+        champion: [],
+        runes: [],
+        battlefields: []
+    };
+
+    let currentSection = 'main';
+
+    for (const card of cards) {
+        const rawName = (card['card-name'] || '').trim();
+        if (!rawName) continue;
+
+        // Normalize for header matching: lowercase, strip colon, strip "(N)", remove non-alphanumeric
+        const normalized = rawName
+            .toLowerCase()
+            .replace(/:$/, '')
+            .replace(/\s*\(\d+\)\s*$/, '')
+            .replace(/[^a-z0-9]/g, '');
+
+        const sectionKey = HEADER_MAP[normalized];
+        if (sectionKey !== undefined) {
+            currentSection = sectionKey;
+            continue;
+        }
+
+        if (currentSection === 'discard') continue;
+        if (result[currentSection]) {
+            result[currentSection].push(card);
+        } else {
+            result.main.push(card);
+        }
+    }
+
+    return result;
+}
+
 // Function to render the decks on the page
 function renderDecks() {
     // try to render - clear view regardless
@@ -576,12 +651,8 @@ function renderDecks() {
                 if (deckDisplayDetails) deckDisplayDetails.style.display = 'flex';
                 // Render main deck horizontally
                 if (mainDeckContainer) {
-                    // Filter out section headers (Main Deck, Sideboard, Pack 1/2/3)
-                    const actualCards = deckData.mainDeck.filter(card => {
-                        const cardName = card['card-name']?.toLowerCase().trim();
-                        return cardName !== 'main deck' && cardName !== 'sideboard' &&
-                               cardName !== 'pack 1' && cardName !== 'pack 2' && cardName !== 'pack 3';
-                    });
+                    const { main: actualCards, sideboard } = filterManualEntry(deckData.mainDeck);
+                    if (sideboard.length > 0) deckData.sideDeck = sideboard;
                     const totalCards = actualCards.length;
 
                     // Determine cards per row based on total card count
@@ -693,12 +764,8 @@ function renderDecks() {
                 if (deckDisplayDetails) deckDisplayDetails.style.display = 'flex';
                 // Render main deck horizontally
                 if (mainDeckContainer) {
-                    // Filter out section headers (Main Deck, Sideboard, Pack 1/2/3)
-                    const actualCards = deckData.mainDeck.filter(card => {
-                        const cardName = card['card-name']?.toLowerCase().trim();
-                        return cardName !== 'main deck' && cardName !== 'sideboard' &&
-                               cardName !== 'pack 1' && cardName !== 'pack 2' && cardName !== 'pack 3';
-                    });
+                    const { main: actualCards, sideboard } = filterManualEntry(deckData.mainDeck);
+                    if (sideboard.length > 0) deckData.sideDeck = sideboard;
                     const totalCards = actualCards.length;
 
                     // No overlap, display cards normally
@@ -800,11 +867,13 @@ function renderDecks() {
             const leaderName = roundData[match_id]?.[`player-leader-${side_id}`] || '';
             const baseName = roundData[match_id]?.[`player-base-${side_id}`] || '';
 
-            // Filter out pseudo-category labels and leader/base from the main card grid
-            let actualCards = deckData.mainDeck.filter(card => {
-                const cardName = card['card-name']?.toLowerCase().trim();
-                return cardName !== 'main deck' && cardName !== 'sideboard';
-            });
+            console.log('[SWU DEBUG BROADCAST] leaderName:', JSON.stringify(leaderName), 'baseName:', JSON.stringify(baseName));
+            console.log('[SWU DEBUG BROADCAST] deckData.mainDeck card names:', deckData.mainDeck.map(c => c['card-name']));
+
+            let { main: actualCards, sideboard } = filterManualEntry(deckData.mainDeck);
+            if (sideboard.length > 0) deckData.sideDeck = sideboard;
+
+            console.log('[SWU DEBUG BROADCAST] actualCards after filterManualEntry:', actualCards.length, 'cards');
 
             // Find leader and base card images from the deck data (matched by normalized name)
             let leaderCard = null;
@@ -812,6 +881,7 @@ function renderDecks() {
             if (leaderName) {
                 const leaderNorm = leaderName.toLowerCase().replace(/[^a-z0-9]/g, '');
                 leaderCard = actualCards.find(c => c['card-name']?.toLowerCase().replace(/[^a-z0-9]/g, '') === leaderNorm);
+                console.log('[SWU DEBUG BROADCAST] leaderNorm:', leaderNorm, 'found:', !!leaderCard);
                 if (leaderCard) {
                     actualCards = actualCards.filter(c => c !== leaderCard);
                 }
@@ -819,10 +889,12 @@ function renderDecks() {
             if (baseName) {
                 const baseNorm = baseName.toLowerCase().replace(/[^a-z0-9]/g, '');
                 baseCard = actualCards.find(c => c['card-name']?.toLowerCase().replace(/[^a-z0-9]/g, '') === baseNorm);
+                console.log('[SWU DEBUG BROADCAST] baseNorm:', baseNorm, 'found:', !!baseCard);
                 if (baseCard) {
                     actualCards = actualCards.filter(c => c !== baseCard);
                 }
             }
+            console.log('[SWU DEBUG BROADCAST] leaderCard:', leaderCard, 'baseCard:', baseCard);
 
             if (orientation === 'vertical') {
                 if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
@@ -839,8 +911,8 @@ function renderDecks() {
                         const leaderEl = document.createElement('div');
                         leaderEl.className = 'starwars-leader-card';
                         leaderEl.innerHTML = `
-                            <img src="${leaderCard['card-url']}" class="leader-card-img">
                             <span class="leader-label">Leader</span>
+                            <img src="${leaderCard['card-url']}" class="leader-card-img">
                         `;
                         headerZone.appendChild(leaderEl);
                     }
@@ -848,17 +920,23 @@ function renderDecks() {
                         const baseEl = document.createElement('div');
                         baseEl.className = 'starwars-base-card';
                         baseEl.innerHTML = `
-                            <img src="${baseCard['card-url']}" class="base-card-img">
                             <span class="base-label">Base</span>
+                            <img src="${baseCard['card-url']}" class="base-card-img">
                         `;
                         headerZone.appendChild(baseEl);
                     }
 
-                    starwarsSection.querySelector('#starwars-deck-display-container').prepend(headerZone);
+                    starwarsSection.querySelector('#starwars-deck-display-container').appendChild(headerZone);
                 }
 
                 if (mainDeckContainer) {
                     const totalCards = actualCards.length;
+                    // Leader/base are always landscape at 220px height ≈ 308px wide
+                    const headerWidth = (leaderCard || baseCard) ? 308 : 0;
+                    const gap = (leaderCard || baseCard) ? 40 : 0;
+                    const minMargin = 20;
+                    // Max available width for main deck cards
+                    const swAvailableWidth = 1920 - headerWidth - gap - (2 * minMargin);
 
                     let cardsPerRow;
                     if (totalCards <= 24) {
@@ -870,22 +948,33 @@ function renderDecks() {
                     } else {
                         const cardsPerRow3 = Math.ceil(totalCards / 3);
                         const cardsPerRow4 = Math.ceil(totalCards / 4);
-                        const availableWidthCalc = 1920 - 20;
-                        const cardWidth3 = (availableWidthCalc - (cardsPerRow3 - 1) * 5 - 10) / cardsPerRow3;
-                        const cardWidth4 = (availableWidthCalc - (cardsPerRow4 - 1) * 5 - 10) / cardsPerRow4;
+                        const cardWidth3 = (swAvailableWidth - (cardsPerRow3 - 1) * 5) / cardsPerRow3;
+                        const cardWidth4 = (swAvailableWidth - (cardsPerRow4 - 1) * 5) / cardsPerRow4;
                         cardsPerRow = (cardWidth4 > cardWidth3) ? cardsPerRow4 : cardsPerRow3;
                     }
 
                     const containerHeight = mainDeckContainer.clientHeight || 756;
-                    const availableHeight = containerHeight - 10;
-                    const availableWidth = 1920 - 20;
+                    const availableHeight = containerHeight;
                     const numRows = Math.ceil(totalCards / cardsPerRow);
                     const maxCardHeight = (availableHeight - (numRows - 1) * 5) / numRows;
+                    const maxContainerWidth = 1456;
                     const cardWidthFromHeight = maxCardHeight / 1.4;
-                    const cardWidthFromWidth = (availableWidth - (cardsPerRow - 1) * 5 - 10) / cardsPerRow;
-                    const scalingCardWidth = Math.min(cardWidthFromHeight, cardWidthFromWidth);
-                    const requiredWidth = cardsPerRow * scalingCardWidth + (cardsPerRow - 1) * 5 + 10;
+                    const cardWidthFromWidth = (swAvailableWidth - (cardsPerRow - 1) * 5) / cardsPerRow;
+                    const cardWidthFromMax = (maxContainerWidth - (cardsPerRow - 1) * 5) / cardsPerRow;
+                    const scalingCardWidth = Math.min(cardWidthFromHeight, cardWidthFromWidth, cardWidthFromMax);
+                    const requiredWidth = cardsPerRow * scalingCardWidth + (cardsPerRow - 1) * 5;
                     mainDeckContainer.style.width = `${requiredWidth}px`;
+
+                    // Calculate equal margins: (1920 - headerWidth - gap - mainDeckWidth) / 2
+                    const totalUsed = headerWidth + gap + requiredWidth;
+                    const margin = Math.max(minMargin, (1920 - totalUsed) / 2);
+
+                    // Position header zone and main deck
+                    const headerZone = starwarsSection.querySelector('.starwars-deck-header-zone');
+                    if (headerZone) {
+                        headerZone.style.left = `${margin}px`;
+                    }
+                    mainDeckContainer.style.left = `${margin + headerWidth + gap}px`;
 
                     actualCards.forEach(card => {
                         const cardElement = document.createElement('div');
@@ -898,10 +987,45 @@ function renderDecks() {
             }
 
             if (deckDisplayDetails) {
+                console.log('[SWU DEBUG BROADCAST] deck-display-details: playerName=', JSON.stringify(deckData.playerName), 'archetype=', JSON.stringify(deckData.archetype), 'leaderName=', JSON.stringify(leaderName), 'baseName=', JSON.stringify(baseName));
+                // Build deck name from leader + base (e.g., "Han Solo, Worth the Risk - Shadowed Undercity")
+                const rawArchetype = deckData.archetype || '';
+                let deckName = (rawArchetype === 'Unknown Archetype') ? '' : rawArchetype;
+                if (!deckName && (leaderName || baseName)) {
+                    const parts = [leaderName, baseName].filter(Boolean);
+                    deckName = parts.join(' - ');
+                }
+
+                // Collect all unique aspects from leader + base
+                const aspect1 = roundData[match_id]?.[`player-leader-aspect-1-${side_id}`] || '';
+                const aspect2 = roundData[match_id]?.[`player-leader-aspect-2-${side_id}`] || '';
+                const baseAspects = roundData[match_id]?.[`player-base-aspects-${side_id}`] || '';
+                const allAspects = [aspect1, aspect2, ...baseAspects.split(',')]
+                    .map(a => a.trim().toLowerCase())
+                    .filter(Boolean);
+                const uniqueAspects = [...new Set(allAspects)];
+
                 deckDisplayDetails.innerHTML = `
                     <h1 class="player-name">${deckData.playerName}</h1>
-                    <h5 class="archetype-name">${deckData.archetype}</h5>
+                    <h5 class="archetype-name">
+                        ${deckName} <span id="starwars-player-aspects" class="swu-aspects-container"></span>
+                    </h5>
                 `;
+
+                // Render aspect icons
+                const aspectsContainer = document.getElementById('starwars-player-aspects');
+                if (aspectsContainer) {
+                    uniqueAspects.forEach(aspect => {
+                        const iconUrl = SWU_ASPECTS[aspect];
+                        if (iconUrl) {
+                            const img = document.createElement('img');
+                            img.src = iconUrl;
+                            img.alt = aspect;
+                            img.className = 'swu-decklist-aspect-icon';
+                            aspectsContainer.appendChild(img);
+                        }
+                    });
+                }
 
                 document.fonts.ready.then(() => {
                     const playerNameEl = deckDisplayDetails.querySelector('.player-name');
@@ -933,10 +1057,8 @@ function renderStarWarsVerticalDeck() {
     if (!mainDeckContainer) return;
     mainDeckContainer.innerHTML = '';
 
-    const actualCards = deckData.mainDeck.filter(card => {
-        const cardName = card['card-name']?.toLowerCase().trim();
-        return cardName !== 'main deck' && cardName !== 'sideboard';
-    });
+    const { main: actualCards, sideboard } = filterManualEntry(deckData.mainDeck);
+    if (sideboard.length > 0) deckData.sideDeck = sideboard;
 
     actualCards.forEach(card => {
         const cardElement = document.createElement('div');

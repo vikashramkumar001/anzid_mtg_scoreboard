@@ -23,6 +23,7 @@ import {
     getControlData,
     saveControlData,
     updateBroadcastTracker,
+    getBroadcastTracker,
     emitScoreboardState,
     updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection,
     emitCurrentVendorSelection, updateVendorSelection,
@@ -335,13 +336,22 @@ export default function registerSocketHandlers(io) {
         // Broadcast
         socket.on('broadcast-requested', async ({round_id}) => {
             const controlData = getControlData();
-            console.log('haha');
             if (controlData[round_id]) {
                 updateBroadcastTracker(round_id);
                 RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
-                console.log('haha again');
+                RoomUtils.emitToRoom(io, 'broadcast-scoreboard', 'broadcast-scoreboard-round-id', { round_id });
             }
             emitBroadcastStandings(io, round_id);
+        });
+
+        // Broadcast scoreboard - request current broadcast data on page load
+        socket.on('get-broadcast-scoreboard-data', () => {
+            const bt = getBroadcastTracker();
+            const cd = getControlData();
+            if (bt.round_id && cd[bt.round_id]) {
+                socket.emit('broadcast-round-data', cd[bt.round_id]);
+                socket.emit('broadcast-scoreboard-round-id', { round_id: bt.round_id });
+            }
         });
 
         // Broadcast deck data to be transformed
@@ -484,6 +494,14 @@ export default function registerSocketHandlers(io) {
                 socket.emit('decklist-fetched', { side, matchId, roundId, game: game || 'starwars', ...parsed });
             } catch (error) {
                 socket.emit('decklist-fetched', { side, matchId, roundId, error: error.message });
+            }
+        });
+
+        // Lookup SWU card info (aspects, HP) by name
+        socket.on('lookup-swu-card', ({ name }, callback) => {
+            const info = lookupCardByName(name);
+            if (typeof callback === 'function') {
+                callback(info);
             }
         });
 
