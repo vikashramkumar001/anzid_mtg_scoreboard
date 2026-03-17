@@ -95,7 +95,8 @@ import {
     fetchMeleeDecklists,
     fetchMeleeDecklist,
     parseMeleeDecklist,
-    fetchMeleePairings
+    fetchMeleePairings,
+    fetchCardeioDecklist
 } from '../features/tournament-platforms.js';
 
 export default function registerSocketHandlers(io) {
@@ -163,6 +164,7 @@ export default function registerSocketHandlers(io) {
         // Timer control
         socket.on('update-timer-state', ({round_id, match_id, action}) => {
             updateTimerAction(io, round_id, match_id, action);
+            emitTimerState(io);
         });
 
         socket.on('get-all-timer-states', () => {
@@ -455,6 +457,20 @@ export default function registerSocketHandlers(io) {
                 socket.emit('tournament-standings-fetched', { standings });
             } catch (error) {
                 socket.emit('tournament-standings-fetched', { error: error.message });
+            }
+        });
+
+        // Fetch and cache Carde decklist export for an event
+        socket.on('fetch-cardeio-decklists', async ({ eventId }) => {
+            try {
+                const data = await fetchCardeioDecklist(eventId);
+                const count = data?.decklists?.length || 0;
+                socket.emit('cardeio-decklists-fetched', { success: true, count });
+            } catch (error) {
+                const msg = error.response?.status === 401
+                    ? 'Authentication failed — CARDEIO_TOKEN may be expired. Update .env and restart.'
+                    : error.message;
+                socket.emit('cardeio-decklists-fetched', { success: false, error: msg });
             }
         });
 

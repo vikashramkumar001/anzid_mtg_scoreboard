@@ -92,7 +92,11 @@ class RoomManager {
         
         // Deck displays
         if (path.includes('/vibes/display/main/deck/')) return 'vibes-deck-display';
-        if (path.includes('/riftbound/display/main/deck/')) return 'riftbound-deck-display';
+        if (path.includes('/riftbound/display/main/deck/')) {
+            const segs = path.split('/').filter(Boolean);
+            if (segs.length >= 6) return 'riftbound-deck-display-broadcast'; // matchID + sideID format
+            return 'riftbound-deck-display';
+        }
         if (path.includes('/deck-display') || path.endsWith('deck-display.html')) return 'deck-display';
         if (path.includes('/side-deck-display') || path.endsWith('side-deck-display.html')) return 'deck-display';
         
@@ -169,6 +173,7 @@ class RoomManager {
             'mtg-deck-display': ['deck-display', 'global'],
             'vibes-deck-display': ['vibes-deck-display', 'global'],
             'riftbound-deck-display': ['riftbound-deck-display', 'global'],
+            'riftbound-deck-display-broadcast': ['broadcast-main-deck', 'global'],
             'riftbound-animation-display-1': ['riftbound-animation-display-1', 'scoreboard-1', 'global'],
             'riftbound-animation-display-2': ['riftbound-animation-display-2', 'scoreboard-2', 'global'],
             'riftbound-animation-display-3': ['riftbound-animation-display-3', 'scoreboard-3', 'global'],

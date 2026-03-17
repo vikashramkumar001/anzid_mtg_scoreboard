@@ -287,7 +287,10 @@ socket.on('current-all-timer-states', ({timerState}) => {
     // console.log(matchState)
     if (matchState) {
         const timerElement = document.querySelector(`#timer`);
-        timerElement.innerText = matchState.time > 0 ? formatTime(matchState.time) : 'TURNS';
+        const inTurns = matchState.time === 0;
+        timerElement.innerText = inTurns ? `TURN ${matchState.turnCount ?? 0}` : formatTime(matchState.time);
+        document.querySelector('#timer-turn-plus').style.display = inTurns ? 'inline-block' : 'none';
+        document.querySelector('#timer-turn-minus').style.display = inTurns ? 'inline-block' : 'none';
     }
 });
 
@@ -324,6 +327,12 @@ function attachMatchTimerButtonListeners() {
     });
     resetButton.addEventListener('click', () => {
         updateTimerState(round_id, match_id, 'reset');
+    });
+    document.querySelector(`#timer-turn-plus`)?.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'turn-plus');
+    });
+    document.querySelector(`#timer-turn-minus`)?.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'turn-minus');
     });
 }
 
@@ -370,3 +379,19 @@ socket.on('update-match-global-data', (data) => {
 })
 
 // END HANDLE GLOBAL DATA
+
+// GAME SELECTION — show/hide poison for MTG only
+function updatePoisonVisibility(game) {
+    const show = game === 'mtg';
+    document.querySelectorAll('.player-poison').forEach(el => {
+        el.style.display = show ? '' : 'none';
+    });
+}
+
+socket.on('server-current-game-selection', ({gameSelection}) => {
+    updatePoisonVisibility(gameSelection?.toLowerCase());
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    updatePoisonVisibility(gameSelection?.toLowerCase());
+});
+socket.emit('get-game-selection');

@@ -34,13 +34,17 @@
 
     <!-- Riftbound Deck Display -->
     <div id="deck-display-riftbound" style="display: none;">
-        <div class="bg-image" style="height: 100vh;" id="riftbound-bg-image"></div>
-        <div id="riftbound-background-parent"></div>
-        <div class="row" id="riftbound-deck-display-details">
+        <div class="riftbound-dl-bg-video">
+            <video id="riftbound-dl-video" autoplay loop muted playsinline
+                src="/assets/animations/riftbound/scoreboard/frame/riftbound-scoreboard-frame-default-1v1.mp4"></video>
         </div>
-        <div class="row" id="riftbound-deck-display-container">
-            <div id="riftbound-main-deck-container">
-            </div>
+        <div id="riftbound-dl-frame"></div>
+        <div id="riftbound-dl-legend-card"><img id="riftbound-dl-legend-card-img" src="" alt=""></div>
+        <div id="riftbound-dl-legend-desc"><img id="riftbound-dl-legend-desc-img" src="" alt=""></div>
+        <div id="riftbound-dl-champion-card"><img id="riftbound-dl-champion-card-img" src="" alt=""></div>
+        <div id="riftbound-deck-display-details"></div>
+        <div id="riftbound-deck-display-container">
+            <div id="riftbound-main-deck-container"></div>
         </div>
     </div>
 

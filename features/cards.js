@@ -215,14 +215,29 @@ export function transformMainDeck(data, io) {
     }
 
     // --- Riftbound: categorized structure ---
+    // Legend, champion, battlefields, runes are resolved from master control fields (riftboundMeta).
+    // The textarea is filtered to only "other" cards (units, spells, gear).
     if (gameType === 'riftbound') {
-        const categorizedDeck = {
-            legend: [],
-            runes: [],
-            battlefields: [],
-            other: []
-        };
+        const meta = data.riftboundMeta || {};
+        console.log('[Riftbound Debug] riftboundMeta received:', JSON.stringify(meta, null, 2));
 
+        // Resolve image URLs for legend and champion from master control field names
+        const legendImageUrl = meta.legend ? getURLFromCardName(meta.legend, cleanedCardsMap, gameType) || '' : '';
+        const championImageUrl = meta.champion ? getURLFromCardName(meta.champion, cleanedCardsMap, gameType) || '' : '';
+
+        // Battlefields from master control fields (filter out empty strings)
+        const battlefields = (meta.battlefields || [])
+            .filter(name => name && name.trim())
+            .map(name => ({ name: name.trim() }));
+
+        // Runes from master control fields
+        const runes = [];
+        if (meta.runeColor1) runes.push({ letter: meta.runeColor1, count: parseInt(meta.runeQty1, 10) || 0 });
+        if (meta.runeColor2) runes.push({ letter: meta.runeColor2, count: parseInt(meta.runeQty2, 10) || 0 });
+
+        // Filter textarea to only "other" cards (skip Legend, Rune, Battlefield types)
+        const other = [];
+        let runeCountFallback = [];
         deckArray.forEach(card => {
             const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
             const count = parseInt(parts[1], 10);
@@ -230,22 +245,43 @@ export function transformMainDeck(data, io) {
             const url = getURLFromCardName(name, cleanedCardsMap, gameType);
             const type = cleanedCardsMap[name]?.type || 'Other';
 
-            const cardEntry = {
-                'card-name': name,
-                'card-count': count,
-                'card-url': url
-            };
-
-            if (type === 'Legend') {
-                categorizedDeck.legend.push(cardEntry);
+            if (type === 'Legend' || type === 'Battlefield') {
+                // Skip — sourced from master control fields
             } else if (type === 'Rune') {
-                categorizedDeck.runes.push(cardEntry);
-            } else if (type === 'Battlefield') {
-                categorizedDeck.battlefields.push(cardEntry);
+                // Track for fallback rune counts if master control qty fields are empty
+                runeCountFallback.push({ name, count });
             } else {
-                categorizedDeck.other.push(cardEntry);
+                other.push({ 'card-name': name, 'card-count': count, 'card-url': url });
             }
         });
+
+        // Fallback: if rune qty fields were empty, use counts parsed from textarea
+        if (runes.length > 0 && runes.every(r => r.count === 0) && runeCountFallback.length > 0) {
+            const runeLetterToName = { 'g': 'calm', 'p': 'chaos', 'r': 'fury', 'b': 'mind', 'y': 'order', 'o': 'body' };
+            for (const rune of runes) {
+                const runeName = runeLetterToName[rune.letter];
+                if (runeName) {
+                    const match = runeCountFallback.find(rc => rc.name.toLowerCase().includes(runeName));
+                    if (match) rune.count = match.count;
+                }
+            }
+        }
+
+        const categorizedDeck = {
+            legendImageUrl,
+            championImageUrl,
+            battlefields,
+            runes,
+            runesString: meta.runesString || '',
+            other
+        };
+
+        console.log('[Riftbound Debug] Resolved categorizedDeck:');
+        console.log('  Legend:', meta.legend, '→', legendImageUrl ? 'URL found' : 'NO URL');
+        console.log('  Champion:', meta.champion, '→', championImageUrl ? 'URL found' : 'NO URL');
+        console.log('  Battlefields:', battlefields.map(b => b.name));
+        console.log('  Runes:', runes);
+        console.log('  Other cards:', other.length);
 
         emitTransformedMainDeck(categorizedDeck, gameType, sideID, matchID, io);
     } else {

@@ -1,53 +1,257 @@
 * {
-    font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#deck-display-container {
+body {
     width: 1920px;
     height: 1080px;
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
+    background: transparent;
 }
 
-#main-deck-container {
-    width: 1340px;
-    height: 1030px;
+#rfb-dl-root {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+/* === BACKGROUND VIDEO === */
+.rfb-dl-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 0;
+}
+
+.rfb-dl-bg-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* === FRAME OVERLAY === */
+.rfb-dl-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-image: url('/assets/images/riftbound/decklist/frame/riftbound-decklist-frame-default-1v1.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* === PLAYER NAME (top right) === */
+#rfb-dl-player-name {
+    position: absolute;
+    top: 12px;
+    left: 200px;
+    right: 20px;
+    text-align: right;
+    font-size: 62px;
+    color: white;
+    letter-spacing: 2px;
+    z-index: 5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+}
+
+/* === LEFT COLUMN: LEGEND CARD === */
+#rfb-dl-legend-card {
+    position: absolute;
+    top: 95px;
+    left: 12px;
+    width: 120px;
+    height: 168px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#rfb-dl-legend-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* === LEFT COLUMN: LEGEND DESCRIPTION IMAGE === */
+#rfb-dl-legend-desc {
+    position: absolute;
+    top: 270px;
+    left: 7px;
+    width: 128px;
+    height: 170px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#rfb-dl-legend-desc img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* === LEFT COLUMN: CHAMPION CARD === */
+#rfb-dl-champion-card {
+    position: absolute;
+    top: 475px;
+    left: 12px;
+    width: 120px;
+    height: 168px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#rfb-dl-champion-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* === MAIN DECK (center grid) === */
+#rfb-dl-maindeck {
+    position: absolute;
+    top: 65px;
+    left: 152px;
+    width: 1060px;
+    height: 790px;
+    z-index: 5;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-content: flex-start;
-    padding: 5px;
+    gap: 4px;
 }
 
-.main-deck-card {
-    width: 180px;
-    height: auto;
-    /*border: 1px solid #ccc;*/
-    margin: 5px;
+.rfb-dl-main-card {
     position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    transition: transform 0.2s; /* Smooth transition for stacking */
+    width: 120px;
+    flex-shrink: 0;
 }
 
-.card-src {
+.rfb-dl-main-card img {
     width: 100%;
+    display: block;
 }
 
-.card-count {
-    top: 215px;
-    right: 70px;
-    width: 37px;
-    height: 37px;
-    background-color: rgba(0, 0, 0, 1);
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.rfb-dl-card-count {
     position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 28px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === SIDEBOARD (right column) === */
+#rfb-dl-sideboard {
+    position: absolute;
+    top: 65px;
+    left: 1232px;
+    width: 165px;
+    height: 790px;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.rfb-dl-side-card {
+    position: relative;
+    width: 155px;
+    flex-shrink: 0;
+}
+
+.rfb-dl-side-card img {
+    width: 100%;
+    display: block;
+}
+
+.rfb-dl-side-count {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === BATTLEFIELDS (bottom center) === */
+#rfb-dl-battlefields {
+    position: absolute;
+    top: 862px;
+    left: 152px;
+    width: 1060px;
+    height: 200px;
+    z-index: 5;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.rfb-dl-battlefield {
+    flex: 1;
+    height: 185px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+
+/* === RUNES (bottom right) === */
+#rfb-dl-runes {
+    position: absolute;
+    top: 862px;
+    left: 1232px;
+    width: 165px;
+    height: 200px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.rfb-dl-rune-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rfb-dl-rune-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.rfb-dl-rune-count {
+    font-size: 44px;
+    color: white;
+    line-height: 1;
 }

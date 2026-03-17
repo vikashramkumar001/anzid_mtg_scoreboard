@@ -83,6 +83,14 @@
     font-style: normal;
 }
 
+/* Beaufort for LoL Font Faces */
+@font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('/fonts/BeaufortforLOL-Heavy.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
 /* Gotham Narrow Font Faces */
 @font-face {
     font-family: 'Gotham Narrow';
@@ -276,101 +284,125 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
     width: 1920px;
     height: 1080px;
     position: relative;
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
+    overflow: hidden;
+    font-weight: 900;
 }
 
-#deck-display-riftbound * {
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
-}
-
-#deck-display-riftbound #riftbound-background-parent {
+/* === BACKGROUND VIDEO === */
+#deck-display-riftbound .riftbound-dl-bg-video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
-
-#deck-display-riftbound #riftbound-deck-display-details {
-    width: 1920px;
-    height: 130px;
-    color: white;
-    position: relative;
-    z-index: 10;
-}
-
-#deck-display-riftbound #riftbound-deck-display-container {
     width: 1920px;
     height: 1080px;
-    position: relative;
-    z-index: auto;
+    z-index: 0;
+}
+
+#deck-display-riftbound .riftbound-dl-bg-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* === FRAME OVERLAY === */
+#riftbound-dl-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-image: url('/assets/images/riftbound/decklist/frame/riftbound-decklist-frame-default-1v1.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* === LEGEND CARD (left column) === */
+#riftbound-dl-legend-card {
+    position: absolute;
+    top: 95px;
+    left: 12px;
+    width: 120px;
+    height: 168px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#riftbound-dl-legend-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* === LEGEND DESCRIPTION (left column) === */
+#riftbound-dl-legend-desc {
+    position: absolute;
+    top: 270px;
+    left: 7px;
+    width: 128px;
+    height: 170px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#riftbound-dl-legend-desc img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* === CHAMPION CARD (left column) === */
+#riftbound-dl-champion-card {
+    position: absolute;
+    top: 475px;
+    left: 12px;
+    width: 120px;
+    height: 168px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#riftbound-dl-champion-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* === PLAYER NAME (top right) === */
+#deck-display-riftbound #riftbound-deck-display-details {
+    position: absolute;
+    top: 85px;
+    left: 200px;
+    right: 30px;
+    text-align: right;
+    font-size: 62px;
+    color: white;
+    letter-spacing: 2px;
+    z-index: 15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+}
+
+/* === CONTAINERS === */
+#deck-display-riftbound #riftbound-deck-display-container {
+    position: absolute;
+    top: 159px;
+    left: 275px;
+    width: 1920px;
+    height: 1080px;
+    z-index: 15;
 }
 
 #deck-display-riftbound #riftbound-main-deck-container {
+    position: relative;
     width: 1920px;
     height: 1080px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    align-content: flex-start;
-    padding: 5px;
-}
-
-#deck-display-riftbound #player-name-section {
-    position: absolute;
-    top: 614px;
-    left: 39px;
-    width: 600px;
-    height: 87px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 10;
-}
-
-#deck-display-riftbound .player-name-display-wrapper {
-    width: 100%;
-    height: 55px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-#deck-display-riftbound .player-name-display {
-    font-size: 45px;
-    font-weight: bold;
-    line-height: 60px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-}
-
-#deck-display-riftbound .player-legend-display-wrapper {
-    width: 100%;
-    height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-#deck-display-riftbound .player-legend-display {
-    font-size: 30px;
-    font-weight: normal;
-    line-height: 30px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
 }
 
 .main-deck-card {
@@ -416,242 +448,152 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
     margin-top: 2px;
 }
 
-/* Riftbound Deck Section Wrappers */
-#deck-display-riftbound .deck-section-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 13px;
-    column-gap: 12px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.runes-section {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    top: 890px;
-    left: 430px;
-    height: 110px;
-    width: 200px;
-    z-index: 10;
-}
-
-#deck-display-riftbound .deck-section-wrapper.runes-section .riftbound-rune-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-#deck-display-riftbound .deck-section-wrapper.runes-section .main-deck-card {
-    width: 90px;
-    height: 100px;
-    padding: 0;
-    margin: 0;
-    background: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#deck-display-riftbound .runes-card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-}
-
-#deck-display-riftbound .runes-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-}
-
-#deck-display-riftbound .runes-background::before {
-    content: '';
-    position: absolute;
-    top: -80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: var(--bg-image);
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-    width: 125px;
-    transform: translate(-19px, 68px);
-}
-
-#deck-display-riftbound .deck-section-wrapper.runes-section .main-deck-card .card-count {
-    top: 88px;
-    right: 22px;
-    width: 45px;
-    height: 24px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid white;
-    z-index: 2;
-}
-
-/* Riftbound Battlefields Section */
-#deck-display-riftbound .deck-section-wrapper.battlefields-section {
-    position: absolute;
-    top: 893px;
-    left: 82px;
-    width: 320px;
-    height: 134px;
-    z-index: 1;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background {
-    position: absolute;
-    z-index: 1;
-    width: 319px;
-    height: 35px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background.riftbound-battlefield-background-1 {
-    top: 0;
-    left: 1px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background.riftbound-battlefield-background-2 {
-    top: 49px;
-    left: 0px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background.riftbound-battlefield-background-3 {
-    top: 98px;
-    left: 0;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-wrapper {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    z-index: 20;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-wrapper-1 {
-    top: 1px;
-    left: 0;
-    width: 318px;
-    height: 34px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-wrapper-2 {
-    top: 50px;
-    left: 0;
-    width: 318px;
-    height: 34px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-wrapper-3 {
-    top: 99px;
-    left: 0;
-    width: 318px;
-    height: 34px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-name {
-    color: #fff;
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
-    font-weight: normal;
-    font-size: 22px;
-    font-style: italic;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-	padding-right: 3px;
-}
-
+/* === MAIN DECK (center grid) === */
 #deck-display-riftbound .deck-section-wrapper.other-section {
     position: absolute;
-    top: 40px;
-    left: 674px;
-    height: 832px;
-    width: 1215px;
-    justify-content: start;
-    z-index: 10;
+    top: 65px;
+    left: 152px;
+    width: 1084px;
+    height: 790px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 4px;
+    z-index: 5;
 }
 
 #deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card {
-    width: 192px;
+    position: relative;
+    width: 132px;
+    flex-shrink: 0;
+    display: block;
 }
 
 #deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card .card-src {
-    border-radius: 10px;
+    width: 100%;
+    display: block;
+    border-radius: 6px;
 }
 
 #deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card .card-count {
-    top: 250px;
-    right: 74px;
-    width: 45px;
-    height: 24px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid white;
-}
-
-/* Riftbound Side Deck Section */
-#deck-display-riftbound .deck-section-wrapper.side-deck-section {
     position: absolute;
-    top: 886px;
-    left: 722px;
-    height: 148px;
-    width: 904px;
-    justify-content: start;
-    z-index: 10;
-    display: flex;
-    flex-wrap: nowrap;
-    row-gap: 0px;
-    column-gap: 7px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card {
-    width: 107px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-src {
-    border-radius: 10px;
-}
-
-#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-count {
-    top: 130px;
-    right: 31px;
-    width: 45px;
-    height: 24px;
-    font-size: 20px;
-    border-radius: 10px;
-    border: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.9);
+    bottom: 4px;
+    right: 4px;
+    width: 28px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.9);
     color: white;
+    font-size: 22px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* === SIDEBOARD (right column) === */
+#deck-display-riftbound .deck-section-wrapper.side-deck-section {
     position: absolute;
+    top: 65px;
+    left: 1317px;
+    width: 268px;
+    height: 790px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 4px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card {
+    position: relative;
+    width: 132px;
+    flex-shrink: 0;
+    display: block;
+}
+
+#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-src {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-count {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 28px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === BATTLEFIELDS (bottom center) === */
+#deck-display-riftbound .deck-section-wrapper.battlefields-section {
+    position: absolute;
+    top: 862px;
+    left: 152px;
+    width: 1060px;
+    height: 200px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    z-index: 5;
+}
+
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background {
+    flex: 1;
+    height: 185px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+
+/* === RUNES (bottom right) === */
+#deck-display-riftbound .deck-section-wrapper.runes-section {
+    position: absolute;
+    top: 862px;
+    left: 1232px;
+    width: 165px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+#deck-display-riftbound .rfb-rune-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#deck-display-riftbound .rfb-rune-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+#deck-display-riftbound .rfb-rune-count {
+    font-size: 44px;
+    color: white;
+    line-height: 1;
 }
 
 
 /* VERTICAL MODE - Hide all backgrounds for all games */
 body.vertical #mtg-bg-image,
 body.vertical #vibes-bg-image,
-body.vertical #riftbound-background-parent {
+body.vertical .riftbound-dl-bg-video,
+body.vertical #riftbound-dl-frame {
     display: none !important;
 }
 
@@ -1091,6 +1033,12 @@ body.vertical #deck-display-vibes .vertical-deck-container {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+/* Riftbound Font Override */
+body.riftbound #deck-display-riftbound,
+body.riftbound #deck-display-riftbound * {
+    font-family: 'Beaufort for LoL', sans-serif;
 }
 
 /* Star Wars Deck Display Styles */

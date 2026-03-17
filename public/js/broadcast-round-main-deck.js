@@ -118,7 +118,7 @@ const RIFTBOUND_BATTLEFIELDS = {
         left: '/assets/images/riftbound/battlefields/_0001_Aspirant_s-Climb180.png',
         right: '/assets/images/riftbound/battlefields/_0025_Aspirant_s-Climb.png'
     },
-    'Back Alley Bar': {
+    'Back-Alley Bar': {
         left: '/assets/images/riftbound/battlefields/_0002_Back-Alley-Bar180.png',
         right: '/assets/images/riftbound/battlefields/_0026_Back-Alley-Bar.png'
     },
@@ -130,7 +130,7 @@ const RIFTBOUND_BATTLEFIELDS = {
         left: '/assets/images/riftbound/battlefields/_0004_Fortified-Position180.png',
         right: '/assets/images/riftbound/battlefields/_0028_Fortified-Position.png'
     },
-    'Grove of the God Willow': {
+    'Grove of the God-Willow': {
         left: '/assets/images/riftbound/battlefields/_0005_Grove-of-the-God-Willow180.png',
         right: '/assets/images/riftbound/battlefields/_0029_Grove-of-the-God-Willow.png'
     },
@@ -310,26 +310,46 @@ socket.on('broadcast-round-data', (data) => {
 
     roundData = data;
 
-    // Update legend description if game is riftbound and legend data exists
-    if (selectedGame === 'riftbound' && data[match_id] && data[match_id][`player-legend-${side_id}`]) {
-        const riftboundSection = document.getElementById('deck-display-riftbound');
-        if (riftboundSection) {
-            const container = riftboundSection.querySelector('#riftbound-main-deck-container');
-            if (container) {
-                const legend = data[match_id][`player-legend-${side_id}`] || '';
-                createLegendDescriptionSection(legend, container);
-            }
-        }
+    // Update player name immediately from round data (riftbound)
+    if (selectedGame === 'riftbound' && data[match_id]) {
+        createPlayerNameSection(data[match_id][`player-name-${side_id}`] || '');
     }
 
-    if (data[match_id] && data[match_id][`player-main-deck-${side_id}`]) {
+    // Update legend description if game is riftbound and legend data exists
+    if (selectedGame === 'riftbound' && data[match_id] && data[match_id][`player-legend-${side_id}`]) {
+        const legend = data[match_id][`player-legend-${side_id}`] || '';
+        createLegendDescriptionSection(legend);
+    }
+
+    if (data[match_id] && (data[match_id][`player-main-deck-${side_id}`] || selectedGame === 'riftbound')) {
         // ask server to transform main deck data
-        socket.emit('transform-main-deck-data', ({
+        const transformPayload = {
             deckData: data[match_id][`player-main-deck-${side_id}`] || [],
             gameType: selectedGame,
             sideID: side_id,
             matchID: match_id
-        }));
+        };
+        // Pass master control fields for riftbound so server resolves image URLs
+        if (selectedGame === 'riftbound') {
+            transformPayload.riftboundMeta = {
+                legend: data[match_id][`player-legend-${side_id}`] || '',
+                champion: data[match_id][`player-champion-${side_id}`] || '',
+                battlefields: [
+                    data[match_id][`player-battlefield-1-${side_id}`] || '',
+                    data[match_id][`player-battlefield-2-${side_id}`] || '',
+                    data[match_id][`player-battlefield-3-${side_id}`] || ''
+                ],
+                runeColor1: data[match_id][`player-rune-color-1-${side_id}`] || '',
+                runeQty1: data[match_id][`player-rune-qty-1-${side_id}`] || '',
+                runeColor2: data[match_id][`player-rune-color-2-${side_id}`] || '',
+                runeQty2: data[match_id][`player-rune-qty-2-${side_id}`] || '',
+                runesString: data[match_id][`player-runes-${side_id}`] || ''
+            };
+            console.log('[Riftbound Debug] Master control fields sent to server:', JSON.stringify(transformPayload.riftboundMeta, null, 2));
+            console.log('[Riftbound Debug] Main deck textarea:', data[match_id][`player-main-deck-${side_id}`]);
+            console.log('[Riftbound Debug] Side deck textarea:', data[match_id][`player-side-deck-${side_id}`]);
+        }
+        socket.emit('transform-main-deck-data', transformPayload);
     } else if (selectedGame === 'starwars' && deckData && deckData.mainDeck) {
         // Leader/base changed but main deck already loaded — re-render to pick up new values
         renderDecks();
@@ -352,6 +372,15 @@ socket.on('broadcast-round-data', (data) => {
 // listen for transformed deck to display
 socket.on('transformed-main-deck-data', (data) => {
     console.log('transformed main deck data from server', data);
+    if (data.gameType === 'riftbound' && data.sideID === side_id && data.matchID === match_id) {
+        console.log('[Riftbound Debug] Resolved data from server:');
+        console.log('  Legend image URL:', data.deckData.legendImageUrl);
+        console.log('  Champion image URL:', data.deckData.championImageUrl);
+        console.log('  Battlefields:', JSON.stringify(data.deckData.battlefields));
+        console.log('  Runes:', JSON.stringify(data.deckData.runes));
+        console.log('  Runes string:', data.deckData.runesString);
+        console.log('  Other cards count:', (data.deckData.other || []).length);
+    }
     if (data.sideID === side_id && data.gameType === selectedGame && data.matchID === match_id) {
         // Update or initialize deckData
         if (!deckData || Object.keys(deckData).length === 0) {
@@ -430,123 +459,41 @@ function checkFontFamily(globalFont) {
 }
 
 // Function to create the player name section dynamically
-function createPlayerNameSection(playerName, legend) {
-    const riftboundSection = document.getElementById('deck-display-riftbound');
-    if (!riftboundSection) return;
-    
-    // Remove existing player name section if it exists
-    const existingSection = riftboundSection.querySelector('#player-name-section');
-    if (existingSection) {
-        existingSection.remove();
-    }
-
-    // Create the player name section
-    const playerNameSection = document.createElement('div');
-    playerNameSection.id = 'player-name-section';
-
-    // Create parent div for player name display
-    const playerNameDisplayWrapper = document.createElement('div');
-    playerNameDisplayWrapper.className = 'player-name-display-wrapper';
-    
-    // Create the player name display
-    const playerNameDisplay = document.createElement('div');
-    playerNameDisplay.className = 'player-name-display';
-    playerNameDisplay.textContent = playerName;
-    
-    // Append player name display to its wrapper
-    playerNameDisplayWrapper.appendChild(playerNameDisplay);
-
-    // Create parent div for legend display
-    const legendDisplayWrapper = document.createElement('div');
-    legendDisplayWrapper.className = 'player-legend-display-wrapper';
-    
-    // Create the legend display
-    const legendDisplay = document.createElement('div');
-    legendDisplay.className = 'player-legend-display';
-    legendDisplay.textContent = legend ? `${legend}` : '';
-    // Set color based on side_id: #19c8ff for left, #1ae930 for right
-    legendDisplay.style.color = side_id === 'left' ? '#19c8ff' : '#1ae930';
-    
-    // Append legend display to its wrapper
-    legendDisplayWrapper.appendChild(legendDisplay);
-
-    // Append elements to the section
-    playerNameSection.appendChild(playerNameDisplayWrapper);
-    playerNameSection.appendChild(legendDisplayWrapper);
-
-    // Append the section to the riftbound-main-deck-container
-    const mainDeckContainer = riftboundSection.querySelector('#riftbound-main-deck-container');
-    if (mainDeckContainer) {
-        mainDeckContainer.appendChild(playerNameSection);
+function createPlayerNameSection(playerName) {
+    const detailsEl = document.getElementById('riftbound-deck-display-details');
+    if (detailsEl) {
+        detailsEl.textContent = playerName || '';
     }
 }
 
-// Function to create and update the legend description section
-function createLegendDescriptionSection(legend, container) {
-    if (!container) return;
-    
-    // Remove existing legend description section if it exists
-    const existingSection = container.querySelector('#riftbound-legend-description-section');
-    if (existingSection) {
-        existingSection.remove();
-    }
-    
-    // Create the section wrapper
-    const sectionWrapper = document.createElement('div');
-    sectionWrapper.id = 'riftbound-legend-description-section';
-    sectionWrapper.className = 'deck-section-wrapper legend-description-section';
-    
-    // Determine which image to use
+// Function to update the static legend description image
+function createLegendDescriptionSection(legend) {
+    const imgEl = document.getElementById('riftbound-dl-legend-desc-img');
+    if (!imgEl) return;
+
     let imageUrl;
     if (legend) {
-        const legendValue = legend.trim();
-        const legendValueLower = legendValue.toLowerCase();
-        let matchedLegendKey = null;
-        
-        // First try exact case-insensitive match
-        for (const legendKey in RIFTBOUND_LEGENDS_DESCRIPTIONS) {
-            if (legendKey.toLowerCase() === legendValueLower) {
-                matchedLegendKey = legendKey;
-                break;
+        const legendValueLower = legend.trim().toLowerCase();
+        let matchedKey = null;
+
+        for (const key in RIFTBOUND_LEGENDS_DESCRIPTIONS) {
+            if (key.toLowerCase() === legendValueLower) { matchedKey = key; break; }
+        }
+        if (!matchedKey) {
+            for (const key in RIFTBOUND_LEGENDS_DESCRIPTIONS) {
+                if (legendValueLower.includes(key.toLowerCase())) { matchedKey = key; break; }
             }
         }
-        
-        // If no exact match, check if the value contains any of the legend dictionary keys
-        // This handles cases like "Jinx, Loose Cannon" matching "Jinx"
-        if (!matchedLegendKey) {
-            for (const legendKey in RIFTBOUND_LEGENDS_DESCRIPTIONS) {
-                const legendKeyLower = legendKey.toLowerCase();
-                // Check if the incoming value contains the legend key (e.g., "jinx, loose cannon" contains "jinx")
-                if (legendValueLower.includes(legendKeyLower)) {
-                    matchedLegendKey = legendKey;
-                    break;
-                }
-            }
-        }
-        
-        // Get the description image URL
-        if (matchedLegendKey && RIFTBOUND_LEGENDS_DESCRIPTIONS[matchedLegendKey]) {
-            imageUrl = RIFTBOUND_LEGENDS_DESCRIPTIONS[matchedLegendKey];
-        } else {
-            // Use default if no match found
-            imageUrl = RIFTBOUND_LEGENDS_DESCRIPTIONS['default'];
-        }
+        imageUrl = (matchedKey && RIFTBOUND_LEGENDS_DESCRIPTIONS[matchedKey])
+            ? RIFTBOUND_LEGENDS_DESCRIPTIONS[matchedKey]
+            : RIFTBOUND_LEGENDS_DESCRIPTIONS['default'];
     } else {
-        // Show default if legend is empty
         imageUrl = RIFTBOUND_LEGENDS_DESCRIPTIONS['default'];
     }
-    
-    // Create img element directly as child of section wrapper
-    const imgElement = document.createElement('img');
-    imgElement.className = 'legend-description-image';
-    const encodedUrl = encodeURI(imageUrl);
+
     const cacheBuster = new Date().getTime();
-    const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
-    imgElement.src = finalUrl;
-    imgElement.alt = legend ? `Legend description for ${legend.trim()}` : 'Default legend description';
-    
-    sectionWrapper.appendChild(imgElement);
-    container.appendChild(sectionWrapper);
+    imgEl.src = `${encodeURI(imageUrl)}?v=${cacheBuster}`;
+    imgEl.alt = legend ? `Legend description for ${legend.trim()}` : '';
 }
 
 // Parse a flat array of transformed card objects into categorized sections.
@@ -1076,98 +1023,35 @@ function renderStarWarsVerticalDeck() {
 // Function to render battlefields using scoreboard-style implementation
 function renderBattlefields(battlefields, container) {
     if (!container) return;
-    
-    // Determine if this is left or right player
+
     const isLeft = side_id === '1' || side_id?.toLowerCase() === 'left';
     const side = isLeft ? 'left' : 'right';
-    
-    // Create battlefields section wrapper
+
     const sectionWrapper = document.createElement('div');
     sectionWrapper.className = 'deck-section-wrapper battlefields-section';
-    
-    // Render up to 3 battlefields
+
     for (let i = 0; i < 3; i++) {
-        const battlefieldIndex = i + 1;
-        
-        // Create background div
-        const backgroundDiv = document.createElement('div');
-        backgroundDiv.className = `riftbound-battlefield-background riftbound-battlefield-background-${battlefieldIndex}`;
-        
-        // Create wrapper for name
-        const nameWrapper = document.createElement('div');
-        nameWrapper.className = `riftbound-battlefield-wrapper riftbound-battlefield-wrapper-${battlefieldIndex}`;
-        
-        // Create name div
-        const nameDiv = document.createElement('div');
-        nameDiv.id = `riftbound-battlefield-${battlefieldIndex}`;
-        nameDiv.className = 'riftbound-battlefield-name';
-        
-        nameWrapper.appendChild(nameDiv);
-        
+        const bgDiv = document.createElement('div');
+        bgDiv.className = 'riftbound-battlefield-background';
+
+        let imageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
         if (i < battlefields.length && battlefields[i]) {
-            const battlefield = battlefields[i];
-            const battlefieldName = battlefield['card-name'] ? battlefield['card-name'].trim() : '';
-            
-            // Set battlefield name
-            nameDiv.textContent = battlefieldName;
-            nameDiv.style.display = 'block';
-            
-            // Set battlefield background image
-            let battlefieldData = null;
-            
-            if (battlefieldName) {
-                // Try exact match first
-                battlefieldData = RIFTBOUND_BATTLEFIELDS[battlefieldName];
-                
-                // If no exact match, try case-insensitive match
-                if (!battlefieldData) {
-                    const battlefieldNameLower = battlefieldName.toLowerCase();
-                    for (const key in RIFTBOUND_BATTLEFIELDS) {
-                        if (key.toLowerCase() === battlefieldNameLower) {
-                            battlefieldData = RIFTBOUND_BATTLEFIELDS[key];
-                            break;
-                        }
-                    }
+            const battlefieldName = (battlefields[i].name || battlefields[i]['card-name'] || '').trim();
+            let data = RIFTBOUND_BATTLEFIELDS[battlefieldName];
+            if (!data) {
+                const lower = battlefieldName.toLowerCase();
+                for (const key in RIFTBOUND_BATTLEFIELDS) {
+                    if (key.toLowerCase() === lower) { data = RIFTBOUND_BATTLEFIELDS[key]; break; }
                 }
             }
-            
-            let imageUrl;
-            if (battlefieldData && battlefieldData[side]) {
-                imageUrl = battlefieldData[side];
-            } else {
-                // Use default image if battlefield name doesn't match
-                imageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
-            }
-            
-            const encodedUrl = encodeURI(imageUrl);
-            const cacheBuster = new Date().getTime();
-            const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
-            backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-            backgroundDiv.style.backgroundSize = 'cover';
-            backgroundDiv.style.backgroundPosition = 'center';
-            backgroundDiv.style.backgroundRepeat = 'no-repeat';
-            backgroundDiv.style.display = 'block';
-        } else {
-            // Show default image for missing battlefield slots
-            nameDiv.textContent = '';
-            nameDiv.style.display = 'none';
-            
-            // Use default image for missing battlefields
-            const defaultImageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
-            const encodedUrl = encodeURI(defaultImageUrl);
-            const cacheBuster = new Date().getTime();
-            const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
-            backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-            backgroundDiv.style.backgroundSize = 'cover';
-            backgroundDiv.style.backgroundPosition = 'center';
-            backgroundDiv.style.backgroundRepeat = 'no-repeat';
-            backgroundDiv.style.display = 'block';
+            if (data && data[side]) imageUrl = data[side];
         }
-        
-        sectionWrapper.appendChild(backgroundDiv);
-        sectionWrapper.appendChild(nameWrapper);
+
+        const cacheBuster = new Date().getTime();
+        bgDiv.style.backgroundImage = `url("${encodeURI(imageUrl)}?v=${cacheBuster}")`;
+        sectionWrapper.appendChild(bgDiv);
     }
-    
+
     container.appendChild(sectionWrapper);
 }
 
@@ -1175,94 +1059,63 @@ function renderBattlefields(battlefields, container) {
 function renderRiftboundDeckSections(deckObj) {
     const riftboundSection = document.getElementById('deck-display-riftbound');
     if (!riftboundSection) return;
-    
-    const deckDisplayDetails = riftboundSection.querySelector('#riftbound-deck-display-details');
-    if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
-    
+
     const container = riftboundSection.querySelector('#riftbound-main-deck-container');
     if (!container) return;
-    
+
     container.innerHTML = ''; // Clear previous
 
-    // Create and populate the player name section dynamically for Riftbound
-    const legend = roundData[match_id] ? roundData[match_id][`player-legend-${side_id}`] || '' : '';
-    createPlayerNameSection(deckData.playerName, legend);
-    
-    // Create and populate the legend description section
-    createLegendDescriptionSection(legend, container);
+    const matchData = roundData[match_id] || {};
+    const legend = (matchData[`player-legend-${side_id}`] || '').trim();
 
-    // Handle battlefields separately using scoreboard-style implementation
-    if (deckObj.battlefields && deckObj.battlefields.length > 0) {
-        const battlefields = deckObj.battlefields.slice(0, 3); // Max 3
-        renderBattlefields(battlefields, container);
-    } else {
-        // Show default battlefields if none exist
-        renderBattlefields([], container);
+    // Update static player name
+    createPlayerNameSection(deckData.playerName);
+
+    // Update static legend card image (resolved server-side from master control field)
+    const legendCardImg = document.getElementById('riftbound-dl-legend-card-img');
+    if (legendCardImg) {
+        legendCardImg.src = deckObj.legendImageUrl || '';
     }
 
-    // Handle runes section separately - use rune icons from runes string
-    const runesString = roundData[match_id] ? (roundData[match_id][`player-runes-${side_id}`] || '').trim().toLowerCase() : '';
-    if (runesString) {
+    // Update static legend description image
+    createLegendDescriptionSection(legend);
+
+    // Update static champion card image (resolved server-side from master control field)
+    const championCardImg = document.getElementById('riftbound-dl-champion-card-img');
+    if (championCardImg) {
+        championCardImg.src = deckObj.championImageUrl || '';
+    }
+
+    // Battlefields (from master control fields, rendered with client-side side-aware images)
+    renderBattlefields((deckObj.battlefields || []).slice(0, 3), container);
+
+    // Runes (from master control fields — letter + count resolved server-side)
+    const runesData = deckObj.runes || [];
+    if (runesData.length > 0) {
         const sectionWrapper = document.createElement('div');
         sectionWrapper.className = 'deck-section-wrapper runes-section';
 
-        // Map rune letters to rune names for matching with deck data
-        const runeLetterToName = {
-            'g': 'Calm',
-            'p': 'Chaos',
-            'r': 'Fury',
-            'b': 'Mind',
-            'y': 'Order',
-            'o': 'Body'
-        };
-
-        // Create a map of rune card names to their counts from deck data
-        const runeCardsMap = {};
-        if (deckObj.runes && Array.isArray(deckObj.runes)) {
-            deckObj.runes.forEach(card => {
-                const cardName = card['card-name'] || '';
-                // Match rune name in card name (case-insensitive)
-                for (const [letter, runeName] of Object.entries(runeLetterToName)) {
-                    if (cardName.toLowerCase().includes(runeName.toLowerCase())) {
-                        runeCardsMap[letter] = card['card-count'] || 0;
-                        break;
-                    }
-                }
-            });
-        }
-
-        // Process first 2 runes from the string
-        const runesToDisplay = runesString.slice(0, 2);
-        for (let i = 0; i < runesToDisplay.length; i++) {
-            const letter = runesToDisplay[i];
-            const runeUrl = RIFTBOUND_RUNES[letter];
-            
+        for (const rune of runesData) {
+            if (!rune.letter) continue;
+            const runeUrl = RIFTBOUND_RUNES[rune.letter];
             if (runeUrl) {
-                const cardEl = document.createElement('div');
-                cardEl.className = 'main-deck-card';
-                const cardCount = runeCardsMap[letter] || 0;
-                cardEl.innerHTML = `
-                    <img src="${runeUrl}" class="riftbound-rune-icon" alt="Rune ${letter}">
-                    <div class="card-count">${cardCount}</div>
-                `;
-                sectionWrapper.appendChild(cardEl);
+                const runeItem = document.createElement('div');
+                runeItem.className = 'rfb-rune-item';
+                runeItem.innerHTML = `<img src="${runeUrl}" class="rfb-rune-icon" alt="Rune ${rune.letter}"><span class="rfb-rune-count">${rune.count}</span>`;
+                sectionWrapper.appendChild(runeItem);
             }
         }
 
-        if (sectionWrapper.children.length > 0) {
-            container.appendChild(sectionWrapper);
-        }
+        if (sectionWrapper.children.length > 0) container.appendChild(sectionWrapper);
     }
 
-    // Handle other section (main deck cards)
-    const otherCards = deckObj['other'];
-    if (otherCards && otherCards.length > 0) {
-        const cards = otherCards.slice(0, 18); // Max 18
-
+    // Main deck (other[] — champion already excluded server-side)
+    const otherCards = deckObj.other || [];
+    if (otherCards.length > 0) {
         const sectionWrapper = document.createElement('div');
         sectionWrapper.className = 'deck-section-wrapper other-section';
 
-        cards.forEach(card => {
+        otherCards.slice(0, 30).forEach(card => {
             if (card['card-url']) {
                 const cardEl = document.createElement('div');
                 cardEl.className = 'main-deck-card';
@@ -1274,14 +1127,12 @@ function renderRiftboundDeckSections(deckObj) {
         container.appendChild(sectionWrapper);
     }
 
-    // Handle side deck separately
+    // Sideboard (right column)
     if (deckData.sideDeck && Array.isArray(deckData.sideDeck) && deckData.sideDeck.length > 0) {
-        const sideDeckCards = deckData.sideDeck.slice(0, 8); // Max 8 cards
-        
         const sideDeckWrapper = document.createElement('div');
         sideDeckWrapper.className = 'deck-section-wrapper side-deck-section';
 
-        sideDeckCards.forEach(card => {
+        deckData.sideDeck.slice(0, 10).forEach(card => {
             if (card['card-url']) {
                 const cardEl = document.createElement('div');
                 cardEl.className = 'main-deck-card';
@@ -1454,10 +1305,10 @@ function renderRiftboundVerticalDeck(deckObj) {
         }
     });
     
-    // Add runes count (max 2)
-    const runesString = roundData[match_id] ? (roundData[match_id][`player-runes-${side_id}`] || '').trim().toLowerCase() : '';
-    if (runesString) {
-        totalCards += Math.min(runesString.length, 2);
+    // Add runes count from resolved rune data
+    const runesData = deckObj.runes || [];
+    if (runesData.length > 0) {
+        totalCards += runesData.length;
     }
     
     // Use dynamic card height based on total card count
@@ -1477,11 +1328,23 @@ function renderRiftboundVerticalDeck(deckObj) {
             
             // Use different styling based on section type
             if (section.key === 'battlefields') {
+                const bfName = (card.name || card['card-name'] || '').trim();
+                // Look up side-aware battlefield image from client dictionary
+                const isLeft = side_id === '1' || side_id?.toLowerCase() === 'left';
+                const bfSide = isLeft ? 'left' : 'right';
+                let bfData = RIFTBOUND_BATTLEFIELDS[bfName];
+                if (!bfData) {
+                    const lower = bfName.toLowerCase();
+                    for (const key in RIFTBOUND_BATTLEFIELDS) {
+                        if (key.toLowerCase() === lower) { bfData = RIFTBOUND_BATTLEFIELDS[key]; break; }
+                    }
+                }
+                const bfImageUrl = (bfData && bfData[bfSide]) || RIFTBOUND_BATTLEFIELDS_DEFAULT[bfSide];
                 cardElement.innerHTML = `
                     <div class="riftbound-battlefield-card">
                         <div class="riftbound-battlefield-icon"></div>
-                        <div class="riftbound-battlefield-name">${card['card-name']}</div>
-                        <div class="riftbound-battlefield-background" style="--bg-image: url('${card['card-url']}');"></div>
+                        <div class="riftbound-battlefield-name">${bfName}</div>
+                        <div class="riftbound-battlefield-background" style="--bg-image: url('${bfImageUrl}');"></div>
                     </div>
                 `;
             } else {
@@ -1496,47 +1359,18 @@ function renderRiftboundVerticalDeck(deckObj) {
         });
     });
     
-    // Handle runes section separately - use rune icons from runes string
-    if (runesString) {
-        // Map rune letters to rune names for matching with deck data
-        const runeLetterToName = {
-            'g': 'Calm',
-            'p': 'Chaos',
-            'r': 'Fury',
-            'b': 'Mind',
-            'y': 'Order',
-            'o': 'Body'
-        };
-
-        // Create a map of rune card names to their counts from deck data
-        const runeCardsMap = {};
-        if (deckObj.runes && Array.isArray(deckObj.runes)) {
-            deckObj.runes.forEach(card => {
-                const cardName = card['card-name'] || '';
-                // Match rune name in card name (case-insensitive)
-                for (const [letter, runeName] of Object.entries(runeLetterToName)) {
-                    if (cardName.toLowerCase().includes(runeName.toLowerCase())) {
-                        runeCardsMap[letter] = card['card-count'] || 0;
-                        break;
-                    }
-                }
-            });
-        }
-
-        // Process first 2 runes from the string
-        const runesToDisplay = runesString.slice(0, 2);
-        for (let i = 0; i < runesToDisplay.length; i++) {
-            const letter = runesToDisplay[i];
-            const runeUrl = RIFTBOUND_RUNES[letter];
-            
+    // Handle runes section — use resolved rune data from master control fields
+    if (runesData.length > 0) {
+        for (const rune of runesData) {
+            if (!rune.letter) continue;
+            const runeUrl = RIFTBOUND_RUNES[rune.letter];
             if (runeUrl) {
                 const cardElement = document.createElement('div');
                 cardElement.className = 'riftbound-vertical-card';
                 cardElement.style.height = `${cardHeight}px`;
-                const cardCount = runeCardsMap[letter] || 0;
                 cardElement.innerHTML = `
-                    <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${cardCount}</div>
-                    <img src="${runeUrl}" class="riftbound-rune-icon-vertical" alt="Rune ${letter}" style="width: 40px; height: 40px; object-fit: contain;">
+                    <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${rune.count}</div>
+                    <img src="${runeUrl}" class="riftbound-rune-icon-vertical" alt="Rune ${rune.letter}" style="width: 40px; height: 40px; object-fit: contain;">
                 `;
                 cardsContainer.appendChild(cardElement);
             }
@@ -1666,12 +1500,8 @@ function updateTheme(game, vendor, playerCount) {
             setRiftboundBackground();
 
             // Update legend description when switching to riftbound
-            if (riftboundSection) {
-                const container = riftboundSection.querySelector('#riftbound-main-deck-container');
-                if (container && roundData[match_id] && roundData[match_id][`player-legend-${side_id}`]) {
-                    const legend = roundData[match_id][`player-legend-${side_id}`] || '';
-                    createLegendDescriptionSection(legend, container);
-                }
+            if (roundData[match_id] && roundData[match_id][`player-legend-${side_id}`]) {
+                createLegendDescriptionSection(roundData[match_id][`player-legend-${side_id}`] || '');
             }
         } else if (selectedGame === 'vibes') {
             console.log('Switching to Vibes mode...');
@@ -1729,40 +1559,15 @@ function updateTheme(game, vendor, playerCount) {
     }
 }
 
-// Function to set the riftbound background based on side_id
+// Function to set the riftbound background — frame/video are static in HTML, nothing to do here
 function setRiftboundBackground() {
-    const riftboundSection = document.getElementById('deck-display-riftbound');
-    if (!riftboundSection) return;
-    
-    const backgroundParent = riftboundSection.querySelector('#riftbound-background-parent');
-    if (!backgroundParent) return;
-    
-    // Determine if this is left or right player
-    // side_id can be '1' or '2', or potentially 'left' or 'right'
-    const isLeft = side_id === '1' || side_id?.toLowerCase() === 'left';
-    const isRight = side_id === '2' || side_id?.toLowerCase() === 'right';
-    
-    let backgroundImage;
-    if (isLeft && orientation === 'horizontal') {
-        backgroundImage = '/assets/images/riftbound/decklist/frame/Decklist-New-v4-Blue_Prepped-3.png';
-    } else if (isRight && orientation === 'horizontal') {
-        backgroundImage = '/assets/images/riftbound/decklist/frame/Decklist-New-v4-Green_Prepped-3.png';
-    } else {
-        // Default to blue if side_id is not recognized
-        console.log('Unknown side_id, defaulting to blue background');
-        //backgroundImage = '/assets/images/riftbound/decklist/frame/Decklist-New-v4-Blue_Prepped-2.png';
-    }
-    
-    // Set the background image with cache buster
-    const cacheBuster = new Date().getTime();
-    const finalUrl = `${backgroundImage}?v=${cacheBuster}`;
-    backgroundParent.style.backgroundImage = `url("${finalUrl}")`;
-    console.log(`Riftbound background set to: ${finalUrl} for side_id: ${side_id}`);
+    // Frame PNG and video background are defined in HTML/CSS; no dynamic setup needed
 }
 
 socket.emit('get-game-selection');
 socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
+socket.emit('get-broadcast-scoreboard-data');
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;

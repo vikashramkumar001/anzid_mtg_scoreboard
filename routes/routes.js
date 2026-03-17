@@ -167,7 +167,12 @@ router.get('/riftbound/display/card/view/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/riftbound/dedicated-card-view.html'));
 });
 
-// vibes - deck view
+// riftbound - deck view (broadcast format with matchID + sideID)
+router.get('/riftbound/display/main/deck/:matchID/:sideID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/riftbound/deck-display.html'));
+});
+
+// riftbound - deck view (legacy single deckID)
 router.get('/riftbound/display/main/deck/:deckID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/riftbound/deck-display.html'))
 });

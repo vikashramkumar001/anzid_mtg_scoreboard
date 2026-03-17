@@ -313,10 +313,10 @@ export function initMatches(socket) {
     const riftboundBattlefieldsList = [
         {name: "Altar to Unity"},
         {name: "Aspirant's Climb"},
-        {name: "Back Alley Bar"},
+        {name: "Back-Alley Bar"},
         {name: "Bandle Tree"},
         {name: "Fortified Position"},
-        {name: "Grove of the God Willow"},
+        {name: "Grove of the God-Willow"},
         {name: "Hallowed Tomb"},
         {name: "Monastery of Hirana"},
         {name: "Navori Fighting Pit"},
@@ -509,7 +509,14 @@ export function initMatches(socket) {
                             </div>
                             <div class="mb-3 riftbound-only-field" style="display: none;">
                                 <label class="form-label">Runes</label>
-                                <div id="${roundId}-${matchId}-player-runes-left" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex gap-2 mb-1">
+                                    <div id="${roundId}-${matchId}-player-rune-color-1-left" class="editable form-control" contenteditable="true"></div>
+                                    <div id="${roundId}-${matchId}-player-rune-qty-1-left" class="editable form-control" contenteditable="true"></div>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div id="${roundId}-${matchId}-player-rune-color-2-left" class="editable form-control" contenteditable="true"></div>
+                                    <div id="${roundId}-${matchId}-player-rune-qty-2-left" class="editable form-control" contenteditable="true"></div>
+                                </div>
                             </div>
                             <div class="mb-3 riftbound-only-field" style="display: none;">
                                 <label class="form-label">Battlefield</label>
@@ -615,7 +622,14 @@ export function initMatches(socket) {
                             </div>
                             <div class="mb-3 riftbound-only-field" style="display: none;">
                                 <label class="form-label">Runes</label>
-                                <div id="${roundId}-${matchId}-player-runes-right" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex gap-2 mb-1">
+                                    <div id="${roundId}-${matchId}-player-rune-color-1-right" class="editable form-control" contenteditable="true"></div>
+                                    <div id="${roundId}-${matchId}-player-rune-qty-1-right" class="editable form-control" contenteditable="true"></div>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div id="${roundId}-${matchId}-player-rune-color-2-right" class="editable form-control" contenteditable="true"></div>
+                                    <div id="${roundId}-${matchId}-player-rune-qty-2-right" class="editable form-control" contenteditable="true"></div>
+                                </div>
                             </div>
                             <div class="mb-3 riftbound-only-field" style="display: none;">
                                 <label class="form-label">Battlefield</label>
@@ -760,6 +774,19 @@ export function initMatches(socket) {
                 }
             }
         });
+
+        // Sync active battlefield radio slot → hidden player-battlefield field (no event, just value)
+        for (const side of ['left', 'right']) {
+            const checkedRadio = document.querySelector(`input[name="${roundId}-${matchId}-bf-${side}-select"]:checked`);
+            if (checkedRadio) {
+                const bfNum = checkedRadio.dataset.bf;
+                const sourceEl = document.getElementById(`${roundId}-${matchId}-player-battlefield-${bfNum}-${side}`);
+                const mainField = document.getElementById(`${roundId}-${matchId}-player-battlefield-${side}`);
+                if (sourceEl && mainField) {
+                    mainField.innerText = sourceEl.innerText;
+                }
+            }
+        }
 
         // Unhide deck fields if existing deck data is present
         for (const side of ['left', 'right']) {
@@ -917,30 +944,28 @@ export function initMatches(socket) {
         championName = championName.substring(2, championName.length); // remove quantity prefix
         championField.innerText = championName;
 
-        // Battlefield
+        // Battlefield — populate up to 3 slots, select radio 1
+        const battlefields = (parsedDeck['battlefield'] || []).slice(0, 3);
+        for (let i = 0; i < 3; i++) {
+            const bfEl = document.getElementById(`${roundId}-${matchId}-player-battlefield-${i + 1}-${sideId}`);
+            if (bfEl) bfEl.innerText = battlefields[i] ? battlefields[i].substring(2) : '';
+        }
+        const radio1 = document.querySelector(`input[name="${roundId}-${matchId}-bf-${sideId}-select"][value="1"]`);
+        if (radio1) { radio1.checked = true; radio1.dispatchEvent(new Event('change', { bubbles: true })); }
 
-
-        // Runes
-        const runeLetterToName = {
-            'r': 'Fury',
-            'g': 'Calm',
-            'b': 'Mind',
-            'o': 'Body',
-            'p': 'Chaos',
-            'y': 'Order'
-        };
-
-        const nameToLetter = Object.fromEntries(Object.entries(runeLetterToName).map(([k, v]) => [v, k.toUpperCase()]));
-        const order = ['R', 'G', 'B', 'O', 'P', 'Y'];
-
-        let runeField = document.getElementById(`${roundId}-${matchId}-player-runes-${sideId}`);
-        if (parsedDeck['runepool']) {
-            const runeNames = parsedDeck['runepool'].map(r => r.split(' ')[1]);
-            const letters = runeNames.map(name => nameToLetter[name]).filter(Boolean);
-            letters.sort((a, b) => order.indexOf(a) - order.indexOf(b));
-            runeField.innerText = letters.join('');
-        } else {
-            runeField.innerText = '';
+        // Runes — set rune-color-1/2 and rune-qty-1/2
+        const runeLetterToName = { 'r': 'Fury', 'g': 'Calm', 'b': 'Mind', 'o': 'Body', 'p': 'Chaos', 'y': 'Order' };
+        const nameToLetter = Object.fromEntries(Object.entries(runeLetterToName).map(([k, v]) => [v, k]));
+        const runeOrder = ['r', 'g', 'b', 'o', 'p', 'y'];
+        const runes = (parsedDeck['runepool'] || []).map(entry => {
+            const parts = entry.split(' ');
+            return { qty: parts[0], letter: nameToLetter[parts[1]] || '' };
+        }).filter(r => r.letter).sort((a, b) => runeOrder.indexOf(a.letter) - runeOrder.indexOf(b.letter));
+        for (let i = 0; i < 2; i++) {
+            const colorEl = document.getElementById(`${roundId}-${matchId}-player-rune-color-${i + 1}-${sideId}`);
+            const qtyEl = document.getElementById(`${roundId}-${matchId}-player-rune-qty-${i + 1}-${sideId}`);
+            if (colorEl) { colorEl.textContent = runes[i]?.letter || ''; colorEl.dispatchEvent(new Event('input', { bubbles: true })); }
+            if (qtyEl) { qtyEl.textContent = runes[i]?.qty || ''; qtyEl.dispatchEvent(new Event('input', { bubbles: true })); }
         }
     }
 
@@ -965,8 +990,8 @@ export function initMatches(socket) {
             div.addEventListener('click', function () {
                 field.textContent = item.name;
                 dropdownList.style.display = 'none';
-                field.dispatchEvent(new Event('input'));
-                field.dispatchEvent(new Event('change')); // Trigger change event
+                field.dispatchEvent(new Event('input', { bubbles: true }));
+                field.dispatchEvent(new Event('change', { bubbles: true }));
             });
             dropdownList.appendChild(div);
         });
@@ -1109,7 +1134,7 @@ export function initMatches(socket) {
         });
 
         // Setup battlefield autocomplete dropdowns
-        const battlefieldFields = document.querySelectorAll('[id$="-player-battlefield-left"], [id$="-player-battlefield-right"]');
+        const battlefieldFields = document.querySelectorAll('.battlefield-input');
         battlefieldFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
                 return; // Skip if already set up
@@ -1782,7 +1807,7 @@ export function initMatches(socket) {
                 return;
             }
 
-            if (!tournamentId) {
+            if (!tournamentId && platform !== 'cardeio') {
                 alert('Please enter a tournament ID in Global Settings.');
                 return;
             }
@@ -2124,13 +2149,43 @@ export function initMatches(socket) {
         }
     }
 
+    const GAME_DEFAULTS = {
+        mtg:       { life: '20', timer: '50' },
+        riftbound: { life: '0', timer: '60' },
+        vibes:     { life: '0', timer: '35' },
+        starwars:  { life: '20', timer: '55' },
+        default:   { life: '20', timer: '50' }
+    };
+
+    function applyGameDefaults(game) {
+        const defaults = GAME_DEFAULTS[game] || GAME_DEFAULTS.default;
+        baseLifePoints = defaults.life;
+        baseTimer = defaults.timer;
+        if (matchEventBaseLifePoints) matchEventBaseLifePoints.innerText = defaults.life;
+        if (matchEventBaseLifePointsCurrent) matchEventBaseLifePointsCurrent.innerText = defaults.life;
+        if (matchEventBaseTimer) matchEventBaseTimer.innerText = defaults.timer;
+        if (matchEventBaseTimerCurrent) matchEventBaseTimerCurrent.innerText = defaults.timer;
+
+        // Update all match card life and timer fields
+        document.querySelectorAll('[id$="-player-life-left"], [id$="-player-life-right"]').forEach(el => {
+            el.innerText = defaults.life;
+            el.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+        const timerDisplay = `${defaults.timer}:00`;
+        document.querySelectorAll('.timer-text').forEach(el => {
+            el.innerText = timerDisplay;
+        });
+    }
+
     // Listen for game selection changes
     socket.on('server-current-game-selection', ({gameSelection}) => {
         currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
+        applyGameDefaults(currentGameSelection);
         updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
     });
     socket.on('game-selection-updated', ({gameSelection}) => {
         currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
+        applyGameDefaults(currentGameSelection);
         updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
     });
     socket.on('server-current-vendor-selection', ({vendorSelection}) => {
@@ -2234,6 +2289,50 @@ export function initMatches(socket) {
 
                 console.log('Match data populated for table', result.matchData.tableNumber);
 
+                // Riftbound (cardeio) extra fields
+                for (const [side, player] of [['left', player1], ['right', player2]]) {
+                    const setField = (field, value) => {
+                        const el = document.getElementById(`${roundId}-${matchId}-${field}-${side}`);
+                        if (el) { el.textContent = value; el.dispatchEvent(new Event('input', { bubbles: true })); }
+                    };
+                    // Like setField but also hides the autocomplete dropdown that opens on input
+                    const setDropdownField = (field, value) => {
+                        const el = document.getElementById(`${roundId}-${matchId}-${field}-${side}`);
+                        if (el) {
+                            el.textContent = value;
+                            el.dispatchEvent(new Event('input', { bubbles: true }));
+                            el.dispatchEvent(new Event('change', { bubbles: true }));
+                            const dl = el.closest('.custom-dropdown')?.querySelector('.dropdown-list');
+                            if (dl) dl.style.display = 'none';
+                        }
+                    };
+                    const setTextarea = (field, lines) => {
+                        const el = document.getElementById(`${roundId}-${matchId}-${field}-${side}`);
+                        if (el) { el.value = lines.join('\n'); el.dispatchEvent(new Event('input', { bubbles: true })); }
+                    };
+                    // Set deck first — its input event calls updateRiftboundFields which would
+                    // overwrite legend/champion, so legend/champion must be set after
+                    if (player.mainDeck?.length) setTextarea('player-main-deck', player.mainDeck);
+                    if (player.sideboard?.length) setTextarea('player-side-deck', player.sideboard);
+                    if (player.legend !== undefined) setDropdownField('player-legend', player.legend);
+                    if (player.champion !== undefined) setDropdownField('player-champion', player.champion);
+                    if (player.runeList?.length) {
+                        player.runeList.forEach((rune, i) => {
+                            const n = i + 1;
+                            setField(`player-rune-color-${n}`, rune.letter);
+                            setField(`player-rune-qty-${n}`, rune.qty);
+                        });
+                    }
+                    // Battlefields — populate up to 3 slots and select radio 1
+                    if (player.battlefields?.length) {
+                        player.battlefields.forEach((name, i) => {
+                            setField(`player-battlefield-${i + 1}`, name);
+                        });
+                        const radio1 = document.querySelector(`input[name="${roundId}-${matchId}-bf-${side}-select"][value="1"]`);
+                        if (radio1) { radio1.checked = true; radio1.dispatchEvent(new Event('change', { bubbles: true })); }
+                    }
+                }
+
                 // Auto-fetch decklists if decklistIds are available, otherwise clear
                 if (player1.decklistId) {
                     socket.emit('fetch-decklist-by-id', {
@@ -2243,7 +2342,7 @@ export function initMatches(socket) {
                         roundId,
                         game: currentGameSelection
                     });
-                } else {
+                } else if (!player1.mainDeck?.length) {
                     clearDeckFields(roundId, matchId, 'left');
                 }
                 if (player2.decklistId) {
@@ -2254,7 +2353,7 @@ export function initMatches(socket) {
                         roundId,
                         game: currentGameSelection
                     });
-                } else {
+                } else if (!player2.mainDeck?.length) {
                     clearDeckFields(roundId, matchId, 'right');
                 }
             }
