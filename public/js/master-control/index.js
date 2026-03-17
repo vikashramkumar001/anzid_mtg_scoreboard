@@ -10,6 +10,7 @@ import {initMetaBreakdown} from './meta-breakdown.js';
 import {initCardDB} from './indexeddb-init.js';
 import {initGameSelection} from './game-selection.js';
 import {initTournamentPlatform} from './tournament-platform.js';
+import {initAuthTokens} from './auth-tokens.js';
 import {initDraftList} from './draft-list.js';
 
 const socket = io();
@@ -45,5 +46,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     initStarWarsCardView(socket);
     initMetaBreakdown(socket);
     initTournamentPlatform(socket);
+    initAuthTokens(socket);
     initDraftList(socket);
 });

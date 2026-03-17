@@ -92,6 +92,12 @@ import {
     fetchMeleeDecklists,
     fetchMeleePairings
 } from '../features/tournament-platforms.js';
+import {
+    getAuthTokens,
+    setAuthTokens,
+    emitAuthTokenStatus,
+    fetchCardeioDecklists
+} from '../features/auth-tokens.js';
 
 export default function registerSocketHandlers(io) {
     io.on('connection', (socket) => {
@@ -425,6 +431,25 @@ export default function registerSocketHandlers(io) {
         socket.on('set-tournament-platform', (config) => {
             setPlatformConfig(config);
             emitPlatformConfig(io);
+        });
+
+        // Auth Tokens
+        socket.on('get-auth-tokens', () => {
+            socket.emit('auth-token-status', getAuthTokens());
+        });
+
+        socket.on('set-auth-tokens', (tokens) => {
+            setAuthTokens(tokens);
+            emitAuthTokenStatus(io);
+        });
+
+        socket.on('fetch-cardeio-decklists', async ({ eventId }) => {
+            try {
+                const result = await fetchCardeioDecklists(eventId);
+                socket.emit('cardeio-decklists-result', { success: true, ...result });
+            } catch (error) {
+                socket.emit('cardeio-decklists-result', { success: false, error: error.message });
+            }
         });
 
         socket.on('fetch-tournament-standings', async ({ platform, tournamentId, roundId }) => {
