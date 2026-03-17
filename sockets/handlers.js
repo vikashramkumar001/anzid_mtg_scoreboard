@@ -23,6 +23,7 @@ import {
     getControlData,
     saveControlData,
     updateBroadcastTracker,
+    getBroadcastTracker,
     emitScoreboardState,
     updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection,
     emitCurrentVendorSelection, updateVendorSelection,
@@ -69,7 +70,7 @@ import {
 } from "../features/archetypes.js";
 import {
     handleIncomingMetaBreakdownData
-} from "../features/metaBreakdown.js";
+} from "../features/mtg/metaBreakdown.js";
 import {
     emitRiftboundCardList,
     emitRiftboundCardView,
@@ -79,7 +80,9 @@ import {
 import {
     emitStarWarsCardList,
     emitStarWarsCardView,
-    handleStarWarsIncomingDeckData
+    handleStarWarsIncomingDeckData,
+    emitSWULeadersAndBases,
+    lookupCardByName
 } from "../features/starwars/cards.js";
 
 import { RoomUtils } from '../utils/room-utils.js';
@@ -90,7 +93,10 @@ import {
     fetchTournamentStandings,
     fetchMatchByTable,
     fetchMeleeDecklists,
-    fetchMeleePairings
+    fetchMeleeDecklist,
+    parseMeleeDecklist,
+    fetchMeleePairings,
+    fetchCardeioDecklist
 } from '../features/tournament-platforms.js';
 
 export default function registerSocketHandlers(io) {
@@ -158,6 +164,7 @@ export default function registerSocketHandlers(io) {
         // Timer control
         socket.on('update-timer-state', ({round_id, match_id, action}) => {
             updateTimerAction(io, round_id, match_id, action);
+            emitTimerState(io);
         });
 
         socket.on('get-all-timer-states', () => {
@@ -305,6 +312,11 @@ export default function registerSocketHandlers(io) {
             handleStarWarsIncomingDeckData(io, deckListData)
         })
 
+        // starwars - Leaders and Bases list for dropdowns
+        socket.on('starwars-get-leaders-and-bases', () => {
+            emitSWULeadersAndBases(io);
+        });
+
         // END STARWARS
 
         // Standings
@@ -326,13 +338,22 @@ export default function registerSocketHandlers(io) {
         // Broadcast
         socket.on('broadcast-requested', async ({round_id}) => {
             const controlData = getControlData();
-            console.log('haha');
             if (controlData[round_id]) {
                 updateBroadcastTracker(round_id);
                 RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
-                console.log('haha again');
+                RoomUtils.emitToRoom(io, 'broadcast-scoreboard', 'broadcast-scoreboard-round-id', { round_id });
             }
             emitBroadcastStandings(io, round_id);
+        });
+
+        // Broadcast scoreboard - request current broadcast data on page load
+        socket.on('get-broadcast-scoreboard-data', () => {
+            const bt = getBroadcastTracker();
+            const cd = getControlData();
+            if (bt.round_id && cd[bt.round_id]) {
+                socket.emit('broadcast-round-data', cd[bt.round_id]);
+                socket.emit('broadcast-scoreboard-round-id', { round_id: bt.round_id });
+            }
         });
 
         // Broadcast deck data to be transformed
@@ -439,6 +460,20 @@ export default function registerSocketHandlers(io) {
             }
         });
 
+        // Fetch and cache Carde decklist export for an event
+        socket.on('fetch-cardeio-decklists', async ({ eventId }) => {
+            try {
+                const data = await fetchCardeioDecklist(eventId);
+                const count = data?.decklists?.length || 0;
+                socket.emit('cardeio-decklists-fetched', { success: true, count });
+            } catch (error) {
+                const msg = error.response?.status === 401
+                    ? 'Authentication failed — CARDEIO_TOKEN may be expired. Update .env and restart.'
+                    : error.message;
+                socket.emit('cardeio-decklists-fetched', { success: false, error: msg });
+            }
+        });
+
         // Fetch match data by table number
         socket.on('fetch-match-by-table', async ({ tournamentId, roundNumber, tableNumber, platform }) => {
             try {
@@ -446,6 +481,43 @@ export default function registerSocketHandlers(io) {
                 socket.emit('match-by-table-fetched', { matchData });
             } catch (error) {
                 socket.emit('match-by-table-fetched', { error: error.message });
+            }
+        });
+
+        // Fetch a single decklist by ID and parse it into categorized card lists
+        socket.on('fetch-decklist-by-id', async ({ decklistId, side, matchId, roundId, game }) => {
+            try {
+                const raw = await fetchMeleeDecklist(decklistId);
+                const parsed = parseMeleeDecklist(raw, game || 'starwars');
+
+                // SWU-specific: enrich leader/base with aspects and HP from local card data
+                if (game === 'starwars' || !game) {
+                    if (parsed.leader) {
+                        const cardInfo = lookupCardByName(parsed.leader.name);
+                        if (cardInfo) {
+                            parsed.leader.aspects = cardInfo.aspects;
+                        }
+                    }
+                    if (parsed.base) {
+                        const cardInfo = lookupCardByName(parsed.base.name);
+                        if (cardInfo) {
+                            parsed.base.aspects = cardInfo.aspects;
+                            parsed.base.hp = cardInfo.hp;
+                        }
+                    }
+                }
+
+                socket.emit('decklist-fetched', { side, matchId, roundId, game: game || 'starwars', ...parsed });
+            } catch (error) {
+                socket.emit('decklist-fetched', { side, matchId, roundId, error: error.message });
+            }
+        });
+
+        // Lookup SWU card info (aspects, HP) by name
+        socket.on('lookup-swu-card', ({ name }, callback) => {
+            const info = lookupCardByName(name);
+            if (typeof callback === 'function') {
+                callback(info);
             }
         });
 

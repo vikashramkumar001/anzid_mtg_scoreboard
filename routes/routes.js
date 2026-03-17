@@ -3,7 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
 
-import { overlayStorage, archetypeStorage } from '../features/overlays.js';
+import { overlayStorage, archetypeStorage, getOverlayPaths } from '../features/overlays.js';
+import { getGameSelection } from '../config/constants.js';
 import { handleArchetypeUpload } from '../features/archetypes.js';
 
 const router = express.Router();
@@ -71,6 +72,10 @@ router.get('/broadcast/round/draftlist/:slotId', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-draft-list.html'));
 });
 
+router.get('/broadcast/round/scoreboard/:matchID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
+});
+
 router.get('/broadcast/round/standings/:rankID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings.html'));
 });
@@ -95,31 +100,39 @@ router.get('/timer/:controlID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/timer.html'));
 });
 
-router.get('/display/card/view/:gameID/:cardID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/dedicated-card-view.html'));
+// Unified card view display (game-agnostic, adapts via game selection)
+router.get('/display/card/view/:cardID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/card-view-display.html'));
+});
+
+// mtg - dedicated card view
+router.get('/mtg/display/card/view/:cardID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/mtg/dedicated-card-view.html'));
 });
 
 router.get('/lower-third/commentator/:commentatorID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/commentator-lower-third.html'));
 });
 
-// Upload overlay header image
+// Upload overlay header image (game-specific)
 router.post('/upload-header-overlay', uploadOverlay.single('overlay_header'), (req, res) => {
   if (req.file) {
-    const newImageUrl = '/assets/images/overlay_header.png';
-    req.io?.emit('overlayHeaderBackgroundUpdate', newImageUrl);
-    res.json({ success: true, newImageUrl });
+    const game = getGameSelection();
+    const paths = getOverlayPaths(game);
+    req.io?.emit('overlayHeaderBackgroundUpdate', paths.headerUrl);
+    res.json({ success: true, newImageUrl: paths.headerUrl });
   } else {
     res.status(400).json({ success: false, message: 'No file uploaded' });
   }
 });
 
-// Upload overlay footer image
+// Upload overlay footer image (game-specific)
 router.post('/upload-footer-overlay', uploadOverlay.single('overlay_footer'), (req, res) => {
   if (req.file) {
-    const newImageUrl = '/assets/images/overlay_footer.png';
-    req.io?.emit('overlayFooterBackgroundUpdate', newImageUrl);
-    res.json({ success: true, newImageUrl });
+    const game = getGameSelection();
+    const paths = getOverlayPaths(game);
+    req.io?.emit('overlayFooterBackgroundUpdate', paths.footerUrl);
+    res.json({ success: true, newImageUrl: paths.footerUrl });
   } else {
     res.status(400).json({ success: false, message: 'No file uploaded' });
   }
@@ -154,7 +167,12 @@ router.get('/riftbound/display/card/view/:cardID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/riftbound/dedicated-card-view.html'));
 });
 
-// vibes - deck view
+// riftbound - deck view (broadcast format with matchID + sideID)
+router.get('/riftbound/display/main/deck/:matchID/:sideID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/riftbound/deck-display.html'));
+});
+
+// riftbound - deck view (legacy single deckID)
 router.get('/riftbound/display/main/deck/:deckID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/riftbound/deck-display.html'))
 });

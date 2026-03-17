@@ -171,27 +171,22 @@ function updateTheme(game, vendor, playerCount) {
     const mtgLowerThird = document.getElementById('lower-third-mtg');
     const riftboundLowerThird = document.getElementById('lower-third-riftbound');
     const vibesLowerThird = document.getElementById('lower-third-vibes');
+    const starwarsLowerThird = document.getElementById('lower-third-starwars');
 
-    if (normalized === 'mtg') {
-        console.log('Switching lower-third to MTG mode...');
-        if (mtgLowerThird) mtgLowerThird.style.display = 'block';
-        if (riftboundLowerThird) riftboundLowerThird.style.display = 'none';
-        if (vibesLowerThird) vibesLowerThird.style.display = 'none';
-    } else if (normalized === 'riftbound') {
-        console.log('Switching lower-third to Riftbound mode...');
-        if (mtgLowerThird) mtgLowerThird.style.display = 'none';
-        if (riftboundLowerThird) riftboundLowerThird.style.display = 'block';
-        if (vibesLowerThird) vibesLowerThird.style.display = 'none';
-    } else if (normalized === 'vibes') {
-        console.log('Switching lower-third to Vibes mode...');
-        if (mtgLowerThird) mtgLowerThird.style.display = 'none';
-        if (riftboundLowerThird) riftboundLowerThird.style.display = 'none';
-        if (vibesLowerThird) vibesLowerThird.style.display = 'block';
-    } else {
-        // Default: hide all if unknown game type
-        if (mtgLowerThird) mtgLowerThird.style.display = 'none';
-        if (riftboundLowerThird) riftboundLowerThird.style.display = 'none';
-        if (vibesLowerThird) vibesLowerThird.style.display = 'none';
+    const allLowerThirds = [mtgLowerThird, riftboundLowerThird, vibesLowerThird, starwarsLowerThird];
+    allLowerThirds.forEach(el => { if (el) el.style.display = 'none'; });
+
+    const gameMap = {
+        'mtg': mtgLowerThird,
+        'riftbound': riftboundLowerThird,
+        'vibes': vibesLowerThird,
+        'starwars': starwarsLowerThird
+    };
+
+    const activeEl = gameMap[normalized];
+    if (activeEl) {
+        console.log(`Switching lower-third to ${normalized} mode...`);
+        activeEl.style.display = 'block';
     }
 
     // Apply vendor overrides

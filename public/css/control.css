@@ -18,6 +18,8 @@ html, body {
 
 .life-totals {
     flex-grow: 1;
+    position: relative;
+    overflow: hidden;
 }
 
 .player, .event, .life-totals, .life-total-left, .life-total-right {
@@ -54,6 +56,7 @@ html, body {
 .player-left {
     transform: rotate(180deg);
 }
+
 
 .life-total-minus, .life-total-plus {
     width: 100%;
@@ -137,35 +140,84 @@ html, body {
 
 .player {
     height: 60px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
 }
 
 .player * {
     text-transform: uppercase;
 }
 
+.player-secondary {
+    height: 180px;
+    border-top: 4px solid rgba(0, 0, 0, 0.4);
+}
+
+.player.player-secondary .player-value {
+    font-size: 72px;
+    line-height: 90px;
+    text-align: center;
+}
+
+.player.player-secondary .player-header {
+    font-size: 30px;
+    text-align: center;
+}
+
+.player.player-secondary .player-wins,
+.player.player-secondary .player-poison {
+    flex: 1;
+    justify-content: center;
+}
+
+.player.player-secondary .player-wins-details,
+.player.player-secondary .player-poison-details {
+    align-items: center;
+}
+
+.player.player-secondary .player-poison-details,
+.player.player-secondary .player-wins-details {
+    padding-top: 25px;
+}
+
+.player.player-secondary .player-wins-details {
+    transform: translateX(-8px);
+}
+
+.player.player-secondary .player-wins-control .btn,
+.player.player-secondary .player-poison-control .btn {
+    width: 210px;
+    font-size: 120px;
+    height: 160px;
+}
+
+
 
 .life-total-overlay {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
     pointer-events: none;
-    height: 90%;
 }
 
 .life-total-overlay-element {
+    position: absolute;
+    width: 100%;
+    height: 50%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
-    transform: rotate(180deg);
     pointer-events: none;
+    transform: rotate(180deg);
+}
+
+.life-total-overlay-left {
+    top: -10px;
 }
 
 .life-total-overlay-right {
+    top: calc(50% + 10px);
     transform: rotate(0deg);
 }
 
@@ -218,6 +270,14 @@ body {
     background-color: #f0f0f0;
 }
 
+.player-poison-value {
+    margin-right: 20px;
+}
+
+.player-poison-header {
+    padding-right: 17px;
+}
+
 /* player poison overwrites */
 .player-poison {
     display: flex;
@@ -244,16 +304,25 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+#timer-turn-plus, #timer-turn-minus {
+    display: none;
+    font-size: 20px;
+}
+
+#timer-turn-plus {
+    margin-right: 30px;
+}
+
 .timer-container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: calc(50vh - 86px);
+    top: calc(50% - 86px);
     width: 1343px;
     height: 150px;
-    transform: rotate(270deg);
-    left: -597px;
+    transform: rotate(90deg);
+    right: -597px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }

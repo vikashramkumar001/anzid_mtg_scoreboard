@@ -128,13 +128,25 @@ export async function updateFieldFromControl(round_id, match_id, field, value, t
         controlData[round_id][match_id]._timestamps[field] = timestamp;
         await saveControlData();
         
-        // Emit granular update to master-control ONLY
+        // Emit granular update to master-control
         RoomUtils.emitWithRoomMapping(io, 'field-updated', {
             round_id,
             match_id,
             field,
             value,
             timestamp
+        });
+
+        // Also emit full state to scoreboard(s) tracking this round/match
+        Object.entries(controlsTracker).forEach(([control_id, control]) => {
+            if (control.round_id === round_id && control.match_id === match_id) {
+                RoomUtils.emitToRoom(io, `scoreboard-${control_id}`, `scoreboard-${control_id}-saved-state`, {
+                    data: controlData[round_id][match_id],
+                    round_id,
+                    match_id,
+                    archetypeList: getSortedArchetypes()
+                });
+            }
         });
     }
 }
@@ -188,6 +200,7 @@ export function emitControlTrackers(io) {
 
 // Emit a full update from master control - goes to control / scoreboard
 export async function updateFromMaster(allControlData, io) {
+    console.log('[SWU DEBUG SERVER] updateFromMaster called, controlsTracker:', JSON.stringify(controlsTracker));
     // Merge incoming data with existing data to preserve draft list fields
     Object.entries(allControlData).forEach(([round_id, roundData]) => {
         if (isNaN(round_id)) return; // Skip non-round keys like "draftLists"
@@ -212,17 +225,21 @@ export async function updateFromMaster(allControlData, io) {
 
     Object.entries(allControlData).forEach(([round_id, roundData]) => {
         if (isNaN(round_id)) return; // Skip non-round keys like "draftLists"
-        Object.entries(roundData).forEach(([match_id, matchData]) => {
+        Object.entries(roundData).forEach(([match_id]) => {
             Object.entries(controlsTracker).forEach(([control_id, ctrl]) => {
                 if (ctrl.round_id === round_id && ctrl.match_id === match_id) {
+                    // Use merged controlData (not incoming data) to avoid async race condition
+                    // where saveControlData delay causes stale data to be emitted last
+                    const mergedData = controlData[round_id]?.[match_id] || {};
+                    console.log(`[SWU DEBUG SERVER] Emitting to scoreboard-${control_id}, leader-left:`, mergedData['player-leader-left'], 'leader-right:', mergedData['player-leader-right']);
                     RoomUtils.emitToRoom(io, `control-${control_id}`, `control-${control_id}-saved-state`, {
-                        data: matchData,
+                        data: mergedData,
                         round_id,
                         match_id,
                         archetypeList: getSortedArchetypes()
                     });
                     RoomUtils.emitToRoom(io, `scoreboard-${control_id}`, `scoreboard-${control_id}-saved-state`, {
-                        data: matchData,
+                        data: mergedData,
                         round_id,
                         match_id,
                         archetypeList: getSortedArchetypes()

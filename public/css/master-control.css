@@ -76,6 +76,10 @@
     background-color: #f0f0f0;
 }
 
+.custom-dropdown .dropdown-item img {
+    flex-shrink: 0;
+}
+
 .archetype-item {
     display: flex;
     align-items: center;

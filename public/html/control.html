@@ -38,14 +38,16 @@
                  contenteditable="true">
             </div>
         </div>
+    </div>
+    <div class="player player-left player-secondary">
         <div class="player-wins">
             <div class="player-wins-details">
                 <div class="player-header player-wins-header">Wins</div>
                 <div id="player-wins-left" class="player-value player-wins-value editable dynamic" contenteditable="false">0</div>
             </div>
-            <div class="player-wins-control left">
-                <button class="btn plus wins-plus-btn" data-target="player-wins-left">+</button>
-                <button class="btn minus wins-minus-btn" data-target="player-wins-left">-</button>
+            <div class="player-wins-control">
+                <button class="btn wins-plus-btn plus" data-target="player-wins-left">+</button>
+                <button class="btn wins-minus-btn minus" data-target="player-wins-left">-</button>
             </div>
         </div>
         <div class="player-poison">
@@ -63,21 +65,50 @@
     </div>
     <div class="life-totals">
         <div class="life-total-left">
-            <div class="life-total-minus life-total-left-minus">-
-            </div>
-            <div class="life-total-plus  life-total-left-plus">+
-            </div>
+            <div class="life-total-minus life-total-left-minus">-</div>
+            <div class="life-total-plus life-total-left-plus">+</div>
         </div>
         <div class="life-total-right">
-            <div class="life-total-minus life-total-right-minus">
-                -
-            </div>
-            <div class="life-total-plus  life-total-right-plus">+
-            </div>
+            <div class="life-total-minus life-total-right-minus">-</div>
+            <div class="life-total-plus life-total-right-plus">+</div>
         </div>
         <div class="life-total-overlay">
             <div id="player-life-left" class="life-total-overlay-element life-total-overlay-left dynamic"></div>
             <div id="player-life-right" class="life-total-overlay-element life-total-overlay-right dynamic"></div>
+        </div>
+        <div class="timer-container">
+            <button class="timer-buttons font-30" id="timer-turn-minus">-Turn</button>
+            <button class="timer-buttons font-30" id="timer-turn-plus">+Turn</button>
+            <div id="timer">00:00</div>
+            <button class="timer-buttons" id="timer-start">▶</button>
+            <button class="timer-buttons font-30" id="timer-add">+</button>
+            <button class="timer-buttons font-30" id="timer-minus">-</button>
+            <button class="timer-buttons" id="timer-pause">⏸</button>
+            <button class="timer-buttons" id="timer-reset">⭮</button>
+        </div>
+    </div>
+    <div class="player player-right player-secondary">
+        <div class="player-wins">
+            <div class="player-wins-details">
+                <div class="player-header player-wins-header">Wins</div>
+                <div id="player-wins-right" class="player-value player-wins-value editable dynamic" contenteditable="false">0</div>
+            </div>
+            <div class="player-wins-control">
+                <button class="btn wins-plus-btn plus" data-target="player-wins-right">+</button>
+                <button class="btn wins-minus-btn minus" data-target="player-wins-right">-</button>
+            </div>
+        </div>
+        <div class="player-poison">
+            <div class="player-poison-details">
+                <div class="player-header player-poison-header">Poison</div>
+                <div id="player-poison-right" class="player-value  player-poison-value editable dynamic"
+                     contenteditable="true">
+                </div>
+            </div>
+            <div class="player-poison-control right">
+                <button class="btn plus">+</button>
+                <button class="btn minus">-</button>
+            </div>
         </div>
     </div>
     <div class="player player-right">
@@ -104,28 +135,6 @@
                  contenteditable="true">
             </div>
         </div>
-        <div class="player-wins">
-            <div class="player-wins-details">
-                <div class="player-header player-wins-header">Wins</div>
-                <div id="player-wins-right" class="player-value player-wins-value editable dynamic" contenteditable="false">0</div>
-            </div>
-            <div class="player-wins-control right">
-                <button class="btn plus wins-plus-btn" data-target="player-wins-right">+</button>
-                <button class="btn minus wins-minus-btn" data-target="player-wins-right">-</button>
-            </div>
-        </div>
-        <div class="player-poison">
-            <div class="player-poison-details">
-                <div class="player-header player-poison-header">Poison</div>
-                <div id="player-poison-right" class="player-value  player-poison-value editable dynamic"
-                     contenteditable="true">
-                </div>
-            </div>
-            <div class="player-poison-control right">
-                <button class="btn plus">+</button>
-                <button class="btn minus">-</button>
-            </div>
-        </div>
     </div>
     <div class="event">
         <div id="event-name" class="event-name editable dynamic" contenteditable="true">
@@ -137,14 +146,6 @@
         <div class="buttons reset-life-button">
             <button>Reset Life</button>
         </div>
-    </div>
-    <div class="timer-container">
-        <div id="timer">00:00</div>
-        <button class="timer-buttons" id="timer-start">▶</button>
-        <button class="timer-buttons font-30" id="timer-add">+</button>
-        <button class="timer-buttons font-30" id="timer-minus">-</button>
-        <button class="timer-buttons" id="timer-pause">⏸</button>
-        <button class="timer-buttons" id="timer-reset">⭮</button>
     </div>
 </div>
 

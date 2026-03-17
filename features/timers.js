@@ -4,10 +4,10 @@ import { RoomUtils } from '../utils/room-utils.js';
 // Create timerState structure for 16 rounds with 4 matches each
 let timerState = Array.from({length: 16}, (_, i) => ({
     [i + 1]: {
-        match1: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false},
-        match2: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false},
-        match3: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false},
-        match4: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false}
+        match1: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false, turnCount: 0},
+        match2: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false, turnCount: 0},
+        match3: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false, turnCount: 0},
+        match4: {time: DEFAULT_INITIAL_TIME, status: 'stopped', show: true, countUp: false, turnCount: 0}
     }
 })).reduce((acc, round) => ({...acc, ...round}), {});
 
@@ -43,10 +43,18 @@ export function updateTimerAction(io, round_id, match_id, action) {
             break;
         case 'minus':
             match.time = Math.max(0, match.time - 60000); // -1 min, min 0
+            if (match.time === 0) match.turnCount = 0;
             break;
         case 'reset':
             match.status = 'stopped';
             match.time = match.countUp ? 0 : DEFAULT_INITIAL_TIME;
+            match.turnCount = 0;
+            break;
+        case 'turn-plus':
+            match.turnCount = (match.turnCount ?? 0) + 1;
+            break;
+        case 'turn-minus':
+            match.turnCount = Math.max(0, (match.turnCount || 0) - 1);
             break;
         case 'show':
             match.show = true;
@@ -91,6 +99,7 @@ export function startTimerBroadcast(io) {
                         if (match.time <= 0) {
                             match.time = 0;
                             match.status = 'stopped';
+                            match.turnCount = 0;
                         }
                     }
                 }

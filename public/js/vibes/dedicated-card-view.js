@@ -2,7 +2,7 @@ const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
 let cardName = null;
-const fallbackUrl = `/assets/images/cards/vibes/vibes-card-back.png`;
+const fallbackUrl = `/assets/images/vibes/cards/vibes-card-back.png`;
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');

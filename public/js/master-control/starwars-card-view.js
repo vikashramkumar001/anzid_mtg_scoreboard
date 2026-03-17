@@ -206,7 +206,7 @@ export function initStarWarsCardView(socket) {
                 const baseRaw = (entry.image || key).split(/\\|\//).pop();
                 const base = baseRaw.split('?')[0].split('#')[0];
                 const filename = /\.[a-z0-9]+$/i.test(base) ? base : base + '.png';
-                const url = `/assets/images/cards/starwars/${set}/${filename}`;
+                const url = `/assets/images/starwars/cards/${set}/${filename}`;
                 const display = `${set}:${entry.name}`;
                 flat[display] = { set, name: entry.name, url };
             }

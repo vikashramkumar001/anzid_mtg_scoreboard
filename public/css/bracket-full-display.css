@@ -34,6 +34,14 @@
     font-style: normal;
 }
 
+/* Barlow Font for Star Wars */
+@font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
 :root {
     --dynamic-font: 'Bebas Neue', sans-serif;
     --dynamic-font-weight: bold;
@@ -93,11 +101,10 @@ body {
 /* Individual bracket slot */
 .bracket-slot {
     position: absolute;
-    width: 574px;
+    width: 424px;
     height: 56px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     font-size: 28px;
     color: #000;
     text-align: center;
@@ -127,33 +134,25 @@ body {
 .slot-rank {
     width: 46px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #C6C6C6;
-    padding-top: 3px;
     z-index: 1;
 }
 
 .slot-name-archetype {
-    width: 428px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    clip-path: polygon(0% 0, 73% 0%, 64.5% 100%, 0% 100%);
-    background-color: #C6C6C6;
     z-index: 1;
+    overflow: hidden;
 }
 
 .slot-name {
     display: block;
     height: 31px;
     line-height: 39px;
-    margin-bottom: 0px;
-    text-overflow: ellipsis;
-    overflow: hidden;
     white-space: nowrap;
-    width: 90%;
     text-align: start;
 }
 
@@ -164,25 +163,15 @@ body {
     font-style: var(--archetype-font-style, italic);
     font-weight: var(--archetype-font-weight, bold);
     font-size: 16px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 88%;
-    text-align: start;
     white-space: nowrap;
+    text-align: start;
 }
 
 .slot-points {
-    width: 100px;
+    width: var(--slot-points-width, 100px);
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    clip-path: polygon(40% 0, 100% 0%, 100% 100%, 4.25% 100%);
-    left: -150px;
-    position: relative;
-    text-indent: 25px;
-    padding-top: 3px;
     z-index: 1;
 }
 

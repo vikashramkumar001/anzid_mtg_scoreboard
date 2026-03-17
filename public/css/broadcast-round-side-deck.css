@@ -2,25 +2,42 @@
     font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
 }
 
+body.starwars * {
+    font-family: 'Barlow', sans-serif;
+}
+
 #deck-display-container {
     width: 1920px;
     height: 1080px;
+    position: relative;
+}
+
+/* Background image layer */
+#sideboard-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
 }
 
 #side-deck-container {
     width: 1920px;
-    /*height: 260px;*/
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: nowrap;
     padding: 5px;
+    z-index: 10;
 }
 
 .side-deck-card {
     width: 180px;
-    /*height: 250px;*/
     margin: 5px;
     position: relative;
     display: flex;
@@ -50,6 +67,41 @@
 
 .card-src {
     width: 100%;
+}
+
+/* Star Wars Sideboard Layout */
+#side-deck-container.starwars-sideboard {
+    position: absolute;
+    top: 814px;
+    bottom: 0;
+    left: 0;
+    width: 1920px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0 40px;
+}
+
+.starwars-sideboard-card {
+    margin: 0;
+}
+
+.starwars-sideboard-card .card-src {
+    border-radius: 12px;
+}
+
+.starwars-sideboard-card .card-count {
+    top: auto;
+    bottom: -4%;
+    right: 42%;
+    width: 20%;
+    height: 15%;
+    font-size: 1.1vw;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 50%;
+    border: none;
 }
 
 /* VERTICAL SIDE DECK LAYOUT */

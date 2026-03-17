@@ -347,7 +347,7 @@ function renderMTGHorizontalDraftList() {
     const cardHeight = availableCardHeight / 4;
     const cardAspectRatio = 0.7179;
     const cardWidth = Math.floor(cardHeight * cardAspectRatio);
-    const cardBackUrl = '/assets/images/cards/mtg/magic-card-back.jpg';
+    const cardBackUrl = '/assets/images/mtg/cards/magic-card-back.jpg';
 
     // Always render 3 columns (even if empty)
     for (let packIndex = 0; packIndex < 3; packIndex++) {
@@ -456,6 +456,24 @@ function updateTheme(game, vendor, playerCount) {
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
+
+        // Update decklist background image dynamically
+        const normalized = gameSelection?.toLowerCase();
+        const bgSelectors = {
+            mtg: '#mtg-bg-image',
+            riftbound: '#riftbound-bg-image',
+        };
+        const bgSelector = bgSelectors[normalized];
+        if (bgSelector) {
+            const bgEl = document.querySelector(bgSelector);
+            if (bgEl) {
+                const bgPath = vc.getAssetPath(
+                    `/assets/images/${normalized}/decklist/${normalized}-decklist-bg.png`,
+                    vendor, playerCount
+                );
+                bgEl.style.backgroundImage = `url("${bgPath}")`;
+            }
+        }
     }
 }
 

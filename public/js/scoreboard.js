@@ -7,9 +7,19 @@ const socket = io();
 window.roomManager = new RoomManager(socket);
 
 const pathSegments = window.location.pathname.split('/');
-const control_id = pathSegments[2];
-let round_id = '1';
-let match_id = 'match1';
+const isBroadcastMode = window.location.pathname.includes('/broadcast/round/scoreboard/');
+
+let control_id, match_id, round_id;
+if (isBroadcastMode) {
+    match_id = pathSegments[4]; // e.g. 'match1'
+    round_id = null; // set when server sends broadcast-scoreboard-round-id
+    control_id = null;
+} else {
+    control_id = pathSegments[2];
+    round_id = '1';
+    match_id = 'match1';
+}
+
 let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
 let currentGame = 'mtg';
 let currentVendor = 'default';
@@ -25,213 +35,274 @@ const MANA_SYMBOLS = {
     C: {alt: 'Colorless', src: 'https://svgs.scryfall.io/card-symbols/C.svg'}
 };
 
+// Star Wars Unlimited Aspects Dictionary
+const SWU_ASPECTS = {
+    'aggression': '/assets/images/starwars/icons/Aggression.png',
+    'command': '/assets/images/starwars/icons/Command.png',
+    'cunning': '/assets/images/starwars/icons/Cunning.png',
+    'heroism': '/assets/images/starwars/icons/Heroism.png',
+    'vigilance': '/assets/images/starwars/icons/Vigilance.png',
+    'villainy': '/assets/images/starwars/icons/Villainy.png'
+};
+// SWU Leaders and Bases: empty for now, populated when card images are added
+const SWU_LEADERS = {};
+const SWU_BASES = {};
+
+// Helper: find a matching key in a dictionary (case-insensitive, partial match)
+function findDictMatch(name, dict) {
+    if (!name) return null;
+    const nameLower = name.toLowerCase();
+    // Exact match first
+    for (const key in dict) {
+        if (key.toLowerCase() === nameLower) return key;
+    }
+    // Partial match: input contains key OR key contains input
+    for (const key in dict) {
+        const keyLower = key.toLowerCase();
+        if (nameLower.includes(keyLower) || keyLower.includes(nameLower)) return key;
+    }
+    return null;
+}
+
+// Helper: render SWU aspect icons into a container from comma-separated string
+function renderAspectIcons(value, container) {
+    container.innerHTML = '';
+    if (!value) return;
+    const aspects = value.split(',').map(a => a.trim().toLowerCase()).filter(Boolean);
+    aspects.forEach(aspect => {
+        const iconUrl = SWU_ASPECTS[aspect];
+        if (iconUrl) {
+            const img = document.createElement('img');
+            img.src = iconUrl;
+            img.alt = aspect;
+            img.className = 'swu-aspect-icon';
+            container.appendChild(img);
+        }
+    });
+}
+
 // Riftbound Battlefields Dictionary
 // Maps battlefield names to their left and right side image URLs
 // Files with "180" are for left side, files without "180" are for right side
 // Default image is used as fallback when a battlefield is not found or empty
 const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
-    left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png',
-    right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
+    left: '/assets/images/riftbound/battlefields/_0000_Default.png',
+    right: '/assets/images/riftbound/battlefields/_0000_Default.png'
 };
 
 const RIFTBOUND_BATTLEFIELDS = {
-    'default': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0000_Default.png'
-    },
     'Altar to Unity': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0000_Altar-to-Unity180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0024_Altar-to-Unity.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Altar to Unity.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Altar to Unity.png',
     },
     'Aspirant\'s Climb': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0001_Aspirant_s-Climb180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0025_Aspirant_s-Climb.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Aspirant\'s Climb.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Aspirant\'s Climb.png',
     },
-    'Back Alley Bar': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0002_Back-Alley-Bar180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0026_Back-Alley-Bar.png'
+    'Back-Alley Bar': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Back-Alley Bar.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Back-Alley Bar.png',
     },
     'Bandle Tree': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0003_Bandle-Tree180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0027_Bandle-Tree.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Bandle Tree.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Bandle Tree.png',
+    },
+    'Emperor\'s Dais': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Emperor\'s Dais.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Emperor\'s Dais.png',
+    },
+    'Forge of the Fluft': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Forge of the Fluft.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Forge of the Fluft.png',
+    },
+    'Forgotten Monument': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Forgotten Monument.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Forgotten Monument.png',
     },
     'Fortified Position': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0004_Fortified-Position180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0028_Fortified-Position.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Fortified Position.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Fortified Position.png',
     },
-    'Grove of the God Willow': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0005_Grove-of-the-God-Willow180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0029_Grove-of-the-God-Willow.png'
+    'Grove of the God-Willow': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Grove of the God-Willow.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Grove of the God-Willow.png',
+    },
+    'Hall of Legends': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Hall of Legends.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Hall of Legends.png',
     },
     'Hallowed Tomb': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0006_Hallowed-Tomb180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0030_Hallowed-Tomb.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Hallowed Tomb.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Hallowed Tomb.png',
+    },
+    'Marai Spire': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Marai Spire.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Marai Spire.png',
+    },
+    'Minefield': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Minefield.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Minefield.png',
     },
     'Monastery of Hirana': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0007_Monastery-of-Hirana180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0031_Monastery-of-Hirana.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Monastery of Hirana.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Monastery of Hirana.png',
     },
     'Navori Fighting Pit': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0008_Navori-Fighting-Pit180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0032_Navori-Fighting-Pit.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Navori Fighting Pit.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Navori Fighting Pit.png',
     },
     'Obelisk of Power': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0009_Obelisk-of-Power180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0033_Obelisk-of-Power.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Obelisk of Power.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Obelisk of Power.png',
+    },
+    'Orin\'s Forge': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Orin\'s Forge.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Orin\'s Forge.png',
+    },
+    'Power Nexus': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Power Nexus.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Power Nexus.png',
+    },
+    'Ravenbloom Conservatory': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Ravenbloom Conservatory.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Ravenbloom Conservatory.png',
     },
     'Reaver\'s Row': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0010_Reaver_s-Row180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0034_Reaver_s-Row.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Reaver\'s Row.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Reaver\'s Row.png',
     },
     'Reckoner\'s Arena': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0011_Reckoner_s-Arena180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0035_Reckoner_s-Arena.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Reckoner\'s Arena.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Reckoner\'s Arena.png',
+    },
+    'Rockfall Path': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Rockfall Path.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Rockfall Path.png',
+    },
+    'Seat of Power': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Seat of Power.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Seat of Power.png',
     },
     'Sigil of the Storm': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0012_Sigil-of-the-Storm180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0036_Sigil-of-the-Storm.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Sigil of the Storm.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Sigil of the Storm.png',
     },
     'Startipped Peak': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0013_Startipped-Peak180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0037_Startipped-Peak.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Startipped Peak.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Startipped Peak.png',
+    },
+    'Sunken Temple': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Sunken Temple.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Sunken Temple.png',
     },
     'Targon\'s Peak': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0014_Targon_s-Peak180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0038_Targon_s-Peak.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Targon\'s Peak.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Targon\'s Peak.png',
     },
     'The Arena\'s Greatest': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0015_The-Arena_s-Greatest180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0039_The-Arena_s-Greatest.png'
-    },
-    'The Dreaming Tree': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0016_The-Dreaming-Tree180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0040_The-Dreaming-Tree.png'
-    },
-    'The Grand Plaza': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0017_The-Grand-Plaza180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0041_The-Grand-Plaza.png'
-    },
-    'Trifarian War Camp': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0018_Trifarian-War-Camp180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0042_Trifarian-War-Camp.png'
-    },
-    'Vilemaw\'s Lair': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0019_Vilemaw_s-Lair180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0043_Vilemaw_s-Lair.png'
-    },
-    'Void Gate': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0020_Void-Gate180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0044_Void-Gate.png'
-    },
-    'Windswept Hillock': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0021_Windswept-Hillock180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0045_Windswept-Hillock.png'
-    },
-    'Zaun Warrens': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0022_Zaun-Warrens180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0046_Zaun-Warrens.png'
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Arena\'s Greatest.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Arena\'s Greatest.png',
     },
     'The Candlelit Sanctum': {
-        left: '/assets/images/riftbound/scoreboard/battlefields/_0023_The-Candlelit-Sanctum180.png',
-        right: '/assets/images/riftbound/scoreboard/battlefields/_0047_The-Candlelit-Sanctum.png'
-    }
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Candlelit Sanctum.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Candlelit Sanctum.png',
+    },
+    'The Dreaming Tree': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Dreaming Tree.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Dreaming Tree.png',
+    },
+    'The Grand Plaza': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Grand Plaza.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Grand Plaza.png',
+    },
+    'The Papertree': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Papertree.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Papertree.png',
+    },
+    'Treasure Hoard': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Treasure Hoard.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Treasure Hoard.png',
+    },
+    'Trifarian War Camp': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Trifarian War Camp.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Trifarian War Camp.png',
+    },
+    'Veiled Temple': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Veiled Temple.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Veiled Temple.png',
+    },
+    'Vilemaw\'s Lair': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Vilemaw\'s Lair.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Vilemaw\'s Lair.png',
+    },
+    'Void Gate': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Void Gate.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Void Gate.png',
+    },
+    'Windswept Hillock': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Windswept Hillock.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Windswept Hillock.png',
+    },
+    'Zaun Warrens': {
+        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Zaun Warrens.png',
+        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Zaun Warrens.png',
+    },
 };
 
 // Riftbound Legends Dictionary
-// Maps legend names to their left and right side image URLs
-// Files with "_F_" are for right side, files without "_F_" are for left side
-// Default images are used as fallback when a legend is not found
+// Maps legend names to portrait image URLs (legend-portraits-default-1v1/)
+// Single image used for both left and right sides
 const RIFTBOUND_LEGENDS_DEFAULT = {
-    left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0000_Default.png',
-    right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0000_F_Default.png'
+    left: '/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-tes-1v1/LegendPortrait_0000_Default.png',
+    right: '/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-tes-1v1/LegendPortrait_0000_F_Default.png'
+};
+
+const _RB_PORTRAIT = (filename) => {
+    const p = `/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-default-1v1/${filename}`;
+    return { left: p, right: p };
 };
 
 const RIFTBOUND_LEGENDS = {
-    'Kai\'sa': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0001_Kaisa, Daughter of the Void.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0001_F_Kaisa, Daughter of the Void.png'
-    },
-    'Volibear': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0002_Volibear, Relentless Storm.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0002_F_Volibear, Relentless Storm.png'
-    },
-    'Sett': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0003_Sett, The Boss.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0003_F_Sett, The Boss.png'
-    },
-    'Viktor': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0004_Viktor, Herald of the Arcane.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0004_F_Viktor, Herald of the Arcane.png'
-    },
-    'Teemo': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0005_Teemo, Swift Scout.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0005_F_Teemo, Swift Scout.png'
-    },
-    'Leona': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0006_Leona, Radiant Dawn.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0006_F_Leona, Radiant Dawn.png'
-    },
-    'Yasuo': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_Yasuo, Unforgiven.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_F_Yasuo, Unforgiven.png'
-    },
-    'Yas': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_Yasuo, Unforgiven.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0007_F_Yasuo, Unforgiven.png'
-    },
-    'Lee Sin': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0008_Lee Sin, Blind Monk.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0008_F_Lee Sin, Blind Monk.png'
-    },
-    'Ahri': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0009_Ahri, Nine-Tailed Fox.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0009_F_Ahri, Nine-Tailed Fox.png'
-    },
-    'Darius': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0010_Darius, Hand of Noxus.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0010_F_Darius, Hand of Noxus.png'
-    },
-    'Jinx': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0011_Jinx, Loose Cannon.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0011_F_Jinx, Loose Cannon.png'
-    },
-    'Miss Fortune': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0012_Miss Fortune, Bounty Hunter.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0012_F_Miss Fortune, Bounty Hunter.png'
-    },
-    'Garen': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0013_Garen, Might of Demacia.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0013_F_Garen, Might of Demacia.png'
-    },
-    'Lux': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0014_Lux, Lady of Luminosity.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0014_F_Lux, Lady of Luminosity.png'
-    },
-    'Annie': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0015_Annie, Dark Child.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0015_F_Annie, Dark Child.png'
-    },
-    'Master Yi': {
-        left: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0016_Master Yi, Wuju Bladesman.png',
-        right: '/assets/images/riftbound/scoreboard/legends/LegendPortrait_0016_F_Master Yi, Wuju Bladesman.png'
-    }
+    'Ahri':          _RB_PORTRAIT('In-Game_0026_Ahri.png'),
+    'Annie':         _RB_PORTRAIT('In-Game_0027_Annie.png'),
+    'Azir':          _RB_PORTRAIT('In-Game_0002_Azir.png'),
+    'Darius':        _RB_PORTRAIT('In-Game_0024_Darius.png'),
+    'Draven':        _RB_PORTRAIT('In-Game_0005_Draven.png'),
+    'Ezreal':        _RB_PORTRAIT('In-Game_0004_Ezreal.png'),
+    'Fiora':         _RB_PORTRAIT('In-Game_0006_Fiora.png'),
+    'Garen':         _RB_PORTRAIT('In-Game_0023_Garen.png'),
+    'Irelia':        _RB_PORTRAIT('In-Game_0007_Irelia.png'),
+    'Jax':           _RB_PORTRAIT('In-Game_0009_Jax.png'),
+    'Jinx':          _RB_PORTRAIT('In-Game_0022_Jinx.png'),
+    'Kai\'sa':       _RB_PORTRAIT("In-Game_0021_Kai'sa.png"),
+    'Lee Sin':       _RB_PORTRAIT('In-Game_0020_Lee-Sin.png'),
+    'Leona':         _RB_PORTRAIT('In-Game_0025_Leona.png'),
+    'Lucian':        _RB_PORTRAIT('In-Game_0011_Lucian.png'),
+    'Lux':           _RB_PORTRAIT('In-Game_0017_Lux.png'),
+    'Master Yi':     _RB_PORTRAIT('In-Game_0019_Master-Yi.png'),
+    'Miss Fortune':  _RB_PORTRAIT('In-Game_0018_Miss-Fortune.png'),
+    'Ornn':          _RB_PORTRAIT('In-Game_0001_Ornn.png'),
+    'Rek\'Sai':      _RB_PORTRAIT('In-Game_0003_Reksai.png'),
+    'Renata Glasc':  _RB_PORTRAIT('In-Game_0008_Renata-Glasc.png'),
+    'Rumble':        _RB_PORTRAIT('In-Game_0000_Rumble.png'),
+    'Sett':          _RB_PORTRAIT('In-Game_0016_Sett.png'),
+    'Sivir':         _RB_PORTRAIT('In-Game_0010_Sivir.png'),
+    'Teemo':         _RB_PORTRAIT('In-Game_0015_Teemo.png'),
+    'Viktor':        _RB_PORTRAIT('In-Game_0013_Viktor.png'),
+    'Volibear':      _RB_PORTRAIT('In-Game_0012_Volibear.png'),
+    'Yasuo':         _RB_PORTRAIT('In-Game_0014_Yasuo.png'),
 };
 
 // Riftbound Runes Dictionary
-// Maps rune letters to their icon image URLs
-// COMMENTED OUT FOR LATER USE - Not currently displayed in scoreboard
-/*
+// Maps rune letters to their icon image URLs (runes-bg circular icons)
 const RIFTBOUND_RUNES = {
-    'g': '/assets/images/riftbound/scoreboard/icons/Calm2.png',
-    'p': '/assets/images/riftbound/scoreboard/icons/Chaos2.png',
-    'r': '/assets/images/riftbound/scoreboard/icons/Fury2.png',
-    'b': '/assets/images/riftbound/scoreboard/icons/Mind.png',
-    'y': '/assets/images/riftbound/scoreboard/icons/Order2.png',
-    'o': '/assets/images/riftbound/scoreboard/icons/Body2.png'
+    'r': '/assets/images/riftbound/icons/runes-bg/Fury-bg.png',
+    'g': '/assets/images/riftbound/icons/runes-bg/Calm-bg.png',
+    'b': '/assets/images/riftbound/icons/runes-bg/Mind-bg.png',
+    'o': '/assets/images/riftbound/icons/runes-bg/Body-bg.png',
+    'p': '/assets/images/riftbound/icons/runes-bg/Chaos-bg.png',
+    'y': '/assets/images/riftbound/icons/runes-bg/Order-bg.png',
 };
-*/
-
-console.log('from url - control id', control_id);
 
 function updateElementText(id, value) {
     // Update element in both MTG and Riftbound sections if they exist
@@ -274,7 +345,22 @@ function updateElementText(id, value) {
     if (starwarsContainer) {
         const starwarsEl = starwarsContainer.querySelector(`#${id}`);
         if (starwarsEl && lastState[id] !== value) {
-            starwarsEl.innerHTML = value;
+            if (id === 'event-round') {
+                starwarsEl.innerHTML = value.replace(/\s+of\s+\d+/i, '');
+            } else if (id !== 'player-leader-left' && id !== 'player-leader-right') {
+                starwarsEl.innerHTML = value;
+            }
+            updated = true;
+        }
+        // Leader name formatting: always apply (split on comma, en-dash, em-dash, or spaced hyphen)
+        if (starwarsEl && (id === 'player-leader-left' || id === 'player-leader-right')) {
+            const raw = value ? value.trim() : '';
+            const splitMatch = raw.match(/^(.+?)(?:\s*[,\u2013\u2014]\s*|\s+[-]\s+)(.+)$/);
+            if (splitMatch) {
+                starwarsEl.innerHTML = splitMatch[1] + '<br><span class="swu-leader-subtitle">' + splitMatch[2] + '</span>';
+            } else {
+                starwarsEl.innerHTML = raw;
+            }
             updated = true;
         }
     }
@@ -294,54 +380,34 @@ function updateElementText(id, value) {
 }
 
 function updateState(data) {
-    console.log('updateState called with keys:', Object.keys(data));
     Object.entries(data).forEach(([key, value]) => {
-        if (key.includes('legend')) {
-            console.log(`Found legend-related key: ${key} = ${value}`);
-        }
-        // COMMENTED OUT FOR LATER USE - Runes logic not currently displayed in scoreboard
-        // Handle runes first (before general element handling)
-        /*
-        if (["player-runes-left", "player-runes-right"].includes(key)) {
-            // Handle Riftbound runes display with icons (only update if value changed)
-            const side = key === 'player-runes-left' ? 'left' : 'right';
-            const currentValue = lastState[`runes-value-${side}`];
-            const newValue = value ? value.trim().toLowerCase() : '';
-            
-            // Only update if the value actually changed
-            if (currentValue !== newValue) {
-                const riftboundContainer = document.getElementById('scoreboard-riftbound');
-                if (riftboundContainer) {
-                    const runesContainer = riftboundContainer.querySelector(`#player-runes-${side}`);
-                    
-                    if (runesContainer) {
-                        // Clear existing content
-                        runesContainer.innerHTML = '';
-                        
-                        if (newValue) {
-                            // Create icon for each letter in the string
-                            for (let i = 0; i < newValue.length; i++) {
-                                const letter = newValue[i];
-                                const runeUrl = RIFTBOUND_RUNES[letter];
-                                
-                                if (runeUrl) {
-                                    const img = document.createElement('img');
-                                    img.src = runeUrl;
-                                    img.alt = `Rune ${letter}`;
-                                    img.className = 'riftbound-rune-icon';
-                                    runesContainer.appendChild(img);
-                                }
-                            }
+        // Handle runes (player-rune-color-1/2-left/right → render icons)
+        if (/^player-rune-color-[12]-(left|right)$/.test(key)) {
+            const side = key.endsWith('-left') ? 'left' : 'right';
+            const slot = key.includes('-1-') ? 0 : 1;
+            if (!lastState._runeColors) lastState._runeColors = {};
+            lastState._runeColors[`${side}-${slot}`] = value ? value.trim().toLowerCase() : '';
+
+            const riftboundContainer = document.getElementById('scoreboard-riftbound');
+            if (riftboundContainer) {
+                const runesContainer = riftboundContainer.querySelector(`#player-runes-${side}`);
+                if (runesContainer) {
+                    runesContainer.innerHTML = '';
+                    for (let i = 0; i < 2; i++) {
+                        const letter = lastState._runeColors[`${side}-${i}`];
+                        const runeUrl = letter && RIFTBOUND_RUNES[letter];
+                        if (runeUrl) {
+                            const img = document.createElement('img');
+                            img.src = runeUrl;
+                            img.alt = `Rune ${letter}`;
+                            img.className = 'riftbound-rune-icon';
+                            runesContainer.appendChild(img);
                         }
-                        
-                        // Update the stored value
-                        lastState[`runes-value-${side}`] = newValue;
                     }
                 }
             }
-            return; // Exit early for runes
+            return;
         }
-        */
         
         // Handle legend backgrounds BEFORE general element handling
         if (["player-legend-left", "player-legend-right"].includes(key)) {
@@ -355,10 +421,6 @@ function updateState(data) {
                 // Only update if the value actually changed
                 if (currentValue !== newValue) {
                     const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-legend-background.riftbound-player-legend-background-${side}`);
-                    
-                    if (!backgroundDiv) {
-                        console.log(`Background div not found for ${side}`);
-                    }
                     
                     if (backgroundDiv) {
                         if (newValue) {
@@ -396,27 +458,22 @@ function updateState(data) {
                                     const cacheBuster = new Date().getTime();
                                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                                    backgroundDiv.style.backgroundSize = 'cover';
+                                    backgroundDiv.style.backgroundSize = '120%';
                                     backgroundDiv.style.backgroundPosition = 'center';
                                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                                     backgroundDiv.style.display = 'block';
                                     lastState[`legend-${side}`] = imageUrl;
                                     lastState[`legend-value-${side}`] = newValue;
-                                    console.log(`Legend background set for ${side}: ${matchedLegendKey} -> ${imageUrl}`);
-                                    console.log(`Final URL: ${finalUrl}`);
-                                    console.log(`Background div computed style:`, window.getComputedStyle(backgroundDiv).backgroundImage);
                                 } else {
-                                    console.log(`Legend data found but no ${side} image for: ${matchedLegendKey}`);
                                 }
                             } else {
                                 // Use default images if legend name doesn't match
-                                console.log(`No legend match found for: ${newValue}, using default`);
                                 const defaultImageUrl = RIFTBOUND_LEGENDS_DEFAULT[side];
                                 const encodedUrl = encodeURI(defaultImageUrl);
                                 const cacheBuster = new Date().getTime();
                                 const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                                 backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                                backgroundDiv.style.backgroundSize = 'cover';
+                                backgroundDiv.style.backgroundSize = '120%';
                                 backgroundDiv.style.backgroundPosition = 'center';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
                                 backgroundDiv.style.display = 'block';
@@ -425,13 +482,12 @@ function updateState(data) {
                             }
                         } else {
                             // Show default image if value is empty
-                            console.log(`Legend value is empty for ${side}, using default`);
                             const defaultImageUrl = RIFTBOUND_LEGENDS_DEFAULT[side];
                             const encodedUrl = encodeURI(defaultImageUrl);
                             const cacheBuster = new Date().getTime();
                             const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                             backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                            backgroundDiv.style.backgroundSize = 'cover';
+                            backgroundDiv.style.backgroundSize = '120%';
                             backgroundDiv.style.backgroundPosition = 'center';
                             backgroundDiv.style.backgroundRepeat = 'no-repeat';
                             backgroundDiv.style.display = 'block';
@@ -451,7 +507,7 @@ function updateState(data) {
                 const side = key === 'player-battlefield-left' ? 'left' : 'right';
                 const currentValue = lastState[`battlefield-value-${side}`];
                 const newValue = value ? value.trim() : '';
-                
+
                 // Only update if the value actually changed
                 if (currentValue !== newValue) {
                     const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-battlefield-background.riftbound-player-battlefield-background-${side}`);
@@ -480,7 +536,7 @@ function updateState(data) {
                                 const cacheBuster = new Date().getTime();
                                 const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                                 backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                                backgroundDiv.style.backgroundSize = 'cover';
+                                backgroundDiv.style.backgroundSize = '120%';
                                 backgroundDiv.style.backgroundPosition = 'center';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
                                 backgroundDiv.style.display = 'block';
@@ -488,13 +544,12 @@ function updateState(data) {
                                 lastState[`battlefield-value-${side}`] = newValue;
                             } else {
                                 // Use default image if battlefield name doesn't match
-                                console.log(`Battlefield not found for: ${newValue}, using default`);
                                 const defaultImageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
                                 const encodedUrl = encodeURI(defaultImageUrl);
                                 const cacheBuster = new Date().getTime();
                                 const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                                 backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                                backgroundDiv.style.backgroundSize = 'cover';
+                                backgroundDiv.style.backgroundSize = '120%';
                                 backgroundDiv.style.backgroundPosition = 'center';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
                                 backgroundDiv.style.display = 'block';
@@ -503,13 +558,12 @@ function updateState(data) {
                             }
                         } else {
                             // Show default image if value is empty
-                            console.log(`Battlefield value is empty for ${side}, using default`);
                             const defaultImageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
                             const encodedUrl = encodeURI(defaultImageUrl);
                             const cacheBuster = new Date().getTime();
                             const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                             backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                            backgroundDiv.style.backgroundSize = 'cover';
+                            backgroundDiv.style.backgroundSize = '120%';
                             backgroundDiv.style.backgroundPosition = 'center';
                             backgroundDiv.style.backgroundRepeat = 'no-repeat';
                             backgroundDiv.style.display = 'block';
@@ -535,6 +589,84 @@ function updateState(data) {
                 mtgEventName.textContent = value;
                 lastState['mtg-event-name'] = value;
             }
+        }
+
+        // Handle Star Wars base damage/HP composite display (uses player-life for damage)
+        if (["player-life-left", "player-life-right", "player-base-hp-left", "player-base-hp-right"].includes(key)) {
+            const side = key.includes('left') ? 'left' : 'right';
+            // Use current value directly; fall back to lastState for the other field
+            const damage = key.includes('player-life') ? value : (lastState[`player-life-${side}`] || '0');
+            const hp = key.includes('player-base-hp') ? value : (lastState[`player-base-hp-${side}`] || '30');
+            const composite = `${String(damage).padStart(2, '0')}/${hp}`;
+            const statsEl = document.getElementById(`swu-base-stats-${side}`);
+            if (statsEl) {
+                statsEl.textContent = composite;
+            }
+        }
+
+        // Handle Star Wars leader image lookup + name formatting
+        if (["player-leader-left", "player-leader-right"].includes(key)) {
+            const side = key === 'player-leader-left' ? 'left' : 'right';
+            const starwarsContainer = document.getElementById('scoreboard-starwars');
+            if (starwarsContainer) {
+                const imgEl = starwarsContainer.querySelector(`#swu-leader-image-${side}`);
+                if (imgEl) {
+                    const leaderName = value ? value.trim() : '';
+                    const matchedKey = findDictMatch(leaderName, SWU_LEADERS);
+                    if (matchedKey && SWU_LEADERS[matchedKey]) {
+                        imgEl.src = SWU_LEADERS[matchedKey];
+                        imgEl.style.display = 'block';
+                    } else {
+                        imgEl.src = '';
+                        imgEl.style.display = 'none';
+                    }
+                }
+                // Leader name formatting moved to after updateElementText to avoid overwrite
+            }
+        }
+
+        // Handle Star Wars base image lookup
+        if (["player-base-left", "player-base-right"].includes(key)) {
+            const side = key === 'player-base-left' ? 'left' : 'right';
+            const starwarsContainer = document.getElementById('scoreboard-starwars');
+            if (starwarsContainer) {
+                const imgEl = starwarsContainer.querySelector(`#swu-base-image-${side}`);
+                if (imgEl) {
+                    const baseName = value ? value.trim() : '';
+                    const matchedKey = findDictMatch(baseName, SWU_BASES);
+                    if (matchedKey && SWU_BASES[matchedKey]) {
+                        imgEl.src = SWU_BASES[matchedKey];
+                        imgEl.style.display = 'block';
+                    } else {
+                        imgEl.src = '';
+                        imgEl.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        // Handle Star Wars leader aspects (two separate fields)
+        if (["player-leader-aspect-1-left", "player-leader-aspect-1-right",
+             "player-leader-aspect-2-left", "player-leader-aspect-2-right"].includes(key)) {
+            const side = key.includes('left') ? 'left' : 'right';
+            lastState[key] = value;
+            const container = document.getElementById(`swu-leader-aspects-${side}`);
+            if (container) {
+                const a1 = lastState[`player-leader-aspect-1-${side}`] || '';
+                const a2 = lastState[`player-leader-aspect-2-${side}`] || '';
+                const combined = [a1, a2].filter(Boolean).join(', ');
+                renderAspectIcons(combined, container);
+            }
+        }
+
+        // Handle Star Wars base aspects
+        if (["player-base-aspects-left", "player-base-aspects-right"].includes(key)) {
+            const side = key.includes('left') ? 'left' : 'right';
+            const container = document.getElementById(`swu-base-aspects-${side}`);
+            if (container) {
+                renderAspectIcons(value, container);
+            }
+            lastState[key] = value;
         }
 
         const el = document.getElementById(key);
@@ -606,13 +738,31 @@ function updateState(data) {
                     }
                 }
             }
+
+            // Handle Star Wars wins display with pip images (block/none like Riftbound)
+            const starwarsContainer = document.getElementById('scoreboard-starwars');
+            if (starwarsContainer) {
+                const swuSide = key === 'player-wins-left' ? 'left' : 'right';
+                const swuPip1 = starwarsContainer.querySelector(`#swu-wins-${swuSide}-1`);
+                const swuPip2 = starwarsContainer.querySelector(`#swu-wins-${swuSide}-2`);
+                if (swuPip1 && swuPip2) {
+                    if (value > 1) {
+                        swuPip1.style.display = 'block';
+                        swuPip2.style.display = 'block';
+                    } else if (value > 0) {
+                        swuPip1.style.display = 'block';
+                        swuPip2.style.display = 'none';
+                    } else {
+                        swuPip1.style.display = 'none';
+                        swuPip2.style.display = 'none';
+                    }
+                }
+            }
         } else if (["player-mana-symbols-left", "player-mana-symbols-right"].includes(key)) {
             if (key === 'player-mana-symbols-left') {
-                console.log(key, value)
                 renderManaSymbols(value, 'player-mana-symbols-left-symbols');
             }
             if (key === 'player-mana-symbols-right') {
-                console.log(key, value)
                 renderManaSymbols(value, 'player-mana-symbols-right-symbols');
             }
         }
@@ -652,55 +802,81 @@ function updateBackground(side, archetypeName) {
 }
 
 // INITIAL STATE
-console.log('sending request for data');
-socket.emit('getSavedControlState', {control_id});
-socket.emit('getArchetypeList');
+if (isBroadcastMode) {
+    // Broadcast mode: request current broadcast data
+    socket.emit('get-broadcast-scoreboard-data');
+    socket.emit('getArchetypeList');
 
-socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
-    console.log('got saved state from server', data);
-    archetypeList = data['archetypeList'];
-    round_id = data['round_id'];
-    match_id = data['match_id'];
-    updateState(data['data']);
-});
+    // Listen for round_id from broadcast tracker
+    socket.on('broadcast-scoreboard-round-id', ({ round_id: rid }) => {
+        round_id = rid;
+        // Re-request timer and scoreboard state now that we know round_id
+        socket.emit('get-all-timer-states');
+        socket.emit('get-scoreboard-state');
+    });
+
+    // Listen for broadcast-round-data
+    socket.on('broadcast-round-data', (data) => {
+        if (data[match_id]) {
+            updateState(data[match_id]);
+        }
+    });
+} else {
+    // Control mode: original behavior
+    socket.emit('getSavedControlState', {control_id});
+    socket.emit('getArchetypeList');
+
+    socket.on('scoreboard-' + control_id + '-saved-state', (data) => {
+        try {
+            archetypeList = data['archetypeList'];
+            round_id = data['round_id'];
+            match_id = data['match_id'];
+            updateState(data['data']);
+        } catch (e) {
+            console.error('Error in saved-state handler:', e);
+        }
+    });
+}
 
 socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
-    console.log('got header overlay from server', newImageUrl);
     const last = lastState['header-background'];
     if (last !== newImageUrl) {
         const cacheBuster = new Date().getTime();
-        document.querySelector('.header .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+        const el = document.querySelector(`#scoreboard-${currentGame} .header .background`);
+        if (el) el.style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
         lastState['header-background'] = newImageUrl;
     }
 });
 
 socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
-    console.log('got footer overlay from server', newImageUrl);
     const last = lastState['footer-background'];
     if (last !== newImageUrl) {
         const cacheBuster = new Date().getTime();
-        document.querySelector('.footer .background').style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+        const el = document.querySelector(`#scoreboard-${currentGame} .footer .background`);
+        if (el) el.style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
         lastState['footer-background'] = newImageUrl;
     }
 });
 
 socket.on('archetypeListUpdated', (archetypes) => {
-    console.log('archetype list updated', archetypes);
     archetypeList = archetypes;
-    socket.emit('getSavedControlState', {control_id});
+    if (!isBroadcastMode) {
+        socket.emit('getSavedControlState', {control_id});
+    }
 });
 
 // TIMER
 socket.emit('get-all-timer-states');
 
 socket.on('current-all-timer-states', ({timerState}) => {
-    const matchState = timerState[round_id][match_id];
+    if (!round_id) return; // Not ready yet in broadcast mode
+    const matchState = timerState[round_id]?.[match_id];
     if (matchState) {
         // For count up mode, always show the time (never show TURNS)
         // For count down mode, show TURNS when time reaches 0
         const timerText = matchState.countUp
             ? formatTime(matchState.time)
-            : (matchState.time > 0 ? formatTime(matchState.time) : 'TURNS');
+            : (matchState.time > 0 ? formatTime(matchState.time) : `TURN ${matchState.turnCount ?? 0}`);
         const shouldShow = matchState.show;
         
         // Update MTG timer
@@ -726,11 +902,20 @@ socket.on('current-all-timer-states', ({timerState}) => {
         // Update Vibes timer
         const vibesContainer = document.getElementById('scoreboard-vibes');
         if (vibesContainer) {
-            console.log('ping2timer');
             const vibesTimer = vibesContainer.querySelector('#timer');
             if (vibesTimer) {
                 vibesTimer.innerText = timerText;
                 vibesTimer.style.display = shouldShow ? 'block' : 'none';
+            }
+        }
+
+        // Update Star Wars timer
+        const starwarsContainer = document.getElementById('scoreboard-starwars');
+        if (starwarsContainer) {
+            const swuTimer = starwarsContainer.querySelector('#timer');
+            if (swuTimer) {
+                swuTimer.innerText = timerText;
+                swuTimer.style.display = shouldShow ? 'block' : 'none';
             }
         }
     }
@@ -747,8 +932,6 @@ function formatTime(ms) {
 socket.emit('get-match-global-data');
 
 socket.on('update-match-global-data', (data) => {
-    console.log('got global event data from server', data);
-
     const globalData = data.globalData || {};
 
     const miscText = globalData['global-event-miscellaneous-details'];
@@ -779,8 +962,8 @@ socket.emit('get-scoreboard-state');
 
 // Listen for updated scoreboard state from server
 socket.on('scoreboard-state-data', ({scoreboardState}) => {
-    console.log('got server scoreboard state', scoreboardState);
-    const matchState = scoreboardState[round_id][match_id];
+    if (!round_id) return; // Not ready yet in broadcast mode
+    const matchState = scoreboardState[round_id]?.[match_id];
     if (matchState) {
         const winsDisplays = document.querySelectorAll('#scorebug-right-life-wins-1, #scorebug-right-life-wins-2, #scorebug-left-life-wins-1, #scorebug-left-life-wins-2');
         winsDisplays.forEach(el => {
@@ -800,8 +983,6 @@ function renderManaSymbols(inputStr, containerId, scenario = {}) {
     );
 
     // If there are no valid symbols, hide the container and exit early
-    console.log(inputStr)
-    console.log(presentSymbols.size)
     if (presentSymbols.size === 0) {
         container.style.display = 'none';
         return;
@@ -899,7 +1080,7 @@ function updateTheme(game, vendor, playerCount) {
                     const cacheBuster = new Date().getTime();
                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                    backgroundDiv.style.backgroundSize = 'cover';
+                    backgroundDiv.style.backgroundSize = '120%';
                     backgroundDiv.style.backgroundPosition = 'center';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                     backgroundDiv.style.display = 'block';
@@ -939,7 +1120,7 @@ function updateTheme(game, vendor, playerCount) {
                     const cacheBuster = new Date().getTime();
                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                    backgroundDiv.style.backgroundSize = 'cover';
+                    backgroundDiv.style.backgroundSize = '120%';
                     backgroundDiv.style.backgroundPosition = 'center';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                     backgroundDiv.style.display = 'block';
@@ -988,7 +1169,7 @@ function updateTheme(game, vendor, playerCount) {
                     const cacheBuster = new Date().getTime();
                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                    backgroundDiv.style.backgroundSize = 'cover';
+                    backgroundDiv.style.backgroundSize = '120%';
                     backgroundDiv.style.backgroundPosition = 'center';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                     backgroundDiv.style.display = 'block';
@@ -1033,7 +1214,7 @@ function updateTheme(game, vendor, playerCount) {
                     const cacheBuster = new Date().getTime();
                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                    backgroundDiv.style.backgroundSize = 'cover';
+                    backgroundDiv.style.backgroundSize = '120%';
                     backgroundDiv.style.backgroundPosition = 'center';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                     backgroundDiv.style.display = 'block';
@@ -1090,12 +1271,23 @@ function updateTheme(game, vendor, playerCount) {
                 frameEl.style.backgroundImage = `url("${framePath}")`;
             }
         }
+
+        // Set riftbound pip images dynamically based on vendor + playerCount
+        if (normalized === 'riftbound') {
+            const v = vendor || 'default';
+            const p = playerCount || '1v1';
+            const leftPipPath = `/assets/images/riftbound/scoreboard/pips/scoreboard-pips-${v}-${p}-left.png`;
+            const rightPipPath = `/assets/images/riftbound/scoreboard/pips/scoreboard-pips-${v}-${p}-right.png`;
+            document.documentElement.style.setProperty('--rb-pip-left-url', `url("${leftPipPath}")`);
+            document.documentElement.style.setProperty('--rb-pip-right-url', `url("${rightPipPath}")`);
+        }
     }
 }
 
 socket.emit('get-game-selection');
 socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
+socket.emit('starwars-get-leaders-and-bases');
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;
@@ -1122,4 +1314,63 @@ socket.on('player-count-updated', ({playerCount}) => {
     updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 
+socket.on('starwars-leaders-and-bases', ({ leaders, bases }) => {
+    leaders.forEach(l => { SWU_LEADERS[l.name] = l.image; });
+    bases.forEach(b => { SWU_BASES[b.name] = b.image; });
+});
+
 // end game selection logic
+
+// ─── Card View Overlay on Scoreboard ───
+// card-id 1 = left, card-id 2 = right
+const CARD_VIEW_EVENTS = [
+    'card-view-card-selected',
+    'vibes-card-view-card-selected',
+    'riftbound-card-view-card-selected',
+    'starwars-card-view-card-selected'
+];
+
+// Elements to hide per side when card overlay is shown
+const SWU_LEADER_BASE_CLASSES = [
+    'swu-leader-name', 'swu-leader-image',
+    'swu-base-name', 'swu-base-image'
+];
+
+function setLeaderBaseVisibility(side, visible) {
+    const display = visible ? '' : 'none';
+    for (const cls of SWU_LEADER_BASE_CLASSES) {
+        const el = document.querySelector(`#scoreboard-starwars .${cls}-${side}`);
+        if (el) el.style.display = display;
+    }
+}
+
+function handleCardViewOnScoreboard(data) {
+    const side = data['card-id']?.toString() === '1' ? 'left' : 'right';
+    const overlay = document.getElementById(`swu-card-overlay-${side}`);
+    const img = document.getElementById(`swu-card-overlay-img-${side}`);
+    if (!overlay || !img) return;
+
+    if (data.url) {
+        img.onload = () => {
+            // Landscape cards: shift down to top 580px
+            if (img.naturalWidth > img.naturalHeight) {
+                overlay.style.top = '580px';
+            } else {
+                overlay.style.top = '';
+            }
+        };
+        img.src = data.url;
+        overlay.style.display = 'block';
+        setLeaderBaseVisibility(side, false);
+    } else {
+        // Reset: hide overlay, show leader/base
+        img.src = '';
+        overlay.style.display = 'none';
+        setLeaderBaseVisibility(side, true);
+    }
+}
+
+CARD_VIEW_EVENTS.forEach(event => {
+    socket.on(event, handleCardViewOnScoreboard);
+});
+

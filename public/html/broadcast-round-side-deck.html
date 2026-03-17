@@ -8,14 +8,16 @@
     <!-- Optional Bootstrap 5 JS with Popper.js -->
     <script src="/lib/bootstrap/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="/socket.io/socket.io.js"></script>
     <!-- Room Manager -->
     <script src="/js/room-manager.js"></script>
     <script src="/js/vendor-config.js"></script>
     <link href="/css/broadcast-round-side-deck.css" rel="stylesheet">
 </head>
-<body class="container-fluid">
-<div class="row" id="deck-display-container">
+<body class="container-fluid p-0">
+<div id="deck-display-container">
+    <div class="bg-image" id="sideboard-bg-image"></div>
     <div id="side-deck-container">
     </div>
 </div>

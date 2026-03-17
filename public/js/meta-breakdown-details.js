@@ -7,7 +7,7 @@ let metaBreakdownData = {};
 const pathSegments = window.location.pathname.split('/');
 const detail_id = pathSegments[4];
 const game_id = 'mtg';
-const fallbackUrl = `/assets/images/cards/${game_id}/${game_id === 'mtg' ? 'magic' : 'vibes'}-card-back.jpg`;
+const fallbackUrl = `/assets/images/${game_id}/cards/${game_id === 'mtg' ? 'magic' : 'vibes'}-card-back.jpg`;
 
 console.log('detail', detail_id);
 

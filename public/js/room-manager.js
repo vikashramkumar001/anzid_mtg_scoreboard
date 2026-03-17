@@ -64,6 +64,9 @@ class RoomManager {
         // Draftlist scoreboard - check before generic scoreboard
         if (path.includes('/broadcast/round/draftlist/scoreboard/')) return 'broadcast-draft-list';
 
+        // Broadcast scoreboard - check before generic /scoreboard/
+        if (path.includes('/broadcast/round/scoreboard/')) return 'broadcast-scoreboard';
+
         // Scoreboard - check for /scoreboard/ in path
         if (path.includes('/scoreboard/')) {
             // Extract control ID from path (e.g., /control/1/1000)
@@ -80,15 +83,20 @@ class RoomManager {
         }
         
         // Card views
+        if (path.includes('/mtg/display/card/view/')) return 'mtg-card-view';
         if (path.includes('/vibes/display/card/view/')) return 'vibes-card-view';
         if (path.includes('/riftbound/display/card/view/')) return 'riftbound-card-view';
-        // Star Wars dedicated card view
         if (path.includes('/starwars/display/card/view/')) return 'starwars-card-view';
-        if (path.includes('/display/card/view/')) return 'mtg-card-view';
+        // Unified card view (no game prefix)
+        if (path.includes('/display/card/view/')) return 'unified-card-view';
         
         // Deck displays
         if (path.includes('/vibes/display/main/deck/')) return 'vibes-deck-display';
-        if (path.includes('/riftbound/display/main/deck/')) return 'riftbound-deck-display';
+        if (path.includes('/riftbound/display/main/deck/')) {
+            const segs = path.split('/').filter(Boolean);
+            if (segs.length >= 6) return 'riftbound-deck-display-broadcast'; // matchID + sideID format
+            return 'riftbound-deck-display';
+        }
         if (path.includes('/deck-display') || path.endsWith('deck-display.html')) return 'deck-display';
         if (path.includes('/side-deck-display') || path.endsWith('side-deck-display.html')) return 'deck-display';
         
@@ -161,9 +169,11 @@ class RoomManager {
             'vibes-card-view': ['vibes-card-view', 'global'],
             'riftbound-card-view': ['riftbound-card-view', 'global'],
             'starwars-card-view': ['starwars-card-view', 'global'],
+            'unified-card-view': ['mtg-card-view', 'vibes-card-view', 'riftbound-card-view', 'starwars-card-view', 'global'],
             'mtg-deck-display': ['deck-display', 'global'],
             'vibes-deck-display': ['vibes-deck-display', 'global'],
             'riftbound-deck-display': ['riftbound-deck-display', 'global'],
+            'riftbound-deck-display-broadcast': ['broadcast-main-deck', 'global'],
             'riftbound-animation-display-1': ['riftbound-animation-display-1', 'scoreboard-1', 'global'],
             'riftbound-animation-display-2': ['riftbound-animation-display-2', 'scoreboard-2', 'global'],
             'riftbound-animation-display-3': ['riftbound-animation-display-3', 'scoreboard-3', 'global'],
@@ -173,6 +183,7 @@ class RoomManager {
             'broadcast-main-deck': ['broadcast-main-deck', 'global'],
             'broadcast-side-deck': ['broadcast-side-deck', 'global'],
             'broadcast-draft-list': ['broadcast-draft-list', 'global'],
+            'broadcast-scoreboard': ['broadcast-scoreboard', 'global'],
             'brackets': ['brackets', 'global'],
             'meta-breakdown': ['meta-breakdown', 'global']
         };

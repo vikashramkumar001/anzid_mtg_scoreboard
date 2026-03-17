@@ -27,6 +27,14 @@
     font-style: normal;
 }
 
+/* Barlow Font for Star Wars */
+@font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
 :root {
     --dynamic-font: 'Bebas Neue', sans-serif;
     --dynamic-font-weight: bold;
@@ -60,13 +68,13 @@ body {
 .round-standings-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     font-size: 36px;
-    color: #000;
+    color: var(--standings-color, #000);
     text-align: center;
     width: 669px;
     height: 85px;
     padding: 0;
-    background-image: url('/assets/images/mtg/standings/standings-frame.png');
     background-size: 669px 85px;
     background-repeat: no-repeat;
     position: relative;
@@ -78,7 +86,8 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 15px;
+    flex-shrink: 0;
+    margin: 0 15px;
 }
 
 .player-name-archetype {
@@ -86,29 +95,24 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 13px;
 }
 
 .standings-name {
     display: block;
-    height: 36px;
-    line-height: 36px;
     white-space: nowrap;
     text-align: start;
+    line-height: 1.2;
 }
 
 .standings-archetype {
     display: block;
-    height: 33px;
-    line-height: 22.5px;
     font-style: var(--archetype-font-style, italic);
     font-weight: var(--archetype-font-weight, bold);
     font-size: 24px;
-    text-overflow: ellipsis;
-    overflow: hidden;
     width: 88%;
     text-align: start;
     white-space: nowrap;
+    line-height: 1.2;
 }
 
 .standings-record {

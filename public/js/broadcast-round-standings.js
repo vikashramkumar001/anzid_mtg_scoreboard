@@ -47,11 +47,27 @@ socket.on('player-count-updated', ({playerCount}) => {
 });
 
 function updateTheme(game, vendor, playerCount) {
+    // Clear old vendor overrides first
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+    }
+
+    document.documentElement.style.setProperty('--standings-color', '#000');
+
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
         document.documentElement.style.setProperty('--dynamic-font-weight', '700');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '400');
+    } else if (game === 'starwars') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Barlow');
+        document.documentElement.style.setProperty('--dynamic-font-weight', '600');
+        document.documentElement.style.setProperty('--archetype-font-style', 'normal');
+        document.documentElement.style.setProperty('--archetype-font-weight', '600');
+        document.documentElement.style.setProperty('--standings-color', '#fff');
     } else {
         document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
         document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
@@ -59,12 +75,8 @@ function updateTheme(game, vendor, playerCount) {
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
 
-    // Apply vendor overrides
-    const vc = window.VENDOR_CONFIG;
+    // Apply new vendor overrides (can override game defaults)
     if (vc) {
-        vc.getAllOverrideProperties().forEach(prop => {
-            document.documentElement.style.removeProperty(prop);
-        });
         const overrides = vc.getOverrides(game, vendor);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);

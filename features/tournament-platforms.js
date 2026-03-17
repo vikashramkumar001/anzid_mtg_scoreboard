@@ -1,4 +1,7 @@
 import axios from 'axios';
+import path from 'path';
+import { promises as fsPromises } from 'fs';
+import { fileURLToPath } from 'url';
 import { RoomUtils } from '../utils/room-utils.js';
 
 // Browser-like headers to help bypass Cloudflare
@@ -26,7 +29,8 @@ let platformConfig = {
     meleeApiKey: process.env.MELEE_API_KEY || '',
     meleeClientId: process.env.MELEE_CLIENT_ID || '',
     meleeClientSecret: process.env.MELEE_CLIENT_SECRET || '',
-    topdeckApiKey: process.env.TOPDECK_API_KEY || ''
+    topdeckApiKey: process.env.TOPDECK_API_KEY || '',
+    cardeioToken: process.env.CARDEIO_TOKEN || ''
 };
 
 // Get current platform config
@@ -54,6 +58,208 @@ export function setPlatformConfig(config) {
 // Emit platform config to clients
 export function emitPlatformConfig(io) {
     RoomUtils.emitWithRoomMapping(io, 'tournament-platform-config', getPlatformConfig());
+}
+
+// --- Carde.io / Riftbound support ---
+const __filename_tp = fileURLToPath(import.meta.url);
+const __dirname_tp = path.dirname(__filename_tp);
+const CARDEIO_DIR = path.join(__dirname_tp, '../data/cardeio');
+
+const RUNE_NAME_TO_LETTER = { calm: 'g', chaos: 'p', fury: 'r', mind: 'b', order: 'y', body: 'o' };
+
+const RIFTBOUND_CHAMPIONS = new Set([
+    "Kai'sa, Survivor", "Volibear, Furious", "Jinx, Demolitionist", "Darius, Trifarian",
+    "Ahri, Alluring", "Lee Sin, Ascetic", "Yasuo, Remorseful", "Leona, Determined",
+    "Teemo, Strategist", "Viktor, Innovator", "Miss Fortune, Captain", "Sett, Brawler",
+    "Annie, Fiery", "Master Yi, Meditative", "Lux, Illuminated", "Garen, Rugged",
+    "Kai'sa, Evolutionary", "Volibear, Imposing", "Jinx, Rebel", "Darius, Executioner",
+    "Ahri, Inquisitive", "Lee Sin, Centered", "Yasuo, Windrider", "Leona, Zealot",
+    "Teemo, Scout", "Viktor, Leader", "Miss Fortune, Buccaneer", "Sett, Kingpin",
+    "Annie, Stubborn", "Master Yi, Honed", "Lux, Crownguard", "Garen, Commander",
+    "Rumble, Hotheaded", "Rumble, Scrapper", "Lucian, Gunslinger", "Lucian, Merciless",
+    "Draven, Vanquisher", "Draven, Audacious", "Draven, Showboat",
+    "Rek'sai, Breacher", "Rek'sai, Swarm Queen", "Ornn, Blacksmith", "Ornn, Forge God",
+    "Jax, Unrelenting", "Jax, Unmatched", "Irelia, Graceful", "Irelia, Fervent",
+    "Azir, Ascendant", "Azir, Sovereign", "Ezreal, Prodigy", "Ezreal, Dashing",
+    "Renata Glasc, Mastermind", "Renata Glasc, Industrialist",
+    "Sivir, Ambitious", "Sivir, Mercenary",
+    "Fiora, Worthy", "Fiora, Peerless", "Fiora, Victorious"
+]);
+
+function cardeioGetDeckCards(deckDetail, sectionType) {
+    if (!deckDetail?.sections) return [];
+    const section = deckDetail.sections.find(s => s.section_type === sectionType);
+    return section ? section.cards.map(c => `${c.quantity} ${c.name}`) : [];
+}
+
+const RUNE_ORDER = ['r', 'g', 'b', 'o', 'p', 'y'];
+
+function cardeioGetRuneLetters(deckDetail) {
+    if (!deckDetail?.sections) return '';
+    const section = deckDetail.sections.find(s => s.section_type === 'rune_pool');
+    if (!section) return '';
+    const letters = section.cards.map(c => {
+        const n = c.name.toLowerCase();
+        for (const [rune, letter] of Object.entries(RUNE_NAME_TO_LETTER)) {
+            if (n.includes(rune)) return letter;
+        }
+        return '';
+    }).filter(Boolean);
+    return RUNE_ORDER.filter(l => letters.includes(l)).join('');
+}
+
+function cardeioGetRuneQuantities(deckDetail) {
+    if (!deckDetail?.sections) return '';
+    const section = deckDetail.sections.find(s => s.section_type === 'rune_pool');
+    if (!section) return '';
+    const letterQty = {};
+    for (const c of section.cards) {
+        const n = c.name.toLowerCase();
+        for (const [rune, letter] of Object.entries(RUNE_NAME_TO_LETTER)) {
+            if (n.includes(rune)) { letterQty[letter] = (letterQty[letter] || 0) + c.quantity; break; }
+        }
+    }
+    return RUNE_ORDER.filter(l => l in letterQty).map(l => letterQty[l]).join('');
+}
+
+function cardeioGetChampion(deckDetail, legend) {
+    if (!deckDetail?.sections) return '';
+    const section = deckDetail.sections.find(s => s.section_type === 'main');
+    if (!section) return '';
+    const firstName = legend ? legend.split(',')[0].trim().toLowerCase() : '';
+    const found = section.cards.filter(c =>
+        RIFTBOUND_CHAMPIONS.has(c.name) &&
+        (!firstName || c.name.toLowerCase().startsWith(firstName))
+    );
+    return found.length === 1 ? found[0].name : '';
+}
+
+function cardeioFormatRecord(record) {
+    if (!record) return '';
+    const parts = record.split('-');
+    if (parts.length === 3 && parts[2] === '0') return `${parts[0]}-${parts[1]}`;
+    return record;
+}
+
+function cardeioMapPlayer(entry, side, enteringRecord = '') {
+    const deckDetail = entry[`P${side} Deck Detail`];
+    return {
+        name:       entry[`Player ${side}`] || '',
+        pronouns:   '',
+        record:     enteringRecord,
+        archetype:  '',
+        decklistId: null,
+        legend:     entry[`P${side} Deck`] || '',
+        champion:   cardeioGetChampion(deckDetail, entry[`P${side} Deck`]),
+        runes:    cardeioGetRuneLetters(deckDetail),
+        runeList: (() => {
+            const letters = cardeioGetRuneLetters(deckDetail).split('');
+            const qtys = cardeioGetRuneQuantities(deckDetail).split('');
+            return letters.map((l, i) => ({ letter: l, qty: qtys[i] || '' }));
+        })(),
+        mainDeck:       cardeioGetDeckCards(deckDetail, 'main'),
+        sideboard:  cardeioGetDeckCards(deckDetail, 'sideboard'),
+    };
+}
+
+// --- Carde.io decklist export (event-level, one-time fetch) ---
+
+const CARDEIO_EXTRA_DIR = path.join(CARDEIO_DIR, 'extra');
+
+// Fetch decklist export from Carde API and cache to disk
+export async function fetchCardeioDecklist(eventId) {
+    const token = platformConfig.cardeioToken;
+    if (!token) throw new Error('CARDEIO_TOKEN not set in .env');
+
+    const url = `https://api.admin.carde.io/api/v2/deckbuilder/deck-submissions/events/${eventId}/export/?download=true`;
+    const response = await axios.get(url, {
+        headers: {
+            ...BROWSER_HEADERS,
+            'Authorization': `Token ${token}`,
+            'Origin': 'https://admin.carde.io',
+            'Referer': 'https://admin.carde.io/'
+        }
+    });
+
+    // Ensure extra directory exists
+    await fsPromises.mkdir(CARDEIO_EXTRA_DIR, { recursive: true });
+    const filePath = path.join(CARDEIO_EXTRA_DIR, `event-${eventId}-decklists.json`);
+    await fsPromises.writeFile(filePath, JSON.stringify(response.data, null, 2));
+    console.log(`[Carde] Cached ${response.data?.decklists?.length || 0} decklists to ${filePath}`);
+    return response.data;
+}
+
+// Load cached decklist export from disk (returns null if not cached)
+export async function loadCachedDecklist(eventId) {
+    const filePath = path.join(CARDEIO_EXTRA_DIR, `event-${eventId}-decklists.json`);
+    try {
+        const raw = await fsPromises.readFile(filePath, 'utf8');
+        return JSON.parse(raw);
+    } catch (e) {
+        return null;
+    }
+}
+
+// Build a player object from the decklist export data (same shape as cardeioMapPlayer)
+function cardeioMapPlayerFromExport(playerName, record, decklistEntry) {
+    if (!decklistEntry) {
+        return { name: playerName, pronouns: '', record, archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
+    }
+
+    const aux = decklistEntry.auxiliary_sections || [];
+    const sections = decklistEntry.sections || [];
+
+    // Legend from auxiliary_sections
+    const legendSection = aux.find(s => s.type_code === 'legend');
+    const legend = legendSection?.cards?.[0]?.name || '';
+
+    // Champion from auxiliary_sections
+    const championSection = aux.find(s => s.type_code === 'champion');
+    const champion = championSection?.cards?.[0]?.name || '';
+
+    // Battlefields from auxiliary_sections
+    const bfSection = aux.find(s => s.type_code === 'battlefield');
+    const battlefields = (bfSection?.cards || []).map(c => c.name);
+
+    // Runes from sections.rune_pool
+    const runePoolSection = sections.find(s => s.section_key === 'rune_pool');
+    const runeLetters = cardeioGetRuneLetters({ sections });
+    const runeQtys = cardeioGetRuneQuantities({ sections });
+    const runeLetterArr = runeLetters.split('');
+    const runeQtyArr = runeQtys.split('');
+    const runeList = runeLetterArr.map((l, i) => ({ letter: l, qty: runeQtyArr[i] || '' }));
+
+    // Main deck from sections.main
+    const mainSection = sections.find(s => s.section_key === 'main');
+    const mainDeck = mainSection ? mainSection.cards.map(c => `${c.quantity} ${c.name}`) : [];
+
+    // Sideboard from sections.sideboard
+    const sideSection = sections.find(s => s.section_key === 'sideboard');
+    const sideboard = sideSection ? sideSection.cards.map(c => `${c.quantity} ${c.name}`) : [];
+
+    return {
+        name: playerName,
+        pronouns: '',
+        record,
+        archetype: '',
+        decklistId: null,
+        legend,
+        champion,
+        battlefields,
+        runes: runeLetters,
+        runeList,
+        mainDeck,
+        sideboard
+    };
+}
+
+// Find a player's decklist entry by name match (case-insensitive)
+function findDecklistByName(playerName, cachedData) {
+    if (!cachedData?.decklists || !playerName) return null;
+    const lower = playerName.trim().toLowerCase();
+    return cachedData.decklists.find(d =>
+        (d.user?.best_identifier || '').trim().toLowerCase() === lower
+    ) || null;
 }
 
 // Normalize player name from various formats
@@ -380,6 +586,69 @@ export async function fetchMeleeDecklists(tournamentId) {
     return decklistsArray;
 }
 
+// Fetch a single decklist by ID from Melee.gg
+export async function fetchMeleeDecklist(decklistId) {
+    const authHeaders = getMeleeAuthHeaders();
+    const url = `https://melee.gg/api/decklist/${decklistId}`;
+    console.log(`Fetching decklist from: ${url}`);
+
+    const response = await fetch(url, { headers: authHeaders });
+
+    if (!response.ok) {
+        const text = await response.text();
+        console.error('Decklist fetch error response:', text.substring(0, 500));
+        throw new Error(`Decklist fetch failed: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+}
+
+// Parse a Melee.gg decklist response into categorized card lists
+// Records fields: n=name, s=subtitle, q=quantity, c=category (0=main, 6=leader, 7=base, 99=sideboard), l=slug, t=type
+export function parseMeleeDecklist(data, game = 'starwars') {
+    if (game === 'starwars') {
+        return parseMeleeDecklistSWU(data);
+    }
+    // MTG and Vibes share the same structure (no leader/base)
+    return parseMeleeDecklistGeneric(data);
+}
+
+// Star Wars Unlimited: leader (cat 6), base (cat 7), mainDeck, sideboard (cat 99)
+function parseMeleeDecklistSWU(data) {
+    const result = { leader: null, base: null, mainDeck: [], sideboard: [] };
+    for (const r of (data.Records || [])) {
+        const name = r.n || '';
+        const subtitle = r.s || '';
+        // Use ", " separator to match melee.gg naming convention (e.g., "Han Solo, Worth the Risk")
+        const displayName = subtitle ? `${name}, ${subtitle}` : name;
+        const qty = r.q || 1;
+        const category = r.c;
+        const line = `${qty} ${displayName}`;
+
+        if (category === 6) result.leader = { name: displayName, qty };
+        else if (category === 7) result.base = { name: displayName, qty };
+        else if (category === 99) result.sideboard.push(line);
+        else result.mainDeck.push(line);
+    }
+    return result;
+}
+
+// MTG / Vibes: mainDeck and sideboard only (no leader/base)
+function parseMeleeDecklistGeneric(data) {
+    const result = { mainDeck: [], sideboard: [] };
+    for (const r of (data.Records || [])) {
+        const name = r.n || '';
+        const qty = r.q || 1;
+        const category = r.c;
+        const line = `${qty} ${name}`;
+
+        if (category === 99) result.sideboard.push(line);
+        else result.mainDeck.push(line);
+    }
+    return result;
+}
+
 // Fetch pairings for a specific round from Melee.gg
 export async function fetchMeleePairings(tournamentId, roundNumber) {
     const authHeaders = getMeleeAuthHeaders();
@@ -528,6 +797,90 @@ async function fetchPlayerRecordFromStandings(tournamentId, roundNumber, playerN
 
 // Fetch match data by table number
 export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, platform = 'melee') {
+    // Carde.io: prefer pairings + cached decklist export, fall back to overview
+    if (platform === 'cardeio') {
+        // Try to load cached decklist export for enriched data (battlefields, champion, legend)
+        const cachedDecklists = await loadCachedDecklist(tournamentId);
+
+        // Choose data source: pairings (lighter) if export cached, otherwise overview (has Deck Detail)
+        const sourceFile = cachedDecklists
+            ? `pairings-round-${roundNumber}.json`
+            : `overview-round-${roundNumber}.json`;
+        const filePath = path.join(CARDEIO_DIR, sourceFile);
+        let raw;
+        try {
+            raw = await fsPromises.readFile(filePath, 'utf8');
+        } catch (e) {
+            if (e.code === 'ENOENT') {
+                // If pairings not found but overview exists, fall back to overview
+                if (cachedDecklists) {
+                    try {
+                        raw = await fsPromises.readFile(path.join(CARDEIO_DIR, `overview-round-${roundNumber}.json`), 'utf8');
+                    } catch (e2) {
+                        throw new Error(`Neither pairings-round-${roundNumber}.json nor overview-round-${roundNumber}.json found in data/cardeio/`);
+                    }
+                } else {
+                    throw new Error(`overview-round-${roundNumber}.json not found in data/cardeio/`);
+                }
+            } else {
+                throw e;
+            }
+        }
+        let entries;
+        try {
+            entries = JSON.parse(raw);
+        } catch (e) {
+            throw new Error(`Failed to parse ${sourceFile}: ${e.message}`);
+        }
+        const entry = entries.find(e => e.Table === parseInt(tableNumber));
+        if (!entry) throw new Error(`Table ${tableNumber} not found in Round ${roundNumber}`);
+
+        // Build entering record map from previous round's file
+        const prevRound = parseInt(roundNumber) - 1;
+        const prevRecordMap = new Map();
+        if (prevRound >= 1) {
+            // Try pairings first, then overview for previous round records
+            for (const prevFile of [`pairings-round-${prevRound}.json`, `overview-round-${prevRound}.json`]) {
+                try {
+                    const prevRaw = await fsPromises.readFile(path.join(CARDEIO_DIR, prevFile), 'utf8');
+                    const prevEntries = JSON.parse(prevRaw);
+                    for (const e of prevEntries) {
+                        if (e['Player 1']) prevRecordMap.set(e['Player 1'], cardeioFormatRecord(e['P1 Record']));
+                        if (e['Player 2'] && e['Player 2'] !== '—') prevRecordMap.set(e['Player 2'], cardeioFormatRecord(e['P2 Record']));
+                    }
+                    break; // Found a file, stop looking
+                } catch (e) { /* try next file */ }
+            }
+        }
+
+        const recordFallback = prevRound === 0 ? '0-0' : '';
+        const p1Record = prevRecordMap.get(entry['Player 1']) ?? recordFallback;
+        const p2Record = prevRecordMap.get(entry['Player 2']) ?? recordFallback;
+
+        const isBye = entry['Player 2'] === '—' || !entry['Player 2'];
+        const emptyPlayer = { name: '', pronouns: '', record: '', archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
+
+        let player1, player2;
+        if (cachedDecklists) {
+            // Use decklist export as primary source for all deck fields
+            const p1Decklist = findDecklistByName(entry['Player 1'], cachedDecklists);
+            const p2Decklist = !isBye ? findDecklistByName(entry['Player 2'], cachedDecklists) : null;
+            player1 = cardeioMapPlayerFromExport(entry['Player 1'], p1Record, p1Decklist);
+            player2 = isBye ? emptyPlayer : cardeioMapPlayerFromExport(entry['Player 2'], p2Record, p2Decklist);
+            console.log(`[Carde] Using cached decklist export for Table ${tableNumber} — P1: ${p1Decklist ? 'found' : 'NOT FOUND'}, P2: ${p2Decklist ? 'found' : 'N/A'}`);
+        } else {
+            // Fall back to overview's Deck Detail
+            player1 = cardeioMapPlayer(entry, 1, p1Record);
+            player2 = isBye ? emptyPlayer : cardeioMapPlayer(entry, 2, p2Record);
+        }
+
+        return {
+            tableNumber: parseInt(tableNumber),
+            player1,
+            player2
+        };
+    }
+
     // Validate platform
     if (platform !== 'melee') {
         throw new Error(`Platform "${platform}" is not yet supported for fetching match data. Only Melee.gg is currently implemented.`);

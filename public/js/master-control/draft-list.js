@@ -4,17 +4,96 @@ export function initDraftList(socket) {
     // Shared card data
     let cards = {};
     let cardNames = [];
+    let currentGame = 'mtg';
 
-    // Initialize card data from IndexedDB
-    async function loadCards() {
+    // ─── Card data loading per game ───
+
+    async function loadMTGCards() {
         try {
             cards = await getAllCardsByGenre('mtg');
             cardNames = Object.keys(cards);
-            console.log(`[DraftList] Loaded ${cardNames.length} cards`);
+            console.log(`[DraftList] Loaded ${cardNames.length} MTG cards`);
         } catch (error) {
-            console.error('[DraftList] Failed to load cards:', error);
+            console.error('[DraftList] Failed to load MTG cards:', error);
         }
     }
+
+    function loadVibesCards(cardListData) {
+        cards = {};
+        cardNames = Object.keys(cardListData || {});
+        for (const name of cardNames) {
+            cards[name] = { imageUrl: cardListData[name] };
+        }
+        console.log(`[DraftList] Loaded ${cardNames.length} Vibes cards`);
+    }
+
+    function loadRiftboundCards(cardListData) {
+        cards = {};
+        cardNames = Object.keys(cardListData || {});
+        for (const name of cardNames) {
+            cards[name] = { imageUrl: cardListData[name]?.imageUrl || '' };
+        }
+        console.log(`[DraftList] Loaded ${cardNames.length} Riftbound cards`);
+    }
+
+    function loadStarWarsCards(cardListData) {
+        cards = {};
+        for (const set of Object.keys(cardListData || {})) {
+            const setMap = cardListData[set] || {};
+            for (const key of Object.keys(setMap)) {
+                const entry = setMap[key];
+                const baseRaw = (entry.image || key).split(/\\|\//).pop();
+                const base = baseRaw.split('?')[0].split('#')[0];
+                const filename = /\.[a-z0-9]+$/i.test(base) ? base : base + '.png';
+                const url = `/assets/images/starwars/cards/${set}/${filename}`;
+                const display = `${set}:${entry.name}`;
+                cards[display] = { imageUrl: url, name: entry.name, set };
+            }
+        }
+        cardNames = Object.keys(cards);
+        console.log(`[DraftList] Loaded ${cardNames.length} Star Wars cards`);
+    }
+
+    // ─── Socket listeners for card data ───
+
+    socket.on('vibes-card-list-data', ({ cardListData: data }) => {
+        if (currentGame === 'vibes') loadVibesCards(data);
+    });
+
+    socket.on('riftbound-card-list-data', ({ cardListData: data }) => {
+        if (currentGame === 'riftbound') loadRiftboundCards(data);
+    });
+
+    socket.on('starwars-card-list-data', ({ cardListData: data }) => {
+        if (currentGame === 'starwars') loadStarWarsCards(data);
+    });
+
+    // ─── Game switching ───
+
+    async function switchGame(game) {
+        if (currentGame === game && cardNames.length > 0) return;
+        currentGame = game;
+        cards = {};
+        cardNames = [];
+
+        if (game === 'mtg') {
+            await loadMTGCards();
+        } else if (game === 'vibes') {
+            socket.emit('vibes-get-card-list-data');
+        } else if (game === 'riftbound') {
+            socket.emit('riftbound-get-card-list-data');
+        } else if (game === 'starwars') {
+            socket.emit('starwars-get-card-list-data');
+        }
+    }
+
+    socket.on('server-current-game-selection', ({ gameSelection }) => {
+        switchGame(gameSelection);
+    });
+    socket.on('game-selection-updated', ({ gameSelection }) => {
+        switchGame(gameSelection);
+    });
+    socket.emit('get-game-selection');
 
     // Initialize a draft list hub for a given slot
     function initSlot(slotId) {
@@ -86,12 +165,12 @@ export function initDraftList(socket) {
                 if (isPackHeader) {
                     pickNumber = 0;
                     li.innerHTML = `<strong>${cardName}</strong>`;
-                    li.style.backgroundColor = '#f8f9fa';
+                    li.classList.add('list-group-item-secondary');
                 } else {
                     pickNumber++;
                     const isHighlighted = item.highlighted;
                     if (isHighlighted) {
-                        li.style.backgroundColor = '#fff3cd';
+                        li.classList.add('list-group-item-warning');
                         li.style.fontWeight = 'bold';
                     }
                     li.innerHTML = `
@@ -342,7 +421,7 @@ export function initDraftList(socket) {
                 cardSelected: {
                     'card-selected': cardName,
                     'card-id': parseInt(slotId),
-                    'game-id': 'mtg'
+                    'game-id': currentGame
                 }
             });
         });
@@ -352,7 +431,7 @@ export function initDraftList(socket) {
                 cardSelected: {
                     'card-selected': '',
                     'card-id': parseInt(slotId),
-                    'game-id': 'mtg'
+                    'game-id': currentGame
                 }
             });
         });
@@ -369,11 +448,9 @@ export function initDraftList(socket) {
         console.log(`[DraftList ${slotId}] Slot initialized`);
     }
 
-    // Load cards first, then initialize both slots
-    loadCards().then(() => {
-        initSlot('1');
-        initSlot('2');
-    });
+    // Initialize slots (DOM listeners only - card data loads via switchGame)
+    initSlot('1');
+    initSlot('2');
 
     console.log('[DraftList] Module initialized');
 }

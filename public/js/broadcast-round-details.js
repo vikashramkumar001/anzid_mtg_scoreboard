@@ -59,7 +59,7 @@ socket.on('broadcast-round-data', (data) => {
     if (data[match_id]) {
         roundData = data;
 
-        if (data[match_id][detail_id]) {
+        if (detail_id in data[match_id]) {
             detailToDisplay = `${data[match_id][detail_id]}`;
         } else if (detail_id === 'player-sprite-left' || detail_id === 'player-sprite-right') {
             // We don't need to set detailToDisplay for sprite; just call renderDetails
@@ -93,13 +93,16 @@ function updateTheme(game, vendor, playerCount) {
     if (selectedGame === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
         document.body.classList.add('mtg');
-        document.body.classList.remove('riftbound', 'vibes');
+        document.body.classList.remove('riftbound', 'vibes', 'starwars');
     } else if (selectedGame === 'riftbound') {
         document.body.classList.add('riftbound');
-        document.body.classList.remove('mtg', 'vibes');
+        document.body.classList.remove('mtg', 'vibes', 'starwars');
     } else if (selectedGame === 'vibes') {
         document.body.classList.add('vibes');
-        document.body.classList.remove('mtg', 'riftbound');
+        document.body.classList.remove('mtg', 'riftbound', 'starwars');
+    } else if (selectedGame === 'starwars') {
+        document.body.classList.add('starwars');
+        document.body.classList.remove('mtg', 'riftbound', 'vibes');
     }
 
     // Apply vendor overrides
@@ -118,10 +121,12 @@ function updateTheme(game, vendor, playerCount) {
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    renderDetails(detailToDisplay);
 });
 socket.on('game-selection-updated', ({gameSelection}) => {
     currentGame = gameSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    renderDetails(detailToDisplay);
 });
 socket.on('server-current-vendor-selection', ({vendorSelection}) => {
     currentVendor = vendorSelection;
@@ -203,17 +208,15 @@ function renderDetails(detail) {
             playerDetail.appendChild(fallbackImg);
         }
 
-        // Winner display - background image with player name and archetype
+        // Winner display - background image with player name and archetype/leader
     } else if (detail_id === 'winner-left' || detail_id === 'winner-right') {
         const side = detail_id.endsWith('left') ? 'left' : 'right';
         const playerName = roundData[match_id]?.[`player-name-${side}`] || '';
-        const pronouns = roundData[match_id]?.[`player-pronouns-${side}`] || '';
-        const archetype = roundData[match_id]?.[`player-archetype-${side}`] || '';
 
         playerDetail.innerHTML = '';
         playerDetail.className = `winner-display ${selectedGame}`;
 
-        // Background image container (contains name and archetype like commentator)
+        // Background image container
         const bgImage = document.createElement('div');
         bgImage.className = 'winner-bg-image';
 
@@ -223,41 +226,82 @@ function renderDetails(detail) {
         nameEl.textContent = playerName;
         bgImage.appendChild(nameEl);
 
-        // Archetype container (inside bg container)
-        const archetypeContainer = document.createElement('div');
-        archetypeContainer.className = 'winner-archetype';
+        if (selectedGame === 'starwars') {
+            // Star Wars: show leader (with subtitle) and base
+            const leaderRaw = roundData[match_id]?.[`player-leader-${side}`] || '';
+            const base = roundData[match_id]?.[`player-base-${side}`] || '';
 
-        // Archetype text
-        const archetypeText = document.createElement('span');
-        archetypeText.className = 'winner-archetype-text';
-        archetypeText.textContent = archetype;
-        archetypeContainer.appendChild(archetypeText);
+            // Parse leader name and subtitle (e.g. "Ahsoka Tano - Snips")
+            const leaderMatch = leaderRaw.match(/^(.+?)(?:\s*[,\u2013\u2014]\s*|\s+[-]\s+)(.+)$/);
+            const leaderName = leaderMatch ? leaderMatch[1] : leaderRaw;
+            const leaderSubtitle = leaderMatch ? leaderMatch[2] : '';
 
-        // Mana symbols (after archetype)
-        const manaSpan = document.createElement('span');
-        manaSpan.id = 'winner-mana-symbols';
-        manaSpan.className = 'winner-mana-symbols-container';
-        archetypeContainer.appendChild(manaSpan);
+            // Leader container
+            const leaderContainer = document.createElement('div');
+            leaderContainer.className = 'winner-archetype';
 
-        // Pronouns pill (after mana symbols)
-        // if (pronouns) {
-        //     const pronounsEl = document.createElement('span');
-        //     pronounsEl.className = 'winner-pronouns';
-        //     pronounsEl.textContent = pronouns;
-        //     archetypeContainer.appendChild(pronounsEl);
-        // }
+            const leaderText = document.createElement('span');
+            leaderText.className = 'winner-archetype-text';
+            leaderText.textContent = leaderName;
+            leaderContainer.appendChild(leaderText);
 
-        bgImage.appendChild(archetypeContainer);
+            if (leaderSubtitle) {
+                const subtitleText = document.createElement('span');
+                subtitleText.className = 'winner-leader-subtitle';
+                subtitleText.textContent = ' - ' + leaderSubtitle;
+                leaderContainer.appendChild(subtitleText);
+            }
+
+            bgImage.appendChild(leaderContainer);
+
+            // Base
+            if (base) {
+                const baseContainer = document.createElement('div');
+                baseContainer.className = 'winner-base';
+                baseContainer.textContent = base;
+                bgImage.appendChild(baseContainer);
+            }
+        } else if (selectedGame === 'riftbound') {
+            // Riftbound: show legend instead of archetype
+            const legend = roundData[match_id]?.[`player-legend-${side}`] || '';
+
+            const legendContainer = document.createElement('div');
+            legendContainer.className = 'winner-archetype';
+
+            const legendText = document.createElement('span');
+            legendText.className = 'winner-archetype-text';
+            legendText.textContent = legend;
+            legendContainer.appendChild(legendText);
+
+            bgImage.appendChild(legendContainer);
+        } else {
+            // MTG / Vibes: show archetype + mana symbols
+            const archetype = roundData[match_id]?.[`player-archetype-${side}`] || '';
+
+            const archetypeContainer = document.createElement('div');
+            archetypeContainer.className = 'winner-archetype';
+
+            const archetypeText = document.createElement('span');
+            archetypeText.className = 'winner-archetype-text';
+            archetypeText.textContent = archetype;
+            archetypeContainer.appendChild(archetypeText);
+
+            const manaSpan = document.createElement('span');
+            manaSpan.id = 'winner-mana-symbols';
+            manaSpan.className = 'winner-mana-symbols-container';
+            archetypeContainer.appendChild(manaSpan);
+
+            bgImage.appendChild(archetypeContainer);
+
+            // Render mana symbols
+            const manaSymbols = roundData[match_id]?.[`player-mana-symbols-${side}`] || '';
+            renderManaSymbols(manaSymbols, 'winner-mana-symbols');
+        }
 
         playerDetail.appendChild(bgImage);
 
-        // Render mana symbols
-        const manaSymbols = roundData[match_id]?.[`player-mana-symbols-${side}`] || '';
-        renderManaSymbols(manaSymbols, 'winner-mana-symbols');
-
         // Wait for fonts to load before scaling text
         document.fonts.ready.then(() => {
-            // MTG uses 48px max, riftbound/vibes use 40px max
             const maxFontSize = selectedGame === 'mtg' ? 48 : 40;
             autoScaleText(nameEl, maxFontSize, 24, 465);
         });

@@ -78,16 +78,51 @@ function renderDecks() {
     }
 }
 
-// Function to render horizontal side deck (existing logic)
+// Function to render horizontal side deck
 function renderHorizontalSideDeck() {
     const sideDeckContainer = document.getElementById('side-deck-container');
-    
-    // spread side deck horizontally in 1 row centered. max 15. scale card size accordingly for no overlap
-    deckData.sideDeck.forEach((card, index) => {
+    const cards = deckData.sideDeck || [];
+    if (cards.length === 0) return;
+
+    if (selectedGame === 'starwars') {
+        renderStarWarsSideDeck(sideDeckContainer, cards);
+    } else {
+        // Default layout: cards in a single centered row
+        cards.forEach(card => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'side-deck-card';
+            cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
+            sideDeckContainer.appendChild(cardElement);
+        });
+    }
+}
+
+// Star Wars sideboard: cards evenly spaced in the bottom dark band
+function renderStarWarsSideDeck(container, cards) {
+    container.classList.add('starwars-sideboard');
+
+    const totalCards = cards.length;
+    // Available width for cards (with margins on each side)
+    const containerWidth = 1920;
+    const sideMargin = 40;
+    const availableWidth = containerWidth - (2 * sideMargin);
+
+    // Calculate card width to evenly fill the space with gaps
+    const cardGap = 10;
+    const maxCardHeight = 216; // 1080 - 804 (dark band top) - 30 (top gap) - 30 (bottom gap)
+    const maxCardWidthFromHeight = Math.floor(maxCardHeight / 1.4); // ~154px, portrait aspect ratio
+    const maxCardWidthFromSpace = (availableWidth - (totalCards - 1) * cardGap) / totalCards;
+    const cardWidth = Math.min(maxCardWidthFromHeight, maxCardWidthFromSpace);
+
+    cards.forEach(card => {
         const cardElement = document.createElement('div');
-        cardElement.className = 'side-deck-card';
-        cardElement.innerHTML = `<img src="${card['card-url']}" class="card-src"><div class="card-count">${card['card-count']}</div>`;
-        sideDeckContainer.appendChild(cardElement);
+        cardElement.className = 'side-deck-card starwars-sideboard-card';
+        cardElement.style.width = `${cardWidth}px`;
+        cardElement.innerHTML = `
+            <img src="${card['card-url']}" class="card-src">
+            <div class="card-count">${card['card-count']}</div>
+        `;
+        container.appendChild(cardElement);
     });
 }
 
@@ -95,13 +130,13 @@ function renderHorizontalSideDeck() {
 function renderVerticalSideDeck() {
     const sideDeckContainer = document.getElementById('side-deck-container');
     sideDeckContainer.className = 'vertical-side-deck-container';
-    
+
     // Create single cards container
     const cardsContainer = document.createElement('div');
     cardsContainer.className = 'side-deck-single-column-cards-container';
-    
+
     const totalCards = deckData.sideDeck.length;
-    
+
     // Use dynamic card height based on total card count (simpler than main deck since side deck has fewer cards)
     let cardHeight, fontScaleFactor;
     if (totalCards > 15) {
@@ -114,13 +149,13 @@ function renderVerticalSideDeck() {
         cardHeight = 55;
         fontScaleFactor = 1;
     }
-    
+
     // Render all cards with conditional sizing
     deckData.sideDeck.forEach((card, index) => {
         const cardElement = document.createElement('div');
         cardElement.className = 'vertical-side-deck-card';
         cardElement.style.height = `${cardHeight}px`;
-        
+
         if (selectedGame === 'mtg') {
             cardElement.innerHTML = `
                 <div class="vertical-side-deck-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
@@ -134,10 +169,10 @@ function renderVerticalSideDeck() {
                 <div class="vertical-side-deck-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -100px;background-size: 120% auto;"></div>
             `;
         }
-        
+
         cardsContainer.appendChild(cardElement);
     });
-    
+
     sideDeckContainer.appendChild(cardsContainer);
 }
 
@@ -145,29 +180,26 @@ function renderVerticalSideDeck() {
 function updateTheme(game, vendor, playerCount) {
     const gameSelection = game;
     const normalized = gameSelection?.toLowerCase();
-    if (!normalized || normalized === selectedGame) return;
+    if (!normalized) return;
 
-    // Remove previous game class if it exists
-    if (selectedGame) {
-        document.body.classList.remove(selectedGame);
+    // --- Game switch (only when game actually changes) ---
+    if (normalized !== selectedGame) {
+        // Remove previous game class if it exists
+        if (selectedGame) {
+            document.body.classList.remove(selectedGame);
+        }
+
+        selectedGame = normalized;
+        console.log('Game selection updated:', selectedGame);
+
+        // Add game type class to body
+        document.body.classList.add(selectedGame);
     }
 
-    selectedGame = normalized;
-    console.log('Game selection updated:', selectedGame);
-
-    // Add game type class to body
-    document.body.classList.add(selectedGame);
-
-    // Perform actions based on game type
-    if (selectedGame === 'mtg') {
-        console.log('Switching to MTG mode...');
-    } else if (selectedGame === 'riftbound') {
-        console.log('Switching to Riftbound mode...');
-    }
-
-    // Apply vendor overrides
+    // --- Update background image (always run for vendor/playerCount changes) ---
     const vc = window.VENDOR_CONFIG;
     if (vc) {
+        // Clear vendor overrides
         vc.getAllOverrideProperties().forEach(prop => {
             document.documentElement.style.removeProperty(prop);
         });
@@ -175,6 +207,14 @@ function updateTheme(game, vendor, playerCount) {
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
+
+        // Update sideboard background image: {game}-sideboard-bg-{vendor}-{playercount}.png
+        const bgEl = document.getElementById('sideboard-bg-image');
+        if (bgEl) {
+            const basePath = `/assets/images/${normalized}/decklist/${normalized}-sideboard-bg.png`;
+            const bgPath = vc.getAssetPath(basePath, vendor, playerCount);
+            bgEl.style.backgroundImage = `url("${bgPath}")`;
+        }
     }
 }
 

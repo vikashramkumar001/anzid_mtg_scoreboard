@@ -11,6 +11,7 @@ body {
 
 .card-src {
     width: 100%;
+    border-radius: 12px;
 }
 
 .main-card-display {

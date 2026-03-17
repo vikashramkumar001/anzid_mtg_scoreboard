@@ -15,6 +15,41 @@ export function initTournamentPlatform(socket) {
             tournamentIdInput.value = config.tournamentId;
         }
         updateAllFetchButtons(config.platform);
+        updateFetchDecklistsVisibility(config.platform);
+    });
+
+    // Fetch Decklists button (Carde only)
+    const fetchDecklistsBtn = document.getElementById('fetch-cardeio-decklists-btn');
+
+    function updateFetchDecklistsVisibility(platform) {
+        if (fetchDecklistsBtn) {
+            fetchDecklistsBtn.style.display = platform === 'cardeio' ? 'inline-block' : 'none';
+        }
+    }
+
+    if (fetchDecklistsBtn) {
+        fetchDecklistsBtn.addEventListener('click', () => {
+            const eventId = tournamentIdInput.value.trim();
+            if (!eventId) {
+                alert('Please enter an event ID in the Tournament ID field.');
+                return;
+            }
+            fetchDecklistsBtn.disabled = true;
+            fetchDecklistsBtn.textContent = 'Fetching...';
+            socket.emit('fetch-cardeio-decklists', { eventId });
+        });
+    }
+
+    socket.on('cardeio-decklists-fetched', (result) => {
+        if (fetchDecklistsBtn) {
+            fetchDecklistsBtn.disabled = false;
+            fetchDecklistsBtn.textContent = 'Fetch Decklists';
+        }
+        if (result.success) {
+            alert(`Decklists fetched successfully! ${result.count} decklists cached.`);
+        } else {
+            alert('Error fetching decklists: ' + result.error);
+        }
     });
 
     // Update all fetch buttons state based on platform
@@ -35,6 +70,7 @@ export function initTournamentPlatform(socket) {
     // Platform select change handler
     platformSelect.addEventListener('change', () => {
         updateAllFetchButtons(platformSelect.value);
+        updateFetchDecklistsVisibility(platformSelect.value);
     });
 
     // Save button handler
@@ -45,6 +81,7 @@ export function initTournamentPlatform(socket) {
         };
         socket.emit('set-tournament-platform', config);
         updateAllFetchButtons(config.platform);
+        updateFetchDecklistsVisibility(config.platform);
     });
 
     // Delegate click handler for fetch standings buttons (since they're dynamically created)

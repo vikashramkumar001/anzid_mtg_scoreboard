@@ -3,21 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Riftbound Deck Display</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="/lib/bootstrap/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Optional Bootstrap 5 JS with Popper.js -->
     <script src="/lib/bootstrap/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script src="/socket.io/socket.io.js"></script>
-    <!-- Room Manager -->
     <script src="/js/room-manager.js"></script>
     <link href="/css/riftbound/deck-display.css" rel="stylesheet">
 </head>
-<body class="container-fluid">
-<div class="row" id="deck-display-container">
-    <div id="main-deck-container">
+<body>
+    <div id="rfb-dl-root">
+        <!-- Animated background video -->
+        <div class="rfb-dl-bg-video">
+            <video autoplay loop muted playsinline
+                src="/assets/animations/riftbound/scoreboard/frame/riftbound-scoreboard-frame-default-1v1.mp4">
+            </video>
+        </div>
+
+        <!-- Frame PNG overlay -->
+        <div class="rfb-dl-frame"></div>
+
+        <!-- Player name (top right) -->
+        <div id="rfb-dl-player-name"></div>
+
+        <!-- Legend card portrait (left column) -->
+        <div id="rfb-dl-legend-card">
+            <img id="rfb-dl-legend-card-img" src="" alt="">
+        </div>
+
+        <!-- Legend description image (ability text box) -->
+        <div id="rfb-dl-legend-desc">
+            <img id="rfb-dl-legend-desc-img" src="" alt="">
+        </div>
+
+        <!-- Champion card portrait (left column, below legend) -->
+        <div id="rfb-dl-champion-card">
+            <img id="rfb-dl-champion-card-img" src="" alt="">
+        </div>
+
+        <!-- Main deck card grid (center) -->
+        <div id="rfb-dl-maindeck"></div>
+
+        <!-- Sideboard (right column) -->
+        <div id="rfb-dl-sideboard"></div>
+
+        <!-- Battlefields (bottom left) -->
+        <div id="rfb-dl-battlefields"></div>
+
+        <!-- Runes (bottom right) -->
+        <div id="rfb-dl-runes"></div>
     </div>
-</div>
-<script type="module" src="/js/vibes/deck-display.js"></script>
+
+    <script type="module" src="/js/riftbound/deck-display.js"></script>
 </body>
 </html>

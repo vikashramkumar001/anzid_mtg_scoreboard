@@ -9,14 +9,10 @@ let currentPlayerCount = '1v1';
 const standingsWrapper = document.getElementById('standings-wrapper');
 const TOTAL_STANDINGS = 16;
 
-// Auto-scale text to fit within a max width, also adjusts line-height
-function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
-    if (!element || !element.innerHTML) return;
+// Calculate font size needed to fit text within a max width (returns size, does not apply it)
+function calculateFontSize(element, maxFontSize, minFontSize, maxWidth) {
+    if (!element || !element.innerHTML) return maxFontSize;
 
-    element.style.whiteSpace = 'nowrap';
-    element.style.fontSize = maxFontSize + 'px';
-
-    // Create a temporary span to measure text width accurately
     const temp = document.createElement('span');
     temp.style.visibility = 'hidden';
     temp.style.position = 'absolute';
@@ -25,7 +21,6 @@ function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
     temp.innerHTML = element.innerHTML;
     document.body.appendChild(temp);
 
-    // Reduce font size until text fits
     let currentSize = maxFontSize;
     temp.style.fontSize = currentSize + 'px';
 
@@ -34,15 +29,8 @@ function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
         temp.style.fontSize = currentSize + 'px';
     }
 
-    element.style.fontSize = currentSize + 'px';
-    // Scale height: 36px at font 36, 32px at font 28 (linear interpolation)
-    const heightAtMax = 36;
-    const heightAtMin = 32;
-    const ratio = (currentSize - minFontSize) / (maxFontSize - minFontSize);
-    const dynamicHeight = heightAtMin + ratio * (heightAtMax - heightAtMin);
-    element.style.height = dynamicHeight + 'px';
-    element.style.lineHeight = dynamicHeight + 'px';
     document.body.removeChild(temp);
+    return currentSize;
 }
 
 // Generate all 16 standing rows
@@ -99,11 +87,27 @@ socket.on('player-count-updated', ({playerCount}) => {
 });
 
 function updateTheme(game, vendor, playerCount) {
+    // Clear old vendor overrides first
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+    }
+
+    document.documentElement.style.setProperty('--standings-color', '#000');
+
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
         document.documentElement.style.setProperty('--dynamic-font-weight', '700');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '400');
+    } else if (game === 'starwars') {
+        document.documentElement.style.setProperty('--dynamic-font', 'Barlow');
+        document.documentElement.style.setProperty('--dynamic-font-weight', '600');
+        document.documentElement.style.setProperty('--archetype-font-style', 'normal');
+        document.documentElement.style.setProperty('--archetype-font-weight', '600');
+        document.documentElement.style.setProperty('--standings-color', '#fff');
     } else {
         document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
         document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
@@ -111,15 +115,22 @@ function updateTheme(game, vendor, playerCount) {
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
 
-    // Apply vendor overrides
-    const vc = window.VENDOR_CONFIG;
+    // Apply new vendor overrides (can override game defaults)
     if (vc) {
-        vc.getAllOverrideProperties().forEach(prop => {
-            document.documentElement.style.removeProperty(prop);
-        });
         const overrides = vc.getOverrides(game, vendor);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
+        });
+    }
+
+    // Update standings frame image dynamically
+    if (vc) {
+        const framePath = vc.getAssetPath(
+            `/assets/images/${game}/standings/${game}-standings-frame.png`,
+            vendor, playerCount
+        );
+        document.querySelectorAll('.round-standings-container').forEach(el => {
+            el.style.backgroundImage = `url("${framePath}")`;
         });
     }
 }
@@ -145,19 +156,12 @@ socket.on('broadcast-round-standings-data', (data) => {
             recordEl.innerHTML = rowData['record'] || '';
             rowEl.style.display = 'flex';
 
-            // Auto-scale player name to fit within container (max 36px, min 28px, 370px width)
-            autoScaleText(nameEl, 36, 28, 370);
-
-            // Adjust vertical position when archetype is empty (after autoScaleText)
+            // Hide archetype row when empty
             const archetype = rowData['archetype'] || '';
-            rankEl.style.marginTop = '23px';
-            recordEl.style.marginTop = '4px';
             if (archetype.trim() === '') {
                 archetypeEl.style.display = 'none';
-                nameEl.style.marginTop = '-5px';
             } else {
                 archetypeEl.style.display = 'block';
-                nameEl.style.marginTop = '2px';
             }
         } else {
             // Hide empty rows
@@ -168,4 +172,35 @@ socket.on('broadcast-round-standings-data', (data) => {
             rowEl.style.display = 'none';
         }
     }
+
+    // Unify font sizes: use the smallest size across all rows
+    document.fonts.ready.then(() => {
+        const nameEls = document.querySelectorAll('.standings-name');
+        const archetypeEls = document.querySelectorAll('.standings-archetype');
+
+        let minNameSize = 36;
+        let minArchetypeSize = 24;
+
+        nameEls.forEach(el => {
+            if (el.innerText) {
+                const size = calculateFontSize(el, 36, 16, 370);
+                if (size < minNameSize) minNameSize = size;
+            }
+        });
+
+        archetypeEls.forEach(el => {
+            if (el.innerText) {
+                const size = calculateFontSize(el, 24, 10, 370);
+                if (size < minArchetypeSize) minArchetypeSize = size;
+            }
+        });
+
+        nameEls.forEach(el => {
+            el.style.fontSize = minNameSize + 'px';
+        });
+
+        archetypeEls.forEach(el => {
+            el.style.fontSize = minArchetypeSize + 'px';
+        });
+    });
 });

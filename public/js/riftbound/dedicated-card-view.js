@@ -2,7 +2,7 @@ const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
 let cardName = null;
-const fallbackUrl = `/assets/images/cards/riftbound/riftbound-card-back.jpg`;
+const fallbackUrl = `/assets/images/riftbound/cards/riftbound-card-back.jpg`;
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
