@@ -96,7 +96,9 @@ import {
     getAuthTokens,
     setAuthTokens,
     emitAuthTokenStatus,
-    fetchCardeioDecklists
+    fetchCardeioDecklists,
+    fetchCardeioRegistrations,
+    fetchCardeioStandings
 } from '../features/auth-tokens.js';
 
 export default function registerSocketHandlers(io) {
@@ -449,6 +451,24 @@ export default function registerSocketHandlers(io) {
                 socket.emit('cardeio-decklists-result', { success: true, ...result });
             } catch (error) {
                 socket.emit('cardeio-decklists-result', { success: false, error: error.message });
+            }
+        });
+
+        socket.on('fetch-cardeio-registrations', async ({ eventId, gameSlug }) => {
+            try {
+                const result = await fetchCardeioRegistrations(eventId, gameSlug);
+                socket.emit('cardeio-registrations-result', { success: true, ...result });
+            } catch (error) {
+                socket.emit('cardeio-registrations-result', { success: false, error: error.message });
+            }
+        });
+
+        socket.on('fetch-cardeio-standings', async ({ roundId }) => {
+            try {
+                const result = await fetchCardeioStandings(roundId);
+                socket.emit('cardeio-standings-result', { success: true, ...result });
+            } catch (error) {
+                socket.emit('cardeio-standings-result', { success: false, error: error.message });
             }
         });
 
