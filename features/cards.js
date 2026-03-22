@@ -108,9 +108,10 @@ export function emitCardView(io, cardSelected) {
             name => name.toLowerCase() === cardSelected['card-selected'].toLowerCase()
         )
         if (cardName) {
+            const url = cardSelected['variant-url'] || riftboundCards[cardName]?.imageUrl;
             const cardData = {
                 name: cardName,
-                url: riftboundCards[cardName]?.imageUrl,
+                url,
                 type: riftboundCards[cardName]?.type,
                 'card-id': cardSelected['card-id'],
                 'game-id': cardSelected['game-id']
@@ -179,6 +180,26 @@ function getURLFromCardName(cardName, cardsList, gameType) {
     }
 }
 
+function resolveRiftboundLegendUrl(legendTitle, cleanedCardsMap, gameType) {
+    // Try exact match first (e.g. "Glorious Executioner" typed directly)
+    let url = getURLFromCardName(legendTitle, cleanedCardsMap, gameType);
+    if (url) return url;
+
+    // Strip character name: "Draven, Glorious Executioner" → "Glorious Executioner"
+    const commaIdx = legendTitle.indexOf(',');
+    if (commaIdx !== -1) {
+        const suffix = legendTitle.substring(commaIdx + 1).trim();
+        url = getURLFromCardName(suffix, cleanedCardsMap, gameType);
+        if (url) return url;
+
+        // Starter deck legends: "Dark Child" → "Dark Child - Starter"
+        url = getURLFromCardName(suffix + ' - Starter', cleanedCardsMap, gameType);
+        if (url) return url;
+    }
+
+    return '';
+}
+
 function getManaCostFromCardName(cardName, cardsList, gameType) {
     if (gameType !== 'mtg') return '';
 
@@ -219,10 +240,13 @@ export function transformMainDeck(data, io) {
     // The textarea is filtered to only "other" cards (units, spells, gear).
     if (gameType === 'riftbound') {
         const meta = data.riftboundMeta || {};
-        console.log('[Riftbound Debug] riftboundMeta received:', JSON.stringify(meta, null, 2));
+        console.log(`[Riftbound Debug] transform-main-deck-data from SOURCE="${data.source || 'UNKNOWN'}" matchID=${matchID} sideID=${sideID}`);
+        console.log(`[Riftbound Debug] riftboundMeta keys: ${Object.keys(meta).join(', ') || 'EMPTY'}, legend="${meta.legend || ''}", champion="${meta.champion || ''}"`);
+        console.log(`[Riftbound Debug] deckData: ${Array.isArray(deckArray) ? deckArray.length + ' cards' : 'not array'}`);
 
         // Resolve image URLs for legend and champion from master control field names
-        const legendImageUrl = meta.legend ? getURLFromCardName(meta.legend, cleanedCardsMap, gameType) || '' : '';
+        // Legend titles like "Draven, Glorious Executioner" → card data key is "Glorious Executioner"
+        const legendImageUrl = meta.legend ? resolveRiftboundLegendUrl(meta.legend, cleanedCardsMap, gameType) : '';
         const championImageUrl = meta.champion ? getURLFromCardName(meta.champion, cleanedCardsMap, gameType) || '' : '';
 
         // Battlefields from master control fields (filter out empty strings)
@@ -230,10 +254,17 @@ export function transformMainDeck(data, io) {
             .filter(name => name && name.trim())
             .map(name => ({ name: name.trim() }));
 
-        // Runes from master control fields
+        // Runes from master control fields (individual color/qty fields, or fallback to runesString)
         const runes = [];
-        if (meta.runeColor1) runes.push({ letter: meta.runeColor1, count: parseInt(meta.runeQty1, 10) || 0 });
-        if (meta.runeColor2) runes.push({ letter: meta.runeColor2, count: parseInt(meta.runeQty2, 10) || 0 });
+        if (meta.runeColor1) {
+            runes.push({ letter: meta.runeColor1.toLowerCase(), count: parseInt(meta.runeQty1, 10) || 0 });
+            if (meta.runeColor2) runes.push({ letter: meta.runeColor2.toLowerCase(), count: parseInt(meta.runeQty2, 10) || 0 });
+        } else if (meta.runesString) {
+            // Fallback: parse runesString (e.g. "gp" → [{letter:'g'}, {letter:'p'}])
+            const letters = meta.runesString.toLowerCase().split('').filter(ch => 'rgbopy'.includes(ch));
+            const unique = [...new Set(letters)];
+            unique.forEach(letter => runes.push({ letter, count: 0 }));
+        }
 
         // Filter textarea to only "other" cards (skip Legend, Rune, Battlefield types)
         const other = [];

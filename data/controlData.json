@@ -15,7 +15,7 @@
       "player-record-right": "",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 1 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -110,7 +110,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 1 of 15",
       "event-format": "Format",
       "player-side-deck-right": [
@@ -200,7 +200,9 @@
       "player-base-hp-left": "35",
       "player-base-right": "Data Vault",
       "player-base-aspects-right": "command",
-      "player-base-hp-right": "33"
+      "player-base-hp-right": "33",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -217,7 +219,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 1 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -225,7 +227,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -242,7 +246,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 1 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -250,84 +254,84 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "2": {
     "match1": {
-      "player-name-left": "Justin L",
+      "player-name-left": "Jon Rosum",
       "player-pronouns-left": "",
       "player-archetype-left": "",
-      "player-record-left": "1-0",
+      "player-record-left": "9-2-2",
       "player-wins-left": "0",
       "player-poison-left": "0",
       "player-life-left": "0",
       "player-life-right": "0",
-      "player-name-right": "Richard U",
+      "player-name-right": "Nathan Ciavarella",
       "player-pronouns-right": "",
       "player-archetype-right": "",
-      "player-record-right": "1-0",
+      "player-record-right": "11-2",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 2 of 15",
       "event-format": "Format",
       "player-side-deck-right": [
-        "2 Against the Odds",
-        "1 Hard Bargain",
-        "1 Switcheroo",
-        "2 Ferrous Forerunner",
-        "1 Thermo Beam",
-        "1 Last Rites"
-      ],
-      "player-side-deck-left": [
         "1 Ferrous Forerunner",
-        "1 Seal of Discord",
-        "2 Pouty Poro",
-        "1 Falling Star",
+        "1 Beast Below",
+        "2 Mindsplitter",
         "1 Hard Bargain",
-        "1 Rebuke",
-        "1 Mindsplitter"
-      ],
-      "player-main-deck-left": [
-        "2 Spinning Axe",
-        "1 Tideturner",
-        "2 Overzealous Fan",
-        "3 Called Shot",
-        "3 Ezreal, Prodigy",
-        "3 Fight or Flight",
-        "3 Stacked Deck",
-        "3 Battering Ram",
-        "3 Treasure Hunter",
-        "1 Boots of Swiftness",
-        "1 Vi, Destructive",
-        "3 Noxus Hopeful",
-        "2 Seal of Discord",
-        "2 Scrapheap",
-        "2 Piercing Light",
-        "2 Ride the Wind",
-        "1 Fizz, Trickster",
-        "1 Kai'Sa, Survivor",
+        "2 Pouty Poro",
         "1 Falling Star"
       ],
-      "player-main-deck-right": [
-        "2 Brynhir Thundersong",
-        "3 Darius, Trifarian",
-        "3 Spinning Axe",
-        "1 Edge of Night",
-        "3 Overzealous Fan",
-        "2 Falling Star",
-        "1 Ferrous Forerunner",
-        "3 Fight or Flight",
-        "1 Hard Bargain",
-        "3 Kai'Sa, Survivor",
-        "2 Mindsplitter",
-        "3 Noxus Hopeful",
-        "2 Rebuke",
+      "player-side-deck-left": [
+        "2 Ferrous Forerunner",
+        "1 Rebuke",
+        "1 Spinning Axe",
+        "2 Pack of Wonders",
+        "1 Brynhir Thundersong",
+        "1 Falling Star"
+      ],
+      "player-main-deck-left": [
+        "3 Battering Ram",
+        "3 Called Shot",
         "3 Stacked Deck",
-        "3 Tideturner",
-        "1 Switcheroo",
-        "3 Treasure Hunter"
+        "3 Seal of Discord",
+        "3 Ezreal, Prodigy",
+        "2 Bushwhack",
+        "3 Detonate",
+        "3 Fight or Flight",
+        "3 Rhasa the Sunderer",
+        "1 Last Rites",
+        "3 Traveling Merchant",
+        "3 Scrapheap",
+        "1 Rebuke",
+        "3 Treasure Trove",
+        "1 Spinning Axe",
+        "1 Vi, Destructive"
+      ],
+      "player-main-deck-right": [
+        "3 Battering Ram",
+        "3 Called Shot",
+        "3 Stacked Deck",
+        "3 Ezreal, Prodigy",
+        "1 Rhasa the Sunderer",
+        "1 Fizz, Trickster",
+        "3 Noxus Hopeful",
+        "3 Fight or Flight",
+        "2 Overzealous Fan",
+        "1 Rebuke",
+        "1 Tideturner",
+        "3 Piercing Light",
+        "2 Ride the Wind",
+        "2 Scrapheap",
+        "1 Spinning Axe",
+        "1 Kai'Sa, Survivor",
+        "3 Treasure Hunter",
+        "1 Vi, Destructive",
+        "2 Seal of Discord"
       ],
       "player-mulligan-left": "",
       "player-mulligan-right": "",
@@ -344,32 +348,32 @@
       "player-base-aspects-right": "aggression",
       "player-base-hp-right": "25",
       "player-legend-left": "Draven, Glorious Executioner",
-      "player-champion-left": "",
+      "player-champion-left": "Draven, Vanquisher",
       "player-runes-left": "gp",
       "player-legend-right": "Draven, Glorious Executioner",
-      "player-champion-right": "",
+      "player-champion-right": "Draven, Vanquisher",
       "player-runes-right": "oy",
       "player-rune-color-1-left": "r",
       "player-rune-qty-1-left": "5",
       "player-rune-color-2-left": "p",
       "player-rune-qty-2-left": "7",
       "player-rune-color-1-right": "r",
-      "player-rune-qty-1-right": "6",
+      "player-rune-qty-1-right": "5",
       "player-rune-color-2-right": "p",
-      "player-rune-qty-2-right": "6",
+      "player-rune-qty-2-right": "7",
       "_timestamps": {
         "player-wins-left": 1773103318864,
         "player-wins-right": 1773105639137,
         "player-poison-right": 1773105637108
       },
-      "player-battlefield-1-left": "Altar to Unity",
-      "player-battlefield-left": "",
-      "player-battlefield-2-left": "Aspirant's Climb",
-      "player-battlefield-3-left": "Back Alley Bar",
-      "player-battlefield-1-right": "Back-Alley Bar",
-      "player-battlefield-right": "",
-      "player-battlefield-2-right": "Void Gate",
-      "player-battlefield-3-right": "Grove of the God-Willow"
+      "player-battlefield-1-left": "Zaun Warrens",
+      "player-battlefield-left": "Zaun Warrens",
+      "player-battlefield-2-left": "Obelisk of Power",
+      "player-battlefield-3-left": "Veiled Temple",
+      "player-battlefield-1-right": "Reaver's Row",
+      "player-battlefield-right": "Reaver's Row",
+      "player-battlefield-2-right": "Zaun Warrens",
+      "player-battlefield-3-right": "Obelisk of Power"
     },
     "match2": {
       "player-name-left": "Player name",
@@ -386,7 +390,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 2 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -394,7 +398,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -411,7 +417,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 2 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -419,7 +425,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -436,7 +444,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 2 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -444,7 +452,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "3": {
@@ -463,7 +473,7 @@
       "player-record-right": "2-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 3 of 15",
       "event-format": "Format",
       "player-side-deck-right": [
@@ -529,7 +539,9 @@
       "player-runes-left": "or",
       "player-legend-right": "Rumble, Mechanized Menace",
       "player-champion-right": "",
-      "player-runes-right": "br"
+      "player-runes-right": "br",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -546,7 +558,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 3 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -554,7 +566,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -571,7 +585,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 3 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -579,7 +593,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -596,7 +612,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 3 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -604,7 +620,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "4": {
@@ -623,7 +641,7 @@
       "player-record-right": "1-2-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 4 of 15",
       "event-format": "Format",
       "player-side-deck-right": [
@@ -691,7 +709,8 @@
       ],
       "player-mulligan-left": "",
       "player-mulligan-right": "",
-      "player-battlefield-left": ""
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -708,7 +727,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 4 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -716,7 +735,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -733,7 +754,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 4 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -741,7 +762,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -758,7 +781,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 4 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -766,7 +789,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "5": {
@@ -785,7 +810,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 5 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -796,7 +821,9 @@
       "player-mulligan-right": "",
       "player-leader-left": "Admiral Piett - Commanding the Armada",
       "player-leader-aspect-1-left": "command",
-      "player-leader-aspect-2-left": "villainy"
+      "player-leader-aspect-2-left": "villainy",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -813,7 +840,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 5 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -821,7 +848,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -838,7 +867,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 5 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -846,7 +875,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -863,7 +894,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 5 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -871,7 +902,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "6": {
@@ -890,7 +923,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 6 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -898,7 +931,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -915,7 +950,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 6 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -923,7 +958,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -940,7 +977,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 6 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -948,7 +985,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -965,7 +1004,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 6 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -973,7 +1012,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "7": {
@@ -992,7 +1033,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 7 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1000,7 +1041,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -1017,7 +1060,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 7 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1025,7 +1068,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1042,7 +1087,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 7 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1050,7 +1095,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1067,7 +1114,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 7 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1075,7 +1122,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "8": {
@@ -1094,7 +1143,7 @@
       "player-record-right": "4-3-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 8 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1102,7 +1151,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -1119,7 +1170,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 8 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1127,7 +1178,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1144,7 +1197,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 8 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1152,7 +1205,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1169,7 +1224,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 8 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1177,7 +1232,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "9": {
@@ -1196,7 +1253,7 @@
       "player-record-right": "7-1-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 9 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1204,7 +1261,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Nam Dang",
@@ -1221,7 +1280,7 @@
       "player-record-right": "6-2-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 9 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1229,7 +1288,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1246,7 +1307,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 9 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1254,7 +1315,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1271,7 +1334,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 9 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1279,7 +1342,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "10": {
@@ -1298,7 +1363,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 10 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1306,7 +1371,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -1323,7 +1390,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 10 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1331,7 +1398,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1348,7 +1417,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 10 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1356,7 +1425,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1373,7 +1444,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 10 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1381,7 +1452,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "11": {
@@ -1400,7 +1473,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 11 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1408,7 +1481,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -1425,7 +1500,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 11 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1433,7 +1508,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1450,7 +1527,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 11 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1458,7 +1535,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1475,7 +1554,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 11 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1483,7 +1562,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "12": {
@@ -1502,7 +1583,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 12 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1510,7 +1591,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -1527,7 +1610,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 12 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1535,7 +1618,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1552,7 +1637,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 12 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1560,7 +1645,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1577,7 +1664,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 12 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1585,7 +1672,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "13": {
@@ -1604,7 +1693,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 13 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1612,7 +1701,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -1629,7 +1720,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 13 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1637,7 +1728,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1654,7 +1747,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 13 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1662,7 +1755,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1679,7 +1774,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 13 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1687,7 +1782,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "14": {
@@ -1706,7 +1803,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 14 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1714,7 +1811,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -1731,7 +1830,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 14 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1739,7 +1838,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1756,7 +1857,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 14 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1764,7 +1865,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1781,7 +1884,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 14 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1789,7 +1892,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "15": {
@@ -1808,13 +1913,15 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 15 of 15",
       "event-format": "Format",
       "player-main-deck-left": [],
       "player-side-deck-left": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match2": {
       "player-name-left": "Player name",
@@ -1831,7 +1938,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 15 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1839,7 +1946,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match3": {
       "player-name-left": "Player name",
@@ -1856,7 +1965,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 15 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1864,7 +1973,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     },
     "match4": {
       "player-name-left": "Player name",
@@ -1881,7 +1992,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 15 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1889,7 +2000,9 @@
       "player-main-deck-left": [],
       "player-main-deck-right": [],
       "player-mulligan-left": "",
-      "player-mulligan-right": ""
+      "player-mulligan-right": "",
+      "player-battlefield-left": "",
+      "player-battlefield-right": ""
     }
   },
   "16": {
@@ -1908,7 +2021,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 16 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1945,7 +2058,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 16 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -1982,7 +2095,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 16 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2019,7 +2132,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 16 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2058,7 +2171,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 17 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2095,7 +2208,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 17 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2132,7 +2245,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 17 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2169,7 +2282,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 17 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2208,7 +2321,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 18 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2245,7 +2358,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 18 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2282,7 +2395,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 18 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2319,7 +2432,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 18 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2358,7 +2471,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 19 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2395,7 +2508,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 19 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2432,7 +2545,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 19 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2469,7 +2582,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 19 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2508,7 +2621,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 20 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2545,7 +2658,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 20 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2582,7 +2695,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 20 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],
@@ -2619,7 +2732,7 @@
       "player-record-right": "0-0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "Event",
+      "event-name": "ldxp riftbound $5k",
       "event-round": "Round 20 of 15",
       "event-format": "Format",
       "player-side-deck-right": [],

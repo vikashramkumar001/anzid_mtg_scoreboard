@@ -775,7 +775,7 @@ export function initMatches(socket) {
             }
         });
 
-        // Sync active battlefield radio slot → hidden player-battlefield field (no event, just value)
+        // Sync active battlefield radio slot → hidden player-battlefield field
         for (const side of ['left', 'right']) {
             const checkedRadio = document.querySelector(`input[name="${roundId}-${matchId}-bf-${side}-select"]:checked`);
             if (checkedRadio) {
@@ -784,6 +784,7 @@ export function initMatches(socket) {
                 const mainField = document.getElementById(`${roundId}-${matchId}-player-battlefield-${side}`);
                 if (sourceEl && mainField) {
                     mainField.innerText = sourceEl.innerText;
+                    mainField.dispatchEvent(new Event('input', { bubbles: true }));
                 }
             }
         }
@@ -847,9 +848,6 @@ export function initMatches(socket) {
 
                 // Update the local control data when a field changes
                 const fieldKey = field.id.replace(`${roundId}-${matchId}-`, '');
-                if (fieldKey.includes('leader') || fieldKey.includes('base')) {
-                    console.log('[SWU DEBUG MC] General input handler fired:', fieldKey, '=', value);
-                }
                 updateControlData(roundId, matchId, fieldKey, value);
                 // Emit the updated control data to the backend
                 console.log('updated all data', allControlData);
@@ -932,40 +930,49 @@ export function initMatches(socket) {
 
     // Function to update Riftbound-specific fields based on parsed deck data
     function updateRiftboundFields(parsedDeck, roundId, matchId, sideId) {
+        // Only update fields that are present in the parsed deck — don't blank out existing values
+        // when the user is just editing individual card lines
+
         // Legend
-        let legendField = document.getElementById(`${roundId}-${matchId}-player-legend-${sideId}`);
-        let legendName = parsedDeck['legend'] ? parsedDeck['legend'][0] : '';
-        legendName = legendName.substring(2, legendName.length); // remove quantity prefix
-        legendField.innerText = legendName;
+        if (parsedDeck['legend']?.length) {
+            let legendField = document.getElementById(`${roundId}-${matchId}-player-legend-${sideId}`);
+            let legendName = parsedDeck['legend'][0].substring(2); // remove quantity prefix
+            if (legendField) legendField.innerText = legendName;
+        }
 
         // Champion
-        let championField = document.getElementById(`${roundId}-${matchId}-player-champion-${sideId}`);
-        let championName = parsedDeck['champion'] ? parsedDeck['champion'][0] : '';
-        championName = championName.substring(2, championName.length); // remove quantity prefix
-        championField.innerText = championName;
-
-        // Battlefield — populate up to 3 slots, select radio 1
-        const battlefields = (parsedDeck['battlefield'] || []).slice(0, 3);
-        for (let i = 0; i < 3; i++) {
-            const bfEl = document.getElementById(`${roundId}-${matchId}-player-battlefield-${i + 1}-${sideId}`);
-            if (bfEl) bfEl.innerText = battlefields[i] ? battlefields[i].substring(2) : '';
+        if (parsedDeck['champion']?.length) {
+            let championField = document.getElementById(`${roundId}-${matchId}-player-champion-${sideId}`);
+            let championName = parsedDeck['champion'][0].substring(2); // remove quantity prefix
+            if (championField) championField.innerText = championName;
         }
-        const radio1 = document.querySelector(`input[name="${roundId}-${matchId}-bf-${sideId}-select"][value="1"]`);
-        if (radio1) { radio1.checked = true; radio1.dispatchEvent(new Event('change', { bubbles: true })); }
 
-        // Runes — set rune-color-1/2 and rune-qty-1/2
-        const runeLetterToName = { 'r': 'Fury', 'g': 'Calm', 'b': 'Mind', 'o': 'Body', 'p': 'Chaos', 'y': 'Order' };
-        const nameToLetter = Object.fromEntries(Object.entries(runeLetterToName).map(([k, v]) => [v, k]));
-        const runeOrder = ['r', 'g', 'b', 'o', 'p', 'y'];
-        const runes = (parsedDeck['runepool'] || []).map(entry => {
-            const parts = entry.split(' ');
-            return { qty: parts[0], letter: nameToLetter[parts[1]] || '' };
-        }).filter(r => r.letter).sort((a, b) => runeOrder.indexOf(a.letter) - runeOrder.indexOf(b.letter));
-        for (let i = 0; i < 2; i++) {
-            const colorEl = document.getElementById(`${roundId}-${matchId}-player-rune-color-${i + 1}-${sideId}`);
-            const qtyEl = document.getElementById(`${roundId}-${matchId}-player-rune-qty-${i + 1}-${sideId}`);
-            if (colorEl) { colorEl.textContent = runes[i]?.letter || ''; colorEl.dispatchEvent(new Event('input', { bubbles: true })); }
-            if (qtyEl) { qtyEl.textContent = runes[i]?.qty || ''; qtyEl.dispatchEvent(new Event('input', { bubbles: true })); }
+        // Battlefield — only update if battlefields are in the pasted deck
+        if (parsedDeck['battlefield']?.length) {
+            const battlefields = parsedDeck['battlefield'].slice(0, 3);
+            for (let i = 0; i < 3; i++) {
+                const bfEl = document.getElementById(`${roundId}-${matchId}-player-battlefield-${i + 1}-${sideId}`);
+                if (bfEl) bfEl.innerText = battlefields[i] ? battlefields[i].substring(2) : '';
+            }
+            const radio1 = document.querySelector(`input[name="${roundId}-${matchId}-bf-${sideId}-select"][value="1"]`);
+            if (radio1) { radio1.checked = true; radio1.dispatchEvent(new Event('change', { bubbles: true })); }
+        }
+
+        // Runes — only update if runes are in the pasted deck
+        if (parsedDeck['runepool']?.length) {
+            const runeLetterToName = { 'r': 'Fury', 'g': 'Calm', 'b': 'Mind', 'o': 'Body', 'p': 'Chaos', 'y': 'Order' };
+            const nameToLetter = Object.fromEntries(Object.entries(runeLetterToName).map(([k, v]) => [v, k]));
+            const runeOrder = ['r', 'g', 'b', 'o', 'p', 'y'];
+            const runes = parsedDeck['runepool'].map(entry => {
+                const parts = entry.split(' ');
+                return { qty: parts[0], letter: nameToLetter[parts[1]] || '' };
+            }).filter(r => r.letter).sort((a, b) => runeOrder.indexOf(a.letter) - runeOrder.indexOf(b.letter));
+            for (let i = 0; i < 2; i++) {
+                const colorEl = document.getElementById(`${roundId}-${matchId}-player-rune-color-${i + 1}-${sideId}`);
+                const qtyEl = document.getElementById(`${roundId}-${matchId}-player-rune-qty-${i + 1}-${sideId}`);
+                if (colorEl) { colorEl.textContent = runes[i]?.letter || ''; colorEl.dispatchEvent(new Event('input', { bubbles: true })); }
+                if (qtyEl) { qtyEl.textContent = runes[i]?.qty || ''; qtyEl.dispatchEvent(new Event('input', { bubbles: true })); }
+            }
         }
     }
 
@@ -1018,7 +1025,6 @@ export function initMatches(socket) {
             nameSpan.textContent = item.name;
             div.appendChild(nameSpan);
             div.addEventListener('click', () => {
-                console.log('[SWU DEBUG MC] Dropdown click:', item.name, '→ field:', field.id);
                 field.textContent = nameTransform ? nameTransform(item.name) : item.name;
                 dropdownList.style.display = 'none';
                 field.dispatchEvent(new Event('input'));
@@ -1817,21 +1823,54 @@ export function initMatches(socket) {
                 return;
             }
 
+            // For carde.io, auto-resolve the round ID from the event detail round map
+            let cardeRoundId = null;
+            if (platform === 'cardeio') {
+                cardeRoundId = window.cardeioRoundMap?.[round_id];
+                if (!cardeRoundId) {
+                    alert(`Round ID not found for Round ${round_id}. Try saving tournament config to fetch event details.`);
+                    return;
+                }
+            }
+
             // Show loading state
-            const originalText = fetchButton.textContent;
             fetchButton.disabled = true;
             fetchButton.textContent = 'Fetching...';
             fetchButton.dataset.fetching = 'true';
             fetchButton.dataset.roundId = round_id;
             fetchButton.dataset.matchId = match_id;
 
-            // Emit fetch request
-            socket.emit('fetch-match-by-table', {
-                tournamentId,
-                roundNumber: round_id,
-                tableNumber,
-                platform
-            });
+            if (platform === 'cardeio' && cardeRoundId) {
+                // Fetch round data first (pairings + standings), then fetch match by table
+                socket.emit('fetch-cardeio-round', { roundId: cardeRoundId, roundNumber: round_id });
+
+                // Listen for round data response, then fetch the match
+                const onRoundFetched = (results) => {
+                    socket.off('cardeio-round-fetched', onRoundFetched);
+                    if (!results.matches?.success) {
+                        fetchButton.disabled = false;
+                        fetchButton.textContent = 'Fetch';
+                        delete fetchButton.dataset.fetching;
+                        alert('Failed to fetch round pairings: ' + (results.matches?.error || 'Unknown error'));
+                        return;
+                    }
+                    // Now fetch the match by table from cached data
+                    socket.emit('fetch-match-by-table', {
+                        tournamentId,
+                        roundNumber: round_id,
+                        tableNumber,
+                        platform
+                    });
+                };
+                socket.on('cardeio-round-fetched', onRoundFetched);
+            } else {
+                socket.emit('fetch-match-by-table', {
+                    tournamentId,
+                    roundNumber: round_id,
+                    tableNumber,
+                    platform
+                });
+            }
         });
     }
 

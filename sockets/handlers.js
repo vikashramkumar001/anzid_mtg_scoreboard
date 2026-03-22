@@ -96,7 +96,10 @@ import {
     fetchMeleeDecklist,
     parseMeleeDecklist,
     fetchMeleePairings,
-    fetchCardeioDecklist
+    fetchCardeioDecklist,
+    fetchCardeioRegistrations,
+    fetchCardeioRoundData,
+    fetchCardeioEventDetail
 } from '../features/tournament-platforms.js';
 
 export default function registerSocketHandlers(io) {
@@ -471,6 +474,42 @@ export default function registerSocketHandlers(io) {
                     ? 'Authentication failed — CARDEIO_TOKEN may be expired. Update .env and restart.'
                     : error.message;
                 socket.emit('cardeio-decklists-fetched', { success: false, error: msg });
+            }
+        });
+
+        // Fetch and cache Carde registrations CSV for an event
+        socket.on('fetch-cardeio-registrations', async ({ eventId, gameSlug }) => {
+            try {
+                const result = await fetchCardeioRegistrations(eventId, gameSlug);
+                socket.emit('cardeio-registrations-fetched', { success: true, count: result.count });
+            } catch (error) {
+                const msg = error.response?.status === 401
+                    ? 'Authentication failed — CARDEIO_TOKEN/SESSION may be expired. Update .env and restart.'
+                    : error.message;
+                socket.emit('cardeio-registrations-fetched', { success: false, error: msg });
+            }
+        });
+
+        // Fetch Carde round data (matches + standings CSVs) by round ID
+        socket.on('fetch-cardeio-round', async ({ roundId, roundNumber }) => {
+            try {
+                const results = await fetchCardeioRoundData(roundId, roundNumber);
+                socket.emit('cardeio-round-fetched', results);
+            } catch (error) {
+                socket.emit('cardeio-round-fetched', {
+                    matches: { success: false, error: error.message },
+                    standings: { success: false, error: error.message }
+                });
+            }
+        });
+
+        // Fetch event detail to get round number → round ID mapping
+        socket.on('fetch-cardeio-event-detail', async ({ eventId }) => {
+            try {
+                const roundMap = await fetchCardeioEventDetail(eventId);
+                socket.emit('cardeio-event-detail-fetched', { success: true, roundMap });
+            } catch (error) {
+                socket.emit('cardeio-event-detail-fetched', { success: false, error: error.message });
             }
         });
 

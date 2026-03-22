@@ -200,7 +200,6 @@ export function emitControlTrackers(io) {
 
 // Emit a full update from master control - goes to control / scoreboard
 export async function updateFromMaster(allControlData, io) {
-    console.log('[SWU DEBUG SERVER] updateFromMaster called, controlsTracker:', JSON.stringify(controlsTracker));
     // Merge incoming data with existing data to preserve draft list fields
     Object.entries(allControlData).forEach(([round_id, roundData]) => {
         if (isNaN(round_id)) return; // Skip non-round keys like "draftLists"
@@ -231,7 +230,6 @@ export async function updateFromMaster(allControlData, io) {
                     // Use merged controlData (not incoming data) to avoid async race condition
                     // where saveControlData delay causes stale data to be emitted last
                     const mergedData = controlData[round_id]?.[match_id] || {};
-                    console.log(`[SWU DEBUG SERVER] Emitting to scoreboard-${control_id}, leader-left:`, mergedData['player-leader-left'], 'leader-right:', mergedData['player-leader-right']);
                     RoomUtils.emitToRoom(io, `control-${control_id}`, `control-${control_id}-saved-state`, {
                         data: mergedData,
                         round_id,

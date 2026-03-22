@@ -30,7 +30,8 @@ let platformConfig = {
     meleeClientId: process.env.MELEE_CLIENT_ID || '',
     meleeClientSecret: process.env.MELEE_CLIENT_SECRET || '',
     topdeckApiKey: process.env.TOPDECK_API_KEY || '',
-    cardeioToken: process.env.CARDEIO_TOKEN || ''
+    cardeioToken: process.env.CARDEIO_TOKEN || '',
+    cardeioRoundMap: {}  // { roundNumber: roundId } from event detail API
 };
 
 // Get current platform config
@@ -40,7 +41,8 @@ export function getPlatformConfig() {
         tournamentId: platformConfig.tournamentId,
         // Don't expose API keys to frontend
         hasMeleeKey: !!(platformConfig.meleeApiKey || platformConfig.meleeClientId),
-        hasTopdeckKey: !!platformConfig.topdeckApiKey
+        hasTopdeckKey: !!platformConfig.topdeckApiKey,
+        cardeioRoundMap: platformConfig.cardeioRoundMap
     };
 }
 
@@ -96,7 +98,7 @@ const RUNE_ORDER = ['r', 'g', 'b', 'o', 'p', 'y'];
 
 function cardeioGetRuneLetters(deckDetail) {
     if (!deckDetail?.sections) return '';
-    const section = deckDetail.sections.find(s => s.section_type === 'rune_pool');
+    const section = deckDetail.sections.find(s => s.section_type === 'rune_pool' || s.section_key === 'rune_pool');
     if (!section) return '';
     const letters = section.cards.map(c => {
         const n = c.name.toLowerCase();
@@ -110,7 +112,7 @@ function cardeioGetRuneLetters(deckDetail) {
 
 function cardeioGetRuneQuantities(deckDetail) {
     if (!deckDetail?.sections) return '';
-    const section = deckDetail.sections.find(s => s.section_type === 'rune_pool');
+    const section = deckDetail.sections.find(s => s.section_type === 'rune_pool' || s.section_key === 'rune_pool');
     if (!section) return '';
     const letterQty = {};
     for (const c of section.cards) {
@@ -162,9 +164,48 @@ function cardeioMapPlayer(entry, side, enteringRecord = '') {
     };
 }
 
+// --- Carde.io event detail (round ID mapping) ---
+
+// Fetch event detail from Carde API and extract round number → round ID mapping
+export async function fetchCardeioEventDetail(eventId) {
+    const token = platformConfig.cardeioToken;
+    if (!token) throw new Error('CARDEIO_TOKEN not set in .env');
+
+    const url = `https://api.admin.carde.io/api/v2/organize/events/${eventId}/detail/`;
+    const response = await axios.get(url, {
+        headers: {
+            ...BROWSER_HEADERS,
+            'Authorization': `Token ${token}`,
+            'Origin': 'https://admin.carde.io',
+            'Referer': 'https://admin.carde.io/'
+        }
+    });
+
+    // Flatten all phases' rounds into a single roundNumber → roundId map
+    const roundMap = {};
+    const phases = response.data?.tournament_phases || [];
+    for (const phase of phases) {
+        const rounds = phase.rounds || [];
+        for (const round of rounds) {
+            if (round.round_number && round.id) {
+                roundMap[round.round_number] = round.id;
+            }
+        }
+    }
+
+    platformConfig.cardeioRoundMap = roundMap;
+    console.log(`[Carde] Event ${eventId} round map:`, roundMap);
+    return roundMap;
+}
+
+// Look up the Carde.io round ID for a given round number
+export function getCardeioRoundId(roundNumber) {
+    return platformConfig.cardeioRoundMap[roundNumber] || null;
+}
+
 // --- Carde.io decklist export (event-level, one-time fetch) ---
 
-const CARDEIO_EXTRA_DIR = path.join(CARDEIO_DIR, 'extra');
+const CARDEIO_CACHE_DIR = path.join(CARDEIO_DIR, 'cache');
 
 // Fetch decklist export from Carde API and cache to disk
 export async function fetchCardeioDecklist(eventId) {
@@ -182,8 +223,8 @@ export async function fetchCardeioDecklist(eventId) {
     });
 
     // Ensure extra directory exists
-    await fsPromises.mkdir(CARDEIO_EXTRA_DIR, { recursive: true });
-    const filePath = path.join(CARDEIO_EXTRA_DIR, `event-${eventId}-decklists.json`);
+    await fsPromises.mkdir(CARDEIO_CACHE_DIR, { recursive: true });
+    const filePath = path.join(CARDEIO_CACHE_DIR, `event-${eventId}-decklists.json`);
     await fsPromises.writeFile(filePath, JSON.stringify(response.data, null, 2));
     console.log(`[Carde] Cached ${response.data?.decklists?.length || 0} decklists to ${filePath}`);
     return response.data;
@@ -191,7 +232,7 @@ export async function fetchCardeioDecklist(eventId) {
 
 // Load cached decklist export from disk (returns null if not cached)
 export async function loadCachedDecklist(eventId) {
-    const filePath = path.join(CARDEIO_EXTRA_DIR, `event-${eventId}-decklists.json`);
+    const filePath = path.join(CARDEIO_CACHE_DIR, `event-${eventId}-decklists.json`);
     try {
         const raw = await fsPromises.readFile(filePath, 'utf8');
         return JSON.parse(raw);
@@ -201,9 +242,10 @@ export async function loadCachedDecklist(eventId) {
 }
 
 // Build a player object from the decklist export data (same shape as cardeioMapPlayer)
-function cardeioMapPlayerFromExport(playerName, record, decklistEntry) {
+function cardeioMapPlayerFromExport(playerName, record, decklistEntry, fullName = null) {
+    const displayName = fullName || playerName;
     if (!decklistEntry) {
-        return { name: playerName, pronouns: '', record, archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
+        return { name: displayName, pronouns: '', record, archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
     }
 
     const aux = decklistEntry.auxiliary_sections || [];
@@ -238,7 +280,7 @@ function cardeioMapPlayerFromExport(playerName, record, decklistEntry) {
     const sideboard = sideSection ? sideSection.cards.map(c => `${c.quantity} ${c.name}`) : [];
 
     return {
-        name: playerName,
+        name: displayName,
         pronouns: '',
         record,
         archetype: '',
@@ -260,6 +302,257 @@ function findDecklistByName(playerName, cachedData) {
     return cachedData.decklists.find(d =>
         (d.user?.best_identifier || '').trim().toLowerCase() === lower
     ) || null;
+}
+
+// --- Carde.io registrations (event-level, one-time fetch) ---
+
+// Simple CSV parser (no external deps) — handles quoted fields with commas
+function parseCSV(csvText) {
+    const lines = csvText.split('\n').filter(l => l.trim());
+    if (lines.length < 2) return [];
+    const headers = parseCSVLine(lines[0]);
+    return lines.slice(1).map(line => {
+        const values = parseCSVLine(line);
+        const obj = {};
+        headers.forEach((h, i) => { obj[h.trim()] = (values[i] || '').trim(); });
+        return obj;
+    });
+}
+
+function parseCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+            if (inQuotes && line[i + 1] === '"') { current += '"'; i++; }
+            else { inQuotes = !inQuotes; }
+        } else if (ch === ',' && !inQuotes) {
+            result.push(current);
+            current = '';
+        } else {
+            current += ch;
+        }
+    }
+    result.push(current);
+    return result;
+}
+
+// Fetch registrations CSV from Carde API and cache as JSON
+export async function fetchCardeioRegistrations(eventId, gameSlug = 'riftbound') {
+    const token = process.env.CARDEIO_TOKEN || '';
+    const session = process.env.CARDEIO_SESSION || '';
+    if (!token) throw new Error('CARDEIO_TOKEN not set in .env');
+
+    const url = `https://admin.carde.io/api/csv-export/event-registrations?game_slug=${encodeURIComponent(gameSlug)}&event_id=${encodeURIComponent(eventId)}`;
+    const response = await axios.get(url, {
+        headers: {
+            ...BROWSER_HEADERS,
+            'Cookie': `web_sessionToken=${token}; web_session=${session}`,
+            'Referer': 'https://admin.carde.io/'
+        }
+    });
+
+    const csvText = typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
+    const registrations = parseCSV(csvText);
+
+    await fsPromises.mkdir(CARDEIO_CACHE_DIR, { recursive: true });
+    const filePath = path.join(CARDEIO_CACHE_DIR, `event-${eventId}-registrations.json`);
+    await fsPromises.writeFile(filePath, JSON.stringify(registrations, null, 2));
+    console.log(`[Carde] Cached ${registrations.length} registrations to ${filePath}`);
+    return { count: registrations.length };
+}
+
+// Fetch matches + standings CSVs for a specific Carde round ID, save as pairings/standings JSON
+export async function fetchCardeioRoundData(roundId, roundNumber) {
+    const token = process.env.CARDEIO_TOKEN || '';
+    const session = process.env.CARDEIO_SESSION || '';
+    if (!token) throw new Error('CARDEIO_TOKEN not set in .env');
+
+    const cookieHeader = `web_sessionToken=${token}; web_session=${session}`;
+    const headers = {
+        ...BROWSER_HEADERS,
+        'Cookie': cookieHeader,
+        'Referer': 'https://admin.carde.io/'
+    };
+
+    await fsPromises.mkdir(CARDEIO_DIR, { recursive: true });
+    const results = { matches: null, standings: null };
+
+    // Fetch matches (pairings) CSV
+    try {
+        const matchesUrl = `https://admin.carde.io/api/csv-export/organize/matches?round_id=${encodeURIComponent(roundId)}`;
+        const matchesRes = await axios.get(matchesUrl, { headers });
+        const matchesCsv = typeof matchesRes.data === 'string' ? matchesRes.data : JSON.stringify(matchesRes.data);
+        const rawMatches = parseCSV(matchesCsv);
+        // Normalize CSV columns to match expected pairings format
+        const matches = rawMatches.map(row => {
+            const players = (row['Players'] || '').split(' vs ');
+            const isBye = row['Is Bye'] === 'True' || players.length < 2;
+            return {
+                Table: parseInt(row['Table Number']) || -1,
+                'Player 1': (players[0] || '').trim(),
+                'Player 2': isBye ? '—' : (players[1] || '').trim(),
+                Status: row['Status'] || '',
+                Result: '',
+                'P1 Record': '',
+                'P2 Record': isBye ? '—' : '',
+                'P1 Deck': '',
+                'P2 Deck': '',
+                Winner: row['Winner'] || '',
+                'Is Bye': isBye ? 'Yes' : 'No'
+            };
+        });
+        const filePath = path.join(CARDEIO_DIR, `pairings-round-${roundNumber}.json`);
+        await fsPromises.writeFile(filePath, JSON.stringify(matches, null, 2));
+        console.log(`[Carde] Cached ${matches.length} pairings to ${filePath}`);
+        results.matches = { success: true, count: matches.length };
+    } catch (e) {
+        const msg = e.response?.status === 401
+            ? 'Auth failed — CARDEIO_TOKEN/SESSION may be expired'
+            : e.message;
+        console.error(`[Carde] Matches fetch failed: ${msg}`);
+        results.matches = { success: false, error: msg };
+    }
+
+    // Fetch standings CSV
+    try {
+        const standingsUrl = `https://admin.carde.io/api/csv-export/organize/standings?round_id=${encodeURIComponent(roundId)}`;
+        const standingsRes = await axios.get(standingsUrl, { headers });
+        const standingsCsv = typeof standingsRes.data === 'string' ? standingsRes.data : JSON.stringify(standingsRes.data);
+        const standings = parseCSV(standingsCsv);
+        const filePath = path.join(CARDEIO_DIR, `standings-round-${roundNumber}.json`);
+        await fsPromises.writeFile(filePath, JSON.stringify(standings, null, 2));
+        console.log(`[Carde] Cached ${standings.length} standings to ${filePath}`);
+        results.standings = { success: true, count: standings.length };
+    } catch (e) {
+        const msg = e.response?.status === 401
+            ? 'Auth failed — CARDEIO_TOKEN/SESSION may be expired'
+            : e.message;
+        console.error(`[Carde] Standings fetch failed: ${msg}`);
+        results.standings = { success: false, error: msg };
+    }
+
+    return results;
+}
+
+// Load cached registrations from disk
+export async function loadCachedRegistrations(eventId) {
+    const filePath = path.join(CARDEIO_CACHE_DIR, `event-${eventId}-registrations.json`);
+    try {
+        const raw = await fsPromises.readFile(filePath, 'utf8');
+        return JSON.parse(raw);
+    } catch (e) {
+        return null;
+    }
+}
+
+// Build fullName → [{userId, firstName, lastName}] lookup from registrations
+function buildFullNameToUserIds(registrations) {
+    const map = new Map();
+    for (const r of registrations) {
+        const first = (r['First Name'] || '').trim();
+        const last = (r['Last Name'] || '').trim();
+        const fullName = (`${first} ${last}`).trim().toLowerCase();
+        if (!fullName || !r['User ID']) continue;
+        if (!map.has(fullName)) map.set(fullName, []);
+        map.get(fullName).push({
+            userId: parseInt(r['User ID'], 10),
+            firstName: first,
+            lastName: last,
+            displayName: (r['Display Name'] || '').trim()
+        });
+    }
+    return map;
+}
+
+// Build bestIdentifier → [{userId, firstName, lastName}] lookup from registrations
+function buildBestIdToUserIds(registrations) {
+    const map = new Map();
+    for (const r of registrations) {
+        const first = (r['First Name'] || '').trim();
+        const last = (r['Last Name'] || '').trim();
+        const bestId = last ? `${first} ${last[0]}`.toLowerCase() : first.toLowerCase();
+        if (!bestId || !r['User ID']) continue;
+        if (!map.has(bestId)) map.set(bestId, []);
+        map.get(bestId).push({
+            userId: parseInt(r['User ID'], 10),
+            firstName: first,
+            lastName: last,
+            displayName: (r['Display Name'] || '').trim()
+        });
+    }
+    return map;
+}
+
+// Find decklist by User ID (exact match)
+function findDecklistByUserId(userId, cachedDecklists) {
+    if (!cachedDecklists?.decklists || !userId) return null;
+    return cachedDecklists.decklists.find(d => d.user?.id === userId) || null;
+}
+
+// Get legend name from a decklist entry's auxiliary_sections
+function getLegendFromDecklist(decklistEntry) {
+    if (!decklistEntry) return '';
+    const aux = decklistEntry.auxiliary_sections || [];
+    const legendSection = aux.find(s => s.type_code === 'legend');
+    return legendSection?.cards?.[0]?.name || '';
+}
+
+// Multi-level player → decklist resolution
+// Returns { decklist, fullName, userId, matchMethod }
+function resolvePlayerDecklist(realName, bestId, legendName, cachedDecklists, registrations) {
+    if (!cachedDecklists?.decklists) {
+        return { decklist: null, fullName: null, userId: null, matchMethod: 'no-decklists' };
+    }
+
+    // Helper: try to resolve from a list of userId candidates, with legend tiebreaker
+    function resolveFromCandidates(candidates, method) {
+        if (candidates.length === 1) {
+            const decklist = findDecklistByUserId(candidates[0].userId, cachedDecklists);
+            const full = `${candidates[0].firstName} ${candidates[0].lastName}`.trim();
+            return { decklist, fullName: full, userId: candidates[0].userId, matchMethod: method };
+        }
+        // Multiple candidates — legend tiebreaker
+        if (legendName) {
+            for (const c of candidates) {
+                const dl = findDecklistByUserId(c.userId, cachedDecklists);
+                if (dl && getLegendFromDecklist(dl).toLowerCase() === legendName.toLowerCase()) {
+                    const full = `${c.firstName} ${c.lastName}`.trim();
+                    return { decklist: dl, fullName: full, userId: c.userId, matchMethod: `${method}+legend` };
+                }
+            }
+        }
+        // No legend match — just use first candidate
+        const decklist = findDecklistByUserId(candidates[0].userId, cachedDecklists);
+        const full = `${candidates[0].firstName} ${candidates[0].lastName}`.trim();
+        return { decklist, fullName: full, userId: candidates[0].userId, matchMethod: `${method}+first` };
+    }
+
+    if (registrations && registrations.length > 0) {
+        // Tier 1: Real Name → fullName map → userId(s)
+        if (realName) {
+            const fullNameMap = buildFullNameToUserIds(registrations);
+            const candidates = fullNameMap.get(realName.trim().toLowerCase());
+            if (candidates && candidates.length > 0) {
+                return resolveFromCandidates(candidates, 'realName');
+            }
+        }
+
+        // Tier 2: bestId → bestId map → userId(s)
+        if (bestId) {
+            const bestIdMap = buildBestIdToUserIds(registrations);
+            const candidates = bestIdMap.get(bestId.trim().toLowerCase());
+            if (candidates && candidates.length > 0) {
+                return resolveFromCandidates(candidates, 'bestId');
+            }
+        }
+    }
+
+    // Tier 3: name-only fallback
+    const decklist = findDecklistByName(bestId, cachedDecklists);
+    return { decklist, fullName: null, userId: null, matchMethod: 'nameOnly' };
 }
 
 // Normalize player name from various formats
@@ -799,79 +1092,110 @@ async function fetchPlayerRecordFromStandings(tournamentId, roundNumber, playerN
 export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, platform = 'melee') {
     // Carde.io: prefer pairings + cached decklist export, fall back to overview
     if (platform === 'cardeio') {
-        // Try to load cached decklist export for enriched data (battlefields, champion, legend)
+        // Load all available data sources in parallel
         const cachedDecklists = await loadCachedDecklist(tournamentId);
+        const cachedRegistrations = await loadCachedRegistrations(tournamentId);
 
-        // Choose data source: pairings (lighter) if export cached, otherwise overview (has Deck Detail)
-        const sourceFile = cachedDecklists
-            ? `pairings-round-${roundNumber}.json`
-            : `overview-round-${roundNumber}.json`;
-        const filePath = path.join(CARDEIO_DIR, sourceFile);
-        let raw;
+        // Try to load both pairings AND overview (overview has Real Name for better matching)
+        let pairingsEntries = null, overviewEntries = null;
         try {
-            raw = await fsPromises.readFile(filePath, 'utf8');
-        } catch (e) {
-            if (e.code === 'ENOENT') {
-                // If pairings not found but overview exists, fall back to overview
-                if (cachedDecklists) {
-                    try {
-                        raw = await fsPromises.readFile(path.join(CARDEIO_DIR, `overview-round-${roundNumber}.json`), 'utf8');
-                    } catch (e2) {
-                        throw new Error(`Neither pairings-round-${roundNumber}.json nor overview-round-${roundNumber}.json found in data/cardeio/`);
-                    }
-                } else {
-                    throw new Error(`overview-round-${roundNumber}.json not found in data/cardeio/`);
-                }
-            } else {
-                throw e;
-            }
-        }
-        let entries;
+            const raw = await fsPromises.readFile(path.join(CARDEIO_DIR, `pairings-round-${roundNumber}.json`), 'utf8');
+            pairingsEntries = JSON.parse(raw);
+        } catch (e) { /* pairings not available */ }
         try {
-            entries = JSON.parse(raw);
-        } catch (e) {
-            throw new Error(`Failed to parse ${sourceFile}: ${e.message}`);
+            const raw = await fsPromises.readFile(path.join(CARDEIO_DIR, `overview-round-${roundNumber}.json`), 'utf8');
+            overviewEntries = JSON.parse(raw);
+        } catch (e) { /* overview not available */ }
+
+        if (!pairingsEntries && !overviewEntries) {
+            throw new Error(`Neither pairings-round-${roundNumber}.json nor overview-round-${roundNumber}.json found in data/cardeio/`);
         }
-        const entry = entries.find(e => e.Table === parseInt(tableNumber));
+
+        // Find table entry from whichever source(s) are available
+        const pairingsEntry = pairingsEntries?.find(e => e.Table === parseInt(tableNumber));
+        const overviewEntry = overviewEntries?.find(e => e.Table === parseInt(tableNumber));
+        const entry = pairingsEntry || overviewEntry;
         if (!entry) throw new Error(`Table ${tableNumber} not found in Round ${roundNumber}`);
 
-        // Build entering record map from previous round's file
-        const prevRound = parseInt(roundNumber) - 1;
-        const prevRecordMap = new Map();
-        if (prevRound >= 1) {
-            // Try pairings first, then overview for previous round records
-            for (const prevFile of [`pairings-round-${prevRound}.json`, `overview-round-${prevRound}.json`]) {
-                try {
-                    const prevRaw = await fsPromises.readFile(path.join(CARDEIO_DIR, prevFile), 'utf8');
-                    const prevEntries = JSON.parse(prevRaw);
-                    for (const e of prevEntries) {
-                        if (e['Player 1']) prevRecordMap.set(e['Player 1'], cardeioFormatRecord(e['P1 Record']));
-                        if (e['Player 2'] && e['Player 2'] !== '—') prevRecordMap.set(e['Player 2'], cardeioFormatRecord(e['P2 Record']));
-                    }
-                    break; // Found a file, stop looking
-                } catch (e) { /* try next file */ }
-            }
+        // Cross-validate if both sources available
+        if (pairingsEntry && overviewEntry && pairingsEntry['Player 1'] !== overviewEntry['Player 1']) {
+            console.warn(`[Carde] Table ${tableNumber} P1 mismatch: pairings="${pairingsEntry['Player 1']}" vs overview="${overviewEntry['Player 1']}"`);
         }
 
-        const recordFallback = prevRound === 0 ? '0-0' : '';
-        const p1Record = prevRecordMap.get(entry['Player 1']) ?? recordFallback;
-        const p2Record = prevRecordMap.get(entry['Player 2']) ?? recordFallback;
+        // Build record maps from standings file (same round)
+        // recordByUserId is unique and reliable; recordByName is a fallback (can have duplicates)
+        const recordByUserId = new Map();
+        const recordByName = new Map();
+        try {
+            const standingsRaw = await fsPromises.readFile(path.join(CARDEIO_DIR, `standings-round-${roundNumber}.json`), 'utf8');
+            const standings = JSON.parse(standingsRaw);
+            for (const s of standings) {
+                const record = cardeioFormatRecord(s['Record (W-L-D)'] || '');
+                if (s['User ID']) {
+                    recordByUserId.set(String(s['User ID']), record);
+                }
+                if (s['Player']) {
+                    const key = s['Player'].toLowerCase();
+                    // Keep first entry (highest ranked) for name-based fallback
+                    if (!recordByName.has(key)) {
+                        recordByName.set(key, record);
+                    }
+                }
+            }
+        } catch (e) { /* standings not available */ }
+
+        const recordFallback = parseInt(roundNumber) === 1 ? '0-0' : '';
+
+        // Helper: look up record by userId first, fall back to name
+        function getRecord(userId, playerName) {
+            if (userId && recordByUserId.has(String(userId))) {
+                return recordByUserId.get(String(userId));
+            }
+            return recordByName.get((playerName || '').toLowerCase()) ?? recordFallback;
+        }
 
         const isBye = entry['Player 2'] === '—' || !entry['Player 2'];
         const emptyPlayer = { name: '', pronouns: '', record: '', archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
 
         let player1, player2;
         if (cachedDecklists) {
-            // Use decklist export as primary source for all deck fields
-            const p1Decklist = findDecklistByName(entry['Player 1'], cachedDecklists);
-            const p2Decklist = !isBye ? findDecklistByName(entry['Player 2'], cachedDecklists) : null;
-            player1 = cardeioMapPlayerFromExport(entry['Player 1'], p1Record, p1Decklist);
-            player2 = isBye ? emptyPlayer : cardeioMapPlayerFromExport(entry['Player 2'], p2Record, p2Decklist);
-            console.log(`[Carde] Using cached decklist export for Table ${tableNumber} — P1: ${p1Decklist ? 'found' : 'NOT FOUND'}, P2: ${p2Decklist ? 'found' : 'N/A'}`);
+            // Extract matching data from overview (Real Name) and pairings/overview (bestId, legend)
+            const p1RealName = overviewEntry?.['P1 Real Name'] || null;
+            const p1BestId = entry['Player 1'];
+            const p1Legend = overviewEntry?.['P1 Deck'] || pairingsEntry?.['P1 Deck'] || '';
+            const p2RealName = overviewEntry?.['P2 Real Name'] || null;
+            const p2BestId = entry['Player 2'];
+            const p2Legend = overviewEntry?.['P2 Deck'] || pairingsEntry?.['P2 Deck'] || '';
+
+            // Resolve decklists using 3-tier matching (also gives us userId)
+            const p1Result = resolvePlayerDecklist(p1RealName, p1BestId, p1Legend, cachedDecklists, cachedRegistrations);
+            const p2Result = !isBye ? resolvePlayerDecklist(p2RealName, p2BestId, p2Legend, cachedDecklists, cachedRegistrations) : null;
+
+            // Look up records by User ID (unique) with name-based fallback
+            const p1Record = getRecord(p1Result.userId, p1BestId);
+            const p2Record = !isBye ? getRecord(p2Result.userId, p2BestId) : '';
+
+            player1 = cardeioMapPlayerFromExport(p1BestId, p1Record, p1Result.decklist, p1Result.fullName);
+            player2 = isBye ? emptyPlayer : cardeioMapPlayerFromExport(p2BestId, p2Record, p2Result.decklist, p2Result.fullName);
+
+            console.log(`[Carde] Table ${tableNumber} P1: "${p1BestId}" realName="${p1RealName || 'N/A'}" → ${p1Result.matchMethod} (userId=${p1Result.userId || 'N/A'}, record=${p1Record}, decklist=${p1Result.decklist ? 'found' : 'NOT FOUND'})`);
+            if (!isBye) {
+                console.log(`[Carde] Table ${tableNumber} P2: "${p2BestId}" realName="${p2RealName || 'N/A'}" → ${p2Result.matchMethod} (userId=${p2Result.userId || 'N/A'}, record=${p2Record}, decklist=${p2Result.decklist ? 'found' : 'NOT FOUND'})`);
+            }
+        } else if (overviewEntries) {
+            // No cached decklists — fall back to overview's Deck Detail (no userId available, use name lookup)
+            const p1Record = getRecord(null, entry['Player 1']);
+            const p2Record = getRecord(null, entry['Player 2']);
+            player1 = cardeioMapPlayer(overviewEntry || entry, 1, p1Record);
+            player2 = isBye ? emptyPlayer : cardeioMapPlayer(overviewEntry || entry, 2, p2Record);
+            console.log(`[Carde] Table ${tableNumber}: no cached decklists, using overview Deck Detail`);
         } else {
-            // Fall back to overview's Deck Detail
-            player1 = cardeioMapPlayer(entry, 1, p1Record);
-            player2 = isBye ? emptyPlayer : cardeioMapPlayer(entry, 2, p2Record);
+            // Only pairings, no decklists — minimal data (no userId available, use name lookup)
+            const p1Record = getRecord(null, entry['Player 1']);
+            const p2Record = getRecord(null, entry['Player 2']);
+            player1 = { name: entry['Player 1'], pronouns: '', record: p1Record, archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
+            player2 = isBye ? emptyPlayer : { name: entry['Player 2'], pronouns: '', record: p2Record, archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
+            console.log(`[Carde] Table ${tableNumber}: pairings only, no decklists or overview`);
         }
 
         return {

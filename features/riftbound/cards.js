@@ -44,9 +44,10 @@ export function emitRiftboundCardView(io, cardSelected) {
         'card-id': cardSelected['card-id']
     }
     if (cardName) {
+        const url = cardSelected['variant-url'] || cardListData[cardName]?.imageUrl;
         foundCard = {
             name: cardName,
-            url: cardListData[cardName]?.imageUrl,
+            url,
             type: cardListData[cardName]?.type,
             'card-id': cardSelected['card-id']
         }

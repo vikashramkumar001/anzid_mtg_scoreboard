@@ -10,7 +10,8 @@ export function initCardView(socket) {
 
     let currentGame = 'mtg';
     let cardNames = [];      // flat list of display names for autocomplete
-    let cardLookup = {};     // displayName -> { url, name, set? }
+    let cardLookup = {};     // displayName -> { url, name, set?, variants? }
+    const selectedVariantUrl = {}; // slotId -> selected variant imageUrl (or empty)
 
     // Game display names
     const GAME_LABELS = {
@@ -53,7 +54,11 @@ export function initCardView(socket) {
         cardLookup = {};
         cardNames = Object.keys(cardListDataFromServer || {});
         for (const name of cardNames) {
-            cardLookup[name] = { url: cardListDataFromServer[name]?.imageUrl || '', name };
+            cardLookup[name] = {
+                url: cardListDataFromServer[name]?.imageUrl || '',
+                name,
+                variants: cardListDataFromServer[name]?.variants || null
+            };
         }
     }
 
@@ -199,29 +204,62 @@ export function initCardView(socket) {
         const previewEl = document.getElementById(`card-preview-${slotId}`);
         if (!displayName) {
             previewEl.innerHTML = '';
+            delete selectedVariantUrl[slotId];
             return;
         }
 
         const entry = cardLookup[displayName];
         if (!entry || !entry.url) {
             previewEl.innerHTML = '';
+            delete selectedVariantUrl[slotId];
             return;
         }
+
+        // Default to standard art
+        const currentUrl = selectedVariantUrl[slotId] || entry.url;
 
         let extraInfo = '';
         if (entry.set) {
             extraInfo = `<div>${entry.set}</div>`;
         }
 
+        // Build variant thumbnails if riftbound card has variants
+        let variantsHtml = '';
+        if (currentGame === 'riftbound' && entry.variants && entry.variants.length > 1) {
+            const thumbs = entry.variants.map(v => {
+                const selected = v.imageUrl === currentUrl;
+                const border = selected ? 'border: 3px solid #00bfff;' : 'border: 2px solid transparent;';
+                const label = v.standard ? 'Standard' : v.code;
+                return `<div class="variant-thumb" data-variant-url="${v.imageUrl}" data-slot="${slotId}" data-card="${displayName}"
+                    style="display:inline-block; cursor:pointer; margin:3px; text-align:center; ${border} border-radius:6px; padding:2px;">
+                    <img src="${v.imageUrl}" alt="${label}" style="height:100px; object-fit:contain; border-radius:4px;">
+                    <div style="font-size:10px;">${label}</div>
+                </div>`;
+            }).join('');
+            variantsHtml = `<div style="margin-top:8px; display:flex; flex-wrap:wrap; justify-content:center;">${thumbs}</div>`;
+        }
+
         previewEl.innerHTML = `
             <div class="card mt-2">
-                <img src="${entry.url}" alt="${entry.name}" class="card-img-top" style="max-height:300px; object-fit:contain;">
+                <img src="${currentUrl}" alt="${entry.name}" class="card-img-top" style="max-height:300px; object-fit:contain;">
                 <div class="card-body text-center">
                     <strong>${entry.name}</strong>
                     ${extraInfo}
                 </div>
+                ${variantsHtml}
             </div>
         `;
+
+        // Attach click handlers to variant thumbnails
+        previewEl.querySelectorAll('.variant-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const url = thumb.dataset.variantUrl;
+                const sid = parseInt(thumb.dataset.slot, 10);
+                const cardName = thumb.dataset.card;
+                selectedVariantUrl[sid] = url;
+                renderPreview(sid, cardName);
+            });
+        });
     }
 
     // ─── Button handlers ───
@@ -231,7 +269,8 @@ export function initCardView(socket) {
         const data2send = {
             'card-selected': field.innerText,
             'card-id': slotId,
-            'game-id': currentGame
+            'game-id': currentGame,
+            'variant-url': selectedVariantUrl[slotId] || ''
         };
         socket.emit('view-selected-card', {cardSelected: data2send});
     }
@@ -245,6 +284,7 @@ export function initCardView(socket) {
     };
 
     function emitReset(slotId) {
+        delete selectedVariantUrl[slotId];
         const data2send = {
             'card-selected': '',
             'card-id': slotId,
@@ -265,6 +305,7 @@ export function initCardView(socket) {
         for (const slotId of [1, 2]) {
             document.getElementById(`card-preview-${slotId}`).innerHTML = '';
             document.getElementById(`card-view-input-autocomplete-${slotId}`).innerText = '';
+            delete selectedVariantUrl[slotId];
         }
     }
 

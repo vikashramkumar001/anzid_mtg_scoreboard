@@ -14,42 +14,68 @@ export function initTournamentPlatform(socket) {
         if (config.tournamentId) {
             tournamentIdInput.value = config.tournamentId;
         }
+        if (config.cardeioRoundMap) {
+            window.cardeioRoundMap = config.cardeioRoundMap;
+            updateRoundTabIndicators(config.platform);
+        }
         updateAllFetchButtons(config.platform);
         updateFetchDecklistsVisibility(config.platform);
     });
 
-    // Fetch Decklists button (Carde only)
-    const fetchDecklistsBtn = document.getElementById('fetch-cardeio-decklists-btn');
+    // Fetch Event Data button (Carde only) — fetches decklists + registrations
+    const fetchEventDataBtn = document.getElementById('fetch-cardeio-decklists-btn');
 
     function updateFetchDecklistsVisibility(platform) {
-        if (fetchDecklistsBtn) {
-            fetchDecklistsBtn.style.display = platform === 'cardeio' ? 'inline-block' : 'none';
+        if (fetchEventDataBtn) {
+            fetchEventDataBtn.style.display = platform === 'cardeio' ? 'inline-block' : 'none';
         }
     }
 
-    if (fetchDecklistsBtn) {
-        fetchDecklistsBtn.addEventListener('click', () => {
+    // Track results from both fetches
+    let eventDataResults = { decklists: null, registrations: null };
+
+    function checkEventDataComplete() {
+        const { decklists, registrations } = eventDataResults;
+        if (decklists === null || registrations === null) return; // still waiting
+
+        if (fetchEventDataBtn) {
+            fetchEventDataBtn.disabled = false;
+            fetchEventDataBtn.textContent = 'Fetch Event Data';
+        }
+
+        const parts = [];
+        if (decklists.success) parts.push(`Decklists: ${decklists.count} cached`);
+        else parts.push(`Decklists error: ${decklists.error}`);
+        if (registrations.success) parts.push(`Registrations: ${registrations.count} cached`);
+        else parts.push(`Registrations error: ${registrations.error}`);
+
+        alert(parts.join('\n'));
+        eventDataResults = { decklists: null, registrations: null };
+    }
+
+    if (fetchEventDataBtn) {
+        fetchEventDataBtn.addEventListener('click', () => {
             const eventId = tournamentIdInput.value.trim();
             if (!eventId) {
                 alert('Please enter an event ID in the Tournament ID field.');
                 return;
             }
-            fetchDecklistsBtn.disabled = true;
-            fetchDecklistsBtn.textContent = 'Fetching...';
+            fetchEventDataBtn.disabled = true;
+            fetchEventDataBtn.textContent = 'Fetching...';
+            eventDataResults = { decklists: null, registrations: null };
             socket.emit('fetch-cardeio-decklists', { eventId });
+            socket.emit('fetch-cardeio-registrations', { eventId, gameSlug: 'riftbound' });
         });
     }
 
     socket.on('cardeio-decklists-fetched', (result) => {
-        if (fetchDecklistsBtn) {
-            fetchDecklistsBtn.disabled = false;
-            fetchDecklistsBtn.textContent = 'Fetch Decklists';
-        }
-        if (result.success) {
-            alert(`Decklists fetched successfully! ${result.count} decklists cached.`);
-        } else {
-            alert('Error fetching decklists: ' + result.error);
-        }
+        eventDataResults.decklists = result;
+        checkEventDataComplete();
+    });
+
+    socket.on('cardeio-registrations-fetched', (result) => {
+        eventDataResults.registrations = result;
+        checkEventDataComplete();
     });
 
     // Update all fetch buttons state based on platform
@@ -82,7 +108,50 @@ export function initTournamentPlatform(socket) {
         socket.emit('set-tournament-platform', config);
         updateAllFetchButtons(config.platform);
         updateFetchDecklistsVisibility(config.platform);
+
+        // Auto-fetch event detail (round IDs) for carde.io
+        if (config.platform === 'cardeio' && config.tournamentId) {
+            socket.emit('fetch-cardeio-event-detail', { eventId: config.tournamentId });
+        }
     });
+
+    // Handle event detail response (round ID mapping)
+    socket.on('cardeio-event-detail-fetched', (result) => {
+        if (result.success && result.roundMap) {
+            window.cardeioRoundMap = result.roundMap;
+            const count = Object.keys(result.roundMap).length;
+            console.log(`[Carde] Round map loaded: ${count} rounds`);
+            updateRoundTabIndicators(platformSelect.value);
+        } else {
+            console.error('[Carde] Failed to fetch event detail:', result.error);
+            alert('Failed to fetch event round IDs: ' + (result.error || 'Unknown error'));
+        }
+    });
+
+    // Update round tab indicators to show which rounds have a mapped carde.io round ID
+    function updateRoundTabIndicators(platform) {
+        const roundTabs = document.querySelectorAll('#roundTabs .nav-link');
+        roundTabs.forEach(tab => {
+            // Remove existing indicator
+            const existing = tab.querySelector('.round-mapped-indicator');
+            if (existing) existing.remove();
+
+            if (platform !== 'cardeio' || !window.cardeioRoundMap) return;
+
+            // Extract round number from tab id (e.g., "round-1-tab" → "1")
+            const match = tab.id?.match(/^round-(\d+)-tab$/);
+            if (!match) return;
+            const roundNumber = match[1];
+
+            if (window.cardeioRoundMap[roundNumber]) {
+                const indicator = document.createElement('span');
+                indicator.className = 'round-mapped-indicator';
+                indicator.title = `Carde Round ID: ${window.cardeioRoundMap[roundNumber]}`;
+                indicator.style.cssText = 'display:inline-block;width:8px;height:8px;border-radius:50%;background:#28a745;margin-left:6px;vertical-align:middle;';
+                tab.appendChild(indicator);
+            }
+        });
+    }
 
     // Delegate click handler for fetch standings buttons (since they're dynamically created)
     document.addEventListener('click', async (e) => {

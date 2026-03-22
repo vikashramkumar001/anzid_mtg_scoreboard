@@ -1,3 +1,11 @@
+import {
+    RIFTBOUND_RUNES_FILLED as RIFTBOUND_RUNES,
+    RIFTBOUND_BATTLEFIELD_NAMES,
+    RIFTBOUND_BATTLEFIELDS_BASE,
+    RIFTBOUND_LEGENDS_CARD_FRAMES,
+    RIFTBOUND_LEGENDS_DESCRIPTIONS,
+} from './riftbound/constants.js';
+
 const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
@@ -85,223 +93,21 @@ function renderCardManaSymbols(manaCost, symbolSize = 16) {
     return `<div class="vertical-card-mana">${symbolsHtml}</div>`;
 }
 
-// Riftbound Battlefields Dictionary
-// Maps battlefield names to their left and right side image URLs
-// Files with "180" are for left side, files without "180" are for right side
-// Default image is used as fallback when a battlefield is not found or empty
-const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
-    left: '/assets/images/riftbound/battlefields/_0000_Default.png',
-    right: '/assets/images/riftbound/battlefields/_0000_Default.png'
-};
+// Build battlefield lookup from shared names + base path
+const RIFTBOUND_BATTLEFIELDS_DEFAULT = `${RIFTBOUND_BATTLEFIELDS_BASE}/Altar to Unity.png`;
+const RIFTBOUND_BATTLEFIELDS = {};
+RIFTBOUND_BATTLEFIELD_NAMES.forEach(name => {
+    RIFTBOUND_BATTLEFIELDS[name] = `${RIFTBOUND_BATTLEFIELDS_BASE}/${name}.png`;
+});
 
-// Riftbound Runes Dictionary
-// Maps rune letters to their icon image URLs
-const RIFTBOUND_RUNES = {
-    'r': '/assets/images/riftbound/icons/runes-outlined/Fury-outlined.png',
-	'g': '/assets/images/riftbound/icons/runes-outlined/Calm-outlined.png',
-    'b': '/assets/images/riftbound/icons/runes-outlined/Mind-outlined.png',
-    'o': '/assets/images/riftbound/icons/runes-outlined/Body-outlined.png',
-	'p': '/assets/images/riftbound/icons/runes-outlined/Chaos-outlined.png',
-	'y': '/assets/images/riftbound/icons/runes-outlined/Order-outlined.png'
-};
-
-const RIFTBOUND_BATTLEFIELDS = {
-    'default': {
-        left: '/assets/images/riftbound/battlefields/_0000_Default180.png',
-        right: '/assets/images/riftbound/battlefields/_0000_Default.png'
-    },
-    'Altar to Unity': {
-        left: '/assets/images/riftbound/battlefields/_0000_Altar-to-Unity180.png',
-        right: '/assets/images/riftbound/battlefields/_0024_Altar-to-Unity.png'
-    },
-    'Aspirant\'s Climb': {
-        left: '/assets/images/riftbound/battlefields/_0001_Aspirant_s-Climb180.png',
-        right: '/assets/images/riftbound/battlefields/_0025_Aspirant_s-Climb.png'
-    },
-    'Back-Alley Bar': {
-        left: '/assets/images/riftbound/battlefields/_0002_Back-Alley-Bar180.png',
-        right: '/assets/images/riftbound/battlefields/_0026_Back-Alley-Bar.png'
-    },
-    'Bandle Tree': {
-        left: '/assets/images/riftbound/battlefields/_0003_Bandle-Tree180.png',
-        right: '/assets/images/riftbound/battlefields/_0027_Bandle-Tree.png'
-    },
-    'Fortified Position': {
-        left: '/assets/images/riftbound/battlefields/_0004_Fortified-Position180.png',
-        right: '/assets/images/riftbound/battlefields/_0028_Fortified-Position.png'
-    },
-    'Grove of the God-Willow': {
-        left: '/assets/images/riftbound/battlefields/_0005_Grove-of-the-God-Willow180.png',
-        right: '/assets/images/riftbound/battlefields/_0029_Grove-of-the-God-Willow.png'
-    },
-    'Hallowed Tomb': {
-        left: '/assets/images/riftbound/battlefields/_0006_Hallowed-Tomb180.png',
-        right: '/assets/images/riftbound/battlefields/_0030_Hallowed-Tomb.png'
-    },
-    'Monastery of Hirana': {
-        left: '/assets/images/riftbound/battlefields/_0007_Monastery-of-Hirana180.png',
-        right: '/assets/images/riftbound/battlefields/_0031_Monastery-of-Hirana.png'
-    },
-    'Navori Fighting Pit': {
-        left: '/assets/images/riftbound/battlefields/_0008_Navori-Fighting-Pit180.png',
-        right: '/assets/images/riftbound/battlefields/_0032_Navori-Fighting-Pit.png'
-    },
-    'Obelisk of Power': {
-        left: '/assets/images/riftbound/battlefields/_0009_Obelisk-of-Power180.png',
-        right: '/assets/images/riftbound/battlefields/_0033_Obelisk-of-Power.png'
-    },
-    'Reaver\'s Row': {
-        left: '/assets/images/riftbound/battlefields/_0010_Reaver_s-Row180.png',
-        right: '/assets/images/riftbound/battlefields/_0034_Reaver_s-Row.png'
-    },
-    'Reckoner\'s Arena': {
-        left: '/assets/images/riftbound/battlefields/_0011_Reckoner_s-Arena180.png',
-        right: '/assets/images/riftbound/battlefields/_0035_Reckoner_s-Arena.png'
-    },
-    'Sigil of the Storm': {
-        left: '/assets/images/riftbound/battlefields/_0012_Sigil-of-the-Storm180.png',
-        right: '/assets/images/riftbound/battlefields/_0036_Sigil-of-the-Storm.png'
-    },
-    'Startipped Peak': {
-        left: '/assets/images/riftbound/battlefields/_0013_Startipped-Peak180.png',
-        right: '/assets/images/riftbound/battlefields/_0037_Startipped-Peak.png'
-    },
-    'Targon\'s Peak': {
-        left: '/assets/images/riftbound/battlefields/_0014_Targon_s-Peak180.png',
-        right: '/assets/images/riftbound/battlefields/_0038_Targon_s-Peak.png'
-    },
-    'The Arena\'s Greatest': {
-        left: '/assets/images/riftbound/battlefields/_0015_The-Arena_s-Greatest180.png',
-        right: '/assets/images/riftbound/battlefields/_0039_The-Arena_s-Greatest.png'
-    },
-    'The Dreaming Tree': {
-        left: '/assets/images/riftbound/battlefields/_0016_The-Dreaming-Tree180.png',
-        right: '/assets/images/riftbound/battlefields/_0040_The-Dreaming-Tree.png'
-    },
-    'The Grand Plaza': {
-        left: '/assets/images/riftbound/battlefields/_0017_The-Grand-Plaza180.png',
-        right: '/assets/images/riftbound/battlefields/_0041_The-Grand-Plaza.png'
-    },
-    'Trifarian War Camp': {
-        left: '/assets/images/riftbound/battlefields/_0018_Trifarian-War-Camp180.png',
-        right: '/assets/images/riftbound/battlefields/_0042_Trifarian-War-Camp.png'
-    },
-    'Vilemaw\'s Lair': {
-        left: '/assets/images/riftbound/battlefields/_0019_Vilemaw_s-Lair180.png',
-        right: '/assets/images/riftbound/battlefields/_0043_Vilemaw_s-Lair.png'
-    },
-    'Void Gate': {
-        left: '/assets/images/riftbound/battlefields/_0020_Void-Gate180.png',
-        right: '/assets/images/riftbound/battlefields/_0044_Void-Gate.png'
-    },
-    'Windswept Hillock': {
-        left: '/assets/images/riftbound/battlefields/_0021_Windswept-Hillock180.png',
-        right: '/assets/images/riftbound/battlefields/_0045_Windswept-Hillock.png'
-    },
-    'Zaun Warrens': {
-        left: '/assets/images/riftbound/battlefields/_0022_Zaun-Warrens180.png',
-        right: '/assets/images/riftbound/battlefields/_0046_Zaun-Warrens.png'
-    },
-    'The Candlelit Sanctum': {
-        left: '/assets/images/riftbound/battlefields/_0023_The-Candlelit-Sanctum180.png',
-        right: '/assets/images/riftbound/battlefields/_0047_The-Candlelit-Sanctum.png'
-    },
-	'Emperor\'s Dais': {
-	    left: '/assets/images/riftbound/battlefields/_0048_Emperor_s-Dais180.png',
-	    right: '/assets/images/riftbound/battlefields/_0072_Emperor_s-Dais.png'
-	},
-	'Forge of the Fluft': {
-	    left: '/assets/images/riftbound/battlefields/_0049_Forge-of-the-Fluft180.png',
-	    right: '/assets/images/riftbound/battlefields/_0073_Forge-of-the-Fluft.png'
-	},
-	'Forgotten Monument': {
-	    left: '/assets/images/riftbound/battlefields/_0050_Forgotten-Monument180.png',
-	    right: '/assets/images/riftbound/battlefields/_0074_Forgotten-Monument.png'
-	},
-	'Hall of Legends': {
-	    left: '/assets/images/riftbound/battlefields/_0051_Hall-of-Legends180.png',
-	    right: '/assets/images/riftbound/battlefields/_0075_Hall-of-Legends.png'
-	},
-	'Marai Spire': {
-	    left: '/assets/images/riftbound/battlefields/_0052_Marai-Spire180.png',
-	    right: '/assets/images/riftbound/battlefields/_0076_Marai-Spire.png'
-	},
-	'Minefield': {
-	    left: '/assets/images/riftbound/battlefields/_0053_Minefield180.png',
-	    right: '/assets/images/riftbound/battlefields/_0077_Minefield.png'
-	},
-	'Ornn\'s Forge': {
-	    left: '/assets/images/riftbound/battlefields/_0054_Ornn_s-Forge180.png',
-	    right: '/assets/images/riftbound/battlefields/_0078_Ornn_s-Forge.png'
-	},
-	'Power Nexus': {
-	    left: '/assets/images/riftbound/battlefields/_0055_Power-Nexus180.png',
-	    right: '/assets/images/riftbound/battlefields/_0079_Power-Nexus.png'
-	},
-	'Ravenbloom Conservatory': {
-	    left: '/assets/images/riftbound/battlefields/_0056_Ravenbloom-Conservatory180.png',
-	    right: '/assets/images/riftbound/battlefields/_0080_Ravenbloom-Conservatory.png'
-	},
-	'Rockfall Path': {
-	    left: '/assets/images/riftbound/battlefields/_0057_Rockfall-Path180.png',
-	    right: '/assets/images/riftbound/battlefields/_0081_Rockfall-Path.png'
-	},
-	'Seat of Power': {
-	    left: '/assets/images/riftbound/battlefields/_0058_Seat-of-Power180.png',
-	    right: '/assets/images/riftbound/battlefields/_0082_Seat-of-Power.png'
-	},
-	'Sunken Temple': {
-	    left: '/assets/images/riftbound/battlefields/_0059_Sunken-Temple180.png',
-	    right: '/assets/images/riftbound/battlefields/_0083_Sunken-Temple.png'
-	},
-	'The Papertree': {
-	    left: '/assets/images/riftbound/battlefields/_0060_The-Papertree180.png',
-	    right: '/assets/images/riftbound/battlefields/_0084_The-Papertree.png'
-	},
-	'Treasure Hoard': {
-	    left: '/assets/images/riftbound/battlefields/_0061_Treasure-Hoard180.png',
-	    right: '/assets/images/riftbound/battlefields/_0085_Treasure-Hoard.png'
-	},
-	'Veiled Temple': {
-	    left: '/assets/images/riftbound/battlefields/_0062_Veiled-Temple180.png',
-	    right: '/assets/images/riftbound/battlefields/_0086_Veiled-Temple.png'
-	}
-};
-
-// Riftbound Legends Descriptions Dictionary
-// Maps legend names to their legend ability image URLs
-const RIFTBOUND_LEGENDS_DESCRIPTIONS = {
-    'default': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0000_default.png',
-    'Kai\'sa': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0001_Kaisa, Daughter of the Void.png',
-    'Volibear': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0002_Volibear, Relentless Storm.png',
-    'Sett': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0003_Sett, The Boss.png',
-    'Viktor': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0004_Viktor, Herald of the Arcane.png',
-    'Teemo': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0005_Teemo, Swift Scout.png',
-    'Leona': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0006_Leona, Radiant Dawn.png',
-    'Yasuo': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0007_Yasuo, Unforgiven.png',
-    'Yas': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0007_Yasuo, Unforgiven.png',
-    'Lee Sin': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0008_Lee Sin, Blind Monk.png',
-    'Ahri': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0009_Ahri, Nine-Tailed Fox.png',
-    'Darius': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0010_Darius, Hand of Noxus.png',
-    'Jinx': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0011_Jinx, Loose Cannon.png',
-    'Miss Fortune': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0012_Miss Fortune, Bounty Hunter.png',
-    'Garen': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0013_Garen, Might of Demacia.png',
-    'Lux': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0014_Lux, Lady of Luminosity.png',
-    'Annie': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0015_Annie, Dark Child.png',
-    'Master Yi': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0016_Master Yi, Wuju Bladesman.png',
-	'Rumble': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0017_Rumble, Mechanized Menace.png',
-	'Lucian': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0018_Lucian, Purifier.png',
-	'Draven': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0019_Draven, Glorious Executioner.png',
-	'Rek\'Sai': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0020_Reksai, Void Burrower.png',
-	'Ornn': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0021_Ornn, Fire Below the Mountain.png',
-	'Jax': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0022_Jax, Grandmaster at Arms.png',
-	'Irelia': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0023_Irelia, Blade Dancer.png',
-	'Azir': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0024_Azir, Emperor of the Sands.png',
-	'Ezreal': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0025_Ezreal, Prodigal Explorer.png',
-	'Renata Glasc': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0026_Renata Glasc, Chem-Baroness.png',
-	'Sivir': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0027_Sivir, Battle Mistress.png',
-	'Fiora': '/assets/images/riftbound/decklist/legend-descriptions/LegendText_0028_Fiora, Grand Duelist.png'
-};
+function getLegendCardFrameUrl(legendName) {
+    if (!legendName) return null;
+    const lowerInput = legendName.trim().toLowerCase();
+    for (const key of Object.keys(RIFTBOUND_LEGENDS_CARD_FRAMES)) {
+        if (lowerInput.includes(key.toLowerCase())) return RIFTBOUND_LEGENDS_CARD_FRAMES[key];
+    }
+    return null;
+}
 
 // Listen for deck data to display
 socket.on('broadcast-round-data', (data) => {
@@ -327,7 +133,8 @@ socket.on('broadcast-round-data', (data) => {
             deckData: data[match_id][`player-main-deck-${side_id}`] || [],
             gameType: selectedGame,
             sideID: side_id,
-            matchID: match_id
+            matchID: match_id,
+            source: 'broadcast-round-main-deck'
         };
         // Pass master control fields for riftbound so server resolves image URLs
         if (selectedGame === 'riftbound') {
@@ -814,13 +621,10 @@ function renderDecks() {
             const leaderName = roundData[match_id]?.[`player-leader-${side_id}`] || '';
             const baseName = roundData[match_id]?.[`player-base-${side_id}`] || '';
 
-            console.log('[SWU DEBUG BROADCAST] leaderName:', JSON.stringify(leaderName), 'baseName:', JSON.stringify(baseName));
-            console.log('[SWU DEBUG BROADCAST] deckData.mainDeck card names:', deckData.mainDeck.map(c => c['card-name']));
 
             let { main: actualCards, sideboard } = filterManualEntry(deckData.mainDeck);
             if (sideboard.length > 0) deckData.sideDeck = sideboard;
 
-            console.log('[SWU DEBUG BROADCAST] actualCards after filterManualEntry:', actualCards.length, 'cards');
 
             // Find leader and base card images from the deck data (matched by normalized name)
             let leaderCard = null;
@@ -828,7 +632,6 @@ function renderDecks() {
             if (leaderName) {
                 const leaderNorm = leaderName.toLowerCase().replace(/[^a-z0-9]/g, '');
                 leaderCard = actualCards.find(c => c['card-name']?.toLowerCase().replace(/[^a-z0-9]/g, '') === leaderNorm);
-                console.log('[SWU DEBUG BROADCAST] leaderNorm:', leaderNorm, 'found:', !!leaderCard);
                 if (leaderCard) {
                     actualCards = actualCards.filter(c => c !== leaderCard);
                 }
@@ -836,12 +639,10 @@ function renderDecks() {
             if (baseName) {
                 const baseNorm = baseName.toLowerCase().replace(/[^a-z0-9]/g, '');
                 baseCard = actualCards.find(c => c['card-name']?.toLowerCase().replace(/[^a-z0-9]/g, '') === baseNorm);
-                console.log('[SWU DEBUG BROADCAST] baseNorm:', baseNorm, 'found:', !!baseCard);
                 if (baseCard) {
                     actualCards = actualCards.filter(c => c !== baseCard);
                 }
             }
-            console.log('[SWU DEBUG BROADCAST] leaderCard:', leaderCard, 'baseCard:', baseCard);
 
             if (orientation === 'vertical') {
                 if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
@@ -934,7 +735,6 @@ function renderDecks() {
             }
 
             if (deckDisplayDetails) {
-                console.log('[SWU DEBUG BROADCAST] deck-display-details: playerName=', JSON.stringify(deckData.playerName), 'archetype=', JSON.stringify(deckData.archetype), 'leaderName=', JSON.stringify(leaderName), 'baseName=', JSON.stringify(baseName));
                 // Build deck name from leader + base (e.g., "Han Solo, Worth the Risk - Shadowed Undercity")
                 const rawArchetype = deckData.archetype || '';
                 let deckName = (rawArchetype === 'Unknown Archetype') ? '' : rawArchetype;
@@ -987,7 +787,6 @@ function renderDecks() {
                 });
             }
         } else {
-            console.log('starwars selected but not correct deckData type - clearing');
             const mainDeckContainer = starwarsSection.querySelector('#starwars-main-deck-container');
             if (mainDeckContainer) mainDeckContainer.innerHTML = '';
             const oldHeaderZone = starwarsSection.querySelector('.starwars-deck-header-zone');
@@ -1024,32 +823,29 @@ function renderStarWarsVerticalDeck() {
 function renderBattlefields(battlefields, container) {
     if (!container) return;
 
-    const isLeft = side_id === '1' || side_id?.toLowerCase() === 'left';
-    const side = isLeft ? 'left' : 'right';
-
     const sectionWrapper = document.createElement('div');
     sectionWrapper.className = 'deck-section-wrapper battlefields-section';
+    sectionWrapper.style.cssText = 'position:absolute;top:861px;left:427px;width:500px;height:180px;display:flex;gap:8px;z-index:20;';
 
     for (let i = 0; i < 3; i++) {
-        const bgDiv = document.createElement('div');
-        bgDiv.className = 'riftbound-battlefield-background';
-
-        let imageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT[side];
+        let imageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT;
         if (i < battlefields.length && battlefields[i]) {
             const battlefieldName = (battlefields[i].name || battlefields[i]['card-name'] || '').trim();
-            let data = RIFTBOUND_BATTLEFIELDS[battlefieldName];
-            if (!data) {
+            let url = RIFTBOUND_BATTLEFIELDS[battlefieldName];
+            if (!url) {
                 const lower = battlefieldName.toLowerCase();
                 for (const key in RIFTBOUND_BATTLEFIELDS) {
-                    if (key.toLowerCase() === lower) { data = RIFTBOUND_BATTLEFIELDS[key]; break; }
+                    if (key.toLowerCase() === lower) { url = RIFTBOUND_BATTLEFIELDS[key]; break; }
                 }
             }
-            if (data && data[side]) imageUrl = data[side];
+            if (url) imageUrl = url;
         }
 
-        const cacheBuster = new Date().getTime();
-        bgDiv.style.backgroundImage = `url("${encodeURI(imageUrl)}?v=${cacheBuster}")`;
-        sectionWrapper.appendChild(bgDiv);
+        const img = document.createElement('img');
+        img.src = encodeURI(imageUrl);
+        img.className = 'riftbound-battlefield-img';
+        img.style.cssText = 'width:180px;height:auto;object-fit:contain;border-radius:4px;';
+        sectionWrapper.appendChild(img);
     }
 
     container.appendChild(sectionWrapper);
@@ -1071,10 +867,21 @@ function renderRiftboundDeckSections(deckObj) {
     // Update static player name
     createPlayerNameSection(deckData.playerName);
 
-    // Update static legend card image (resolved server-side from master control field)
+    // Update legend card — prefer mp4 video, fall back to card image
+    const legendCardVideo = document.getElementById('riftbound-dl-legend-card-video');
     const legendCardImg = document.getElementById('riftbound-dl-legend-card-img');
-    if (legendCardImg) {
-        legendCardImg.src = deckObj.legendImageUrl || '';
+    const legendFrameUrl = getLegendCardFrameUrl(legend);
+
+    if (legendFrameUrl && legendCardVideo) {
+        legendCardVideo.src = legendFrameUrl;
+        legendCardVideo.style.display = 'block';
+        if (legendCardImg) legendCardImg.style.display = 'none';
+    } else {
+        if (legendCardVideo) { legendCardVideo.src = ''; legendCardVideo.style.display = 'none'; }
+        if (legendCardImg) {
+            legendCardImg.src = deckObj.legendImageUrl || '';
+            legendCardImg.style.display = 'block';
+        }
     }
 
     // Update static legend description image
@@ -1086,8 +893,11 @@ function renderRiftboundDeckSections(deckObj) {
         championCardImg.src = deckObj.championImageUrl || '';
     }
 
-    // Battlefields (from master control fields, rendered with client-side side-aware images)
-    renderBattlefields((deckObj.battlefields || []).slice(0, 3), container);
+    // Clear previous battlefields/runes from riftboundSection (they live outside the deck container)
+    riftboundSection.querySelectorAll('.battlefields-section, .runes-section').forEach(el => el.remove());
+
+    // Battlefields (appended to riftboundSection root so positioning is relative to 1920x1080 viewport)
+    renderBattlefields((deckObj.battlefields || []).slice(0, 3), riftboundSection);
 
     // Runes (from master control fields — letter + count resolved server-side)
     const runesData = deckObj.runes || [];
@@ -1101,12 +911,12 @@ function renderRiftboundDeckSections(deckObj) {
             if (runeUrl) {
                 const runeItem = document.createElement('div');
                 runeItem.className = 'rfb-rune-item';
-                runeItem.innerHTML = `<img src="${runeUrl}" class="rfb-rune-icon" alt="Rune ${rune.letter}"><span class="rfb-rune-count">${rune.count}</span>`;
+                runeItem.innerHTML = `<img src="${runeUrl}" class="rfb-rune-icon" alt="Rune ${rune.letter}"><span class="rfb-rune-count">x${rune.count}</span>`;
                 sectionWrapper.appendChild(runeItem);
             }
         }
 
-        if (sectionWrapper.children.length > 0) container.appendChild(sectionWrapper);
+        if (sectionWrapper.children.length > 0) riftboundSection.appendChild(sectionWrapper);
     }
 
     // Main deck (other[] — champion already excluded server-side)
@@ -1329,17 +1139,14 @@ function renderRiftboundVerticalDeck(deckObj) {
             // Use different styling based on section type
             if (section.key === 'battlefields') {
                 const bfName = (card.name || card['card-name'] || '').trim();
-                // Look up side-aware battlefield image from client dictionary
-                const isLeft = side_id === '1' || side_id?.toLowerCase() === 'left';
-                const bfSide = isLeft ? 'left' : 'right';
-                let bfData = RIFTBOUND_BATTLEFIELDS[bfName];
-                if (!bfData) {
+                let bfUrl = RIFTBOUND_BATTLEFIELDS[bfName];
+                if (!bfUrl) {
                     const lower = bfName.toLowerCase();
                     for (const key in RIFTBOUND_BATTLEFIELDS) {
-                        if (key.toLowerCase() === lower) { bfData = RIFTBOUND_BATTLEFIELDS[key]; break; }
+                        if (key.toLowerCase() === lower) { bfUrl = RIFTBOUND_BATTLEFIELDS[key]; break; }
                     }
                 }
-                const bfImageUrl = (bfData && bfData[bfSide]) || RIFTBOUND_BATTLEFIELDS_DEFAULT[bfSide];
+                const bfImageUrl = bfUrl || RIFTBOUND_BATTLEFIELDS_DEFAULT;
                 cardElement.innerHTML = `
                     <div class="riftbound-battlefield-card">
                         <div class="riftbound-battlefield-icon"></div>

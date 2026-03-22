@@ -30,7 +30,10 @@
       "Bash(curl -L \"https://cdnjs.cloudflare.com/ajax/libs/odometer/0.4.8/odometer.min.js\" -o \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/js/odometer.min.js\")",
       "Bash(curl -L \"https://cdn.jsdelivr.net/npm/odometer@0.4.8/odometer.min.js\" -o \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/js/odometer.min.js\")",
       "Bash(curl -L \"https://cdn.jsdelivr.net/npm/odometer@0.4.8/themes/odometer-theme-slot-machine.css\" -o \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/css/odometer-theme-slot-machine.min.css\")",
-      "Bash(curl -L \"https://cdn.jsdelivr.net/npm/odometer@0.4.8/themes/odometer-theme-minimal.css\" -o \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/css/odometer-theme-minimal.css\")"
+      "Bash(curl -L \"https://cdn.jsdelivr.net/npm/odometer@0.4.8/themes/odometer-theme-minimal.css\" -o \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/css/odometer-theme-minimal.css\")",
+      "Bash(curl -s 'https://admin.carde.io/api/csv-export/organize/matches?round_id=519673&' -H 'Cookie: web_sessionToken=5203401d8aee31107fc355dc5ed38c9923c31e7d; web_session=eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6IjUyMDM0MDFkOGFlZTMxMTA3ZmMzNTVkYzVlZDM4Yzk5MjNjMzFlN2QiLCJ1c2VySWQiOjE0Nzk0MywiZW1haWwiOiJhbnppZG10Z0BnbWFpbC5jb20iLCJzZWxlY3RlZE9yZ2FuaXphdGlvbklkIjoxOTQyOCwiZXhwaXJlc0F0IjoiMjAyNi0wMy0yNFQwNTowNzoyMy44NDBaIiwiaWF0IjoxNzczNzI0MDQzLCJleHAiOjE3NzQzMjg4NDN9.aOoWg179xW44PF9GePtv1SiiOYc9LNc-IbNkN1qTvxs')",
+      "WebFetch(domain:riftbound.leagueoflegends.com)",
+      "Bash(node scripts/riftbound/fetchCardsRiot.js)"
     ]
   }
 }

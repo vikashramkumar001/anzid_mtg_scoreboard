@@ -614,20 +614,21 @@ body {
     background-size: 120%;
     background-position: center;
     background-repeat: no-repeat;
+    filter: var(--rb-bg-brightness, none);
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-background-left {
-    top: 581px;
-    left: 53px;
-    width: 251px;
-    height: 61px;
+    top: var(--rb-bf-bg-top, 581px);
+    left: var(--rb-bf-bg-side, 53px);
+    width: var(--rb-bf-bg-width, 251px);
+    height: var(--rb-bf-bg-height, 61px);
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-background-right {
-    top: 581px;
-    right: 53px;
-    width: 251px;
-    height: 61px;
+    top: var(--rb-bf-bg-top, 581px);
+    right: var(--rb-bf-bg-side, 53px);
+    width: var(--rb-bf-bg-width, 251px);
+    height: var(--rb-bf-bg-height, 61px);
 }
 
 /* Riftbound Player Legend Background (portrait box) */
@@ -635,25 +636,26 @@ body {
     position: absolute;
     z-index: 2;
     display: block;
+    filter: var(--rb-bg-brightness, none);
 }
 
 #scoreboard-riftbound .riftbound-player-legend-background-left {
-    top: 428px;
-    left: 53px;
-    width: 251px;
-    height: 124px;
-    background-size: auto;
-    background-position: top center;
+    top: var(--rb-legend-bg-top, 428px);
+    left: var(--rb-legend-bg-side, 53px);
+    width: var(--rb-legend-bg-width, 251px);
+    height: var(--rb-legend-bg-height, 124px);
+    background-size: var(--rb-legend-bg-size, 120%);
+    background-position: var(--rb-legend-bg-pos, center 45%);
     background-repeat: no-repeat;
 }
 
 #scoreboard-riftbound .riftbound-player-legend-background-right {
-    top: 428px;
-    right: 53px;
-    width: 251px;
-    height: 124px;
-    background-size: auto;
-    background-position: top center;
+    top: var(--rb-legend-bg-top, 428px);
+    right: var(--rb-legend-bg-side, 53px);
+    width: var(--rb-legend-bg-width, 251px);
+    height: var(--rb-legend-bg-height, 124px);
+    background-size: var(--rb-legend-bg-size, 120%);
+    background-position: var(--rb-legend-bg-pos, center 45%);
     background-repeat: no-repeat;
 }
 
@@ -667,62 +669,57 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-life-left {
-    top: 365px;
-    left: 144.5px;
-    width: 68px;
-    height: 30px;
+    top: var(--rb-life-top, 365px);
+    left: var(--rb-life-side, 144.5px);
+    width: var(--rb-life-width, 68px);
+    height: var(--rb-life-height, 30px);
 }
 
 #scoreboard-riftbound .riftbound-player-life-left #player-life-left {
-    color: #ffffff;
+    color: var(--rb-points-left-color, #ffffff);
     font-weight: 900;
-    font-family: 'Beaufort for LoL', sans-serif;
-    font-size: 28px;
+    font-family: var(--rb-points-font, 'Beaufort for LoL'), sans-serif;
+    font-size: var(--rb-points-font-size, 28px);
     font-variant-numeric: tabular-nums;
 }
 
 #scoreboard-riftbound .riftbound-player-life-right {
-    top: 365px;
-    right: 144.5px;
-    width: 68px;
-    height: 30px;
+    top: var(--rb-life-top, 365px);
+    right: var(--rb-life-side, 144.5px);
+    width: var(--rb-life-width, 68px);
+    height: var(--rb-life-height, 30px);
 }
 
 #scoreboard-riftbound .riftbound-player-life-right #player-life-right {
-    color: #ffffff;
+    color: var(--rb-points-right-color, #ffffff);
     font-weight: 900;
-    font-family: 'Beaufort for LoL', sans-serif;
-    font-size: 28px;
+    font-family: var(--rb-points-font, 'Beaufort for LoL'), sans-serif;
+    font-size: var(--rb-points-font-size, 28px);
     font-variant-numeric: tabular-nums;
 }
 
-/* Riftbound Player Wins (pips zone, y≈183–207) */
+/* Riftbound Player Wins (pips zone) */
 #scoreboard-riftbound .riftbound-player-wins-wrapper {
     position: absolute;
     z-index: 10;
     display: flex;
-    gap: 4px;
+    flex-direction: var(--rb-wins-direction, row);
+    gap: var(--rb-wins-gap, 17.5px);
 }
 
 #scoreboard-riftbound .riftbound-player-wins-left {
-    top: 371.5px;
-    left: 216.5px;
-    width: 48px;
-    height: 22px;
-}
-
-#scoreboard-riftbound .riftbound-player-wins-wrapper {
-    position: absolute;
-    z-index: 10;
-    display: flex;
-    gap: 17.5px;
+    top: var(--rb-wins-top, 371.5px);
+    left: var(--rb-wins-left-side, 216.5px);
+    width: var(--rb-wins-width, 48px);
+    height: var(--rb-wins-height, 22px);
 }
 
 #scoreboard-riftbound .riftbound-player-wins-right {
-    top: 371.4px;
-    right: 92.5px;
-    width: 48px;
-    height: 22px;
+    top: var(--rb-wins-top, 371.4px);
+    right: var(--rb-wins-right-side, 92.5px);
+    width: var(--rb-wins-width, 48px);
+    height: var(--rb-wins-height, 22px);
+    align-items: var(--rb-wins-right-align, stretch);
 }
 
 #scoreboard-riftbound .riftbound-wins-pip {
@@ -755,39 +752,35 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-name-left {
-    top: 307px;
-    left: 53px;
-    width: 251px;
-    height: 59px;
+    top: var(--rb-name-top, 307px);
+    left: var(--rb-name-side, 53px);
+    width: var(--rb-name-width, 251px);
+    height: var(--rb-name-height, 59px);
 }
 
 #scoreboard-riftbound .riftbound-player-name-left #player-name-left {
     color: var(--scoreboard-name-color, #ffffff);
     font-weight: 900;
-    font-size: 22px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     width: 100%;
     text-align: center;
+    text-shadow: var(--rb-name-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 #scoreboard-riftbound .riftbound-player-name-right {
-    top: 307px;
-    right: 53px;
-    width: 251px;
-    height: 59px;
+    top: var(--rb-name-top, 307px);
+    right: var(--rb-name-side, 53px);
+    width: var(--rb-name-width, 251px);
+    height: var(--rb-name-height, 59px);
 }
 
 #scoreboard-riftbound .riftbound-player-name-right #player-name-right {
     color: var(--scoreboard-name-color, #ffffff);
     font-weight: 900;
-    font-size: 22px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     width: 100%;
     text-align: center;
+    text-shadow: var(--rb-name-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 /* Riftbound Player Records (rect 1, right of name) */
@@ -799,31 +792,33 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-record-left {
-    top: 372px;
-    left: 80px;
-    width: 68px;
-    height: 19px;
+    top: var(--rb-record-top, 372px);
+    left: var(--rb-record-left-side, 80px);
+    width: var(--rb-record-width, 68px);
+    height: var(--rb-record-height, 19px);
+    transform: var(--rb-record-left-rotate, none);
 }
 
 #scoreboard-riftbound .riftbound-player-record-left #player-record-left {
-    color: var(--scoreboard-record-color, #161f30);
+    color: var(--rb-record-left-color, var(--scoreboard-record-color, #161f30));
     font-weight: 700;
-    font-size: 14px;
+    font-size: var(--rb-record-font-size, 14px);
     width: 100%;
     text-align: center;
 }
 
 #scoreboard-riftbound .riftbound-player-record-right {
-    top: 372px;
-    right: 210px;
-    width: 67px;
-    height: 19px;
+    top: var(--rb-record-top, 372px);
+    right: var(--rb-record-right-side, 210px);
+    width: var(--rb-record-width, 67px);
+    height: var(--rb-record-height, 19px);
+    transform: var(--rb-record-right-rotate, none);
 }
 
 #scoreboard-riftbound .riftbound-player-record-right #player-record-right {
-    color: var(--scoreboard-record-color, #161f30);
+    color: var(--rb-record-right-color, var(--scoreboard-record-color, #161f30));
     font-weight: 700;
-    font-size: 14px;
+    font-size: var(--rb-record-font-size, 14px);
     width: 100%;
     text-align: center;
 }
@@ -838,21 +833,23 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-legend-left {
-    top: 490px;
-    left: 53px;
-    width: 250px;
-    height: 36px;
+    top: var(--rb-legend-top, 490px);
+    left: var(--rb-legend-side, 53px);
+    width: var(--rb-legend-width, 250px);
+    height: var(--rb-legend-height, 36px);
 }
 
 #scoreboard-riftbound .riftbound-player-legend-left #player-legend-left {
     color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--rb-detail-font-weight, 700);
+    font-size: 13.5px;
+    font-style: var(--rb-detail-font-style, normal);
     white-space: nowrap;
-    overflow: hidden;
+    overflow: var(--rb-detail-overflow, hidden);
     text-overflow: ellipsis;
     width: 100%;
-    text-align: center;
+    text-align: var(--rb-text-align-left, center);
+    text-shadow: var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 #scoreboard-riftbound .riftbound-player-legend-wrapper.riftbound-player-legend-right {
@@ -860,21 +857,23 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-legend-right {
-    top: 490px;
-    right: 53px;
-    width: 250px;
-    height: 36px;
+    top: var(--rb-legend-top, 490px);
+    right: var(--rb-legend-side, 53px);
+    width: var(--rb-legend-width, 250px);
+    height: var(--rb-legend-height, 36px);
 }
 
 #scoreboard-riftbound .riftbound-player-legend-right #player-legend-right {
     color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--rb-detail-font-weight, 700);
+    font-size: 13.5px;
+    font-style: var(--rb-detail-font-style, normal);
     white-space: nowrap;
-    overflow: hidden;
+    overflow: var(--rb-detail-overflow, hidden);
     text-overflow: ellipsis;
     width: 100%;
-    text-align: center;
+    text-align: var(--rb-text-align-right, center);
+    text-shadow: var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 /* Riftbound Player Champion (rect 2, y≈305–337) */
@@ -887,21 +886,23 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-champion-left {
-    top: 521px;
-    left: 52px;
-    width: 251px;
-    height: 30px;
+    top: var(--rb-champion-top, 521px);
+    left: var(--rb-champion-side, 52px);
+    width: var(--rb-champion-width, 251px);
+    height: var(--rb-champion-height, 30px);
 }
 
 #scoreboard-riftbound .riftbound-player-champion-left #player-champion-left {
     color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--rb-detail-font-weight, 700);
+    font-size: 13.5px;
+    font-style: var(--rb-detail-font-style, normal);
     white-space: nowrap;
-    overflow: hidden;
+    overflow: var(--rb-detail-overflow, hidden);
     text-overflow: ellipsis;
     width: 100%;
-    text-align: center;
+    text-align: var(--rb-text-align-left, center);
+    text-shadow: var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 #scoreboard-riftbound .riftbound-player-champion-wrapper.riftbound-player-champion-right {
@@ -909,37 +910,39 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-champion-right {
-    top: 521px;
-    right: 52px;
-    width: 251px;
-    height: 30px;
+    top: var(--rb-champion-top, 521px);
+    right: var(--rb-champion-side, 52px);
+    width: var(--rb-champion-width, 251px);
+    height: var(--rb-champion-height, 30px);
 }
 
 #scoreboard-riftbound .riftbound-player-champion-right #player-champion-right {
     color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--rb-detail-font-weight, 700);
+    font-size: 13.5px;
+    font-style: var(--rb-detail-font-style, normal);
     white-space: nowrap;
-    overflow: hidden;
+    overflow: var(--rb-detail-overflow, hidden);
     text-overflow: ellipsis;
     width: 100%;
-    text-align: center;
+    text-align: var(--rb-text-align-right, center);
+    text-shadow: var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 /* Riftbound Player Runes */
 #scoreboard-riftbound .riftbound-player-runes-wrapper {
     position: absolute;
-    display: flex;
+    display: var(--rb-runes-display, flex);
     align-items: center;
     justify-content: start;
     z-index: 3;
 }
 
 #scoreboard-riftbound .riftbound-player-runes-left {
-    top: 25px;
-    left: 137px;
-    width: 150px;
-    height: 36px;
+    top: var(--rb-runes-top, 25px);
+    left: var(--rb-runes-side, 137px);
+    width: var(--rb-runes-width, 150px);
+    height: var(--rb-runes-height, 36px);
 }
 
 #scoreboard-riftbound .riftbound-player-runes-left #player-runes-left {
@@ -959,10 +962,10 @@ body {
 
 
 #scoreboard-riftbound .riftbound-player-runes-right {
-    top: 25px;
-    right: 137px;
-    width: 150px;
-    height: 36px;
+    top: var(--rb-runes-top, 25px);
+    right: var(--rb-runes-side, 137px);
+    width: var(--rb-runes-width, 150px);
+    height: var(--rb-runes-height, 36px);
 }
 
 #scoreboard-riftbound .riftbound-player-runes-wrapper.riftbound-player-runes-right {
@@ -987,21 +990,23 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-left {
-    top: 581px;
-    left: 53px;
-    width: 250px;
-    height: 60px;
+    top: var(--rb-bf-top, 581px);
+    left: var(--rb-bf-side, 53px);
+    width: var(--rb-bf-width, 250px);
+    height: var(--rb-bf-height, 60px);
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-left #player-battlefield-left {
     color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--rb-detail-font-weight, 700);
+    font-size: 13.5px;
+    font-style: var(--rb-detail-font-style, normal);
     white-space: nowrap;
-    overflow: hidden;
+    overflow: var(--rb-detail-overflow, hidden);
     text-overflow: ellipsis;
     width: 100%;
-    text-align: center;
+    text-align: var(--rb-text-align-left, center);
+    text-shadow: var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-wrapper.riftbound-player-battlefield-right {
@@ -1009,21 +1014,23 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-right {
-    top: 581px;
-    right: 53px;
-    width: 250px;
-    height: 60px;
+    top: var(--rb-bf-top, 581px);
+    right: var(--rb-bf-side, 53px);
+    width: var(--rb-bf-width, 250px);
+    height: var(--rb-bf-height, 60px);
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-right #player-battlefield-right {
     color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: var(--rb-detail-font-weight, 700);
+    font-size: 13.5px;
+    font-style: var(--rb-detail-font-style, normal);
     white-space: nowrap;
-    overflow: hidden;
+    overflow: var(--rb-detail-overflow, hidden);
     text-overflow: ellipsis;
     width: 100%;
-    text-align: center;
+    text-align: var(--rb-text-align-right, center);
+    text-shadow: var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 /* Riftbound Icons (hidden in default frame, kept for vendor overrides) */
@@ -1031,9 +1038,24 @@ body {
     display: none;
 }
 
-/* Riftbound Event Name (hidden — event round badge used instead) */
+/* Riftbound Event Name */
 #scoreboard-riftbound .riftbound-event-name-wrapper {
-    display: none;
+    display: var(--rb-event-name-display, none);
+    position: absolute;
+    top: var(--rb-event-name-top, 1010px);
+    left: var(--rb-event-name-left, 0px);
+    width: var(--rb-event-name-width, 354px);
+    height: var(--rb-event-name-height, 24px);
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#scoreboard-riftbound .riftbound-event-name {
+    color: var(--rb-event-name-color, #ffffff);
+    font-weight: 900;
+    font-size: var(--rb-event-name-font-size, 18px);
+    white-space: nowrap;
 }
 
 /* Riftbound Event Round (bottom badge, y≈858) */
@@ -1043,27 +1065,28 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 10;
-    top: 950px;
-    left: 0px;
-    height: 24px;
-    width: 354px;
+    top: var(--rb-round-top, 950px);
+    left: var(--rb-round-left, 0px);
+    height: var(--rb-round-height, 24px);
+    width: var(--rb-round-width, 354px);
 }
 
 #scoreboard-riftbound .riftbound-event-round {
     color: #ffffff;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 24px;
     white-space: nowrap;
+    text-shadow: var(--rb-round-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 /* Riftbound Timer (centered, y≈847) */
 #scoreboard-riftbound .riftbound-timer-wrapper {
     position: absolute;
     z-index: 10;
-    top: 987px;
-    left: 103px;
-    width: 150px;
-    height: 51px;
+    top: var(--rb-timer-top, 987px);
+    left: var(--rb-timer-left, 103px);
+    width: var(--rb-timer-width, 150px);
+    height: var(--rb-timer-height, 51px);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1078,10 +1101,34 @@ body {
 }
 
 #scoreboard-riftbound .riftbound-timer {
-    color: #161f30;
+    color: var(--rb-timer-color, #161f30);
     font-weight: 900;
-    font-size: 36px;
+    font-size: var(--rb-timer-font-size, 36px);
     font-variant-numeric: tabular-nums;
+}
+
+/* ---- CARD VIEW OVERLAY ---- */
+#scoreboard-riftbound .riftbound-card-overlay {
+    position: absolute;
+    top: var(--rb-card-overlay-top, 685px);
+    width: var(--rb-card-overlay-width, 251px);
+    z-index: var(--rb-card-overlay-z, 20);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#scoreboard-riftbound .riftbound-card-overlay img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#scoreboard-riftbound .riftbound-card-overlay-left {
+    left: var(--rb-card-overlay-left, 1615px);
+}
+
+#scoreboard-riftbound .riftbound-card-overlay-right {
+    right: 53px;
 }
 
 /* Vibes Scoreboard Styles */

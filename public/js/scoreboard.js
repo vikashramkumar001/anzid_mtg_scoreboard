@@ -1,4 +1,84 @@
 // scoreboard.js - Optimized Version
+import {
+    RIFTBOUND_RUNES_BG as RIFTBOUND_RUNES,
+    RIFTBOUND_BATTLEFIELD_NAMES,
+    RIFTBOUND_BATTLEFIELDS_BASE,
+    RIFTBOUND_LEGENDS,
+    RIFTBOUND_LEGENDS_DEFAULT,
+} from './riftbound/constants.js';
+
+// Auto-scale text to fit within a max width (consistent with other broadcast views)
+function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
+    if (!element || !element.innerHTML) return maxFontSize;
+
+    element.style.whiteSpace = 'nowrap';
+    element.style.fontSize = maxFontSize + 'px';
+
+    const temp = document.createElement('span');
+    temp.style.visibility = 'hidden';
+    temp.style.position = 'absolute';
+    temp.style.whiteSpace = 'nowrap';
+    temp.style.font = window.getComputedStyle(element).font;
+    temp.innerHTML = element.innerHTML;
+    document.body.appendChild(temp);
+
+    let currentSize = maxFontSize;
+    temp.style.fontSize = currentSize + 'px';
+
+    while (temp.offsetWidth > maxWidth && currentSize > minFontSize) {
+        currentSize -= 1;
+        temp.style.fontSize = currentSize + 'px';
+    }
+
+    element.style.fontSize = currentSize + 'px';
+    document.body.removeChild(temp);
+    return currentSize;
+}
+
+// Sync a paired group of riftbound elements to the smallest calculated size
+function autoScalePaired(selectors, maxFontSize, minFontSize, maxWidth) {
+    const rfb = document.getElementById('scoreboard-riftbound');
+    if (!rfb) return;
+    const els = selectors.map(sel => rfb.querySelector(sel)).filter(Boolean);
+    if (els.length === 0) return;
+    const sizes = els.map(el => autoScaleText(el, maxFontSize, minFontSize, maxWidth));
+    const minSize = Math.min(...sizes);
+    els.forEach(el => el.style.fontSize = minSize + 'px');
+}
+
+function autoScaleRiftboundNames() {
+    const root = document.documentElement;
+    const maxFont = parseInt(getComputedStyle(root).getPropertyValue('--rb-name-max-font') || '20', 10);
+    const maxWidth = parseInt(getComputedStyle(root).getPropertyValue('--rb-name-max-width') || '220', 10);
+    autoScalePaired(['#player-name-left', '#player-name-right'], maxFont, 10, maxWidth);
+}
+
+function autoScaleRiftboundDetails() {
+    autoScalePaired([
+        '#player-legend-left', '#player-legend-right',
+        '#player-champion-left', '#player-champion-right',
+        '#player-battlefield-left', '#player-battlefield-right'
+    ], 13.5, 8, 251);
+}
+
+function autoScaleRiftboundRecords() {
+    const root = document.documentElement;
+    const maxFont = parseInt(getComputedStyle(root).getPropertyValue('--rb-record-max-font') || '14', 10);
+    const minFont = parseInt(getComputedStyle(root).getPropertyValue('--rb-record-min-font') || '10', 10);
+    const maxWidth = parseInt(getComputedStyle(root).getPropertyValue('--rb-record-max-width') || '60', 10);
+    autoScalePaired(['#player-record-left', '#player-record-right'], maxFont, minFont, maxWidth);
+}
+
+function autoScaleRiftboundPoints() {
+    const root = document.documentElement;
+    const maxFont = parseInt(getComputedStyle(root).getPropertyValue('--rb-points-max-font') || '28', 10);
+    const minFont = parseInt(getComputedStyle(root).getPropertyValue('--rb-points-min-font') || '20', 10);
+    const maxWidth = parseInt(getComputedStyle(root).getPropertyValue('--rb-points-max-width') || '60', 10);
+    const left = document.querySelector('#scoreboard-riftbound #player-life-left');
+    const right = document.querySelector('#scoreboard-riftbound #player-life-right');
+    if (left) autoScaleText(left, maxFont, minFont, maxWidth);
+    if (right) autoScaleText(right, maxFont, minFont, maxWidth);
+}
 
 let lastState = {};
 let archetypeList = [];
@@ -84,225 +164,16 @@ function renderAspectIcons(value, container) {
 // Riftbound Battlefields Dictionary
 // Maps battlefield names to their left and right side image URLs
 // Files with "180" are for left side, files without "180" are for right side
-// Default image is used as fallback when a battlefield is not found or empty
+// Build battlefield lookup from shared names + base path (left/right use same image)
 const RIFTBOUND_BATTLEFIELDS_DEFAULT = {
     left: '/assets/images/riftbound/battlefields/_0000_Default.png',
     right: '/assets/images/riftbound/battlefields/_0000_Default.png'
 };
-
-const RIFTBOUND_BATTLEFIELDS = {
-    'Altar to Unity': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Altar to Unity.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Altar to Unity.png',
-    },
-    'Aspirant\'s Climb': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Aspirant\'s Climb.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Aspirant\'s Climb.png',
-    },
-    'Back-Alley Bar': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Back-Alley Bar.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Back-Alley Bar.png',
-    },
-    'Bandle Tree': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Bandle Tree.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Bandle Tree.png',
-    },
-    'Emperor\'s Dais': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Emperor\'s Dais.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Emperor\'s Dais.png',
-    },
-    'Forge of the Fluft': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Forge of the Fluft.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Forge of the Fluft.png',
-    },
-    'Forgotten Monument': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Forgotten Monument.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Forgotten Monument.png',
-    },
-    'Fortified Position': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Fortified Position.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Fortified Position.png',
-    },
-    'Grove of the God-Willow': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Grove of the God-Willow.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Grove of the God-Willow.png',
-    },
-    'Hall of Legends': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Hall of Legends.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Hall of Legends.png',
-    },
-    'Hallowed Tomb': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Hallowed Tomb.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Hallowed Tomb.png',
-    },
-    'Marai Spire': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Marai Spire.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Marai Spire.png',
-    },
-    'Minefield': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Minefield.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Minefield.png',
-    },
-    'Monastery of Hirana': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Monastery of Hirana.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Monastery of Hirana.png',
-    },
-    'Navori Fighting Pit': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Navori Fighting Pit.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Navori Fighting Pit.png',
-    },
-    'Obelisk of Power': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Obelisk of Power.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Obelisk of Power.png',
-    },
-    'Orin\'s Forge': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Orin\'s Forge.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Orin\'s Forge.png',
-    },
-    'Power Nexus': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Power Nexus.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Power Nexus.png',
-    },
-    'Ravenbloom Conservatory': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Ravenbloom Conservatory.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Ravenbloom Conservatory.png',
-    },
-    'Reaver\'s Row': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Reaver\'s Row.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Reaver\'s Row.png',
-    },
-    'Reckoner\'s Arena': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Reckoner\'s Arena.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Reckoner\'s Arena.png',
-    },
-    'Rockfall Path': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Rockfall Path.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Rockfall Path.png',
-    },
-    'Seat of Power': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Seat of Power.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Seat of Power.png',
-    },
-    'Sigil of the Storm': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Sigil of the Storm.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Sigil of the Storm.png',
-    },
-    'Startipped Peak': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Startipped Peak.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Startipped Peak.png',
-    },
-    'Sunken Temple': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Sunken Temple.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Sunken Temple.png',
-    },
-    'Targon\'s Peak': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Targon\'s Peak.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Targon\'s Peak.png',
-    },
-    'The Arena\'s Greatest': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Arena\'s Greatest.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Arena\'s Greatest.png',
-    },
-    'The Candlelit Sanctum': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Candlelit Sanctum.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Candlelit Sanctum.png',
-    },
-    'The Dreaming Tree': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Dreaming Tree.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Dreaming Tree.png',
-    },
-    'The Grand Plaza': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Grand Plaza.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Grand Plaza.png',
-    },
-    'The Papertree': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Papertree.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/The Papertree.png',
-    },
-    'Treasure Hoard': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Treasure Hoard.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Treasure Hoard.png',
-    },
-    'Trifarian War Camp': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Trifarian War Camp.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Trifarian War Camp.png',
-    },
-    'Veiled Temple': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Veiled Temple.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Veiled Temple.png',
-    },
-    'Vilemaw\'s Lair': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Vilemaw\'s Lair.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Vilemaw\'s Lair.png',
-    },
-    'Void Gate': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Void Gate.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Void Gate.png',
-    },
-    'Windswept Hillock': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Windswept Hillock.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Windswept Hillock.png',
-    },
-    'Zaun Warrens': {
-        left: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Zaun Warrens.png',
-        right: '/assets/images/riftbound/battlefields/battlefields-default-1v1/Zaun Warrens.png',
-    },
-};
-
-// Riftbound Legends Dictionary
-// Maps legend names to portrait image URLs (legend-portraits-default-1v1/)
-// Single image used for both left and right sides
-const RIFTBOUND_LEGENDS_DEFAULT = {
-    left: '/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-tes-1v1/LegendPortrait_0000_Default.png',
-    right: '/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-tes-1v1/LegendPortrait_0000_F_Default.png'
-};
-
-const _RB_PORTRAIT = (filename) => {
-    const p = `/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-default-1v1/${filename}`;
-    return { left: p, right: p };
-};
-
-const RIFTBOUND_LEGENDS = {
-    'Ahri':          _RB_PORTRAIT('In-Game_0026_Ahri.png'),
-    'Annie':         _RB_PORTRAIT('In-Game_0027_Annie.png'),
-    'Azir':          _RB_PORTRAIT('In-Game_0002_Azir.png'),
-    'Darius':        _RB_PORTRAIT('In-Game_0024_Darius.png'),
-    'Draven':        _RB_PORTRAIT('In-Game_0005_Draven.png'),
-    'Ezreal':        _RB_PORTRAIT('In-Game_0004_Ezreal.png'),
-    'Fiora':         _RB_PORTRAIT('In-Game_0006_Fiora.png'),
-    'Garen':         _RB_PORTRAIT('In-Game_0023_Garen.png'),
-    'Irelia':        _RB_PORTRAIT('In-Game_0007_Irelia.png'),
-    'Jax':           _RB_PORTRAIT('In-Game_0009_Jax.png'),
-    'Jinx':          _RB_PORTRAIT('In-Game_0022_Jinx.png'),
-    'Kai\'sa':       _RB_PORTRAIT("In-Game_0021_Kai'sa.png"),
-    'Lee Sin':       _RB_PORTRAIT('In-Game_0020_Lee-Sin.png'),
-    'Leona':         _RB_PORTRAIT('In-Game_0025_Leona.png'),
-    'Lucian':        _RB_PORTRAIT('In-Game_0011_Lucian.png'),
-    'Lux':           _RB_PORTRAIT('In-Game_0017_Lux.png'),
-    'Master Yi':     _RB_PORTRAIT('In-Game_0019_Master-Yi.png'),
-    'Miss Fortune':  _RB_PORTRAIT('In-Game_0018_Miss-Fortune.png'),
-    'Ornn':          _RB_PORTRAIT('In-Game_0001_Ornn.png'),
-    'Rek\'Sai':      _RB_PORTRAIT('In-Game_0003_Reksai.png'),
-    'Renata Glasc':  _RB_PORTRAIT('In-Game_0008_Renata-Glasc.png'),
-    'Rumble':        _RB_PORTRAIT('In-Game_0000_Rumble.png'),
-    'Sett':          _RB_PORTRAIT('In-Game_0016_Sett.png'),
-    'Sivir':         _RB_PORTRAIT('In-Game_0010_Sivir.png'),
-    'Teemo':         _RB_PORTRAIT('In-Game_0015_Teemo.png'),
-    'Viktor':        _RB_PORTRAIT('In-Game_0013_Viktor.png'),
-    'Volibear':      _RB_PORTRAIT('In-Game_0012_Volibear.png'),
-    'Yasuo':         _RB_PORTRAIT('In-Game_0014_Yasuo.png'),
-};
-
-// Riftbound Runes Dictionary
-// Maps rune letters to their icon image URLs (runes-bg circular icons)
-const RIFTBOUND_RUNES = {
-    'r': '/assets/images/riftbound/icons/runes-bg/Fury-bg.png',
-    'g': '/assets/images/riftbound/icons/runes-bg/Calm-bg.png',
-    'b': '/assets/images/riftbound/icons/runes-bg/Mind-bg.png',
-    'o': '/assets/images/riftbound/icons/runes-bg/Body-bg.png',
-    'p': '/assets/images/riftbound/icons/runes-bg/Chaos-bg.png',
-    'y': '/assets/images/riftbound/icons/runes-bg/Order-bg.png',
-};
+const RIFTBOUND_BATTLEFIELDS = {};
+RIFTBOUND_BATTLEFIELD_NAMES.forEach(name => {
+    const url = `${RIFTBOUND_BATTLEFIELDS_BASE}/${name}.png`;
+    RIFTBOUND_BATTLEFIELDS[name] = { left: url, right: url };
+});
 
 function updateElementText(id, value) {
     // Update element in both MTG and Riftbound sections if they exist
@@ -386,7 +257,9 @@ function updateState(data) {
             const side = key.endsWith('-left') ? 'left' : 'right';
             const slot = key.includes('-1-') ? 0 : 1;
             if (!lastState._runeColors) lastState._runeColors = {};
-            lastState._runeColors[`${side}-${slot}`] = value ? value.trim().toLowerCase() : '';
+            const newVal = value ? value.trim().toLowerCase() : '';
+            if (lastState._runeColors[`${side}-${slot}`] === newVal) return;
+            lastState._runeColors[`${side}-${slot}`] = newVal;
 
             const riftboundContainer = document.getElementById('scoreboard-riftbound');
             if (riftboundContainer) {
@@ -458,8 +331,8 @@ function updateState(data) {
                                     const cacheBuster = new Date().getTime();
                                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                                    backgroundDiv.style.backgroundSize = '120%';
-                                    backgroundDiv.style.backgroundPosition = 'center';
+                                    backgroundDiv.style.backgroundSize = '';
+                                    backgroundDiv.style.backgroundPosition = '';
                                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                                     backgroundDiv.style.display = 'block';
                                     lastState[`legend-${side}`] = imageUrl;
@@ -473,8 +346,8 @@ function updateState(data) {
                                 const cacheBuster = new Date().getTime();
                                 const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                                 backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                                backgroundDiv.style.backgroundSize = '120%';
-                                backgroundDiv.style.backgroundPosition = 'center';
+                                backgroundDiv.style.backgroundSize = '';
+                                backgroundDiv.style.backgroundPosition = '';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
                                 backgroundDiv.style.display = 'block';
                                 lastState[`legend-${side}`] = defaultImageUrl;
@@ -487,8 +360,8 @@ function updateState(data) {
                             const cacheBuster = new Date().getTime();
                             const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                             backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                            backgroundDiv.style.backgroundSize = '120%';
-                            backgroundDiv.style.backgroundPosition = 'center';
+                            backgroundDiv.style.backgroundSize = '';
+                            backgroundDiv.style.backgroundPosition = '';
                             backgroundDiv.style.backgroundRepeat = 'no-repeat';
                             backgroundDiv.style.display = 'block';
                             lastState[`legend-${side}`] = defaultImageUrl;
@@ -536,8 +409,8 @@ function updateState(data) {
                                 const cacheBuster = new Date().getTime();
                                 const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                                 backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                                backgroundDiv.style.backgroundSize = '120%';
-                                backgroundDiv.style.backgroundPosition = 'center';
+                                backgroundDiv.style.backgroundSize = '';
+                                backgroundDiv.style.backgroundPosition = '';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
                                 backgroundDiv.style.display = 'block';
                                 lastState[`battlefield-${side}`] = imageUrl;
@@ -549,8 +422,8 @@ function updateState(data) {
                                 const cacheBuster = new Date().getTime();
                                 const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                                 backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                                backgroundDiv.style.backgroundSize = '120%';
-                                backgroundDiv.style.backgroundPosition = 'center';
+                                backgroundDiv.style.backgroundSize = '';
+                                backgroundDiv.style.backgroundPosition = '';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
                                 backgroundDiv.style.display = 'block';
                                 lastState[`battlefield-${side}`] = defaultImageUrl;
@@ -563,8 +436,8 @@ function updateState(data) {
                             const cacheBuster = new Date().getTime();
                             const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                             backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                            backgroundDiv.style.backgroundSize = '120%';
-                            backgroundDiv.style.backgroundPosition = 'center';
+                            backgroundDiv.style.backgroundSize = '';
+                            backgroundDiv.style.backgroundPosition = '';
                             backgroundDiv.style.backgroundRepeat = 'no-repeat';
                             backgroundDiv.style.display = 'block';
                             lastState[`battlefield-${side}`] = defaultImageUrl;
@@ -682,6 +555,22 @@ function updateState(data) {
             }
 
             updateElementText(key, value);
+
+            // Auto-scale riftbound text after updates
+            if (['player-name-left', 'player-name-right'].includes(key)) {
+                autoScaleRiftboundNames();
+            }
+            if (['player-record-left', 'player-record-right'].includes(key)) {
+                autoScaleRiftboundRecords();
+            }
+            if (['player-life-left', 'player-life-right'].includes(key)) {
+                autoScaleRiftboundPoints();
+            }
+            if (['player-legend-left', 'player-legend-right',
+                 'player-champion-left', 'player-champion-right',
+                 'player-battlefield-left', 'player-battlefield-right'].includes(key)) {
+                autoScaleRiftboundDetails();
+            }
 
             if (key === 'player-archetype-left') {
                 updateBackground('left', value);
@@ -896,6 +785,10 @@ socket.on('current-all-timer-states', ({timerState}) => {
             if (riftboundTimer) {
                 riftboundTimer.innerText = timerText;
                 riftboundTimer.style.display = shouldShow ? 'block' : 'none';
+                const root = document.documentElement;
+                const maxFont = parseInt(getComputedStyle(root).getPropertyValue('--rb-timer-font-size') || '36', 10);
+                const maxWidth = parseInt(getComputedStyle(root).getPropertyValue('--rb-timer-max-width') || '140', 10);
+                autoScaleText(riftboundTimer, maxFont, 20, maxWidth);
             }
         }
 
@@ -1080,8 +973,8 @@ function updateTheme(game, vendor, playerCount) {
                     const cacheBuster = new Date().getTime();
                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                    backgroundDiv.style.backgroundSize = '120%';
-                    backgroundDiv.style.backgroundPosition = 'center';
+                    backgroundDiv.style.backgroundSize = '';
+                    backgroundDiv.style.backgroundPosition = '';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                     backgroundDiv.style.display = 'block';
                     lastState['battlefield-left'] = imageUrl;
@@ -1120,8 +1013,8 @@ function updateTheme(game, vendor, playerCount) {
                     const cacheBuster = new Date().getTime();
                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                    backgroundDiv.style.backgroundSize = '120%';
-                    backgroundDiv.style.backgroundPosition = 'center';
+                    backgroundDiv.style.backgroundSize = '';
+                    backgroundDiv.style.backgroundPosition = '';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                     backgroundDiv.style.display = 'block';
                     lastState['battlefield-right'] = imageUrl;
@@ -1169,8 +1062,8 @@ function updateTheme(game, vendor, playerCount) {
                     const cacheBuster = new Date().getTime();
                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                    backgroundDiv.style.backgroundSize = '120%';
-                    backgroundDiv.style.backgroundPosition = 'center';
+                    backgroundDiv.style.backgroundSize = '';
+                    backgroundDiv.style.backgroundPosition = '';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                     backgroundDiv.style.display = 'block';
                     lastState['legend-left'] = imageUrl;
@@ -1214,8 +1107,8 @@ function updateTheme(game, vendor, playerCount) {
                     const cacheBuster = new Date().getTime();
                     const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
                     backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
-                    backgroundDiv.style.backgroundSize = '120%';
-                    backgroundDiv.style.backgroundPosition = 'center';
+                    backgroundDiv.style.backgroundSize = '';
+                    backgroundDiv.style.backgroundPosition = '';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
                     backgroundDiv.style.display = 'block';
                     lastState['legend-right'] = imageUrl;
@@ -1256,7 +1149,7 @@ function updateTheme(game, vendor, playerCount) {
             document.documentElement.style.setProperty(prop, value);
         });
 
-        // Update scoreboard frame image dynamically
+        // Update scoreboard frame — try mp4 first, fallback to PNG
         const frameSelectors = {
             mtg: '#scoreboard-mtg .mtg-frame',
             riftbound: '#scoreboard-riftbound .riftbound-frame',
@@ -1272,14 +1165,37 @@ function updateTheme(game, vendor, playerCount) {
             }
         }
 
-        // Set riftbound pip images dynamically based on vendor + playerCount
+        // Riftbound: try animated mp4 frame, fallback to PNG
         if (normalized === 'riftbound') {
             const v = vendor || 'default';
             const p = playerCount || '1v1';
+            const videoEl = document.getElementById('riftbound-frame-video');
+            const bgVideoContainer = document.querySelector('#scoreboard-riftbound .riftbound-bg-video');
+            if (videoEl && bgVideoContainer) {
+                const mp4Path = `/assets/animations/riftbound/scoreboard/frame/riftbound-scoreboard-frame-${v}-${p}.mp4`;
+                const maskPath = `/assets/animations/riftbound/scoreboard/frame/riftbound-scoreboard-frame-${v}-${p}-mask.png`;
+                videoEl.oncanplay = () => {
+                    bgVideoContainer.style.display = 'block';
+                    bgVideoContainer.style.webkitMaskImage = `url("${maskPath}")`;
+                    bgVideoContainer.style.maskImage = `url("${maskPath}")`;
+                };
+                videoEl.onerror = () => {
+                    bgVideoContainer.style.display = 'none';
+                };
+                videoEl.src = mp4Path;
+            }
+
+            // Set riftbound pip images dynamically based on vendor + playerCount
             const leftPipPath = `/assets/images/riftbound/scoreboard/pips/scoreboard-pips-${v}-${p}-left.png`;
             const rightPipPath = `/assets/images/riftbound/scoreboard/pips/scoreboard-pips-${v}-${p}-right.png`;
             document.documentElement.style.setProperty('--rb-pip-left-url', `url("${leftPipPath}")`);
             document.documentElement.style.setProperty('--rb-pip-right-url', `url("${rightPipPath}")`);
+
+            // Re-scale names/details after vendor switch (font size limits may have changed)
+            autoScaleRiftboundNames();
+            autoScaleRiftboundDetails();
+            autoScaleRiftboundRecords();
+            autoScaleRiftboundPoints();
         }
     }
 }
@@ -1330,13 +1246,13 @@ const CARD_VIEW_EVENTS = [
     'starwars-card-view-card-selected'
 ];
 
-// Elements to hide per side when card overlay is shown
+// Elements to hide per side when card overlay is shown (Star Wars)
 const SWU_LEADER_BASE_CLASSES = [
     'swu-leader-name', 'swu-leader-image',
     'swu-base-name', 'swu-base-image'
 ];
 
-function setLeaderBaseVisibility(side, visible) {
+function setSwuOverlayVisibility(side, visible) {
     const display = visible ? '' : 'none';
     for (const cls of SWU_LEADER_BASE_CLASSES) {
         const el = document.querySelector(`#scoreboard-starwars .${cls}-${side}`);
@@ -1345,28 +1261,34 @@ function setLeaderBaseVisibility(side, visible) {
 }
 
 function handleCardViewOnScoreboard(data) {
+    console.log('[CardView] received:', data, 'currentGame:', currentGame);
     const side = data['card-id']?.toString() === '1' ? 'left' : 'right';
-    const overlay = document.getElementById(`swu-card-overlay-${side}`);
-    const img = document.getElementById(`swu-card-overlay-img-${side}`);
+
+    // Determine overlay prefix based on current game
+    const prefix = currentGame === 'riftbound' ? 'riftbound' : 'swu';
+    const overlay = document.getElementById(`${prefix}-card-overlay-${side}`);
+    const img = document.getElementById(`${prefix}-card-overlay-img-${side}`);
+    console.log('[CardView] prefix:', prefix, 'overlay:', overlay, 'img:', img);
     if (!overlay || !img) return;
 
     if (data.url) {
-        img.onload = () => {
-            // Landscape cards: shift down to top 580px
-            if (img.naturalWidth > img.naturalHeight) {
-                overlay.style.top = '580px';
-            } else {
-                overlay.style.top = '';
-            }
-        };
         img.src = data.url;
         overlay.style.display = 'block';
-        setLeaderBaseVisibility(side, false);
+        // Star Wars: hide leader/base underneath
+        if (currentGame === 'starwars') {
+            setSwuOverlayVisibility(side, false);
+        }
     } else {
-        // Reset: hide overlay, show leader/base
-        img.src = '';
-        overlay.style.display = 'none';
-        setLeaderBaseVisibility(side, true);
+        // Reset: show card back for riftbound, hide overlay for others
+        if (currentGame === 'riftbound') {
+            img.src = '/assets/images/riftbound/cards/riftbound-card-back.jpg';
+        } else {
+            img.src = '';
+            overlay.style.display = 'none';
+            if (currentGame === 'starwars') {
+                setSwuOverlayVisibility(side, true);
+            }
+        }
     }
 }
 
