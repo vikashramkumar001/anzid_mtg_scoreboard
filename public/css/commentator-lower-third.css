@@ -124,107 +124,169 @@ body {
     height: 100px;
 }
 
-/* MTG Lower Third */
-/* TODO: Dial in exact specs */
-
-#lower-third-mtg {
-    position: absolute;
-    left: 140px;
-    top: 862px;
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
 }
 
+/* MTG Lower Third */
+
 #lower-third-mtg .commentator-image {
-    width: 616px;
-    height: 100px;
-    background-image: url('/assets/images/mtg/lower-third/mtg-lower-third-default-1v1.png');
+    position: absolute;
+    left: var(--mtg-lt-img-left, 140px);
+    top: var(--mtg-lt-img-top, 862px);
+    width: var(--mtg-lt-width, 616px);
+    height: var(--mtg-lt-height, 100px);
+    background-image: var(--mtg-lt-bg-image, url('/assets/images/mtg/lower-third/mtg-lower-third-default-1v1.png'));
+    background-size: var(--mtg-lt-bg-size, contain);
+    background-repeat: no-repeat;
+}
+
+#lower-third-mtg .commentator-text-container {
+    position: absolute;
+    left: var(--mtg-lt-text-left, 140px);
+    top: var(--mtg-lt-text-top, 862px);
 }
 
 #lower-third-mtg .commentator {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    padding-left: 125px;
-    padding-top: 20px;
-    line-height: 35px;
+    font-family: var(--mtg-lt-font, 'Gotham Narrow', sans-serif);
+    font-size: var(--mtg-lt-name-font-size, 48px);
+    font-weight: var(--mtg-lt-name-font-weight, 700);
+    color: var(--mtg-lt-name-color, white);
+    padding-left: var(--mtg-lt-name-padding-left, 125px);
+    padding-top: var(--mtg-lt-name-padding-top, 20px);
+    line-height: var(--mtg-lt-name-line-height, 35px);
     margin: 0;
     white-space: nowrap;
 }
 
 #lower-third-mtg .commentator-subtext {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-size: 25px;
-    font-weight: 400;
-    padding-left: 125px;
+    font-family: var(--mtg-lt-font, 'Gotham Narrow', sans-serif);
+    font-size: var(--mtg-lt-subtext-font-size, 25px);
+    font-weight: var(--mtg-lt-subtext-font-weight, 400);
+    color: var(--mtg-lt-subtext-color, white);
+    padding-left: var(--mtg-lt-subtext-padding-left, 125px);
     margin: 0;
 }
 
 /* Riftbound Lower Third */
-/* TODO: Dial in exact specs */
 
 #lower-third-riftbound .commentator-image {
-    width: 616px;
-    height: 100px;
-    background-image: url('/assets/images/riftbound/lower-third/riftbound-lower-third-default-1v1.png');
+    position: absolute;
+    left: var(--rb-lt-img-left, 140px);
+    top: var(--rb-lt-img-top, 862px);
+    width: var(--rb-lt-width, 616px);
+    height: var(--rb-lt-height, 100px);
+    background-image: var(--rb-lt-bg-image, url('/assets/images/riftbound/lower-third/riftbound-lower-third-default-1v1.png'));
+    background-size: var(--rb-lt-bg-size, contain);
+    background-repeat: no-repeat;
+}
+
+#lower-third-riftbound .commentator-text-container {
+    position: absolute;
+    left: var(--rb-lt-text-left, 140px);
+    top: var(--rb-lt-text-top, 862px);
 }
 
 #lower-third-riftbound .commentator {
-    font-size: 40px;
-    padding-left: 125px;
+    font-family: var(--rb-lt-font, 'Beaufort for LoL', sans-serif);
+    font-size: var(--rb-lt-name-font-size, 40px);
+    font-weight: var(--rb-lt-name-font-weight, 700);
+    color: var(--rb-lt-name-color, white);
+    padding-left: var(--rb-lt-name-padding-left, 125px);
+    padding-top: var(--rb-lt-name-padding-top, 20px);
+    line-height: var(--rb-lt-name-line-height, 35px);
+    margin: 0;
+    white-space: nowrap;
 }
 
 #lower-third-riftbound .commentator-subtext {
-    font-size: 25px;
-    padding-left: 125px;
+    font-family: var(--rb-lt-font, 'Beaufort for LoL', sans-serif);
+    font-size: var(--rb-lt-subtext-font-size, 25px);
+    font-weight: var(--rb-lt-subtext-font-weight, 400);
+    color: var(--rb-lt-subtext-color, white);
+    padding-left: var(--rb-lt-subtext-padding-left, 125px);
+    margin: 0;
 }
 
 /* Vibes Lower Third */
-/* TODO: Dial in exact specs */
 
 #lower-third-vibes .commentator-image {
-    width: 616px;
-    height: 100px;
-    background-image: url('/assets/images/vibes/lower-third/vibes-lower-third-default-1v1.png');
+    position: absolute;
+    left: var(--vibes-lt-img-left, 140px);
+    top: var(--vibes-lt-img-top, 862px);
+    width: var(--vibes-lt-width, 616px);
+    height: var(--vibes-lt-height, 100px);
+    background-image: var(--vibes-lt-bg-image, url('/assets/images/vibes/lower-third/vibes-lower-third-default-1v1.png'));
+    background-size: var(--vibes-lt-bg-size, contain);
+    background-repeat: no-repeat;
+}
+
+#lower-third-vibes .commentator-text-container {
+    position: absolute;
+    left: var(--vibes-lt-text-left, 140px);
+    top: var(--vibes-lt-text-top, 862px);
 }
 
 #lower-third-vibes .commentator {
-    font-size: 40px;
-    padding-left: 125px;
+    font-family: var(--vibes-lt-font, 'Bebas Neue', sans-serif);
+    font-size: var(--vibes-lt-name-font-size, 40px);
+    font-weight: var(--vibes-lt-name-font-weight, 700);
+    color: var(--vibes-lt-name-color, white);
+    padding-left: var(--vibes-lt-name-padding-left, 125px);
+    padding-top: var(--vibes-lt-name-padding-top, 20px);
+    line-height: var(--vibes-lt-name-line-height, 35px);
+    margin: 0;
+    white-space: nowrap;
 }
 
 #lower-third-vibes .commentator-subtext {
-    font-size: 25px;
-    padding-left: 125px;
+    font-family: var(--vibes-lt-font, 'Bebas Neue', sans-serif);
+    font-size: var(--vibes-lt-subtext-font-size, 25px);
+    font-weight: var(--vibes-lt-subtext-font-weight, 400);
+    color: var(--vibes-lt-subtext-color, white);
+    padding-left: var(--vibes-lt-subtext-padding-left, 125px);
+    margin: 0;
 }
 
 /* Star Wars Lower Third */
 
-#lower-third-starwars {
+#lower-third-starwars .commentator-image {
     position: absolute;
-    left: 140px;
-    top: 862px;
+    left: var(--swu-lt-img-left, 140px);
+    top: var(--swu-lt-img-top, 862px);
+    width: var(--swu-lt-width, 616px);
+    height: var(--swu-lt-height, 100px);
+    background-image: var(--swu-lt-bg-image, url('/assets/images/starwars/lower-third/starwars-lower-third-default-1v1.png'));
+    background-size: var(--swu-lt-bg-size, contain);
+    background-repeat: no-repeat;
 }
 
-#lower-third-starwars .commentator-image {
-    width: 616px;
-    height: 100px;
-    background-image: url('/assets/images/starwars/lower-third/starwars-lower-third-default-1v1.png');
+#lower-third-starwars .commentator-text-container {
+    position: absolute;
+    left: var(--swu-lt-text-left, 140px);
+    top: var(--swu-lt-text-top, 862px);
 }
 
 #lower-third-starwars .commentator {
-    font-family: 'Barlow', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    padding-left: 125px;
-    padding-top: 20px;
-    line-height: 35px;
+    font-family: var(--swu-lt-font, 'Barlow', sans-serif);
+    font-size: var(--swu-lt-name-font-size, 48px);
+    font-weight: var(--swu-lt-name-font-weight, 700);
+    color: var(--swu-lt-name-color, white);
+    padding-left: var(--swu-lt-name-padding-left, 125px);
+    padding-top: var(--swu-lt-name-padding-top, 20px);
+    line-height: var(--swu-lt-name-line-height, 35px);
     margin: 0;
     white-space: nowrap;
 }
 
 #lower-third-starwars .commentator-subtext {
-    font-family: 'Barlow', sans-serif;
-    font-size: 25px;
-    font-weight: 400;
-    padding-left: 125px;
+    font-family: var(--swu-lt-font, 'Barlow', sans-serif);
+    font-size: var(--swu-lt-subtext-font-size, 25px);
+    font-weight: var(--swu-lt-subtext-font-weight, 400);
+    color: var(--swu-lt-subtext-color, white);
+    padding-left: var(--swu-lt-subtext-padding-left, 125px);
     margin: 0;
 }

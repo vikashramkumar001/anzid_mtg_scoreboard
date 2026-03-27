@@ -1,3 +1,5 @@
+import { RIFTBOUND_LEGENDS_LIST, RIFTBOUND_CHAMPIONS_LIST, RIFTBOUND_BATTLEFIELDS_LIST } from '../riftbound/constants.js';
+
 export function initMatches(socket) {
 
     const broadcastDisplay = document.getElementById('broadcasting-now-round-display');
@@ -216,141 +218,11 @@ export function initMatches(socket) {
     });
 
     // Riftbound Legends List
-    const riftboundLegendsList = [
-        {name: "Kai'sa, Daughter of the Void"},
-        {name: "Volibear, Relentless Storm"},
-        {name: "Jinx, Loose Cannon"},
-        {name: "Darius, Hand of Noxus"},
-        {name: "Ahri, Nine-Tailed Fox"},
-        {name: "Lee Sin, Blind Monk"},
-        {name: "Yasuo, Unforgiven"},
-        {name: "Leona, Radiant Dawn"},
-        {name: "Teemo, Swift Scout"},
-        {name: "Viktor, Herald of the Arcane"},
-        {name: "Miss Fortune, Bounty Hunter"},
-        {name: "Sett, The Boss"},
-        {name: "Annie, Dark Child"},
-        {name: "Master Yi, Wuju Bladesman"},
-        {name: "Lux, Lady of Luminosity"},
-        {name: "Garen, Might of Demacia"},
-		{name: "Rumble, Mechanized Menace"},
-		{name: "Lucian, Purifier"},
-		{name: "Draven, Glorious Executioner"},
-		{name: "Rek'sai, Void Burrower"},
-		{name: "Ornn, Fire Below the Mountain"},
-		{name: "Jax, Grandmaster at Arms"},
-		{name: "Irelia, Blade Dancer"},
-		{name: "Azir, Emperor of the Sands"},
-		{name: "Ezreal, Prodigal Explorer"}, 
-		{name: "Renata Glasc, Chem-Baroness"},
-		{name: "Sivir, Battle Mistress"}, 
-		{name: "Fiora, Grand Duelist"}
-    ];
+    const riftboundLegendsList = RIFTBOUND_LEGENDS_LIST;
     
-    // Riftbound Champions List
-    const riftboundChampionsList = [
-        {name: "Kai'sa, Survivor"},
-        {name: "Volibear, Furious"},
-        {name: "Jinx, Demolitionist"},
-        {name: "Darius, Trifarian"},
-        {name: "Ahri, Alluring"},
-        {name: "Lee Sin, Ascetic"},
-        {name: "Yasuo, Remorseful"},
-        {name: "Leona, Determined"},
-        {name: "Teemo, Strategist"},
-        {name: "Viktor, Innovator"},
-        {name: "Miss Fortune, Captain"},
-        {name: "Sett, Brawler"},
-        {name: "Annie, Fiery"},
-        {name: "Master Yi, Meditative"},
-        {name: "Lux, Illuminated"},
-        {name: "Garen, Rugged"},
-        {name: "Kai'sa, Evolutionary"},
-        {name: "Volibear, Imposing"},
-        {name: "Jinx, Rebel"},
-        {name: "Darius, Executioner"},
-        {name: "Ahri, Inquisitive"},
-        {name: "Lee Sin, Centered"},
-        {name: "Yasuo, Windrider"},
-        {name: "Leona, Zealot"},
-        {name: "Teemo, Scout"},
-        {name: "Viktor, Leader"},
-        {name: "Miss Fortune, Buccaneer"},
-        {name: "Sett, Kingpin"},
-        {name: "Annie, Stubborn"},
-        {name: "Master Yi, Honed"},
-        {name: "Lux, Crownguard"},
-        {name: "Garen, Commander"},
-		{name: "Rumble, Hotheaded"},
-		{name: "Rumble, Scrapper"},
-		{name: "Lucian, Gunslinger"},
-		{name: "Lucian, Merciless"},
-		{name: "Draven, Vanquisher"},
-		{name: "Draven, Audacious"},
-		{name: "Draven, Showboat"},
-		{name: "Rek'sai, Breacher"},
-		{name: "Rek'sai, Swarm Queen"},
-		{name: "Ornn, Blacksmith"},
-		{name: "Ornn, Forge God"},
-		{name: "Jax, Unrelenting"},
-		{name: "Jax, Unmatched"},
-		{name: "Irelia, Graceful"},
-		{name: "Irelia, Fervent"},
-		{name: "Azir, Ascendant"},
-		{name: "Azir, Sovereign"},
-		{name: "Ezreal, Prodigy"},
-		{name: "Ezreal, Dashing"},
-		{name: "Renata Glasc, Mastermind"},
-		{name: "Renata Glasc, Industrialist"},
-		{name: "Sivir, Ambitious"},
-		{name: "Sivir, Mercenary"},
-		{name: "Fiora, Worthy"},
-		{name: "Fiora, Peerless"},
-		{name: "Fiora, Victorious"}
-    ];
+    const riftboundChampionsList = RIFTBOUND_CHAMPIONS_LIST;
     
-    // Riftbound Battlefields List
-    const riftboundBattlefieldsList = [
-        {name: "Altar to Unity"},
-        {name: "Aspirant's Climb"},
-        {name: "Back-Alley Bar"},
-        {name: "Bandle Tree"},
-        {name: "Fortified Position"},
-        {name: "Grove of the God-Willow"},
-        {name: "Hallowed Tomb"},
-        {name: "Monastery of Hirana"},
-        {name: "Navori Fighting Pit"},
-        {name: "Obelisk of Power"},
-        {name: "Reaver's Row"},
-        {name: "Reckoner's Arena"},
-        {name: "Sigil of the Storm"},
-        {name: "Startipped Peak"},
-        {name: "Targon's Peak"},
-        {name: "The Arena's Greatest"},
-        {name: "The Dreaming Tree"},
-        {name: "The Grand Plaza"},
-        {name: "Trifarian War Camp"},
-        {name: "Vilemaw's Lair"},
-        {name: "Void Gate"},
-        {name: "Windswept Hillock"},
-        {name: "Zaun Warrens"},
-        {name: "The Candlelit Sanctum"},
-		{name: "Emperor's Dais"},
-		{name: "Forge of the Fluft"},
-		{name: "Forgotten Monument"},
-		{name: "Hall of Legends"},
-		{name: "Marai Spire"},
-		{name: "Minefield"},
-		{name: "Ornn's Forge"},
-		{name: "Power Nexus"},
-		{name: "Ravenbloom Conservatory"},
-		{name: "Rockfall Path"},
-		{name: "Seat of Power"},
-		{name: "Sunken Temple"},
-		{name: "The Papertree"},
-		{name: "Treasure Hoard"},
-		{name: "Veiled Temple"}
-    ];
+    const riftboundBattlefieldsList = RIFTBOUND_BATTLEFIELDS_LIST;
 
     // Function to render or update a match card
     function renderMatch(roundId, matchId, matchData) {
@@ -1388,9 +1260,11 @@ export function initMatches(socket) {
         // update content in round / matches
         Object.keys(allData).filter(roundId => !isNaN(roundId)).forEach((roundId) => {
             // Render all matches for this round
-            Object.entries(allData[roundId]).forEach(([matchId, matchData]) => {
-                renderMatch(roundId, matchId, matchData);
-            });
+            Object.entries(allData[roundId])
+                .sort(([a], [b]) => a.localeCompare(b, undefined, {numeric: true}))
+                .forEach(([matchId, matchData]) => {
+                    renderMatch(roundId, matchId, matchData);
+                });
         })
 
         // matches are rendered - now ask server for standings
@@ -1823,16 +1697,6 @@ export function initMatches(socket) {
                 return;
             }
 
-            // For carde.io, auto-resolve the round ID from the event detail round map
-            let cardeRoundId = null;
-            if (platform === 'cardeio') {
-                cardeRoundId = window.cardeioRoundMap?.[round_id];
-                if (!cardeRoundId) {
-                    alert(`Round ID not found for Round ${round_id}. Try saving tournament config to fetch event details.`);
-                    return;
-                }
-            }
-
             // Show loading state
             fetchButton.disabled = true;
             fetchButton.textContent = 'Fetching...';
@@ -1840,29 +1704,55 @@ export function initMatches(socket) {
             fetchButton.dataset.roundId = round_id;
             fetchButton.dataset.matchId = match_id;
 
-            if (platform === 'cardeio' && cardeRoundId) {
-                // Fetch round data first (pairings + standings), then fetch match by table
-                socket.emit('fetch-cardeio-round', { roundId: cardeRoundId, roundNumber: round_id });
+            if (platform === 'cardeio') {
+                // Auto-resolve round ID, fetching event detail if needed
+                const proceedWithCardeRound = (cardeRoundId) => {
+                    socket.emit('fetch-cardeio-round', { roundId: cardeRoundId, roundNumber: round_id });
 
-                // Listen for round data response, then fetch the match
-                const onRoundFetched = (results) => {
-                    socket.off('cardeio-round-fetched', onRoundFetched);
-                    if (!results.matches?.success) {
-                        fetchButton.disabled = false;
-                        fetchButton.textContent = 'Fetch';
-                        delete fetchButton.dataset.fetching;
-                        alert('Failed to fetch round pairings: ' + (results.matches?.error || 'Unknown error'));
-                        return;
-                    }
-                    // Now fetch the match by table from cached data
-                    socket.emit('fetch-match-by-table', {
-                        tournamentId,
-                        roundNumber: round_id,
-                        tableNumber,
-                        platform
-                    });
+                    const onRoundFetched = (results) => {
+                        socket.off('cardeio-round-fetched', onRoundFetched);
+                        if (!results.matches?.success) {
+                            fetchButton.disabled = false;
+                            fetchButton.textContent = 'Fetch';
+                            delete fetchButton.dataset.fetching;
+                            alert('Failed to fetch round pairings: ' + (results.matches?.error || 'Unknown error'));
+                            return;
+                        }
+                        socket.emit('fetch-match-by-table', {
+                            tournamentId,
+                            roundNumber: round_id,
+                            tableNumber,
+                            platform
+                        });
+                    };
+                    socket.on('cardeio-round-fetched', onRoundFetched);
                 };
-                socket.on('cardeio-round-fetched', onRoundFetched);
+
+                let cardeRoundId = window.cardeioRoundMap?.[round_id];
+                if (cardeRoundId) {
+                    proceedWithCardeRound(cardeRoundId);
+                } else {
+                    // Round map not loaded — auto-fetch event detail first
+                    fetchButton.textContent = 'Resolving rounds...';
+                    const onEventDetail = (result) => {
+                        socket.off('cardeio-event-detail-fetched', onEventDetail);
+                        if (result.success && result.roundMap) {
+                            window.cardeioRoundMap = result.roundMap;
+                            cardeRoundId = result.roundMap[round_id];
+                        }
+                        if (!cardeRoundId) {
+                            fetchButton.disabled = false;
+                            fetchButton.textContent = 'Fetch';
+                            delete fetchButton.dataset.fetching;
+                            alert(`Round ${round_id} not found in event. Available rounds: ${Object.keys(window.cardeioRoundMap || {}).join(', ') || 'none'}`);
+                            return;
+                        }
+                        fetchButton.textContent = 'Fetching...';
+                        proceedWithCardeRound(cardeRoundId);
+                    };
+                    socket.on('cardeio-event-detail-fetched', onEventDetail);
+                    socket.emit('fetch-cardeio-event-detail', { eventId: tournamentId });
+                }
             } else {
                 socket.emit('fetch-match-by-table', {
                     tournamentId,
@@ -2351,7 +2241,11 @@ export function initMatches(socket) {
                     };
                     // Set deck first — its input event calls updateRiftboundFields which would
                     // overwrite legend/champion, so legend/champion must be set after
-                    if (player.mainDeck?.length) setTextarea('player-main-deck', player.mainDeck);
+                    if (player.mainDeck?.length) {
+                        setTextarea('player-main-deck', player.mainDeck);
+                        const deckFieldsContainer = document.getElementById(`${roundId}-${matchId}-deck-fields-${side}`);
+                        if (deckFieldsContainer) deckFieldsContainer.style.display = 'block';
+                    }
                     if (player.sideboard?.length) setTextarea('player-side-deck', player.sideboard);
                     if (player.legend !== undefined) setDropdownField('player-legend', player.legend);
                     if (player.champion !== undefined) setDropdownField('player-champion', player.champion);

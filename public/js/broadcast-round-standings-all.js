@@ -61,9 +61,17 @@ socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
 socket.emit('get-broadcast-standings');
 
+let _initGame = false, _initVendor = false, _initPlayer = false;
+function tryInitialTheme() {
+    if (_initGame && _initVendor && _initPlayer) {
+        updateTheme(currentGame, currentVendor, currentPlayerCount);
+    }
+}
+
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;
-    updateTheme(currentGame, currentVendor, currentPlayerCount);
+    _initGame = true;
+    tryInitialTheme();
 });
 socket.on('game-selection-updated', ({gameSelection}) => {
     currentGame = gameSelection;
@@ -71,7 +79,8 @@ socket.on('game-selection-updated', ({gameSelection}) => {
 });
 socket.on('server-current-vendor-selection', ({vendorSelection}) => {
     currentVendor = vendorSelection;
-    updateTheme(currentGame, currentVendor, currentPlayerCount);
+    _initVendor = true;
+    tryInitialTheme();
 });
 socket.on('vendor-selection-updated', ({vendorSelection}) => {
     currentVendor = vendorSelection;
@@ -79,7 +88,8 @@ socket.on('vendor-selection-updated', ({vendorSelection}) => {
 });
 socket.on('server-current-player-count', ({playerCount}) => {
     currentPlayerCount = playerCount;
-    updateTheme(currentGame, currentVendor, currentPlayerCount);
+    _initPlayer = true;
+    tryInitialTheme();
 });
 socket.on('player-count-updated', ({playerCount}) => {
     currentPlayerCount = playerCount;

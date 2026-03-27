@@ -5,7 +5,9 @@ window.VENDOR_CONFIG = {
     gameVendors: {
         mtg: [
             { value: 'default', label: 'Default' },
+            { value: 'f2f-legacy', label: 'F2F Legacy' },
             { value: 'f2f', label: 'F2F' },
+            { value: 'ldxp', label: 'LDXP' },
         ],
         riftbound: [
             { value: 'default', label: 'Default' },
@@ -29,6 +31,50 @@ window.VENDOR_CONFIG = {
 
     // game -> vendor -> CSS custom property overrides (only non-default combos)
     overrides: {
+        mtg: {
+            f2f: {
+                // Scoreboard
+                '--mtg-font': "'Gotham Narrow', sans-serif",
+                '--mtg-font-weight': '700',
+                '--mtg-name-font-size': '53px',
+                '--mtg-name-color': 'white',
+                '--mtg-life-font-size': '80px',
+                '--mtg-record-font-size': '34px',
+                '--mtg-data-font-size': '27px',
+                '--mtg-chyron-font-size': '22px',
+                // Decklist
+                '--mtg-dl-font': "'Gotham Narrow', sans-serif",
+                '--mtg-dl-name-font-size': '115px',
+                '--mtg-dl-name-font-weight': '700',
+                '--mtg-dl-archetype-font-size': '45px',
+                '--mtg-dl-archetype-font-weight': '400',
+                // Lower third
+                '--mtg-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-f2f-1v1.png')",
+            },
+            ldxp: {
+                // Scoreboard
+                '--mtg-font': "'Gotham Narrow', sans-serif",
+                '--mtg-font-weight': '700',
+                '--mtg-name-font-size': '53px',
+                '--mtg-name-color': 'white',
+                '--mtg-life-font-size': '80px',
+                '--mtg-record-font-size': '34px',
+                '--mtg-data-font-size': '27px',
+                '--mtg-chyron-font-size': '22px',
+                // Decklist
+                '--mtg-dl-font': "'Gotham Narrow', sans-serif",
+                '--mtg-dl-name-font-size': '115px',
+                '--mtg-dl-name-font-weight': '700',
+                '--mtg-dl-archetype-font-size': '45px',
+                '--mtg-dl-archetype-font-weight': '400',
+                // Lower third
+                '--mtg-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-ldxp-1v1.png')",
+                // Bracket
+                '--bracket-text-color': 'rgba(255,255,255, 1)',
+                '--bracket-text-color-faded': 'rgba(255,255,255, 0.5)',
+                '--slot-points-width': '70px',
+            },
+        },
         riftbound: {
             dsg: {
                 '--dynamic-font': 'Garamond',
@@ -39,13 +85,13 @@ window.VENDOR_CONFIG = {
             },
             tes: {
                 '--dynamic-font': 'Akzidenz-Grotesk Next',
-                '--dynamic-font-weight': 'bold',
+                '--dynamic-font-weight': '900',
                 // Position overrides — adjust to match TES frame
                 '--rb-name-top': '13.5px',
                 '--rb-name-side': '391px',
                 '--rb-name-width': '346px',
                 '--rb-name-height': '70px',
-                '--rb-name-max-font': '30',
+                '--rb-name-max-font': '48',
                 '--rb-name-max-width': '320',
                 '--scoreboard-name-color': '#000000',
                 '--rb-name-shadow': 'none',
@@ -124,6 +170,131 @@ window.VENDOR_CONFIG = {
                 // '--rb-round-left': '0px',
                 // '--rb-timer-top': '987px',
                 // '--rb-timer-left': '103px',
+
+                // === Decklist overrides ===
+                // Background video
+                '--rb-dl-font': "'Akzidenz-Grotesk Next'",
+                '--rb-dl-bg-video-display': 'none',
+                // Frame (side-specific)
+                '--rb-dl-frame-left': "url('/assets/images/riftbound/decklist/frame/riftbound-decklist-frame-tes-1v1-left.png')",
+                '--rb-dl-frame-right': "url('/assets/images/riftbound/decklist/frame/riftbound-decklist-frame-tes-1v1-right.png')",
+                // Container (no offset — old deck-display didn't have one)
+                '--rb-dl-container-top': '0px',
+                '--rb-dl-container-left': '0px',
+                // Player name
+                '--rb-dl-name-top': '619px',
+                '--rb-dl-name-left': '85px',
+                '--rb-dl-name-right': 'auto',
+                '--rb-dl-name-align': 'left',
+                '--rb-dl-name-font-size': '32px',
+                '--rb-dl-name-width': '500px',
+                '--rb-dl-name-height': '35px',
+                '--rb-dl-name-font-weight': 'bold',
+                '--rb-dl-name-color': 'white',
+                // Legend name (below player name)
+                '--rb-dl-legend-name-display': 'block',
+                '--rb-dl-legend-name-top': '650px',
+                '--rb-dl-legend-name-left': '85px',
+                '--rb-dl-legend-name-right': 'auto',
+                '--rb-dl-legend-name-align': 'left',
+                '--rb-dl-legend-name-font-size': '20px',
+                '--rb-dl-legend-name-font-weight': 'normal',
+                '--rb-dl-legend-name-color': 'white',
+                '--rb-dl-legend-name-color-left': '#1ec9ff',
+                '--rb-dl-legend-name-color-right': '#1ae930',
+                // Legend card
+                '--rb-dl-legend-top': '40px',
+                '--rb-dl-legend-left': '24px',
+                '--rb-dl-legend-width': '605px',
+                '--rb-dl-legend-height': '831px',
+                '--rb-dl-legend-display': 'block',
+                '--rb-dl-legend-z': '5',
+                // Legend description
+                '--rb-dl-legend-desc-top': '270px',
+                '--rb-dl-legend-desc-left': '7px',
+                '--rb-dl-legend-desc-width': '128px',
+                '--rb-dl-legend-desc-height': '170px',
+                '--rb-dl-legend-desc-display': 'block',
+                // Champion card (hidden — champion goes in grid instead)
+                '--rb-dl-champion-display': 'none',
+                // Main deck (6 per row × 3 rows = 18 max)
+                '--rb-dl-main-top': '39px',
+                '--rb-dl-main-left': '661px',
+                '--rb-dl-main-width': '1225px',
+                '--rb-dl-main-height': '600px',
+                '--rb-dl-main-row-gap': '20px',
+                '--rb-dl-main-col-gap': '12px',
+                '--rb-dl-card-width': '185px',
+                // Sideboard (below main deck, horizontal row, smaller cards)
+                '--rb-dl-side-top': '887px',
+                '--rb-dl-side-left': '703px',
+                '--rb-dl-side-width': '1060px',
+                '--rb-dl-side-height': '112px',
+                '--rb-dl-side-display': 'flex',
+                '--rb-dl-side-row-gap': '4px',
+                '--rb-dl-side-col-gap': '4px',
+                '--rb-dl-side-card-width': '111px',
+                '--rb-dl-side-wrap': 'nowrap',
+                // Battlefields (under legend, left column)
+                '--rb-dl-bf-top': '897px',
+                '--rb-dl-bf-left': '52px',
+                '--rb-dl-bf-width': '355px',
+                '--rb-dl-bf-height': '180px',
+                '--rb-dl-bf-display': 'flex',
+                '--rb-dl-bf-z': '5',
+                '--rb-dl-bf-direction': 'column',
+                '--rb-dl-bf-gap': '9px',
+                '--rb-dl-bf-card-width': '100%',
+                '--rb-dl-bf-card-height': '40px',
+                '--rb-dl-bf-img-fit': 'cover',
+                '--rb-dl-bf-img-position': 'center',
+                '--rb-dl-bf-img-brightness': 'brightness(0.5)',
+                '--rb-dl-bf-label-display': 'flex',
+                '--rb-dl-bf-label-color': 'white',
+                '--rb-dl-bf-label-font': "'Akzidenz-Grotesk Next', sans-serif",
+                '--rb-dl-bf-label-font-size': '14px',
+                '--rb-dl-bf-label-justify': 'flex-start',
+                '--rb-dl-bf-label-align': 'left',
+                '--rb-dl-bf-label-left': '59px',
+                '--rb-dl-bf-label-shadow': 'none',
+                '--rb-dl-count-bottom': '-10px',
+                '--rb-dl-count-font-size': '20px',
+                '--rb-dl-side-count-font-size': '20px',
+                '--rb-dl-side-count-bottom': '-56px',
+                // Runes (under battlefields, left column)
+                '--rb-dl-runes-top': '860px',
+                '--rb-dl-runes-left': '460px',
+                '--rb-dl-runes-width': '130px',
+                '--rb-dl-runes-height': '200px',
+                '--rb-dl-runes-display': 'flex',
+                '--rb-dl-rune-badge': 'true',
+                '--rb-dl-rune-icon-size': '107px',
+                '--rb-dl-rune-badge-size': '28px',
+                '--rb-dl-rune-font-size': '22px',
+                // Layout behavior
+                '--rb-dl-champion-in-grid': 'true',
+                '--rb-dl-main-max-cards': '18',
+
+                // === Lower third overrides ===
+                '--rb-lt-img-left': '40px',
+                '--rb-lt-img-top': '817px',
+                '--rb-lt-text-left': '150px',
+                '--rb-lt-text-top': '901px',
+                '--rb-lt-width': '724px',
+                '--rb-lt-height': '241px',
+                '--rb-lt-bg-image': "url('/assets/images/riftbound/lower-third/riftbound-lower-third-tes-1v1.png')",
+                '--rb-lt-font': "'Akzidenz-Grotesk Next', sans-serif",
+                '--rb-lt-name-font-size': '48px',
+                '--rb-lt-name-font-weight': '700',
+                '--rb-lt-name-padding-left': '125px',
+                '--rb-lt-name-padding-top': '20px',
+                '--rb-lt-name-line-height': '35px',
+                '--rb-lt-subtext-font-size': '20px',
+                '--rb-lt-subtext-font-weight': '300',
+                '--rb-lt-subtext-padding-left': '125px',
+                '--rb-lt-subtext-color': '#1ae930',
+                '--rb-lt-subtext-font-style': 'italic',
+                '--rb-lt-text-width': '550px',
             },
         },
     },

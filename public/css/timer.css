@@ -8,6 +8,13 @@ html, body {
     height: 1080px;
 }
 
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
 .timer-container {
     display: flex;
     justify-content: center;

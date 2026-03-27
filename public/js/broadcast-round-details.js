@@ -1,3 +1,5 @@
+import { RIFTBOUND_RUNES_BG } from './riftbound/constants.js';
+
 const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
@@ -219,12 +221,17 @@ function renderDetails(detail) {
         // Background image container
         const bgImage = document.createElement('div');
         bgImage.className = 'winner-bg-image';
+        playerDetail.appendChild(bgImage);
+
+        // Text container (positioned independently from background)
+        const textContainer = document.createElement('div');
+        textContainer.className = 'winner-text-container';
 
         // Player name
         const nameEl = document.createElement('div');
         nameEl.className = 'winner-name';
         nameEl.textContent = playerName;
-        bgImage.appendChild(nameEl);
+        textContainer.appendChild(nameEl);
 
         if (selectedGame === 'starwars') {
             // Star Wars: show leader (with subtitle) and base
@@ -252,17 +259,17 @@ function renderDetails(detail) {
                 leaderContainer.appendChild(subtitleText);
             }
 
-            bgImage.appendChild(leaderContainer);
+            textContainer.appendChild(leaderContainer);
 
             // Base
             if (base) {
                 const baseContainer = document.createElement('div');
                 baseContainer.className = 'winner-base';
                 baseContainer.textContent = base;
-                bgImage.appendChild(baseContainer);
+                textContainer.appendChild(baseContainer);
             }
         } else if (selectedGame === 'riftbound') {
-            // Riftbound: show legend instead of archetype
+            // Riftbound: show legend + rune icons
             const legend = roundData[match_id]?.[`player-legend-${side}`] || '';
 
             const legendContainer = document.createElement('div');
@@ -273,7 +280,21 @@ function renderDetails(detail) {
             legendText.textContent = legend;
             legendContainer.appendChild(legendText);
 
-            bgImage.appendChild(legendContainer);
+            // Rune icons
+            const runeSpan = document.createElement('span');
+            runeSpan.className = 'winner-rune-symbols-container';
+            for (let i = 1; i <= 2; i++) {
+                const runeColor = (roundData[match_id]?.[`player-rune-color-${i}-${side}`] || '').trim().toLowerCase();
+                if (runeColor && RIFTBOUND_RUNES_BG[runeColor]) {
+                    const img = document.createElement('img');
+                    img.src = RIFTBOUND_RUNES_BG[runeColor];
+                    img.alt = `Rune ${runeColor}`;
+                    runeSpan.appendChild(img);
+                }
+            }
+            legendContainer.appendChild(runeSpan);
+
+            textContainer.appendChild(legendContainer);
         } else {
             // MTG / Vibes: show archetype + mana symbols
             const archetype = roundData[match_id]?.[`player-archetype-${side}`] || '';
@@ -291,14 +312,16 @@ function renderDetails(detail) {
             manaSpan.className = 'winner-mana-symbols-container';
             archetypeContainer.appendChild(manaSpan);
 
-            bgImage.appendChild(archetypeContainer);
+            textContainer.appendChild(archetypeContainer);
+        }
 
-            // Render mana symbols
+        playerDetail.appendChild(textContainer);
+
+        // Render mana symbols after DOM insertion so getElementById can find it
+        if (document.getElementById('winner-mana-symbols')) {
             const manaSymbols = roundData[match_id]?.[`player-mana-symbols-${side}`] || '';
             renderManaSymbols(manaSymbols, 'winner-mana-symbols');
         }
-
-        playerDetail.appendChild(bgImage);
 
         // Wait for fonts to load before scaling text
         document.fonts.ready.then(() => {
@@ -341,12 +364,14 @@ function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
     }
 
     element.style.fontSize = currentSize + 'px';
+    element.style.lineHeight = '1';
     document.body.removeChild(temp);
 }
 
 // render mana symbols
 function renderManaSymbols(inputStr, containerId, scenario = {}) {
     const container = document.getElementById(containerId);
+    if (!container) return;
     container.innerHTML = ''; // Clear existing symbols
 
     const presentSymbols = new Set(

@@ -611,9 +611,16 @@ CommentatorC
                                 <button class="btn btn-primary update-button" id="tournament-platform-save">
                                     Save
                                 </button>
-                                <button class="btn btn-secondary" id="fetch-cardeio-decklists-btn" style="display:none;">
-                                    Fetch Event Data
-                                </button>
+                                <div id="fetch-cardeio-section" style="display:none;">
+                                    <div class="d-flex flex-column gap-1 mb-1">
+                                        <label class="form-check-label" style="font-size:11px;"><input type="checkbox" class="form-check-input form-check-input-sm" id="fetch-opt-decklists" checked> Decklists</label>
+                                        <label class="form-check-label" style="font-size:11px;"><input type="checkbox" class="form-check-input form-check-input-sm" id="fetch-opt-registrations" checked> Registrations</label>
+                                        <label class="form-check-label" style="font-size:11px;"><input type="checkbox" class="form-check-input form-check-input-sm" id="fetch-opt-rounds" checked> Round IDs</label>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm" id="fetch-cardeio-decklists-btn">
+                                        Fetch Event Data
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

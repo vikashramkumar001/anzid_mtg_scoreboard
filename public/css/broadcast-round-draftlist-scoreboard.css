@@ -38,6 +38,13 @@ body {
     overflow: hidden;
 }
 
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
 #scoreboard-container {
     width: 394px;
     font-family: 'Gotham Narrow', sans-serif;

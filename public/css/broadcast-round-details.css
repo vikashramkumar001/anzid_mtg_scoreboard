@@ -62,6 +62,13 @@
     text-transform: uppercase;
 }
 
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
 /* MTG uses Gotham Narrow font */
 body.mtg * {
     font-family: 'Gotham Narrow', sans-serif;
@@ -110,36 +117,55 @@ body.mtg #player-detail {
 /* Winner Display Styles */
 .winner-display {
     position: absolute;
-    left: 140px;
-    top: 862px;
-    text-align: left;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
 }
 
 .winner-bg-image {
-    width: 616px;
-    height: 100px;
-    background-image: url('/assets/images/mtg/lower-third/mtg-lower-third-default-1v1.png');
+    position: absolute;
+    left: var(--mtg-lt-img-left, 140px);
+    top: var(--mtg-lt-img-top, 862px);
+    width: var(--mtg-lt-width, 616px);
+    height: var(--mtg-lt-height, 100px);
+    background-image: var(--mtg-lt-bg-image, url('/assets/images/mtg/lower-third/mtg-lower-third-default-1v1.png'));
+    background-size: var(--mtg-lt-bg-size, contain);
+    background-repeat: no-repeat;
     text-align: left;
+}
+
+.winner-text-container {
+    position: absolute;
+    left: var(--mtg-lt-text-left, 140px);
+    top: var(--mtg-lt-text-top, 913px);
+    transform: translateY(-50%);
+    width: var(--mtg-lt-text-width, 465px);
+    text-align: left;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mtg-lt-text-gap, 2px);
 }
 
 .winner-name {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    padding-left: 125px;
-    padding-top: 20px;
-    line-height: 35px;
+    font-family: var(--mtg-lt-font, 'Gotham Narrow', sans-serif);
+    font-size: var(--mtg-lt-name-font-size, 48px);
+    font-weight: var(--mtg-lt-name-font-weight, 700);
+    padding-left: var(--mtg-lt-name-padding-left, 125px);
+    padding-top: var(--mtg-lt-name-padding-top, 0);
+    line-height: var(--mtg-lt-name-line-height, 1);
     margin: 0;
     white-space: nowrap;
     text-align: left;
-    color: white;
+    color: var(--mtg-lt-name-color, white);
 }
 
 .winner-pronouns {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    color: white;
+    font-family: var(--mtg-lt-font, 'Gotham Narrow', sans-serif);
+    font-size: var(--mtg-lt-pronouns-font-size, 18px);
+    font-weight: var(--mtg-lt-pronouns-font-weight, 300);
+    color: var(--mtg-lt-pronouns-color, white);
     border-radius: 8px;
     padding: 2px 10px;
     margin-left: 8px;
@@ -148,20 +174,35 @@ body.mtg #player-detail {
 }
 
 .winner-archetype {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-size: 25px;
-    font-weight: 300;
-    padding-left: 125px;
+    font-family: var(--mtg-lt-font, 'Gotham Narrow', sans-serif);
+    font-size: var(--mtg-lt-subtext-font-size, 24px);
+    font-weight: var(--mtg-lt-subtext-font-weight, 300);
+    padding-left: var(--mtg-lt-subtext-padding-left, 125px);
     margin: 0;
     text-align: left;
-    color: white;
+    color: var(--mtg-lt-subtext-color, white);
+    line-height: 1;
+    white-space: nowrap;
     display: flex;
     align-items: center;
+    gap: 6px;
 }
 
 .winner-archetype-text {
-    font-weight: 300;
+    font-family: inherit;
+    font-weight: inherit;
     margin-right: 8px;
+}
+
+.winner-rune-symbols-container {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    gap: 4px;
+}
+
+.winner-rune-symbols-container img {
+    height: 20px;
 }
 
 .winner-mana-symbols-container {
@@ -178,45 +219,83 @@ body.mtg #player-detail {
 
 /* Riftbound Winner Display Styles */
 .winner-display.riftbound .winner-bg-image {
-    background-image: url('/assets/images/riftbound/lower-third/riftbound-lower-third-default-1v1.png');
+    left: var(--rb-lt-img-left, 140px);
+    top: var(--rb-lt-img-top, 862px);
+    width: var(--rb-lt-width, 616px);
+    height: var(--rb-lt-height, 100px);
+    background-image: var(--rb-lt-bg-image, url('/assets/images/riftbound/lower-third/riftbound-lower-third-default-1v1.png'));
+}
+
+.winner-display.riftbound .winner-text-container {
+    left: var(--rb-lt-text-left, 140px);
+    top: var(--rb-lt-text-top, 901px);
+    width: var(--rb-lt-text-width, 465px);
 }
 
 .winner-display.riftbound .winner-name {
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
-    font-size: 40px;
-    font-weight: bold;
+    font-family: var(--rb-lt-font, 'Beaufort for LoL', sans-serif);
+    font-size: var(--rb-lt-name-font-size, 40px);
+    font-weight: var(--rb-lt-name-font-weight, bold);
+    color: var(--rb-lt-name-color, white);
+    padding-left: var(--rb-lt-name-padding-left, 125px);
+    padding-top: var(--rb-lt-name-padding-top, 20px);
+    line-height: var(--rb-lt-name-line-height, 35px);
 }
 
 .winner-display.riftbound .winner-pronouns {
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
-    font-size: 20px;
-    font-weight: normal;
+    font-family: var(--rb-lt-font, 'Beaufort for LoL', sans-serif);
+    font-size: var(--rb-lt-pronouns-font-size, 20px);
+    font-weight: var(--rb-lt-pronouns-font-weight, normal);
+    color: var(--rb-lt-pronouns-color, white);
 }
 
 .winner-display.riftbound .winner-archetype {
-    font-family: 'Akzidenz-Grotesk Next', sans-serif;
-    font-size: 25px;
-    font-weight: 300;
+    font-family: var(--rb-lt-font, 'Beaufort for LoL', sans-serif);
+    font-size: var(--rb-lt-subtext-font-size, 20px);
+    font-weight: var(--rb-lt-subtext-font-weight, 400);
+    font-style: var(--rb-lt-subtext-font-style, normal);
+    color: var(--rb-lt-subtext-color, white);
+    padding-left: var(--rb-lt-subtext-padding-left, 125px);
 }
 
 /* Vibes Winner Display Styles */
 .winner-display.vibes .winner-bg-image {
-    background-image: url('/assets/images/vibes/lower-third/vibes-lower-third-default-1v1.png');
+    left: var(--vibes-lt-img-left, 140px);
+    top: var(--vibes-lt-img-top, 862px);
+    width: var(--vibes-lt-width, 616px);
+    height: var(--vibes-lt-height, 100px);
+    background-image: var(--vibes-lt-bg-image, url('/assets/images/vibes/lower-third/vibes-lower-third-default-1v1.png'));
+}
+
+.winner-display.vibes .winner-text-container {
+    left: var(--vibes-lt-text-left, 140px);
+    top: var(--vibes-lt-text-top, 862px);
+    width: var(--vibes-lt-text-width, 465px);
 }
 
 .winner-display.vibes .winner-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 40px;
+    font-family: var(--vibes-lt-font, 'Bebas Neue', sans-serif);
+    font-size: var(--vibes-lt-name-font-size, 40px);
+    font-weight: var(--vibes-lt-name-font-weight, 700);
+    color: var(--vibes-lt-name-color, white);
+    padding-left: var(--vibes-lt-name-padding-left, 125px);
+    padding-top: var(--vibes-lt-name-padding-top, 20px);
+    line-height: var(--vibes-lt-name-line-height, 35px);
 }
 
 .winner-display.vibes .winner-pronouns {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
+    font-family: var(--vibes-lt-font, 'Bebas Neue', sans-serif);
+    font-size: var(--vibes-lt-pronouns-font-size, 20px);
+    font-weight: var(--vibes-lt-pronouns-font-weight, 300);
+    color: var(--vibes-lt-pronouns-color, white);
 }
 
 .winner-display.vibes .winner-archetype {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 25px;
+    font-family: var(--vibes-lt-font, 'Bebas Neue', sans-serif);
+    font-size: var(--vibes-lt-subtext-font-size, 25px);
+    font-weight: var(--vibes-lt-subtext-font-weight, 300);
+    color: var(--vibes-lt-subtext-color, white);
+    padding-left: var(--vibes-lt-subtext-padding-left, 125px);
 }
 
 /* Star Wars Winner Display Styles */
@@ -225,26 +304,42 @@ body.starwars * {
 }
 
 .winner-display.starwars .winner-bg-image {
-    background-image: url('/assets/images/starwars/lower-third/starwars-lower-third-default-1v1.png');
+    left: var(--swu-lt-img-left, 140px);
+    top: var(--swu-lt-img-top, 862px);
+    width: var(--swu-lt-width, 616px);
+    height: var(--swu-lt-height, 100px);
+    background-image: var(--swu-lt-bg-image, url('/assets/images/starwars/lower-third/starwars-lower-third-default-1v1.png'));
+}
+
+.winner-display.starwars .winner-text-container {
+    left: var(--swu-lt-text-left, 140px);
+    top: var(--swu-lt-text-top, 862px);
+    width: var(--swu-lt-text-width, 465px);
 }
 
 .winner-display.starwars .winner-name {
-    font-family: 'Barlow', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    padding-top: 11px;
+    font-family: var(--swu-lt-font, 'Barlow', sans-serif);
+    font-size: var(--swu-lt-name-font-size, 24px);
+    font-weight: var(--swu-lt-name-font-weight, 700);
+    color: var(--swu-lt-name-color, white);
+    padding-left: var(--swu-lt-name-padding-left, 125px);
+    padding-top: var(--swu-lt-name-padding-top, 11px);
+    line-height: var(--swu-lt-name-line-height, 35px);
 }
 
 .winner-display.starwars .winner-pronouns {
-    font-family: 'Barlow', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
+    font-family: var(--swu-lt-font, 'Barlow', sans-serif);
+    font-size: var(--swu-lt-pronouns-font-size, 20px);
+    font-weight: var(--swu-lt-pronouns-font-weight, 400);
+    color: var(--swu-lt-pronouns-color, white);
 }
 
 .winner-display.starwars .winner-archetype {
-    font-family: 'Barlow', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
+    font-family: var(--swu-lt-font, 'Barlow', sans-serif);
+    font-size: var(--swu-lt-subtext-font-size, 20px);
+    font-weight: var(--swu-lt-subtext-font-weight, 400);
+    color: var(--swu-lt-subtext-color, white);
+    padding-left: var(--swu-lt-subtext-padding-left, 125px);
     line-height: 1.05;
 }
 
@@ -253,16 +348,16 @@ body.starwars * {
 }
 
 .winner-display.starwars .winner-leader-subtitle {
-    font-family: 'Barlow', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
+    font-family: var(--swu-lt-font, 'Barlow', sans-serif);
+    font-size: var(--swu-lt-subtext-font-size, 20px);
+    font-weight: var(--swu-lt-subtext-font-weight, 400);
 }
 
 .winner-display.starwars .winner-base {
-    font-family: 'Barlow', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
+    font-family: var(--swu-lt-font, 'Barlow', sans-serif);
+    font-size: var(--swu-lt-subtext-font-size, 20px);
+    font-weight: var(--swu-lt-subtext-font-weight, 400);
     line-height: 1.05;
-    padding-left: 125px;
-    color: white;
+    padding-left: var(--swu-lt-subtext-padding-left, 125px);
+    color: var(--swu-lt-subtext-color, white);
 }

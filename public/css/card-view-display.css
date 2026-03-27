@@ -8,6 +8,13 @@ body {
     background: transparent;
 }
 
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
 /* Half-height games */
 body.game-vibes,
 body.game-starwars {

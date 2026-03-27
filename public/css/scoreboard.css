@@ -204,24 +204,31 @@ body {
     height: 1080px;
 }
 
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
 div {
     z-index: 10;
 }
 
 /* MTG Scoreboard Styles */
 #scoreboard-mtg {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-weight: 700;
+    font-family: var(--mtg-font, 'Gotham Narrow', sans-serif);
+    font-weight: var(--mtg-font-weight, 700);
 }
 
 #scoreboard-mtg * {
-    font-family: 'Gotham Narrow', sans-serif;
+    font-family: var(--mtg-font, 'Gotham Narrow', sans-serif);
 }
 
 #scoreboard-mtg #player-archetype-left,
 #scoreboard-mtg #player-archetype-right,
 #scoreboard-mtg .player-pronouns {
-    font-weight: 300;
+    font-weight: var(--mtg-detail-font-weight, 300);
 }
 
 #scoreboard-mtg .mtg-frame {
@@ -240,15 +247,14 @@ div {
 
 #scoreboard-mtg .header .background {
     width: 1920px;
-    height: 100px;
+    height: var(--mtg-header-height, 100px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: url("/assets/images/mtg/overlay/mtg-overlay-header.png");
+    background: var(--mtg-header-bg, url("/assets/images/mtg/overlay/mtg-overlay-header.png"));
     z-index: 2;
     transition: background-image 0.5s ease-in-out;
-    /* Smooth transition for background image */
 }
 
 #scoreboard-mtg .body .background {
@@ -258,10 +264,9 @@ div {
 
 #scoreboard-mtg .footer .background {
     width: 1920px;
-    height: 50px;
-    background: url("/assets/images/mtg/overlay/mtg-overlay-footer.png");
+    height: var(--mtg-footer-height, 50px);
+    background: var(--mtg-footer-bg, url("/assets/images/mtg/overlay/mtg-overlay-footer.png"));
     transition: background-image 0.5s ease-in-out;
-    /* Smooth transition for background image */
 }
 
 #scoreboard-mtg .scorebug {
@@ -277,9 +282,9 @@ div {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 200px;
-    height: 100px;
-    font-size: 80px;
+    width: var(--mtg-life-width, 200px);
+    height: var(--mtg-life-height, 100px);
+    font-size: var(--mtg-life-font-size, 80px);
 }
 
 #scoreboard-mtg .scorebug-right-life {
@@ -326,8 +331,8 @@ div {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    font-size: 34px;
+    width: var(--mtg-record-width, 100px);
+    font-size: var(--mtg-record-font-size, 34px);
     height: 100px;
 }
 
@@ -336,19 +341,20 @@ div {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 6px;
+    padding-top: var(--mtg-name-padding-top, 6px);
     height: 100px;
-    width: 610px;
+    width: var(--mtg-name-width, 610px);
     line-height: 1.0;
 }
 
 #scoreboard-mtg .scorebug-name-title {
-    font-size: 53px;
+    font-size: var(--mtg-name-font-size, 53px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 650px;
+    max-width: var(--mtg-name-max-width, 650px);
     padding-top: 5px;
+    color: var(--mtg-name-color, white);
 }
 
 #scoreboard-mtg .scorebug-right-name {
@@ -357,16 +363,16 @@ div {
 
 #scoreboard-mtg .scorebug-name-data,
 #scoreboard-mtg .scorebug-name-data * {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-size: 27px;
-    color: #fff;
+    font-family: var(--mtg-font, 'Gotham Narrow', sans-serif);
+    font-size: var(--mtg-data-font-size, 27px);
+    color: var(--mtg-data-color, #fff);
     display: flex;
     align-items: center;
     padding-bottom: 2px;
 }
 
 #scoreboard-mtg .scorebug-vs {
-    width: 130px;
+    width: var(--mtg-vs-width, 130px);
 }
 
 #scoreboard-mtg .chyron {
@@ -379,8 +385,8 @@ div {
 }
 
 #scoreboard-mtg .chyron * {
-    font-size: 22px;
-    color: #fff;
+    font-size: var(--mtg-chyron-font-size, 22px);
+    color: var(--mtg-chyron-color, #fff);
 }
 
 #scoreboard-mtg .poison {
@@ -390,7 +396,7 @@ div {
 
 #scoreboard-mtg .poison-left {
     background: url("/assets/images/mtg/scoreboard/poison_left.png");
-    display: block;
+    display: none;
     position: absolute;
     top: 105px;
     width: 163px;
@@ -400,7 +406,7 @@ div {
 
 #scoreboard-mtg .poison-right {
     background: url("/assets/images/mtg/scoreboard/poison_right.png");
-    display: block;
+    display: none;
     position: absolute;
     top: 105px;
     width: 163px;
@@ -760,7 +766,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-name-left #player-name-left {
     color: var(--scoreboard-name-color, #ffffff);
-    font-weight: 900;
+    font-weight: var(--dynamic-font-weight, 900);
     white-space: nowrap;
     width: 100%;
     text-align: center;
@@ -776,7 +782,7 @@ body {
 
 #scoreboard-riftbound .riftbound-player-name-right #player-name-right {
     color: var(--scoreboard-name-color, #ffffff);
-    font-weight: 900;
+    font-weight: var(--dynamic-font-weight, 900);
     white-space: nowrap;
     width: 100%;
     text-align: center;

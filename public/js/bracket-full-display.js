@@ -52,9 +52,17 @@ socket.emit('get-game-selection');
 socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
 
+let _initGame = false, _initVendor = false, _initPlayer = false;
+function tryInitialTheme() {
+    if (_initGame && _initVendor && _initPlayer) {
+        updateTheme(currentGame, currentVendor, currentPlayerCount);
+    }
+}
+
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;
-    updateTheme(currentGame, currentVendor, currentPlayerCount);
+    _initGame = true;
+    tryInitialTheme();
 });
 socket.on('game-selection-updated', ({gameSelection}) => {
     currentGame = gameSelection;
@@ -62,7 +70,8 @@ socket.on('game-selection-updated', ({gameSelection}) => {
 });
 socket.on('server-current-vendor-selection', ({vendorSelection}) => {
     currentVendor = vendorSelection;
-    updateTheme(currentGame, currentVendor, currentPlayerCount);
+    _initVendor = true;
+    tryInitialTheme();
 });
 socket.on('vendor-selection-updated', ({vendorSelection}) => {
     currentVendor = vendorSelection;
@@ -70,7 +79,8 @@ socket.on('vendor-selection-updated', ({vendorSelection}) => {
 });
 socket.on('server-current-player-count', ({playerCount}) => {
     currentPlayerCount = playerCount;
-    updateTheme(currentGame, currentVendor, currentPlayerCount);
+    _initPlayer = true;
+    tryInitialTheme();
 });
 socket.on('player-count-updated', ({playerCount}) => {
     currentPlayerCount = playerCount;
@@ -87,9 +97,9 @@ function updateTheme(game, vendor, playerCount) {
     }
 
     // 2. Apply game defaults
-    textColorFull = 'rgba(0,0,0, 1)';
-    textColorFaded = 'rgba(0,0,0, 0.5)';
     document.documentElement.style.setProperty('--slot-points-width', '100px');
+    document.documentElement.style.setProperty('--bracket-text-color', 'rgba(0,0,0, 1)');
+    document.documentElement.style.setProperty('--bracket-text-color-faded', 'rgba(0,0,0, 0.5)');
 
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
@@ -102,8 +112,8 @@ function updateTheme(game, vendor, playerCount) {
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '600');
         document.documentElement.style.setProperty('--slot-points-width', '70px');
-        textColorFull = 'rgba(255,255,255, 1)';
-        textColorFaded = 'rgba(255,255,255, 0.5)';
+        document.documentElement.style.setProperty('--bracket-text-color', 'rgba(255,255,255, 1)');
+        document.documentElement.style.setProperty('--bracket-text-color-faded', 'rgba(255,255,255, 0.5)');
     } else {
         document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
         document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
@@ -119,9 +129,18 @@ function updateTheme(game, vendor, playerCount) {
         });
     }
 
-    // 3. Update bracket images with vendor + player count suffix
+    // 3. Update bracket background (video or image) with vendor + player count suffix
     const bg = document.getElementById('bracket-bg');
-    if (bg && vc) bg.src = vc.getAssetPath(`/assets/images/${game}/bracket/${game}-bracket-bg.png`, vendor, playerCount);
+    const bgVideo = document.getElementById('bracket-bg-video');
+
+    if (vc) {
+        // Video background disabled for now
+        if (bgVideo) {
+            bgVideo.style.display = 'none';
+            bgVideo.src = '';
+        }
+        if (bg) bg.src = vc.getAssetPath(`/assets/images/${game}/bracket/${game}-bracket-bg.png`, vendor, playerCount);
+    }
 
     if (vc) {
         document.querySelectorAll('.slot-frame').forEach((frame) => {
@@ -278,18 +297,22 @@ function renderSlot(slotId, data) {
     }
 
     // Default: full opacity
-    rankEl.style.color = textColorFull;
-    nameEl.style.color = textColorFull;
-    archetypeEl.style.color = textColorFull;
-    pointsEl.style.color = textColorFull;
+    const root = document.documentElement;
+    const colorFull = root.style.getPropertyValue('--bracket-text-color').trim() || 'rgba(0,0,0,1)';
+    const colorFaded = root.style.getPropertyValue('--bracket-text-color-faded').trim() || 'rgba(0,0,0,0.5)';
+
+    rankEl.style.color = colorFull;
+    nameEl.style.color = colorFull;
+    archetypeEl.style.color = colorFull;
+    pointsEl.style.color = colorFull;
 
     // Opacity if loss
     const win = data[win_key] || '';
     if (win === '0') {
-        rankEl.style.color = textColorFaded;
-        nameEl.style.color = textColorFaded;
-        archetypeEl.style.color = textColorFaded;
-        pointsEl.style.color = textColorFaded;
+        rankEl.style.color = colorFaded;
+        nameEl.style.color = colorFaded;
+        archetypeEl.style.color = colorFaded;
+        pointsEl.style.color = colorFaded;
     }
 
     // Swap frame image: win variant when points = 2

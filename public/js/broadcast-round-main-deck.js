@@ -16,6 +16,7 @@ let currentGame = 'mtg';
 let currentVendor = 'default';
 let currentPlayerCount = '1v1';
 let pendingSideDeckData = null;  // Store side deck data until game selection is known
+let lastTransformPayload = null;  // Dedup: skip identical transform requests
 
 // Star Wars Unlimited Aspects Dictionary
 const SWU_ASPECTS = {
@@ -156,7 +157,11 @@ socket.on('broadcast-round-data', (data) => {
             console.log('[Riftbound Debug] Main deck textarea:', data[match_id][`player-main-deck-${side_id}`]);
             console.log('[Riftbound Debug] Side deck textarea:', data[match_id][`player-side-deck-${side_id}`]);
         }
-        socket.emit('transform-main-deck-data', transformPayload);
+        const payloadKey = JSON.stringify(transformPayload);
+        if (payloadKey !== lastTransformPayload) {
+            lastTransformPayload = payloadKey;
+            socket.emit('transform-main-deck-data', transformPayload);
+        }
     } else if (selectedGame === 'starwars' && deckData && deckData.mainDeck) {
         // Leader/base changed but main deck already loaded — re-render to pick up new values
         renderDecks();
@@ -825,7 +830,6 @@ function renderBattlefields(battlefields, container) {
 
     const sectionWrapper = document.createElement('div');
     sectionWrapper.className = 'deck-section-wrapper battlefields-section';
-    sectionWrapper.style.cssText = 'position:absolute;top:861px;left:427px;width:500px;height:180px;display:flex;gap:8px;z-index:20;';
 
     for (let i = 0; i < 3; i++) {
         let imageUrl = RIFTBOUND_BATTLEFIELDS_DEFAULT;
@@ -841,11 +845,23 @@ function renderBattlefields(battlefields, container) {
             if (url) imageUrl = url;
         }
 
+        const bf = document.createElement('div');
+        bf.className = 'riftbound-battlefield-background';
         const img = document.createElement('img');
         img.src = encodeURI(imageUrl);
         img.className = 'riftbound-battlefield-img';
-        img.style.cssText = 'width:180px;height:auto;object-fit:contain;border-radius:4px;';
-        sectionWrapper.appendChild(img);
+        bf.appendChild(img);
+
+        // Battlefield name label (controlled by CSS variable --rb-dl-bf-label-display)
+        const battlefieldName = (battlefields[i]?.name || battlefields[i]?.['card-name'] || '').trim();
+        if (battlefieldName) {
+            const label = document.createElement('span');
+            label.className = 'riftbound-battlefield-label';
+            label.textContent = battlefieldName;
+            bf.appendChild(label);
+        }
+
+        sectionWrapper.appendChild(bf);
     }
 
     container.appendChild(sectionWrapper);
@@ -866,6 +882,12 @@ function renderRiftboundDeckSections(deckObj) {
 
     // Update static player name
     createPlayerNameSection(deckData.playerName);
+
+    // Update legend name subtitle (below player name)
+    const legendNameEl = document.getElementById('riftbound-deck-display-legend-name');
+    if (legendNameEl) {
+        legendNameEl.textContent = legend || '';
+    }
 
     // Update legend card — prefer mp4 video, fall back to card image
     const legendCardVideo = document.getElementById('riftbound-dl-legend-card-video');
@@ -905,13 +927,17 @@ function renderRiftboundDeckSections(deckObj) {
         const sectionWrapper = document.createElement('div');
         sectionWrapper.className = 'deck-section-wrapper runes-section';
 
+        const runeBadgeStyle = document.documentElement.style.getPropertyValue('--rb-dl-rune-badge').trim() === 'true';
+
         for (const rune of runesData) {
             if (!rune.letter) continue;
             const runeUrl = RIFTBOUND_RUNES[rune.letter];
             if (runeUrl) {
                 const runeItem = document.createElement('div');
                 runeItem.className = 'rfb-rune-item';
-                runeItem.innerHTML = `<img src="${runeUrl}" class="rfb-rune-icon" alt="Rune ${rune.letter}"><span class="rfb-rune-count">x${rune.count}</span>`;
+                const countClass = runeBadgeStyle ? 'rfb-rune-count badge-style' : 'rfb-rune-count';
+                const countText = runeBadgeStyle ? rune.count : `x${rune.count}`;
+                runeItem.innerHTML = `<img src="${runeUrl}" class="rfb-rune-icon" alt="Rune ${rune.letter}"><span class="${countClass}">${countText}</span>`;
                 sectionWrapper.appendChild(runeItem);
             }
         }
@@ -920,12 +946,42 @@ function renderRiftboundDeckSections(deckObj) {
     }
 
     // Main deck (other[] — champion already excluded server-side)
+    const root = document.documentElement;
+    const championInGrid = root.style.getPropertyValue('--rb-dl-champion-in-grid').trim() === 'true';
+
     const otherCards = deckObj.other || [];
-    if (otherCards.length > 0) {
+
+    // Dynamic row recalculation: switch to 7 columns when >18 cards
+    const totalCards = otherCards.length + (championInGrid ? 1 : 0);
+    if (totalCards > 18) {
+        root.style.setProperty('--rb-dl-card-width', '164px');
+        root.style.setProperty('--rb-dl-main-max-cards', '21');
+        root.style.setProperty('--rb-dl-main-row-gap', '20px');
+    } else {
+        const vc = window.VENDOR_CONFIG;
+        if (vc) {
+            const overrides = vc.getOverrides(currentGame, currentVendor);
+            root.style.setProperty('--rb-dl-card-width', overrides['--rb-dl-card-width'] || '132px');
+            root.style.setProperty('--rb-dl-main-max-cards', overrides['--rb-dl-main-max-cards'] || '30');
+            root.style.setProperty('--rb-dl-main-row-gap', overrides['--rb-dl-main-row-gap'] || '0px');
+        }
+    }
+
+    const maxCards = parseInt(root.style.getPropertyValue('--rb-dl-main-max-cards').trim()) || 30;
+    if (otherCards.length > 0 || championInGrid) {
         const sectionWrapper = document.createElement('div');
         sectionWrapper.className = 'deck-section-wrapper other-section';
 
-        otherCards.slice(0, 30).forEach(card => {
+        // Insert champion as first card in grid if vendor requires it
+        if (championInGrid && deckObj.championImageUrl) {
+            const cardEl = document.createElement('div');
+            cardEl.className = 'main-deck-card';
+            cardEl.innerHTML = `<img src="${deckObj.championImageUrl}" class="card-src"><div class="card-count"><img src="/assets/images/riftbound/icons/ChampionUnit.png" style="width:22px;height:22px;object-fit:contain;"></div>`;
+            sectionWrapper.appendChild(cardEl);
+        }
+
+        const cardLimit = championInGrid ? maxCards - 1 : maxCards;
+        otherCards.slice(0, cardLimit).forEach(card => {
             if (card['card-url']) {
                 const cardEl = document.createElement('div');
                 cardEl.className = 'main-deck-card';
@@ -1340,10 +1396,25 @@ function updateTheme(game, vendor, playerCount) {
         vc.getAllOverrideProperties().forEach(prop => {
             document.documentElement.style.removeProperty(prop);
         });
+        // Also clear side-specific frame (set outside vendor overrides)
+        document.documentElement.style.removeProperty('--rb-dl-frame');
         const overrides = vc.getOverrides(game, vendor);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
+
+        // Side-specific decklist frame (e.g., TES has different left/right frames)
+        const root = document.documentElement;
+        const sideFrameValue = root.style.getPropertyValue(`--rb-dl-frame-${sideClass}`).trim();
+        if (sideFrameValue) {
+            root.style.setProperty('--rb-dl-frame', sideFrameValue);
+        }
+
+        // Side-specific legend name color
+        const sideLegendColor = root.style.getPropertyValue(`--rb-dl-legend-name-color-${sideClass}`).trim();
+        if (sideLegendColor) {
+            root.style.setProperty('--rb-dl-legend-name-color', sideLegendColor);
+        }
 
         // Update decklist background image dynamically
         const bgSelectors = {
@@ -1391,6 +1462,7 @@ socket.on('server-current-vendor-selection', ({vendorSelection}) => {
 socket.on('vendor-selection-updated', ({vendorSelection}) => {
     currentVendor = vendorSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    renderDecks();
 });
 socket.on('server-current-player-count', ({playerCount}) => {
     currentPlayerCount = playerCount;

@@ -52,6 +52,13 @@ body {
     padding: 0;
 }
 
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
 #standings-wrapper {
     display: grid;
     grid-template-columns: 669px 669px;

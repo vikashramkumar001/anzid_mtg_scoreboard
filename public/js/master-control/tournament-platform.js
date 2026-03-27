@@ -24,19 +24,20 @@ export function initTournamentPlatform(socket) {
 
     // Fetch Event Data button (Carde only) — fetches decklists + registrations
     const fetchEventDataBtn = document.getElementById('fetch-cardeio-decklists-btn');
+    const fetchCardeioSection = document.getElementById('fetch-cardeio-section');
 
     function updateFetchDecklistsVisibility(platform) {
-        if (fetchEventDataBtn) {
-            fetchEventDataBtn.style.display = platform === 'cardeio' ? 'inline-block' : 'none';
+        if (fetchCardeioSection) {
+            fetchCardeioSection.style.display = platform === 'cardeio' ? 'block' : 'none';
         }
     }
 
     // Track results from both fetches
-    let eventDataResults = { decklists: null, registrations: null };
+    let eventDataResults = { decklists: null, registrations: null, eventDetail: null };
 
     function checkEventDataComplete() {
-        const { decklists, registrations } = eventDataResults;
-        if (decklists === null || registrations === null) return; // still waiting
+        const { decklists, registrations, eventDetail } = eventDataResults;
+        if (decklists === null || registrations === null || eventDetail === null) return; // still waiting
 
         if (fetchEventDataBtn) {
             fetchEventDataBtn.disabled = false;
@@ -44,13 +45,21 @@ export function initTournamentPlatform(socket) {
         }
 
         const parts = [];
-        if (decklists.success) parts.push(`Decklists: ${decklists.count} cached`);
-        else parts.push(`Decklists error: ${decklists.error}`);
-        if (registrations.success) parts.push(`Registrations: ${registrations.count} cached`);
-        else parts.push(`Registrations error: ${registrations.error}`);
+        if (!decklists.skipped) {
+            if (decklists.success) parts.push(`Decklists: ${decklists.count} fetched`);
+            else parts.push(`Decklists error: ${decklists.error}`);
+        }
+        if (!registrations.skipped) {
+            if (registrations.success) parts.push(`Registrations: ${registrations.count} fetched`);
+            else parts.push(`Registrations error: ${registrations.error}`);
+        }
+        if (!eventDetail.skipped) {
+            if (eventDetail.success) parts.push(`Rounds: ${Object.keys(eventDetail.roundMap).length} mapped`);
+            else parts.push(`Event detail error: ${eventDetail.error}`);
+        }
 
-        alert(parts.join('\n'));
-        eventDataResults = { decklists: null, registrations: null };
+        if (parts.length > 0) alert(parts.join('\n'));
+        eventDataResults = { decklists: null, registrations: null, eventDetail: null };
     }
 
     if (fetchEventDataBtn) {
@@ -60,11 +69,26 @@ export function initTournamentPlatform(socket) {
                 alert('Please enter an event ID in the Tournament ID field.');
                 return;
             }
+            const fetchDecklists = document.getElementById('fetch-opt-decklists')?.checked;
+            const fetchRegistrations = document.getElementById('fetch-opt-registrations')?.checked;
+            const fetchRounds = document.getElementById('fetch-opt-rounds')?.checked;
+
+            if (!fetchDecklists && !fetchRegistrations && !fetchRounds) {
+                alert('Please select at least one option to fetch.');
+                return;
+            }
+
             fetchEventDataBtn.disabled = true;
             fetchEventDataBtn.textContent = 'Fetching...';
-            eventDataResults = { decklists: null, registrations: null };
-            socket.emit('fetch-cardeio-decklists', { eventId });
-            socket.emit('fetch-cardeio-registrations', { eventId, gameSlug: 'riftbound' });
+            eventDataResults = {
+                decklists: fetchDecklists ? null : { skipped: true },
+                registrations: fetchRegistrations ? null : { skipped: true },
+                eventDetail: fetchRounds ? null : { skipped: true }
+            };
+            if (fetchDecklists) socket.emit('fetch-cardeio-decklists', { eventId });
+            if (fetchRegistrations) socket.emit('fetch-cardeio-registrations', { eventId, gameSlug: 'riftbound' });
+            if (fetchRounds) socket.emit('fetch-cardeio-event-detail', { eventId });
+            checkEventDataComplete();
         });
     }
 
@@ -108,11 +132,6 @@ export function initTournamentPlatform(socket) {
         socket.emit('set-tournament-platform', config);
         updateAllFetchButtons(config.platform);
         updateFetchDecklistsVisibility(config.platform);
-
-        // Auto-fetch event detail (round IDs) for carde.io
-        if (config.platform === 'cardeio' && config.tournamentId) {
-            socket.emit('fetch-cardeio-event-detail', { eventId: config.tournamentId });
-        }
     });
 
     // Handle event detail response (round ID mapping)
@@ -124,8 +143,9 @@ export function initTournamentPlatform(socket) {
             updateRoundTabIndicators(platformSelect.value);
         } else {
             console.error('[Carde] Failed to fetch event detail:', result.error);
-            alert('Failed to fetch event round IDs: ' + (result.error || 'Unknown error'));
         }
+        eventDataResults.eventDetail = result;
+        checkEventDataComplete();
     });
 
     // Update round tab indicators to show which rounds have a mapped carde.io round ID

@@ -33,7 +33,27 @@
       "Bash(curl -L \"https://cdn.jsdelivr.net/npm/odometer@0.4.8/themes/odometer-theme-minimal.css\" -o \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/css/odometer-theme-minimal.css\")",
       "Bash(curl -s 'https://admin.carde.io/api/csv-export/organize/matches?round_id=519673&' -H 'Cookie: web_sessionToken=5203401d8aee31107fc355dc5ed38c9923c31e7d; web_session=eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6IjUyMDM0MDFkOGFlZTMxMTA3ZmMzNTVkYzVlZDM4Yzk5MjNjMzFlN2QiLCJ1c2VySWQiOjE0Nzk0MywiZW1haWwiOiJhbnppZG10Z0BnbWFpbC5jb20iLCJzZWxlY3RlZE9yZ2FuaXphdGlvbklkIjoxOTQyOCwiZXhwaXJlc0F0IjoiMjAyNi0wMy0yNFQwNTowNzoyMy44NDBaIiwiaWF0IjoxNzczNzI0MDQzLCJleHAiOjE3NzQzMjg4NDN9.aOoWg179xW44PF9GePtv1SiiOYc9LNc-IbNkN1qTvxs')",
       "WebFetch(domain:riftbound.leagueoflegends.com)",
-      "Bash(node scripts/riftbound/fetchCardsRiot.js)"
+      "Bash(node scripts/riftbound/fetchCardsRiot.js)",
+      "Bash(jq .decklists[0] '/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/data/cardeio/cache/event-365709-decklists.json')",
+      "Bash(jq \".[\"\"1\"\"] | keys\" '/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/data/controlData.json')",
+      "WebSearch",
+      "Bash(node -c \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/js/riftbound/constants.js\")",
+      "Bash(node -c \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/js/vendor-config.js\")",
+      "Bash(node -c \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/js/broadcast-round-main-deck.js\")",
+      "Bash(cp scoreboard/frame/mtg-scoreboard-frame-f2f-1v1.png scoreboard/frame/mtg-scoreboard-frame-ldxp-1v1.png)",
+      "Bash(cp bracket/mtg-bracket-bg-f2f-1v1.png bracket/mtg-bracket-bg-ldxp-1v1.png)",
+      "Bash(cp bracket/mtg-bracket-frame-f2f-1v1.png bracket/mtg-bracket-frame-ldxp-1v1.png)",
+      "Bash(cp decklist/mtg-decklist-bg-f2f-1v1.png decklist/mtg-decklist-bg-ldxp-1v1.png)",
+      "Bash(cp lower-third/mtg-lower-third-f2f-1v1.png lower-third/mtg-lower-third-ldxp-1v1.png)",
+      "Bash(cp mtg-standings-frame-default-1v1.png mtg-standings-frame-f2f-1v1.png)",
+      "Bash(cp mtg-standings-frame-default-1v1.png mtg-standings-frame-ldxp-1v1.png)",
+      "Bash(brew list:*)",
+      "Bash(brew install:*)",
+      "Bash(/opt/homebrew/bin/brew install:*)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//usr/local/bin/**)",
+      "Bash(/opt/homebrew/bin/ffmpeg -i \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/animations/mtg/bracket/mtg-bracket-bg-ldxp-1v1.mov\" -c:v libx264 -crf 23 -preset medium -an -movflags +faststart \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/animations/mtg/bracket/mtg-bracket-bg-ldxp-1v1.mp4\")",
+      "Bash(node fetchCards.js)"
     ]
   }
 }

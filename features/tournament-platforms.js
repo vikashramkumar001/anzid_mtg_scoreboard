@@ -3,6 +3,7 @@ import path from 'path';
 import { promises as fsPromises } from 'fs';
 import { fileURLToPath } from 'url';
 import { RoomUtils } from '../utils/room-utils.js';
+import { RIFTBOUND_CHAMPIONS } from '../config/riftbound/constants.js';
 
 // Browser-like headers to help bypass Cloudflare
 const BROWSER_HEADERS = {
@@ -20,6 +21,32 @@ const BROWSER_HEADERS = {
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-platform': '"macOS"'
 };
+
+// Paginated fetch helper for Spicerack API endpoints (ported from anu-api/src/lib/fetch-all-pages.ts)
+async function fetchAllSpicerackPages(url, token) {
+    const pageSize = 200;
+    let currentPage = 1;
+    let allResults = [];
+
+    for (;;) {
+        const separator = url.includes('?') ? '&' : '?';
+        const pageUrl = `${url}${separator}page=${currentPage}&page_size=${pageSize}`;
+        const response = await axios.get(pageUrl, {
+            headers: {
+                ...BROWSER_HEADERS,
+                'Authorization': `Token ${token}`,
+                'Origin': 'https://admin.carde.io',
+                'Referer': 'https://admin.carde.io/'
+            }
+        });
+        const data = response.data;
+        allResults = allResults.concat(data.results || []);
+
+        if (data.next == null && data.next_page_number == null) break;
+        currentPage++;
+    }
+    return allResults;
+}
 
 // Tournament platform configuration
 let platformConfig = {
@@ -68,25 +95,6 @@ const __dirname_tp = path.dirname(__filename_tp);
 const CARDEIO_DIR = path.join(__dirname_tp, '../data/cardeio');
 
 const RUNE_NAME_TO_LETTER = { calm: 'g', chaos: 'p', fury: 'r', mind: 'b', order: 'y', body: 'o' };
-
-const RIFTBOUND_CHAMPIONS = new Set([
-    "Kai'sa, Survivor", "Volibear, Furious", "Jinx, Demolitionist", "Darius, Trifarian",
-    "Ahri, Alluring", "Lee Sin, Ascetic", "Yasuo, Remorseful", "Leona, Determined",
-    "Teemo, Strategist", "Viktor, Innovator", "Miss Fortune, Captain", "Sett, Brawler",
-    "Annie, Fiery", "Master Yi, Meditative", "Lux, Illuminated", "Garen, Rugged",
-    "Kai'sa, Evolutionary", "Volibear, Imposing", "Jinx, Rebel", "Darius, Executioner",
-    "Ahri, Inquisitive", "Lee Sin, Centered", "Yasuo, Windrider", "Leona, Zealot",
-    "Teemo, Scout", "Viktor, Leader", "Miss Fortune, Buccaneer", "Sett, Kingpin",
-    "Annie, Stubborn", "Master Yi, Honed", "Lux, Crownguard", "Garen, Commander",
-    "Rumble, Hotheaded", "Rumble, Scrapper", "Lucian, Gunslinger", "Lucian, Merciless",
-    "Draven, Vanquisher", "Draven, Audacious", "Draven, Showboat",
-    "Rek'sai, Breacher", "Rek'sai, Swarm Queen", "Ornn, Blacksmith", "Ornn, Forge God",
-    "Jax, Unrelenting", "Jax, Unmatched", "Irelia, Graceful", "Irelia, Fervent",
-    "Azir, Ascendant", "Azir, Sovereign", "Ezreal, Prodigy", "Ezreal, Dashing",
-    "Renata Glasc, Mastermind", "Renata Glasc, Industrialist",
-    "Sivir, Ambitious", "Sivir, Mercenary",
-    "Fiora, Worthy", "Fiora, Peerless", "Fiora, Victorious"
-]);
 
 function cardeioGetDeckCards(deckDetail, sectionType) {
     if (!deckDetail?.sections) return [];
@@ -437,6 +445,32 @@ export async function fetchCardeioRoundData(roundId, roundNumber) {
     return results;
 }
 
+// Fetch match data from Spicerack matches API (has user_id per player per table)
+export async function fetchSpicerackMatches(roundId, roundNumber) {
+    const token = platformConfig.cardeioToken;
+    if (!token) throw new Error('CARDEIO_TOKEN not set in .env');
+
+    const url = `https://api.admin.carde.io/api/v2/organize/tournament-rounds/${roundId}/matches-list/`;
+    const matches = await fetchAllSpicerackPages(url, token);
+
+    await fsPromises.mkdir(CARDEIO_DIR, { recursive: true });
+    const filePath = path.join(CARDEIO_DIR, `matches-api-round-${roundNumber}.json`);
+    await fsPromises.writeFile(filePath, JSON.stringify(matches, null, 2));
+    console.log(`[Carde] Cached ${matches.length} match API results to ${filePath}`);
+    return { success: true, count: matches.length };
+}
+
+// Load cached Spicerack match API data from disk
+async function loadCachedSpicerackMatches(roundNumber) {
+    const filePath = path.join(CARDEIO_DIR, `matches-api-round-${roundNumber}.json`);
+    try {
+        const raw = await fsPromises.readFile(filePath, 'utf8');
+        return JSON.parse(raw);
+    } catch (e) {
+        return null;
+    }
+}
+
 // Load cached registrations from disk
 export async function loadCachedRegistrations(eventId) {
     const filePath = path.join(CARDEIO_CACHE_DIR, `event-${eventId}-registrations.json`);
@@ -484,6 +518,28 @@ function buildBestIdToUserIds(registrations) {
         });
     }
     return map;
+}
+
+// Resolve player display name from Spicerack match API data (ported from anu-api pairings-columns.tsx)
+// Priority: registration Display Name > first_name + last_name > best_identifier
+function resolvePlayerNameFromMatchAPI(playerRelationship, registrations) {
+    const player = playerRelationship?.player;
+    const userId = playerRelationship?.user_event_status?.user?.id;
+
+    // Priority 1: Display Name from registration (keyed by user_id)
+    if (userId && registrations) {
+        const reg = registrations.find(r => String(r['User ID']) === String(userId));
+        if (reg?.['Display Name']) return reg['Display Name'];
+    }
+
+    // Priority 2: first_name + last_name from player object
+    if (player) {
+        const full = `${player.first_name || ''} ${player.last_name || ''}`.trim();
+        if (full) return full;
+    }
+
+    // Priority 3: best_identifier
+    return player?.best_identifier || 'Unknown';
 }
 
 // Find decklist by User ID (exact match)
@@ -1090,8 +1146,44 @@ async function fetchPlayerRecordFromStandings(tournamentId, roundNumber, playerN
 
 // Fetch match data by table number
 export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, platform = 'melee') {
-    // Carde.io: prefer pairings + cached decklist export, fall back to overview
+    // Carde.io: prefer Spicerack match API (has user_id), fall back to CSV pairings
     if (platform === 'cardeio') {
+        const emptyPlayer = { name: '', pronouns: '', record: '', archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
+
+        // === Try Spicerack match API data first (has user_id per player — no name guessing) ===
+        const spicerackMatches = await loadCachedSpicerackMatches(roundNumber);
+        if (spicerackMatches) {
+            const apiMatch = spicerackMatches.find(m => m.table_number === parseInt(tableNumber));
+            if (apiMatch) {
+                const cachedDecklists = await loadCachedDecklist(tournamentId);
+                const cachedRegistrations = await loadCachedRegistrations(tournamentId);
+                const rels = apiMatch.player_match_relationships || [];
+                const isBye = apiMatch.match_is_bye || rels.length < 2;
+
+                function buildPlayerFromAPI(rel) {
+                    const userId = rel?.user_event_status?.user?.id;
+                    const ues = rel?.user_event_status;
+                    // Use registration Display Name (handle), fall back to first+last or best_identifier
+                    const name = resolvePlayerNameFromMatchAPI(rel, cachedRegistrations);
+                    const won = ues?.matches_won ?? 0;
+                    const lost = ues?.matches_lost ?? 0;
+                    const drawn = ues?.matches_drawn ?? 0;
+                    const record = drawn > 0 ? `${won}-${lost}-${drawn}` : `${won}-${lost}`;
+                    const decklist = userId ? findDecklistByUserId(userId, cachedDecklists) : null;
+                    return cardeioMapPlayerFromExport(name, record, decklist, name);
+                }
+
+                const player1 = buildPlayerFromAPI(rels[0]);
+                const player2 = isBye ? emptyPlayer : buildPlayerFromAPI(rels[1]);
+
+                console.log(`[Carde] Table ${tableNumber} via match API: P1="${player1.name}" (userId=${rels[0]?.user_event_status?.user?.id || 'N/A'}), P2="${player2.name}" (userId=${rels[1]?.user_event_status?.user?.id || 'N/A'})`);
+
+                return { tableNumber: parseInt(tableNumber), player1, player2 };
+            }
+            console.warn(`[Carde] Table ${tableNumber} not found in match API data, falling back to CSV`);
+        }
+
+        // === Fallback: CSV-based pairings + 3-tier name matching ===
         // Load all available data sources in parallel
         const cachedDecklists = await loadCachedDecklist(tournamentId);
         const cachedRegistrations = await loadCachedRegistrations(tournamentId);
@@ -1155,7 +1247,6 @@ export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, 
         }
 
         const isBye = entry['Player 2'] === '—' || !entry['Player 2'];
-        const emptyPlayer = { name: '', pronouns: '', record: '', archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };
 
         let player1, player2;
         if (cachedDecklists) {

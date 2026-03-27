@@ -224,6 +224,32 @@ async function main() {
         cardMap[name] = entry;
     }
 
+    // Post-processing corrections for known Riot data issues
+    const NAME_CORRECTIONS = {
+        'Yi, Honed': 'Master Yi, Honed',
+        'Yi, Meditative': 'Master Yi, Meditative',
+    };
+    const TAG_CORRECTIONS = {
+        'Karma, Channeler': { from: 'Vi', to: 'Karma' },
+    };
+
+    for (const [oldName, newName] of Object.entries(NAME_CORRECTIONS)) {
+        if (cardMap[oldName]) {
+            cardMap[newName] = cardMap[oldName];
+            delete cardMap[oldName];
+            console.log(`  [fix] Renamed "${oldName}" → "${newName}"`);
+        }
+    }
+    for (const [cardName, fix] of Object.entries(TAG_CORRECTIONS)) {
+        if (cardMap[cardName]?.tags) {
+            const idx = cardMap[cardName].tags.indexOf(fix.from);
+            if (idx !== -1) {
+                cardMap[cardName].tags[idx] = fix.to;
+                console.log(`  [fix] ${cardName}: tag "${fix.from}" → "${fix.to}"`);
+            }
+        }
+    }
+
     // Write JSON
     fs.writeFileSync(OUTPUT_JSON, JSON.stringify(cardMap, null, 2));
 

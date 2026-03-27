@@ -130,6 +130,13 @@
     background-color: transparent;
 }
 
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
 /* MTG Deck Display Styles */
 #deck-display-mtg {
     width: 1920px;
@@ -153,23 +160,25 @@
 }
 
 #deck-display-mtg #deck-display-details h1 {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-size: 115px;
-    font-weight: 700;
+    font-family: var(--mtg-dl-font, 'Gotham Narrow', sans-serif);
+    font-size: var(--mtg-dl-name-font-size, 115px);
+    font-weight: var(--mtg-dl-name-font-weight, 700);
+    color: var(--mtg-dl-name-color, white);
     height: 100px;
     position: relative;
-    top: 42px;
-    left: 106px;
+    top: var(--mtg-dl-name-top, 42px);
+    left: var(--mtg-dl-name-left, 106px);
     z-index: 5;
 }
 
 #deck-display-mtg #deck-display-details h5 {
-    font-family: 'Gotham Narrow', sans-serif;
-    font-size: 45px;
-    font-weight: 400;
+    font-family: var(--mtg-dl-font, 'Gotham Narrow', sans-serif);
+    font-size: var(--mtg-dl-archetype-font-size, 45px);
+    font-weight: var(--mtg-dl-archetype-font-weight, 400);
+    color: var(--mtg-dl-archetype-color, white);
     position: relative;
-    top: 48px;
-    left: 106px;
+    top: var(--mtg-dl-archetype-top, 48px);
+    left: var(--mtg-dl-archetype-left, 106px);
     z-index: 5;
 }
 
@@ -178,13 +187,13 @@
     height: 1080px;
     position: absolute;
     z-index: 10;
-    top: 256px;
+    top: var(--mtg-dl-container-top, 256px);
     left: 0;
 }
 
 #deck-display-mtg #main-deck-container {
-    width: 1670px;
-    height: 756px;
+    width: var(--mtg-dl-main-width, 1670px);
+    height: var(--mtg-dl-main-height, 756px);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -296,6 +305,7 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
     width: 1920px;
     height: 1080px;
     z-index: 0;
+    display: var(--rb-dl-bg-video-display, block);
 }
 
 #deck-display-riftbound .riftbound-dl-bg-video video {
@@ -311,7 +321,7 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
     left: 0;
     width: 1920px;
     height: 1080px;
-    background-image: url('/assets/images/riftbound/decklist/frame/riftbound-decklist-frame-default-1v1.png');
+    background-image: var(--rb-dl-frame, url('/assets/images/riftbound/decklist/frame/riftbound-decklist-frame-default-1v1.png'));
     background-size: 100% 100%;
     background-repeat: no-repeat;
     z-index: 10;
@@ -321,12 +331,12 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 /* === LEGEND CARD (left column) === */
 #riftbound-dl-legend-card {
     position: absolute;
-    top: 281px;
-    left: 53px;
-    width: 240px;
-    height: 336px;
-    z-index: 15;
-    /* overflow: hidden; */
+    top: var(--rb-dl-legend-top, 281px);
+    left: var(--rb-dl-legend-left, 53px);
+    width: var(--rb-dl-legend-width, 240px);
+    height: var(--rb-dl-legend-height, 336px);
+    z-index: var(--rb-dl-legend-z, 15);
+    display: var(--rb-dl-legend-display, block);
 }
 
 #riftbound-dl-legend-card img,
@@ -341,12 +351,13 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 /* === LEGEND DESCRIPTION (left column) === */
 #riftbound-dl-legend-desc {
     position: absolute;
-    top: 270px;
-    left: 7px;
-    width: 128px;
-    height: 170px;
+    top: var(--rb-dl-legend-desc-top, 270px);
+    left: var(--rb-dl-legend-desc-left, 7px);
+    width: var(--rb-dl-legend-desc-width, 128px);
+    height: var(--rb-dl-legend-desc-height, 170px);
     z-index: 15;
     overflow: hidden;
+    display: var(--rb-dl-legend-desc-display, block);
 }
 
 #riftbound-dl-legend-desc img {
@@ -359,12 +370,12 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 /* === CHAMPION CARD (left column) === */
 #riftbound-dl-champion-card {
     position: absolute;
-    top: 701px;
-    left: 53px;
-    width: 240px;
-    height: 336px;
+    top: var(--rb-dl-champion-top, 701px);
+    left: var(--rb-dl-champion-left, 53px);
+    width: var(--rb-dl-champion-width, 240px);
+    height: var(--rb-dl-champion-height, 336px);
     z-index: 15;
-    /* overflow: hidden; */
+    display: var(--rb-dl-champion-display, block);
 }
 
 #riftbound-dl-champion-card img {
@@ -377,13 +388,36 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 /* === PLAYER NAME (top right) === */
 #deck-display-riftbound #riftbound-deck-display-details {
     position: absolute;
-    top: 85px;
-    left: 200px;
-    right: 30px;
-    text-align: right;
-    font-size: 62px;
-    color: white;
+    top: var(--rb-dl-name-top, 85px);
+    left: var(--rb-dl-name-left, 200px);
+    right: var(--rb-dl-name-right, 30px);
+    width: var(--rb-dl-name-width, auto);
+    height: var(--rb-dl-name-height, auto);
+    text-align: var(--rb-dl-name-align, right);
+    font-size: var(--rb-dl-name-font-size, 62px);
+    font-weight: var(--rb-dl-name-font-weight, 900);
+    color: var(--rb-dl-name-color, white);
     letter-spacing: 2px;
+    z-index: 15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+}
+
+/* === LEGEND NAME (below player name) === */
+#deck-display-riftbound #riftbound-deck-display-legend-name {
+    display: var(--rb-dl-legend-name-display, none);
+    position: absolute;
+    top: var(--rb-dl-legend-name-top, 150px);
+    left: var(--rb-dl-legend-name-left, 200px);
+    right: var(--rb-dl-legend-name-right, 30px);
+    width: var(--rb-dl-legend-name-width, auto);
+    text-align: var(--rb-dl-legend-name-align, right);
+    font-size: var(--rb-dl-legend-name-font-size, 24px);
+    font-weight: var(--rb-dl-legend-name-font-weight, normal);
+    color: var(--rb-dl-legend-name-color, white);
+    letter-spacing: 1px;
     z-index: 15;
     white-space: nowrap;
     overflow: hidden;
@@ -394,8 +428,8 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 /* === CONTAINERS === */
 #deck-display-riftbound #riftbound-deck-display-container {
     position: absolute;
-    top: 159px;
-    left: 275px;
+    top: var(--rb-dl-container-top, 159px);
+    left: var(--rb-dl-container-left, 275px);
     width: 1920px;
     height: 1080px;
     z-index: 15;
@@ -455,21 +489,21 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 /* === MAIN DECK (center grid) === */
 #deck-display-riftbound .deck-section-wrapper.other-section {
     position: absolute;
-    top: 65px;
-    left: 152px;
-    width: 1084px;
-    height: 790px;
+    top: var(--rb-dl-main-top, 65px);
+    left: var(--rb-dl-main-left, 152px);
+    width: var(--rb-dl-main-width, 1084px);
+    height: var(--rb-dl-main-height, 790px);
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    row-gap: 18px;
-    column-gap: 4px;
+    row-gap: var(--rb-dl-main-row-gap, 18px);
+    column-gap: var(--rb-dl-main-col-gap, 4px);
     z-index: 5;
 }
 
 #deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card {
     position: relative;
-    width: 132px;
+    width: var(--rb-dl-card-width, 132px);
     flex-shrink: 0;
     display: block;
 }
@@ -482,15 +516,15 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 
 #deck-display-riftbound .deck-section-wrapper.other-section .main-deck-card .card-count {
     position: absolute;
-    bottom: -11px;
+    bottom: var(--rb-dl-count-bottom, -11px);
     left: 50%;
     transform: translateX(-50%);
     right: auto;
-    width: 28px;
-    height: 28px;
+    width: var(--rb-dl-count-size, 28px);
+    height: var(--rb-dl-count-size, 28px);
     background: rgba(0, 0, 0, 0.9);
     color: white;
-    font-size: 22px;
+    font-size: var(--rb-dl-count-font-size, 22px);
     border-radius: 50%;
     border: 2px solid #c8a94e;
     display: flex;
@@ -501,21 +535,22 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 /* === SIDEBOARD (right column) === */
 #deck-display-riftbound .deck-section-wrapper.side-deck-section {
     position: absolute;
-    top: 65px;
-    left: 1317px;
-    width: 268px;
-    height: 790px;
-    display: flex;
-    flex-wrap: wrap;
+    top: var(--rb-dl-side-top, 65px);
+    left: var(--rb-dl-side-left, 1317px);
+    width: var(--rb-dl-side-width, 268px);
+    height: var(--rb-dl-side-height, 790px);
+    display: var(--rb-dl-side-display, flex);
+    flex-wrap: var(--rb-dl-side-wrap, wrap);
     align-content: flex-start;
-    row-gap: 19px;
-    column-gap: 4px;
+    flex-direction: var(--rb-dl-side-direction, row);
+    row-gap: var(--rb-dl-side-row-gap, 19px);
+    column-gap: var(--rb-dl-side-col-gap, 4px);
     z-index: 5;
 }
 
 #deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card {
     position: relative;
-    width: 132px;
+    width: var(--rb-dl-side-card-width, 132px);
     flex-shrink: 0;
     display: block;
 }
@@ -528,15 +563,15 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 
 #deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-count {
     position: absolute;
-    bottom: -11px;
+    bottom: var(--rb-dl-side-count-bottom, -11px);
     left: 50%;
     transform: translateX(-50%);
     right: auto;
-    width: 28px;
-    height: 28px;
+    width: var(--rb-dl-side-count-size, 28px);
+    height: var(--rb-dl-side-count-size, 28px);
     background: rgba(0, 0, 0, 0.9);
     color: white;
-    font-size: 22px;
+    font-size: var(--rb-dl-side-count-font-size, 22px);
     border-radius: 50%;
     border: 2px solid #c8a94e;
     display: flex;
@@ -547,33 +582,61 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 /* === BATTLEFIELDS (bottom center) === */
 #deck-display-riftbound .deck-section-wrapper.battlefields-section {
     position: absolute;
-    top: 850px;
-    left: 160px;
-    width: 500px;
-    height: 180px;
-    display: flex;
-    gap: 8px;
+    top: var(--rb-dl-bf-top, 861px);
+    left: var(--rb-dl-bf-left, 427px);
+    width: var(--rb-dl-bf-width, 500px);
+    height: var(--rb-dl-bf-height, 180px);
+    display: var(--rb-dl-bf-display, flex);
+    flex-direction: var(--rb-dl-bf-direction, row);
+    gap: var(--rb-dl-bf-gap, 8px);
     align-items: center;
-    z-index: 15;
+    z-index: var(--rb-dl-bf-z, 15);
 }
 
 #deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-background {
-    flex: 1;
-    height: 185px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+    flex: 0 0 var(--rb-dl-bf-card-height, 185px);
+    width: var(--rb-dl-bf-card-width, 100%);
+    height: var(--rb-dl-bf-card-height, 185px);
+    overflow: hidden;
     border-radius: 4px;
+}
+
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--rb-dl-bf-img-fit, contain);
+    object-position: var(--rb-dl-bf-img-position, center);
+    display: block;
+    filter: var(--rb-dl-bf-img-brightness, none);
+}
+
+#deck-display-riftbound .deck-section-wrapper.battlefields-section .riftbound-battlefield-label {
+    display: var(--rb-dl-bf-label-display, none);
+    position: absolute;
+    top: 0;
+    left: var(--rb-dl-bf-label-left, 0);
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: var(--rb-dl-bf-label-justify, center);
+    color: var(--rb-dl-bf-label-color, white);
+    font-family: var(--rb-dl-bf-label-font, 'Akzidenz-Grotesk Next', sans-serif);
+    font-size: var(--rb-dl-bf-label-font-size, 14px);
+    font-weight: bold;
+    text-align: var(--rb-dl-bf-label-align, center);
+    z-index: 1;
+    text-shadow: var(--rb-dl-bf-label-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 /* === RUNES (bottom right) === */
 #deck-display-riftbound .deck-section-wrapper.runes-section {
     position: absolute;
-    top: 850px;
-    left: 1153px;
-    width: 250px;
-    height: 200px;
-    display: flex;
+    top: var(--rb-dl-runes-top, 850px);
+    left: var(--rb-dl-runes-left, 1153px);
+    width: var(--rb-dl-runes-width, 250px);
+    height: var(--rb-dl-runes-height, 200px);
+    display: var(--rb-dl-runes-display, flex);
     flex-direction: row;
     gap: 20px;
     align-items: center;
@@ -582,23 +645,42 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
 }
 
 #deck-display-riftbound .rfb-rune-item {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--rb-dl-rune-gap, 10px);
 }
 
 #deck-display-riftbound .rfb-rune-icon {
-    width: 115px;
-    height: 115px;
+    width: var(--rb-dl-rune-icon-size, 115px);
+    height: var(--rb-dl-rune-icon-size, 115px);
     object-fit: contain;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
 }
 
 #deck-display-riftbound .rfb-rune-count {
-    font-size: 44px;
+    font-size: var(--rb-dl-rune-font-size, 44px);
     color: white;
     line-height: 1;
     text-transform: lowercase;
+}
+
+/* Badge style: count overlaid on bottom of icon with circle/pill */
+#deck-display-riftbound .rfb-rune-count.badge-style {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: var(--rb-dl-rune-badge-size, 28px);
+    height: var(--rb-dl-rune-badge-size, 28px);
+    padding: 0 4px;
+    background: rgba(0, 0, 0, 0.9);
+    font-size: var(--rb-dl-rune-font-size, 22px);
+    border-radius: 14px;
+    border: 2px solid #c8a94e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -958,15 +1040,6 @@ body.vertical #deck-display-vibes .vertical-deck-container {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-#deck-display-riftbound .riftbound-battlefield-background {
-    position: absolute;
-    top: 893px;
-    left: 72px;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    width: 317px;
-}
 
 /* RIFTBOUND CARDS WITHOUT COUNTS */
 #deck-display-riftbound .riftbound-card-name-no-count {
@@ -1051,7 +1124,7 @@ body.vertical #deck-display-vibes .vertical-deck-container {
 /* Riftbound Font Override */
 body.riftbound #deck-display-riftbound,
 body.riftbound #deck-display-riftbound * {
-    font-family: 'Beaufort for LoL', sans-serif;
+    font-family: var(--rb-dl-font, 'Beaufort for LoL'), sans-serif;
 }
 
 /* Star Wars Deck Display Styles */

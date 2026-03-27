@@ -99,8 +99,15 @@ import {
     fetchCardeioDecklist,
     fetchCardeioRegistrations,
     fetchCardeioRoundData,
-    fetchCardeioEventDetail
+    fetchCardeioEventDetail,
+    fetchSpicerackMatches,
+    loadCachedDecklist,
+    loadCachedRegistrations
 } from '../features/tournament-platforms.js';
+
+// Global dedup cache for deck transforms (shared across all sockets)
+const _transformCache = {};
+const _transformTimestamps = {};
 
 export default function registerSocketHandlers(io) {
     io.on('connection', (socket) => {
@@ -359,12 +366,28 @@ export default function registerSocketHandlers(io) {
             }
         });
 
-        // Broadcast deck data to be transformed
+        // Broadcast deck data to be transformed (with server-side dedup)
         socket.on('transform-main-deck-data', (data) => {
+            const key = `main-${data.matchID}-${data.sideID}-${data.gameType}`;
+            const hash = JSON.stringify(data.deckData);
+            if (_transformCache[key] === hash) {
+                // Skipped duplicate — no processing needed
+                return;
+            }
+            _transformCache[key] = hash;
+            console.log(`[Transform] Main deck request from ${socket.id} - match:${data.matchID} side:${data.sideID} game:${data.gameType}`);
             transformMainDeck(data, io);
         });
 
         socket.on('transform-side-deck-data', (data) => {
+            const key = `side-${data.matchID}-${data.sideID}-${data.gameType}`;
+            const hash = JSON.stringify(data.deckData);
+            if (_transformCache[key] === hash) {
+                // Skipped duplicate — no processing needed
+                return;
+            }
+            _transformCache[key] = hash;
+            console.log(`[Transform] Side deck request from ${socket.id} - match:${data.matchID} side:${data.sideID} game:${data.gameType}`);
             transformSideDeck(data, io);
         });
 
@@ -490,16 +513,32 @@ export default function registerSocketHandlers(io) {
             }
         });
 
-        // Fetch Carde round data (matches + standings CSVs) by round ID
+        // Fetch Carde round data (CSV pairings/standings + match API) by round ID
         socket.on('fetch-cardeio-round', async ({ roundId, roundNumber }) => {
             try {
-                const results = await fetchCardeioRoundData(roundId, roundNumber);
+                // Fetch CSV and match API in parallel — await both before responding
+                const [results] = await Promise.all([
+                    fetchCardeioRoundData(roundId, roundNumber),
+                    fetchSpicerackMatches(roundId, roundNumber)
+                        .then(r => { console.log(`[Carde] Match API fetch: ${r.count} matches`); return r; })
+                        .catch(e => { console.warn(`[Carde] Match API fetch failed: ${e.message}`); return null; })
+                ]);
                 socket.emit('cardeio-round-fetched', results);
             } catch (error) {
                 socket.emit('cardeio-round-fetched', {
                     matches: { success: false, error: error.message },
                     standings: { success: false, error: error.message }
                 });
+            }
+        });
+
+        // Manually fetch Spicerack match API data for a round
+        socket.on('fetch-spicerack-matches', async ({ roundId, roundNumber }) => {
+            try {
+                const result = await fetchSpicerackMatches(roundId, roundNumber);
+                socket.emit('spicerack-matches-fetched', result);
+            } catch (error) {
+                socket.emit('spicerack-matches-fetched', { success: false, error: error.message });
             }
         });
 
