@@ -11,6 +11,7 @@ let controlsTracker = {
     '3': {round_id: '1', match_id: 'match3'},
     '4': {round_id: '1', match_id: 'match4'}
 };
+let _reEmitCount = 0;
 let broadcastTracker = {
     round_id: null
 };
@@ -248,6 +249,8 @@ export async function updateFromMaster(allControlData, io) {
         // emit round data to live broadcast changes using broadcastTracker
         // Use merged controlData (not incoming roundData) to include preserved draft list fields
         if (broadcastTracker.round_id && broadcastTracker.round_id === round_id) {
+            _reEmitCount++;
+            console.log(`[Broadcast] updateFromMaster re-emitting broadcast-round-data for round ${round_id} (count: ${_reEmitCount})`);
             RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
             // emit standings as well
             emitBroadcastStandings(io, round_id);

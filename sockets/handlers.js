@@ -107,6 +107,7 @@ import {
 
 // Global dedup cache for deck transforms (shared across all sockets)
 const _transformCache = {};
+let _transformSkipCount = 0;
 const _transformTimestamps = {};
 
 export default function registerSocketHandlers(io) {
@@ -347,6 +348,7 @@ export default function registerSocketHandlers(io) {
 
         // Broadcast
         socket.on('broadcast-requested', async ({round_id}) => {
+            console.log(`[Broadcast] broadcast-requested from ${socket.id} for round ${round_id}`);
             const controlData = getControlData();
             if (controlData[round_id]) {
                 updateBroadcastTracker(round_id);
@@ -358,6 +360,7 @@ export default function registerSocketHandlers(io) {
 
         // Broadcast scoreboard - request current broadcast data on page load
         socket.on('get-broadcast-scoreboard-data', () => {
+            console.log(`[Broadcast] get-broadcast-scoreboard-data from ${socket.id}`);
             const bt = getBroadcastTracker();
             const cd = getControlData();
             if (bt.round_id && cd[bt.round_id]) {
@@ -371,7 +374,8 @@ export default function registerSocketHandlers(io) {
             const key = `main-${data.matchID}-${data.sideID}-${data.gameType}`;
             const hash = JSON.stringify(data.deckData);
             if (_transformCache[key] === hash) {
-                // Skipped duplicate — no processing needed
+                _transformSkipCount++;
+                console.log(`[Transform] Skipped duplicate main deck - match:${data.matchID} side:${data.sideID} (total skips: ${_transformSkipCount})`);
                 return;
             }
             _transformCache[key] = hash;
@@ -383,7 +387,8 @@ export default function registerSocketHandlers(io) {
             const key = `side-${data.matchID}-${data.sideID}-${data.gameType}`;
             const hash = JSON.stringify(data.deckData);
             if (_transformCache[key] === hash) {
-                // Skipped duplicate — no processing needed
+                _transformSkipCount++;
+                console.log(`[Transform] Skipped duplicate side deck - match:${data.matchID} side:${data.sideID} (total skips: ${_transformSkipCount})`);
                 return;
             }
             _transformCache[key] = hash;

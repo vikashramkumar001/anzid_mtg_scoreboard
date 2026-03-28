@@ -1356,7 +1356,8 @@ export function initMatches(socket) {
         })
     }
 
-    // Delegated click handler for life +/- buttons
+    // Delegated click handler for life +/- buttons (debounced to prevent flicker)
+    const _lifeDebounceTimers = {};
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('.life-btn, .life-btn-5');
         if (!btn) return;
@@ -1366,7 +1367,13 @@ export function initMatches(socket) {
         if (!lifeEl) return;
         let current = parseInt(lifeEl.innerText) || 0;
         lifeEl.innerText = current + delta;
-        lifeEl.dispatchEvent(new Event('input', { bubbles: true }));
+
+        // Debounce: only send to server after 300ms of no clicks
+        if (_lifeDebounceTimers[targetId]) clearTimeout(_lifeDebounceTimers[targetId]);
+        _lifeDebounceTimers[targetId] = setTimeout(() => {
+            lifeEl.dispatchEvent(new Event('input', { bubbles: true }));
+            delete _lifeDebounceTimers[targetId];
+        }, 300);
     });
 
     // Delegated change handler for battlefield radio buttons
@@ -2217,6 +2224,12 @@ export function initMatches(socket) {
                 }
 
                 console.log('Match data populated for table', result.matchData.tableNumber);
+
+                // Reset wins to 0 for both players
+                const winsLeft = document.getElementById(`${roundId}-${matchId}-player-wins-left`);
+                const winsRight = document.getElementById(`${roundId}-${matchId}-player-wins-right`);
+                if (winsLeft) { winsLeft.textContent = '0'; winsLeft.dispatchEvent(new Event('input', { bubbles: true })); }
+                if (winsRight) { winsRight.textContent = '0'; winsRight.dispatchEvent(new Event('input', { bubbles: true })); }
 
                 // Riftbound (cardeio) extra fields
                 for (const [side, player] of [['left', player1], ['right', player2]]) {

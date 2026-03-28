@@ -17,12 +17,12 @@ const detail_id = pathSegments[5];
 
 const MANA_ORDER = ['W', 'U', 'B', 'R', 'G', 'C'];
 const MANA_SYMBOLS = {
-    W: {alt: 'White', src: 'https://svgs.scryfall.io/card-symbols/W.svg'},
-    U: {alt: 'Blue', src: 'https://svgs.scryfall.io/card-symbols/U.svg'},
-    B: {alt: 'Black', src: 'https://svgs.scryfall.io/card-symbols/B.svg'},
-    R: {alt: 'Red', src: 'https://svgs.scryfall.io/card-symbols/R.svg'},
-    G: {alt: 'Green', src: 'https://svgs.scryfall.io/card-symbols/G.svg'},
-    C: {alt: 'Colorless', src: 'https://svgs.scryfall.io/card-symbols/C.svg'}
+    W: {alt: 'White', src: '/assets/images/mtg/icons/mana/W.svg'},
+    U: {alt: 'Blue', src: '/assets/images/mtg/icons/mana/U.svg'},
+    B: {alt: 'Black', src: '/assets/images/mtg/icons/mana/B.svg'},
+    R: {alt: 'Red', src: '/assets/images/mtg/icons/mana/R.svg'},
+    G: {alt: 'Green', src: '/assets/images/mtg/icons/mana/G.svg'},
+    C: {alt: 'Colorless', src: '/assets/images/mtg/icons/mana/C.svg'}
 };
 
 const SPRITES_MAPPING = {

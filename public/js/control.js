@@ -25,12 +25,17 @@ Array.from(document.getElementsByClassName("has-maximum-width")).forEach((elemen
 function onLifeTotalChange(element, modifier) {
     let div = document.getElementById(element);
     div.innerHTML = parseInt(div.innerHTML) + modifier;
-    armTimeout();
+    armTimeout(div);
 }
 
 function resetLifeTotals() {
-    ['player-life-left', 'player-life-right'].forEach(e => document.getElementById(e).innerHTML = baseLifePoints);
-    armTimeout();
+    const divs = ['player-life-left', 'player-life-right'].map(e => {
+        const div = document.getElementById(e);
+        div.innerHTML = baseLifePoints;
+        return div;
+    });
+    armTimeout(divs[0]);
+    armTimeout(divs[1]);
 }
 
 // Add event listeners after DOM is fully loaded
@@ -88,11 +93,17 @@ function sendData(eventTarget) {
     }
 }
 
+const fieldTimeouts = {};
 function armTimeout(targetElement) {
-    console.log('arming timeout - ' + delay_value + ' micro seconds');
-    clearTimeout(timeout);
-    // delay value seconds after last input change - after timeout then emit data
-    timeout = setTimeout(() => sendData(targetElement), delay_value);
+    if (targetElement) {
+        const key = targetElement.id;
+        clearTimeout(fieldTimeouts[key]);
+        fieldTimeouts[key] = setTimeout(() => sendData(targetElement), delay_value);
+    } else {
+        // No element — fallback to send all fields
+        clearTimeout(timeout);
+        timeout = setTimeout(() => sendData(undefined), delay_value);
+    }
 }
 
 document.querySelectorAll(".editable").forEach(editable => 
@@ -202,7 +213,7 @@ const pathSegments = window.location.pathname.split('/');
 const control_id = pathSegments[2];
 let round_id = '1';
 let match_id = 'match1';
-const delay_value = Number(pathSegments[3]) || 10;        // This should be the delay - used for timeou
+const delay_value = Number(pathSegments[3]) || 1000;        // Debounce delay in ms
 
 console.log('from url - control id - delay', control_id, delay_value);
 
