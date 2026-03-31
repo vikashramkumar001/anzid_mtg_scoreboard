@@ -69,6 +69,9 @@ socket.on('broadcast-round-data', (data) => {
         } else if (detail_id === 'winner-left' || detail_id === 'winner-right') {
             // Winner display - combines background, name, and archetype
             detailToDisplay = null;
+        } else if (detail_id === 'head-to-head-left' || detail_id === 'head-to-head-right') {
+            // Head-to-head display - same as winner but different image
+            detailToDisplay = null;
         } else {
             return; // detail_id doesn't exist and isn't a sprite, so exit
         }
@@ -324,6 +327,74 @@ function renderDetails(detail) {
         }
 
         // Wait for fonts to load before scaling text
+        document.fonts.ready.then(() => {
+            const maxFontSize = selectedGame === 'mtg' ? 48 : 40;
+            autoScaleText(nameEl, maxFontSize, 24, 465);
+        });
+
+        // Head-to-head display — same as winner but uses head-to-head CSS class for different image
+    } else if (detail_id === 'head-to-head-left' || detail_id === 'head-to-head-right') {
+        const side = detail_id.endsWith('left') ? 'left' : 'right';
+        const playerName = roundData[match_id]?.[`player-name-${side}`] || '';
+
+        playerDetail.innerHTML = '';
+        playerDetail.className = `winner-display head-to-head ${selectedGame}`;
+
+        const bgImage = document.createElement('div');
+        bgImage.className = 'winner-bg-image head-to-head-bg';
+        playerDetail.appendChild(bgImage);
+
+        const textContainer = document.createElement('div');
+        textContainer.className = 'winner-text-container';
+
+        const nameEl = document.createElement('div');
+        nameEl.className = 'winner-name';
+        nameEl.textContent = playerName;
+        textContainer.appendChild(nameEl);
+
+        if (selectedGame === 'riftbound') {
+            const legend = roundData[match_id]?.[`player-legend-${side}`] || '';
+            const legendContainer = document.createElement('div');
+            legendContainer.className = 'winner-archetype';
+            const legendText = document.createElement('span');
+            legendText.className = 'winner-archetype-text';
+            legendText.textContent = legend;
+            legendContainer.appendChild(legendText);
+            const runeSpan = document.createElement('span');
+            runeSpan.className = 'winner-rune-symbols-container';
+            for (let i = 1; i <= 2; i++) {
+                const runeColor = (roundData[match_id]?.[`player-rune-color-${i}-${side}`] || '').trim().toLowerCase();
+                if (runeColor && RIFTBOUND_RUNES_BG[runeColor]) {
+                    const img = document.createElement('img');
+                    img.src = RIFTBOUND_RUNES_BG[runeColor];
+                    img.alt = `Rune ${runeColor}`;
+                    runeSpan.appendChild(img);
+                }
+            }
+            legendContainer.appendChild(runeSpan);
+            textContainer.appendChild(legendContainer);
+        } else {
+            const archetype = roundData[match_id]?.[`player-archetype-${side}`] || '';
+            const archetypeContainer = document.createElement('div');
+            archetypeContainer.className = 'winner-archetype';
+            const archetypeText = document.createElement('span');
+            archetypeText.className = 'winner-archetype-text';
+            archetypeText.textContent = archetype;
+            archetypeContainer.appendChild(archetypeText);
+            const manaSpan = document.createElement('span');
+            manaSpan.id = 'h2h-mana-symbols';
+            manaSpan.className = 'winner-mana-symbols-container';
+            archetypeContainer.appendChild(manaSpan);
+            textContainer.appendChild(archetypeContainer);
+        }
+
+        playerDetail.appendChild(textContainer);
+
+        if (document.getElementById('h2h-mana-symbols')) {
+            const manaSymbols = roundData[match_id]?.[`player-mana-symbols-${side}`] || '';
+            renderManaSymbols(manaSymbols, 'h2h-mana-symbols');
+        }
+
         document.fonts.ready.then(() => {
             const maxFontSize = selectedGame === 'mtg' ? 48 : 40;
             autoScaleText(nameEl, maxFontSize, 24, 465);

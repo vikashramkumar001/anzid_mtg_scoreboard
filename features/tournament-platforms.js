@@ -864,9 +864,100 @@ async function fetchTopdeckStandings(tournamentId) {
     }
 }
 
-// Fetch standings from Carde.io (placeholder)
-async function fetchCardeioStandings(tournamentId) {
-    throw new Error('Carde.io integration is not yet implemented. Please use manual input or another platform.');
+// Fetch standings from Carde.io via Spicerack JSON API
+// Auto-pulls previous round's standings to avoid spoilers
+async function fetchCardeioStandings(tournamentId, roundId) {
+    const token = platformConfig.cardeioToken;
+    if (!token) throw new Error('CARDEIO_TOKEN not set in .env');
+
+    const roundNum = parseInt(roundId, 10);
+    if (roundNum <= 1) {
+        throw new Error('No standings available before round 1.');
+    }
+
+    const prevRound = String(roundNum - 1);
+    console.log(`[Carde] Round map:`, JSON.stringify(platformConfig.cardeioRoundMap));
+    console.log(`[Carde] Looking up prevRound: "${prevRound}" (type: ${typeof prevRound})`);
+    const cardeRoundId = platformConfig.cardeioRoundMap?.[prevRound] || platformConfig.cardeioRoundMap?.[roundNum - 1];
+    if (!cardeRoundId) {
+        throw new Error(`No Carde.io round ID found for round ${prevRound}. Please save tournament config first to fetch round IDs.`);
+    }
+
+    console.log(`[Carde] Fetching standings for round ${prevRound} (previous round) to avoid spoilers`);
+
+    const url = `https://api.admin.carde.io/api/v2/organize/tournament-rounds/${cardeRoundId}/standings/`;
+    console.log(`[Carde] Standings URL: ${url}`);
+
+    let allStandings;
+    try {
+        allStandings = await fetchAllSpicerackPages(url, token);
+    } catch (e) {
+        if (e.response?.status === 401) {
+            throw new Error('Authentication failed — CARDEIO_TOKEN may be expired. Update .env and restart.');
+        }
+        throw e;
+    }
+
+    console.log(`[Carde] Fetched ${allStandings.length} standings entries`);
+    if (allStandings.length === 0) {
+        throw new Error(`No standings data returned for round ${prevRound}. Standings may not be published yet.`);
+    }
+    if (allStandings.length > 0) {
+        console.log(`[Carde] Sample standings entry keys:`, Object.keys(allStandings[0]));
+        console.log(`[Carde] Sample standings entry:`, JSON.stringify(allStandings[0], null, 2).substring(0, 500));
+    }
+
+    // Cache raw API response for debugging/reference
+    await fsPromises.mkdir(CARDEIO_DIR, { recursive: true });
+    const cachePath = path.join(CARDEIO_DIR, `standings-api-round-${prevRound}.json`);
+    await fsPromises.writeFile(cachePath, JSON.stringify(allStandings, null, 2));
+    console.log(`[Carde] Cached ${allStandings.length} standings entries to ${cachePath}`);
+
+    // Enrich with display names from registrations and legends from decklists
+    const cachedRegistrations = await loadCachedRegistrations(tournamentId);
+    const cachedDecklists = await loadCachedDecklist(tournamentId);
+
+    const standings = {};
+    allStandings.forEach((row, index) => {
+        const rank = row.rank || index + 1;
+        if (rank > 32) return;
+
+        const userId = row.user_event_status?.user?.id || row.player?.id;
+
+        // Resolve display name: registration Display Name → best_identifier → first_last
+        let name = '';
+        if (userId && cachedRegistrations) {
+            const reg = cachedRegistrations.find(r => String(r['User ID']) === String(userId));
+            if (reg?.['Display Name']) name = reg['Display Name'];
+        }
+        if (!name) {
+            name = row.user_event_status?.best_identifier
+                || row.player?.best_identifier
+                || row.user_event_status?.user?.first_last
+                || '';
+        }
+
+        // Resolve legend from decklist export
+        const decklist = findDecklistByUserId(userId, cachedDecklists);
+        const legend = getLegendFromDecklist(decklist);
+
+        // Format record: omit draws if 0 (e.g. "3-0" not "3-0-0")
+        let record = row.record
+            || `${row.user_event_status?.matches_won ?? 0}-${row.user_event_status?.matches_lost ?? 0}-${row.user_event_status?.matches_drawn ?? 0}`;
+        const recordParts = record.split('-');
+        if (recordParts.length === 3 && recordParts[2] === '0') {
+            record = `${recordParts[0]}-${recordParts[1]}`;
+        }
+
+        standings[rank] = {
+            rank,
+            name,
+            archetype: legend,
+            record
+        };
+    });
+
+    return standings;
 }
 
 // Main fetch function - delegates to appropriate platform
@@ -887,7 +978,7 @@ export async function fetchTournamentStandings(roundId) {
         case 'topdeck':
             return await fetchTopdeckStandings(tournamentId, roundId);
         case 'cardeio':
-            return await fetchCardeioStandings(tournamentId);
+            return await fetchCardeioStandings(tournamentId, roundId);
         case 'manual':
             throw new Error('Manual mode selected - use the text input to enter standings');
         default:

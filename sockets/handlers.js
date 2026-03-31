@@ -1,10 +1,11 @@
 import {
     emitMTGCardList,
     emitCardView,
-    transformSideDeck,
-    transformMainDeck,
     transformDraftList
 } from '../features/cards.js';
+
+import { getAllCachedTransforms } from '../features/transformCache.js';
+import { transformAndEmitAllDecks } from '../features/transformAllDecks.js';
 
 import {
     emitVibesCardList,
@@ -105,10 +106,6 @@ import {
     loadCachedRegistrations
 } from '../features/tournament-platforms.js';
 
-// Global dedup cache for deck transforms (shared across all sockets)
-const _transformCache = {};
-let _transformSkipCount = 0;
-const _transformTimestamps = {};
 
 export default function registerSocketHandlers(io) {
     io.on('connection', (socket) => {
@@ -354,6 +351,8 @@ export default function registerSocketHandlers(io) {
                 updateBroadcastTracker(round_id);
                 RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
                 RoomUtils.emitToRoom(io, 'broadcast-scoreboard', 'broadcast-scoreboard-round-id', { round_id });
+                // Server-side transforms — transform all decks and push results
+                transformAndEmitAllDecks(round_id, controlData, io);
             }
             emitBroadcastStandings(io, round_id);
         });
@@ -366,34 +365,13 @@ export default function registerSocketHandlers(io) {
             if (bt.round_id && cd[bt.round_id]) {
                 socket.emit('broadcast-round-data', cd[bt.round_id]);
                 socket.emit('broadcast-scoreboard-round-id', { round_id: bt.round_id });
+                // Send cached transforms for late joiners
+                const cached = getAllCachedTransforms();
+                Object.values(cached).forEach(({ main, side }) => {
+                    if (main) socket.emit('transformed-main-deck-data', main);
+                    if (side) socket.emit('transformed-side-deck-data', side);
+                });
             }
-        });
-
-        // Broadcast deck data to be transformed (with server-side dedup)
-        socket.on('transform-main-deck-data', (data) => {
-            const key = `main-${data.matchID}-${data.sideID}-${data.gameType}`;
-            const hash = JSON.stringify(data.deckData);
-            if (_transformCache[key] === hash) {
-                _transformSkipCount++;
-                console.log(`[Transform] Skipped duplicate main deck - match:${data.matchID} side:${data.sideID} (total skips: ${_transformSkipCount})`);
-                return;
-            }
-            _transformCache[key] = hash;
-            console.log(`[Transform] Main deck request from ${socket.id} - match:${data.matchID} side:${data.sideID} game:${data.gameType}`);
-            transformMainDeck(data, io);
-        });
-
-        socket.on('transform-side-deck-data', (data) => {
-            const key = `side-${data.matchID}-${data.sideID}-${data.gameType}`;
-            const hash = JSON.stringify(data.deckData);
-            if (_transformCache[key] === hash) {
-                _transformSkipCount++;
-                console.log(`[Transform] Skipped duplicate side deck - match:${data.matchID} side:${data.sideID} (total skips: ${_transformSkipCount})`);
-                return;
-            }
-            _transformCache[key] = hash;
-            console.log(`[Transform] Side deck request from ${socket.id} - match:${data.matchID} side:${data.sideID} game:${data.gameType}`);
-            transformSideDeck(data, io);
         });
 
         socket.on('transform-draft-list', (data) => {

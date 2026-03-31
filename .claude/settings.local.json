@@ -53,7 +53,9 @@
       "Read(//opt/homebrew/bin/**)",
       "Read(//usr/local/bin/**)",
       "Bash(/opt/homebrew/bin/ffmpeg -i \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/animations/mtg/bracket/mtg-bracket-bg-ldxp-1v1.mov\" -c:v libx264 -crf 23 -preset medium -an -movflags +faststart \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/animations/mtg/bracket/mtg-bracket-bg-ldxp-1v1.mp4\")",
-      "Bash(node fetchCards.js)"
+      "Bash(node fetchCards.js)",
+      "Bash(mv \"riftbound-lower-third-tes-1v1.png\" \"riftbound-lower-third-tes-1v1-commentator.png\")",
+      "Bash(mv \"riftbound-lower-third-tes-1v1-h2h.png\" \"riftbound-lower-third-tes-1v1-player.png\")"
     ]
   }
 }

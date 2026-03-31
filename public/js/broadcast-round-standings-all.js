@@ -183,34 +183,22 @@ socket.on('broadcast-round-standings-data', (data) => {
         }
     }
 
-    // Unify font sizes: use the smallest size across all rows
+    // Auto-size each player's name and archetype independently
     document.fonts.ready.then(() => {
-        const nameEls = document.querySelectorAll('.standings-name');
-        const archetypeEls = document.querySelectorAll('.standings-archetype');
+        const rootStyle = getComputedStyle(document.documentElement);
+        const maxNameSize = parseInt(rootStyle.getPropertyValue('--standings-name-font-size')) || 36;
+        const maxArchetypeSize = parseInt(rootStyle.getPropertyValue('--standings-archetype-font-size')) || 24;
 
-        let minNameSize = 36;
-        let minArchetypeSize = 24;
-
-        nameEls.forEach(el => {
+        document.querySelectorAll('.standings-name').forEach(el => {
             if (el.innerText) {
-                const size = calculateFontSize(el, 36, 16, 370);
-                if (size < minNameSize) minNameSize = size;
+                el.style.fontSize = calculateFontSize(el, maxNameSize, 16, 425) + 'px';
             }
         });
 
-        archetypeEls.forEach(el => {
+        document.querySelectorAll('.standings-archetype').forEach(el => {
             if (el.innerText) {
-                const size = calculateFontSize(el, 24, 10, 370);
-                if (size < minArchetypeSize) minArchetypeSize = size;
+                el.style.fontSize = calculateFontSize(el, maxArchetypeSize, 10, 425) + 'px';
             }
-        });
-
-        nameEls.forEach(el => {
-            el.style.fontSize = minNameSize + 'px';
-        });
-
-        archetypeEls.forEach(el => {
-            el.style.fontSize = minArchetypeSize + 'px';
         });
     });
 });

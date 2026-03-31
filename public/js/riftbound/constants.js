@@ -168,7 +168,11 @@ export const RIFTBOUND_CHAMPIONS_LIST = [
 
 // ── LEGEND CARD FRAMES (mp4) ────────────────────────────────────────────────
 export const RIFTBOUND_LEGENDS_CARD_FRAMES = {
-    'Kai\'Sa, Daughter of the Void': '/assets/animations/riftbound/cards/kaisa-card-frame.mp4',
+    'Kai\'Sa, Daughter of the Void': '/assets/animations/riftbound/cards/Kai\'Sa, Daughter of the Void - Card Frame.mp4',
+    'Draven, Glorious Executioner': '/assets/animations/riftbound/cards/Draven, Glorious Executioner - Card Frame.mp4',
+    'Ezreal, Prodigal Explorer': '/assets/animations/riftbound/cards/Ezreal, Prodigal Explorer - Card Frame.mp4',
+    'Fiora, Grand Duelist': '/assets/animations/riftbound/cards/Fiora, Grand Duelist - Card Frame.mp4',
+    'Irelia, Blade Dancer': '/assets/animations/riftbound/cards/Irelia, Blade Dancer - Card Frame.mp4',
 };
 
 // ── LEGEND PORTRAITS (scoreboard) ───────────────────────────────────────────

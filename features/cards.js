@@ -212,18 +212,16 @@ function getManaCostFromCardName(cardName, cardsList, gameType) {
 }
 
 
-// use main deck data to get urls, counts and name
-export function transformMainDeck(data, io) {
+// Pure transform: returns { deckData, gameType, sideID, matchID } without emitting
+export function transformMainDeckPure(data) {
     let cleanedCardsMap = {};
     let gameType = data.gameType;
     let deckArray = data.deckData;
     let sideID = data.sideID;
     let matchID = data.matchID;
     if (gameType === 'starwars') {
-        // Delegate deck transformation to starwars feature (handles set-scoped keys)
         const formatted = starwarsTransformDeckData(deckArray);
-        emitTransformedMainDeck(formatted, gameType, sideID, matchID, io);
-        return;
+        return { deckData: formatted, gameType, sideID, matchID };
     }
     if (gameType === 'mtg') {
         cleanedCardsMap = createCleanedCardMap(mtgGetCardListData(), gameType);
@@ -235,38 +233,22 @@ export function transformMainDeck(data, io) {
         cleanedCardsMap = createCleanedCardMap(vibesCards, gameType);
     }
 
-    // --- Riftbound: categorized structure ---
-    // Legend, champion, battlefields, runes are resolved from master control fields (riftboundMeta).
-    // The textarea is filtered to only "other" cards (units, spells, gear).
     if (gameType === 'riftbound') {
         const meta = data.riftboundMeta || {};
-        console.log(`[Riftbound Debug] transform-main-deck-data from SOURCE="${data.source || 'UNKNOWN'}" matchID=${matchID} sideID=${sideID}`);
-        console.log(`[Riftbound Debug] riftboundMeta keys: ${Object.keys(meta).join(', ') || 'EMPTY'}, legend="${meta.legend || ''}", champion="${meta.champion || ''}"`);
-        console.log(`[Riftbound Debug] deckData: ${Array.isArray(deckArray) ? deckArray.length + ' cards' : 'not array'}`);
-
-        // Resolve image URLs for legend and champion from master control field names
-        // Legend titles like "Draven, Glorious Executioner" → card data key is "Glorious Executioner"
         const legendImageUrl = meta.legend ? resolveRiftboundLegendUrl(meta.legend, cleanedCardsMap, gameType) : '';
         const championImageUrl = meta.champion ? getURLFromCardName(meta.champion, cleanedCardsMap, gameType) || '' : '';
-
-        // Battlefields from master control fields (filter out empty strings)
         const battlefields = (meta.battlefields || [])
             .filter(name => name && name.trim())
             .map(name => ({ name: name.trim() }));
-
-        // Runes from master control fields (individual color/qty fields, or fallback to runesString)
         const runes = [];
         if (meta.runeColor1) {
             runes.push({ letter: meta.runeColor1.toLowerCase(), count: parseInt(meta.runeQty1, 10) || 0 });
             if (meta.runeColor2) runes.push({ letter: meta.runeColor2.toLowerCase(), count: parseInt(meta.runeQty2, 10) || 0 });
         } else if (meta.runesString) {
-            // Fallback: parse runesString (e.g. "gp" → [{letter:'g'}, {letter:'p'}])
             const letters = meta.runesString.toLowerCase().split('').filter(ch => 'rgbopy'.includes(ch));
             const unique = [...new Set(letters)];
             unique.forEach(letter => runes.push({ letter, count: 0 }));
         }
-
-        // Filter textarea to only "other" cards (skip Legend, Rune, Battlefield types)
         const other = [];
         let runeCountFallback = [];
         deckArray.forEach(card => {
@@ -275,18 +257,14 @@ export function transformMainDeck(data, io) {
             const name = parts[2];
             const url = getURLFromCardName(name, cleanedCardsMap, gameType);
             const type = cleanedCardsMap[name]?.type || 'Other';
-
             if (type === 'Legend' || type === 'Battlefield') {
                 // Skip — sourced from master control fields
             } else if (type === 'Rune') {
-                // Track for fallback rune counts if master control qty fields are empty
                 runeCountFallback.push({ name, count });
             } else {
                 other.push({ 'card-name': name, 'card-count': count, 'card-url': url });
             }
         });
-
-        // Fallback: if rune qty fields were empty, use counts parsed from textarea
         if (runes.length > 0 && runes.every(r => r.count === 0) && runeCountFallback.length > 0) {
             const runeLetterToName = { 'g': 'calm', 'p': 'chaos', 'r': 'fury', 'b': 'mind', 'y': 'order', 'o': 'body' };
             for (const rune of runes) {
@@ -297,26 +275,9 @@ export function transformMainDeck(data, io) {
                 }
             }
         }
-
-        const categorizedDeck = {
-            legendImageUrl,
-            championImageUrl,
-            battlefields,
-            runes,
-            runesString: meta.runesString || '',
-            other
-        };
-
-        console.log('[Riftbound Debug] Resolved categorizedDeck:');
-        console.log('  Legend:', meta.legend, '→', legendImageUrl ? 'URL found' : 'NO URL');
-        console.log('  Champion:', meta.champion, '→', championImageUrl ? 'URL found' : 'NO URL');
-        console.log('  Battlefields:', battlefields.map(b => b.name));
-        console.log('  Runes:', runes);
-        console.log('  Other cards:', other.length);
-
-        emitTransformedMainDeck(categorizedDeck, gameType, sideID, matchID, io);
+        const categorizedDeck = { legendImageUrl, championImageUrl, battlefields, runes, runesString: meta.runesString || '', other };
+        return { deckData: categorizedDeck, gameType, sideID, matchID };
     } else {
-        // --- MTG and others: flat array structure ---
         const flatDeck = [];
         deckArray.forEach(card => {
             const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
@@ -324,31 +285,28 @@ export function transformMainDeck(data, io) {
             const name = parts[2];
             const url = getURLFromCardName(name, cleanedCardsMap, gameType);
             const manaCost = getManaCostFromCardName(name, cleanedCardsMap, gameType);
-
-            flatDeck.push({
-                'card-name': name,
-                'card-count': count,
-                'card-url': url,
-                'mana-cost': manaCost
-            });
+            flatDeck.push({ 'card-name': name, 'card-count': count, 'card-url': url, 'mana-cost': manaCost });
         });
-
-        emitTransformedMainDeck(flatDeck, gameType, sideID, matchID, io);
+        return { deckData: flatDeck, gameType, sideID, matchID };
     }
 }
 
-// use side deck data to get urls, counts and name
-export function transformSideDeck(data, io) {
+// Wrapper: transforms and emits (backward compatible)
+export function transformMainDeck(data, io) {
+    const result = transformMainDeckPure(data);
+    emitTransformedMainDeck(result.deckData, result.gameType, result.sideID, result.matchID, io);
+}
+
+// Pure transform: returns { deckData, gameType, sideID, matchID } without emitting
+export function transformSideDeckPure(data) {
     let cleanedCardsMap = {};
     let gameType = data.gameType;
     let deckArray = data.deckData;
     let sideID = data.sideID;
     let matchID = data.matchID;
     if (gameType === 'starwars') {
-        // Delegate side-deck transformation to starwars feature
         const formatted = starwarsTransformDeckData(deckArray);
-        emitTransformedSideDeck(formatted, gameType, sideID, matchID, io);
-        return;
+        return { deckData: formatted, gameType, sideID, matchID };
     }
     if (gameType === 'mtg') {
         cleanedCardsMap = createCleanedCardMap(mtgGetCardListData(), gameType);
@@ -359,9 +317,6 @@ export function transformSideDeck(data, io) {
         const vibesCards = vibesGetCardListData();
         cleanedCardsMap = createCleanedCardMap(vibesCards, gameType);
     }
-
-    // same flat structure for side deck regardless of game type
-    // flat array structure ---
     const flatDeck = [];
     deckArray.forEach(card => {
         const parts = card.match(/^(\d+)\s+(.*)$/) || [null, '1', card];
@@ -369,16 +324,15 @@ export function transformSideDeck(data, io) {
         const name = parts[2];
         const url = getURLFromCardName(name, cleanedCardsMap, gameType);
         const manaCost = getManaCostFromCardName(name, cleanedCardsMap, gameType);
-
-        flatDeck.push({
-            'card-name': name,
-            'card-count': count,
-            'card-url': url,
-            'mana-cost': manaCost
-        });
+        flatDeck.push({ 'card-name': name, 'card-count': count, 'card-url': url, 'mana-cost': manaCost });
     });
+    return { deckData: flatDeck, gameType, sideID, matchID };
+}
 
-    emitTransformedSideDeck(flatDeck, gameType, sideID, matchID, io);
+// Wrapper: transforms and emits (backward compatible)
+export function transformSideDeck(data, io) {
+    const result = transformSideDeckPure(data);
+    emitTransformedSideDeck(result.deckData, result.gameType, result.sideID, result.matchID, io);
 }
 
 // Transform draft list data - similar to main deck but for draft picks

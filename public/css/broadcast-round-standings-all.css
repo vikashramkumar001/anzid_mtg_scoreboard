@@ -88,44 +88,60 @@ body {
 }
 
 .standings-rank {
-    width: 54px;
+    width: var(--standings-rank-width, 54px);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    margin: 0 15px;
+    margin: var(--standings-rank-margin, 0 15px);
+    position: relative;
+    top: var(--standings-rank-top, 0);
+    left: var(--standings-rank-left, 0);
+    font-size: var(--standings-rank-font-size, 36px);
+    font-style: var(--standings-rank-font-style, normal);
+    font-weight: var(--standings-rank-font-weight, inherit);
+    color: var(--standings-rank-color, inherit);
 }
 
 .player-name-archetype {
     width: 428px;
+    height: var(--standings-text-height, auto);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    left: var(--standings-text-left, 0);
+    top: var(--standings-text-top, 0);
 }
 
 .standings-name {
     display: block;
     white-space: nowrap;
     text-align: start;
-    line-height: 1.2;
+    line-height: var(--standings-name-line-height, 1.2);
+    color: var(--standings-name-color, inherit);
+    font-size: var(--standings-name-font-size, 36px);
 }
 
 .standings-archetype {
     display: block;
     font-style: var(--archetype-font-style, italic);
     font-weight: var(--archetype-font-weight, bold);
-    font-size: 24px;
     width: 88%;
     text-align: start;
     white-space: nowrap;
     line-height: 1.2;
+    color: var(--standings-archetype-color, inherit);
+    font-size: var(--standings-archetype-font-size, 24px);
 }
 
 .standings-record {
     position: absolute;
     left: 515px;
     top: 0;
+    color: var(--standings-record-color, inherit);
+    font-size: var(--standings-record-font-size, inherit);
     height: 100%;
     width: 154px;
     display: flex;

@@ -175,10 +175,10 @@ body {
 
 #lower-third-riftbound .commentator-image {
     position: absolute;
-    left: var(--rb-lt-img-left, 140px);
-    top: var(--rb-lt-img-top, 862px);
-    width: var(--rb-lt-width, 616px);
-    height: var(--rb-lt-height, 100px);
+    left: var(--rb-lt-commentator-img-left, var(--rb-lt-img-left, 140px));
+    top: var(--rb-lt-commentator-img-top, var(--rb-lt-img-top, 862px));
+    width: var(--rb-lt-commentator-width, var(--rb-lt-width, 616px));
+    height: var(--rb-lt-commentator-height, var(--rb-lt-height, 100px));
     background-image: var(--rb-lt-bg-image, url('/assets/images/riftbound/lower-third/riftbound-lower-third-default-1v1.png'));
     background-size: var(--rb-lt-bg-size, contain);
     background-repeat: no-repeat;
@@ -186,8 +186,8 @@ body {
 
 #lower-third-riftbound .commentator-text-container {
     position: absolute;
-    left: var(--rb-lt-text-left, 140px);
-    top: var(--rb-lt-text-top, 862px);
+    left: var(--rb-lt-commentator-text-left, var(--rb-lt-text-left, 140px));
+    top: var(--rb-lt-commentator-text-top, var(--rb-lt-text-top, 862px));
 }
 
 #lower-third-riftbound .commentator {

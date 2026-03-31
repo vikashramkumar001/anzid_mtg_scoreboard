@@ -628,6 +628,9 @@ body {
     left: var(--rb-bf-bg-side, 53px);
     width: var(--rb-bf-bg-width, 251px);
     height: var(--rb-bf-bg-height, 61px);
+    background-size: var(--rb-bf-bg-size, 180%);
+    background-position: var(--rb-bf-bg-pos, center 40%);
+    background-repeat: no-repeat;
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-background-right {
@@ -635,6 +638,9 @@ body {
     right: var(--rb-bf-bg-side, 53px);
     width: var(--rb-bf-bg-width, 251px);
     height: var(--rb-bf-bg-height, 61px);
+    background-size: var(--rb-bf-bg-size, 180%);
+    background-position: var(--rb-bf-bg-pos, center 40%);
+    background-repeat: no-repeat;
 }
 
 /* Riftbound Player Legend Background (portrait box) */

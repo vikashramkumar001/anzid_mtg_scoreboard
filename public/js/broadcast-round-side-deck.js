@@ -30,20 +30,8 @@ document.body.classList.add(orientation);
 socket.on('broadcast-round-data', (data) => {
     // {match1:{}, match2:{},...}}
     console.log('data', data);
-
     roundData = data;
-
-    if (data[match_id] && data[match_id][`player-side-deck-${side_id}`]) {
-        // ask server to transform main deck data
-        socket.emit('transform-side-deck-data', ({
-            deckData: data[match_id][`player-side-deck-${side_id}`] || [],
-            gameType: selectedGame,
-            sideID: side_id,
-            matchID: match_id
-        }));
-    } else {
-        console.log('deck data not found for url parameters', match_id, side_id);
-    }
+    // Server now handles transforms — no client-side transform requests needed.
 });
 
 // listen for transformed deck to display

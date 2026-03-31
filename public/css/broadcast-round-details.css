@@ -219,17 +219,17 @@ body.mtg #player-detail {
 
 /* Riftbound Winner Display Styles */
 .winner-display.riftbound .winner-bg-image {
-    left: var(--rb-lt-img-left, 140px);
-    top: var(--rb-lt-img-top, 862px);
-    width: var(--rb-lt-width, 616px);
-    height: var(--rb-lt-height, 100px);
-    background-image: var(--rb-lt-bg-image, url('/assets/images/riftbound/lower-third/riftbound-lower-third-default-1v1.png'));
+    left: var(--rb-lt-winner-img-left, var(--rb-lt-img-left, 140px));
+    top: var(--rb-lt-winner-img-top, var(--rb-lt-img-top, 862px));
+    width: var(--rb-lt-winner-width, var(--rb-lt-width, 616px));
+    height: var(--rb-lt-winner-height, var(--rb-lt-height, 100px));
+    background-image: var(--rb-lt-player-bg-image, var(--rb-lt-bg-image, url('/assets/images/riftbound/lower-third/riftbound-lower-third-default-1v1.png')));
 }
 
 .winner-display.riftbound .winner-text-container {
-    left: var(--rb-lt-text-left, 140px);
-    top: var(--rb-lt-text-top, 901px);
-    width: var(--rb-lt-text-width, 465px);
+    left: var(--rb-lt-winner-text-left, var(--rb-lt-text-left, 140px));
+    top: var(--rb-lt-winner-text-top, var(--rb-lt-text-top, 901px));
+    width: var(--rb-lt-winner-text-width, var(--rb-lt-text-width, 465px));
 }
 
 .winner-display.riftbound .winner-name {
@@ -360,4 +360,25 @@ body.starwars * {
     line-height: 1.05;
     padding-left: var(--swu-lt-subtext-padding-left, 125px);
     color: var(--swu-lt-subtext-color, white);
+}
+
+/* ── Head-to-Head ──────────────────────────────────────────────────────────── */
+/* Inherits all winner styles, only overrides the background image */
+
+.head-to-head-bg {
+    background-image: var(--h2h-bg-image, url('/assets/images/mtg/lower-third/mtg-lower-third-default-1v1.png'));
+}
+
+.winner-display.riftbound.head-to-head .head-to-head-bg {
+    left: var(--rb-h2h-img-left, var(--rb-lt-img-left, 140px));
+    top: var(--rb-h2h-img-top, var(--rb-lt-img-top, 862px));
+    width: var(--rb-h2h-width, var(--rb-lt-width, 616px));
+    height: var(--rb-h2h-height, var(--rb-lt-height, 100px));
+    background-image: var(--rb-h2h-bg-image, url('/assets/images/riftbound/lower-third/riftbound-lower-third-default-1v1.png'));
+}
+
+.winner-display.riftbound.head-to-head .winner-text-container {
+    left: var(--rb-h2h-text-left, var(--rb-lt-text-left, 140px));
+    top: var(--rb-h2h-text-top, var(--rb-lt-text-top, 901px));
+    width: var(--rb-h2h-text-width, var(--rb-lt-text-width, 465px));
 }

@@ -14,6 +14,20 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 131
   },
+  "Abandoned Hall": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-205.png",
+    "type": "Battlefield",
+    "id": "unl-205-219",
+    "publicCode": "UNL-205",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 205
+  },
   "Acceptable Losses": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-179.png",
     "type": "Spell",
@@ -133,7 +147,7 @@
       },
       {
         "code": "SFD-227*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-227*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-227_.png",
         "standard": false
       }
     ]
@@ -178,6 +192,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 230
   },
+  "Allay, Eager Admirer": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-041.png",
+    "type": "Unit",
+    "id": "unl-041-219",
+    "publicCode": "UNL-041",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Yordle",
+      "Bandle City"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 41
+  },
   "Alpha Strike": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-192.png",
     "type": "Spell",
@@ -196,6 +230,40 @@
     ],
     "illustrator": "莺之歌",
     "collectorNumber": 192
+  },
+  "Alpha Wildclaw": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-057.png",
+    "type": "Unit",
+    "id": "unl-057-219",
+    "publicCode": "UNL-057",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Epic",
+    "energy": "6",
+    "might": "7",
+    "tags": [
+      "Cat",
+      "Freljord"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 57
+  },
+  "Altar of Blood": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-206.png",
+    "type": "Battlefield",
+    "id": "unl-206-219",
+    "publicCode": "UNL-206",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 206
   },
   "Altar of Memories": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-169.png",
@@ -225,6 +293,20 @@
     "rarity": "Uncommon",
     "illustrator": "Kudos Productions",
     "collectorNumber": 275
+  },
+  "Amateur Recital": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-207.png",
+    "type": "Battlefield",
+    "id": "unl-207-219",
+    "publicCode": "UNL-207",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 207
   },
   "Ancient Henge": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-117.png",
@@ -275,6 +357,25 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 11
+  },
+  "Angler Beast": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-132.png",
+    "type": "Unit",
+    "id": "unl-132-219",
+    "publicCode": "UNL-132",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Bilgewater"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 132
   },
   "Anivia, Primal": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-148.png",
@@ -369,7 +470,7 @@
       },
       {
         "code": "SFD-224*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-224*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-224_.png",
         "standard": false
       }
     ]
@@ -392,6 +493,26 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 41
+  },
+  "Arachnoid Horror": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-117.png",
+    "type": "Unit",
+    "id": "unl-117-219",
+    "publicCode": "UNL-117",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Epic",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Shadow Isles",
+      "Spider"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 117
   },
   "Arcane Shift": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-200.png",
@@ -426,6 +547,26 @@
     "energy": "3",
     "illustrator": "Kudos Productions",
     "collectorNumber": 124
+  },
+  "Arena Kingpin": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-001.png",
+    "type": "Unit",
+    "id": "unl-001-219",
+    "publicCode": "UNL-001",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "5",
+    "might": "3",
+    "tags": [
+      "Yordle",
+      "Noxus"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 1
   },
   "Arise!": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-198.png",
@@ -715,6 +856,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 242
   },
+  "Bandle Soldier": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-151.png",
+    "type": "Unit",
+    "id": "unl-151-219",
+    "publicCode": "UNL-151",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "5",
+    "tags": [
+      "Yordle",
+      "Bandle City"
+    ],
+    "illustrator": "Caravan Studio",
+    "collectorNumber": 151
+  },
   "Bandle Tree": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-278.png",
     "type": "Battlefield",
@@ -760,7 +921,7 @@
       },
       {
         "code": "SFD-228*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-228*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-228_.png",
         "standard": false
       }
     ]
@@ -815,7 +976,7 @@
     "illustrator": "Fish Art Studio",
     "collectorNumber": 1
   },
-  "Bashful Bloom": {
+  "Lillia, Bashful Bloom": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-189.png",
     "type": "Legend",
     "id": "unl-189-219",
@@ -845,7 +1006,7 @@
       },
       {
         "code": "UNL-230*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-230*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-230_.png",
         "standard": false
       }
     ]
@@ -870,7 +1031,7 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 12
   },
-  "Battle Mistress": {
+  "Sivir, Battle Mistress": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-203.png",
     "type": "Legend",
     "id": "sfd-203-221",
@@ -1024,7 +1185,26 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 121
   },
-  "Blade Dancer": {
+  "Black Rose Dignitary": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-152.png",
+    "type": "Unit",
+    "id": "unl-152-219",
+    "publicCode": "UNL-152",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "2",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Grafit Studio",
+    "collectorNumber": 152
+  },
+  "Irelia, Blade Dancer": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-195.png",
     "type": "Legend",
     "id": "sfd-195-221",
@@ -1071,6 +1251,21 @@
     ],
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 178
+  },
+  "Blast Cone": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-133.png",
+    "type": "Gear",
+    "id": "unl-133-219",
+    "publicCode": "UNL-133",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "illustrator": "黯荧岛Dark Glow",
+    "collectorNumber": 133
   },
   "Blast Corps Cadet": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-013.png",
@@ -1179,7 +1374,7 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 25
   },
-  "Blind Monk": {
+  "Lee Sin, Blind Monk": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-257.png",
     "type": "Legend",
     "id": "ogn-257-298",
@@ -1209,7 +1404,7 @@
       },
       {
         "code": "OGN-304*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-304*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-304_.png",
         "standard": false
       }
     ]
@@ -1295,7 +1490,7 @@
     "illustrator": "Rafael Zanchetin",
     "collectorNumber": 3
   },
-  "Bloodharbor Ripper": {
+  "Pyke, Bloodharbor Ripper": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-185.png",
     "type": "Legend",
     "id": "unl-185-219",
@@ -1325,7 +1520,7 @@
       },
       {
         "code": "UNL-228*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-228*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-228_.png",
         "standard": false
       }
     ]
@@ -1453,7 +1648,7 @@
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 133
   },
-  "Bounty Hunter": {
+  "Miss Fortune, Bounty Hunter": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-267.png",
     "type": "Legend",
     "id": "ogn-267-298",
@@ -1483,7 +1678,7 @@
       },
       {
         "code": "OGN-309*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-309*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-309_.png",
         "standard": false
       }
     ]
@@ -1818,6 +2013,26 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 149
   },
+  "Carrion Dredger": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-153.png",
+    "type": "Unit",
+    "id": "unl-153-219",
+    "publicCode": "UNL-153",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "1",
+    "tags": [
+      "Mech",
+      "Zaun"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 153
+  },
   "Catalyst of Aeons": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-138.png",
     "type": "Spell",
@@ -1852,6 +2067,25 @@
     ],
     "illustrator": "Bubble Cat Studio",
     "collectorNumber": 165
+  },
+  "Chakram Dancer": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-071.png",
+    "type": "Unit",
+    "id": "unl-071-219",
+    "publicCode": "UNL-071",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Bilgewater"
+    ],
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 71
   },
   "Challenge": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-128.png",
@@ -1909,7 +2143,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 43
   },
-  "Chem-Baroness": {
+  "Renata Glasc, Chem-Baroness": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-201.png",
     "type": "Legend",
     "id": "sfd-201-221",
@@ -1992,6 +2226,21 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 139
+  },
+  "Clash of Giants": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-110.png",
+    "type": "Spell",
+    "id": "unl-110-219",
+    "publicCode": "UNL-110",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Rare",
+    "energy": "6",
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 110
   },
   "Cleave": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-004.png",
@@ -2128,6 +2377,21 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 129
+  },
+  "Conscription": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-140.png",
+    "type": "Spell",
+    "id": "unl-140-219",
+    "publicCode": "UNL-140",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 140
   },
   "Consult the Past": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-083.png",
@@ -2533,7 +2797,7 @@
       },
       {
         "code": "SFD-236*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-236*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-236_.png",
         "standard": false
       },
       {
@@ -2576,7 +2840,7 @@
       }
     ]
   },
-  "Dark Child - Starter": {
+  "Annie, Dark Child - Starter": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-017.png",
     "type": "Legend",
     "id": "ogs-017-024",
@@ -2594,7 +2858,7 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 17
   },
-  "Daughter of the Void": {
+  "Kai'Sa, Daughter of the Void": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-247.png",
     "type": "Legend",
     "id": "ogn-247-298",
@@ -2624,7 +2888,7 @@
       },
       {
         "code": "OGN-299*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-299*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-299_.png",
         "standard": false
       }
     ]
@@ -2698,6 +2962,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 73
   },
+  "Death from Below": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-186.png",
+    "type": "Spell",
+    "id": "unl-186-219",
+    "publicCode": "UNL-186",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury",
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "4",
+    "tags": [
+      "Pyke"
+    ],
+    "illustrator": "莺之歌",
+    "collectorNumber": 186
+  },
   "Deathgrip": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-163.png",
     "type": "Spell",
@@ -2713,7 +2996,7 @@
     "illustrator": "Polar Engine Studio",
     "collectorNumber": 163
   },
-  "Deceiver": {
+  "LeBlanc, Deceiver": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-199.png",
     "type": "Legend",
     "id": "unl-199-219",
@@ -2743,7 +3026,7 @@
       },
       {
         "code": "UNL-235*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-235*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-235_.png",
         "standard": false
       }
     ]
@@ -3003,6 +3286,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 5
   },
+  "Disposal Order": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-103.png",
+    "type": "Spell",
+    "id": "unl-103-219",
+    "publicCode": "UNL-103",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 103
+  },
   "Divine Judgment": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-244.png",
     "type": "Spell",
@@ -3017,6 +3315,21 @@
     "energy": "7",
     "illustrator": "Kudos Productions",
     "collectorNumber": 244
+  },
+  "Divining Shells": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-161.png",
+    "type": "Gear",
+    "id": "unl-161-219",
+    "publicCode": "UNL-161",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 161
   },
   "Doran's Blade": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-095.png",
@@ -3071,6 +3384,21 @@
     ],
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 33
+  },
+  "Double Trouble": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-032.png",
+    "type": "Spell",
+    "id": "unl-032-219",
+    "publicCode": "UNL-032",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 32
   },
   "Downstage Dramatics": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-061.png",
@@ -3155,6 +3483,44 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 258
+  },
+  "Dragonsoul Sage": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-093.png",
+    "type": "Unit",
+    "id": "unl-093-219",
+    "publicCode": "UNL-093",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "1",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Dao Trong Le",
+    "collectorNumber": 93
+  },
+  "Dramatic Visionary": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-062.png",
+    "type": "Unit",
+    "id": "unl-062-219",
+    "publicCode": "UNL-062",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 62
   },
   "Draven, Audacious": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-148.png",
@@ -3352,6 +3718,21 @@
     "illustrator": "Michal Ivan",
     "collectorNumber": 6
   },
+  "Eclipse": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-063.png",
+    "type": "Spell",
+    "id": "unl-063-219",
+    "publicCode": "UNL-063",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 63
+  },
   "Eclipse Herald": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-059.png",
     "type": "Unit",
@@ -3480,7 +3861,7 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 152
   },
-  "Emperor of the Sands": {
+  "Azir, Emperor of the Sands": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-197.png",
     "type": "Legend",
     "id": "sfd-197-221",
@@ -3608,6 +3989,26 @@
     ],
     "illustrator": "Valentin Gloaguen",
     "collectorNumber": 43
+  },
+  "Evelynn, Entrancing": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-141.png",
+    "type": "Unit",
+    "id": "unl-141-219",
+    "publicCode": "UNL-141",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Evelynn",
+      "Demon"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 141
   },
   "Evershade Stalker": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-123.png",
@@ -3878,6 +4279,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 29
   },
+  "Fate Weaver": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-064.png",
+    "type": "Unit",
+    "id": "unl-064-219",
+    "publicCode": "UNL-064",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "5",
+    "might": "4",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Valentin Gloaguen",
+    "collectorNumber": 64
+  },
   "Feral Strength": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-034.png",
     "type": "Spell",
@@ -4047,7 +4467,7 @@
       }
     ]
   },
-  "Fire Below the Mountain": {
+  "Ornn, Fire Below the Mountain": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-189.png",
     "type": "Legend",
     "id": "sfd-189-221",
@@ -4181,6 +4601,21 @@
     "energy": "1",
     "illustrator": "Rafael Zanchetin",
     "collectorNumber": 133
+  },
+  "Flurry of Feathers": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-044.png",
+    "type": "Spell",
+    "id": "unl-044-219",
+    "publicCode": "UNL-044",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 44
   },
   "Forbidding Waste": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-210.png",
@@ -4401,6 +4836,26 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 66
+  },
+  "Frisky Hunter": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-033.png",
+    "type": "Unit",
+    "id": "unl-033-219",
+    "publicCode": "UNL-033",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "3",
+    "tags": [
+      "Cat",
+      "Zaun"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 33
   },
   "Frostcoat Cub": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-067.png",
@@ -4631,6 +5086,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 94
   },
+  "Gentle Gemdragon": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-104.png",
+    "type": "Unit",
+    "id": "unl-104-219",
+    "publicCode": "UNL-104",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "8",
+    "might": "8",
+    "tags": [
+      "Dragon",
+      "Mount Targon"
+    ],
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 104
+  },
   "Gentlemen's Duel": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-008.png",
     "type": "Spell",
@@ -4680,7 +5155,7 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 165
   },
-  "Gloomist": {
+  "Vex, Gloomist": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-193.png",
     "type": "Legend",
     "id": "unl-193-219",
@@ -4710,12 +5185,12 @@
       },
       {
         "code": "UNL-232*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-232*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-232_.png",
         "standard": false
       }
     ]
   },
-  "Glorious Executioner": {
+  "Draven, Glorious Executioner": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-185.png",
     "type": "Legend",
     "id": "sfd-185-221",
@@ -4771,7 +5246,7 @@
       }
     ]
   },
-  "Grand Duelist": {
+  "Fiora, Grand Duelist": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-205.png",
     "type": "Legend",
     "id": "sfd-205-221",
@@ -4816,7 +5291,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 233
   },
-  "Grandmaster at Arms": {
+  "Jax, Grandmaster at Arms": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-193.png",
     "type": "Legend",
     "id": "sfd-193-221",
@@ -4846,7 +5321,7 @@
       }
     ]
   },
-  "Green Father": {
+  "Ivern, Green Father": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-195.png",
     "type": "Legend",
     "id": "unl-195-219",
@@ -4876,10 +5351,44 @@
       },
       {
         "code": "UNL-233*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-233*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-233_.png",
         "standard": false
       }
     ]
+  },
+  "Grim Apothecary": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-021.png",
+    "type": "Unit",
+    "id": "unl-021-219",
+    "publicCode": "UNL-021",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 21
+  },
+  "Grim Resolve": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-095.png",
+    "type": "Spell",
+    "id": "unl-095-219",
+    "publicCode": "UNL-095",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 95
   },
   "Grove of the God-Willow": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-280.png",
@@ -5045,7 +5554,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 281
   },
-  "Hand of Noxus": {
+  "Darius, Hand of Noxus": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-253.png",
     "type": "Legend",
     "id": "ogn-253-298",
@@ -5075,7 +5584,7 @@
       },
       {
         "code": "OGN-302*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-302*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-302_.png",
         "standard": false
       }
     ]
@@ -5224,7 +5733,7 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 34
   },
-  "Herald of the Arcane": {
+  "Viktor, Herald of the Arcane": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-265.png",
     "type": "Legend",
     "id": "ogn-265-298",
@@ -5254,7 +5763,7 @@
       },
       {
         "code": "OGN-308*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-308*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-308_.png",
         "standard": false
       }
     ]
@@ -5410,6 +5919,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 155
   },
+  "Honeyfruit": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-049.png",
+    "type": "Gear",
+    "id": "unl-049-219",
+    "publicCode": "UNL-049",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "illustrator": "黯荧岛Dark Glow",
+    "collectorNumber": 49
+  },
   "Hostile Takeover": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-202.png",
     "type": "Spell",
@@ -5558,6 +6082,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 221
   },
+  "Imposing Challenger": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-105.png",
+    "type": "Unit",
+    "id": "unl-105-219",
+    "publicCode": "UNL-105",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 105
+  },
   "Incinerate": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-003.png",
     "type": "Spell",
@@ -5683,7 +6226,7 @@
       },
       {
         "code": "SFD-225*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-225*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-225_.png",
         "standard": false
       }
     ]
@@ -5734,6 +6277,26 @@
     "energy": "3",
     "illustrator": "Kudos Productions",
     "collectorNumber": 17
+  },
+  "Irresistible Faefolk": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-112.png",
+    "type": "Unit",
+    "id": "unl-112-219",
+    "publicCode": "UNL-112",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "might": "1",
+    "tags": [
+      "Fae",
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 112
   },
   "Isolate": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-124.png",
@@ -6219,7 +6782,7 @@
       },
       {
         "code": "SFD-237*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-237*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-237_.png",
         "standard": false
       }
     ]
@@ -6244,6 +6807,26 @@
     ],
     "illustrator": "League Splash Team",
     "collectorNumber": 236
+  },
+  "Katarina, Reckless": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-023.png",
+    "type": "Unit",
+    "id": "unl-023-219",
+    "publicCode": "UNL-023",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Katarina",
+      "Noxus"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 23
   },
   "Kato the Arm": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-112.png",
@@ -6284,7 +6867,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 189
   },
-  "Keeper of the Hammer": {
+  "Keeper of Masks": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-081.png",
+    "type": "Unit",
+    "id": "unl-081-219",
+    "publicCode": "UNL-081",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "might": "1",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 81
+  },
+  "Poppy, Keeper of the Hammer": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-203.png",
     "type": "Legend",
     "id": "unl-203-219",
@@ -6314,7 +6916,7 @@
       },
       {
         "code": "UNL-237*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-237*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-237_.png",
         "standard": false
       }
     ]
@@ -6417,6 +7019,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 237
   },
+  "Kinkou Initiate": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-097.png",
+    "type": "Unit",
+    "id": "unl-097-219",
+    "publicCode": "UNL-097",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 97
+  },
   "Kinkou Monk": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-141.png",
     "type": "Unit",
@@ -6476,7 +7097,7 @@
     "illustrator": "JiHun Lee",
     "collectorNumber": 150
   },
-  "Lady of Luminosity - Starter": {
+  "Lux, Lady of Luminosity - Starter": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-021.png",
     "type": "Legend",
     "id": "ogs-021-024",
@@ -6612,6 +7233,38 @@
       {
         "code": "UNL-090a",
         "imageUrl": "/assets/images/riftbound/cards/UNL-090a.png",
+        "standard": false
+      }
+    ]
+  },
+  "LeBlanc, Fragmented": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-172.png",
+    "type": "Unit",
+    "id": "unl-172-219",
+    "publicCode": "UNL-172",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Noxus",
+      "LeBlanc"
+    ],
+    "illustrator": "League Splash Team",
+    "collectorNumber": 172,
+    "variants": [
+      {
+        "code": "UNL-172",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-172.png",
+        "standard": true
+      },
+      {
+        "code": "UNL-172a",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-172a.png",
         "standard": false
       }
     ]
@@ -6804,6 +7457,39 @@
       }
     ]
   },
+  "Lillia, Fae Fawn": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-082.png",
+    "type": "Unit",
+    "id": "unl-082-219",
+    "publicCode": "UNL-082",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Fae",
+      "Lillia",
+      "Ionia"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 82,
+    "variants": [
+      {
+        "code": "UNL-082",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-082.png",
+        "standard": true
+      },
+      {
+        "code": "UNL-082a",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-082a.png",
+        "standard": false
+      }
+    ]
+  },
   "Lillia, Protector of Dreams": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-058.png",
     "type": "Unit",
@@ -6906,7 +7592,7 @@
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 22
   },
-  "Loose Cannon": {
+  "Jinx, Loose Cannon": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-251.png",
     "type": "Legend",
     "id": "ogn-251-298",
@@ -6936,10 +7622,29 @@
       },
       {
         "code": "OGN-301*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-301*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-301_.png",
         "standard": false
       }
     ]
+  },
+  "Lord Broadmane": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-012.png",
+    "type": "Unit",
+    "id": "unl-012-219",
+    "publicCode": "UNL-012",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 12
   },
   "Lotus Trap": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-013.png",
@@ -7062,6 +7767,21 @@
       }
     ]
   },
+  "Lunar Boon": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-125.png",
+    "type": "Spell",
+    "id": "unl-125-219",
+    "publicCode": "UNL-125",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 125
+  },
   "Lux, Crownguard": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-014.png",
     "type": "Unit",
@@ -7140,6 +7860,25 @@
     ],
     "illustrator": "Alex Heath",
     "collectorNumber": 191
+  },
+  "Maduli the Gatekeeper": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-144.png",
+    "type": "Unit",
+    "id": "unl-144-219",
+    "publicCode": "UNL-144",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "7",
+    "might": "6",
+    "tags": [
+      "Bandle City"
+    ],
+    "illustrator": "Caravan Studio",
+    "collectorNumber": 144
   },
   "Mageseeker Investigator": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-163.png",
@@ -7345,7 +8084,7 @@
       }
     ]
   },
-  "Mechanized Menace": {
+  "Rumble, Mechanized Menace": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-181.png",
     "type": "Legend",
     "id": "sfd-181-221",
@@ -7429,7 +8168,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 126
   },
-  "Might of Demacia - Starter": {
+  "Garen, Might of Demacia - Starter": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-023.png",
     "type": "Legend",
     "id": "ogs-023-024",
@@ -7630,6 +8369,26 @@
       }
     ]
   },
+  "Mister Root": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-127.png",
+    "type": "Unit",
+    "id": "unl-127-219",
+    "publicCode": "UNL-127",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "1",
+    "tags": [
+      "Fae",
+      "Ionia"
+    ],
+    "illustrator": "Caravan Studio",
+    "collectorNumber": 127
+  },
   "Mistfall": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-152.png",
     "type": "Gear",
@@ -7674,6 +8433,40 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 282
   },
+  "Monch": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-035.png",
+    "type": "Unit",
+    "id": "unl-035-219",
+    "publicCode": "UNL-035",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Bandle City"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 35
+  },
+  "Monster Harpoon": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-014.png",
+    "type": "Spell",
+    "id": "unl-014-219",
+    "publicCode": "UNL-014",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "1",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 14
+  },
   "Moonfall": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-198.png",
     "type": "Spell",
@@ -7692,6 +8485,21 @@
     ],
     "illustrator": "Grafit Studio",
     "collectorNumber": 198
+  },
+  "Moonlight Affliction": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-066.png",
+    "type": "Spell",
+    "id": "unl-066-219",
+    "publicCode": "UNL-066",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "7",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 66
   },
   "Morbid Return": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-170.png",
@@ -7828,6 +8636,26 @@
     "illustrator": "Polar Engine Studio",
     "collectorNumber": 80
   },
+  "Nami, Headstrong": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-052.png",
+    "type": "Unit",
+    "id": "unl-052-219",
+    "publicCode": "UNL-052",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Mount Targon",
+      "Nami"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 52
+  },
   "Navori Fighting Pit": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-283.png",
     "type": "Battlefield",
@@ -7924,7 +8752,7 @@
     "illustrator": "Envar Studio",
     "collectorNumber": 115
   },
-  "Nine-Tailed Fox": {
+  "Ahri, Nine-Tailed Fox": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-255.png",
     "type": "Legend",
     "id": "ogn-255-298",
@@ -7954,7 +8782,7 @@
       },
       {
         "code": "OGN-303*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-303*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-303_.png",
         "standard": false
       }
     ]
@@ -8347,6 +9175,26 @@
     "illustrator": "Kudos Productions & 黯荧岛Dark Glow",
     "collectorNumber": 15
   },
+  "Petal Pixie": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-076.png",
+    "type": "Unit",
+    "id": "unl-076-219",
+    "publicCode": "UNL-076",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Fae",
+      "Ionia"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 76
+  },
   "Petricite Monument": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-104.png",
     "type": "Gear",
@@ -8416,7 +9264,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 23
   },
-  "Piltover Enforcer": {
+  "Vi, Piltover Enforcer": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-187.png",
     "type": "Legend",
     "id": "unl-187-219",
@@ -8446,7 +9294,7 @@
       },
       {
         "code": "UNL-229*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-229*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-229_.png",
         "standard": false
       }
     ]
@@ -8766,7 +9614,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 4
   },
-  "Pridestalker": {
+  "Rengar, Pridestalker": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-183.png",
     "type": "Legend",
     "id": "unl-183-219",
@@ -8796,7 +9644,7 @@
       },
       {
         "code": "UNL-227*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-227*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-227_.png",
         "standard": false
       }
     ]
@@ -8836,7 +9684,7 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 75
   },
-  "Prodigal Explorer": {
+  "Ezreal, Prodigal Explorer": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-199.png",
     "type": "Legend",
     "id": "sfd-199-221",
@@ -8926,7 +9774,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 97
   },
-  "Purifier": {
+  "Lucian, Purifier": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-183.png",
     "type": "Legend",
     "id": "sfd-183-221",
@@ -9060,7 +9908,7 @@
     "illustrator": "Grafit Studio",
     "collectorNumber": 191
   },
-  "Radiant Dawn": {
+  "Leona, Radiant Dawn": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-261.png",
     "type": "Legend",
     "id": "ogn-261-298",
@@ -9090,7 +9938,7 @@
       },
       {
         "code": "OGN-306*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-306*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-306_.png",
         "standard": false
       }
     ]
@@ -9472,7 +10320,7 @@
     "illustrator": "Max Grecke",
     "collectorNumber": 184
   },
-  "Relentless Storm": {
+  "Volibear, Relentless Storm": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-249.png",
     "type": "Legend",
     "id": "ogn-249-298",
@@ -9502,7 +10350,7 @@
       },
       {
         "code": "OGN-300*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-300*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-300_.png",
         "standard": false
       }
     ]
@@ -9678,6 +10526,21 @@
       }
     ]
   },
+  "Repulse": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-106.png",
+    "type": "Spell",
+    "id": "unl-106-219",
+    "publicCode": "UNL-106",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "1",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 106
+  },
   "Retreat": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-104.png",
     "type": "Spell",
@@ -9796,6 +10659,21 @@
         "standard": false
       }
     ]
+  },
+  "Right of Conquest": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-015.png",
+    "type": "Spell",
+    "id": "unl-015-219",
+    "publicCode": "UNL-015",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 15
   },
   "Riposte": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-206.png",
@@ -9936,6 +10814,25 @@
     "illustrator": "Grafit Studio",
     "collectorNumber": 105
   },
+  "Ruined Rex": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-067.png",
+    "type": "Unit",
+    "id": "unl-067-219",
+    "publicCode": "UNL-067",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Bilgewater"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 67
+  },
   "Rumble, Hotheaded": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-026.png",
     "type": "Unit",
@@ -10067,6 +10964,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 173
   },
+  "Safety Inspector": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-164.png",
+    "type": "Unit",
+    "id": "unl-164-219",
+    "publicCode": "UNL-164",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Uncommon",
+    "energy": "5",
+    "might": "3",
+    "tags": [
+      "Yordle",
+      "Bandle City"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 164
+  },
   "Sai Scout": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-174.png",
     "type": "Unit",
@@ -10120,7 +11037,27 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 158
   },
-  "Scorn of the Moon": {
+  "Scorchclaw": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-016.png",
+    "type": "Unit",
+    "id": "unl-016-219",
+    "publicCode": "UNL-016",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Dog",
+      "Noxus"
+    ],
+    "illustrator": "黯荧岛Dark Glow",
+    "collectorNumber": 16
+  },
+  "Diana, Scorn of the Moon": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-197.png",
     "type": "Legend",
     "id": "unl-197-219",
@@ -10150,7 +11087,7 @@
       },
       {
         "code": "UNL-234*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-234*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-234_.png",
         "standard": false
       }
     ]
@@ -10209,6 +11146,21 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 157
+  },
+  "Scryer's Bloom": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-136.png",
+    "type": "Gear",
+    "id": "unl-136-219",
+    "publicCode": "UNL-136",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "1",
+    "illustrator": "黯荧岛Dark Glow",
+    "collectorNumber": 136
   },
   "Scuttle Crab": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-053.png",
@@ -10500,7 +11452,7 @@
       },
       {
         "code": "SFD-232*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-232*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-232_.png",
         "standard": false
       }
     ]
@@ -10536,6 +11488,27 @@
         "standard": false
       }
     ]
+  },
+  "Shadow": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-194.png",
+    "type": "Unit",
+    "id": "unl-194-219",
+    "publicCode": "UNL-194",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm",
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Vex",
+      "Shadow Isles"
+    ],
+    "illustrator": "莺之歌",
+    "collectorNumber": 194
   },
   "Shadow Watcher": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-037.png",
@@ -10586,6 +11559,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 33
   },
+  "Shard of Undoing": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-174.png",
+    "type": "Gear",
+    "id": "unl-174-219",
+    "publicCode": "UNL-174",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "6",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 174
+  },
   "Sharkling": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-006.png",
     "type": "Unit",
@@ -10624,6 +11612,24 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 241
+  },
+  "Shepherd's Heirloom": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-158.png",
+    "type": "Gear",
+    "id": "unl-158-219",
+    "publicCode": "UNL-158",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "tags": [
+      "Equipment"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 158
   },
   "Shipyard Skulker": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-175.png",
@@ -10883,6 +11889,21 @@
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 30
   },
+  "Skyward Strike": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-038.png",
+    "type": "Spell",
+    "id": "unl-038-219",
+    "publicCode": "UNL-038",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 38
+  },
   "Smite": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-007.png",
     "type": "Spell",
@@ -10912,6 +11933,21 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 93
+  },
+  "Smoke and Mirrors": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-083.png",
+    "type": "Spell",
+    "id": "unl-083-219",
+    "publicCode": "UNL-083",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 83
   },
   "Sneaky Deckhand": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-176.png",
@@ -11058,10 +12094,25 @@
       },
       {
         "code": "SFD-239*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-239*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-239_.png",
         "standard": false
       }
     ]
+  },
+  "Soul Harvest": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-159.png",
+    "type": "Spell",
+    "id": "unl-159-219",
+    "publicCode": "UNL-159",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 159
   },
   "Soul Shepherd": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-077.png",
@@ -11119,6 +12170,26 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 196
+  },
+  "Spectral Centaur": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-068.png",
+    "type": "Unit",
+    "id": "unl-068-219",
+    "publicCode": "UNL-068",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "6",
+    "might": "5",
+    "tags": [
+      "Spirit",
+      "Shadow Isles"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 68
   },
   "Spectral Matron": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-226.png",
@@ -11235,6 +12306,21 @@
       }
     ]
   },
+  "Sprite Burst": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-069.png",
+    "type": "Spell",
+    "id": "unl-069-219",
+    "publicCode": "UNL-069",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "5",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 69
+  },
   "Sprite Call": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-094.png",
     "type": "Spell",
@@ -11283,6 +12369,41 @@
     ],
     "illustrator": "Envar Studio",
     "collectorNumber": 106
+  },
+  "Sprite Queen": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-084.png",
+    "type": "Unit",
+    "id": "unl-084-219",
+    "publicCode": "UNL-084",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "7",
+    "might": "6",
+    "tags": [
+      "Fae",
+      "Ionia"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 84
+  },
+  "Square Up": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-017.png",
+    "type": "Spell",
+    "id": "unl-017-219",
+    "publicCode": "UNL-017",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 17
   },
   "Stacked Deck": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-183.png",
@@ -11381,6 +12502,21 @@
     "energy": "3",
     "illustrator": "Kudos Productions",
     "collectorNumber": 128
+  },
+  "Stare Down": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-107.png",
+    "type": "Spell",
+    "id": "unl-107-219",
+    "publicCode": "UNL-107",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 107
   },
   "Starhound": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-167.png",
@@ -11555,6 +12691,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 17
   },
+  "Sumpworks Map": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-085.png",
+    "type": "Gear",
+    "id": "unl-085-219",
+    "publicCode": "UNL-085",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 85
+  },
   "Sun Disc": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-021.png",
     "type": "Gear",
@@ -11640,7 +12791,7 @@
     "illustrator": "Envar Studio",
     "collectorNumber": 59
   },
-  "Swift Scout": {
+  "Teemo, Swift Scout": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-263.png",
     "type": "Legend",
     "id": "ogn-263-298",
@@ -11670,7 +12821,7 @@
       },
       {
         "code": "OGN-307*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-307*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-307_.png",
         "standard": false
       }
     ]
@@ -11704,6 +12855,41 @@
     "energy": "1",
     "illustrator": "Kudos Productions",
     "collectorNumber": 227
+  },
+  "Syndra, Transcendent": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-146.png",
+    "type": "Unit",
+    "id": "unl-146-219",
+    "publicCode": "UNL-146",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Ionia",
+      "Syndra"
+    ],
+    "illustrator": "Naifan Zhang",
+    "collectorNumber": 146
+  },
+  "Tactical Retreat": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-175.png",
+    "type": "Spell",
+    "id": "unl-175-219",
+    "publicCode": "UNL-175",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 175
   },
   "Targon's Peak": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-289.png",
@@ -11848,8 +13034,8 @@
         "standard": false
       },
       {
-        "code": "SFD-230*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-230*.png",
+        "code": "OGN-121a",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-121a.png",
         "standard": false
       }
     ]
@@ -11912,7 +13098,7 @@
     "illustrator": "Envar Studio",
     "collectorNumber": 290
   },
-  "The Boss": {
+  "Sett, The Boss": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-269.png",
     "type": "Legend",
     "id": "ogn-269-298",
@@ -11942,7 +13128,7 @@
       },
       {
         "code": "OGN-310*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-310*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-310_.png",
         "standard": false
       }
     ]
@@ -12223,6 +13409,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 122
   },
+  "Towering Combatant": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-099.png",
+    "type": "Unit",
+    "id": "unl-099-219",
+    "publicCode": "UNL-099",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "3",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "JiHun Lee",
+    "collectorNumber": 99
+  },
   "Towering Pairofant": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-008.png",
     "type": "Unit",
@@ -12322,6 +13527,41 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 186
+  },
+  "Trevor Snoozebottom": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-048.png",
+    "type": "Unit",
+    "id": "unl-048-219",
+    "publicCode": "UNL-048",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Yordle",
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 48
+  },
+  "Tricksy Tentacles": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-054.png",
+    "type": "Spell",
+    "id": "unl-054-219",
+    "publicCode": "UNL-054",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "4",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 54
   },
   "Trifarian Gloryseeker": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-217.png",
@@ -12560,6 +13800,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 175
   },
+  "Undying Legion": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-025.png",
+    "type": "Unit",
+    "id": "unl-025-219",
+    "publicCode": "UNL-025",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Spirit",
+      "Shadow Isles"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 25
+  },
   "Undying Loyalty": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-168.png",
     "type": "Spell",
@@ -12575,7 +13835,7 @@
     "illustrator": "Max Grecke",
     "collectorNumber": 168
   },
-  "Unforgiven": {
+  "Yasuo, Unforgiven": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-259.png",
     "type": "Legend",
     "id": "ogn-259-298",
@@ -12605,7 +13865,7 @@
       },
       {
         "code": "OGN-305*",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-305*.png",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-305_.png",
         "standard": false
       }
     ]
@@ -12674,6 +13934,20 @@
     "energy": "2",
     "illustrator": "莺之歌",
     "collectorNumber": 9
+  },
+  "Valley of Idols": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-218.png",
+    "type": "Battlefield",
+    "id": "unl-218-219",
+    "publicCode": "UNL-218",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Caravan Studio",
+    "collectorNumber": 218
   },
   "Vanguard Armory": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-168.png",
@@ -12765,6 +14039,21 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 219
   },
+  "Vault Breaker": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-010.png",
+    "type": "Spell",
+    "id": "unl-010-219",
+    "publicCode": "UNL-010",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "1",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 10
+  },
   "Vaults of Helia": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-219.png",
     "type": "Battlefield",
@@ -12811,7 +14100,7 @@
       },
       {
         "code": "SFD-223*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-223*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-223_.png",
         "standard": false
       }
     ]
@@ -12877,6 +14166,39 @@
       }
     ]
   },
+  "Vex, Apathetic": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-150.png",
+    "type": "Unit",
+    "id": "unl-150-219",
+    "publicCode": "UNL-150",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Yordle",
+      "Vex",
+      "Shadow Isles"
+    ],
+    "illustrator": "League Splash Team",
+    "collectorNumber": 150,
+    "variants": [
+      {
+        "code": "UNL-150",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-150.png",
+        "standard": true
+      },
+      {
+        "code": "UNL-150a",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-150a.png",
+        "standard": false
+      }
+    ]
+  },
   "Vex, Cheerless": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-146.png",
     "type": "Unit",
@@ -12897,6 +14219,39 @@
     ],
     "illustrator": "Envar Studio",
     "collectorNumber": 146
+  },
+  "Vex, Mocking": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-055.png",
+    "type": "Unit",
+    "id": "unl-055-219",
+    "publicCode": "UNL-055",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Yordle",
+      "Vex",
+      "Shadow Isles"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 55,
+    "variants": [
+      {
+        "code": "UNL-055",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-055.png",
+        "standard": true
+      },
+      {
+        "code": "UNL-055a",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-055a.png",
+        "standard": false
+      }
+    ]
   },
   "Vi, Destructive": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-036.png",
@@ -12981,6 +14336,25 @@
         "standard": false
       }
     ]
+  },
+  "Vicious Snapjaws": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-129.png",
+    "type": "Unit",
+    "id": "unl-129-219",
+    "publicCode": "UNL-129",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Bilgewater"
+    ],
+    "illustrator": "JiHun Lee",
+    "collectorNumber": 129
   },
   "Viktor, Innovator": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-117.png",
@@ -13092,7 +14466,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 295
   },
-  "Virtuoso": {
+  "Jhin, Virtuoso": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-181.png",
     "type": "Legend",
     "id": "unl-181-219",
@@ -13122,7 +14496,7 @@
       },
       {
         "code": "UNL-226*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-226*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-226_.png",
         "standard": false
       }
     ]
@@ -13146,7 +14520,7 @@
     "illustrator": "莺之歌",
     "collectorNumber": 202
   },
-  "Void Burrower": {
+  "Rek'Sai, Void Burrower": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-187.png",
     "type": "Legend",
     "id": "sfd-187-221",
@@ -13262,7 +14636,7 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 24
   },
-  "Voidreaver": {
+  "Kha'Zix, Voidreaver": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-201.png",
     "type": "Legend",
     "id": "unl-201-219",
@@ -13292,7 +14666,7 @@
       },
       {
         "code": "UNL-236*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-236*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-236_.png",
         "standard": false
       }
     ]
@@ -13684,7 +15058,26 @@
     "illustrator": "Michal Ivan",
     "collectorNumber": 118
   },
-  "Wuju Bladesman - Starter": {
+  "Wuju Apprentice": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-040.png",
+    "type": "Unit",
+    "id": "unl-040-219",
+    "publicCode": "UNL-040",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 40
+  },
+  "Master Yi, Wuju Bladesman - Starter": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-019.png",
     "type": "Legend",
     "id": "ogs-019-024",
@@ -13702,7 +15095,7 @@
     "illustrator": "Grafit Studio/Quy Ho",
     "collectorNumber": 19
   },
-  "Wuju Master": {
+  "Master Yi, Wuju Master": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-191.png",
     "type": "Legend",
     "id": "unl-191-219",
@@ -13732,7 +15125,7 @@
       },
       {
         "code": "UNL-231*",
-        "imageUrl": "/assets/images/riftbound/cards/UNL-231*.png",
+        "imageUrl": "/assets/images/riftbound/cards/UNL-231_.png",
         "standard": false
       }
     ]
@@ -13846,10 +15239,29 @@
       },
       {
         "code": "SFD-235*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-235*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-235_.png",
         "standard": false
       }
     ]
+  },
+  "Yeti Brawler": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-018.png",
+    "type": "Unit",
+    "id": "unl-018-219",
+    "publicCode": "UNL-018",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 18
   },
   "Yone, Blademaster": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-116.png",
@@ -13884,7 +15296,7 @@
       },
       {
         "code": "SFD-233*",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-233*.png",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-233_.png",
         "standard": false
       }
     ]

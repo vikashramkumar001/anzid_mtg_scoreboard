@@ -152,7 +152,9 @@ async function main() {
             const cardCode = getCardCode(card.publicCode || card.id || '');
             const imageUrl = card.cardImage.url;
             const ext = path.extname(new URL(imageUrl).pathname) || '.png';
-            const localFilename = `${cardCode}${ext}`;
+            // Sanitize filename: replace * with _ for Windows compatibility
+            const safeCode = cardCode.replace(/\*/g, '_');
+            const localFilename = `${safeCode}${ext}`;
             const localPath = path.join(CARDS_DIR, localFilename);
             const localUrl = `/assets/images/riftbound/cards/${localFilename}`;
 
@@ -221,7 +223,19 @@ async function main() {
             }));
         }
 
-        cardMap[name] = entry;
+        // Legend cards: prepend champion tag to name (e.g., "Deceiver" → "LeBlanc, Deceiver")
+        const cardType = mapCardType(primaryCard.cardType);
+        if (cardType === 'Legend' && primaryCard.tags?.tags?.length) {
+            const championTag = primaryCard.tags.tags[0]?.label || primaryCard.tags.tags[0];
+            if (championTag) {
+                const fullName = `${championTag}, ${name}`;
+                cardMap[fullName] = entry;
+            } else {
+                cardMap[name] = entry;
+            }
+        } else {
+            cardMap[name] = entry;
+        }
     }
 
     // Post-processing corrections for known Riot data issues

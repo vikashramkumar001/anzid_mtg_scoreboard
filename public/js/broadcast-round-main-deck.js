@@ -15,8 +15,6 @@ let selectedGame = '';  // global game type, e.g., 'mtg' or 'riftbound'
 let currentGame = 'mtg';
 let currentVendor = 'default';
 let currentPlayerCount = '1v1';
-let pendingSideDeckData = null;  // Store side deck data until game selection is known
-let lastTransformPayload = null;  // Dedup: skip identical transform requests
 
 // Star Wars Unlimited Aspects Dictionary
 const SWU_ASPECTS = {
@@ -128,56 +126,13 @@ socket.on('broadcast-round-data', (data) => {
         createLegendDescriptionSection(legend);
     }
 
-    if (data[match_id] && (data[match_id][`player-main-deck-${side_id}`] || selectedGame === 'riftbound')) {
-        // ask server to transform main deck data
-        const transformPayload = {
-            deckData: data[match_id][`player-main-deck-${side_id}`] || [],
-            gameType: selectedGame,
-            sideID: side_id,
-            matchID: match_id,
-            source: 'broadcast-round-main-deck'
-        };
-        // Pass master control fields for riftbound so server resolves image URLs
-        if (selectedGame === 'riftbound') {
-            transformPayload.riftboundMeta = {
-                legend: data[match_id][`player-legend-${side_id}`] || '',
-                champion: data[match_id][`player-champion-${side_id}`] || '',
-                battlefields: [
-                    data[match_id][`player-battlefield-1-${side_id}`] || '',
-                    data[match_id][`player-battlefield-2-${side_id}`] || '',
-                    data[match_id][`player-battlefield-3-${side_id}`] || ''
-                ],
-                runeColor1: data[match_id][`player-rune-color-1-${side_id}`] || '',
-                runeQty1: data[match_id][`player-rune-qty-1-${side_id}`] || '',
-                runeColor2: data[match_id][`player-rune-color-2-${side_id}`] || '',
-                runeQty2: data[match_id][`player-rune-qty-2-${side_id}`] || '',
-                runesString: data[match_id][`player-runes-${side_id}`] || ''
-            };
-            console.log('[Riftbound Debug] Master control fields sent to server:', JSON.stringify(transformPayload.riftboundMeta, null, 2));
-            console.log('[Riftbound Debug] Main deck textarea:', data[match_id][`player-main-deck-${side_id}`]);
-            console.log('[Riftbound Debug] Side deck textarea:', data[match_id][`player-side-deck-${side_id}`]);
-        }
-        const payloadKey = JSON.stringify(transformPayload);
-        if (payloadKey !== lastTransformPayload) {
-            lastTransformPayload = payloadKey;
-            socket.emit('transform-main-deck-data', transformPayload);
-        }
-    } else if (selectedGame === 'starwars' && deckData && deckData.mainDeck) {
+    // Server now handles transforms — no client-side transform requests needed.
+    // The server pushes transformed-main-deck-data and transformed-side-deck-data
+    // after broadcast-round-data.
+
+    if (selectedGame === 'starwars' && deckData && deckData.mainDeck) {
         // Leader/base changed but main deck already loaded — re-render to pick up new values
         renderDecks();
-    } else {
-        console.log('deck data not found for url parameters', match_id, side_id);
-    }
-
-    // Also check for side deck data
-    if (data[match_id] && data[match_id][`player-side-deck-${side_id}`]) {
-        // Store side deck data for later transformation when game selection is known
-        pendingSideDeckData = data[match_id][`player-side-deck-${side_id}`] || [];
-
-        // Request transformation if game selection is already known
-        if (selectedGame) {
-            requestSideDeckTransformation();
-        }
     }
 });
 
@@ -1311,18 +1266,6 @@ function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
     document.body.removeChild(temp);
 }
 
-// Helper function to request side deck transformation
-function requestSideDeckTransformation() {
-    if (pendingSideDeckData && selectedGame) {
-        socket.emit('transform-side-deck-data', ({
-            deckData: pendingSideDeckData,
-            gameType: selectedGame,
-            sideID: side_id,
-            matchID: match_id
-        }));
-    }
-}
-
 // game selection logic
 function updateTheme(game, vendor, playerCount) {
     const gameSelection = game;
@@ -1386,8 +1329,6 @@ function updateTheme(game, vendor, playerCount) {
             if (starwarsSection) starwarsSection.style.display = 'none';
         }
 
-        // Request side deck transformation now that game selection is known
-        requestSideDeckTransformation();
     } // end game-switch block
 
     // --- Vendor overrides and dynamic backgrounds (always run) ---

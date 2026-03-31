@@ -3,6 +3,7 @@ import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelect
 import {getSortedArchetypes} from './archetypes.js';
 import {emitBroadcastStandings} from "./standings.js";
 import { RoomUtils } from '../utils/room-utils.js';
+import { transformAndEmitAllDecks } from './transformAllDecks.js';
 
 let controlData = {};
 let controlsTracker = {
@@ -12,6 +13,7 @@ let controlsTracker = {
     '4': {round_id: '1', match_id: 'match4'}
 };
 let _reEmitCount = 0;
+let _lastBroadcastHash = null;
 let broadcastTracker = {
     round_id: null
 };
@@ -249,11 +251,16 @@ export async function updateFromMaster(allControlData, io) {
         // emit round data to live broadcast changes using broadcastTracker
         // Use merged controlData (not incoming roundData) to include preserved draft list fields
         if (broadcastTracker.round_id && broadcastTracker.round_id === round_id) {
-            _reEmitCount++;
-            console.log(`[Broadcast] updateFromMaster re-emitting broadcast-round-data for round ${round_id} (count: ${_reEmitCount})`);
-            RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
-            // emit standings as well
-            emitBroadcastStandings(io, round_id);
+            const newHash = JSON.stringify(controlData[round_id]);
+            if (newHash !== _lastBroadcastHash) {
+                _lastBroadcastHash = newHash;
+                _reEmitCount++;
+                console.log(`[Broadcast] updateFromMaster re-emitting broadcast-round-data for round ${round_id} (count: ${_reEmitCount})`);
+                RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
+                emitBroadcastStandings(io, round_id);
+                // Re-transform decks with updated data
+                transformAndEmitAllDecks(round_id, controlData, io);
+            }
         }
     });
 }
