@@ -119,7 +119,7 @@ class RoomManager {
         if (path.includes('/display/bracket/details/') || path.includes('bracket-individual-display.html')) return 'brackets';
         
         // Meta breakdown
-        if (path.includes('/meta/breakdown/') || path.includes('meta-breakdown')) return 'meta-breakdown';
+        if (path.includes('/meta/breakdown/') || path.includes('meta-breakdown') || path.includes('/broadcast/metagame')) return 'meta-breakdown';
         
         // Update global details
         if (path.includes('/update/global/details/') || path.includes('update-global-details.html')) return 'global';

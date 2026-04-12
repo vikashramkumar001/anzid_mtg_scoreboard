@@ -1,44 +1,8 @@
-/* Gotham Narrow Font Faces for MTG */
-@font-face {
-    font-family: 'Gotham Narrow';
-    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
-    font-weight: 100;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham Narrow';
-    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
-    font-weight: 200;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham Narrow';
-    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham Narrow';
-    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-}
-
-/* Barlow Font for Star Wars */
-@font-face {
-    font-family: 'Barlow';
-    src: url('/fonts/Barlow-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
-
 :root {
     --dynamic-font: 'Bebas Neue', sans-serif;
     --dynamic-font-weight: bold;
 }
+
 
 * {
     font-family: var(--dynamic-font), sans-serif;
@@ -59,15 +23,42 @@ body {
     }
 }
 
-#standings-wrapper {
+#standings-bg, .standings-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: -1;
+}
+
+#standings-bg[src=""], .standings-bg-img[src=""] {
+    display: none;
+}
+
+#standings-event-round, .standings-event-round-el {
+    display: var(--standings-event-round-display, none);
+    position: absolute;
+    top: var(--standings-event-round-top, 200px);
+    left: var(--standings-event-round-left, 0);
+    width: var(--standings-event-round-width, 100%);
+    text-align: left;
+    font-size: var(--standings-event-round-font-size, 36px);
+    font-weight: var(--standings-event-round-font-weight, inherit);
+    font-style: var(--standings-event-round-font-style, normal);
+    color: var(--standings-event-round-color, #fff);
+    text-transform: uppercase;
+}
+
+#standings-wrapper, .standings-wrapper-el {
     display: grid;
-    grid-template-columns: 669px 669px;
+    grid-template-columns: var(--standings-row-width, 669px) var(--standings-row-width, 669px);
     grid-template-rows: repeat(8, auto);
     grid-auto-flow: column;
     column-gap: 50px;
     row-gap: 6px;
-    margin-top: 285px;
-    margin-left: auto;
+    margin-top: var(--standings-wrapper-margin-top, 285px);
+    margin-left: var(--standings-wrapper-margin-left, auto);
     margin-right: auto;
     width: fit-content;
 }
@@ -79,16 +70,17 @@ body {
     font-size: 36px;
     color: var(--standings-color, #000);
     text-align: center;
-    width: 669px;
+    width: var(--standings-row-width, 669px);
     height: 85px;
     padding: 0;
-    background-size: 669px 85px;
+    background-size: var(--standings-row-width, 669px) 85px;
     background-repeat: no-repeat;
     position: relative;
 }
 
 .standings-rank {
     width: var(--standings-rank-width, 54px);
+    height: var(--standings-rank-height, auto);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -102,10 +94,11 @@ body {
     font-style: var(--standings-rank-font-style, normal);
     font-weight: var(--standings-rank-font-weight, inherit);
     color: var(--standings-rank-color, inherit);
+    align-self: var(--standings-rank-align, center);
 }
 
 .player-name-archetype {
-    width: 428px;
+    width: var(--standings-text-width, 428px);
     height: var(--standings-text-height, auto);
     display: flex;
     flex-direction: column;
@@ -113,6 +106,7 @@ body {
     position: relative;
     left: var(--standings-text-left, 0);
     top: var(--standings-text-top, 0);
+    margin: var(--standings-text-margin, 0);
 }
 
 .standings-name {
@@ -121,7 +115,9 @@ body {
     text-align: start;
     line-height: var(--standings-name-line-height, 1.2);
     color: var(--standings-name-color, inherit);
+    font-family: var(--standings-name-font, inherit);
     font-size: var(--standings-name-font-size, 36px);
+    font-weight: var(--standings-name-font-weight, inherit);
 }
 
 .standings-archetype {
@@ -136,15 +132,28 @@ body {
     font-size: var(--standings-archetype-font-size, 24px);
 }
 
+.standings-portrait {
+    display: var(--standings-portrait-display, none);
+    width: var(--standings-portrait-width, 70px);
+    height: var(--standings-portrait-height, 100%);
+    object-fit: var(--standings-portrait-fit, cover);
+    object-position: var(--standings-portrait-position, center 20%);
+    margin: var(--standings-portrait-margin, 0);
+    flex-shrink: 0;
+}
+
+.standings-portrait[src=""] {
+    visibility: hidden;
+}
+
 .standings-record {
-    position: absolute;
-    left: 515px;
-    top: 0;
     color: var(--standings-record-color, inherit);
     font-size: var(--standings-record-font-size, inherit);
-    height: 100%;
-    width: 154px;
+    font-weight: var(--standings-record-font-weight, inherit);
+    width: var(--standings-record-width, 154px);
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
+    margin-left: auto;
 }

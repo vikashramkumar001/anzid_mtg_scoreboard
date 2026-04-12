@@ -46,7 +46,7 @@ export async function updateStandings(round_id, textData) {
 // Parse raw text standings into objects
 export function parseStandingsRawData(input) {
     let ret = {};
-    for (let i = 1; i <= 32; i++) {
+    for (let i = 1; i <= 64; i++) {
         ret[i.toString()] = {
             rank: "",
             name: "",
@@ -109,12 +109,12 @@ export function emitBroadcastStandings(io, round_id) {
     const raw = standingsData[round_id];
     // if (!raw) return;
     const parsed = parseStandingsRawData(raw);
-    RoomUtils.emitWithRoomMapping(io, 'broadcast-round-standings-data', parsed);
+    RoomUtils.emitWithRoomMapping(io, 'broadcast-round-standings-data', { standings: parsed, roundId: round_id });
 }
 
 // Get current broadcast standings (for page load requests)
 export function getCurrentBroadcastStandings() {
     if (!lastBroadcastedRoundId) return null;
     const raw = standingsData[lastBroadcastedRoundId];
-    return parseStandingsRawData(raw);
+    return { standings: parseStandingsRawData(raw), roundId: lastBroadcastedRoundId };
 }

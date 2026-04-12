@@ -25,24 +25,6 @@ const MANA_SYMBOLS = {
     C: {alt: 'Colorless', src: '/assets/images/mtg/icons/mana/C.svg'}
 };
 
-const SPRITES_MAPPING = {
-    'jimmy wong': {alt: 'jimmy wong', src: '/assets/images/sprites/jimmywong_pixel.png'},
-    'theasianavenger': {alt: 'theasianavenger', src: '/assets/images/sprites/crim_pixel.png'},
-    'curiousjoi': {alt: 'curiousjoi', src: '/assets/images/sprites/curiousjoi_pixel.png'},
-    'joel are magic': {alt: 'joel are magic', src: '/assets/images/sprites/joelaremagic_pixel.png'},
-    'rachel weeks': {alt: 'rachel weeks', src: '/assets/images/sprites/rachelweeks_pixel.png'},
-    'taalia vess': {alt: 'taalia vess', src: '/assets/images/sprites/talia_pixel.png'},
-    'fobm4ster': {alt: 'fobm4ster', src: '/assets/images/sprites/fobm4ster_pixel.png'},
-    'jarvis johnson': {alt: 'jarvis johnson', src: '/assets/images/sprites/jarvisjohnson_pixel.png'},
-    'heybillierae': {alt: 'heybillierae', src: '/assets/images/sprites/heybillierae_pixel.png'},
-    'voxy': {alt: 'voxy', src: '/assets/images/sprites/voxy_single.png'},
-    'reynad': {alt: 'reynad', src: '/assets/images/sprites/reynad_pixel.png'},
-    'brodin': {alt: 'brodin', src: '/assets/images/sprites/brodinplett_pixel.png'},
-    'olivia gobert-hicks': {alt: 'olivia gobert-hicks', src: '/assets/images/sprites/olivia_pixel.png'},
-    'aims': {alt: 'aims', src: '/assets/images/sprites/aims_pixel.png'},
-    'ls': {alt: 'ls', src: '/assets/images/sprites/LS_pixel.png'},
-    'atrioc': {alt: 'atrioc', src: '/assets/images/sprites/atrioc_pixel.png'}
-}
 
 console.log('match, detail', match_id, detail_id);
 
@@ -63,9 +45,6 @@ socket.on('broadcast-round-data', (data) => {
 
         if (detail_id in data[match_id]) {
             detailToDisplay = `${data[match_id][detail_id]}`;
-        } else if (detail_id === 'player-sprite-left' || detail_id === 'player-sprite-right') {
-            // We don't need to set detailToDisplay for sprite; just call renderDetails
-            detailToDisplay = null;
         } else if (detail_id === 'winner-left' || detail_id === 'winner-right') {
             // Winner display - combines background, name, and archetype
             detailToDisplay = null;
@@ -190,28 +169,6 @@ function renderDetails(detail) {
 
         playerDetail.appendChild(container);
         renderManaSymbols(roundData[match_id][`player-mana-symbols-${detail_id.endsWith('left') ? 'left' : 'right'}`] || '', 'player-mana-symbols');
-
-        // Player sprite rendering
-    } else if (detail_id === 'player-sprite-left' || detail_id === 'player-sprite-right') {
-        const side = detail_id.endsWith('left') ? 'left' : 'right';
-        const playerNameKey = `player-name-${side}`;
-        const rawName = roundData[match_id]?.[playerNameKey];
-        const playerName = rawName?.toLowerCase();
-
-        playerDetail.innerHTML = '';
-
-        if (playerName && SPRITES_MAPPING.hasOwnProperty(playerName)) {
-            const img = document.createElement('img');
-            img.className = 'player-sprite';
-            img.src = SPRITES_MAPPING[playerName].src;
-            img.alt = SPRITES_MAPPING[playerName].alt;
-            playerDetail.appendChild(img);
-        } else {
-            const fallbackImg = document.createElement('img');
-            fallbackImg.className = 'player-sprite fallback';
-            fallbackImg.src = '/assets/images/sprites/fallback.png'; // or any subtle, soft image
-            playerDetail.appendChild(fallbackImg);
-        }
 
         // Winner display - background image with player name and archetype/leader
     } else if (detail_id === 'winner-left' || detail_id === 'winner-right') {

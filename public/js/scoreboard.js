@@ -1165,6 +1165,14 @@ function updateTheme(game, vendor, playerCount) {
             }
         }
 
+        // Update legend over-frame (above frame, same position as legend portraits)
+        if (normalized === 'riftbound') {
+            const overFramePath = vc.getAssetPath(`/assets/images/${normalized}/scoreboard/frame/${normalized}-scoreboard-over_frame.png`, vendor, playerCount);
+            document.querySelectorAll('.riftbound-player-legend-over-frame').forEach(el => {
+                el.style.backgroundImage = `url("${overFramePath}")`;
+            });
+        }
+
         // Riftbound: try animated mp4 frame, fallback to PNG
         if (normalized === 'riftbound') {
             const v = vendor || 'default';

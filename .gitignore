@@ -84,6 +84,9 @@ temp/
 # Webstorm
 .idea/
 
+# Photoshop source files
+*.psd
+
 # MacOS
 .DS_Store
 

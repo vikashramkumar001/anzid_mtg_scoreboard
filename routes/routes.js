@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
 
@@ -80,12 +81,28 @@ router.get('/broadcast/round/standings/:rankID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings.html'));
 });
 
-router.get('/broadcast/round/standings-all', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-all.html'));
+router.get('/broadcast/round/standings-all-1', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-all-1.html'));
 });
 
 router.get('/broadcast/round/standings-all-2', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-all-2.html'));
+});
+
+router.get('/broadcast/round/standings-all-3', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-all-3.html'));
+});
+
+router.get('/broadcast/round/standings-all-4', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-all-4.html'));
+});
+
+router.get('/broadcast/metagame', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-metagame.html'));
+});
+
+router.get('/broadcast/round/standings-combined', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-combined.html'));
 });
 
 router.get('/display/bracket/top8', (req, res) => {
@@ -140,6 +157,37 @@ router.post('/upload-footer-overlay', uploadOverlay.single('overlay_footer'), (r
 
 // Upload archetype image
 router.post('/upload-archetype-image', uploadArchetypeImage.single('image'), handleArchetypeUpload);
+
+// Save portrait focus values from debug overlay
+router.post('/save-portrait-focus', express.json(), (req, res) => {
+  const { focusMap } = req.body;
+  if (!focusMap || typeof focusMap !== 'object') {
+    return res.status(400).json({ error: 'Missing focusMap' });
+  }
+
+  const filePath = path.join(__dirname, '../public/js/broadcast-metagame.js');
+  let content = fs.readFileSync(filePath, 'utf-8');
+
+  // Build new PORTRAIT_FOCUS block
+  const lines = ['const PORTRAIT_FOCUS = {'];
+  for (const [name, vals] of Object.entries(focusMap)) {
+    const key = name.includes("'") ? `"${name}"` : `'${name}'`;
+    const scaleStr = vals.scale && vals.scale !== 1.0 ? `, scale: ${vals.scale}` : '';
+    lines.push(`    ${(key + ':').padEnd(43)}{ top: ${vals.top}, left: ${vals.left}${scaleStr} },`);
+  }
+  lines.push('};');
+
+  // Replace the existing PORTRAIT_FOCUS block
+  const regex = /const PORTRAIT_FOCUS = \{[\s\S]*?\n\};/;
+  if (!regex.test(content)) {
+    return res.status(500).json({ error: 'Could not find PORTRAIT_FOCUS in file' });
+  }
+  content = content.replace(regex, lines.join('\n'));
+  fs.writeFileSync(filePath, content, 'utf-8');
+
+  console.log(`[Focus] Saved ${Object.keys(focusMap).length} portrait focus values`);
+  res.json({ ok: true, count: Object.keys(focusMap).length });
+});
 
 // VIBES
 

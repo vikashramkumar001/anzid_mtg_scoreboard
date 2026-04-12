@@ -210,3 +210,155 @@
   font-weight: 700;
   font-style: normal;
 }
+
+/* Akzidenz-Grotesk Next (Riftbound TES) */
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: local('Akzidenz-Grotesk Next Bold'), local('AkzidGrtskNext-Bold'),
+        url('/fonts/AkzidGrtskNext-Bold.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-Bold.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: local('Akzidenz-Grotesk Next Regular'), local('AkzidGrtskNext-Regular'),
+        url('/fonts/AkzidGrtskNext-Regular.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-Regular.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: local('Akzidenz-Grotesk Next Light'), local('AkzidGrtskNext-Light'),
+        url('/fonts/AkzidGrtskNext-Light.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-Light.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next';
+    src: local('Akzidenz-Grotesk Next Black'), local('AkzidGrtskNext-Black'),
+        url('/fonts/AkzidGrtskNext-Black.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-Black.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next Med';
+    src: local('Akzidenz-Grotesk Next Medium'), local('AkzidGrtskNext-Med'),
+        url('/fonts/AkzidGrtskNext-Med.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-Med.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-Med.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next Med';
+    src: local('Akzidenz-Grotesk Next Medium Italic'), local('AkzidGrtskNext-MedIt'),
+        url('/fonts/AkzidGrtskNext-MedIt.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-MedIt.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-MedIt.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Akzidenz-Grotesk Next XBold';
+    src: local('Akzidenz-Grotesk Next ExtraBold'), local('AkzidGrtskNext-ExtraBold'),
+        url('/fonts/AkzidGrtskNext-ExtraBold.woff2') format('woff2'),
+        url('/fonts/AkzidGrtskNext-ExtraBold.woff') format('woff'),
+        url('/fonts/AkzidGrtskNext-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Akzidenz-Grotesk Pro Condensed */
+@font-face {
+    font-family: 'Akzidenz-Grotesk Pro Condensed';
+    src: url('/fonts/AkzidGrtskPro-ExtraBoldCondensed.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Beaufort for LoL (Riftbound Default) */
+@font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('/fonts/BeaufortforLOL-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('/fonts/BeaufortforLOL-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('/fonts/BeaufortforLOL-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('/fonts/BeaufortforLOL-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('/fonts/BeaufortforLOL-Heavy.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Gotham Narrow (MTG) */
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Narrow';
+    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Barlow (Star Wars) */
+@font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}

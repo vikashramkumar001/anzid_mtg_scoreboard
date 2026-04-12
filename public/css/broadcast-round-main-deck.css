@@ -348,25 +348,6 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
     border-radius: 10px;
 }
 
-/* === LEGEND DESCRIPTION (left column) === */
-#riftbound-dl-legend-desc {
-    position: absolute;
-    top: var(--rb-dl-legend-desc-top, 270px);
-    left: var(--rb-dl-legend-desc-left, 7px);
-    width: var(--rb-dl-legend-desc-width, 128px);
-    height: var(--rb-dl-legend-desc-height, 170px);
-    z-index: 15;
-    overflow: hidden;
-    display: var(--rb-dl-legend-desc-display, block);
-}
-
-#riftbound-dl-legend-desc img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
 /* === CHAMPION CARD (left column) === */
 #riftbound-dl-champion-card {
     position: absolute;
@@ -1105,20 +1086,6 @@ body.vertical #deck-display-vibes .vertical-deck-container {
     bottom: 0;
     background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     z-index: 1;
-}
-
-/* Riftbound Legend Description Section */
-#deck-display-riftbound .deck-section-wrapper.legend-description-section {
-    position: absolute;
-    top: 0;
-    left: 0;
-     z-index: 1;
-}
-
-#deck-display-riftbound .deck-section-wrapper.legend-description-section .legend-description-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
 
 /* Riftbound Font Override */

@@ -193,7 +193,7 @@ export class RoomUtils {
         if (pagePath.includes('/display/bracket/details/') || pagePath.includes('bracket-individual-display.html')) return 'brackets';
         
         // Meta breakdown
-        if (pagePath.includes('/meta/breakdown/') || pagePath.includes('meta-breakdown')) return 'meta-breakdown';
+        if (pagePath.includes('/meta/breakdown/') || pagePath.includes('meta-breakdown') || pagePath.includes('/broadcast/metagame')) return 'meta-breakdown';
         
         // Update global details
         if (pagePath.includes('/update/global/details/') || pagePath.includes('update-global-details.html')) return 'global';

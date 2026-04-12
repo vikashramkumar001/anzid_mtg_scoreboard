@@ -1,0 +1,270 @@
+:root {
+    --dynamic-font: 'Bebas Neue', sans-serif;
+    --dynamic-font-weight: bold;
+    --meta-pie-size: 750px;
+    --meta-slice-stroke: #000;
+    --meta-slice-stroke-width: 2;
+    --meta-label-color: #fff;
+    --meta-label-font-size: 24px;
+    --meta-label-font-weight: 700;
+    --meta-percent-font-size: 30px;
+    --meta-card-bg: #000;
+    --meta-card-border: rgba(255, 255, 255, 0.2);
+    --meta-card-text-color: #fff;
+    --meta-title-color: #fff;
+    --meta-title-font-size: 48px;
+    --meta-subtitle-color: #ccc;
+    --meta-subtitle-font-size: 28px;
+    --meta-subtitle-font-weight: 400;
+    --meta-subtitle-top: auto;
+    --meta-subtitle-left: auto;
+    --meta-subtitle-day1-visible: block;
+    --meta-subtitle-day2-visible: block;
+    --meta-pie-x: 0px;
+    --meta-pie-y: 0px;
+    --meta-pie-x-final: -280px;
+    --meta-explode-1: 60;
+    --meta-explode-2: 40;
+    --meta-explode-3: 25;
+    --meta-label-max-width: 190;
+    --meta-panel-right: 40px;
+    --meta-panel-top: 80px;
+    --meta-panel-width: 720px;
+    --meta-panel-max-height: 940px;
+    --meta-panel-gap: 6px;
+    --meta-card-padding: 8px;
+    --meta-card-gap: 8px;
+    --meta-card-radius: 8px;
+    --meta-card-portrait-width: 70px;
+    --meta-card-portrait-height: 98px;
+    --meta-card-name-font-size: 20px;
+    --meta-card-counts-font-size: 18px;
+}
+
+* {
+    font-family: var(--dynamic-font), sans-serif;
+    font-weight: var(--dynamic-font-weight);
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 1920px;
+    height: 1080px;
+}
+
+@media (min-width: 1921px) {
+    body { zoom: 2; }
+}
+
+#metagame-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: -1;
+}
+
+#metagame-bg[src=""] {
+    display: none;
+}
+
+#metagame-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: -1;
+    object-fit: cover;
+    display: none;
+}
+
+#metagame-bg-video[src] {
+    display: block;
+}
+
+#metagame-container {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+}
+
+#metagame-header {
+    position: absolute;
+    top: var(--meta-header-top, 30px);
+    left: var(--meta-header-left, 60px);
+    z-index: 10;
+}
+
+#metagame-title {
+    font-size: var(--meta-title-font-size);
+    color: var(--meta-title-color);
+    line-height: 1;
+}
+
+#metagame-subtitle {
+    position: absolute;
+    font-size: var(--meta-subtitle-font-size);
+    color: var(--meta-subtitle-color);
+    font-weight: var(--meta-subtitle-font-weight);
+    top: var(--meta-subtitle-top);
+    left: var(--meta-subtitle-left);
+    white-space: nowrap;
+}
+
+#metagame-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#pie-chart-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform: translate(var(--meta-pie-x), var(--meta-pie-y));
+    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+#pie-chart {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Pie slice labels */
+.slice-label {
+    font-family: var(--dynamic-font), sans-serif;
+    font-size: var(--meta-label-font-size);
+    font-weight: var(--meta-label-font-weight);
+    fill: var(--meta-label-color);
+    text-anchor: middle;
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+.slice-percent {
+    font-family: var(--dynamic-font), sans-serif;
+    font-size: var(--meta-percent-font-size);
+    font-weight: 900;
+    fill: var(--meta-label-color);
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+/* Legend portrait on pie */
+.pie-portrait {
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+/* Panel header — total player count (spans both columns) */
+#panel-header {
+    grid-column: 1 / -1;
+    background: var(--meta-card-bg);
+    border: 1px solid var(--meta-card-border);
+    border-radius: var(--meta-card-radius);
+    height: var(--meta-panel-header-height, auto);
+    font-size: var(--meta-card-name-font-size);
+    font-weight: 900;
+    color: var(--meta-card-text-color);
+    text-align: center;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#panel-header.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Side panel — 2 columns x 8 rows */
+#archetype-cards-panel {
+    position: absolute;
+    right: var(--meta-panel-right);
+    top: var(--meta-panel-top);
+    width: var(--meta-panel-width);
+    max-height: var(--meta-panel-max-height);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto repeat(8, 1fr);
+    gap: var(--meta-panel-gap);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#archetype-cards-panel.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.archetype-card {
+    background: var(--meta-card-bg);
+    border: 1px solid var(--meta-card-border);
+    border-radius: var(--meta-card-radius);
+    padding: var(--meta-card-padding);
+    display: flex;
+    align-items: center;
+    gap: var(--meta-card-gap);
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.archetype-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.archetype-card-portrait {
+    width: var(--meta-card-portrait-width);
+    height: var(--meta-card-portrait-height);
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: center 15%;
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
+.archetype-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.archetype-card-name {
+    font-size: var(--meta-card-name-font-size);
+    font-weight: 900;
+    color: var(--meta-card-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.1;
+}
+
+.archetype-card-counts {
+    font-size: var(--meta-card-counts-font-size);
+    font-weight: 400;
+    color: var(--meta-card-text-color);
+    opacity: 0.8;
+    line-height: 1.3;
+    margin-top: 4px;
+}

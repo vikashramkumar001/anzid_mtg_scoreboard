@@ -5,7 +5,7 @@
       "player-life-right": "0",
       "player-battlefield-left": "The Arena's Greatest",
       "player-battlefield-right": "Reaver's Row",
-      "event-round": "Round 1 of 7",
+      "event-round": "Round 1 of 15",
       "player-name-left": "mastaant",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -80,7 +80,7 @@
       "player-poison-left": "0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-life-left": 1774805558490,
@@ -104,12 +104,14 @@
       "player-rune-qty-2-right": "6",
       "player-battlefield-1-right": "Reaver's Row",
       "player-battlefield-2-right": "The Arena's Greatest",
-      "player-battlefield-3-right": "Void Gate"
+      "player-battlefield-3-right": "Void Gate",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match1": {
       "player-life-left": "0",
       "player-life-right": "0",
-      "player-battlefield-left": "Obelisk of Power",
+      "player-battlefield-left": "Abandoned Hall",
       "player-battlefield-right": "Sunken Temple",
       "player-name-left": "AdventureJackson",
       "player-archetype-left": "",
@@ -176,12 +178,12 @@
       ],
       "player-mana-symbols-left": "wur",
       "player-mana-symbols-right": "ug",
-      "event-round": "Round 1 of 7",
+      "event-round": "Round 1 of 15",
       "player-wins-left": "0",
       "player-poison-right": "0",
       "player-wins-right": "0",
       "player-poison-left": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-life-left": 1774805572904,
@@ -195,7 +197,7 @@
       "player-rune-qty-1-left": "6",
       "player-rune-color-2-left": "p",
       "player-rune-qty-2-left": "6",
-      "player-battlefield-1-left": "Obelisk of Power",
+      "player-battlefield-1-left": "Abandoned Hall",
       "player-battlefield-2-left": "Sunken Temple",
       "player-battlefield-3-left": "The Dreaming Tree",
       "player-legend-right": "Irelia, Blade Dancer",
@@ -206,21 +208,29 @@
       "player-rune-qty-2-right": "6",
       "player-battlefield-1-right": "Sunken Temple",
       "player-battlefield-2-right": "The Dreaming Tree",
-      "player-battlefield-3-right": "Obelisk of Power"
+      "player-battlefield-3-right": "Obelisk of Power",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": "",
+      "player-life-left-2": "20",
+      "player-life-right-2": "20"
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 1 of 7"
+      "event-round": "Round 1 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 1 of 7"
+      "event-round": "Round 1 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "2": {
@@ -229,7 +239,7 @@
       "player-life-right": "0",
       "player-battlefield-left": "Reaver's Row",
       "player-battlefield-right": "Zaun Warrens",
-      "event-round": "Round 2 of 7",
+      "event-round": "Round 2 of 15",
       "player-name-left": "StannisHypeMeter",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -300,7 +310,7 @@
       "player-poison-left": "0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-right": 1774811237634,
@@ -325,14 +335,16 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Zaun Warrens",
       "player-battlefield-2-right": "Forgotten Monument",
-      "player-battlefield-3-right": "Obelisk of Power"
+      "player-battlefield-3-right": "Obelisk of Power",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "Void Gate",
       "player-battlefield-right": "Obelisk of Power",
-      "event-round": "Round 2 of 7",
+      "event-round": "Round 2 of 15",
       "player-name-left": "bsweitz",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -399,7 +411,7 @@
       "player-poison-left": "0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-right": 1774638520478,
@@ -424,21 +436,27 @@
       "player-rune-qty-2-right": "5",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Vilemaw's Lair",
-      "player-battlefield-3-right": "Void Gate"
+      "player-battlefield-3-right": "Void Gate",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 2 of 7"
+      "event-round": "Round 2 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 2 of 7"
+      "event-round": "Round 2 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "3": {
@@ -447,7 +465,7 @@
       "player-life-right": "0",
       "player-battlefield-left": "Obelisk of Power",
       "player-battlefield-right": "Obelisk of Power",
-      "event-round": "Round 3 of 7",
+      "event-round": "Round 3 of 15",
       "player-name-left": "Raydan",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -516,7 +534,7 @@
       "player-poison-left": "0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-left": 1774816172648,
@@ -541,14 +559,16 @@
       "player-rune-qty-2-right": "6",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Reaver's Row",
-      "player-battlefield-3-right": "Targon's Peak"
+      "player-battlefield-3-right": "Targon's Peak",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "Void Gate",
       "player-battlefield-right": "Obelisk of Power",
-      "event-round": "Round 3 of 7",
+      "event-round": "Round 3 of 15",
       "player-name-left": "Arya",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -617,7 +637,7 @@
       "player-poison-left": "0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-left": 1774816178560,
@@ -642,30 +662,36 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Zaun Warrens",
-      "player-battlefield-3-right": "Veiled Temple"
+      "player-battlefield-3-right": "Veiled Temple",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 3 of 7"
+      "event-round": "Round 3 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 3 of 7"
+      "event-round": "Round 3 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "4": {
     "match1": {
       "player-life-left": "0",
       "player-life-right": "0",
-      "player-battlefield-left": "The Arena's Greatest",
-      "player-battlefield-right": "Veiled Temple",
-      "event-round": "Round 4 of 7",
+      "player-battlefield-left": "Obelisk of Power",
+      "player-battlefield-right": "Obelisk of Power",
+      "event-round": "Round 4 of 15",
       "player-name-left": "Apexy",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -731,7 +757,7 @@
       "player-poison-left": "0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-right": 1774817599414,
@@ -756,14 +782,16 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Veiled Temple",
-      "player-battlefield-3-right": "Void Gate"
+      "player-battlefield-3-right": "Void Gate",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
-      "player-battlefield-left": "Obelisk of Power",
+      "player-battlefield-left": "Zaun Warrens",
       "player-battlefield-right": "Obelisk of Power",
-      "event-round": "Round 4 of 7",
+      "event-round": "Round 4 of 15",
       "player-name-left": "Zenon",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -838,7 +866,7 @@
       "player-wins-left": "1",
       "player-poison-left": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-right": 1774818665671,
@@ -862,21 +890,27 @@
       "player-rune-qty-2-right": "8",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Zaun Warrens",
-      "player-battlefield-3-right": "Veiled Temple"
+      "player-battlefield-3-right": "Veiled Temple",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 4 of 7"
+      "event-round": "Round 4 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 4 of 7"
+      "event-round": "Round 4 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "5": {
@@ -885,7 +919,7 @@
       "player-life-right": "0",
       "player-battlefield-left": "Obelisk of Power",
       "player-battlefield-right": "Obelisk of Power",
-      "event-round": "Round 5 of 7",
+      "event-round": "Round 5 of 15",
       "player-name-left": "MrMordekaiser",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -956,7 +990,7 @@
       "player-mana-symbols-right": "ur",
       "player-poison-left": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "player-legend-left": "Draven, Glorious Executioner",
       "player-champion-left": "Draven, Vanquisher",
@@ -975,14 +1009,16 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Aspirant's Climb",
-      "player-battlefield-3-right": "Zaun Warrens"
+      "player-battlefield-3-right": "Zaun Warrens",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "Reaver's Row",
       "player-battlefield-right": "Targon's Peak",
-      "event-round": "Round 5 of 7",
+      "event-round": "Round 5 of 15",
       "player-name-left": "Soreiha",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -1054,7 +1090,7 @@
       "player-wins-left": "1",
       "player-poison-left": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "player-legend-left": "Ezreal, Prodigal Explorer",
       "player-champion-left": "Ezreal, Prodigy",
@@ -1073,21 +1109,27 @@
       "player-rune-qty-2-right": "6",
       "player-battlefield-1-right": "Targon's Peak",
       "player-battlefield-2-right": "Obelisk of Power",
-      "player-battlefield-3-right": "Reaver's Row"
+      "player-battlefield-3-right": "Reaver's Row",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 5 of 7"
+      "event-round": "Round 5 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 5 of 7"
+      "event-round": "Round 5 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "6": {
@@ -1096,7 +1138,7 @@
       "player-life-right": "0",
       "player-battlefield-left": "Obelisk of Power",
       "player-battlefield-right": "Obelisk of Power",
-      "event-round": "Round 6 of 7",
+      "event-round": "Round 6 of 15",
       "player-name-left": "YolandaSquatpump",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -1161,7 +1203,7 @@
       "player-poison-left": "0",
       "player-wins-right": "2",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-left": 1774828598312,
@@ -1186,14 +1228,16 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Zaun Warrens",
-      "player-battlefield-3-right": "Veiled Temple"
+      "player-battlefield-3-right": "Veiled Temple",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
-      "player-battlefield-left": "The Arena's Greatest",
-      "player-battlefield-right": "Veiled Temple",
-      "event-round": "Round 6 of 7",
+      "player-battlefield-left": "Ornn's Forge",
+      "player-battlefield-right": "Obelisk of Power",
+      "event-round": "Round 6 of 15",
       "player-name-left": "StolenConch",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -1263,7 +1307,7 @@
       "player-poison-left": "0",
       "player-wins-right": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-left": 1774654385728,
@@ -1288,30 +1332,36 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Veiled Temple",
-      "player-battlefield-3-right": "Void Gate"
+      "player-battlefield-3-right": "Void Gate",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 6 of 7"
+      "event-round": "Round 6 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 6 of 7"
+      "event-round": "Round 6 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "7": {
     "match1": {
       "player-life-left": "0",
       "player-life-right": "0",
-      "player-battlefield-left": "Obelisk of Power",
+      "player-battlefield-left": "The Dreaming Tree",
       "player-battlefield-right": "Reaver's Row",
-      "event-round": "Round 7 of 7",
+      "event-round": "Round 7 of 15",
       "player-name-left": "GentleGiant",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -1378,7 +1428,7 @@
       "player-wins-left": "6",
       "player-poison-left": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-right": 1774832511007,
@@ -1403,14 +1453,16 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Reaver's Row",
       "player-battlefield-2-right": "The Arena's Greatest",
-      "player-battlefield-3-right": "Void Gate"
+      "player-battlefield-3-right": "Void Gate",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "Obelisk of Power",
       "player-battlefield-right": "Obelisk of Power",
-      "event-round": "Round 7 of 7",
+      "event-round": "Round 7 of 15",
       "player-name-left": "MrMordekaiser",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -1477,7 +1529,7 @@
       "player-wins-right": "0",
       "player-poison-left": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "player-legend-left": "Draven, Glorious Executioner",
       "player-champion-left": "Draven, Vanquisher",
@@ -1496,85 +1548,102 @@
       "player-rune-qty-2-right": "6",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Reaver's Row",
-      "player-battlefield-3-right": "Targon's Peak"
+      "player-battlefield-3-right": "Targon's Peak",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 7 of 7"
+      "event-round": "Round 7 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 7 of 7"
+      "event-round": "Round 7 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "8": {
     "match1": {
       "player-life-left": "0",
       "player-life-right": "0",
-      "player-battlefield-left": "Sunken Temple",
-      "player-battlefield-right": "The Arena's Greatest",
-      "event-round": "",
-      "player-name-left": "BDeCandio7",
+      "player-battlefield-left": "Void Gate",
+      "player-battlefield-right": "Obelisk of Power",
+      "event-round": "Round 8 of 15",
+      "player-name-left": "Alanzq1",
       "player-archetype-left": "",
       "player-pronouns-left": "",
-      "player-record-left": "5-0-2",
-      "player-name-right": "MastaAnt",
+      "player-record-left": "11-3",
+      "player-name-right": "Talion",
       "player-archetype-right": "",
       "player-pronouns-right": "",
-      "player-record-right": "5-1-1",
+      "player-record-right": "10-3",
       "player-main-deck-left": [
-        "3 Lonely Poro",
-        "2 Tideturner",
-        "3 Stellacorn Herder",
-        "2 Draven, Audacious",
-        "3 Boots of Swiftness",
-        "3 Guardian Angel",
-        "3 Defy",
-        "2 Not So Fast",
-        "2 Ride the Wind",
-        "2 Fight or Flight",
-        "1 Rebuke",
-        "2 Stacked Deck",
-        "3 Charm",
-        "3 Defiant Dance",
-        "2 En Garde",
-        "3 Discipline"
+        "2 Rebuke",
+        "3 Stacked Deck",
+        "3 Called Shot",
+        "3 Vex, Cheerless",
+        "1 Ezreal, Prodigy",
+        "1 Frigid Touch",
+        "1 Smoke Screen",
+        "3 Bellows Breath",
+        "1 Thousand-Tailed Watcher",
+        "1 Mindsplitter",
+        "1 Hard Bargain",
+        "3 Seal of Discord",
+        "1 Rhasa the Sunderer",
+        "3 Ravenbloom Student",
+        "1 Singularity",
+        "3 Stupefy",
+        "2 Arcane Shift",
+        "3 Wages of Pain",
+        "2 Fizz, Trickster",
+        "1 Morbid Return"
       ],
       "player-side-deck-left": [
-        "2 Vex, Cheerless",
-        "1 Rebuke",
-        "2 Disarming Rake",
-        "1 Adaptatron",
-        "1 Switcheroo",
-        "1 Zhonya's Hourglass"
+        "1 Factory Recall",
+        "1 Dr. Mundo, Expert",
+        "1 Downwell",
+        "3 Pickpocket",
+        "1 Rocket Barrage",
+        "1 Rebuke"
       ],
       "player-main-deck-right": [
-        "3 Honest Broker",
-        "2 Cull the Weak",
-        "1 Deathgrip",
-        "3 Draven, Vanquisher",
+        "3 Battering Ram",
+        "3 Called Shot",
+        "3 Ezreal, Prodigy",
+        "3 Fight or Flight",
+        "1 Fizz, Trickster",
+        "1 Kai'Sa, Survivor",
         "3 Noxus Hopeful",
-        "3 Void Rush",
-        "3 Immortal Phoenix",
-        "3 Hidden Blade",
-        "3 Falling Star",
-        "3 Undertitan",
+        "2 Overzealous Fan",
         "3 Piercing Light",
-        "3 Seal of Rage",
-        "3 Void Drone",
-        "3 Daring Poro"
+        "1 Rhasa the Sunderer",
+        "2 Ride the Wind",
+        "2 Scrapheap",
+        "2 Seal of Discord",
+        "1 Spinning Axe",
+        "3 Stacked Deck",
+        "1 Tideturner",
+        "3 Treasure Hunter",
+        "1 Vi, Destructive",
+        "1 Rebuke"
       ],
       "player-side-deck-right": [
-        "2 Against the Odds",
-        "3 Salvage",
-        "1 Cull the Weak",
-        "2 Brynhir Thundersong"
+        "1 Beast Below",
+        "1 Ferrous Forerunner",
+        "1 Hard Bargain",
+        "2 Mindsplitter",
+        "2 Pouty Poro",
+        "1 Falling Star"
       ],
       "player-wins-right": "0",
       "player-wins-left": "0",
@@ -1582,38 +1651,40 @@
       "player-mana-symbols-right": "ug",
       "player-poison-left": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-left": 1774660313848,
         "player-life-right": 1774728617259,
         "player-life-left": 1774728681192
       },
-      "player-legend-left": "Irelia, Blade Dancer",
-      "player-champion-left": "Irelia, Fervent",
-      "player-rune-color-1-left": "g",
-      "player-rune-qty-1-left": "6",
+      "player-legend-left": "Ezreal, Prodigal Explorer",
+      "player-champion-left": "Ezreal, Prodigy",
+      "player-rune-color-1-left": "b",
+      "player-rune-qty-1-left": "5",
       "player-rune-color-2-left": "p",
-      "player-rune-qty-2-left": "6",
-      "player-battlefield-1-left": "Sunken Temple",
-      "player-battlefield-2-left": "The Dreaming Tree",
-      "player-battlefield-3-left": "Obelisk of Power",
-      "player-legend-right": "Rek'Sai, Void Burrower",
-      "player-champion-right": "Rek'Sai, Breacher",
+      "player-rune-qty-2-left": "7",
+      "player-battlefield-1-left": "Void Gate",
+      "player-battlefield-2-left": "Obelisk of Power",
+      "player-battlefield-3-left": "Sigil of the Storm",
+      "player-legend-right": "Draven, Glorious Executioner",
+      "player-champion-right": "Draven, Vanquisher",
       "player-rune-color-1-right": "r",
-      "player-rune-qty-1-right": "8",
-      "player-rune-color-2-right": "y",
-      "player-rune-qty-2-right": "4",
-      "player-battlefield-1-right": "The Arena's Greatest",
-      "player-battlefield-2-right": "Veiled Temple",
-      "player-battlefield-3-right": "Zaun Warrens"
+      "player-rune-qty-1-right": "5",
+      "player-rune-color-2-right": "p",
+      "player-rune-qty-2-right": "7",
+      "player-battlefield-1-right": "Obelisk of Power",
+      "player-battlefield-2-right": "Reaver's Row",
+      "player-battlefield-3-right": "Zaun Warrens",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "Obelisk of Power",
       "player-battlefield-right": "Obelisk of Power",
-      "event-round": "",
+      "event-round": "Round 8 of 15",
       "player-name-left": "perk",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -1681,7 +1752,7 @@
       "player-mana-symbols-right": "wur",
       "player-poison-left": "0",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-left": 1774665473455
@@ -1703,21 +1774,27 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Obelisk of Power",
       "player-battlefield-2-right": "Aspirant's Climb",
-      "player-battlefield-3-right": "Zaun Warrens"
+      "player-battlefield-3-right": "Zaun Warrens",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": ""
+      "event-round": "Round 8 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": ""
+      "event-round": "Round 8 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "9": {
@@ -1726,7 +1803,7 @@
       "player-life-right": "0",
       "player-battlefield-left": "Reaver's Row",
       "player-battlefield-right": "The Arena's Greatest",
-      "event-round": "Round 9 of 7",
+      "event-round": "Round 9 of 15",
       "player-name-left": "shizzle",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -1792,7 +1869,7 @@
       "player-mana-symbols-right": "wu",
       "player-poison-left": "",
       "player-poison-right": "",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-wins-right": 1774719871619,
@@ -1816,14 +1893,16 @@
       "player-rune-qty-2-right": "4",
       "player-battlefield-1-right": "The Arena's Greatest",
       "player-battlefield-2-right": "Veiled Temple",
-      "player-battlefield-3-right": "Zaun Warrens"
+      "player-battlefield-3-right": "Zaun Warrens",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "Veiled Temple",
       "player-battlefield-right": "Sunken Temple",
-      "event-round": "Round 9 of 7",
+      "event-round": "Round 9 of 15",
       "player-name-left": "justcuz",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -1891,7 +1970,7 @@
       "player-mana-symbols-right": "rgc",
       "player-poison-left": "",
       "player-poison-right": "",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "player-legend-left": "Draven, Glorious Executioner",
       "player-champion-left": "Draven, Vanquisher",
@@ -1910,21 +1989,27 @@
       "player-rune-qty-2-right": "6",
       "player-battlefield-1-right": "Sunken Temple",
       "player-battlefield-2-right": "The Dreaming Tree",
-      "player-battlefield-3-right": "Obelisk of Power"
+      "player-battlefield-3-right": "Obelisk of Power",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 9 of 7"
+      "event-round": "Round 9 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 9 of 7"
+      "event-round": "Round 9 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "10": {
@@ -1933,7 +2018,7 @@
       "player-life-right": "0",
       "player-battlefield-left": "Obelisk of Power",
       "player-battlefield-right": "Void Gate",
-      "event-round": "Round 10 of 7",
+      "event-round": "Round 10 of 15",
       "player-name-left": "Argan",
       "player-archetype-left": "",
       "player-pronouns-left": "",
@@ -2007,7 +2092,7 @@
       "player-mana-symbols-right": "ur",
       "player-poison-left": "",
       "player-poison-right": "0",
-      "event-name": "ldxp riftbound $5k",
+      "event-name": "Event",
       "event-format": "Format",
       "_timestamps": {
         "player-life-left": 1774757498916,
@@ -2033,28 +2118,36 @@
       "player-rune-qty-2-right": "7",
       "player-battlefield-1-right": "Void Gate",
       "player-battlefield-2-right": "Obelisk of Power",
-      "player-battlefield-3-right": "Sigil of the Storm"
+      "player-battlefield-3-right": "Sigil of the Storm",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 10 of 7"
+      "event-round": "Round 10 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 10 of 7"
+      "event-round": "Round 10 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 10 of 7"
+      "event-round": "Round 10 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "11": {
@@ -2063,28 +2156,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 11 of 7"
+      "event-round": "Round 11 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 11 of 7"
+      "event-round": "Round 11 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 11 of 7"
+      "event-round": "Round 11 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 11 of 7"
+      "event-round": "Round 11 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "12": {
@@ -2093,28 +2194,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 12 of 7"
+      "event-round": "Round 12 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 12 of 7"
+      "event-round": "Round 12 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 12 of 7"
+      "event-round": "Round 12 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 12 of 7"
+      "event-round": "Round 12 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "13": {
@@ -2123,28 +2232,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 13 of 7"
+      "event-round": "Round 13 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 13 of 7"
+      "event-round": "Round 13 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 13 of 7"
+      "event-round": "Round 13 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 13 of 7"
+      "event-round": "Round 13 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "14": {
@@ -2153,28 +2270,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 14 of 7"
+      "event-round": "Round 14 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 14 of 7"
+      "event-round": "Round 14 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 14 of 7"
+      "event-round": "Round 14 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 14 of 7"
+      "event-round": "Round 14 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "15": {
@@ -2183,28 +2308,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 15 of 7"
+      "event-round": "Round 15 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 15 of 7"
+      "event-round": "Round 15 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 15 of 7"
+      "event-round": "Round 15 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 15 of 7"
+      "event-round": "Round 15 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "16": {
@@ -2213,28 +2346,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 16 of 7"
+      "event-round": "Round 16 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 16 of 7"
+      "event-round": "Round 16 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 16 of 7"
+      "event-round": "Round 16 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 16 of 7"
+      "event-round": "Round 16 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "17": {
@@ -2243,28 +2384,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 17 of 7"
+      "event-round": "Round 17 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 17 of 7"
+      "event-round": "Round 17 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 17 of 7"
+      "event-round": "Round 17 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 17 of 7"
+      "event-round": "Round 17 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "18": {
@@ -2273,28 +2422,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 18 of 7"
+      "event-round": "Round 18 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 18 of 7"
+      "event-round": "Round 18 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 18 of 7"
+      "event-round": "Round 18 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 18 of 7"
+      "event-round": "Round 18 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "19": {
@@ -2303,28 +2460,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 19 of 7"
+      "event-round": "Round 19 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 19 of 7"
+      "event-round": "Round 19 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 19 of 7"
+      "event-round": "Round 19 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 19 of 7"
+      "event-round": "Round 19 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   },
   "20": {
@@ -2333,28 +2498,36 @@
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 20 of 7"
+      "event-round": "Round 20 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match2": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 20 of 7"
+      "event-round": "Round 20 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match3": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 20 of 7"
+      "event-round": "Round 20 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     },
     "match4": {
       "player-life-left": "0",
       "player-life-right": "0",
       "player-battlefield-left": "",
       "player-battlefield-right": "",
-      "event-round": "Round 20 of 7"
+      "event-round": "Round 20 of 15",
+      "player-battlefield-left-2": "",
+      "player-battlefield-right-2": ""
     }
   }
 }

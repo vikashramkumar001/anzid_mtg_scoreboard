@@ -109,11 +109,6 @@ body.mtg #player-detail {
     margin-right: 3px;
 }
 
-.player-sprite {
-    width: 750px;
-    height: 750px;
-}
-
 /* Winner Display Styles */
 .winner-display {
     position: absolute;

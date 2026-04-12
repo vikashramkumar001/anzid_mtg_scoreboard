@@ -3,7 +3,6 @@ import {
     RIFTBOUND_BATTLEFIELD_NAMES,
     RIFTBOUND_BATTLEFIELDS_BASE,
     RIFTBOUND_LEGENDS_CARD_FRAMES,
-    RIFTBOUND_LEGENDS_DESCRIPTIONS,
 } from './riftbound/constants.js';
 
 const socket = io();
@@ -121,10 +120,6 @@ socket.on('broadcast-round-data', (data) => {
     }
 
     // Update legend description if game is riftbound and legend data exists
-    if (selectedGame === 'riftbound' && data[match_id] && data[match_id][`player-legend-${side_id}`]) {
-        const legend = data[match_id][`player-legend-${side_id}`] || '';
-        createLegendDescriptionSection(legend);
-    }
 
     // Server now handles transforms — no client-side transform requests needed.
     // The server pushes transformed-main-deck-data and transformed-side-deck-data
@@ -233,35 +228,6 @@ function createPlayerNameSection(playerName) {
     }
 }
 
-// Function to update the static legend description image
-function createLegendDescriptionSection(legend) {
-    const imgEl = document.getElementById('riftbound-dl-legend-desc-img');
-    if (!imgEl) return;
-
-    let imageUrl;
-    if (legend) {
-        const legendValueLower = legend.trim().toLowerCase();
-        let matchedKey = null;
-
-        for (const key in RIFTBOUND_LEGENDS_DESCRIPTIONS) {
-            if (key.toLowerCase() === legendValueLower) { matchedKey = key; break; }
-        }
-        if (!matchedKey) {
-            for (const key in RIFTBOUND_LEGENDS_DESCRIPTIONS) {
-                if (legendValueLower.includes(key.toLowerCase())) { matchedKey = key; break; }
-            }
-        }
-        imageUrl = (matchedKey && RIFTBOUND_LEGENDS_DESCRIPTIONS[matchedKey])
-            ? RIFTBOUND_LEGENDS_DESCRIPTIONS[matchedKey]
-            : RIFTBOUND_LEGENDS_DESCRIPTIONS['default'];
-    } else {
-        imageUrl = RIFTBOUND_LEGENDS_DESCRIPTIONS['default'];
-    }
-
-    const cacheBuster = new Date().getTime();
-    imgEl.src = `${encodeURI(imageUrl)}?v=${cacheBuster}`;
-    imgEl.alt = legend ? `Legend description for ${legend.trim()}` : '';
-}
 
 // Parse a flat array of transformed card objects into categorized sections.
 // Recognizes section headers from manual text entry across all games.
@@ -861,9 +827,6 @@ function renderRiftboundDeckSections(deckObj) {
         }
     }
 
-    // Update static legend description image
-    createLegendDescriptionSection(legend);
-
     // Update static champion card image (resolved server-side from master control field)
     const championCardImg = document.getElementById('riftbound-dl-champion-card-img');
     if (championCardImg) {
@@ -906,9 +869,9 @@ function renderRiftboundDeckSections(deckObj) {
 
     const otherCards = deckObj.other || [];
 
-    // Dynamic row recalculation: switch to 7 columns when >18 cards
+    // Dynamic row recalculation: TES riftbound needs wider cards for >18 card decks
     const totalCards = otherCards.length + (championInGrid ? 1 : 0);
-    if (totalCards > 18) {
+    if (totalCards > 18 && currentGame === 'riftbound' && currentVendor === 'tes') {
         root.style.setProperty('--rb-dl-card-width', '164px');
         root.style.setProperty('--rb-dl-main-max-cards', '21');
         root.style.setProperty('--rb-dl-main-row-gap', '20px');
@@ -918,7 +881,7 @@ function renderRiftboundDeckSections(deckObj) {
             const overrides = vc.getOverrides(currentGame, currentVendor);
             root.style.setProperty('--rb-dl-card-width', overrides['--rb-dl-card-width'] || '132px');
             root.style.setProperty('--rb-dl-main-max-cards', overrides['--rb-dl-main-max-cards'] || '30');
-            root.style.setProperty('--rb-dl-main-row-gap', overrides['--rb-dl-main-row-gap'] || '0px');
+            root.style.setProperty('--rb-dl-main-row-gap', overrides['--rb-dl-main-row-gap'] || '18px');
         }
     }
 
@@ -1305,10 +1268,6 @@ function updateTheme(game, vendor, playerCount) {
             if (starwarsSection) starwarsSection.style.display = 'none';
             setRiftboundBackground();
 
-            // Update legend description when switching to riftbound
-            if (roundData[match_id] && roundData[match_id][`player-legend-${side_id}`]) {
-                createLegendDescriptionSection(roundData[match_id][`player-legend-${side_id}`] || '');
-            }
         } else if (selectedGame === 'vibes') {
             console.log('Switching to Vibes mode...');
             if (mtgSection) mtgSection.style.display = 'none';
@@ -1391,14 +1350,17 @@ socket.emit('get-broadcast-scoreboard-data');
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    renderDecks();
 });
 socket.on('game-selection-updated', ({gameSelection}) => {
     currentGame = gameSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    renderDecks();
 });
 socket.on('server-current-vendor-selection', ({vendorSelection}) => {
     currentVendor = vendorSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    renderDecks();
 });
 socket.on('vendor-selection-updated', ({vendorSelection}) => {
     currentVendor = vendorSelection;

@@ -55,7 +55,20 @@
       "Bash(/opt/homebrew/bin/ffmpeg -i \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/animations/mtg/bracket/mtg-bracket-bg-ldxp-1v1.mov\" -c:v libx264 -crf 23 -preset medium -an -movflags +faststart \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/animations/mtg/bracket/mtg-bracket-bg-ldxp-1v1.mp4\")",
       "Bash(node fetchCards.js)",
       "Bash(mv \"riftbound-lower-third-tes-1v1.png\" \"riftbound-lower-third-tes-1v1-commentator.png\")",
-      "Bash(mv \"riftbound-lower-third-tes-1v1-h2h.png\" \"riftbound-lower-third-tes-1v1-player.png\")"
+      "Bash(mv \"riftbound-lower-third-tes-1v1-h2h.png\" \"riftbound-lower-third-tes-1v1-player.png\")",
+      "Bash(node -c public/js/master-control/matches.js)",
+      "Read(//System/Library/Fonts/**)",
+      "Read(//Users/anuraagdas/Library/**)",
+      "Read(//private/var/folders/**)",
+      "Bash(mdfind -name AkzidGrtskNext)",
+      "Bash(mdfind \"kMDItemDisplayName == ''''*Akzidenz*Condensed*''''\")",
+      "Read(//Users/anuraagdas/**)",
+      "Bash(python3 -c \":*)",
+      "Bash(mdfind -name In-Game)",
+      "Bash(mdfind -name In-Game_0005)",
+      "Bash(npm install:*)",
+      "Bash(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/images/riftbound/shared/sideways ahri.webm\")",
+      "Bash(mdfind \"kMDItemDisplayName == ''riftbound-scoreboard-over_frame-default-1v1.png''\")"
     ]
   }
 }

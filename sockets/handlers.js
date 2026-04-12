@@ -70,8 +70,12 @@ import {
     updateArchetypeImage
 } from "../features/archetypes.js";
 import {
-    handleIncomingMetaBreakdownData
-} from "../features/mtg/metaBreakdown.js";
+    handleIncomingMetaBreakdownData,
+    calculateMetagame,
+    getCachedBroadcastData,
+    metagameResultToBroadcastData,
+    emitMetaBreakdownData
+} from "../features/metaBreakdown.js";
 import {
     emitRiftboundCardList,
     emitRiftboundCardView,
@@ -445,6 +449,26 @@ export default function registerSocketHandlers(io) {
         // Meta Breakdown
         socket.on('send-meta-breakdown-data', (payload) => {
             handleIncomingMetaBreakdownData(io, payload);
+        });
+
+        socket.on('calculate-metagame', async ({ day1Round, day2Round, day2Cutoff, gameType, showCount }) => {
+            try {
+                const result = await calculateMetagame({ day1Round, day2Round, day2Cutoff, gameType });
+                socket.emit('metagame-calculated', result);
+
+                // Auto-cache broadcast data so the broadcast page can load it on init
+                const broadcastData = metagameResultToBroadcastData(result, gameType, showCount);
+                emitMetaBreakdownData(io, broadcastData);
+            } catch (error) {
+                socket.emit('metagame-calculated', { error: error.message });
+            }
+        });
+
+        socket.on('get-meta-breakdown-data', () => {
+            const cached = getCachedBroadcastData();
+            if (cached) {
+                socket.emit('receive-meta-breakdown-data', cached);
+            }
         });
 
         // Tournament Platform

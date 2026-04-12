@@ -54,14 +54,16 @@ export const RIFTBOUND_BATTLEFIELD_NAMES = [
     'Rockfall Path', 'Seat of Power', 'Sunken Temple',
     'The Papertree', 'Treasure Hoard', 'Veiled Temple',
     // Unleashed
-    'Baron Pit', 'Black Flame Altar', 'Brush', 'Dusk Rose Lab',
-    'Forbidding Waste', 'Forgotten Library', 'Frozen Fortress', 'Gardens of Becoming',
-    'Ripper\'s Bay', 'The Academy', 'Trapping Grounds', 'Vaults of Helia'
+    'Abandoned Hall', 'Altar of Blood', 'Amateur Recital', 'Baron Pit',
+    'Black Flame Altar', 'Brush', 'Dusk Rose Lab', 'Forbidding Waste',
+    'Forgotten Library', 'Frozen Fortress', 'Gardens of Becoming',
+    'Ripper\'s Bay', 'Star Spring', 'The Academy', 'Trapping Grounds',
+    'Valley of Idols', 'Vaults of Helia'
 ];
 
 // ── BATTLEFIELD PATHS: SCOREBOARD & BROADCAST ───────────────────────────────
 // Both scoreboard and broadcast-round-main-deck use battlefields-default-1v1/{name}.png
-export const RIFTBOUND_BATTLEFIELDS_BASE = '/assets/images/riftbound/battlefields/battlefields-default-1v1';
+export const RIFTBOUND_BATTLEFIELDS_BASE = '/assets/images/riftbound/shared/battlefields';
 
 // ── LEGEND DESCRIPTIONS ─────────────────────────────────────────────────────
 export const RIFTBOUND_LEGENDS_DESCRIPTIONS = {
@@ -156,14 +158,14 @@ export const RIFTBOUND_CHAMPIONS_LIST = [
     "Ivern, Friend to All", "Ivern, Nurturer",
     "Jhin, Meticulous Killer", "Jhin, Murderous Artist",
     "Kha'Zix, Evolving Hunter", "Kha'Zix, Mutating Horror",
-    "LeBlanc, Everywhere at Once",
-    "Lillia, Protector of Dreams",
+    "LeBlanc, Everywhere at Once", "LeBlanc, Fragmented",
+    "Lillia, Protector of Dreams", "Lillia, Fae Fawn",
     "Master Yi, Tempered", "Master Yi, Unstoppable",
     "Pyke, Dockside Butcher", "Pyke, Returned",
     "Rengar, Trophy Hunter", "Rengar, Unseen", "Rengar, Pouncing",
     "Vi, Hotheaded", "Vi, Peacekeeper", "Vi, Destructive",
     "Poppy, Defender of the Meek", "Poppy, Paragon",
-    "Vex, Cheerless",
+    "Vex, Cheerless", "Vex, Apathetic", "Vex, Mocking",
 ].map(name => ({name}));
 
 // ── LEGEND CARD FRAMES (mp4) ────────────────────────────────────────────────
@@ -175,61 +177,64 @@ export const RIFTBOUND_LEGENDS_CARD_FRAMES = {
     'Irelia, Blade Dancer': '/assets/animations/riftbound/cards/Irelia, Blade Dancer - Card Frame.mp4',
 };
 
-// ── LEGEND PORTRAITS (scoreboard) ───────────────────────────────────────────
-const _RB_PORTRAIT = (filename) => {
-    const p = `/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-default-1v1/${filename}`;
+// ── LEGEND PORTRAITS (scoreboard + standings) ──────────────────────────────
+const PORTRAIT_BASE = '/assets/images/riftbound/shared/legend-portraits/legend-portraits-251x124';
+
+const _RB_PORTRAIT = (num, legendName) => {
+    const p = `${PORTRAIT_BASE}/251x124_${num}_${legendName}.png`;
     return { left: p, right: p };
 };
 
 export const RIFTBOUND_LEGENDS_DEFAULT = {
-    left: '/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-tes-1v1/LegendPortrait_0000_Default.png',
-    right: '/assets/images/riftbound/scoreboard/legend-portraits/legend-portraits-tes-1v1/LegendPortrait_0000_F_Default.png'
+    left: '/assets/images/riftbound/shared/legend-portraits/legend-portraits-tes-1v1/LegendPortrait_0000_Default.png',
+    right: '/assets/images/riftbound/shared/legend-portraits/legend-portraits-tes-1v1/LegendPortrait_0000_F_Default.png'
 };
 
 export const RIFTBOUND_LEGENDS = {
-    // Origins
-    'Ahri, Nine-Tailed Fox':           _RB_PORTRAIT('In-Game_0026_Ahri.png'),
-    'Annie, Dark Child':               _RB_PORTRAIT('In-Game_0027_Annie.png'),
-    'Darius, Hand of Noxus':           _RB_PORTRAIT('In-Game_0024_Darius.png'),
-    'Garen, Might of Demacia':         _RB_PORTRAIT('In-Game_0023_Garen.png'),
-    'Jinx, Loose Cannon':              _RB_PORTRAIT('In-Game_0022_Jinx.png'),
-    'Kai\'Sa, Daughter of the Void':   _RB_PORTRAIT("In-Game_0021_Kai'sa.png"),
-    'Lee Sin, Blind Monk':             _RB_PORTRAIT('In-Game_0020_Lee-Sin.png'),
-    'Leona, Radiant Dawn':             _RB_PORTRAIT('In-Game_0025_Leona.png'),
-    'Lux, Lady of Luminosity':         _RB_PORTRAIT('In-Game_0017_Lux.png'),
-    'Master Yi, Wuju Bladesman':       _RB_PORTRAIT('In-Game_0019_Master-Yi.png'),
-    'Miss Fortune, Bounty Hunter':     _RB_PORTRAIT('In-Game_0018_Miss-Fortune.png'),
-    'Sett, The Boss':                  _RB_PORTRAIT('In-Game_0016_Sett.png'),
-    'Teemo, Swift Scout':              _RB_PORTRAIT('In-Game_0015_Teemo.png'),
-    'Viktor, Herald of the Arcane':    _RB_PORTRAIT('In-Game_0013_Viktor.png'),
-    'Volibear, Relentless Storm':      _RB_PORTRAIT('In-Game_0012_Volibear.png'),
-    'Yasuo, Unforgiven':               _RB_PORTRAIT('In-Game_0014_Yasuo.png'),
-    // Spiritforged
-    'Azir, Emperor of the Sands':      _RB_PORTRAIT('In-Game_0002_Azir.png'),
-    'Draven, Glorious Executioner':    _RB_PORTRAIT('In-Game_0005_Draven.png'),
-    'Ezreal, Prodigal Explorer':       _RB_PORTRAIT('In-Game_0004_Ezreal.png'),
-    'Fiora, Grand Duelist':            _RB_PORTRAIT('In-Game_0006_Fiora.png'),
-    'Irelia, Blade Dancer':            _RB_PORTRAIT('In-Game_0007_Irelia.png'),
-    'Jax, Grandmaster at Arms':        _RB_PORTRAIT('In-Game_0009_Jax.png'),
-    'Lucian, Purifier':                _RB_PORTRAIT('In-Game_0011_Lucian.png'),
-    'Ornn, Fire Below the Mountain':   _RB_PORTRAIT('In-Game_0001_Ornn.png'),
-    'Rek\'Sai, Void Burrower':         _RB_PORTRAIT('In-Game_0003_Reksai.png'),
-    'Renata Glasc, Chem-Baroness':     _RB_PORTRAIT('In-Game_0008_Renata-Glasc.png'),
-    'Rumble, Mechanized Menace':       _RB_PORTRAIT('In-Game_0000_Rumble.png'),
-    'Sivir, Battle Mistress':          _RB_PORTRAIT('In-Game_0010_Sivir.png'),
-    // Unleashed (assets pending)
-    'Diana, Scorn of the Moon':        null,
-    'Ivern, Green Father':             null,
-    'Jhin, Virtuoso':                  null,
-    'Kha\'Zix, Voidreaver':            null,
-    'LeBlanc, Deceiver':               null,
-    'Lillia, Bashful Bloom':           null,
-    'Master Yi, Wuju Master':          null,
-    'Poppy, Keeper of the Hammer':     null,
-    'Pyke, Bloodharbor Ripper':        null,
-    'Rengar, Pridestalker':            null,
-    'Vex, Gloomist':                   null,
-    'Vi, Piltover Enforcer':           null,
+    // Origins Starter (OGS)
+    'Annie, Dark Child':               _RB_PORTRAIT('0001', 'Annie, Dark Child'),
+    'Master Yi, Wuju Bladesman':       _RB_PORTRAIT('0002', 'Master Yi, Wuju Bladesman'),
+    'Lux, Lady of Luminosity':         _RB_PORTRAIT('0003', 'Lux, Lady of Luminosity'),
+    'Garen, Might of Demacia':         _RB_PORTRAIT('0004', 'Garen, Might of Demacia'),
+    // Origins (OGN)
+    'Kai\'Sa, Daughter of the Void':   _RB_PORTRAIT('0005', "Kai'Sa, Daughter of the Void"),
+    'Volibear, Relentless Storm':      _RB_PORTRAIT('0006', 'Volibear, Relentless Storm'),
+    'Jinx, Loose Cannon':              _RB_PORTRAIT('0007', 'Jinx, Loose Cannon'),
+    'Darius, Hand of Noxus':           _RB_PORTRAIT('0008', 'Darius, Hand of Noxus'),
+    'Ahri, Nine-Tailed Fox':           _RB_PORTRAIT('0009', 'Ahri, Nine-Tailed Fox'),
+    'Lee Sin, Blind Monk':             _RB_PORTRAIT('0010', 'Lee Sin, Blind Monk'),
+    'Yasuo, Unforgiven':               _RB_PORTRAIT('0011', 'Yasuo, Unforgiven'),
+    'Leona, Radiant Dawn':             _RB_PORTRAIT('0012', 'Leona, Radiant Dawn'),
+    'Teemo, Swift Scout':              _RB_PORTRAIT('0013', 'Teemo, Swift Scout'),
+    'Viktor, Herald of the Arcane':    _RB_PORTRAIT('0014', 'Viktor, Herald of the Arcane'),
+    'Miss Fortune, Bounty Hunter':     _RB_PORTRAIT('0015', 'Miss Fortune, Bounty Hunter'),
+    'Sett, The Boss':                  _RB_PORTRAIT('0016', 'Sett, The Boss'),
+    // Spiritforged (SFD)
+    'Rumble, Mechanized Menace':       _RB_PORTRAIT('0017', 'Rumble, Mechanized Menace'),
+    'Lucian, Purifier':                _RB_PORTRAIT('0018', 'Lucian, Purifier'),
+    'Draven, Glorious Executioner':    _RB_PORTRAIT('0019', 'Draven, Glorious Executioner'),
+    'Rek\'Sai, Void Burrower':         _RB_PORTRAIT('0020', "Rek'Sai, Void Burrower"),
+    'Ornn, Fire Below the Mountain':   _RB_PORTRAIT('0021', 'Ornn, Fire Below the Mountain'),
+    'Jax, Grandmaster at Arms':        _RB_PORTRAIT('0022', 'Jax, Grandmaster at Arms'),
+    'Irelia, Blade Dancer':            _RB_PORTRAIT('0023', 'Irelia, Blade Dancer'),
+    'Azir, Emperor of the Sands':      _RB_PORTRAIT('0024', 'Azir, Emperor of the Sands'),
+    'Ezreal, Prodigal Explorer':       _RB_PORTRAIT('0025', 'Ezreal, Prodigal Explorer'),
+    'Renata Glasc, Chem-Baroness':     _RB_PORTRAIT('0026', 'Renata Glasc, Chem-Baroness'),
+    'Sivir, Battle Mistress':          _RB_PORTRAIT('0027', 'Sivir, Battle Mistress'),
+    'Fiora, Grand Duelist':            _RB_PORTRAIT('0028', 'Fiora, Grand Duelist'),
+    // Unleashed (UNL)
+    'Jhin, Virtuoso':                  _RB_PORTRAIT('0029', 'Jhin, Virtuoso'),
+    'Rengar, Pridestalker':            _RB_PORTRAIT('0030', 'Rengar, Pridestalker'),
+    'Pyke, Bloodharbor Ripper':        _RB_PORTRAIT('0031', 'Pyke, Bloodharbor Ripper'),
+    'Vi, Piltover Enforcer':           _RB_PORTRAIT('0032', 'Vi, Piltover Enforcer'),
+    'Lillia, Bashful Bloom':           _RB_PORTRAIT('0033', 'Lillia, Bashful Bloom'),
+    'Master Yi, Wuju Master':          _RB_PORTRAIT('0034', 'Master Yi, Wuju Master'),
+    'Vex, Gloomist':                   _RB_PORTRAIT('0035', 'Vex, Gloomist'),
+    'Ivern, Green Father':             _RB_PORTRAIT('0036', 'Ivern, Green Father'),
+    'Diana, Scorn of the Moon':        _RB_PORTRAIT('0037', 'Diana, Scorn of the Moon'),
+    'LeBlanc, Deceiver':               _RB_PORTRAIT('0038', 'LeBlanc, Deceiver'),
+    'Kha\'Zix, Voidreaver':            _RB_PORTRAIT('0039', "Kha'Zix, Voidreaver"),
+    'Poppy, Keeper of the Hammer':     _RB_PORTRAIT('0040', 'Poppy, Keeper of the Hammer'),
 };
 
 // ── LEGEND ANIMATIONS ───────────────────────────────────────────────────────

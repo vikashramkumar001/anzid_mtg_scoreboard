@@ -1,3 +1,5 @@
+import { RIFTBOUND_LEGENDS } from './riftbound/constants.js';
+
 const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
@@ -8,6 +10,7 @@ let currentPlayerCount = '1v1';
 
 const standingsWrapper = document.getElementById('standings-wrapper');
 const TOTAL_STANDINGS = 16;
+const START_RANK = parseInt(standingsWrapper?.dataset.startRank) || 1;
 
 // Calculate font size needed to fit text within a max width (returns size, does not apply it)
 function calculateFontSize(element, maxFontSize, minFontSize, maxWidth) {
@@ -42,6 +45,7 @@ function generateStandingsRows() {
         row.id = `standings-row-${i}`;
         row.innerHTML = `
             <div class="standings-rank" id="standings-rank-${i}"></div>
+            <img class="standings-portrait" id="standings-portrait-${i}" src="" alt="">
             <div class="player-name-archetype">
                 <div class="standings-name" id="standings-name-${i}"></div>
                 <div class="standings-archetype" id="standings-archetype-${i}"></div>
@@ -60,6 +64,14 @@ socket.emit('get-game-selection');
 socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
 socket.emit('get-broadcast-standings');
+socket.emit('get-broadcast-scoreboard-data');
+
+// Listen for broadcast round data to get event-round info
+socket.on('broadcast-round-data', (data) => {
+    const eventRound = data?.match1?.['event-round'] || '';
+    const el = document.getElementById('standings-event-round');
+    if (el) el.textContent = eventRound;
+});
 
 let _initGame = false, _initVendor = false, _initPlayer = false;
 function tryInitialTheme() {
@@ -142,21 +154,39 @@ function updateTheme(game, vendor, playerCount) {
         document.querySelectorAll('.round-standings-container').forEach(el => {
             el.style.backgroundImage = `url("${framePath}")`;
         });
+
+        // Update standings background image (hide if file doesn't exist)
+        const bgPath = vc.getAssetPath(
+            `/assets/images/${game}/standings/${game}-standings-bg.png`,
+            vendor, playerCount
+        );
+        const bgEl = document.getElementById('standings-bg');
+        if (bgEl) {
+            const img = new Image();
+            img.onload = () => { bgEl.src = bgPath; };
+            img.onerror = () => { bgEl.src = ''; };
+            img.src = bgPath;
+        }
     }
 }
 
 // Listen for standings data to display
-socket.on('broadcast-round-standings-data', (data) => {
-    console.log('standings data', data);
+socket.on('broadcast-round-standings-data', (incoming) => {
+    console.log('standings data', incoming);
+    // Support both old format (plain object) and new format ({ standings, roundId })
+    const data = incoming.standings || incoming;
     standingsData = data;
+
 
     // Update all 16 rows
     for (let i = 1; i <= TOTAL_STANDINGS; i++) {
-        const rowData = data[i];
+        const dataRank = START_RANK + i - 1;
+        const rowData = data[dataRank];
         const rankEl = document.getElementById(`standings-rank-${i}`);
         const nameEl = document.getElementById(`standings-name-${i}`);
         const archetypeEl = document.getElementById(`standings-archetype-${i}`);
         const recordEl = document.getElementById(`standings-record-${i}`);
+        const portraitEl = document.getElementById(`standings-portrait-${i}`);
         const rowEl = document.getElementById(`standings-row-${i}`);
 
         if (rowData) {
@@ -165,6 +195,13 @@ socket.on('broadcast-round-standings-data', (data) => {
             archetypeEl.innerHTML = rowData['archetype'] || '';
             recordEl.innerHTML = rowData['record'] || '';
             rowEl.style.display = 'flex';
+
+            // Set legend portrait if available
+            const legendName = rowData['archetype'] || '';
+            const legendData = RIFTBOUND_LEGENDS[legendName];
+            if (portraitEl) {
+                portraitEl.src = legendData?.left || '';
+            }
 
             // Hide archetype row when empty
             const archetype = rowData['archetype'] || '';
@@ -179,6 +216,7 @@ socket.on('broadcast-round-standings-data', (data) => {
             nameEl.innerHTML = '';
             archetypeEl.innerHTML = '';
             recordEl.innerHTML = '';
+            if (portraitEl) portraitEl.src = '';
             rowEl.style.display = 'none';
         }
     }
@@ -188,17 +226,19 @@ socket.on('broadcast-round-standings-data', (data) => {
         const rootStyle = getComputedStyle(document.documentElement);
         const maxNameSize = parseInt(rootStyle.getPropertyValue('--standings-name-font-size')) || 36;
         const maxArchetypeSize = parseInt(rootStyle.getPropertyValue('--standings-archetype-font-size')) || 24;
+        const textWidth = parseInt(rootStyle.getPropertyValue('--standings-text-width')) || 428;
 
         document.querySelectorAll('.standings-name').forEach(el => {
             if (el.innerText) {
-                el.style.fontSize = calculateFontSize(el, maxNameSize, 16, 425) + 'px';
+                el.style.fontSize = calculateFontSize(el, maxNameSize, 16, textWidth) + 'px';
             }
         });
 
         document.querySelectorAll('.standings-archetype').forEach(el => {
             if (el.innerText) {
-                el.style.fontSize = calculateFontSize(el, maxArchetypeSize, 10, 425) + 'px';
+                el.style.fontSize = calculateFontSize(el, maxArchetypeSize, 10, textWidth) + 'px';
             }
         });
     });
 });
+

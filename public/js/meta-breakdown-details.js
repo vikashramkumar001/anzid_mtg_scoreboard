@@ -2,49 +2,95 @@ const socket = io();
 // Initialize Room Manager
 window.roomManager = new RoomManager(socket);
 let metaBreakdownData = {};
+let currentGame = 'mtg';
+let currentVendor = 'default';
+let currentPlayerCount = '1v1';
 
 // Get match name from the URL
 const pathSegments = window.location.pathname.split('/');
 const detail_id = pathSegments[4];
-const game_id = 'mtg';
-const fallbackUrl = `/assets/images/${game_id}/cards/${game_id === 'mtg' ? 'magic' : 'vibes'}-card-back.jpg`;
+
+const FALLBACK_IMAGES = {
+    mtg: '/assets/images/mtg/cards/magic-card-back.jpg',
+    riftbound: '/assets/images/riftbound/cards/riftbound-card-back.png',
+    vibes: '/assets/images/vibes/cards/vibes-card-back.jpg',
+};
 
 console.log('detail', detail_id);
 
 const metaBreakdownDetail = document.getElementById('meta-breakdown-detail');
 
-// ask for global match data to get font family
-socket.emit('get-match-global-data');
-
-// Listen for deck data to display
+// Listen for meta breakdown data
 socket.on('receive-meta-breakdown-data', (data) => {
-    // {meta-breakdown-archetype-1:{}, meta-breakdown-key-card-1-1:{},...}}
-    console.log('data', data);
+    console.log('meta breakdown data', data);
 
-    // Save to local object
+    if (data._gameType) {
+        currentGame = data._gameType;
+    }
+
     metaBreakdownData = data;
     if (metaBreakdownData[detail_id]) {
-        // Call a function to render the round details
         renderDetails(metaBreakdownData);
     }
 });
 
-// Listen for global data update
-socket.on('update-match-global-data', (data) => {
-    console.log('global data', data);
-    // specifically checking for font family change
-    checkFontFamily(data['globalData']['global-font-family']);
-})
+// ── Game/Vendor Selection ────────────────────────────────────────────────────
+socket.emit('get-game-selection');
+socket.emit('get-vendor-selection');
+socket.emit('get-player-count');
 
-// Function to check if font family needs updating
-function checkFontFamily(globalFont) {
-    if (globalFont) {
-        document.documentElement.style.setProperty('--dynamic-font', globalFont);
+let _initGame = false, _initVendor = false, _initPlayer = false;
+function tryInitialTheme() {
+    if (_initGame && _initVendor && _initPlayer) {
+        updateTheme(currentGame, currentVendor, currentPlayerCount);
+    }
+}
+
+socket.on('server-current-game-selection', ({gameSelection}) => {
+    currentGame = gameSelection;
+    _initGame = true;
+    tryInitialTheme();
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    currentGame = gameSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-vendor-selection', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    _initVendor = true;
+    tryInitialTheme();
+});
+socket.on('vendor-selection-updated', ({vendorSelection}) => {
+    currentVendor = vendorSelection;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+socket.on('server-current-player-count', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    _initPlayer = true;
+    tryInitialTheme();
+});
+socket.on('player-count-updated', ({playerCount}) => {
+    currentPlayerCount = playerCount;
+    updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+
+function updateTheme(game, vendor, playerCount) {
+    const vc = window.VENDOR_CONFIG;
+    if (vc) {
+        vc.getAllOverrideProperties().forEach(prop => {
+            document.documentElement.style.removeProperty(prop);
+        });
+
+        const overrides = vc.getOverrides(game, vendor);
+        Object.entries(overrides).forEach(([prop, value]) => {
+            document.documentElement.style.setProperty(prop, value);
+        });
     }
 }
 
 // Function to render the card on the page
 function renderCard(data) {
+    const fallbackUrl = FALLBACK_IMAGES[currentGame] || FALLBACK_IMAGES.mtg;
     const mainCardViewContainer = document.getElementById('card-view-container');
     mainCardViewContainer.innerHTML = '';
 
@@ -53,13 +99,8 @@ function renderCard(data) {
 
     const img = document.createElement('img');
     img.className = 'card-src';
-    if (data.url) {
-        img.src = data.url;
-    } else {
-        img.src = fallbackUrl;
-    }
+    img.src = data.url || fallbackUrl;
 
-    // Handle broken image - case for mtg - url will be broken
     img.onerror = () => {
         console.warn('Image failed to load:', data.url);
         img.src = fallbackUrl;
@@ -71,18 +112,14 @@ function renderCard(data) {
 
 // Function to render the round details on the page
 function renderDetails(data) {
-    // based on key, handle incoming data
     if (detail_id.includes('meta-breakdown-key-card')) {
-        // render card
         renderCard(data[detail_id]);
     } else {
-        // Render detail text
         metaBreakdownDetail.innerHTML = `${metaBreakdownData[detail_id]}`;
     }
 }
 
 // on start - render fallback image if card
 if (detail_id.includes('meta-breakdown-key-card')) {
-    // render card
     renderCard({url: ''});
 }

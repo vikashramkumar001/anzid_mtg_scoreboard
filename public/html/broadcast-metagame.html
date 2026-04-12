@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Metagame</title>
+    <link href="/lib/bootstrap/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/lib/bootstrap/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+    <script src="/lib/d3/d3.min.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-metagame.css" rel="stylesheet">
+</head>
+<body>
+<img id="metagame-bg" src="" alt="">
+<video id="metagame-bg-video" autoplay loop muted playsinline></video>
+<div id="metagame-container">
+    <div id="metagame-header">
+        <div id="metagame-title"></div>
+        <div id="metagame-subtitle"></div>
+    </div>
+    <div id="metagame-content">
+        <div id="pie-chart-container">
+            <svg id="pie-chart"></svg>
+        </div>
+        <div id="archetype-cards-panel">
+        </div>
+    </div>
+</div>
+<script type="module" src="/js/broadcast-metagame.js"></script>
+</body>
+</html>

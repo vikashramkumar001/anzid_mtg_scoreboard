@@ -640,7 +640,7 @@ function normalizeName(rawName) {
 function normalizeStandings(rawStandings, platform) {
     const normalized = {};
 
-    for (let i = 1; i <= 32; i++) {
+    for (let i = 1; i <= 64; i++) {
         normalized[i.toString()] = {
             rank: '',
             name: '',
@@ -672,7 +672,7 @@ function normalizeStandings(rawStandings, platform) {
     rawStandings.forEach((entry, index) => {
         // Handle both uppercase (Melee API) and lowercase field names
         const rank = entry.Rank || entry.rank || entry.Standing || entry.standing || (index + 1);
-        if (rank > 32) return;
+        if (rank > 64) return;
 
         let name = '';
         let archetype = '';
@@ -920,7 +920,7 @@ async function fetchCardeioStandings(tournamentId, roundId) {
     const standings = {};
     allStandings.forEach((row, index) => {
         const rank = row.rank || index + 1;
-        if (rank > 32) return;
+        if (rank > 64) return;
 
         const userId = row.user_event_status?.user?.id || row.player?.id;
 

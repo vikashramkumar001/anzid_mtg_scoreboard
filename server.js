@@ -19,6 +19,7 @@ import {loadCardListData as mtgLoadCardListData} from './features/mtg/cards.js'
 import {loadCardListData as vibesLoadCardListData} from './features/vibes/cards.js'
 import {loadCardListData as riftboundLoadCardListData} from './features/riftbound/cards.js'
 import {loadCardListData as starwarsLoadCardListData} from './features/starwars/cards.js'
+import { initOBSWebSocket } from './features/obs-websocket.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -74,6 +75,9 @@ async function initialize() {
   await vibesLoadCardListData();
   await riftboundLoadCardListData();
   await starwarsLoadCardListData();
+
+  // Connect to OBS WebSocket for scene transition events
+  initOBSWebSocket(io);
 
   server.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running at http://0.0.0.0:${PORT}`);

@@ -15,7 +15,7 @@ export const archetypeListPath   = path.join(rootDir, 'data', 'archetypeList.jso
 
 // === Defaults ===
 export let DEFAULT_INITIAL_TIME = 50 * 60 * 1000; // 50 minutes in ms
-export let DEFAULT_GAME_SELECTION = 'mtg';  // mtg, riftbound
+export let DEFAULT_GAME_SELECTION = 'riftbound';  // mtg, riftbound
 export let DEFAULT_VENDOR_SELECTION = 'default';
 export let DEFAULT_PLAYER_COUNT = '1v1';
 

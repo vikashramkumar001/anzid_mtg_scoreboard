@@ -224,6 +224,158 @@ export function initMatches(socket) {
     
     const riftboundBattlefieldsList = RIFTBOUND_BATTLEFIELDS_LIST;
 
+    // Generate HTML for a single player section
+    function renderPlayerSection(roundId, matchId, side, label) {
+        const colClass = currentPlayerCount === '2v2' ? 'col-md-3' : 'col-md-6';
+        // In 2v2, only P1 (left) and P3 (right) show shared team life; teammates (left-2, right-2) hide it
+        // In 2v2, all individual life fields are hidden — team life is in the shared row above
+        const is2v2 = currentPlayerCount === '2v2';
+        const hideShared = is2v2 ? 'style="display:none;"' : '';
+        return `
+                        <div class="${colClass} player-section player-section-${side}">
+                            <h5 class="card-title">${label}</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Player Name</label>
+                                <div id="${roundId}-${matchId}-player-name-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 life-points-field" ${hideShared}>
+                                <label class="form-label">LifePoints</label>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-${side}" data-life-delta="-5">-5</button>
+                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-${side}" data-life-delta="-1">-1</button>
+                                    <div id="${roundId}-${matchId}-player-life-${side}" class="editable form-control text-center mx-1" contenteditable="true"></div>
+                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-${side}" data-life-delta="1">+1</button>
+                                    <button class="btn btn-sm btn-outline-success mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-${side}" data-life-delta="5">+5</button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Pronouns</label>
+                                <div id="${roundId}-${matchId}-player-pronouns-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 archetype-field">
+                                <label class="form-label">Archetype</label>
+                                <div id="${roundId}-${matchId}-player-archetype-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 mtg-only-field">
+                                <label class="form-label">Mana Symbols</label>
+                                <div id="${roundId}-${matchId}-player-mana-symbols-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 record-field" ${hideShared}>
+                                <label class="form-label">Record</label>
+                                <div id="${roundId}-${matchId}-player-record-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 wins-field" ${hideShared}>
+                                <label class="form-label">Wins</label>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary wins-minus-btn" data-target="${roundId}-${matchId}-player-wins-${side}">-</button>
+                                    <div id="${roundId}-${matchId}-player-wins-${side}" class="editable form-control text-center mx-1" contenteditable="false" style="width: 50px;">0</div>
+                                    <button class="btn btn-sm btn-outline-secondary wins-plus-btn" data-target="${roundId}-${matchId}-player-wins-${side}">+</button>
+                                </div>
+                            </div>
+                            ${!is2v2 ? `<div class="mb-3 mtg-only-field poison-field">
+                                <label class="form-label">Poison</label>
+                                <div id="${roundId}-${matchId}-player-poison-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>` : ''}
+                            <div class="mb-3" style="display: none;">
+                                <label class="form-label">Mulligan</label>
+                                <div id="${roundId}-${matchId}-player-mulligan-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Legend</label>
+                                <div id="${roundId}-${matchId}-player-legend-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Champion</label>
+                                <div id="${roundId}-${matchId}-player-champion-${side}" class="editable form-control" contenteditable="true"></div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Runes</label>
+                                <div class="d-flex gap-2 mb-1">
+                                    <div id="${roundId}-${matchId}-player-rune-color-1-${side}" class="editable form-control" contenteditable="true"></div>
+                                    <div id="${roundId}-${matchId}-player-rune-qty-1-${side}" class="editable form-control" contenteditable="true"></div>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div id="${roundId}-${matchId}-player-rune-color-2-${side}" class="editable form-control" contenteditable="true"></div>
+                                    <div id="${roundId}-${matchId}-player-rune-qty-2-${side}" class="editable form-control" contenteditable="true"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">Battlefield</label>
+                                <div class="d-flex align-items-center mb-1">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
+                                    <div id="${roundId}-${matchId}-player-battlefield-1-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
+                                    <div id="${roundId}-${matchId}-player-battlefield-2-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="${roundId}-${matchId}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
+                                    <div id="${roundId}-${matchId}-player-battlefield-3-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
+                                </div>
+                            </div>
+                            <div id="${roundId}-${matchId}-player-battlefield-${side}" class="editable" style="display:none;"></div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <label class="form-label">Leader & Aspects</label>
+                                <div id="${roundId}-${matchId}-player-leader-${side}" class="editable form-control" contenteditable="true"></div>
+                                <div class="d-flex gap-2 mt-1">
+                                    <div id="${roundId}-${matchId}-player-leader-aspect-1-${side}" class="editable form-control" contenteditable="true" placeholder="aspect 1" style="flex: 1;"></div>
+                                    <div id="${roundId}-${matchId}-player-leader-aspect-2-${side}" class="editable form-control" contenteditable="true" placeholder="aspect 2" style="flex: 1;"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <label class="form-label">Base & Aspect</label>
+                                <div class="d-flex gap-2">
+                                    <div id="${roundId}-${matchId}-player-base-${side}" class="editable form-control" contenteditable="true" style="flex: 1;"></div>
+                                    <div id="${roundId}-${matchId}-player-base-aspects-${side}" class="editable form-control" contenteditable="true" placeholder="aspect" style="width: 120px; flex-shrink: 0;"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 starwars-only-field" style="display: none;">
+                                <div class="d-flex gap-3 swu-base-stats-container">
+                                    <div>
+                                        <label class="form-label">Base HP</label>
+                                        <div class="d-flex align-items-center">
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-${side}" data-life-delta="-1">-1</button>
+                                            <div id="${roundId}-${matchId}-player-base-hp-${side}" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">30</div>
+                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-${side}" data-life-delta="1">+1</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+    }
+
+    // Generate HTML for a player's deck section
+    function renderDeckSection(roundId, matchId, side, label) {
+        const colClass = currentPlayerCount === '2v2' ? 'col-md-3' : 'col-md-6';
+        return `
+                        <div class="${colClass} deck-section deck-section-${side}">
+                            <h5 class="card-title">${label} Deck
+                                <button class="btn btn-sm btn-outline-primary add-deck-btn"
+                                        data-side="${side}" data-round="${roundId}" data-match="${matchId}">Add</button>
+                            </h5>
+                            <div class="deck-fields" id="${roundId}-${matchId}-deck-fields-${side}" style="display: none;">
+                                <div class="mb-3">
+                                    <label class="form-label">Main Deck</label>
+                                    <textarea id="${roundId}-${matchId}-player-main-deck-${side}"
+                                            class="editable form-control"
+                                            rows="5"
+                                            placeholder="Enter main deck cards (separated by new lines)"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Side Deck</label>
+                                    <textarea id="${roundId}-${matchId}-player-side-deck-${side}"
+                                            class="editable form-control"
+                                            rows="3"
+                                            placeholder="Enter side deck cards (separated by new lines)"></textarea>
+                                </div>
+                                <div class="my-3">
+                                    <button class="btn btn-primary" id="display-deck-${side}-${roundId}-${matchId}">Display Deck</button>
+                                </div>
+                            </div>
+                        </div>`;
+    }
+
     // Function to render or update a match card
     function renderMatch(roundId, matchId, matchData) {
         // Check if a card for this match already exists
@@ -233,7 +385,7 @@ export function initMatches(socket) {
         if (!matchCard) {
             // Create new card (use your existing card HTML structure)
             matchCard = document.createElement('div');
-            matchCard.classList.add('col-6', 'mb-3', 'match-card-container');
+            matchCard.classList.add(currentPlayerCount === '2v2' ? 'col-12' : 'col-6', 'mb-3', 'match-card-container');
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
             <div class="row mb-2">
@@ -322,287 +474,88 @@ export function initMatches(socket) {
                             </div>
                         </div>
                         <hr>
-                        <!-- Left Player Information -->
-                        <div class="col-md-6">
-                            <h5 class="card-title">Left Player</h5>
-                            <div class="mb-3">
-                                <label class="form-label">Player Name</label>
-                                <div id="${roundId}-${matchId}-player-name-left" class="editable form-control" contenteditable="true"></div>
+                        ${currentPlayerCount === '2v2' ? `
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-md-6"><h4 class="text-info mb-0">Team A (Top)</h4></div>
+                                <div class="col-md-6"><h4 class="text-success mb-0">Team B (Bottom)</h4></div>
                             </div>
-                            <div class="mb-3 life-points-field">
-                                <label class="form-label">LifePoints</label>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="-5">-5</button>
-                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="-1">-1</button>
-                                    <div id="${roundId}-${matchId}-player-life-left" class="editable form-control text-center mx-1" contenteditable="true"></div>
-                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="1">+1</button>
-                                    <button class="btn btn-sm btn-outline-success mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="5">+5</button>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Pronouns</label>
-                                <div id="${roundId}-${matchId}-player-pronouns-left" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 archetype-field">
-                                <label class="form-label">Archetype</label>
-                                <div id="${roundId}-${matchId}-player-archetype-left" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 mtg-only-field">
-                                <label class="form-label">Mana Symbols</label>
-                                <div id="${roundId}-${matchId}-player-mana-symbols-left" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Record</label>
-                                <div id="${roundId}-${matchId}-player-record-left" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Wins</label>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-outline-secondary wins-minus-btn" data-target="${roundId}-${matchId}-player-wins-left">-</button>
-                                    <div id="${roundId}-${matchId}-player-wins-left" class="editable form-control text-center mx-1" contenteditable="false" style="width: 50px;">0</div>
-                                    <button class="btn btn-sm btn-outline-secondary wins-plus-btn" data-target="${roundId}-${matchId}-player-wins-left">+</button>
-                                </div>
-                            </div>
-                            <div class="mb-3 mtg-only-field">
-                                <label class="form-label">Poison</label>
-                                <div id="${roundId}-${matchId}-player-poison-left" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3" style="display: none;">
-                                <label class="form-label">Mulligan</label>
-                                <div id="${roundId}-${matchId}-player-mulligan-left" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Legend</label>
-                                <div id="${roundId}-${matchId}-player-legend-left" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Champion</label>
-                                <div id="${roundId}-${matchId}-player-champion-left" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Runes</label>
-                                <div class="d-flex gap-2 mb-1">
-                                    <div id="${roundId}-${matchId}-player-rune-color-1-left" class="editable form-control" contenteditable="true"></div>
-                                    <div id="${roundId}-${matchId}-player-rune-qty-1-left" class="editable form-control" contenteditable="true"></div>
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <div id="${roundId}-${matchId}-player-rune-color-2-left" class="editable form-control" contenteditable="true"></div>
-                                    <div id="${roundId}-${matchId}-player-rune-qty-2-left" class="editable form-control" contenteditable="true"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield</label>
-                                <div class="d-flex align-items-center mb-1">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
-                                    <div id="${roundId}-${matchId}-player-battlefield-1-left" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                                <div class="d-flex align-items-center mb-1">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
-                                    <div id="${roundId}-${matchId}-player-battlefield-2-left" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-left-select" class="form-check-input me-2 battlefield-radio" data-side="left" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
-                                    <div id="${roundId}-${matchId}-player-battlefield-3-left" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                            </div>
-                            <div id="${roundId}-${matchId}-player-battlefield-left" class="editable" style="display:none;"></div>
-                            <div class="mb-3 starwars-only-field" style="display: none;">
-                                <label class="form-label">Leader & Aspects</label>
-                                <div id="${roundId}-${matchId}-player-leader-left" class="editable form-control" contenteditable="true"></div>
-                                <div class="d-flex gap-2 mt-1">
-                                    <div id="${roundId}-${matchId}-player-leader-aspect-1-left" class="editable form-control" contenteditable="true" placeholder="aspect 1" style="flex: 1;"></div>
-                                    <div id="${roundId}-${matchId}-player-leader-aspect-2-left" class="editable form-control" contenteditable="true" placeholder="aspect 2" style="flex: 1;"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3 starwars-only-field" style="display: none;">
-                                <label class="form-label">Base & Aspect</label>
-                                <div class="d-flex gap-2">
-                                    <div id="${roundId}-${matchId}-player-base-left" class="editable form-control" contenteditable="true" style="flex: 1;"></div>
-                                    <div id="${roundId}-${matchId}-player-base-aspects-left" class="editable form-control" contenteditable="true" placeholder="aspect" style="width: 120px; flex-shrink: 0;"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3 starwars-only-field" style="display: none;">
-                                <div class="d-flex gap-3 swu-base-stats-container">
-                                    <div>
-                                        <label class="form-label">Base HP</label>
-                                        <div class="d-flex align-items-center">
-                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-left" data-life-delta="-1">-1</button>
-                                            <div id="${roundId}-${matchId}-player-base-hp-left" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">30</div>
-                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-left" data-life-delta="1">+1</button>
-                                        </div>
+                        </div>
+                        ` : ''}
+                        ${currentPlayerCount === '2v2' ? `
+                        <div class="col-md-6 team-shared-section team-shared-section-left">
+                            <div class="d-flex gap-3 align-items-end mb-3">
+                                <div class="team-life-field" style="flex: 1;">
+                                    <label class="form-label">Team A Life</label>
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="-5">-5</button>
+                                        <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="-1">-1</button>
+                                        <div id="${roundId}-${matchId}-player-life-left" class="editable form-control text-center mx-1" contenteditable="true"></div>
+                                        <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="1">+1</button>
+                                        <button class="btn btn-sm btn-outline-success mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-left" data-life-delta="5">+5</button>
                                     </div>
+                                </div>
+                                <div style="width: 70px;">
+                                    <label class="form-label">Poison</label>
+                                    <div id="${roundId}-${matchId}-player-poison-left" class="editable form-control text-center" contenteditable="true">0</div>
+                                </div>
+                                <div>
+                                    <label class="form-label">Wins</label>
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-sm btn-outline-secondary wins-minus-btn" data-target="${roundId}-${matchId}-player-wins-left">-</button>
+                                        <div id="${roundId}-${matchId}-player-wins-left" class="editable form-control text-center mx-1" contenteditable="false" style="width: 50px;">0</div>
+                                        <button class="btn btn-sm btn-outline-secondary wins-plus-btn" data-target="${roundId}-${matchId}-player-wins-left">+</button>
+                                    </div>
+                                </div>
+                                <div style="width: 100px;">
+                                    <label class="form-label">Record</label>
+                                    <div id="${roundId}-${matchId}-player-record-left" class="editable form-control" contenteditable="true"></div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Right Player Information -->
-                        <div class="col-md-6">
-                            <h5 class="card-title">Right Player</h5>
-                            <div class="mb-3">
-                                <label class="form-label">Player Name</label>
-                                <div id="${roundId}-${matchId}-player-name-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 life-points-field">
-                                <label class="form-label">LifePoints</label>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="-5">-5</button>
-                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="-1">-1</button>
-                                    <div id="${roundId}-${matchId}-player-life-right" class="editable form-control text-center mx-1" contenteditable="true"></div>
-                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="1">+1</button>
-                                    <button class="btn btn-sm btn-outline-success mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="5">+5</button>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Pronouns</label>
-                                <div id="${roundId}-${matchId}-player-pronouns-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 archetype-field">
-                                <label class="form-label">Archetype</label>
-                                <div id="${roundId}-${matchId}-player-archetype-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 mtg-only-field">
-                                <label class="form-label">Mana Symbols</label>
-                                <div id="${roundId}-${matchId}-player-mana-symbols-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Record</label>
-                                <div id="${roundId}-${matchId}-player-record-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Wins</label>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-outline-secondary wins-minus-btn" data-target="${roundId}-${matchId}-player-wins-right">-</button>
-                                    <div id="${roundId}-${matchId}-player-wins-right" class="editable form-control text-center mx-1" contenteditable="false" style="width: 50px;">0</div>
-                                    <button class="btn btn-sm btn-outline-secondary wins-plus-btn" data-target="${roundId}-${matchId}-player-wins-right">+</button>
-                                </div>
-                            </div>
-                            <div class="mb-3 mtg-only-field">
-                                <label class="form-label">Poison</label>
-                                <div id="${roundId}-${matchId}-player-poison-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3" style="display: none;">
-                                <label class="form-label">Mulligan</label>
-                                <div id="${roundId}-${matchId}-player-mulligan-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Legend</label>
-                                <div id="${roundId}-${matchId}-player-legend-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Champion</label>
-                                <div id="${roundId}-${matchId}-player-champion-right" class="editable form-control" contenteditable="true"></div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Runes</label>
-                                <div class="d-flex gap-2 mb-1">
-                                    <div id="${roundId}-${matchId}-player-rune-color-1-right" class="editable form-control" contenteditable="true"></div>
-                                    <div id="${roundId}-${matchId}-player-rune-qty-1-right" class="editable form-control" contenteditable="true"></div>
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <div id="${roundId}-${matchId}-player-rune-color-2-right" class="editable form-control" contenteditable="true"></div>
-                                    <div id="${roundId}-${matchId}-player-rune-qty-2-right" class="editable form-control" contenteditable="true"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield</label>
-                                <div class="d-flex align-items-center mb-1">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
-                                    <div id="${roundId}-${matchId}-player-battlefield-1-right" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                                <div class="d-flex align-items-center mb-1">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
-                                    <div id="${roundId}-${matchId}-player-battlefield-2-right" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-right-select" class="form-check-input me-2 battlefield-radio" data-side="right" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
-                                    <div id="${roundId}-${matchId}-player-battlefield-3-right" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                            </div>
-                            <div id="${roundId}-${matchId}-player-battlefield-right" class="editable" style="display:none;"></div>
-                            <div class="mb-3 starwars-only-field" style="display: none;">
-                                <label class="form-label">Leader & Aspects</label>
-                                <div id="${roundId}-${matchId}-player-leader-right" class="editable form-control" contenteditable="true"></div>
-                                <div class="d-flex gap-2 mt-1">
-                                    <div id="${roundId}-${matchId}-player-leader-aspect-1-right" class="editable form-control" contenteditable="true" placeholder="aspect 1" style="flex: 1;"></div>
-                                    <div id="${roundId}-${matchId}-player-leader-aspect-2-right" class="editable form-control" contenteditable="true" placeholder="aspect 2" style="flex: 1;"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3 starwars-only-field" style="display: none;">
-                                <label class="form-label">Base & Aspect</label>
-                                <div class="d-flex gap-2">
-                                    <div id="${roundId}-${matchId}-player-base-right" class="editable form-control" contenteditable="true" style="flex: 1;"></div>
-                                    <div id="${roundId}-${matchId}-player-base-aspects-right" class="editable form-control" contenteditable="true" placeholder="aspect" style="width: 120px; flex-shrink: 0;"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3 starwars-only-field" style="display: none;">
-                                <div class="d-flex gap-3 swu-base-stats-container">
-                                    <div>
-                                        <label class="form-label">Base HP</label>
-                                        <div class="d-flex align-items-center">
-                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-right" data-life-delta="-1">-1</button>
-                                            <div id="${roundId}-${matchId}-player-base-hp-right" class="editable form-control text-center mx-1" contenteditable="true" style="width: 60px;">30</div>
-                                            <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-base-hp-right" data-life-delta="1">+1</button>
-                                        </div>
+                        <div class="col-md-6 team-shared-section team-shared-section-right">
+                            <div class="d-flex gap-3 align-items-end mb-3">
+                                <div class="team-life-field" style="flex: 1;">
+                                    <label class="form-label">Team B Life</label>
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-sm btn-outline-danger mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="-5">-5</button>
+                                        <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="-1">-1</button>
+                                        <div id="${roundId}-${matchId}-player-life-right" class="editable form-control text-center mx-1" contenteditable="true"></div>
+                                        <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="1">+1</button>
+                                        <button class="btn btn-sm btn-outline-success mtg-only-field life-btn-5" data-life-target="${roundId}-${matchId}-player-life-right" data-life-delta="5">+5</button>
                                     </div>
+                                </div>
+                                <div style="width: 70px;">
+                                    <label class="form-label">Poison</label>
+                                    <div id="${roundId}-${matchId}-player-poison-right" class="editable form-control text-center" contenteditable="true">0</div>
+                                </div>
+                                <div>
+                                    <label class="form-label">Wins</label>
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-sm btn-outline-secondary wins-minus-btn" data-target="${roundId}-${matchId}-player-wins-right">-</button>
+                                        <div id="${roundId}-${matchId}-player-wins-right" class="editable form-control text-center mx-1" contenteditable="false" style="width: 50px;">0</div>
+                                        <button class="btn btn-sm btn-outline-secondary wins-plus-btn" data-target="${roundId}-${matchId}-player-wins-right">+</button>
+                                    </div>
+                                </div>
+                                <div style="width: 100px;">
+                                    <label class="form-label">Record</label>
+                                    <div id="${roundId}-${matchId}-player-record-right" class="editable form-control" contenteditable="true"></div>
                                 </div>
                             </div>
                         </div>
+                        ` : ''}
+                        ${renderPlayerSection(roundId, matchId, 'left', currentPlayerCount === '2v2' ? 'P1 (Team A)' : 'Left Player')}
+                        ${currentPlayerCount === '2v2' ? renderPlayerSection(roundId, matchId, 'left-2', 'P2 (Team A)') : ''}
+                        ${renderPlayerSection(roundId, matchId, 'right', currentPlayerCount === '2v2' ? 'P3 (Team B)' : 'Right Player')}
+                        ${currentPlayerCount === '2v2' ? renderPlayerSection(roundId, matchId, 'right-2', 'P4 (Team B)') : ''}
                     </div>
 
-                    <!-- New row for deck information -->
+                    <!-- Deck information -->
                     <div class="row">
-                        <!-- Left Player Deck Information -->
-                        <div class="col-md-6">
-                            <h5 class="card-title">Left Player Deck
-                                <button class="btn btn-sm btn-outline-primary add-deck-btn"
-                                        data-side="left" data-round="${roundId}" data-match="${matchId}">Add</button>
-                            </h5>
-                            <div class="deck-fields" id="${roundId}-${matchId}-deck-fields-left" style="display: none;">
-                                <div class="mb-3">
-                                    <label class="form-label">Main Deck</label>
-                                    <textarea id="${roundId}-${matchId}-player-main-deck-left"
-                                            class="editable form-control"
-                                            rows="5"
-                                            placeholder="Enter main deck cards (separated by commas or new lines)"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Side Deck</label>
-                                    <textarea id="${roundId}-${matchId}-player-side-deck-left"
-                                            class="editable form-control"
-                                            rows="3"
-                                            placeholder="Enter side deck cards (separated by commas or new lines)"></textarea>
-                                </div>
-                                <div class="my-3">
-                                    <button class="btn btn-primary" id="display-deck-left-${roundId}-${matchId}">Display Deck</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Right Player Deck Information -->
-                        <div class="col-md-6">
-                            <h5 class="card-title">Right Player Deck
-                                <button class="btn btn-sm btn-outline-primary add-deck-btn"
-                                        data-side="right" data-round="${roundId}" data-match="${matchId}">Add</button>
-                            </h5>
-                            <div class="deck-fields" id="${roundId}-${matchId}-deck-fields-right" style="display: none;">
-                                <div class="mb-3">
-                                    <label class="form-label">Main Deck</label>
-                                    <textarea id="${roundId}-${matchId}-player-main-deck-right"
-                                            class="editable form-control"
-                                            rows="5"
-                                            placeholder="Enter main deck cards (separated by new lines)"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Side Deck</label>
-                                    <textarea id="${roundId}-${matchId}-player-side-deck-right"
-                                            class="editable form-control"
-                                            rows="3"
-                                            placeholder="Enter side deck cards (separated by new lines)"></textarea>
-                                </div>
-                                <div class="my-3">
-                                    <button class="btn btn-primary" id="display-deck-right-${roundId}-${matchId}">Display Deck</button>
-                                </div>
-                            </div>
-                        </div>
+                        ${renderDeckSection(roundId, matchId, 'left', currentPlayerCount === '2v2' ? 'P1' : 'Left Player')}
+                        ${currentPlayerCount === '2v2' ? renderDeckSection(roundId, matchId, 'left-2', 'P2') : ''}
+                        ${renderDeckSection(roundId, matchId, 'right', currentPlayerCount === '2v2' ? 'P3' : 'Right Player')}
+                        ${currentPlayerCount === '2v2' ? renderDeckSection(roundId, matchId, 'right-2', 'P4') : ''}
                     </div>
 
                 </div>
@@ -648,7 +601,7 @@ export function initMatches(socket) {
         });
 
         // Sync active battlefield radio slot → hidden player-battlefield field
-        for (const side of ['left', 'right']) {
+        for (const side of ['left', 'right', 'left-2', 'right-2']) {
             const checkedRadio = document.querySelector(`input[name="${roundId}-${matchId}-bf-${side}-select"]:checked`);
             if (checkedRadio) {
                 const bfNum = checkedRadio.dataset.bf;
@@ -662,7 +615,7 @@ export function initMatches(socket) {
         }
 
         // Unhide deck fields if existing deck data is present
-        for (const side of ['left', 'right']) {
+        for (const side of ['left', 'right', 'left-2', 'right-2']) {
             const mainDeck = matchData[`player-main-deck-${side}`];
             const hasDeckData = Array.isArray(mainDeck)
                 ? mainDeck.some(line => line.trim() !== '')
@@ -1267,29 +1220,24 @@ export function initMatches(socket) {
                 });
         })
 
+        // Re-render if 2v2 was already set before control data arrived
+        if (currentPlayerCount === '2v2') {
+            toggleTeammateSections();
+        }
+
         // matches are rendered - now ask server for standings
         socket.emit('get-all-standings');
     }
 
     // Add click handlers for the Display Deck buttons
     function attachDeckDisplayListeners(round_id, match_id) {
-        const leftDeckButton = document.querySelector(`#display-deck-left-${round_id}-${match_id}`);
-        const rightDeckButton = document.querySelector(`#display-deck-right-${round_id}-${match_id}`);
-
-        leftDeckButton.addEventListener('click', () => {
-            socket.emit('display-deck', {
-                round_id,
-                match_id,
-                side: 'left'
-            });
-        });
-
-        rightDeckButton.addEventListener('click', () => {
-            socket.emit('display-deck', {
-                round_id,
-                match_id,
-                side: 'right'
-            });
+        ['left', 'right', 'left-2', 'right-2'].forEach(side => {
+            const btn = document.querySelector(`#display-deck-${side}-${round_id}-${match_id}`);
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    socket.emit('display-deck', { round_id, match_id, side });
+                });
+            }
         });
     }
 
@@ -1338,18 +1286,25 @@ export function initMatches(socket) {
         const resetLifeButton = document.querySelector(`#reset-life-${round_id}-${match_id}.reset-life-button`);
         resetLifeButton.addEventListener('click', () => {
             console.log('click reset life', round_id, match_id);
-            // update life points for left and right of round / match
-            document.querySelector(`[id="${round_id}-${match_id}-player-life-left"]`).innerText = baseLifePoints;
-            document.querySelector(`[id="${round_id}-${match_id}-player-life-right"]`).innerText = baseLifePoints;
-            // update controlData
-            allControlData[round_id][match_id]['player-life-left'] = baseLifePoints;
-            allControlData[round_id][match_id]['player-life-right'] = baseLifePoints;
+            // update life points for all players in round / match
+            const teamLife = currentPlayerCount === '2v2' ? '30' : baseLifePoints;
+            const sides = ['left', 'right'];
+            if (currentPlayerCount === '2v2') sides.push('left-2', 'right-2');
+            sides.forEach(side => {
+                const el = document.querySelector(`[id="${round_id}-${match_id}-player-life-${side}"]`);
+                if (el) {
+                    el.innerText = teamLife;
+                    if (!allControlData[round_id]) allControlData[round_id] = {};
+                    if (!allControlData[round_id][match_id]) allControlData[round_id][match_id] = {};
+                    allControlData[round_id][match_id][`player-life-${side}`] = baseLifePoints;
+                }
+            });
             // Also reset Star Wars base HP if in Star Wars mode
             if (currentGameSelection === 'starwars') {
-                const bhl = document.querySelector(`[id="${round_id}-${match_id}-player-base-hp-left"]`);
-                const bhr = document.querySelector(`[id="${round_id}-${match_id}-player-base-hp-right"]`);
-                if (bhl) { bhl.innerText = '30'; allControlData[round_id][match_id]['player-base-hp-left'] = '30'; }
-                if (bhr) { bhr.innerText = '30'; allControlData[round_id][match_id]['player-base-hp-right'] = '30'; }
+                sides.forEach(side => {
+                    const el = document.querySelector(`[id="${round_id}-${match_id}-player-base-hp-${side}"]`);
+                    if (el) { el.innerText = '30'; allControlData[round_id][match_id][`player-base-hp-${side}`] = '30'; }
+                });
             }
             // update server since control data changed
             socket.emit('master-control-matches-updated', allControlData);
@@ -1890,6 +1845,9 @@ export function initMatches(socket) {
 
     // setup sockets emitters
 
+    // Fetch player count first so renderMatch knows the layout before control data arrives
+    socket.emit('get-player-count');
+
     // call for control data
     socket.emit('get-all-control-data');
 
@@ -2021,6 +1979,32 @@ export function initMatches(socket) {
     });
 
     // Function to toggle visibility of game-specific fields
+    function toggleTeammateSections() {
+        // Collect all match cards in order, then re-render in place
+        const cards = [...document.querySelectorAll('.match-card-container')];
+        cards.forEach(card => {
+            const id = card.id; // match-card-{roundId}-{matchId}
+            const parts = id.replace('match-card-', '').split('-');
+            const roundId = parts[0];
+            const matchId = parts.slice(1).join('-');
+            const container = card.parentElement;
+            const nextSibling = card.nextSibling;
+            const matchData = allControlData[roundId]?.[matchId] || {};
+            // Remove old card
+            card.remove();
+            // Re-render creates a new card and appends to container
+            renderMatch(roundId, matchId, matchData);
+            // Move the newly appended card back to its original position
+            const newCard = document.getElementById(`match-card-${roundId}-${matchId}`);
+            if (newCard && container) {
+                if (nextSibling) {
+                    container.insertBefore(newCard, nextSibling);
+                }
+                // If nextSibling is null, it was already appended at the end which is correct
+            }
+        });
+    }
+
     function toggleGameFields(gameSelection) {
         const showRiftbound = gameSelection === 'riftbound';
         const showMtg = gameSelection === 'mtg';
@@ -2063,7 +2047,21 @@ export function initMatches(socket) {
                 if (field._originalParent) {
                     field._originalParent.insertBefore(field, field._originalNextSibling);
                 }
-                field.querySelector('.form-label').textContent = 'LifePoints';
+                // In 2v2, hide all individual life/record/wins fields (shared in team row)
+                if (currentPlayerCount === '2v2' && field.closest('.player-section')) {
+                    field.style.display = 'none';
+                } else {
+                    field.querySelector('.form-label').textContent = 'LifePoints';
+                    field.style.display = 'block';
+                }
+            }
+        });
+
+        // In 2v2, hide individual record and wins fields inside player sections
+        document.querySelectorAll('.player-section .record-field, .player-section .wins-field').forEach(field => {
+            if (currentPlayerCount === '2v2') {
+                field.style.display = 'none';
+            } else {
                 field.style.display = 'block';
             }
         });
@@ -2123,6 +2121,8 @@ export function initMatches(socket) {
         currentGameSelection = gameSelection?.toLowerCase() || 'mtg';
         applyGameDefaults(currentGameSelection);
         updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+        // Auto-push event info (life, timer) to broadcast pages
+        updateEventInformation.click();
     });
     socket.on('server-current-vendor-selection', ({vendorSelection}) => {
         currentVendor = vendorSelection;
@@ -2135,10 +2135,12 @@ export function initMatches(socket) {
     socket.on('server-current-player-count', ({playerCount}) => {
         currentPlayerCount = playerCount;
         updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+        toggleTeammateSections();
     });
     socket.on('player-count-updated', ({playerCount}) => {
         currentPlayerCount = playerCount;
         updateTheme(currentGameSelection, currentVendor, currentPlayerCount);
+        toggleTeammateSections();
     });
 
     // Initial fetch of game selection, vendor, and player count

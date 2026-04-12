@@ -671,6 +671,31 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Riftbound Legend Over-Frame (above frame, same position as legend portraits) */
+#scoreboard-riftbound .riftbound-player-legend-over-frame {
+    position: absolute;
+    z-index: 6;
+    display: block;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#scoreboard-riftbound .riftbound-player-legend-over-frame-left {
+    top: var(--rb-legend-bg-top, 428px);
+    left: var(--rb-legend-bg-side, 53px);
+    width: var(--rb-legend-bg-width, 251px);
+    height: var(--rb-legend-bg-height, 124px);
+}
+
+#scoreboard-riftbound .riftbound-player-legend-over-frame-right {
+    top: var(--rb-legend-bg-top, 428px);
+    right: var(--rb-legend-bg-side, 53px);
+    width: var(--rb-legend-bg-width, 251px);
+    height: var(--rb-legend-bg-height, 124px);
+}
+
 /* Riftbound Player Life (circles zone, y≈5–35) */
 #scoreboard-riftbound .riftbound-player-life-wrapper {
     position: absolute;
