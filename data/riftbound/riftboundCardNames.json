@@ -13029,13 +13029,13 @@
         "standard": true
       },
       {
-        "code": "OGN-121a",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-121a.png",
-        "standard": false
+        "code": "SFD-230",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-230.png",
+        "standard": true
       },
       {
-        "code": "OGN-121a",
-        "imageUrl": "/assets/images/riftbound/cards/OGN-121a.png",
+        "code": "SFD-230*",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-230_.png",
         "standard": false
       }
     ]
