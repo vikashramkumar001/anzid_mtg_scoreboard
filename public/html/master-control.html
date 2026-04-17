@@ -44,6 +44,8 @@
                 <select id="global-player-count" class="form-select form-select-sm" style="width: auto;">
                     <!-- Populated dynamically from VENDOR_CONFIG.playerCounts -->
                 </select>
+                <button id="save-obs-preset" class="btn btn-outline-info btn-sm">Save OBS Preset</button>
+                <button id="load-obs-preset" class="btn btn-outline-warning btn-sm">Load OBS Preset</button>
                 <button id="dark-mode-toggle" class="btn btn-outline-secondary btn-sm" onclick="toggleDarkMode()">Dark Mode</button>
             </div>
         </div>
@@ -282,6 +284,10 @@ CommentatorC
                                                         <button class="btn btn-primary update-button"
                                                             id="global-update-commentators">
                                                             Update Broadcast
+                                                        </button>
+                                                        <button class="btn btn-primary update-button ms-2"
+                                                            id="toggle-commentator-l3">
+                                                            Show L3
                                                         </button>
                                                     </div>
                                                 </div>

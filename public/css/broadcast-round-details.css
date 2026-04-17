@@ -1,57 +1,3 @@
-/* Gotham Narrow Font Faces for MTG */
-@font-face {
-    font-family: 'Gotham Narrow';
-    src: url('/fonts/GothamNarrow-Thin.otf') format('opentype');
-    font-weight: 100;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham Narrow';
-    src: url('/fonts/GothamNarrow-XLight.otf') format('opentype');
-    font-weight: 200;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham Narrow';
-    src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham Narrow';
-    src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-}
-
-/* Akzidenz-Grotesk Next Font Faces for Riftbound */
-@font-face {
-    font-family: 'Akzidenz-Grotesk Next';
-    src: url('/fonts/AkzidGrtskNext-Bold.eot');
-    src: local('Akzidenz-Grotesk Next Bold'), local('AkzidGrtskNext-Bold'),
-        url('/fonts/AkzidGrtskNext-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/AkzidGrtskNext-Bold.woff2') format('woff2'),
-        url('/fonts/AkzidGrtskNext-Bold.woff') format('woff'),
-        url('/fonts/AkzidGrtskNext-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Akzidenz-Grotesk Next';
-    src: url('/fonts/AkzidGrtskNext-Regular.eot');
-    src: local('Akzidenz-Grotesk Next Regular'), local('AkzidGrtskNext-Regular'),
-        url('/fonts/AkzidGrtskNext-Regular.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/AkzidGrtskNext-Regular.woff2') format('woff2'),
-        url('/fonts/AkzidGrtskNext-Regular.woff') format('woff'),
-        url('/fonts/AkzidGrtskNext-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root {
     --dynamic-font: 'Bebas Neue', sans-serif;
 }
@@ -69,10 +15,7 @@
     }
 }
 
-/* MTG uses Gotham Narrow font */
-body.mtg * {
-    font-family: 'Gotham Narrow', sans-serif;
-}
+
 
 body.mtg #player-detail {
     font-size: 48px;
@@ -124,7 +67,7 @@ body.mtg #player-detail {
     top: var(--mtg-lt-img-top, 862px);
     width: var(--mtg-lt-width, 616px);
     height: var(--mtg-lt-height, 100px);
-    background-image: var(--mtg-lt-bg-image, url('/assets/images/mtg/lower-third/mtg-lower-third-default-1v1.png'));
+    background-image: var(--mtg-lt-player-bg-image, var(--mtg-lt-bg-image, url('/assets/images/mtg/lower-third/mtg-lower-third-default-1v1.png')));
     background-size: var(--mtg-lt-bg-size, contain);
     background-repeat: no-repeat;
     text-align: left;
@@ -156,6 +99,63 @@ body.mtg #player-detail {
     color: var(--mtg-lt-name-color, white);
 }
 
+/* 2v2: Center both L3s using a wrapper approach */
+.winner-display.mode-2v2 .winner-2v2-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: calc(1080px - var(--mtg-lt-img-top, 862px) - var(--mtg-lt-height, 100px));
+    gap: var(--mtg-lt-p2-gap, 10px);
+}
+
+.winner-display.mode-2v2 .winner-2v2-panel {
+    position: relative;
+    width: var(--mtg-lt-width, 616px);
+    height: var(--mtg-lt-height, 100px);
+}
+
+.winner-display.mode-2v2 .winner-2v2-panel .winner-bg-image,
+.winner-display.mode-2v2 .winner-2v2-panel .winner-bg-image-p2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--mtg-lt-player-bg-image, var(--mtg-lt-bg-image, url('/assets/images/mtg/lower-third/mtg-lower-third-default-1v1.png')));
+    background-size: var(--mtg-lt-bg-size, contain);
+    background-repeat: no-repeat;
+}
+
+.winner-display.mode-2v2 .winner-2v2-panel .winner-text-container,
+.winner-display.mode-2v2 .winner-2v2-panel .winner-text-container-p2 {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mtg-lt-text-gap, 2px);
+}
+
+.winner-display.mode-2v2 .winner-2v2-panel .winner-name {
+    padding-left: 0;
+    text-align: center;
+}
+
+.winner-display.mode-2v2 .winner-2v2-panel .winner-archetype {
+    padding-left: 0;
+    justify-content: center;
+}
+
 .winner-pronouns {
     font-family: var(--mtg-lt-font, 'Gotham Narrow', sans-serif);
     font-size: var(--mtg-lt-pronouns-font-size, 18px);
@@ -169,7 +169,7 @@ body.mtg #player-detail {
 }
 
 .winner-archetype {
-    font-family: var(--mtg-lt-font, 'Gotham Narrow', sans-serif);
+    font-family: var(--mtg-lt-subtext-font, var(--mtg-lt-font, 'Gotham Narrow', sans-serif));
     font-size: var(--mtg-lt-subtext-font-size, 24px);
     font-weight: var(--mtg-lt-subtext-font-weight, 300);
     padding-left: var(--mtg-lt-subtext-padding-left, 125px);
@@ -204,7 +204,7 @@ body.mtg #player-detail {
     display: inline-flex;
     align-items: center;
     vertical-align: middle;
-    transform: translateY(-2px);
+    transform: translateY(var(--mtg-lt-mana-offset-y, -2px));
 }
 
 .winner-mana-symbols-container img {

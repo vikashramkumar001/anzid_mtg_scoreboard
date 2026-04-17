@@ -61,20 +61,22 @@ class RoomManager {
             return `control-${controlId}`;
         }
         
-        // Draftlist scoreboard - check before generic scoreboard
+        // Draftlist scoreboard
         if (path.includes('/broadcast/round/draftlist/scoreboard/')) return 'broadcast-draft-list';
 
-        // Broadcast scoreboard - check before generic /scoreboard/
-        if (path.includes('/broadcast/round/scoreboard/')) return 'broadcast-scoreboard';
-
-        // Scoreboard - check for /scoreboard/ in path
-        if (path.includes('/scoreboard/')) {
-            // Extract control ID from path (e.g., /control/1/1000)
-            const match = path.match(/\/scoreboard\/(\d+)/);
-            const scoreboardId = match ? match[1] : '1';
-            return `scoreboard-${scoreboardId}`;
+        // Per-match scoreboard pages (/scoreboard/matchN/variant and the
+        // /broadcast/round/scoreboard/ backward-compat alias). Need both the
+        // scoreboard-{N} room (for match data) and global (for selection events);
+        // the 'scoreboard-N' keys at lines ~141–144 already map that correctly.
+        if (path.includes('/scoreboard/') || path.includes('/broadcast/round/scoreboard/')) {
+            const m = path.match(/\/scoreboard\/match(\d+)/);
+            const n = m ? m[1] : '1';
+            return `scoreboard-${n}`;
         }
-        
+
+        // Background scenes — image-only pages; only need global selection events
+        if (path.includes('/background/')) return 'global';
+
         // Timer - check for /timer/ in path
         if (path.includes('/timer/')) {
             const match = path.match(/\/timer\/(\d+)/);
@@ -97,8 +99,6 @@ class RoomManager {
             if (segs.length >= 6) return 'riftbound-deck-display-broadcast'; // matchID + sideID format
             return 'riftbound-deck-display';
         }
-        if (path.includes('/deck-display') || path.endsWith('deck-display.html')) return 'deck-display';
-        if (path.includes('/side-deck-display') || path.endsWith('side-deck-display.html')) return 'deck-display';
         
         // Animation display - check for /riftbound/animation-display/ in path
         if (path.includes('/riftbound/animation-display/')) {
@@ -130,10 +130,6 @@ class RoomManager {
             const controlId = params.get('control') || '1';
             return `control-${controlId}`;
         }
-        if (path.endsWith('scoreboard.html')) {
-            const scoreboardId = params.get('scoreboard') || '1';
-            return `scoreboard-${scoreboardId}`;
-        }
         if (path.endsWith('timer.html')) {
             const timerId = params.get('timer') || '1';
             return `timer-${timerId}`;
@@ -142,11 +138,6 @@ class RoomManager {
             const game = params.get('game') || 'mtg';
             return `${game}-card-view`;
         }
-        if (path.endsWith('deck-display.html')) {
-            const game = params.get('game') || 'mtg';
-            return `${game}-deck-display`;
-        }
-        
         return 'global'; // Default to global instead of 'unknown'
     }
     

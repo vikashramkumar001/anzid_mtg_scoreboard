@@ -134,12 +134,30 @@ function updateTheme(game, vendor, playerCount) {
     const bgVideo = document.getElementById('bracket-bg-video');
 
     if (vc) {
-        // Video background disabled for now
-        if (bgVideo) {
-            bgVideo.style.display = 'none';
-            bgVideo.src = '';
-        }
         if (bg) bg.src = vc.getAssetPath(`/assets/images/${game}/bracket/${game}-bracket-bg.png`, vendor, playerCount);
+
+        // Event-wide video background — sits beneath the PNG bg per CSS
+        // z-index stack. Shown only when the file exists for current
+        // game/vendor/playerCount.
+        // Pattern: /assets/animations/{game}/shared/{game}-event-bg-{vendor}-{playerCount}.mp4
+        if (bgVideo) {
+            const videoPath = vc.getAssetPath(`/assets/animations/${game}/shared/${game}-event-bg.mp4`, vendor, playerCount);
+            fetch(videoPath, { method: 'HEAD' })
+                .then(r => {
+                    if (r.ok) {
+                        bgVideo.src = videoPath;
+                        bgVideo.load();
+                        bgVideo.play().catch(() => {});
+                    } else {
+                        bgVideo.removeAttribute('src');
+                        bgVideo.load();
+                    }
+                })
+                .catch(() => {
+                    bgVideo.removeAttribute('src');
+                    bgVideo.load();
+                });
+        }
     }
 
     if (vc) {

@@ -50,7 +50,7 @@ window.VENDOR_CONFIG = {
                 '--mtg-dl-archetype-font-size': '45px',
                 '--mtg-dl-archetype-font-weight': '400',
                 // Lower third
-                '--mtg-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-f2f-1v1.png')",
+                '--mtg-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third.png')",
             },
             ldxp: {
                 // Scoreboard
@@ -69,30 +69,154 @@ window.VENDOR_CONFIG = {
                 '--mtg-dl-archetype-font-size': '45px',
                 '--mtg-dl-archetype-font-weight': '400',
                 // Lower third
-                '--mtg-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-ldxp-1v1.png')",
+                '--mtg-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third.png')",
                 // Bracket
                 '--bracket-text-color': 'rgba(255,255,255, 1)',
                 '--bracket-text-color-faded': 'rgba(255,255,255, 0.5)',
                 '--slot-points-width': '70px',
             },
             flyquest: {
-                // Scoreboard
-                '--mtg-font': "'Gotham Narrow', sans-serif",
-                '--mtg-font-weight': '700',
-                '--mtg-name-font-size': '53px',
+                // Scoreboard — font
+                '--mtg-font': "'CARBON', sans-serif",
+                '--mtg-font-weight': 'normal',
+
+                // Scoreboard — hide header/footer backgrounds (keep children visible)
+                '--mtg-header-bg': 'none',
+                '--mtg-header-height': '0px',
+                '--mtg-footer-bg': 'none',
+                '--mtg-footer-height': '0px',
+
+                // Scoreboard — scorebug absolute positioning (break out of header flow)
+                '--mtg-scorebug-position': 'absolute',
+                '--mtg-scorebug-width': '1920px',
+                '--mtg-scorebug-height': '1080px',
+                '--mtg-scorebug-top': '0',
+                '--mtg-scorebug-left': '0',
+                '--mtg-scorebug-flex-direction': 'column',
+                '--mtg-scorebug-justify': 'flex-start',
+                '--mtg-scorebug-align': 'flex-start',
+
+                // Scoreboard — life totals (125x75 containers, text centered)
+                '--mtg-life-position': 'absolute',
+                '--mtg-left-life-top': '225px',
+                '--mtg-left-life-left': '602px',
+                '--mtg-right-life-top': '866px',
+                '--mtg-right-life-left': '602px',
+                '--mtg-life-width': '125px',
+                '--mtg-life-height': '75px',
+                '--mtg-life-font-size': '50px',
+                '--mtg-life-padding-top': '0px',
+
+                // Scoreboard — player names on right side (537x30 containers, text centered)
+                '--mtg-name-position': 'absolute',
+                '--mtg-left-name-top': '306px',
+                '--mtg-left-name-left': '1339px',
+                '--mtg-right-name-top': '1006px',
+                '--mtg-right-name-left': '1339px',
+                '--mtg-name-width': '537px',
+                '--mtg-name-height': '30px',
+                '--mtg-name-font-size': '24px',
                 '--mtg-name-color': 'white',
-                '--mtg-life-font-size': '80px',
-                '--mtg-record-font-size': '34px',
-                '--mtg-data-font-size': '27px',
-                '--mtg-chyron-font-size': '22px',
+                '--mtg-name-text-align': 'center',
+                '--mtg-name-align': 'center',
+                '--mtg-right-name-align': 'center',
+                '--mtg-name-max-font': '24',
+                '--mtg-name-max-width': '537',
+                '--mtg-name-padding-top': '0px',
+                '--mtg-name-title-padding-top': '0px',
+                '--mtg-p2-display': 'inline',
+                '--mtg-lt-p2-gap': '40px',
+
+                // Scoreboard — hide archetype, mana, records, wins dots, timer spacer
+                '--mtg-data-display': 'none',
+                '--mtg-record-display': 'none',
+                '--mtg-wins-display': 'none',
+                '--mtg-timer-spacer-display': 'none',
+
+                // Scoreboard — chyron (hidden, using timer wrapper instead)
+                '--mtg-chyron-display': 'none',
+
+                // Scoreboard — timer wrapper repositioned to lower third bar (1260x53)
+                '--mtg-timer-top': '993px',
+                '--mtg-timer-left': '34px',
+                '--mtg-timer-width': '1260px',
+                '--mtg-timer-height': '53px',
+                '--mtg-timer-flex-direction': 'row',
+                '--mtg-timer-justify': 'space-between',
+                '--mtg-timer-padding-top': '0px',
+                '--mtg-timer-padding-left': '20px',
+                '--mtg-timer-padding-right': '20px',
+                '--mtg-timer-font-size': '22px',
+                '--mtg-event-name-font-size': '22px',
+                '--mtg-event-name-width': '200px',
+                '--mtg-event-name-overflow': 'visible',
+                '--mtg-event-name-text-align': 'left',
+                '--mtg-event-round-width': 'auto',
+                '--mtg-event-round-flex': '1',
+                '--mtg-event-round-margin-top': '0px',
+                '--mtg-timer-container-margin-top': '0px',
+                '--mtg-timer-container-width': '200px',
+                '--mtg-timer-container-align': 'flex-end',
+                '--mtg-event-round-font-size': '22px',
+
+                // Scoreboard — hide chyron (using timer wrapper instead)
+                '--mtg-chyron-display': 'none',
+
                 // Decklist
-                '--mtg-dl-font': "'Gotham Narrow', sans-serif",
+                '--mtg-dl-font': "'CARBON', sans-serif",
                 '--mtg-dl-name-font-size': '115px',
-                '--mtg-dl-name-font-weight': '700',
+                '--mtg-dl-name-font-weight': 'normal',
                 '--mtg-dl-archetype-font-size': '45px',
-                '--mtg-dl-archetype-font-weight': '400',
+                '--mtg-dl-archetype-font-weight': 'normal',
+
                 // Lower third
-                '--mtg-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-flyquest-1v1.png')",
+                '--mtg-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-commentator.png')",
+                '--mtg-lt-player-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-player.png')",
+                '--mtg-lt-font': "'Beni', sans-serif",
+                '--mtg-lt-name-font-weight': '700',
+                '--mtg-lt-name-line-height': '0.8',
+                '--mtg-lt-winner-max-font': '72',
+                '--mtg-lt-winner-max-width': '580',
+                '--mtg-lt-subtext-font': "'CARBON', sans-serif",
+                '--mtg-lt-subtext-font-weight': 'normal',
+                '--mtg-lt-mana-offset-y': '0px',
+
+                // Commentator L3
+                '--comm-lt-font': "'Beni', sans-serif",
+                '--comm-lt-font-weight': '700',
+                '--comm-lt-social-font': "'CARBON', sans-serif",
+                '--comm-lt-social-font-weight': 'normal',
+                '--comm-lt-name-font-size': '72px',
+                '--comm-lt-name-line-height': '0.8',
+                '--comm-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-commentator.png')",
+                // --comm-lt-width / --comm-lt-height are now set at runtime by
+                // broadcast-commentators.js → sizeAndScale() based on the PNG's
+                // natural dimensions. Do not hardcode here.
+                '--comm-lt-gap': '40px',
+                '--comm-lt-bottom': '40px',
+
+                // Scoreboard-overlay (used by /scoreboard/:matchID/:variant on
+                // hand-left & hand-right only — CSS gates which team panel shows).
+                // Positions below are placeholders; tune visually against the
+                // actual hand-left/hand-right frame PNGs.
+                '--sb-name-opacity':     '1',
+                '--sb-life-opacity':     '1',
+                '--sb-name-color':       '#fff',
+                '--sb-life-color':       '#fff',
+                '--sb-name-font-size':   '42px',
+                '--sb-life-font-size':   '140px',
+                '--sb-name-font-weight': '700',
+                '--sb-life-font-weight': '900',
+                // Hand-left — team 1 (P1 + P2 + team 1 life)
+                '--sb-p1-name-top':  '820px', '--sb-p1-name-left': '120px',
+                '--sb-p2-name-top':  '880px', '--sb-p2-name-left': '120px',
+                '--sb-t1-life-top':  '780px', '--sb-t1-life-left': '720px',
+                // Hand-right — team 2 (P3 + P4 + team 2 life)
+                '--sb-p3-name-top':  '820px', '--sb-p3-name-left': '1400px',
+                '--sb-p4-name-top':  '880px', '--sb-p4-name-left': '1400px',
+                '--sb-t2-life-top':  '780px', '--sb-t2-life-left': '1100px',
+                // Player icons intentionally omitted — deferred. DOM stubs in
+                // scoreboard.html are always hidden (--sb-icon-opacity default: 0).
             },
         },
         riftbound: {
@@ -301,8 +425,8 @@ window.VENDOR_CONFIG = {
                 '--rb-lt-commentator-height': '241px',
                 '--rb-lt-commentator-text-left': '265px',
                 '--rb-lt-commentator-text-top': '924px',
-                '--rb-lt-bg-image': "url('/assets/images/riftbound/lower-third/riftbound-lower-third-tes-1v1-commentator.png')",
-                '--rb-lt-player-bg-image': "url('/assets/images/riftbound/lower-third/riftbound-lower-third-tes-1v1-player.png')",
+                '--rb-lt-bg-image': "url('/assets/images/riftbound/lower-third/riftbound-lower-third-commentator.png')",
+                '--rb-lt-player-bg-image': "url('/assets/images/riftbound/lower-third/riftbound-lower-third-player.png')",
                 // Winner overrides
                 '--rb-lt-winner-img-left': '140px',
                 '--rb-lt-winner-img-top': '877px',
@@ -312,7 +436,10 @@ window.VENDOR_CONFIG = {
                 '--rb-lt-winner-text-top': '916px',
                 '--rb-lt-winner-text-width': '400px',
                 // Head-to-head overrides
-                '--rb-h2h-bg-image': "url('/assets/images/riftbound/lower-third/riftbound-lower-third-tes-1v1-player.png')",
+                // Base path only — broadcast-round-details.js updateTheme()
+                // appends -{vendor}-{playerCount} via vc.getAssetPath().
+                // Resolves at runtime to riftbound-lower-third-player-tes-1v1.png.
+                '--rb-h2h-bg-image': "url('/assets/images/riftbound/lower-third/riftbound-lower-third-player.png')",
                 '--rb-h2h-img-left': '140px',
                 '--rb-h2h-img-top': '877px',
                 '--rb-h2h-width': '611px',
@@ -332,6 +459,14 @@ window.VENDOR_CONFIG = {
                 '--rb-lt-subtext-color': '#1ae930',
                 '--rb-lt-subtext-font-style': 'italic',
                 '--rb-lt-text-width': '550px',
+                // Broadcast Commentator L3
+                '--comm-lt-font': "'Akzidenz-Grotesk Next', sans-serif",
+                '--comm-lt-font-weight': '700',
+                '--comm-lt-name-font-size': '48px',
+                '--comm-lt-name-line-height': '35px',
+                '--comm-lt-social-font-size': '20px',
+                '--comm-lt-social-font-weight': '300',
+                '--comm-lt-social-color': '#1ae930',
                 // Standings
                 '--archetype-font-style': 'italic',
                 '--archetype-font-weight': '300',

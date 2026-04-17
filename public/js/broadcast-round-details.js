@@ -97,6 +97,14 @@ function updateTheme(game, vendor, playerCount) {
         });
         const overrides = vc.getOverrides(game, vendor);
         Object.entries(overrides).forEach(([prop, value]) => {
+            // Resolve bg-image paths with playerCount suffix
+            if (prop.endsWith('-bg-image') && value.includes('/assets/')) {
+                const match = value.match(/url\(['"]?(.+?)['"]?\)/);
+                if (match) {
+                    const resolved = vc.getAssetPath(match[1], vendor, playerCount);
+                    value = `url('${resolved}')`;
+                }
+            }
             document.documentElement.style.setProperty(prop, value);
         });
     }
@@ -176,12 +184,25 @@ function renderDetails(detail) {
         const playerName = roundData[match_id]?.[`player-name-${side}`] || '';
 
         playerDetail.innerHTML = '';
-        playerDetail.className = `winner-display ${selectedGame}`;
+        playerDetail.className = `winner-display ${selectedGame}${currentPlayerCount === '2v2' ? ' mode-2v2' : ''}`;
+
+        // For 2v2, create a flex wrapper; for 1v1, append directly
+        let p1Parent = playerDetail;
+        let wrapper = null;
+        if (currentPlayerCount === '2v2') {
+            wrapper = document.createElement('div');
+            wrapper.className = 'winner-2v2-wrapper';
+            const panel1 = document.createElement('div');
+            panel1.className = 'winner-2v2-panel';
+            wrapper.appendChild(panel1);
+            playerDetail.appendChild(wrapper);
+            p1Parent = panel1;
+        }
 
         // Background image container
         const bgImage = document.createElement('div');
         bgImage.className = 'winner-bg-image';
-        playerDetail.appendChild(bgImage);
+        p1Parent.appendChild(bgImage);
 
         // Text container (positioned independently from background)
         const textContainer = document.createElement('div');
@@ -275,7 +296,7 @@ function renderDetails(detail) {
             textContainer.appendChild(archetypeContainer);
         }
 
-        playerDetail.appendChild(textContainer);
+        p1Parent.appendChild(textContainer);
 
         // Render mana symbols after DOM insertion so getElementById can find it
         if (document.getElementById('winner-mana-symbols')) {
@@ -285,9 +306,72 @@ function renderDetails(detail) {
 
         // Wait for fonts to load before scaling text
         document.fonts.ready.then(() => {
-            const maxFontSize = selectedGame === 'mtg' ? 48 : 40;
-            autoScaleText(nameEl, maxFontSize, 24, 465);
+            const root = getComputedStyle(document.documentElement);
+            const maxFontSize = parseInt(root.getPropertyValue('--mtg-lt-winner-max-font')) || (selectedGame === 'mtg' ? 48 : 40);
+            const maxWidth = parseInt(root.getPropertyValue('--mtg-lt-winner-max-width')) || 465;
+            autoScaleText(nameEl, maxFontSize, 24, maxWidth);
         });
+
+        // 2v2: add teammate L3 to the right in second panel
+        if (currentPlayerCount === '2v2' && wrapper) {
+            const panel2 = document.createElement('div');
+            panel2.className = 'winner-2v2-panel';
+
+            const side2 = side + '-2';
+            const p2Name = roundData[match_id]?.[`player-name-${side2}`] || '';
+
+            const bgImage2 = document.createElement('div');
+            bgImage2.className = 'winner-bg-image';
+            panel2.appendChild(bgImage2);
+
+            const textContainer2 = document.createElement('div');
+            textContainer2.className = 'winner-text-container';
+
+            const nameEl2 = document.createElement('div');
+            nameEl2.className = 'winner-name';
+            nameEl2.textContent = p2Name;
+            textContainer2.appendChild(nameEl2);
+
+            if (selectedGame === 'riftbound') {
+                const legend2 = roundData[match_id]?.[`player-legend-${side2}`] || '';
+                const legendContainer2 = document.createElement('div');
+                legendContainer2.className = 'winner-archetype';
+                const legendText2 = document.createElement('span');
+                legendText2.className = 'winner-archetype-text';
+                legendText2.textContent = legend2;
+                legendContainer2.appendChild(legendText2);
+                textContainer2.appendChild(legendContainer2);
+            } else {
+                const archetype2 = roundData[match_id]?.[`player-archetype-${side2}`] || '';
+                const archetypeContainer2 = document.createElement('div');
+                archetypeContainer2.className = 'winner-archetype';
+                const archetypeText2 = document.createElement('span');
+                archetypeText2.className = 'winner-archetype-text';
+                archetypeText2.textContent = archetype2;
+                archetypeContainer2.appendChild(archetypeText2);
+
+                const manaSpan2 = document.createElement('span');
+                manaSpan2.id = 'winner-mana-symbols-p2';
+                manaSpan2.className = 'winner-mana-symbols-container';
+                archetypeContainer2.appendChild(manaSpan2);
+                textContainer2.appendChild(archetypeContainer2);
+            }
+
+            panel2.appendChild(textContainer2);
+            wrapper.appendChild(panel2);
+
+            if (document.getElementById('winner-mana-symbols-p2')) {
+                const manaSymbols2 = roundData[match_id]?.[`player-mana-symbols-${side2}`] || '';
+                renderManaSymbols(manaSymbols2, 'winner-mana-symbols-p2');
+            }
+
+            document.fonts.ready.then(() => {
+                const root = getComputedStyle(document.documentElement);
+                const maxFontSize = parseInt(root.getPropertyValue('--mtg-lt-winner-max-font')) || (selectedGame === 'mtg' ? 48 : 40);
+                const maxWidth = parseInt(root.getPropertyValue('--mtg-lt-winner-max-width')) || 465;
+                autoScaleText(nameEl2, maxFontSize, 24, maxWidth);
+            });
+        }
 
         // Head-to-head display — same as winner but uses head-to-head CSS class for different image
     } else if (detail_id === 'head-to-head-left' || detail_id === 'head-to-head-right') {
@@ -392,7 +476,6 @@ function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
     }
 
     element.style.fontSize = currentSize + 'px';
-    element.style.lineHeight = '1';
     document.body.removeChild(temp);
 }
 

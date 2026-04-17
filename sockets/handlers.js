@@ -31,6 +31,8 @@ import {
     emitCurrentPlayerCount, updatePlayerCount
 } from '../features/control.js';
 
+import { savePreset, restorePreset } from '../features/obs-websocket.js';
+
 import {
     emitGlobalMatchData,
     updateBaseTimerDefault,
@@ -264,6 +266,21 @@ export default function registerSocketHandlers(io) {
 
         socket.on('get-player-count', () => {
             emitCurrentPlayerCount(io);
+        })
+
+        // OBS Presets
+        socket.on('save-obs-preset', async () => {
+            const result = await savePreset();
+            socket.emit('obs-preset-saved', result);
+        })
+
+        socket.on('restore-obs-preset', async ({ game, vendor, playerCount }) => {
+            await restorePreset(game, vendor, playerCount);
+        })
+
+        // Commentator L3 toggle
+        socket.on('toggle-commentator-l3', () => {
+            io.emit('toggle-commentator-l3');
         })
 
         // Card viewer

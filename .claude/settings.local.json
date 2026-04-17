@@ -68,7 +68,13 @@
       "Bash(mdfind -name In-Game_0005)",
       "Bash(npm install:*)",
       "Bash(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/images/riftbound/shared/sideways ahri.webm\")",
-      "Bash(mdfind \"kMDItemDisplayName == ''riftbound-scoreboard-over_frame-default-1v1.png''\")"
+      "Bash(mdfind \"kMDItemDisplayName == ''riftbound-scoreboard-over_frame-default-1v1.png''\")",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/**)"
+    ],
+    "additionalDirectories": [
+      "/Users/anuraagdas/Desktop"
     ]
   }
 }

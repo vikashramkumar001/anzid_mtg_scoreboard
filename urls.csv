@@ -8,8 +8,6 @@ Broadcast Decks,/broadcast/round/maindeck/:matchID/:sideID,Main deck display
 Broadcast Decks,/broadcast/round/maindeck/:orientation/:matchID/:sideID,Main deck with orientation
 Broadcast Decks,/broadcast/round/sidedeck/:matchID/:sideID,Side deck display
 Broadcast Decks,/broadcast/round/sidedeck/:orientation/:matchID/:sideID,Side deck with orientation
-Broadcast Decks,/deck-display,Deck display page
-Broadcast Decks,/side-deck-display,Side deck display page
 Draft List,/broadcast/round/draftlist/vertical/1,Player 1 draft list
 Draft List,/broadcast/round/draftlist/vertical/2,Player 2 draft list
 Draft List,/broadcast/round/draftlist/scoreboard/1,Player 1 draft scoreboard

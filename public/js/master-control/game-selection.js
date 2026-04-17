@@ -81,6 +81,54 @@ export function initGameSelection(socket) {
         playerCountSelect.value = playerCount?.toLowerCase();
     });
 
+    // --- Save OBS Preset ---
+    // --- Toggle Commentator L3 ---
+    const commL3Btn = document.querySelector('#toggle-commentator-l3');
+    if (commL3Btn) {
+        commL3Btn.addEventListener('click', () => {
+            socket.emit('toggle-commentator-l3');
+        });
+    }
+
+    const savePresetBtn = document.querySelector('#save-obs-preset');
+    if (savePresetBtn) {
+        savePresetBtn.addEventListener('click', () => {
+            savePresetBtn.disabled = true;
+            savePresetBtn.textContent = 'Saving...';
+            socket.emit('save-obs-preset');
+        });
+
+        socket.on('obs-preset-saved', (result) => {
+            savePresetBtn.disabled = false;
+            if (result.success) {
+                savePresetBtn.textContent = `Saved: ${result.file}`;
+                setTimeout(() => { savePresetBtn.textContent = 'Save OBS Preset'; }, 3000);
+            } else {
+                savePresetBtn.textContent = `Error: ${result.error}`;
+                setTimeout(() => { savePresetBtn.textContent = 'Save OBS Preset'; }, 3000);
+            }
+        });
+    }
+
+    // --- Load OBS Preset ---
+    const loadPresetBtn = document.querySelector('#load-obs-preset');
+    if (loadPresetBtn) {
+        loadPresetBtn.addEventListener('click', () => {
+            loadPresetBtn.disabled = true;
+            loadPresetBtn.textContent = 'Loading...';
+            socket.emit('restore-obs-preset', {
+                game: gameSelect.value.toLowerCase(),
+                vendor: vendorSelect.value.toLowerCase(),
+                playerCount: playerCountSelect.value.toLowerCase()
+            });
+            // No server response event for restore, just re-enable after a delay
+            setTimeout(() => {
+                loadPresetBtn.disabled = false;
+                loadPresetBtn.textContent = 'Load OBS Preset';
+            }, 2000);
+        });
+    }
+
     // --- Initialize ---
     populatePlayerCountDropdown();
     socket.emit('get-game-selection');

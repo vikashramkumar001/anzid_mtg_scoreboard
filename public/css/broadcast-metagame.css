@@ -73,13 +73,16 @@ body {
     display: none;
 }
 
+/* Event-wide video background — sits BEHIND the metagame PNG so any
+   text / decorative overlay baked into the PNG stays visible on top
+   of the video. */
 #metagame-bg-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 1920px;
     height: 1080px;
-    z-index: -1;
+    z-index: -2;
     object-fit: cover;
     display: none;
 }

@@ -122,6 +122,50 @@
   font-style: normal;
 }
 
+/* Beni */
+@font-face {
+  font-family: 'Beni';
+  src: url('/fonts/BeniLight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Beni';
+  src: url('/fonts/BeniRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Beni';
+  src: url('/fonts/BeniBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Beni';
+  src: url('/fonts/BeniBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* CARBON */
+@font-face {
+  font-family: 'CARBON';
+  src: url('/fonts/CARBONRegular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CARBON';
+  src: url('/fonts/CARBONBold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 @font-face {
   font-family: 'AlverataIrregular';
   src: url('/fonts/AlverataIrregularMd.woff2') format('woff2'),
@@ -351,6 +395,29 @@
 @font-face {
     font-family: 'Gotham Narrow';
     src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Gotham */
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/GothamBook.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/GothamMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('/fonts/Gotham-Bold.otf') format('opentype'),
+        url('/fonts/GothamBold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }

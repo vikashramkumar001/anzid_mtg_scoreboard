@@ -36,6 +36,25 @@ body {
     display: none;
 }
 
+/* Event-wide video background — sits BEHIND the standings PNG so the
+   header text / decorative overlay baked into the PNG stays visible on
+   top of the video. Hidden by default; JS sets [src] when a file exists
+   for the current game/vendor/playerCount. */
+#standings-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: -2;
+    object-fit: cover;
+    display: none;
+}
+
+#standings-bg-video[src] {
+    display: block;
+}
+
 #standings-event-round, .standings-event-round-el {
     display: var(--standings-event-round-display, none);
     position: absolute;

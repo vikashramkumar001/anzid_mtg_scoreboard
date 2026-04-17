@@ -147,17 +147,16 @@ export class RoomUtils {
             return `control-${controlId}`;
         }
         
-        // Scoreboard
-        if (pagePath.includes('/scoreboard/')) {
-            const match = pagePath.match(/\/scoreboard\/(\d+)/);
-            const scoreboardId = match ? match[1] : '1';
-            return `scoreboard-${scoreboardId}`;
+        // Per-match scoreboard pages (/scoreboard/matchN/variant and the
+        // /broadcast/round/scoreboard/ backward-compat alias).
+        if (pagePath.includes('/scoreboard/') || pagePath.includes('/broadcast/round/scoreboard/')) {
+            const m = pagePath.match(/\/scoreboard\/match(\d+)/);
+            return `scoreboard-${m ? m[1] : '1'}`;
         }
-        if (pagePath.includes('scoreboard.html')) {
-            const scoreboardId = params.scoreboard || '1';
-            return `scoreboard-${scoreboardId}`;
-        }
-        
+
+        // Background scenes — image-only pages; only need global selection events
+        if (pagePath.includes('/background/')) return 'global';
+
         // Timer
         if (pagePath.includes('/timer/')) {
             const match = pagePath.match(/\/timer\/(\d+)/);
@@ -179,15 +178,12 @@ export class RoomUtils {
         // Deck displays
         if (pagePath.includes('/vibes/display/main/deck/')) return 'vibes-deck-display';
         if (pagePath.includes('/riftbound/display/main/deck/')) return 'riftbound-deck-display';
-        if (pagePath.includes('/deck-display') || pagePath.includes('deck-display.html')) return 'deck-display';
-        if (pagePath.includes('/side-deck-display') || pagePath.includes('side-deck-display.html')) return 'deck-display';
         
         // Broadcast pages
         if (pagePath.includes('/broadcast/round/standings/')) return 'broadcast-standings';
         if (pagePath.includes('/broadcast/round/details/')) return 'broadcast-details';
         if (pagePath.includes('/broadcast/round/maindeck/')) return 'broadcast-main-deck';
         if (pagePath.includes('/broadcast/round/sidedeck/')) return 'broadcast-side-deck';
-        if (pagePath.includes('/broadcast/round/scoreboard/')) return 'broadcast-scoreboard';
 
         // Bracket
         if (pagePath.includes('/display/bracket/details/') || pagePath.includes('bracket-individual-display.html')) return 'brackets';

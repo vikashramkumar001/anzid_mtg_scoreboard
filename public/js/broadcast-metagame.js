@@ -83,6 +83,32 @@ function updateTheme(game, vendor, playerCount) {
             img.onerror = () => { bgEl.src = ''; };
             img.src = bgPath;
         }
+
+        // Event-wide video background (optional — drops on top of PNG bg
+        // when the file exists for current game/vendor/playerCount).
+        // Pattern: /assets/animations/{game}/shared/{game}-event-bg-{vendor}-{playerCount}.mp4
+        const videoPath = vc.getAssetPath(
+            `/assets/animations/${game}/shared/${game}-event-bg.mp4`,
+            vendor, playerCount
+        );
+        const videoEl = document.getElementById('metagame-bg-video');
+        if (videoEl) {
+            fetch(videoPath, { method: 'HEAD' })
+                .then(r => {
+                    if (r.ok) {
+                        videoEl.src = videoPath;
+                        videoEl.load();
+                        videoEl.play().catch(() => {});
+                    } else {
+                        videoEl.removeAttribute('src');
+                        videoEl.load();
+                    }
+                })
+                .catch(() => {
+                    videoEl.removeAttribute('src');
+                    videoEl.load();
+                });
+        }
     }
 
     // Game defaults

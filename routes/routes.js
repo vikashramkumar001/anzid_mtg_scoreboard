@@ -21,7 +21,26 @@ router.get('/control/:controlID/:delay', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/control.html'));
 });
 
-router.get('/scoreboard/:controlID', (req, res) => {
+// Background scenes — minimal image-only pages that swap based on
+// current game/vendor/playerCount selection. Identifier format:
+// /background/starting-soon, /background/head-to-head, etc.
+// Match-specific scenes moved to /scoreboard/:matchID/:variant (below)
+// so vendors that need live match data on top (Flyquest 2v2 hand overlays)
+// can render names / life totals via scoreboard-{N}-saved-state.
+router.get('/background/:identifier', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/background.html'));
+});
+
+// Per-match scene page (frame PNG + optional data overlay). Variants:
+// overview | hand-left | hand-right | player-left | player-right.
+// Data overlay visibility is vendor-gated via CSS custom properties in
+// public/js/vendor-config.js — see scoreboard.js header comment.
+router.get('/scoreboard/:matchID/:variant', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
+});
+
+// Backward-compat alias for OBS sources still aimed at the old broadcast path.
+router.get('/broadcast/round/scoreboard/:matchID/:variant', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
 });
 
@@ -29,13 +48,6 @@ router.get('/master-control', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/master-control.html'));
 });
 
-router.get('/deck-display', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/deck-display.html'));
-});
-
-router.get('/side-deck-display', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/side-deck-display.html'));
-});
 
 router.get('/broadcast/round/details/:matchID/:detailKey', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-details.html'));
@@ -71,10 +83,6 @@ router.get('/broadcast/round/draftlist/:orientation/:slotId', (req, res) => {
 
 router.get('/broadcast/round/draftlist/:slotId', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-draft-list.html'));
-});
-
-router.get('/broadcast/round/scoreboard/:matchID', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
 });
 
 router.get('/broadcast/round/standings/:rankID', (req, res) => {
@@ -129,6 +137,10 @@ router.get('/mtg/display/card/view/:cardID', (req, res) => {
 
 router.get('/lower-third/commentator/:commentatorID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/commentator-lower-third.html'));
+});
+
+router.get('/broadcast/commentator-l3', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-commentators.html'));
 });
 
 // Upload overlay header image (game-specific)

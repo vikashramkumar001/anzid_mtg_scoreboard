@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    color: white;
+}
+
+html, body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
+/* --comm-lt-scale is set by broadcast-commentators.js → sizeAndScale().
+   Defaults to 1 (natural size). When N cards + gaps overflow 1920, JS sets
+   scale = 1920 / totalNaturalWidth so all scaled properties shrink together. */
+
+#commentator-l3-container {
+    position: absolute;
+    bottom: var(--comm-lt-bottom, 40px);
+    left: 0;
+    width: 1920px;
+    display: flex;
+    justify-content: center;
+    /* Gap is intentionally NOT scaled — fixed visual breathing room between bars
+       regardless of overflow scaling. Bars themselves shrink instead. */
+    gap: var(--comm-lt-gap, 40px);
+    pointer-events: none;
+}
+
+.commentator-l3 {
+    width: calc(var(--comm-lt-width, 400px) * var(--comm-lt-scale, 1));
+    height: calc(var(--comm-lt-height, 80px) * var(--comm-lt-scale, 1));
+    background-image: var(--comm-lt-bg-image, none);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--comm-lt-slide-duration, 0.5s) ease;
+    transform: translateY(0);
+}
+
+.commentator-l3.active {
+    transform: translateY(calc(var(--comm-lt-slide-up, -200px) * var(--comm-lt-scale, 1)));
+}
+
+/* Name — base styles */
+.commentator-l3-name {
+    font-family: var(--comm-lt-font, sans-serif);
+    font-weight: var(--comm-lt-font-weight, 700);
+    font-size: calc(var(--comm-lt-name-font-size, 48px) * var(--comm-lt-scale, 1));
+    color: var(--comm-lt-name-color, white);
+    line-height: calc(var(--comm-lt-name-line-height, 35px) * var(--comm-lt-scale, 1));
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Social — base styles */
+.commentator-l3-social {
+    font-family: var(--comm-lt-social-font, var(--comm-lt-font, sans-serif));
+    font-weight: var(--comm-lt-social-font-weight, 300);
+    font-size: calc(var(--comm-lt-social-font-size, 25px) * var(--comm-lt-scale, 1));
+    color: var(--comm-lt-social-color, white);
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+    margin-top: calc(var(--comm-lt-social-margin-top, 4px) * var(--comm-lt-scale, 1));
+}
+
+/* Per-game font defaults */
+body.mtg .commentator-l3-name {
+    font-family: var(--comm-lt-font, 'Gotham Narrow', sans-serif);
+    font-size: calc(var(--comm-lt-name-font-size, 48px) * var(--comm-lt-scale, 1));
+    line-height: calc(var(--comm-lt-name-line-height, 35px) * var(--comm-lt-scale, 1));
+}
+body.mtg .commentator-l3-social {
+    font-family: var(--comm-lt-social-font, var(--comm-lt-font, 'Gotham Narrow', sans-serif));
+    font-size: calc(var(--comm-lt-social-font-size, 25px) * var(--comm-lt-scale, 1));
+    font-weight: var(--comm-lt-social-font-weight, 300);
+}
+
+body.riftbound .commentator-l3-name {
+    font-family: var(--comm-lt-font, 'Beaufort for LoL', sans-serif);
+    font-size: calc(var(--comm-lt-name-font-size, 40px) * var(--comm-lt-scale, 1));
+    line-height: calc(var(--comm-lt-name-line-height, 35px) * var(--comm-lt-scale, 1));
+}
+body.riftbound .commentator-l3-social {
+    font-family: var(--comm-lt-social-font, var(--comm-lt-font, 'Beaufort for LoL', sans-serif));
+    font-size: calc(var(--comm-lt-social-font-size, 20px) * var(--comm-lt-scale, 1));
+    font-weight: var(--comm-lt-social-font-weight, 400);
+}
+
+body.vibes .commentator-l3-name {
+    font-family: var(--comm-lt-font, 'Bebas Neue', sans-serif);
+    font-size: calc(var(--comm-lt-name-font-size, 40px) * var(--comm-lt-scale, 1));
+    line-height: calc(var(--comm-lt-name-line-height, 35px) * var(--comm-lt-scale, 1));
+}
+body.vibes .commentator-l3-social {
+    font-family: var(--comm-lt-social-font, var(--comm-lt-font, 'Bebas Neue', sans-serif));
+    font-size: calc(var(--comm-lt-social-font-size, 25px) * var(--comm-lt-scale, 1));
+    font-weight: var(--comm-lt-social-font-weight, 300);
+}
+
+body.starwars .commentator-l3-name {
+    font-family: var(--comm-lt-font, 'Barlow', sans-serif);
+    font-size: calc(var(--comm-lt-name-font-size, 48px) * var(--comm-lt-scale, 1));
+    line-height: calc(var(--comm-lt-name-line-height, 35px) * var(--comm-lt-scale, 1));
+}
+body.starwars .commentator-l3-social {
+    font-family: var(--comm-lt-social-font, var(--comm-lt-font, 'Barlow', sans-serif));
+    font-size: calc(var(--comm-lt-social-font-size, 20px) * var(--comm-lt-scale, 1));
+    font-weight: var(--comm-lt-social-font-weight, 400);
+}

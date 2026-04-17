@@ -197,6 +197,13 @@ function updateTheme(game, vendor, playerCount) {
         });
         const overrides = vc.getOverrides(game, vendor);
         Object.entries(overrides).forEach(([prop, value]) => {
+            if (prop.endsWith('-bg-image') && value.includes('/assets/')) {
+                const match = value.match(/url\(['"]?(.+?)['"]?\)/);
+                if (match) {
+                    const resolved = vc.getAssetPath(match[1], vendor, playerCount);
+                    value = `url('${resolved}')`;
+                }
+            }
             document.documentElement.style.setProperty(prop, value);
         });
     }
