@@ -72,6 +72,34 @@ export const archetypeStorage = multer.diskStorage({
   }
 });
 
+// Multer storage config for player portrait uploads. Destination matches the
+// folder features/roster.js auto-seeds from (single global roster — no per-
+// vendor split yet). Filename slugifies the operator-supplied `playerName`
+// so it lines up with the FLYQUEST_2V2_ROSTER_SEED keys in config/constants.js
+// and is stable across re-uploads (new upload for "Atrioc" overwrites atrioc.png).
+const portraitDir = path.join(imagesDir, 'mtg/shared/player-portraits/flyquest-2v2');
+
+// Ensure directory exists (noop if the operator pre-populated it).
+if (!fs.existsSync(portraitDir)) {
+  fs.mkdirSync(portraitDir, { recursive: true });
+}
+
+export const portraitStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, portraitDir);
+  },
+  filename: function (req, file, cb) {
+    const playerName = req.body.playerName || 'unknown_player';
+    // Same slug shape used by the seed table: lowercase, dashes, strip punctuation.
+    const sanitized = playerName
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+    const ext = path.extname(file.originalname) || '.png';
+    cb(null, `${sanitized}${ext}`);
+  }
+});
+
 export function emitOverlayBackgrounds(io) {
   const game = getGameSelection();
   const paths = getOverlayPaths(game);

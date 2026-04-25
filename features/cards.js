@@ -91,7 +91,11 @@ export function emitCardView(io, cardSelected) {
         const matchedKey = Object.keys(cleanedCardListData).find(
             key => key.toLowerCase() === cleanedName.toLowerCase()
         );
-        const cardURL = matchedKey ? cleanedCardListData[matchedKey]?.imageUrl : undefined;
+        // Prefer a variant URL if the operator picked a specific printing
+        // from the Scryfall prints thumbnail grid; fall back to the default
+        // art stored in the local card list.
+        const cardURL = cardSelected['variant-url']
+            || (matchedKey ? cleanedCardListData[matchedKey]?.imageUrl : undefined);
 
         const cardData = {
             name: cardSelected['card-selected'],

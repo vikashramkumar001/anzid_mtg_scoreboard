@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: transparent;
-    font-family: var(--dynamic-font), sans-serif;
+    font-family: var(--meta-font), sans-serif;
     overflow: hidden;
     text-transform: uppercase;
 }

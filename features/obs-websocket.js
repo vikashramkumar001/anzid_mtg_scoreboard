@@ -34,6 +34,7 @@ const RECONNECT_INTERVAL = 5000;
 
 // Scene name mappings
 const METAGAME_SCENE = 'Event Slides - Metagame';
+const BRACKET_SCENE = 'Bracket - Top 8';
 const STANDINGS_SCENE_MAP = {
     'Standings - Current Round 1-16': 1,
     'Standings - Current Round 17-32': 2,
@@ -49,6 +50,11 @@ let lastProgramScene = null;
 
 const METAGAME_DELAY = 1400;
 const STANDINGS_DELAY = 2000;
+// Bracket scene: delay between transition start and the replay trigger so
+// the OBS cut finishes before the display page begins its reveal. Matches
+// the metagame/standings latency — 1400 ms leaves enough room for a
+// stinger transition to complete.
+const BRACKET_DELAY = 1400;
 
 function handleSceneChange(sceneName) {
     if (sceneName === lastProgramScene) return;
@@ -59,6 +65,15 @@ function handleSceneChange(sceneName) {
         setTimeout(() => {
             RoomUtils.emitWithRoomMapping(io, 'obs-animate-metagame', {});
         }, METAGAME_DELAY);
+    }
+
+    // Bracket — replay the QF→SF→F reveal animation on every cut to the
+    // Top 8 bracket scene. Display page listener is in
+    // public/js/bracket-full-display.js.
+    if (sceneName === BRACKET_SCENE) {
+        setTimeout(() => {
+            RoomUtils.emitWithRoomMapping(io, 'obs-animate-bracket', {});
+        }, BRACKET_DELAY);
     }
 
     // Standings

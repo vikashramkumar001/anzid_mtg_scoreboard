@@ -43,7 +43,7 @@ socket.on('update-match-global-data', (data) => {
 // function for font selection - TODO
 function checkFontFamily(globalFont) {
     if (globalFont) {
-        document.documentElement.style.setProperty('--dynamic-font', globalFont);
+        document.documentElement.style.setProperty('--mtg-lt-font', globalFont);
     }
 }
 

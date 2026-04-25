@@ -72,6 +72,20 @@ import {
     updateArchetypeImage
 } from "../features/archetypes.js";
 import {
+    getSortedRoster,
+    saveRoster,
+    addPlayer,
+    addMultiplePlayers,
+    deletePlayer,
+    updatePlayerPortrait,
+    maybeAutoSeedRoster
+} from "../features/roster.js";
+import {
+    getGroupAssignment,
+    setGroupAssignment,
+    saveGroupAssignment
+} from "../features/group-assignment.js";
+import {
     handleIncomingMetaBreakdownData,
     calculateMetagame,
     getCachedBroadcastData,
@@ -222,6 +236,53 @@ export default function registerSocketHandlers(io) {
             }
         });
 
+        // Player roster (mirrors archetype flow — shape: { name, portraitUrl })
+        socket.on('getPlayerRoster', () => {
+            RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+        });
+
+        socket.on('addPlayer', async (name) => {
+            if (addPlayer(name)) {
+                await saveRoster();
+                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+            }
+        });
+
+        socket.on('addPlayers', async (names) => {
+            if (addMultiplePlayers(names)) {
+                await saveRoster();
+                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+            }
+        });
+
+        socket.on('deletePlayer', async (name) => {
+            if (deletePlayer(name)) {
+                await saveRoster();
+                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+            }
+        });
+
+        socket.on('upload-player-portrait', async (name, url) => {
+            if (updatePlayerPortrait(name, url)) {
+                await saveRoster();
+                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+            }
+        });
+
+        // Group assignment (flyquest 2v2 standings layout). Single full-list
+        // replace flow — operators edit both group rosters at once in
+        // master-control and hit save. The standings renderer listens for
+        // groupAssignmentUpdated and re-splits its bracket columns.
+        socket.on('getGroupAssignment', () => {
+            socket.emit('groupAssignmentUpdated', getGroupAssignment());
+        });
+
+        socket.on('setGroupAssignment', async (payload) => {
+            setGroupAssignment(payload || {});
+            await saveGroupAssignment();
+            RoomUtils.emitWithRoomMapping(io, 'groupAssignmentUpdated', getGroupAssignment());
+        });
+
         // Global match data
         socket.on('get-match-global-data', () => {
             emitGlobalMatchData(io);
@@ -242,8 +303,15 @@ export default function registerSocketHandlers(io) {
         });
 
         // Global game selection
-        socket.on('update-game-selection', ({gameSelection}) => {
+        socket.on('update-game-selection', async ({gameSelection}) => {
             updateGameSelection(gameSelection, io);
+            // Roster auto-seed is gated on mtg+flyquest+2v2. Each selection
+            // change re-checks the gate — first time all three match (with
+            // roster still empty), the seed fires and playerRosterUpdated
+            // broadcasts so open master-control tabs repopulate live.
+            if (await maybeAutoSeedRoster()) {
+                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+            }
         })
 
         socket.on('get-game-selection', () => {
@@ -251,8 +319,11 @@ export default function registerSocketHandlers(io) {
         })
 
         // Global vendor selection
-        socket.on('update-vendor-selection', ({vendorSelection}) => {
+        socket.on('update-vendor-selection', async ({vendorSelection}) => {
             updateVendorSelection(vendorSelection, io);
+            if (await maybeAutoSeedRoster()) {
+                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+            }
         })
 
         socket.on('get-vendor-selection', () => {
@@ -260,8 +331,11 @@ export default function registerSocketHandlers(io) {
         })
 
         // Global player count
-        socket.on('update-player-count', ({playerCount}) => {
+        socket.on('update-player-count', async ({playerCount}) => {
             updatePlayerCount(playerCount, io);
+            if (await maybeAutoSeedRoster()) {
+                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+            }
         })
 
         socket.on('get-player-count', () => {
@@ -362,6 +436,18 @@ export default function registerSocketHandlers(io) {
             if (standings) {
                 socket.emit('broadcast-round-standings-data', standings);
             }
+        });
+
+        // ── Dev hook — bypass the text-parser pipeline to broadcast a
+        // pre-baked standings payload directly (including per-team
+        // player1/player2 fields that the FlyQuest 2v2 layout needs but
+        // parseStandingsRawData doesn't produce). Used by
+        // scripts/emit-dummy-2v2-standings.mjs while we're not yet linked
+        // to Melee for 2v2. Rebroadcasts to every standings display so the
+        // /broadcast/round/standings-combined page renders the test data.
+        socket.on('dev-inject-broadcast-standings', (payload) => {
+            console.log('[dev] inject-broadcast-standings from', socket.id, '— rebroadcasting');
+            RoomUtils.emitWithRoomMapping(io, 'broadcast-round-standings-data', payload);
         });
 
         // Broadcast

@@ -200,8 +200,23 @@ export function initTournamentPlatform(socket) {
         // Store the target round ID for when results come back
         button.dataset.fetching = 'true';
 
+        // FQ 2v2 round-ID decoupling: the broadcast-side round advances twice
+        // as fast as the platform round (4 matches per Melee round, only 2
+        // played concurrently — one per group). So the internal round ID
+        // isn't a valid index into the platform. If the operator has typed a
+        // value into any `.fetch-round-input` (either the global one or a
+        // per-round one, they mirror each other), use that as the roundId we
+        // send to the platform. The button's own data-round-id stays the
+        // internal round — the response handler uses it to locate the right
+        // textarea, so don't mutate it.
+        const is2v2Flyquest =
+            document.body.dataset.vendor === 'flyquest' &&
+            document.body.dataset.playerCount === '2v2';
+        const override = document.querySelector('.fetch-round-input')?.value?.trim();
+        const fetchRoundId = (is2v2Flyquest && override) ? override : roundId;
+
         // Emit fetch request
-        socket.emit('fetch-tournament-standings', { platform, tournamentId, roundId });
+        socket.emit('fetch-tournament-standings', { platform, tournamentId, roundId: fetchRoundId });
     });
 
     // Handle fetch standings response
@@ -222,18 +237,51 @@ export function initTournamentPlatform(socket) {
             }
 
             if (result.standings && standingsTextarea) {
-                // Convert normalized standings to text format for the textarea
+                // FlyQuest 2v2 uses a different textarea shape — 4 lines per
+                // entry as rank / player1 / player2 / record. The 2v2 parser
+                // (features/standings.js:parseStandingsRawData2v2) reads this
+                // format and keeps player1/player2 separate for captain
+                // portrait + thumb lookup on the combined broadcast page.
+                // For every other vendor/count we stay on the long-standing
+                // rank / name / archetype / record format.
+                const is2v2Flyquest =
+                    document.body.dataset.vendor === 'flyquest' &&
+                    document.body.dataset.playerCount === '2v2';
+
                 const textLines = [];
                 Object.keys(result.standings)
                     .map(k => parseInt(k))
                     .sort((a, b) => a - b)
                     .forEach(rank => {
                         const player = result.standings[rank];
-                        if (player.rank && player.name) {
+                        if (!player.rank || !player.name) return;
+
+                        if (is2v2Flyquest) {
+                            // normalizeStandings already populates player1/player2
+                            // for 2v2 payloads (features/tournament-platforms.js).
+                            // Fall back to splitting `name` on the first space
+                            // if an older payload reaches us without the pair.
+                            let p1 = player.player1 || '';
+                            let p2 = player.player2 || '';
+                            if (!p1 && !p2 && player.name) {
+                                const parts = player.name.split(' ');
+                                p1 = parts[0] || '';
+                                p2 = parts.slice(1).join(' ');
+                            }
+                            textLines.push(rank.toString());
+                            textLines.push(p1);
+                            textLines.push(p2);
+                            // Fallback to W-L form (no draws segment) to match
+                            // the server's new record convention — draws are
+                            // only rendered when > 0. Using '0-0-0' here would
+                            // leak a stale 3-segment record into the textarea
+                            // for rows the platform hasn't produced data for.
+                            textLines.push(player.record || '0-0');
+                        } else {
                             textLines.push(rank.toString());
                             textLines.push(player.name);
                             textLines.push(player.archetype || '');
-                            textLines.push(player.record || '0-0-0');
+                            textLines.push(player.record || '0-0');
                         }
                     });
 
@@ -243,10 +291,83 @@ export function initTournamentPlatform(socket) {
                 // Trigger input event to save the data
                 standingsTextarea.dispatchEvent(new Event('input', { bubbles: true }));
 
+                // FQ 2v2: also mirror the fetched W/L/D into the manual
+                // override panel so the operator can make minute tweaks
+                // (e.g. Melee hasn't registered the last match yet) and
+                // click "Update Standings" to rewrite the textarea with
+                // the corrected values. Without this the panel would stay
+                // blank after a fetch and the operator would have to
+                // retype every row to adjust a single number.
+                if (is2v2Flyquest) {
+                    populateOverridePanelFromFetch(roundId, result.standings);
+                }
+
                 alert('Standings fetched successfully! Use the Broadcast button to send to displays.');
             }
         }
     });
+
+    // FQ 2v2: after a successful fetch, mirror each team's record into the
+    // override panel W/L/D inputs for that round. Case-insensitive match
+    // against the `data-team-name` each panel row was rendered with (which
+    // itself came from groupAssignment.json entries). Unmatched rows are
+    // left alone, not zeroed, so a partial-roster fetch doesn't nuke
+    // previously-typed corrections.
+    function populateOverridePanelFromFetch(roundId, standings) {
+        const panel = document.getElementById(`override-panel-${roundId}`);
+        if (!panel) return;
+
+        // Build a lowercase-name → record lookup from the normalized fetch.
+        const byName = {};
+        Object.values(standings).forEach(row => {
+            if (row && row.name) {
+                byName[row.name.toLowerCase().trim()] = row.record || '';
+            }
+        });
+
+        // Parse a record string like "6-1-0", "6-1", or "" into {w, l, d}.
+        // TopDeck sometimes omits draws in the string ("6-1"), in which case
+        // d defaults to 0.
+        function parseRecord(rec) {
+            if (typeof rec !== 'string' || !rec.trim()) return { w: 0, l: 0, d: 0 };
+            const parts = rec.split('-').map(p => parseInt(p, 10));
+            return {
+                w: Number.isFinite(parts[0]) ? parts[0] : 0,
+                l: Number.isFinite(parts[1]) ? parts[1] : 0,
+                d: Number.isFinite(parts[2]) ? parts[2] : 0,
+            };
+        }
+
+        const unmatched = [];
+        panel.querySelectorAll('.override-row').forEach(row => {
+            const teamName = (row.dataset.teamName || '').toLowerCase().trim();
+            if (!teamName) return;
+            const rec = byName[teamName];
+            if (rec === undefined) {
+                // No match in fetched standings → leave the row alone (don't
+                // zero it out, operator may have typed a correction), but
+                // surface it so typos in groupAssignment.json vs. the Melee
+                // player list don't go silently unmatched round after round.
+                unmatched.push(row.dataset.teamName);
+                return;
+            }
+            const { w, l, d } = parseRecord(rec);
+            const wEl = row.querySelector('.override-w');
+            const lEl = row.querySelector('.override-l');
+            const dEl = row.querySelector('.override-d');
+            if (wEl) wEl.value = w;
+            if (lEl) lEl.value = l;
+            if (dEl) dEl.value = d;
+        });
+
+        if (unmatched.length > 0) {
+            console.warn(
+                `[override-panel] Round ${roundId}: no standings match for ` +
+                `${unmatched.length} team(s): ${unmatched.join(', ')}. ` +
+                `Check groupAssignment.json team names against platform player names.`
+            );
+        }
+    }
 
     // Update fetch buttons when rounds are created (use MutationObserver)
     const observer = new MutationObserver(() => {

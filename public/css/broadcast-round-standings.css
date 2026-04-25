@@ -1,11 +1,11 @@
 :root {
-    --dynamic-font: 'Bebas Neue', sans-serif;
-    --dynamic-font-weight: bold;
+    --standings-font: 'Bebas Neue', sans-serif;
+    --standings-font-weight: bold;
 }
 
 * {
-    font-family: var(--dynamic-font), sans-serif;
-    font-weight: var(--dynamic-font-weight);
+    font-family: var(--standings-font), sans-serif;
+    font-weight: var(--standings-font-weight);
     text-transform: uppercase;
     background-color: transparent;
 }

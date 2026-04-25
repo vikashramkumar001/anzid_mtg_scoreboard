@@ -1,9 +1,9 @@
 :root {
-    --dynamic-font: 'Bebas Neue', sans-serif;
+    --main-deck-font: 'Bebas Neue', sans-serif;
 }
 
 * {
-    font-family: var(--dynamic-font), sans-serif;
+    font-family: var(--main-deck-font), sans-serif;
     text-transform: uppercase;
     background-color: transparent;
 }
@@ -1113,4 +1113,131 @@ body.vertical #deck-display-starwars #starwars-main-deck-container {
     height: 45px;
     width: 45px;
     object-fit: contain;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+ * FlyQuest 2v2 signature-card decklist
+ * ────────────────────────────────────────────────────────────────────
+ * Two-player signature-card layout shown on
+ *   /broadcast/round/maindeck/{matchID}/left  → P1 + P2 (left team)
+ *   /broadcast/round/maindeck/{matchID}/right → P3 + P4 (right team)
+ * Activated by broadcast-round-main-deck.js when
+ *   game=mtg, vendor=flyquest, player-count=2v2.
+ *
+ * Coords pulled from scripts/inspect-psd.mjs against
+ *   public/assets/images/mtg/decklist/mtg-decklist-frame-flyquest-2v2.psd
+ * ("Idea 1" group, 1920×1080 canvas):
+ *   P1 Portrait   top=307  left=51     424×423
+ *   P1 Name       top=764  left=49     426×74
+ *   P1 Card       top=275  left=513    427×595
+ *   P2 Card       top=274  left=980    426×596
+ *   P2 Portrait   top=307  left=1445   424×424
+ *   P2 Name       top=764  left=1444   426×74
+ *
+ * Re-run `node scripts/inspect-psd.mjs public/assets/images/mtg/decklist/
+ * mtg-decklist-frame-flyquest-2v2.psd` after any PSD edit and sync the
+ * numbers below.
+ */
+
+#deck-display-mtg-fq2v2 {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    /* text-transform: uppercase is inherited from the top-level *
+     * rule — revert it here so player names don't shout. */
+    text-transform: none;
+}
+
+/* Layer stack (z-index):
+ *   bg      (1)   full-canvas painted background
+ *   card    (5)   signature card art
+ *   portrait(6)   player headshot, sits above card art
+ *   name    (7)   name plate, top layer over portrait
+ *   frame   (10)  decklist frame overlay PNG (exported from PSD) */
+#deck-display-mtg-fq2v2 .fq2v2-dl-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+#deck-display-mtg-fq2v2 .fq2v2-dl-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#deck-display-mtg-fq2v2 .fq2v2-dl-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+#deck-display-mtg-fq2v2 .fq2v2-dl-portrait {
+    position: absolute;
+    object-fit: cover;
+    z-index: 6;
+}
+
+#deck-display-mtg-fq2v2 .fq2v2-dl-card {
+    position: absolute;
+    object-fit: contain;
+    z-index: 5;
+}
+
+#deck-display-mtg-fq2v2 .fq2v2-dl-name {
+    position: absolute;
+    z-index: 7;
+    font-family: 'CARBON', sans-serif;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+/* Slot 1 — left-side player block (PSD "P1" group) */
+#deck-display-mtg-fq2v2 .fq2v2-dl-slot-1 .fq2v2-dl-portrait {
+    top: 307px;  left: 51px;
+    width: 424px; height: 423px;
+}
+#deck-display-mtg-fq2v2 .fq2v2-dl-slot-1 .fq2v2-dl-name {
+    top: 764px;  left: 49px;
+    width: 426px; height: 74px;
+}
+#deck-display-mtg-fq2v2 .fq2v2-dl-slot-1 .fq2v2-dl-card {
+    top: 275px;  left: 513px;
+    width: 427px; height: 595px;
+}
+
+/* Slot 2 — right-side player block (PSD "P2" group) */
+#deck-display-mtg-fq2v2 .fq2v2-dl-slot-2 .fq2v2-dl-portrait {
+    top: 307px;  left: 1445px;
+    width: 424px; height: 424px;
+}
+#deck-display-mtg-fq2v2 .fq2v2-dl-slot-2 .fq2v2-dl-name {
+    top: 764px;  left: 1444px;
+    width: 426px; height: 74px;
+}
+#deck-display-mtg-fq2v2 .fq2v2-dl-slot-2 .fq2v2-dl-card {
+    top: 274px;  left: 980px;
+    width: 426px; height: 596px;
 }

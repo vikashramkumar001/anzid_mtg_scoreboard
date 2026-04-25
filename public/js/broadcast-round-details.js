@@ -75,7 +75,7 @@ socket.emit('get-player-count');
 function updateTheme(game, vendor, playerCount) {
     selectedGame = game?.toLowerCase() || '';
     if (selectedGame === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
+        document.documentElement.style.setProperty('--round-details-font', 'Gotham Narrow');
         document.body.classList.add('mtg');
         document.body.classList.remove('riftbound', 'vibes', 'starwars');
     } else if (selectedGame === 'riftbound') {
@@ -141,9 +141,9 @@ socket.on('player-count-updated', ({playerCount}) => {
 function checkFontFamily(globalFont, gameSelection) {
     // Use Gotham Narrow for MTG
     if (gameSelection?.toLowerCase() === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
+        document.documentElement.style.setProperty('--round-details-font', 'Gotham Narrow');
     } else if (globalFont) {
-        document.documentElement.style.setProperty('--dynamic-font', globalFont);
+        document.documentElement.style.setProperty('--round-details-font', globalFont);
     }
 }
 

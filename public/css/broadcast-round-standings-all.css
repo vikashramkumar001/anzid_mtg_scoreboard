@@ -1,12 +1,12 @@
 :root {
-    --dynamic-font: 'Bebas Neue', sans-serif;
-    --dynamic-font-weight: bold;
+    --standings-font: 'Bebas Neue', sans-serif;
+    --standings-font-weight: bold;
 }
 
 
 * {
-    font-family: var(--dynamic-font), sans-serif;
-    font-weight: var(--dynamic-font-weight);
+    font-family: var(--standings-font), sans-serif;
+    font-weight: var(--standings-font-weight);
     text-transform: uppercase;
     background-color: transparent;
 }
@@ -175,4 +175,261 @@ body {
     align-items: center;
     flex-shrink: 0;
     margin-left: auto;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * FlyQuest 2v2 layout — "Idea 1" from mtg-standings-frame-flyquest-2v2.psd.
+ * Two side-by-side brackets (GROUP 1 / GROUP 2), each with two big captain
+ * portraits + 4 team rows. Hidden for every other vendor/player-count.
+ * All chrome (pills, portrait frames, bars, record pills) rendered as CSS
+ * divs so each bracket can be perspective-tilted as a unit.
+ *
+ * Tilt is applied to `.fq-bracket-tilt` — see --stand-group1-tilt /
+ * --stand-group2-tilt. Default 0deg; vendor-config.js sets the real ±2.5°
+ * once layout is verified.
+ * ──────────────────────────────────────────────────────────────────── */
+#fq-standings-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    pointer-events: none;
+    text-transform: uppercase;
+    color: var(--stand-text-color, #fff);
+    font-family: var(--stand-font, 'Bebas Neue', sans-serif);
+    font-weight: var(--stand-font-weight, bold);
+    z-index: 10;
+}
+
+/* The universal `*` rule at the top of this file re-sets font-family on
+   every descendant using --standings-font (which the mtg branch of the
+   renderer's updateTheme() pins to 'Gotham Narrow'). That overrides the
+   inheritance from #fq-standings-overlay above. Re-establish the Carbon
+   stack here by matching/exceeding the `*` rule's specificity — selector
+   specificity (1,0,0) + the descendant star beats (0,0,0) for all the
+   children (captains, group pills, row names, records, etc.). */
+#fq-standings-overlay,
+#fq-standings-overlay * {
+    font-family: var(--stand-font, 'CARBON', sans-serif);
+    font-weight: var(--stand-font-weight, normal);
+}
+
+body[data-vendor="flyquest"][data-player-count="2v2"] #fq-standings-overlay {
+    display: block;
+}
+
+/* While flyquest-2v2 is active, hide the default sliding standings pages
+   (they'd overlap the groups layout). The CSS gate is vendor-specific so
+   non-flyquest vendors continue to use the default 16-row pages. */
+body[data-vendor="flyquest"][data-player-count="2v2"] #standings-slider {
+    display: none;
+}
+
+/* Header pill stays FLAT (no tilt) — user spec. */
+.fq-standings-header {
+    position: absolute;
+    top:    36px;
+    left:   722px;
+    width:  473px;
+    height: 131px;
+    background: var(--stand-pill-color, #00705a);
+    border-radius: var(--stand-pill-radius, 8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--stand-header-font-size, 72px);
+    letter-spacing: var(--stand-header-letter-spacing, 2px);
+}
+
+/* Bracket container — full canvas. The tilt wrapper inside has the
+   transform applied, with transform-origin pinned to the "inward" edge
+   so the two groups fan symmetrically toward the camera. */
+.fq-bracket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    perspective: var(--stand-perspective, 2200px);
+}
+
+.fq-bracket-tilt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    transform-style: preserve-3d;
+    transition: transform 400ms ease-out;
+}
+
+/* Group 1 pivots on its right edge (moves forward, left edge recedes).
+   Group 2 pivots on its left edge. Tilt supplied by vendor-config.js.
+   Scale shrinks the bracket toward the same pivot — because the origin
+   sits on the inward edge of each bracket, scaling pulls the outer
+   (screen-edge) side in toward center, leaving the inward edges aligned
+   with the header. Default 1 (no shrink); vendor-config.js may set 0.9
+   etc. */
+.fq-bracket-tilt-left {
+    transform-origin: 932px 500px;
+    /* translateX pushes the left bracket outward (screen-left) by
+       --stand-bracket-gap before scale + rotate apply. Gap of Npx on each
+       side → total extra air between the two brackets = 2N. Under the
+       inward-pivot scale, the visual shift equals gap × scale. */
+    transform:
+        rotateY(var(--stand-group1-tilt, 0deg))
+        scale(var(--stand-bracket-scale, 1))
+        translateX(calc(-1 * var(--stand-bracket-gap, 0px)));
+}
+.fq-bracket-tilt-right {
+    transform-origin: 987px 500px;
+    transform:
+        rotateY(var(--stand-group2-tilt, 0deg))
+        scale(var(--stand-bracket-scale, 1))
+        translateX(var(--stand-bracket-gap, 0px));
+}
+
+/* GROUP N pill — PSD: 226×46 at (103,163) for group 1, (1591,162) for group 2. */
+.fq-bracket-left  .fq-group-pill { top: 163px; left: 103px; }
+.fq-bracket-right .fq-group-pill { top: 162px; left: 1591px; }
+.fq-group-pill {
+    position: absolute;
+    width:  226px;
+    height: 46px;
+    background: var(--stand-pill-color, #00705a);
+    border-radius: var(--stand-pill-radius, 6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--stand-group-pill-font-size, 22px);
+    letter-spacing: var(--stand-group-pill-letter-spacing, 2px);
+}
+
+/* Captain portraits — two 400×399 frames per group (big art). Photo sits
+   inside a green-border frame so the border tilts with the photo. */
+.fq-bracket-left  .fq-captain-1 { top: 219px; left: 103px; }
+.fq-bracket-left  .fq-captain-2 { top: 219px; left: 532px; }
+.fq-bracket-right .fq-captain-1 { top: 217px; left: 987px; }
+.fq-bracket-right .fq-captain-2 { top: 217px; left: 1417px; }
+.fq-captain {
+    position: absolute;
+    width:  400px;
+    height: 400px;
+    background: var(--stand-pill-color, #00705a);
+    border-radius: var(--stand-portrait-radius, 4px);
+    padding: var(--stand-captain-border, 4px);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.fq-captain-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--stand-captain-object-position, center 20%);
+    display: block;
+    background: #111;
+}
+.fq-captain-img[src=""] { visibility: hidden; }
+
+/* Team rows container is just a positioning anchor — each row is
+   absolute-positioned via its .fq-team-row-* coords. */
+.fq-team-rows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ─── Row 1 (spotlight — captains' team, no thumbs) ───
+ * Wrapper spans the full group-column width so both the name bar (677/678
+ * wide flush-left) and the record pill (149/148 flush-right) fit inside.
+ * Compact rows (below) are 829 wide for the same reason; the spotlight
+ * just has a wider name bar instead of a thumbnail strip. */
+.fq-bracket-left  .fq-team-row-spotlight { top: 649px; left: 102px; width: 830px; height: 71px; }
+.fq-bracket-right .fq-team-row-spotlight { top: 647px; left: 986px; width: 830px; height: 71px; }
+
+/* ─── Rows 2/3/4 (compact — two thumbs left, name center, record right) ─── */
+.fq-bracket-left  .fq-team-row-compact[data-row="2"] { top: 742px; left: 103px; width: 829px; height: 70px; }
+.fq-bracket-left  .fq-team-row-compact[data-row="3"] { top: 834px; left: 103px; width: 829px; height: 70px; }
+.fq-bracket-left  .fq-team-row-compact[data-row="4"] { top: 927px; left: 103px; width: 829px; height: 70px; }
+.fq-bracket-right .fq-team-row-compact[data-row="2"] { top: 740px; left: 987px; width: 829px; height: 70px; }
+.fq-bracket-right .fq-team-row-compact[data-row="3"] { top: 832px; left: 987px; width: 829px; height: 71px; }
+.fq-bracket-right .fq-team-row-compact[data-row="4"] { top: 925px; left: 987px; width: 829px; height: 70px; }
+.fq-team-row { position: absolute; }
+
+/* Thumbnails within compact rows. PSD coords are absolute-to-canvas;
+   inside the row wrapper they become relative-to-row via the row's
+   own left offset. Row width = 829, row-left = 103 → thumb1 at canvas
+   103 is 0 inside row; thumb2 at 175 is 72. Group 2 mirrors that
+   (row-left 987, thumb1 at 987 → 0, thumb2 at 1060 → 73). */
+.fq-row-thumb {
+    position: absolute;
+    top: 0;
+    width:  70px;
+    height: 70px;
+    background: var(--stand-pill-color, #00705a);
+    border-radius: var(--stand-thumb-radius, 4px);
+    padding: var(--stand-thumb-border, 2px);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.fq-bracket-left  .fq-row-thumb-1 { left: 0px; }
+.fq-bracket-left  .fq-row-thumb-2 { left: 72px; }
+.fq-bracket-right .fq-row-thumb-1 { left: 0px; }
+.fq-bracket-right .fq-row-thumb-2 { left: 73px; }
+.fq-row-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--stand-thumb-object-position, center 20%);
+    display: block;
+    background: #111;
+}
+.fq-row-thumb img[src=""] { visibility: hidden; }
+
+/* Name bar — starts after the thumbs on compact rows, flush-left on
+   spotlight rows. PSD widths inline below. */
+.fq-bracket-left  .fq-team-row-spotlight .fq-row-name { left: 0px;   width: 677px; }
+.fq-bracket-right .fq-team-row-spotlight .fq-row-name { left: 0px;   width: 678px; }
+.fq-bracket-left  .fq-team-row-compact   .fq-row-name { left: 146px; width: 530px; }
+.fq-bracket-right .fq-team-row-compact   .fq-row-name { left: 147px; width: 530px; }
+.fq-row-name {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: var(--stand-pill-color, #00705a);
+    border-radius: var(--stand-pill-radius, 6px);
+    display: flex;
+    align-items: center;
+    padding-left: var(--stand-row-name-padding, 20px);
+    padding-right: var(--stand-row-name-padding, 20px);
+    font-size: var(--stand-row-name-font-size, 28px);
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+.fq-row-name-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Record pill — rightmost slot on every row. Width 149px per PSD. */
+.fq-bracket-left  .fq-team-row-spotlight .fq-row-record { left: 681px; width: 149px; }
+.fq-bracket-right .fq-team-row-spotlight .fq-row-record { left: 682px; width: 148px; }
+.fq-bracket-left  .fq-team-row-compact   .fq-row-record { left: 680px; width: 149px; }
+.fq-bracket-right .fq-team-row-compact   .fq-row-record { left: 681px; width: 148px; }
+.fq-row-record {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: var(--stand-pill-color, #00705a);
+    border-radius: var(--stand-pill-radius, 6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--stand-row-record-font-size, 32px);
 }

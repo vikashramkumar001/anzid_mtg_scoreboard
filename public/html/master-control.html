@@ -44,17 +44,26 @@
                 <select id="global-player-count" class="form-select form-select-sm" style="width: auto;">
                     <!-- Populated dynamically from VENDOR_CONFIG.playerCounts -->
                 </select>
+                <button id="apply-broadcast-settings" class="btn btn-sm is-clean">Apply Broadcast Settings</button>
                 <button id="save-obs-preset" class="btn btn-outline-info btn-sm">Save OBS Preset</button>
                 <button id="load-obs-preset" class="btn btn-outline-warning btn-sm">Load OBS Preset</button>
                 <button id="dark-mode-toggle" class="btn btn-outline-secondary btn-sm" onclick="toggleDarkMode()">Dark Mode</button>
             </div>
         </div>
 
-        <!-- Tabs Navigation -->
+        <!-- Tabs Navigation — Config first (event-level one-time setup),
+             then the operational tabs. Card View sits between Matches and
+             Bracket so the flow matches the typical broadcast-day order. -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#overlay-control"
-                    type="button" role="tab" aria-controls="home" aria-selected="true">
+                <button class="nav-link active" id="config-tab" data-bs-toggle="tab" data-bs-target="#config-control"
+                    type="button" role="tab" aria-controls="config" aria-selected="true">
+                    Config
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#overlay-control"
+                    type="button" role="tab" aria-controls="home" aria-selected="false">
                     Overlays
                 </button>
             </li>
@@ -71,15 +80,15 @@
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="bracket-tab" data-bs-toggle="tab" data-bs-target="#bracket-control"
-                    type="button" role="tab" aria-controls="bracket" aria-selected="false">
-                    Bracket
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="card-view-tab" data-bs-toggle="tab" data-bs-target="#card-view-control"
                     type="button" role="tab" aria-controls="card-view" aria-selected="false">
                     Card View
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="bracket-tab" data-bs-toggle="tab" data-bs-target="#bracket-control"
+                    type="button" role="tab" aria-controls="bracket" aria-selected="false">
+                    Bracket
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -100,132 +109,20 @@
 
         <!-- Tabs Content -->
         <div class="tab-content" id="myTabContent">
-            <!-- Overlay Tab Content -->
-            <div class="tab-pane fade active show" id="overlay-control" role="tabpanel" aria-labelledby="home-tab">
+            <!-- Config Tab Content — event-level one-time setup. "Pure
+                 relocation" of Commentators, Event Information, and
+                 Tournament Platform from the Matches tab (per user
+                 spec, perpetually visible). Group Assignment is new
+                 and lives only here; it's gated to flyquest 2v2 via
+                 body[data-vendor="flyquest"][data-player-count="2v2"]
+                 in /css/master-control.css — see .fq-groups-section. -->
+            <div class="tab-pane fade show active" id="config-control" role="tabpanel" aria-labelledby="config-tab">
                 <div class="row mt-3">
                     <div class="col-12">
-                        <h2>Overlay Control</h2>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-4">
-                        <!-- Current Image Display -->
-                        <h3>Current Header Overlay:</h3>
-                        <img id="currentHeaderImage" alt="Currently Set Header Image" class="img-fluid mb-4" src="" />
-                    </div>
-                    <div class="col-4">
-                        <!-- Upload Header Image Form -->
-                        <h3>Upload New Header Overlay:</h3>
-                        <form id="uploadForm" enctype="multipart/form-data" class="mb-4">
-                            <div class="mb-3">
-                                <label for="overlayImage" class="form-label">Upload 1920x100 Header Overlay
-                                    Image:</label>
-                                <input type="file" id="overlayImage" name="overlay" class="form-control"
-                                    accept="image/*" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Upload</button>
-                            <button type="button" id="cancelButton" class="btn btn-secondary">Cancel Upload</button>
-                        </form>
-                    </div>
-                    <div class="col-4">
-                        <div id="uploadImagePreview" class="mb-4">
-                            <h3>Upload Preview:</h3>
-                            <!-- Image Preview -->
-                            <img id="imagePreview" alt="Image Preview" class="img-fluid" src="">
-                        </div>
-
-                        <!-- Success Message Display -->
-                        <p id="successMessage" class="alert alert-success"></p>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-4">
-                        <!-- Current Footer Image Display -->
-                        <h3>Current Footer Overlay:</h3>
-                        <img id="currentFooterImage" alt="Currently Set Footer Image" class="img-fluid mb-4" src="" />
-                    </div>
-                    <div class="col-4">
-                        <!-- Upload Footer Image Form -->
-                        <h3>Upload New Footer Overlay:</h3>
-                        <form id="uploadFooterForm" enctype="multipart/form-data" class="mb-4">
-                            <div class="mb-3">
-                                <label for="overlayFooterImage" class="form-label">Upload 1920x50 Footer Overlay
-                                    Image:</label>
-                                <input type="file" id="overlayFooterImage" name="overlay_footer" class="form-control"
-                                    accept="image/*" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Upload</button>
-                            <button type="button" id="cancelFooterButton" class="btn btn-secondary">Cancel
-                                Upload</button>
-                        </form>
-                    </div>
-                    <div class="col-4">
-                        <div id="uploadFooterImagePreview" class="mb-4">
-                            <h3>Upload Preview:</h3>
-                            <!-- Footer Image Preview -->
-                            <img id="footerImagePreview" alt="Footer Image Preview" class="img-fluid" src="">
-                        </div>
-
-                        <!-- Footer Success Message Display -->
-                        <p id="footerSuccessMessage" class="alert alert-success" style="display: none;"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Archetype Tab Content -->
-            <div class="tab-pane fade" id="archetype-control" role="tabpanel" aria-labelledby="archetype-tab">
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <h2>Archetype List Management</h2>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <h3>Current Archetype List</h3>
-                        <ul id="archetypeList" class="list-group">
-                            <!-- Archetype list items will be dynamically added here -->
-                        </ul>
-                    </div>
-                    <div class="col-6">
-                        <h3>Add New Archetype(s)</h3>
-                        <form id="addArchetypeForm" class="mb-3">
-                            <div class="form-group">
-                                <textarea id="newArchetypeInput" class="form-control" rows="4"
-                                    placeholder="Enter archetypes name(s) - separate multiple with commas or new lines"
-                                    required></textarea>
-                            </div>
-                            <button class="btn btn-primary mt-2" type="submit">Add Archetype(s)</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Matches Tab Content -->
-            <div class="tab-pane fade" id="match-control" role="tabpanel" aria-labelledby="matches-tab">
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <h2>Match Control Center</h2>
+                        <h2>Configuration</h2>
                         <hr>
                     </div>
                     <div class="col-12">
-                        <!-- Global -->
-                        <div class="row">
-                            <div class="col-12 my-3">
-                                <h5>Global Settings</h5>
-                            </div>
-                            <div class="col-6 my-2">
-                                Currently Broadcasting: <span id="broadcasting-now-round-display"
-                                    class="me-3">None</span>
-                            </div>
-                            <div class="col-6 my-2 text-end">
-                                Control 1: <span id="control-1-round-match-display" class="me-3">1-MATCH1</span>
-                                Control 2: <span id="control-2-round-match-display" class="me-3">1-MATCH2</span>
-                                Control 3: <span id="control-3-round-match-display" class="me-3">1-MATCH3</span>
-                                Control 4: <span id="control-4-round-match-display">1-MATCH4</span>
-                            </div>
-                        </div>
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -416,109 +313,6 @@ CommentatorC
                                     </div>
                                 </div>
                             </div>
-                            <!--
-                                <div class="col-12">
-                                    <h5 class="card-title">Commentators</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-10">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Commentator 1</label>
-                                                                <div id="global-commentator-1"
-                                                                     class="editable form-control"
-                                                                     contenteditable="true"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Commentator 1 -
-                                                                    Subtext</label>
-                                                                <div id="global-commentator-1-subtext"
-                                                                     class="editable form-control"
-                                                                     contenteditable="true"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Commentator 2</label>
-                                                                <div id="global-commentator-2"
-                                                                     class="editable form-control"
-                                                                     contenteditable="true"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Commentator 2 -
-                                                                    Subtext</label>
-                                                                <div id="global-commentator-2-subtext"
-                                                                     class="editable form-control"
-                                                                     contenteditable="true"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Commentator 3</label>
-                                                                <div id="global-commentator-3"
-                                                                     class="editable form-control"
-                                                                     contenteditable="true"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Commentator 3 -
-                                                                    Subtext</label>
-                                                                <div id="global-commentator-3-subtext"
-                                                                     class="editable form-control"
-                                                                     contenteditable="true"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Commentator 4</label>
-                                                                <div id="global-commentator-4"
-                                                                     class="editable form-control"
-                                                                     contenteditable="true"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Commentator 4 -
-                                                                    Subtext</label>
-                                                                <div id="global-commentator-4-subtext"
-                                                                     class="editable form-control"
-                                                                     contenteditable="true"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-2 text-center d-flex flex-center align-items-center justify-content-center">
-                                            <button class="btn btn-primary update-button"
-                                                    id="global-update-commentators">
-                                                Update
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                -->
                         </div>
                         <hr>
                         <div class="row mb-4">
@@ -629,6 +423,194 @@ CommentatorC
                                 </div>
                             </div>
                         </div>
+                        <!-- Group Assignment — one-time team→group map for the
+                             flyquest 2v2 standings layout. Hidden for every
+                             other vendor/player-count combo via a CSS rule on
+                             .fq-groups-section in /css/master-control.css. -->
+                        <div class="fq-groups-section">
+                            <hr>
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <h5 class="card-title">Group Assignment (FlyQuest 2v2)</h5>
+                                    <p class="text-muted mb-3">
+                                        One list per bracket. Enter one team per line — the team name as
+                                        it appears in standings (e.g. <code>PlayerA PlayerB</code>). Set
+                                        this once at the start of an event. The flyquest 2v2 standings
+                                        layout uses these lists to split incoming standings into its two
+                                        bracket columns.
+                                    </p>
+                                </div>
+                                <form id="groupAssignmentForm">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h6>Group 1</h6>
+                                            <textarea id="group1Input" class="form-control" rows="10"
+                                                placeholder="PlayerA PlayerB&#10;PlayerC PlayerD&#10;..."></textarea>
+                                        </div>
+                                        <div class="col-6">
+                                            <h6>Group 2</h6>
+                                            <textarea id="group2Input" class="form-control" rows="10"
+                                                placeholder="PlayerE PlayerF&#10;PlayerG PlayerH&#10;..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <button class="btn btn-primary" type="submit">Save Groups</button>
+                                            <span id="groupAssignmentStatus" class="ms-3 text-success"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overlay Tab Content -->
+            <div class="tab-pane fade" id="overlay-control" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h2>Overlay Control</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <!-- Current Image Display -->
+                        <h3>Current Header Overlay:</h3>
+                        <img id="currentHeaderImage" alt="Currently Set Header Image" class="img-fluid mb-4" src="" />
+                    </div>
+                    <div class="col-4">
+                        <!-- Upload Header Image Form -->
+                        <h3>Upload New Header Overlay:</h3>
+                        <form id="uploadForm" enctype="multipart/form-data" class="mb-4">
+                            <div class="mb-3">
+                                <label for="overlayImage" class="form-label">Upload 1920x100 Header Overlay
+                                    Image:</label>
+                                <input type="file" id="overlayImage" name="overlay" class="form-control"
+                                    accept="image/*" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                            <button type="button" id="cancelButton" class="btn btn-secondary">Cancel Upload</button>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <div id="uploadImagePreview" class="mb-4">
+                            <h3>Upload Preview:</h3>
+                            <!-- Image Preview -->
+                            <img id="imagePreview" alt="Image Preview" class="img-fluid" src="">
+                        </div>
+
+                        <!-- Success Message Display -->
+                        <p id="successMessage" class="alert alert-success"></p>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <!-- Current Footer Image Display -->
+                        <h3>Current Footer Overlay:</h3>
+                        <img id="currentFooterImage" alt="Currently Set Footer Image" class="img-fluid mb-4" src="" />
+                    </div>
+                    <div class="col-4">
+                        <!-- Upload Footer Image Form -->
+                        <h3>Upload New Footer Overlay:</h3>
+                        <form id="uploadFooterForm" enctype="multipart/form-data" class="mb-4">
+                            <div class="mb-3">
+                                <label for="overlayFooterImage" class="form-label">Upload 1920x50 Footer Overlay
+                                    Image:</label>
+                                <input type="file" id="overlayFooterImage" name="overlay_footer" class="form-control"
+                                    accept="image/*" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                            <button type="button" id="cancelFooterButton" class="btn btn-secondary">Cancel
+                                Upload</button>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <div id="uploadFooterImagePreview" class="mb-4">
+                            <h3>Upload Preview:</h3>
+                            <!-- Footer Image Preview -->
+                            <img id="footerImagePreview" alt="Footer Image Preview" class="img-fluid" src="">
+                        </div>
+
+                        <!-- Footer Success Message Display -->
+                        <p id="footerSuccessMessage" class="alert alert-success" style="display: none;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Archetype Tab Content — two sub-sections side-by-side:
+                 Archetype List Management (left col-6) + Player Roster (right col-6).
+                 Each column stacks its own add-form above the list so both lists
+                 scroll independently in the same viewport height. -->
+            <div class="tab-pane fade" id="archetype-control" role="tabpanel" aria-labelledby="archetype-tab">
+                <div class="row mt-3">
+                    <!-- Left: Archetype List Management -->
+                    <div class="col-6">
+                        <h2>Archetype List Management</h2>
+                        <hr>
+                        <h3>Add New Archetype(s)</h3>
+                        <form id="addArchetypeForm" class="mb-3">
+                            <div class="form-group">
+                                <textarea id="newArchetypeInput" class="form-control" rows="4"
+                                    placeholder="Enter archetypes name(s) - separate multiple with commas or new lines"
+                                    required></textarea>
+                            </div>
+                            <button class="btn btn-primary mt-2" type="submit">Add Archetype(s)</button>
+                        </form>
+                        <h3>Current Archetype List</h3>
+                        <ul id="archetypeList" class="list-group">
+                            <!-- Archetype list items will be dynamically added here -->
+                        </ul>
+                    </div>
+
+                    <!-- Right: Player Roster — feeds the player-name autocomplete
+                         on control.html + master-control Matches tab. See
+                         public/js/master-control/roster.js. -->
+                    <div class="col-6">
+                        <h2>Player Roster</h2>
+                        <hr>
+                        <h3>Add New Player(s)</h3>
+                        <form id="addPlayerForm" class="mb-3">
+                            <div class="form-group">
+                                <textarea id="newPlayerInput" class="form-control" rows="4"
+                                    placeholder="Enter player name(s) - separate multiple with commas or new lines"
+                                    required></textarea>
+                            </div>
+                            <button class="btn btn-primary mt-2" type="submit">Add Player(s)</button>
+                        </form>
+                        <h3>Current Player Roster</h3>
+                        <ul id="playerRosterList" class="list-group">
+                            <!-- Player roster items will be dynamically added here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matches Tab Content -->
+            <div class="tab-pane fade" id="match-control" role="tabpanel" aria-labelledby="matches-tab">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h2>Match Control Center</h2>
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <!-- Global -->
+                        <div class="row">
+                            <div class="col-12 my-3">
+                                <h5>Global Settings</h5>
+                            </div>
+                            <div class="col-6 my-2">
+                                Currently Broadcasting: <span id="broadcasting-now-round-display"
+                                    class="me-3">None</span>
+                            </div>
+                            <div class="col-6 my-2 text-end">
+                                Control 1: <span id="control-1-round-match-display" class="me-3">1-MATCH1</span>
+                                Control 2: <span id="control-2-round-match-display" class="me-3">1-MATCH2</span>
+                                Control 3: <span id="control-3-round-match-display" class="me-3">1-MATCH3</span>
+                                Control 4: <span id="control-4-round-match-display">1-MATCH4</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -733,12 +715,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-quarterfinal-1-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-quarterfinal-1-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-quarterfinal-1-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-quarterfinal-1-archetype" class="editable form-control"
@@ -752,14 +742,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-quarterfinal-1-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-quarterfinal-1-win" class="editable form-control"
@@ -770,7 +760,7 @@ CommentatorC
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-3 mb-3 fq2v2-hidden-slot">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -781,12 +771,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-quarterfinal-8-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-quarterfinal-8-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-quarterfinal-8-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-quarterfinal-8-archetype" class="editable form-control"
@@ -800,14 +798,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-quarterfinal-8-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-quarterfinal-8-win" class="editable form-control"
@@ -829,12 +827,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-quarterfinal-2-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-quarterfinal-2-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-quarterfinal-2-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-quarterfinal-2-archetype" class="editable form-control"
@@ -848,14 +854,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-quarterfinal-2-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-quarterfinal-2-win" class="editable form-control"
@@ -866,7 +872,7 @@ CommentatorC
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-3 mb-3 fq2v2-hidden-slot">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -877,12 +883,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-quarterfinal-7-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-quarterfinal-7-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-quarterfinal-7-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-quarterfinal-7-archetype" class="editable form-control"
@@ -896,14 +910,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-quarterfinal-7-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-quarterfinal-7-win" class="editable form-control"
@@ -925,12 +939,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-quarterfinal-3-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-quarterfinal-3-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-quarterfinal-3-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-quarterfinal-3-archetype" class="editable form-control"
@@ -944,14 +966,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-quarterfinal-3-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-quarterfinal-3-win" class="editable form-control"
@@ -962,7 +984,7 @@ CommentatorC
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-3 mb-3 fq2v2-hidden-slot">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -973,12 +995,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-quarterfinal-6-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-quarterfinal-6-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-quarterfinal-6-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-quarterfinal-6-archetype" class="editable form-control"
@@ -992,14 +1022,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-quarterfinal-6-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-quarterfinal-6-win" class="editable form-control"
@@ -1021,12 +1051,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-quarterfinal-4-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-quarterfinal-4-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-quarterfinal-4-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-quarterfinal-4-archetype" class="editable form-control"
@@ -1040,14 +1078,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-quarterfinal-4-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-quarterfinal-4-win" class="editable form-control"
@@ -1058,7 +1096,7 @@ CommentatorC
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-3 mb-3 fq2v2-hidden-slot">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -1069,12 +1107,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-quarterfinal-5-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-quarterfinal-5-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-quarterfinal-5-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-quarterfinal-5-archetype" class="editable form-control"
@@ -1088,14 +1134,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-quarterfinal-5-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-quarterfinal-5-win" class="editable form-control"
@@ -1128,12 +1174,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-semifinal-1a-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-semifinal-1a-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-semifinal-1a-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-semifinal-1a-archetype" class="editable form-control"
@@ -1147,14 +1201,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-semifinal-1a-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-semifinal-1a-win" class="editable form-control"
@@ -1165,7 +1219,7 @@ CommentatorC
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-3 mb-3 fq2v2-hidden-slot">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -1176,12 +1230,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-semifinal-1b-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-semifinal-1b-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-semifinal-1b-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-semifinal-1b-archetype" class="editable form-control"
@@ -1195,14 +1257,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-semifinal-1b-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-semifinal-1b-win" class="editable form-control"
@@ -1224,12 +1286,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-semifinal-2a-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-semifinal-2a-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-semifinal-2a-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-semifinal-2a-archetype" class="editable form-control"
@@ -1243,14 +1313,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-semifinal-2a-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-semifinal-2a-win" class="editable form-control"
@@ -1261,7 +1331,7 @@ CommentatorC
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3 mb-3">
+                                <div class="col-3 mb-3 fq2v2-hidden-slot">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -1272,12 +1342,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-semifinal-2b-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-semifinal-2b-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-semifinal-2b-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-semifinal-2b-archetype" class="editable form-control"
@@ -1291,14 +1369,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-semifinal-2b-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-semifinal-2b-win" class="editable form-control"
@@ -1329,12 +1407,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-final-1a-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-final-1a-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-final-1a-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-final-1a-archetype" class="editable form-control"
@@ -1348,14 +1434,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-final-1a-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-final-1a-win" class="editable form-control"
@@ -1366,7 +1452,7 @@ CommentatorC
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 mb-3">
+                                <div class="col-6 mb-3 fq2v2-hidden-slot">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -1377,12 +1463,20 @@ CommentatorC
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <label class="form-label">Name</label>
-                                                        <div id="bracket-final-1b-name" class="editable form-control"
+                                                        <label class="form-label non-fq2v2-only">Name</label>
+                                                        <label class="form-label fq2v2-only">Player 1</label>
+                                                        <div id="bracket-final-1b-player-1-name" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12 fq2v2-only">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Player 2</label>
+                                                        <div id="bracket-final-1b-player-2-name" class="editable form-control"
+                                                            contenteditable="true"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Archetype</label>
                                                         <div id="bracket-final-1b-archetype" class="editable form-control"
@@ -1396,14 +1490,14 @@ CommentatorC
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Points</label>
                                                         <div id="bracket-final-1b-points" class="editable form-control"
                                                             contenteditable="true"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-4 non-fq2v2-only">
                                                     <div class="mb-3">
                                                         <label class="form-label">Win</label>
                                                         <div id="bracket-final-1b-win" class="editable form-control"

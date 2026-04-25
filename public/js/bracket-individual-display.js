@@ -80,20 +80,20 @@ function updateTheme(game, vendor, playerCount) {
     textColorFaded = 'rgba(0,0,0, 0.5)';
 
     if (game === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
-        document.documentElement.style.setProperty('--dynamic-font-weight', '700');
+        document.documentElement.style.setProperty('--bracket-font', 'Gotham Narrow');
+        document.documentElement.style.setProperty('--bracket-font-weight', '700');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '400');
     } else if (game === 'starwars') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Barlow');
-        document.documentElement.style.setProperty('--dynamic-font-weight', '600');
+        document.documentElement.style.setProperty('--bracket-font', 'Barlow');
+        document.documentElement.style.setProperty('--bracket-font-weight', '600');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '600');
         textColorFull = 'rgba(255,255,255, 1)';
         textColorFaded = 'rgba(255,255,255, 0.5)';
     } else {
-        document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
-        document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
+        document.documentElement.style.setProperty('--bracket-font', 'Bebas Neue');
+        document.documentElement.style.setProperty('--bracket-font-weight', 'bold');
         document.documentElement.style.setProperty('--archetype-font-style', 'italic');
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
@@ -137,7 +137,7 @@ function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
 // Function to render the round details on the page
 function renderDetails() {
     const rank_key = `${bracket_id}-rank`;
-    const name_key = `${bracket_id}-name`;
+    const name_key = `${bracket_id}-player-1-name`;
     const archetype_key = `${bracket_id}-archetype`;
     const points_key = `${bracket_id}-points`;
     const win_key = `${bracket_id}-win`;

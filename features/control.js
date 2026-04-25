@@ -12,8 +12,6 @@ let controlsTracker = {
     '3': {round_id: '1', match_id: 'match3'},
     '4': {round_id: '1', match_id: 'match4'}
 };
-let _reEmitCount = 0;
-let _lastBroadcastHash = null;
 let broadcastTracker = {
     round_id: null
 };
@@ -248,20 +246,13 @@ export async function updateFromMaster(allControlData, io) {
                 }
             });
         });
-        // emit round data to live broadcast changes using broadcastTracker
-        // Use merged controlData (not incoming roundData) to include preserved draft list fields
-        if (broadcastTracker.round_id && broadcastTracker.round_id === round_id) {
-            const newHash = JSON.stringify(controlData[round_id]);
-            if (newHash !== _lastBroadcastHash) {
-                _lastBroadcastHash = newHash;
-                _reEmitCount++;
-                console.log(`[Broadcast] updateFromMaster re-emitting broadcast-round-data for round ${round_id} (count: ${_reEmitCount})`);
-                RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
-                emitBroadcastStandings(io, round_id);
-                // Re-transform decks with updated data
-                transformAndEmitAllDecks(round_id, controlData, io);
-            }
-        }
+        // NOTE: broadcast-round-data is intentionally NOT re-emitted here.
+        // The broadcast scoreboard is a replay view for fixing typos / making
+        // corrections to a past round — it must ONLY update when the operator
+        // clicks the Broadcast button (see broadcast-requested handler in
+        // sockets/handlers.js). For live matches, the non-broadcast URL
+        // /scoreboard/matchN is the live view and is updated via the
+        // scoreboard-{N}-saved-state emission above.
     });
 }
 

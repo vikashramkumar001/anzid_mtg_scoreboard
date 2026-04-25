@@ -14,6 +14,8 @@ import { loadControlData } from './features/control.js';
 import { loadBracketData } from './features/brackets.js';
 import { loadStandingsData } from './features/standings.js';
 import { loadArchetypeList } from './features/archetypes.js';
+import { loadRoster } from './features/roster.js';
+import { loadGroupAssignment } from './features/group-assignment.js';
 import { startTimerBroadcast } from './features/timers.js';
 import {loadCardListData as mtgLoadCardListData} from './features/mtg/cards.js'
 import {loadCardListData as vibesLoadCardListData} from './features/vibes/cards.js'
@@ -72,6 +74,8 @@ async function initialize() {
   await loadStandingsData();
   await mtgLoadCardListData();
   await loadArchetypeList();
+  await loadRoster();
+  await loadGroupAssignment();
   await vibesLoadCardListData();
   await riftboundLoadCardListData();
   await starwarsLoadCardListData();

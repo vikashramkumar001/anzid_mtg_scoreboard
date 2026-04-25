@@ -1,0 +1,190 @@
+/* /scoreboard/:matchID/:variant — per-match scene page.
+   Frame PNG on the bottom, overlay on top. Overlay visibility & positioning
+   are entirely driven by CSS custom properties that vendor-config.js sets
+   per game+vendor (see the flyquest block in public/js/vendor-config.js).
+   Defaults below hide every overlay field, so vendors without overrides
+   (TES, default, etc.) render the frame PNG only. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Retina/HiDPI: scale up when OBS source is 3840x2160 */
+@media (min-width: 1921px) {
+    body {
+        zoom: 2;
+    }
+}
+
+#scoreboard-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+#scoreboard-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Variant gating — in 1v1 only the active team's panel is visible.
+   In 2v2, hand-left/hand-right show BOTH teams' name panels (since both
+   teams' names appear in the scene), but only the active team's life total
+   renders (see #team-N-life suppression below).
+   Other variants (overview, player-left, player-right) show no overlay. */
+.team-panel {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+body[data-variant="hand-left"]  #team-1-panel,
+body[data-variant="hand-right"] #team-2-panel { display: block; }
+
+/* 2v2 hand-left/hand-right: show the OTHER team's panel too so both name
+   pairs render, then suppress the inactive team's life total below. */
+body[data-player-count="2v2"][data-variant="hand-left"]  #team-2-panel,
+body[data-player-count="2v2"][data-variant="hand-right"] #team-1-panel { display: block; }
+
+body[data-player-count="2v2"][data-variant="hand-left"]  #team-2-life,
+body[data-player-count="2v2"][data-variant="hand-right"] #team-1-life { display: none; }
+
+/* Player icon visibility. Icons now live at body level (outside the
+   team-panels so they can render behind the frame — see scoreboard-scene.html),
+   so they need their own variant gating.
+   • Hide all icons by default (overview / player-left / player-right have no
+     icon slots in the PSD).
+   • Hand-left shows team-1's icons (P1/P2); hand-right shows team-2's (P3/P4).
+     Applies to both 1v1 and 2v2 — in 1v1 the inactive-side icon just gets
+     an empty name from applyIcon() and stays hidden via inline display:none. */
+.player-icon { display: none; }
+body[data-variant="hand-left"]  #player-1-icon,
+body[data-variant="hand-left"]  #player-2-icon,
+body[data-variant="hand-right"] #player-3-icon,
+body[data-variant="hand-right"] #player-4-icon { display: block; }
+
+/* Each field hidden by default (opacity 0). Vendor-config flips opacity to 1
+   for vendors that have overlays on this page (currently only flyquest).
+   Width/text-align are var-driven so vendor-config can center text within
+   a known PSD bounding box (e.g. flyquest 2v2 hand-left name strips are
+   799-800px wide × 30px tall with center-aligned text). */
+.player-name {
+    position: absolute;
+    opacity: var(--sb-name-opacity, 0);
+    color: var(--sb-name-color, #fff);
+    font-family: var(--sb-font, sans-serif);
+    font-size: var(--sb-name-font-size, 32px);
+    font-weight: var(--sb-name-font-weight, 700);
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: var(--sb-name-width, auto);
+    text-align: var(--sb-name-align, left);
+}
+
+.team-life {
+    position: absolute;
+    opacity: var(--sb-life-opacity, 0);
+    color: var(--sb-life-color, #fff);
+    font-family: var(--sb-font, sans-serif);
+    font-size: var(--sb-life-font-size, 96px);
+    font-weight: var(--sb-life-font-weight, 900);
+    line-height: 1;
+    width: var(--sb-life-width, auto);
+    height: var(--sb-life-height, auto);
+    text-align: var(--sb-life-align, left);
+    display: var(--sb-life-display, block);
+    align-items: var(--sb-life-items, flex-start);
+    justify-content: var(--sb-life-justify, flex-start);
+}
+
+/* Player icons: src is stamped by scoreboard-scene.js from the global
+   roster (see features/roster.js). Hidden by default (--sb-icon-opacity: 0);
+   flyquest vendor-config flips it to 1 and supplies per-icon top/left vars.
+   No z-index is set intentionally — these render in source order BEFORE
+   #scoreboard-frame (z-index: 1) so the frame's baked-in portrait border
+   layers on top of each photo. */
+.player-icon {
+    position: absolute;
+    opacity: var(--sb-icon-opacity, 0);
+    width: var(--sb-icon-width, 80px);
+    height: var(--sb-icon-height, 80px);
+    object-fit: cover;
+}
+
+/* Per-field positions — all default to 0; vendor-config sets real pixels.
+   In 2v2 the names are laid out via the .team-names wrapper (see below),
+   so these individual #player-N-name coords are used by 1v1 only. */
+#player-1-name { top: var(--sb-p1-name-top, 0); left: var(--sb-p1-name-left, 0); }
+#player-2-name { top: var(--sb-p2-name-top, 0); left: var(--sb-p2-name-left, 0); }
+#player-3-name { top: var(--sb-p3-name-top, 0); left: var(--sb-p3-name-left, 0); }
+#player-4-name { top: var(--sb-p4-name-top, 0); left: var(--sb-p4-name-left, 0); }
+#team-1-life   { top: var(--sb-t1-life-top, 0); left: var(--sb-t1-life-left, 0); }
+#team-2-life   { top: var(--sb-t2-life-top, 0); left: var(--sb-t2-life-left, 0); }
+
+#player-1-icon { top: var(--sb-p1-icon-top, 0); left: var(--sb-p1-icon-left, 0); }
+#player-2-icon { top: var(--sb-p2-icon-top, 0); left: var(--sb-p2-icon-left, 0); }
+#player-3-icon { top: var(--sb-p3-icon-top, 0); left: var(--sb-p3-icon-left, 0); }
+#player-4-icon { top: var(--sb-p4-icon-top, 0); left: var(--sb-p4-icon-left, 0); }
+
+/* ─────────────────────────────────────────────────────────────────────
+ * 2v2 name wrappers — each team's two names render side-by-side as a
+ * single strip (joined by --sb-names-separator, e.g. " & " for flyquest).
+ * The wrapper itself is absolute-positioned per team; inside it, the
+ * .player-name children switch to static so they flow inline. 1v1 keeps
+ * the wrapper as a transparent pass-through and uses #player-N-name
+ * vars above for individual positioning.
+ * ─────────────────────────────────────────────────────────────────────*/
+.team-names { position: static; }
+body[data-player-count="2v2"] .team-names {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: var(--sb-names-justify, center);
+    white-space: nowrap;
+    line-height: 1;
+}
+body[data-player-count="2v2"] #team-1-names {
+    top:    var(--sb-t1-names-top,    0);
+    left:   var(--sb-t1-names-left,   0);
+    width:  var(--sb-t1-names-width,  auto);
+    height: var(--sb-names-height,    auto);
+}
+body[data-player-count="2v2"] #team-2-names {
+    top:    var(--sb-t2-names-top,    0);
+    left:   var(--sb-t2-names-left,   0);
+    width:  var(--sb-t2-names-width,  auto);
+    height: var(--sb-names-height,    auto);
+}
+body[data-player-count="2v2"] .team-names .player-name {
+    position: static;
+    width: auto;
+    text-align: inherit;
+}
+/* Join separator injected before the secondary name in each pair. */
+body[data-player-count="2v2"] #player-2-name::before,
+body[data-player-count="2v2"] #player-4-name::before {
+    content: var(--sb-names-separator, "");
+    white-space: pre;
+}

@@ -37,7 +37,7 @@ socket.on('update-match-global-data', (data) => {
 // Function to check if font family needs updating
 function checkFontFamily(globalFont) {
     if (globalFont) {
-        document.documentElement.style.setProperty('--dynamic-font', globalFont);
+        document.documentElement.style.setProperty('--update-details-font', globalFont);
     }
 }
 

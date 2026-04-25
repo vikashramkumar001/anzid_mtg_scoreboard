@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+    /scoreboard/:matchID/:variant (also /broadcast/round/scoreboard/:matchID/:variant)
+    Per-match scene page. Renders a vendor-specific frame PNG plus an overlay layer
+    that shows player names & team life (driven by scoreboard-{N}-saved-state).
+    Overlay visibility/position is fully CSS-custom-property driven via
+    public/js/vendor-config.js — no JS vendor checks.
+
+    NOTE: this is the "scene" variant — minimal per-variant page (frame PNG + optional
+    overlay). The full-fat classic scoreboard lives at public/html/scoreboard.html and
+    serves the /scoreboard/:controlID and /broadcast/round/scoreboard/:matchID routes.
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/scoreboard-scene.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+</head>
+<body>
+    <!-- Player portrait icons render BEHIND #scoreboard-frame so the frame's
+         baked-in portrait borders layer on top of each photo. They sit in
+         source order before #scoreboard-frame with no z-index (auto, i.e. 0),
+         so the frame (z-index: 1) paints over them.
+         They live OUTSIDE #scoreboard-overlay because that element has
+         z-index: 2, which creates a stacking context — a child's z-index
+         can't escape a parent context, so the only way to put icons behind
+         the frame is to pull them out to body level. Variant visibility is
+         now driven by explicit CSS rules in scoreboard-scene.css. src is
+         stamped by scoreboard-scene.js via roster lookup (name → portraitUrl);
+         applyIcon() sets inline display:none when no name matches. -->
+    <img id="player-1-icon" class="player-icon" src="" alt="">
+    <img id="player-2-icon" class="player-icon" src="" alt="">
+    <img id="player-3-icon" class="player-icon" src="" alt="">
+    <img id="player-4-icon" class="player-icon" src="" alt="">
+
+    <div id="scoreboard-frame"></div>
+    <div id="scoreboard-overlay">
+        <!-- Team 1 panel — visible when the active team's card view is shown.
+             In 2v2 hand-left/hand-right, both panels are displayed together
+             (names from both teams appear in both variants) but only the
+             active team's life total is shown. See scoreboard-scene.css. -->
+        <div id="team-1-panel" class="team-panel">
+            <!-- Wrapper so P1 + P2 render as a single strip in 2v2
+                 (joined by --sb-names-separator), while staying individually
+                 positionable for 1v1 via #player-1-name / #player-2-name vars. -->
+            <div id="team-1-names" class="team-names">
+                <div id="player-1-name" class="player-name"></div>
+                <div id="player-2-name" class="player-name"></div>
+            </div>
+            <div id="team-1-life" class="team-life"></div>
+        </div>
+        <!-- Team 2 panel — shown alongside team 1 in hand-left 2v2. -->
+        <div id="team-2-panel" class="team-panel">
+            <div id="team-2-names" class="team-names">
+                <div id="player-3-name" class="player-name"></div>
+                <div id="player-4-name" class="player-name"></div>
+            </div>
+            <div id="team-2-life" class="team-life"></div>
+        </div>
+    </div>
+    <script src="/js/scoreboard-scene.js"></script>
+</body>
+</html>

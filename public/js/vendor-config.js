@@ -107,6 +107,32 @@ window.VENDOR_CONFIG = {
                 '--mtg-life-font-size': '50px',
                 '--mtg-life-padding-top': '0px',
 
+                // Scoreboard — player portrait icons (classic /scoreboard page).
+                // Flanks each life-total row with two 78×78 borders baked into
+                // the flyquest-2v2 frame PNG. Coords from the PSD
+                // (scripts/inspect-psd.mjs → mtg-scoreboard-frame-flyquest-2v2.psd):
+                //   top player left border:  top=223 left=526
+                //   top life total bg:       top=223 left=600  (129×79)
+                //   top player right border: top=223 left=726
+                //   bot player left border:  top=864 left=526
+                //   bot life total bg:       top=865 left=600  (129×77)
+                //   bot player right border: top=864 left=726
+                // Icons inset 2px inside the borders so the baked outline
+                // still shows around each portrait. P1/P2 = team 1 (top),
+                // P3/P4 = team 2 (bottom) — same team→row convention used
+                // above for --mtg-left-life (team 1) vs --mtg-right-life (team 2).
+                '--mtg-icon-opacity':  '1',
+                '--mtg-icon-width':    '67px',
+                '--mtg-icon-height':   '67px',
+                '--mtg-p1-icon-top':   '229px',
+                '--mtg-p1-icon-left':  '531px',
+                '--mtg-p2-icon-top':   '229px',
+                '--mtg-p2-icon-left':  '731px',
+                '--mtg-p3-icon-top':   '870px',
+                '--mtg-p3-icon-left':  '531px',
+                '--mtg-p4-icon-top':   '870px',
+                '--mtg-p4-icon-left':  '731px',
+
                 // Scoreboard — player names on right side (537x30 containers, text centered)
                 '--mtg-name-position': 'absolute',
                 '--mtg-left-name-top': '306px',
@@ -126,6 +152,21 @@ window.VENDOR_CONFIG = {
                 '--mtg-name-title-padding-top': '0px',
                 '--mtg-p2-display': 'inline',
                 '--mtg-lt-p2-gap': '40px',
+
+                // 2v2 — shared 537×30 strip: both names render side-by-side
+                // inside the one strip joined by " & " (hooked in scoreboard.css
+                // "2v2 MTG: vendor hook" block). font-size kept at 24px so two
+                // names + separator fit inside the strip.
+                '--2v2-name-font-size':       '24px',
+                '--mtg-2v2-name-direction':   'row',
+                '--mtg-2v2-name-gap':         '0px',
+                '--mtg-2v2-name-align':       'center',
+                '--mtg-2v2-name-align-right': 'center',
+                // Non-breaking spaces (U+00A0) on both sides — regular spaces
+                // at the start of generated `::before` content collapse when
+                // laid out as the leading edge of a flex child, which showed
+                // up as "P1& P2" instead of "P1 & P2".
+                '--mtg-2v2-name-separator':   '"\u00a0&\u00a0"',
 
                 // Scoreboard — hide archetype, mana, records, wins dots, timer spacer
                 '--mtg-data-display': 'none',
@@ -162,6 +203,85 @@ window.VENDOR_CONFIG = {
                 // Scoreboard — hide chyron (using timer wrapper instead)
                 '--mtg-chyron-display': 'none',
 
+                // Scoreboard — card-view overlay (FlyQuest 2v2 positioning +
+                // animation). Card is centered on the middle cam frame (PSD
+                // "mid cam frame" layer: x=1327-1887, y=381-697 → center
+                // 1607, 539). Card size is 414×580 (MTG 5:7 aspect; +15% over
+                // the 360×504 pass, which was +20% over the 300×420 first pass;
+                // cumulative ≈ +38% vs. first pass). Both card-id 1 and
+                // card-id 2 resolve to the same center — in FQ 2v2 only one
+                // slot shows at a time on the mid cam.
+                //   left overlay positioning:  left = 1607 − 414/2 = 1400
+                //   right overlay positioning: right = 1920 − 1400 − 414 = 106
+                //   top (shared):              top  = 539  − 580/2 = 249
+                // Animation (View): slide up 60px + fade 0→1 + rotateY 0→-15°
+                // over 350ms (3D tilt toward the board — negative rotateY means
+                // the right edge rotates forward / toward the viewer, the left
+                // edge recedes; a 15° tilt is a pronounced tilt, larger than
+                // the 7° used on standings). Dim layer fades in parallel on
+                // the same duration.
+                // Animation (Reset): rotateY -15°→0° + fade 1→0 + dim fade
+                // over 350ms; NO vertical slide (scoreboard.js pins translateY
+                // during reset, then silently re-cocks to --slide-offset for
+                // the next view).
+                '--mtg-card-overlay-top':    '249px',
+                '--mtg-card-overlay-width':  '414px',
+                '--mtg-card-overlay-left':   '1400px',  // card-id 1 (left DOM) → mid cam center
+                '--mtg-card-overlay-right':  '106px',   // card-id 2 (right DOM) → same center
+                '--mtg-card-overlay-z':      '25',
+                '--mtg-card-slide-offset':   '60px',
+                '--mtg-card-slide-duration': '350ms',
+                '--mtg-card-fade-duration':  '350ms',
+                '--mtg-card-slide-easing':   'ease-out',
+                '--mtg-card-perspective':    '1500px',
+                '--mtg-card-tilt':           '-12deg',
+
+                // Scoreboard — card-view dim layer (full-viewport top→bottom,
+                // but bounded LEFT by the camera frame border so the dim never
+                // bleeds onto the board / lower-third / event logo on the left
+                // side of the scoreboard). Gradient math (% of 1920px viewport):
+                //   0%    → 69.1%  : transparent (everything left of cam frame)
+                //   69.1% → 72.0%  : feather transparent → dim color
+                //   72.0% → 100%   : solid dim color (covers the camera column)
+                // PSD layout anchors (FQ 2v2 frame):
+                //   cam frames (top/mid/bot): x = 1327 - 1887
+                //   1327 / 1920 = 69.1% ← left feather edge (cam border)
+                //   card left edge: 1400 / 1920 = 72.9% (card sits in full dim)
+                // Tune feather-start/end to nudge the blend line if the frame
+                // asset changes; keep feather-start ≥ 69.1% so dim never
+                // extends past the camera border.
+                //
+                // IMPORTANT — why dim is opaque (not backdrop-filter blur):
+                // backdrop-filter is a *browser* effect: it blurs pixels that
+                // Chrome has rendered behind the element. In the broadcast, the
+                // cam feeds are OBS sources composited BEHIND the scoreboard
+                // browser-source — they never enter Chrome's compositor, so
+                // backdrop-filter cannot see or blur them. To visibly fog /
+                // darken the cams we have to render an *opaque* layer in the
+                // browser; OBS then composites that layer on top of the cams,
+                // which blends the tint into the final broadcast output.
+                // A white-tint opaque dim gives the "frosted glass" LOOK in the
+                // broadcast (soft fog over the cams) — at the cost of no true
+                // blur. True blur would require the cams to be rendered IN the
+                // browser (WebRTC / <video>), which is a different architecture.
+                '--mtg-card-dim-color':         'rgba(0, 0, 0, 0)',     // dim disabled (shadow-only test)
+                '--mtg-card-blur-amount':       '0px',                   // disabled (see note above)
+                '--mtg-card-saturate':          '100%',                  // no-op without blur
+                '--mtg-card-dim-feather-start': '65.2%',   // = 1252px
+                '--mtg-card-dim-feather-end':   '69.2%',   // = 1329px (just past cam border at 1327)
+                '--mtg-card-dim-z':             '22',
+
+                // Card drop shadow — soft halo behind the card to lift it off the
+                // cam without a global dim. Renders as opaque-ish pixels in the
+                // browser layer, which OBS composites on top of cam sources, so
+                // the shadow visibly darkens the cam area immediately around the
+                // card. Format: offset-x offset-y blur spread color.
+                //   0 0          : no directional offset (symmetric halo)
+                //   80px blur    : soft falloff
+                //   10px spread  : shadow extends 10px beyond card bounds before blur
+                //   rgba 0.75    : strong enough to read over bright cam content
+                '--mtg-card-shadow':            '0 0 80px 10px rgba(0, 0, 0, 0.75)',
+
                 // Decklist
                 '--mtg-dl-font': "'CARBON', sans-serif",
                 '--mtg-dl-name-font-size': '115px',
@@ -196,40 +316,210 @@ window.VENDOR_CONFIG = {
                 '--comm-lt-bottom': '40px',
 
                 // Scoreboard-overlay (used by /scoreboard/:matchID/:variant on
-                // hand-left & hand-right only — CSS gates which team panel shows).
-                // Positions below are placeholders; tune visually against the
-                // actual hand-left/hand-right frame PNGs.
+                // hand-left & hand-right). In 2v2 both team panels render so
+                // both name pairs are visible; only the active team's life
+                // shows (CSS gates this — see scoreboard-scene.css).
+                //
+                // hand-left-fq-2v2 PSD positions:
+                //   • Top life total bg:    x=896-1021, y=64-139   (125×75)
+                //   • Left cam name strip:  x=132-931,  y=1002-1032 (799×30)  → Team 1 (P1 & P2)
+                //   • Right cam name strip: x=987-1787, y=1002-1032 (800×30)  → Team 2 (P3 & P4)
                 '--sb-name-opacity':     '1',
                 '--sb-life-opacity':     '1',
                 '--sb-name-color':       '#fff',
                 '--sb-life-color':       '#fff',
-                '--sb-name-font-size':   '42px',
-                '--sb-life-font-size':   '140px',
+                '--sb-name-font-size':   '24px',
+                '--sb-life-font-size':   '50px',
                 '--sb-name-font-weight': '700',
                 '--sb-life-font-weight': '900',
-                // Hand-left — team 1 (P1 + P2 + team 1 life)
-                '--sb-p1-name-top':  '820px', '--sb-p1-name-left': '120px',
-                '--sb-p2-name-top':  '880px', '--sb-p2-name-left': '120px',
-                '--sb-t1-life-top':  '780px', '--sb-t1-life-left': '720px',
-                // Hand-right — team 2 (P3 + P4 + team 2 life)
-                '--sb-p3-name-top':  '820px', '--sb-p3-name-left': '1400px',
-                '--sb-p4-name-top':  '880px', '--sb-p4-name-left': '1400px',
-                '--sb-t2-life-top':  '780px', '--sb-t2-life-left': '1100px',
-                // Player icons intentionally omitted — deferred. DOM stubs in
-                // scoreboard.html are always hidden (--sb-icon-opacity default: 0).
+                '--sb-font':             "'CARBON', sans-serif",
+                // Life total: 125×75 box, text centered via flex.
+                '--sb-life-width':       '125px',
+                '--sb-life-height':      '75px',
+                '--sb-life-align':       'center',
+                '--sb-life-display':     'flex',
+                '--sb-life-items':       'center',
+                '--sb-life-justify':     'center',
+                // 2v2 name strips — wrapper positioned per team, names
+                // flow inline inside and are joined by " & ". PSD strip is
+                // 30px tall, so pin the wrapper height and center vertically.
+                '--sb-names-separator':  '" & "',
+                '--sb-names-justify':    'center',
+                '--sb-names-height':     '30px',
+                '--sb-t1-names-top':     '1002px',
+                '--sb-t1-names-left':    '132px',
+                '--sb-t1-names-width':   '800px',
+                '--sb-t2-names-top':     '1002px',
+                '--sb-t2-names-left':    '987px',
+                '--sb-t2-names-width':   '800px',
+                // Life total positions (only the active team's renders).
+                '--sb-t1-life-top':      '64px',
+                '--sb-t1-life-left':     '896px',
+                // NOTE: hand-right PSD not yet provided; mirrored from hand-left
+                // on the assumption that the frame is symmetric. Confirm against
+                // hand-right-fq-2v2.psd when available.
+                '--sb-t2-life-top':      '64px',
+                '--sb-t2-life-left':     '896px',
+                // Player icons — src is stamped per-match by scoreboard-scene.js
+                // from the global roster (features/roster.js, playerRoster.json).
+                // Any icon whose name has no roster match is hidden via
+                // display:none by scoreboard-scene.js, so these positions only
+                // affect matched players.
+                //
+                // Coords derived from the hand-left-flyquest-2v2 PSD layers
+                // (scripts/inspect-psd.mjs):
+                //   • player left border:  top=62 left=819  79×78
+                //   • top life total bg:   top=63 left=895  127×77
+                //   • player right border: top=62 left=1019 79×78
+                // Icon is inset 2px from the border so the baked-in frame
+                // outline on the PNG stays visible around the portrait.
+                // P3/P4 use the same slots on hand-right (mirrored — hand-right
+                // PSD not yet supplied, matching the t2-life mirror assumption
+                // a few lines above). The CSS in scoreboard-scene.css hides
+                // the inactive-team icons per variant in 2v2.
+                '--sb-icon-opacity':  '1',
+                '--sb-icon-width':    '67px',
+                '--sb-icon-height':   '67px',
+                '--sb-p1-icon-top':   '68px',
+                '--sb-p1-icon-left':  '825px',
+                '--sb-p2-icon-top':   '68px',
+                '--sb-p2-icon-left':  '1025px',
+                '--sb-p3-icon-top':   '68px',
+                '--sb-p3-icon-left':  '825px',
+                '--sb-p4-icon-top':   '68px',
+                '--sb-p4-icon-left':  '1025px',
+
+                // ── Standings (/broadcast/round/standings-combined) ───────
+                // FlyQuest 2v2 "Idea 1" groups layout. The layout itself is
+                // gated by body[data-vendor="flyquest"][data-player-count="2v2"]
+                // in broadcast-round-standings-all.css; these vars just skin
+                // the chrome.
+                '--stand-pill-color':              '#00705a', // FlyQuest Green
+                '--stand-pill-radius':             '6px',
+                '--stand-portrait-radius':         '4px',
+                '--stand-thumb-radius':            '4px',
+                '--stand-captain-border':          '4px',
+                '--stand-thumb-border':            '2px',
+                '--stand-text-color':              '#fff',
+                '--stand-font':                    "'CARBON', sans-serif",
+                '--stand-font-weight':             'normal',
+                '--stand-header-font-size':        '72px',
+                '--stand-header-letter-spacing':   '2px',
+                '--stand-group-pill-font-size':    '22px',
+                '--stand-group-pill-letter-spacing': '2px',
+                '--stand-row-name-font-size':      '28px',
+                '--stand-row-name-padding':        '20px',
+                '--stand-row-record-font-size':    '32px',
+                '--stand-captain-object-position': 'center 20%',
+                '--stand-thumb-object-position':   'center 20%',
+                // Perspective — group 1 (left bracket) fans toward camera on
+                // its right edge, group 2 (right bracket) on its left edge.
+                // Origins are set in broadcast-round-standings-all.css so the
+                // two fan symmetrically. CSS rotateY is a lot flatter than
+                // Photoshop's perspective warp at the same angle, so we push
+                // harder here: bigger rotation + closer camera (smaller
+                // perspective distance) = more prominent foreshortening.
+                // Dial the angle for "how much it turns"; dial the distance
+                // for "how strong the depth cue reads".
+                '--stand-perspective':             '1200px',
+                '--stand-group1-tilt':             '7deg',
+                '--stand-group2-tilt':             '-7deg',
+                // Uniform scale applied to both bracket-tilt layers. Shrinks
+                // toward the inward pivot, so the outer edges pull in toward
+                // center while the inner edges stay anchored to the header.
+                '--stand-bracket-scale':           '0.9',
+                // Horizontal gap between the two brackets — pushes each
+                // bracket outward by this amount (so total extra air =
+                // 2 × this value). Gets visually multiplied by
+                // --stand-bracket-scale. Dial for the "even T" header/
+                // brackets alignment.
+                '--stand-bracket-gap':             '30px',
+
+                // ── Bracket (/display/bracket-full) ──────────────────────
+                // FlyQuest 2v2 bracket: 4 teams, single-elim. Reuses the
+                // existing 1v1 slot IDs — only the 7 slots mapped in the
+                // seeding table below are shown; the other 7 are hidden
+                // via per-slot `--slot-{id}-display: none` overrides.
+                //
+                // Seeding (standard single-elim 1v4, 2v3):
+                //   rank 1 → QF 1   (PSD position QF A)
+                //   rank 4 → QF 4   (PSD position QF B)
+                //   rank 2 → QF 2   (PSD position QF C)
+                //   rank 3 → QF 3   (PSD position QF D)
+                //
+                // Slot geometry comes from mtg-bracket-frame-flyquest-2v2.psd
+                // "Group 11" — see scripts/inspect-psd.mjs output. The
+                // display-page CSS consumes these via
+                // `top: var(--slot-{id}-top, <1v1-default>)` so vendors
+                // opting out of this block keep their 1v1 positions.
+                '--bracket-text-color':            '#fff',
+                '--bracket-text-color-faded':      'rgba(255,255,255, 0.5)',
+                '--bracket-font':                  "'CARBON', sans-serif",
+                '--bracket-font-weight':           'normal',
+                // SVG connector line stroke color — FlyQuest 2v2 brand
+                // dark-teal instead of the 1v1 default white.
+                '--bracket-line-color':            '#151f21',
+                // Slot footprint — 307×205 composite (two 145×145 portraits
+                // + 15px gap + 307×45 name bar). Matches PSD "Group 11 > QF A"
+                // bbox exactly. 1v1 default is 424×56.
+                '--bracket-slot-width':            '307px',
+                '--bracket-slot-height':           '205px',
+                // Name bar font size. Auto-scale helper runs per-slot in 2v2
+                // using this as the max (see bracket-full-display.js ::
+                // renderAllSlots). Tune this if names routinely clip.
+                '--fq2v2-bracket-name-font-size':  '24px',
+
+                // Per-slot positions (top-left corner in 1920×1080 canvas).
+                '--slot-bracket-quarterfinal-1-top':  '708px',
+                '--slot-bracket-quarterfinal-1-left': '214px',
+                '--slot-bracket-quarterfinal-4-top':  '709px',
+                '--slot-bracket-quarterfinal-4-left': '574px',
+                '--slot-bracket-quarterfinal-2-top':  '708px',
+                '--slot-bracket-quarterfinal-2-left': '1040px',
+                '--slot-bracket-quarterfinal-3-top':  '709px',
+                '--slot-bracket-quarterfinal-3-left': '1400px',
+                '--slot-bracket-semifinal-1a-top':    '443px',
+                '--slot-bracket-semifinal-1a-left':   '394px',
+                '--slot-bracket-semifinal-2a-top':    '443px',
+                '--slot-bracket-semifinal-2a-left':   '1220px',
+                '--slot-bracket-final-1a-top':        '263px',
+                '--slot-bracket-final-1a-left':       '806px',
+
+                // Per-slot hide — the 7 slots that 1v1 uses but 2v2 doesn't.
+                '--slot-bracket-quarterfinal-5-display': 'none',
+                '--slot-bracket-quarterfinal-6-display': 'none',
+                '--slot-bracket-quarterfinal-7-display': 'none',
+                '--slot-bracket-quarterfinal-8-display': 'none',
+                '--slot-bracket-semifinal-1b-display':   'none',
+                '--slot-bracket-semifinal-2b-display':   'none',
+                '--slot-bracket-final-1b-display':       'none',
+
+                // Event-info L3 overlays — pack-opening scene. Emulates the
+                // scoreboard timer wrapper (same 1260×53 lower-third bar at
+                // top=993, left=34 — matches --mtg-timer-top/left/width/height
+                // above). Text centers horizontally/vertically via flex in
+                // event-info.css. Tune height if the PSD bar geometry shifts.
+                '--ei-pack-opening-text-top':         '993px',
+                '--ei-pack-opening-text-left':        '34px',
+                '--ei-pack-opening-text-width':       '1260px',
+                '--ei-pack-opening-text-height':      '53px',
+                '--ei-pack-opening-text-font-size':   '22px',
+                '--ei-pack-opening-text-font':        "'CARBON', sans-serif",
+                '--ei-pack-opening-text-font-weight': 'normal',
+                '--ei-pack-opening-text-color':       '#fff',
             },
         },
         riftbound: {
             dsg: {
-                '--dynamic-font': 'Garamond',
-                '--dynamic-font-weight': '400',
+                '--rb-font': 'Garamond',
+                '--rb-font-weight': '400',
                 '--scoreboard-name-color': '#111826',
                 '--scoreboard-record-color': '#111826',
                 '--scoreboard-points-color': '#f0ebdf',
             },
             tes: {
-                '--dynamic-font': 'Akzidenz-Grotesk Next',
-                '--dynamic-font-weight': '900',
+                '--rb-font': 'Akzidenz-Grotesk Next',
+                '--rb-font-weight': '900',
                 // Position overrides — adjust to match TES frame
                 '--rb-name-top': '13.5px',
                 '--rb-name-side': '391px',

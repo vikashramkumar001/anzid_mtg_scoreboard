@@ -1,0 +1,57 @@
+{
+  "_comment": "Signature-card decklist for the FlyQuest 2v2 decklist pages (/broadcast/round/maindeck/matchN/left|right). Keys are slugified player names (lowercased, non-alphanum → '-', trimmed) — same slug scheme used for portraits in data/playerRoster.json. Seeded with random iconic cards; replace `card` values with real signature-card URLs from Scryfall (cards.scryfall.io/png/...) as you collect them.",
+  "anna-margaret": {
+    "card": "https://api.scryfall.com/cards/named?exact=Lightning%20Bolt&format=image&version=png"
+  },
+  "atrioc": {
+    "card": "https://api.scryfall.com/cards/named?exact=Counterspell&format=image&version=png"
+  },
+  "baddie": {
+    "card": "https://api.scryfall.com/cards/named?exact=Black%20Lotus&format=image&version=png"
+  },
+  "biqtch-puddin": {
+    "card": "https://api.scryfall.com/cards/named?exact=Sol%20Ring&format=image&version=png"
+  },
+  "brodin": {
+    "card": "https://api.scryfall.com/cards/named?exact=Birds%20of%20Paradise&format=image&version=png"
+  },
+  "danny": {
+    "card": "https://api.scryfall.com/cards/named?exact=Swords%20to%20Plowshares&format=image&version=png"
+  },
+  "gavin-verhey": {
+    "card": "https://api.scryfall.com/cards/named?exact=Wrath%20of%20God&format=image&version=png"
+  },
+  "joel-r-magic": {
+    "card": "https://api.scryfall.com/cards/named?exact=Demonic%20Tutor&format=image&version=png"
+  },
+  "ls": {
+    "card": "https://api.scryfall.com/cards/named?exact=Brainstorm&format=image&version=png"
+  },
+  "lua-stardust": {
+    "card": "https://api.scryfall.com/cards/named?exact=Serra%20Angel&format=image&version=png"
+  },
+  "nemo": {
+    "card": "https://api.scryfall.com/cards/named?exact=Shivan%20Dragon&format=image&version=png"
+  },
+  "persephone-valentine": {
+    "card": "https://api.scryfall.com/cards/named?exact=Force%20of%20Will&format=image&version=png"
+  },
+  "peterpark": {
+    "card": "https://api.scryfall.com/cards/named?exact=Giant%20Growth&format=image&version=png"
+  },
+  "reynad": {
+    "card": "https://api.scryfall.com/cards/named?exact=Tarmogoyf&format=image&version=png"
+  },
+  "sofia": {
+    "card": "https://api.scryfall.com/cards/named?exact=Dark%20Ritual&format=image&version=png"
+  },
+  "taalia-vess": {
+    "card": "https://api.scryfall.com/cards/named?exact=Llanowar%20Elves&format=image&version=png"
+  },
+  "yamina": {
+    "card": "https://api.scryfall.com/cards/named?exact=Ancestral%20Recall&format=image&version=png"
+  },
+  "zabracus": {
+    "card": "https://api.scryfall.com/cards/named?exact=Fireball&format=image&version=png"
+  }
+}

@@ -677,6 +677,13 @@ function normalizeStandings(rawStandings, platform) {
         let name = '';
         let archetype = '';
         let record = '';
+        // For 2v2 vendors (flyquest), operators enter a team as a single Melee
+        // "player" with FirstName=playerA, LastName=playerB. Expose both halves
+        // so downstream consumers (standings layouts, roster portrait lookups)
+        // can treat them as individual players. Populated in the melee branch
+        // only; left blank for solo formats / other platforms.
+        let player1 = '';
+        let player2 = '';
 
         if (platform === 'melee') {
             // Melee.gg nests player info inside Team.Players[0]
@@ -684,6 +691,11 @@ function normalizeStandings(rawStandings, platform) {
             const playerId = player.ID || player.Id || player.id;
 
             name = normalizeName(player.Name || player.name || player.DisplayName || player.displayName || '');
+
+            // 2v2 workaround split — FirstName/LastName carry the two player
+            // names instead of a real first/last. See comment above.
+            player1 = normalizeName(player.FirstName || player.firstName || '');
+            player2 = normalizeName(player.LastName  || player.lastName  || '');
 
             // Archetype/deck name - find decklist matching this player's ID
             const decklists = entry.Decklists || [];
@@ -710,7 +722,10 @@ function normalizeStandings(rawStandings, platform) {
                 const wins = entry.MatchWins || entry.matchWins || entry.Wins || entry.wins || 0;
                 const losses = entry.MatchLosses || entry.matchLosses || entry.Losses || entry.losses || 0;
                 const draws = entry.MatchDraws || entry.matchDraws || entry.Draws || entry.draws || 0;
-                record = `${wins}-${losses}-${draws}`;
+                // Convention: hide the draws segment when there are 0 draws
+                // ("3-0" reads cleaner than "3-0-0"). Matches the Carde API
+                // branch below at line ~1276 which already does this.
+                record = draws > 0 ? `${wins}-${losses}-${draws}` : `${wins}-${losses}`;
             }
         } else if (platform === 'topdeck') {
             name = normalizeName(player.name || '');
@@ -719,12 +734,14 @@ function normalizeStandings(rawStandings, platform) {
             const wins = player.wins || 0;
             const losses = player.losses || 0;
             const draws = player.draws || 0;
-            record = `${wins}-${losses}-${draws}`;
+            record = draws > 0 ? `${wins}-${losses}-${draws}` : `${wins}-${losses}`;
         }
 
         normalized[rank.toString()] = {
             rank: parseInt(rank, 10),
             name,
+            player1,
+            player2,
             archetype,
             record
         };
@@ -1223,7 +1240,9 @@ async function fetchPlayerRecordFromStandings(tournamentId, roundNumber, playerN
                 const wins = entry.MatchWins || entry.matchWins || entry.Wins || entry.wins || 0;
                 const losses = entry.MatchLosses || entry.matchLosses || entry.Losses || entry.losses || 0;
                 const draws = entry.MatchDraws || entry.matchDraws || entry.Draws || entry.draws || 0;
-                return `${wins}-${losses}-${draws}`;
+                // Omit draws segment when 0 — consistent with normalizeStandings
+                // and the Carde API path (hides the "-0" on "3-0-0").
+                return draws > 0 ? `${wins}-${losses}-${draws}` : `${wins}-${losses}`;
             }
         }
 
@@ -1466,6 +1485,17 @@ export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, 
         const player1Name = normalizeName(player1.Name || player1.DisplayName || '');
         const player2Name = normalizeName(player2.Name || player2.DisplayName || '');
 
+        // 2v2 workaround split — same convention as normalizeStandings() above:
+        // Melee stores 2v2 teams as a single pseudo-player with
+        //   FirstName = playerA,  LastName = playerB,  Name = "playerA playerB"
+        // Expose both halves so the client can populate both teammate slots
+        // (left + left-2, right + right-2) on 2v2 match cards. For 1v1 these
+        // stay blank and the client falls back to `name` unchanged.
+        const player1First = normalizeName(player1.FirstName || player1.firstName || '');
+        const player1Last  = normalizeName(player1.LastName  || player1.lastName  || '');
+        const player2First = normalizeName(player2.FirstName || player2.firstName || '');
+        const player2Last  = normalizeName(player2.LastName  || player2.lastName  || '');
+
         // Fetch records from standings (round N-1, or 0-0 for round 1)
         console.log(`Fetching records for round ${roundNumber} (will use round ${parseInt(roundNumber) - 1} standings)`);
         const [player1Record, player2Record] = await Promise.all([
@@ -1479,6 +1509,8 @@ export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, 
             tableNumber: parseInt(tableNumber),
             player1: {
                 name: player1Name,
+                player1: player1First, // 2v2: first teammate (empty for 1v1)
+                player2: player1Last,  // 2v2: second teammate (empty for 1v1)
                 archetype: player1Decklist?.DecklistName || '',
                 pronouns: player1.PronounsDescription || '',
                 record: player1Record,
@@ -1486,6 +1518,8 @@ export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, 
             },
             player2: {
                 name: player2Name,
+                player1: player2First, // 2v2: first teammate (empty for 1v1)
+                player2: player2Last,  // 2v2: second teammate (empty for 1v1)
                 archetype: player2Decklist?.DecklistName || '',
                 pronouns: player2.PronounsDescription || '',
                 record: player2Record,

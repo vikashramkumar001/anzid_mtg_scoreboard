@@ -64,18 +64,28 @@ class RoomManager {
         // Draftlist scoreboard
         if (path.includes('/broadcast/round/draftlist/scoreboard/')) return 'broadcast-draft-list';
 
-        // Per-match scoreboard pages (/scoreboard/matchN/variant and the
-        // /broadcast/round/scoreboard/ backward-compat alias). Need both the
-        // scoreboard-{N} room (for match data) and global (for selection events);
-        // the 'scoreboard-N' keys at lines ~141–144 already map that correctly.
-        if (path.includes('/scoreboard/') || path.includes('/broadcast/round/scoreboard/')) {
+        // Broadcast scoreboard pages (/broadcast/round/scoreboard/matchN).
+        // These are REPLAY views of whatever round is in broadcastTracker — so
+        // they must only listen to the broadcast-scoreboard room (for the
+        // gated broadcast-round-data event) plus global. They intentionally do
+        // NOT join scoreboard-{N}, which carries live per-slot updates that
+        // would clobber the replay. Check BEFORE the /scoreboard/ branch
+        // since the broadcast URL also contains /scoreboard/.
+        if (path.includes('/broadcast/round/scoreboard/')) {
+            const m = path.match(/\/scoreboard\/match(\d+)/);
+            const n = m ? m[1] : '1';
+            return `broadcast-scoreboard-${n}`;
+        }
+
+        // Per-match scoreboard pages (/scoreboard/matchN/variant).
+        if (path.includes('/scoreboard/')) {
             const m = path.match(/\/scoreboard\/match(\d+)/);
             const n = m ? m[1] : '1';
             return `scoreboard-${n}`;
         }
 
-        // Background scenes — image-only pages; only need global selection events
-        if (path.includes('/background/')) return 'global';
+        // Event-info scenes — image-only pages; only need global selection events
+        if (path.includes('/event-info/')) return 'global';
 
         // Timer - check for /timer/ in path
         if (path.includes('/timer/')) {
@@ -152,6 +162,15 @@ class RoomManager {
             'scoreboard-2': ['scoreboard-2', 'global'],
             'scoreboard-3': ['scoreboard-3', 'global'],
             'scoreboard-4': ['scoreboard-4', 'global'],
+            // Broadcast scoreboard pages are REPLAY views gated by
+            // broadcastTracker.round_id — they must NOT join scoreboard-{N},
+            // which carries live per-slot data for whichever round is
+            // currently playing. Keeping them isolated to broadcast-scoreboard
+            // + global ensures the replay can't be clobbered by live updates.
+            'broadcast-scoreboard-1': ['broadcast-scoreboard', 'global'],
+            'broadcast-scoreboard-2': ['broadcast-scoreboard', 'global'],
+            'broadcast-scoreboard-3': ['broadcast-scoreboard', 'global'],
+            'broadcast-scoreboard-4': ['broadcast-scoreboard', 'global'],
             'timer-1': ['timer-1', 'global'],
             'timer-2': ['timer-2', 'global'],
             'timer-3': ['timer-3', 'global'],

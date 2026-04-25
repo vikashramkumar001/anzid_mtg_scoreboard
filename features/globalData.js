@@ -1,4 +1,4 @@
-import {getControlData, emitControlData, saveControlData} from './control.js';
+import {getControlData, emitControlData, saveControlData, getControlsTracker} from './control.js';
 import {getSortedArchetypes} from './archetypes.js';
 import {DEFAULT_INITIAL_TIME, getInitialTime, setInitialTime} from "../config/constants.js";
 import { RoomUtils } from '../utils/room-utils.js';
@@ -90,7 +90,12 @@ export async function updateEventInformation(eventInfo, io, timerState) {
             matchData['event-round'] = eventRoundText;
 
             // Emit updated match data
-            Object.entries(timerState.controlsTracker || {}).forEach(([control_id, ctrl]) => {
+            // Read controlsTracker from its source of truth (control.js).
+            // Previously read `timerState.controlsTracker` which does not
+            // exist on the timer-state object — so this loop never iterated
+            // and the per-slot saved-state emits below never fired, making
+            // live scoreboards miss event-info updates until next page load.
+            Object.entries(getControlsTracker()).forEach(([control_id, ctrl]) => {
                 if (ctrl.round_id === round_id && ctrl.match_id === match_id) {
                     RoomUtils.emitToRoom(io, `control-${control_id}`, `control-${control_id}-saved-state`, {
                         data: matchData,

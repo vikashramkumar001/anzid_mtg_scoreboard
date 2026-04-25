@@ -34,6 +34,29 @@
         </div>
     </div>
 
+    <!-- MTG FlyQuest 2v2 Signature Decklist (two players per side) -->
+    <!-- Shown when game=mtg + vendor=flyquest + playerCount=2v2. URL side
+         `left`  → renders players 1 + 2 (team `player-name-left`, `-left-2`).
+         URL side `right` → renders players 3 + 4 (`player-name-right`, `-right-2`).
+         Cards come from /data/flyquest-2v2-decklist.json (keyed by slug),
+         portraits come from /data/playerRoster.json. -->
+    <div id="deck-display-mtg-fq2v2" style="display: none;">
+        <div class="fq2v2-dl-bg" id="fq2v2-dl-bg"></div>
+        <div class="fq2v2-dl-frame" id="fq2v2-dl-frame"></div>
+
+        <div class="fq2v2-dl-player fq2v2-dl-slot-1">
+            <img class="fq2v2-dl-portrait" id="fq2v2-dl-portrait-1" src="" alt="">
+            <div class="fq2v2-dl-name" id="fq2v2-dl-name-1"></div>
+            <img class="fq2v2-dl-card" id="fq2v2-dl-card-1" src="" alt="">
+        </div>
+
+        <div class="fq2v2-dl-player fq2v2-dl-slot-2">
+            <img class="fq2v2-dl-portrait" id="fq2v2-dl-portrait-2" src="" alt="">
+            <div class="fq2v2-dl-name" id="fq2v2-dl-name-2"></div>
+            <img class="fq2v2-dl-card" id="fq2v2-dl-card-2" src="" alt="">
+        </div>
+    </div>
+
     <!-- Riftbound Deck Display -->
     <div id="deck-display-riftbound" style="display: none;">
         <div class="riftbound-dl-bg-video">

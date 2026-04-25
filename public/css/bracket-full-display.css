@@ -1,15 +1,48 @@
 :root {
-    --dynamic-font: 'Bebas Neue', sans-serif;
-    --dynamic-font-weight: bold;
+    --bracket-font: 'Bebas Neue', sans-serif;
+    --bracket-font-weight: bold;
     --archetype-font-style: italic;
     --archetype-font-weight: bold;
 }
+
+/*
+ * Per-slot position/size/display vars.
+ *
+ * Defaults match the hard-coded 1v1 SLOT_CONFIG in bracket-full-display.js so
+ * the 1v1 bracket keeps rendering pixel-identical without anything in
+ * vendor-config. FlyQuest 2v2 (and any future vendor that wants to reposition
+ * slots) overrides these under its overrides block — see
+ * public/js/vendor-config.js → overrides.mtg.flyquest.
+ *
+ * Width/height default to the 1v1 strip size; 2v2 swells them to the 307×190
+ * composite so the portraits fit.
+ */
+.bracket-slot {
+    display: var(--bracket-slot-display, flex);
+    width: var(--bracket-slot-width, 424px);
+    height: var(--bracket-slot-height, 56px);
+}
+
+#slot-bracket-quarterfinal-1 { top: var(--slot-bracket-quarterfinal-1-top, 325px); left: var(--slot-bracket-quarterfinal-1-left, 194px); display: var(--slot-bracket-quarterfinal-1-display, flex); }
+#slot-bracket-quarterfinal-8 { top: var(--slot-bracket-quarterfinal-8-top, 389px); left: var(--slot-bracket-quarterfinal-8-left, 194px); display: var(--slot-bracket-quarterfinal-8-display, flex); }
+#slot-bracket-quarterfinal-4 { top: var(--slot-bracket-quarterfinal-4-top, 495px); left: var(--slot-bracket-quarterfinal-4-left, 194px); display: var(--slot-bracket-quarterfinal-4-display, flex); }
+#slot-bracket-quarterfinal-5 { top: var(--slot-bracket-quarterfinal-5-top, 559px); left: var(--slot-bracket-quarterfinal-5-left, 194px); display: var(--slot-bracket-quarterfinal-5-display, flex); }
+#slot-bracket-quarterfinal-2 { top: var(--slot-bracket-quarterfinal-2-top, 665px); left: var(--slot-bracket-quarterfinal-2-left, 194px); display: var(--slot-bracket-quarterfinal-2-display, flex); }
+#slot-bracket-quarterfinal-7 { top: var(--slot-bracket-quarterfinal-7-top, 729px); left: var(--slot-bracket-quarterfinal-7-left, 194px); display: var(--slot-bracket-quarterfinal-7-display, flex); }
+#slot-bracket-quarterfinal-3 { top: var(--slot-bracket-quarterfinal-3-top, 835px); left: var(--slot-bracket-quarterfinal-3-left, 194px); display: var(--slot-bracket-quarterfinal-3-display, flex); }
+#slot-bracket-quarterfinal-6 { top: var(--slot-bracket-quarterfinal-6-top, 899px); left: var(--slot-bracket-quarterfinal-6-left, 194px); display: var(--slot-bracket-quarterfinal-6-display, flex); }
+#slot-bracket-semifinal-1a   { top: var(--slot-bracket-semifinal-1a-top,   410px); left: var(--slot-bracket-semifinal-1a-left,   748px); display: var(--slot-bracket-semifinal-1a-display,   flex); }
+#slot-bracket-semifinal-1b   { top: var(--slot-bracket-semifinal-1b-top,   474px); left: var(--slot-bracket-semifinal-1b-left,   748px); display: var(--slot-bracket-semifinal-1b-display,   flex); }
+#slot-bracket-semifinal-2a   { top: var(--slot-bracket-semifinal-2a-top,   750px); left: var(--slot-bracket-semifinal-2a-left,   748px); display: var(--slot-bracket-semifinal-2a-display,   flex); }
+#slot-bracket-semifinal-2b   { top: var(--slot-bracket-semifinal-2b-top,   814px); left: var(--slot-bracket-semifinal-2b-left,   748px); display: var(--slot-bracket-semifinal-2b-display,   flex); }
+#slot-bracket-final-1a       { top: var(--slot-bracket-final-1a-top,       580px); left: var(--slot-bracket-final-1a-left,       1302px); display: var(--slot-bracket-final-1a-display,       flex); }
+#slot-bracket-final-1b       { top: var(--slot-bracket-final-1b-top,       644px); left: var(--slot-bracket-final-1b-left,       1302px); display: var(--slot-bracket-final-1b-display,       flex); }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--dynamic-font), sans-serif;
+    font-family: var(--bracket-font), sans-serif;
     text-transform: uppercase;
     background-color: transparent;
 }
@@ -79,12 +112,11 @@ body {
     z-index: 2;
 }
 
-/* Individual bracket slot */
+/* Individual bracket slot (width/height/display now driven by custom
+ * properties above so vendors can override the slot footprint — see the
+ * `.bracket-slot` rule near the top of this file.) */
 .bracket-slot {
     position: absolute;
-    width: 424px;
-    height: 56px;
-    display: flex;
     flex-direction: row;
     font-size: 28px;
     color: #000;
@@ -159,8 +191,8 @@ body {
 /* Round labels */
 .round-label {
     position: absolute;
-    font-family: var(--dynamic-font), sans-serif;
-    font-weight: var(--dynamic-font-weight);
+    font-family: var(--bracket-font), sans-serif;
+    font-weight: var(--bracket-font-weight);
     text-transform: uppercase;
     color: #fff;
     font-size: 24px;
@@ -179,8 +211,152 @@ body {
 
 /* SVG bracket lines */
 #bracket-lines path {
-    stroke: white;
+    stroke: var(--bracket-line-color, white);
     stroke-width: 3;
     fill: none;
     transition: stroke-dashoffset 3s ease-out;
+}
+
+/* ── Slot portraits (FQ 2v2 only) ────────────────────────────────────────
+ * Every slot DOM includes two <img class="slot-portrait"> elements — they
+ * sit dormant (display:none) for 1v1 and any other vendor/count combo, and
+ * only render in FlyQuest 2v2 where each slot represents a two-player team.
+ *
+ * The 2v2 composite layout (307×190) stacks two 145×145 portraits on top of
+ * a 307×45 name bar. Pixel offsets are derived from the FQ 2v2 PSD layers
+ * "Group 11" — see scripts/inspect-psd.mjs output for the flyquest-2v2
+ * bracket frame PSD.
+ */
+.slot-portrait {
+    display: none;
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    object-fit: cover;
+    object-position: center 20%;
+    top: 0;
+    z-index: 1;
+}
+.slot-portrait-1 { left: 0; }
+/* 160px (not 162) matches the PSD's 15px gap between the two portrait boxes
+ * inside "Group 11 > QF A" — P1 ends at x=145, P2 starts at x=160. */
+.slot-portrait-2 { left: 160px; }
+
+/* Hide the portrait img when it has no src (or an empty src). Browsers
+ * paint a subtle placeholder outline inside an img element that has
+ * width/height but no resolvable image — at our 4px-inset size that reads
+ * as a thin white rounded rectangle showing through the frame PNG's green
+ * ring. Standings handles the same edge case for .fq-captain-img; we match
+ * both "src=''" and "no src attribute at all" because renderSlotFq2v2 uses
+ * removeAttribute('src') to clear unresolved roster lookups. */
+.slot-portrait:not([src]),
+.slot-portrait[src=""] {
+    visibility: hidden;
+}
+
+/* FQ 2v2 slot layout overrides — gated by body attrs the same way the
+ * standings layout in broadcast-round-standings-all.css is gated. */
+body[data-vendor="flyquest"][data-player-count="2v2"] .bracket-slot {
+    flex-direction: column;
+}
+/* The 2v2 slot is a 307×205 composite (two 145×145 portraits + 15px gap +
+ * 307×45 name bar). Stretch the frame img over the whole composite so the
+ * transparent PNG — which carries the green portrait-box fills and the
+ * name-bar strip — reveals together with the portraits under the slot's
+ * clip-path wipe animation. (Baking the frames into the bg PNG would work
+ * visually, but they'd paint instantly on page load and skip the reveal.) */
+body[data-vendor="flyquest"][data-player-count="2v2"] .slot-frame {
+    width: 307px;
+    height: 205px;
+}
+body[data-vendor="flyquest"][data-player-count="2v2"] .slot-portrait {
+    display: block;
+    /* CSS-driven frame instead of relying on the PNG's portrait boxes:
+     *   • border: 2px #296150 — outer stroke (matches PSD vectorStroke)
+     *   • inset shadow: 4px #00705a — green fill ring just inside the stroke
+     *   • border-radius: 10px  — matches PSD keyOriginRRectRadii
+     *
+     * `box-sizing: border-box` keeps the element 145×145 even with the
+     * border, so positioning stays aligned with the PNG's portrait boxes
+     * underneath (they're still drawn at the same 145×145 bounds — fully
+     * covered here, but they remain as a fallback when the img has no src
+     * and we flip `visibility: hidden`).
+     *
+     * The inset shadow is what creates the visible green ring around the
+     * photo. With 2px border + 4px inset shadow, the photo's visible area
+     * shrinks to 133×133 (= 145 − 2·2 border − 2·4 inset). Corner radii
+     * all come from one CSS rule — no PIL/CSS anti-aliasing mismatch to
+     * argue about at the pixel level. */
+    top: 0;
+    width: 145px;
+    height: 145px;
+    box-sizing: border-box;
+    border: 2px solid #296150;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 4px #00705a;
+}
+/* In 2v2 the rank / archetype / points columns are hidden — the slot only
+ * shows a team-name strip below the portraits. .slot-name-archetype is
+ * repurposed as that 307×45 bar. */
+body[data-vendor="flyquest"][data-player-count="2v2"] .slot-rank,
+body[data-vendor="flyquest"][data-player-count="2v2"] .slot-points,
+body[data-vendor="flyquest"][data-player-count="2v2"] .slot-archetype {
+    display: none;
+}
+body[data-vendor="flyquest"][data-player-count="2v2"] .slot-name-archetype {
+    position: absolute;
+    /* 160px matches PSD: portraits end at y=145, then a 15px gap, then the
+     * 307×45 name bar starts at y=160 (bottom of slot at y=205). */
+    top: 160px;
+    left: 0;
+    width: 307px;
+    height: 45px;
+    flex: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+body[data-vendor="flyquest"][data-player-count="2v2"] .slot-name {
+    height: auto;
+    line-height: 45px;
+    text-align: center;
+    font-size: var(--fq2v2-bracket-name-font-size, 24px);
+    white-space: nowrap;
+    color: var(--bracket-text-color, #fff);
+    padding: 0 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Round labels stay baked into the PSD "BRACKET" title + the champion box
+ * already labels itself, so hide the 1v1 round-label DOM. We DO keep
+ * #bracket-lines visible — JS draws FQ 2v2-specific QF→SF merge connectors
+ * into it (see bracket-full-display.js::drawBracketLinesFq2v2). */
+body[data-vendor="flyquest"][data-player-count="2v2"] .round-label-wrapper {
+    display: none;
+}
+
+/* ── FQ 2v2 reveal direction: bottom-to-top ─────────────────────────────
+ * 1v1 slots reveal left-to-right (clip-path wipe from left, small
+ * translateX slide). The FQ 2v2 bracket flows bottom-up (QF bottom row →
+ * SF middle → F top), so we flip the reveal to match:
+ *   • clip-path: inset(100% 0 0 0) → starts with top-edge of the clip-rect
+ *     sitting at the slot's bottom (0-height strip at bottom). Animating
+ *     the top inset down to 0 grows visibility upward.
+ *   • transform: translateY(40px) → starts slightly below final position
+ *     and rises into place, reinforcing the upward motion.
+ * These override the 1v1 defaults set on `.bracket-slot` earlier in the
+ * file; the `.revealed` end state also gets overridden here so the 1v1
+ * translateX(0) doesn't leak in. */
+body[data-vendor="flyquest"][data-player-count="2v2"] .bracket-slot {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(40px);
+    transition: clip-path 1s ease-out, transform 0.6s ease-out;
+}
+body[data-vendor="flyquest"][data-player-count="2v2"] .bracket-slot.revealed {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
 }

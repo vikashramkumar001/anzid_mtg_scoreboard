@@ -154,8 +154,8 @@ export class RoomUtils {
             return `scoreboard-${m ? m[1] : '1'}`;
         }
 
-        // Background scenes — image-only pages; only need global selection events
-        if (pagePath.includes('/background/')) return 'global';
+        // Event-info scenes — image-only pages; only need global selection events
+        if (pagePath.includes('/event-info/')) return 'global';
 
         // Timer
         if (pagePath.includes('/timer/')) {

@@ -1,9 +1,9 @@
 :root {
-    --dynamic-font: 'Bebas Neue', sans-serif;
+    --round-details-font: 'Bebas Neue', sans-serif;
 }
 
 * {
-    font-family: var(--dynamic-font), sans-serif;
+    font-family: var(--round-details-font), sans-serif;
     background-color: transparent;
     text-transform: uppercase;
 }

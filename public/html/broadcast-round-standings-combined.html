@@ -61,6 +61,95 @@
 <img id="standings-bg" class="standings-bg-img" src="" alt="">
 <video id="standings-bg-video" autoplay loop muted playsinline></video>
 <div id="standings-event-round" class="standings-event-round-el"></div>
+<!-- ──────────────────────────────────────────────────────────────────────
+     FlyQuest 2v2 standings overlay. Entirely gated by
+     body[data-vendor="flyquest"][data-player-count="2v2"] in the CSS — for
+     every other vendor/player-count combo this block renders nothing
+     (display:none on #fq-standings-overlay). Populated by
+     broadcast-round-standings-combined.js when flyquest + 2v2 is active
+     AND both group1/group2 assignments + standings data have arrived.
+     Coords are PSD-driven: see broadcast-round-standings-all.css
+     "FlyQuest 2v2 layout" block for the fixed pixel positions.
+     All chrome (pills, portrait frames, name bars, record pills) is
+     rendered as CSS divs so the entire bracket columns can be
+     perspective-tilted as a unit (step 6 — tilt ±2.5deg).
+     ────────────────────────────────────────────────────────────────────── -->
+<div id="fq-standings-overlay">
+    <!-- STANDINGS header pill stays flat (not tilted) — user spec. -->
+    <div class="fq-standings-header"><span>STANDINGS</span></div>
+
+    <!-- Left bracket (GROUP 1). The .fq-bracket-tilt wrapper is where the
+         rotateY() transform is applied so the whole group rotates as a
+         unit (pill + captains + rows) rather than each child individually. -->
+    <div class="fq-bracket fq-bracket-left">
+        <div class="fq-bracket-tilt fq-bracket-tilt-left">
+            <div class="fq-group-pill"><span>GROUP 1</span></div>
+            <div class="fq-captain fq-captain-1"><img class="fq-captain-img" src="" alt=""></div>
+            <div class="fq-captain fq-captain-2"><img class="fq-captain-img" src="" alt=""></div>
+            <div class="fq-team-rows" data-group="group1">
+                <!-- Row 1 (rank 1 within group) — captains' team, no thumbs -->
+                <div class="fq-team-row fq-team-row-spotlight" data-row="1">
+                    <div class="fq-row-name"><span class="fq-row-name-text"></span></div>
+                    <div class="fq-row-record"><span class="fq-row-record-text"></span></div>
+                </div>
+                <!-- Rows 2/3/4 — compact with two thumbnails -->
+                <div class="fq-team-row fq-team-row-compact" data-row="2">
+                    <div class="fq-row-thumb fq-row-thumb-1"><img src="" alt=""></div>
+                    <div class="fq-row-thumb fq-row-thumb-2"><img src="" alt=""></div>
+                    <div class="fq-row-name"><span class="fq-row-name-text"></span></div>
+                    <div class="fq-row-record"><span class="fq-row-record-text"></span></div>
+                </div>
+                <div class="fq-team-row fq-team-row-compact" data-row="3">
+                    <div class="fq-row-thumb fq-row-thumb-1"><img src="" alt=""></div>
+                    <div class="fq-row-thumb fq-row-thumb-2"><img src="" alt=""></div>
+                    <div class="fq-row-name"><span class="fq-row-name-text"></span></div>
+                    <div class="fq-row-record"><span class="fq-row-record-text"></span></div>
+                </div>
+                <div class="fq-team-row fq-team-row-compact" data-row="4">
+                    <div class="fq-row-thumb fq-row-thumb-1"><img src="" alt=""></div>
+                    <div class="fq-row-thumb fq-row-thumb-2"><img src="" alt=""></div>
+                    <div class="fq-row-name"><span class="fq-row-name-text"></span></div>
+                    <div class="fq-row-record"><span class="fq-row-record-text"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right bracket (GROUP 2) — mirrors the left bracket but uses right-
+         side PSD coords. Tilt var flips sign so the two groups form a
+         symmetric fan toward the camera. -->
+    <div class="fq-bracket fq-bracket-right">
+        <div class="fq-bracket-tilt fq-bracket-tilt-right">
+            <div class="fq-group-pill"><span>GROUP 2</span></div>
+            <div class="fq-captain fq-captain-1"><img class="fq-captain-img" src="" alt=""></div>
+            <div class="fq-captain fq-captain-2"><img class="fq-captain-img" src="" alt=""></div>
+            <div class="fq-team-rows" data-group="group2">
+                <div class="fq-team-row fq-team-row-spotlight" data-row="1">
+                    <div class="fq-row-name"><span class="fq-row-name-text"></span></div>
+                    <div class="fq-row-record"><span class="fq-row-record-text"></span></div>
+                </div>
+                <div class="fq-team-row fq-team-row-compact" data-row="2">
+                    <div class="fq-row-thumb fq-row-thumb-1"><img src="" alt=""></div>
+                    <div class="fq-row-thumb fq-row-thumb-2"><img src="" alt=""></div>
+                    <div class="fq-row-name"><span class="fq-row-name-text"></span></div>
+                    <div class="fq-row-record"><span class="fq-row-record-text"></span></div>
+                </div>
+                <div class="fq-team-row fq-team-row-compact" data-row="3">
+                    <div class="fq-row-thumb fq-row-thumb-1"><img src="" alt=""></div>
+                    <div class="fq-row-thumb fq-row-thumb-2"><img src="" alt=""></div>
+                    <div class="fq-row-name"><span class="fq-row-name-text"></span></div>
+                    <div class="fq-row-record"><span class="fq-row-record-text"></span></div>
+                </div>
+                <div class="fq-team-row fq-team-row-compact" data-row="4">
+                    <div class="fq-row-thumb fq-row-thumb-1"><img src="" alt=""></div>
+                    <div class="fq-row-thumb fq-row-thumb-2"><img src="" alt=""></div>
+                    <div class="fq-row-name"><span class="fq-row-name-text"></span></div>
+                    <div class="fq-row-record"><span class="fq-row-record-text"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="standings-slider">
     <!-- Page 4: Ranks 49-64 (off-screen left) -->
     <div class="standings-page" id="standings-page-4">

@@ -47,10 +47,44 @@ let currentPlayerCount = '1v1';
 let textColorFull = 'rgba(0,0,0, 1)';
 let textColorFaded = 'rgba(0,0,0, 0.5)';
 
+// ── FQ 2v2 portrait roster ─────────────────────────────────────────────
+// Mirrors the pattern in broadcast-round-standings-combined.js. The 2v2
+// bracket slots render two 145×145 portraits pulled from playerRoster
+// (looked up case-insensitively by name). Inlined here rather than
+// extracted to a shared util until a third consumer appears.
+let playerRoster = [];
+let rosterByName = new Map();
+function normalizeKey(s) {
+    return (s || '').trim().toLowerCase();
+}
+function rebuildRosterIndex() {
+    rosterByName = new Map();
+    playerRoster.forEach(p => {
+        if (p && p.name) rosterByName.set(normalizeKey(p.name), p.portraitUrl || '');
+    });
+}
+
+// Body data-attrs gate the flyquest-2v2 CSS overrides (slot size switches
+// to the 307×190 composite, portraits reveal, name/points/rank columns
+// hide). Kept in sync on every selection update so vendor/player-count
+// changes flip the layout live without a reload.
+function applyBodyAttrs() {
+    if (typeof document === 'undefined' || !document.body) return;
+    document.body.dataset.game        = currentGame        || '';
+    document.body.dataset.vendor      = currentVendor      || '';
+    document.body.dataset.playerCount = currentPlayerCount || '';
+}
+
+function isFlyquest2v2() {
+    return String(currentVendor).toLowerCase() === 'flyquest'
+        && String(currentPlayerCount).toLowerCase() === '2v2';
+}
+
 socket.emit('get-match-global-data');
 socket.emit('get-game-selection');
 socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
+socket.emit('getPlayerRoster');
 
 let _initGame = false, _initVendor = false, _initPlayer = false;
 function tryInitialTheme() {
@@ -62,29 +96,42 @@ function tryInitialTheme() {
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;
     _initGame = true;
+    applyBodyAttrs();
     tryInitialTheme();
 });
 socket.on('game-selection-updated', ({gameSelection}) => {
     currentGame = gameSelection;
+    applyBodyAttrs();
     updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 socket.on('server-current-vendor-selection', ({vendorSelection}) => {
     currentVendor = vendorSelection;
     _initVendor = true;
+    applyBodyAttrs();
     tryInitialTheme();
 });
 socket.on('vendor-selection-updated', ({vendorSelection}) => {
     currentVendor = vendorSelection;
+    applyBodyAttrs();
     updateTheme(currentGame, currentVendor, currentPlayerCount);
 });
 socket.on('server-current-player-count', ({playerCount}) => {
     currentPlayerCount = playerCount;
     _initPlayer = true;
+    applyBodyAttrs();
     tryInitialTheme();
 });
 socket.on('player-count-updated', ({playerCount}) => {
     currentPlayerCount = playerCount;
+    applyBodyAttrs();
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+
+socket.on('playerRosterUpdated', (roster) => {
+    playerRoster = Array.isArray(roster) ? roster : [];
+    rebuildRosterIndex();
+    // Re-render so any 2v2 portraits resolve against the fresh roster.
+    renderAllSlots();
 });
 
 function updateTheme(game, vendor, playerCount) {
@@ -102,21 +149,21 @@ function updateTheme(game, vendor, playerCount) {
     document.documentElement.style.setProperty('--bracket-text-color-faded', 'rgba(0,0,0, 0.5)');
 
     if (game === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
-        document.documentElement.style.setProperty('--dynamic-font-weight', '700');
+        document.documentElement.style.setProperty('--bracket-font', 'Gotham Narrow');
+        document.documentElement.style.setProperty('--bracket-font-weight', '700');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '400');
     } else if (game === 'starwars') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Barlow');
-        document.documentElement.style.setProperty('--dynamic-font-weight', '600');
+        document.documentElement.style.setProperty('--bracket-font', 'Barlow');
+        document.documentElement.style.setProperty('--bracket-font-weight', '600');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '600');
         document.documentElement.style.setProperty('--slot-points-width', '70px');
         document.documentElement.style.setProperty('--bracket-text-color', 'rgba(255,255,255, 1)');
         document.documentElement.style.setProperty('--bracket-text-color-faded', 'rgba(255,255,255, 0.5)');
     } else {
-        document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
-        document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
+        document.documentElement.style.setProperty('--bracket-font', 'Bebas Neue');
+        document.documentElement.style.setProperty('--bracket-font-weight', 'bold');
         document.documentElement.style.setProperty('--archetype-font-style', 'italic');
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }
@@ -161,6 +208,17 @@ function updateTheme(game, vendor, playerCount) {
     }
 
     if (vc) {
+        // Per-slot frame PNG. Painted onto every .slot-frame element so the
+        // frame reveals in lockstep with the portraits/name via the slot's
+        // clip-path animation — baking the frames into the bg PNG would make
+        // them appear instantly on page load and lose that wipe-in effect.
+        //
+        // FQ 2v2 has no per-slot "win" frame swap (best-of-1 games), so the
+        // 1v1 renderSlot()'s frame/frame-win logic stays gated behind its own
+        // isFlyquest2v2() early-return. Here we just set the base frame src.
+        // For FQ 2v2, vc.getAssetPath() resolves to
+        // mtg-bracket-frame-flyquest-2v2.png (a 307×190 transparent PNG with
+        // the two portrait boxes + 307×45 name bar).
         document.querySelectorAll('.slot-frame').forEach((frame) => {
             frame.src = vc.getAssetPath(`/assets/images/${game}/bracket/${game}-bracket-frame.png`, vendor, playerCount);
         });
@@ -168,6 +226,31 @@ function updateTheme(game, vendor, playerCount) {
 
     // Re-render slots so text colors and unified sizing update
     renderAllSlots();
+
+    // Redraw SVG connectors after vendor/playerCount flip. The initial
+    // boot draws them once before selections arrive; without this call a
+    // boot-into-FQ-2v2 user would see 1v1 connector lines on top of the
+    // 2v2 bg. drawBracketLines() branches on isFlyquest2v2() internally
+    // to pick the right geometry (see drawBracketLinesFq2v2).
+    drawBracketLines();
+
+    // Replay the reveal after we've finalized positions + paths.
+    //
+    // Why this is needed: the initial boot runs `setTimeout(animateReveal,
+    // 100)` once, but by the time the three selection events land (game,
+    // vendor, playerCount) and updateTheme actually runs for the first
+    // time, the slots have usually already been given `.revealed` under the
+    // default 1v1 CSS — wrong positions, wrong direction. Even worse, the
+    // SVG paths drawn here are brand-new, so the setTimeouts the initial
+    // animateReveal() queued for dash-offset zeroing fire against
+    // now-detached 1v1 paths and leave the 2v2 paths hidden forever.
+    //
+    // Calling replayReveal() re-arms the whole sequence against the actual
+    // current CSS (FQ 2v2 bottom-up overrides etc.) and the newly drawn
+    // paths. Cost is a single animation replay on every vendor/playerCount
+    // commit — acceptable since those events only fire when the operator
+    // explicitly changes a dropdown.
+    replayReveal();
 }
 
 // --- Auto-scale text ---
@@ -246,14 +329,26 @@ function createSlotElements() {
         el.className = 'bracket-slot';
         el.id = `slot-${slot.id}`;
         el.dataset.delay = slot.delay;
-        el.style.left = slot.x + 'px';
-        el.style.top = slot.y + 'px';
+        // Positioning is driven by CSS custom properties (per-slot
+        // `--slot-{id}-top/left/display`) with 1v1 defaults in
+        // bracket-full-display.css. Vendors (FQ 2v2) override those vars
+        // via vendor-config so we no longer need inline style.left/top.
 
         // Frame background image
         const frame = document.createElement('img');
         frame.className = 'slot-frame';
         frame.src = '';
         frame.alt = '';
+
+        // Portraits — hidden by default; revealed only under
+        // body[data-vendor="flyquest"][data-player-count="2v2"]. Two per
+        // slot: one for each captain of the 2v2 team.
+        const portrait1 = document.createElement('img');
+        portrait1.className = 'slot-portrait slot-portrait-1';
+        portrait1.alt = '';
+        const portrait2 = document.createElement('img');
+        portrait2.className = 'slot-portrait slot-portrait-2';
+        portrait2.alt = '';
 
         const rank = document.createElement('div');
         rank.className = 'slot-rank';
@@ -274,6 +369,8 @@ function createSlotElements() {
         points.className = 'slot-points';
 
         el.appendChild(frame);
+        el.appendChild(portrait1);
+        el.appendChild(portrait2);
         el.appendChild(rank);
         el.appendChild(nameArchetype);
         el.appendChild(points);
@@ -288,13 +385,24 @@ function renderSlot(slotId, data) {
     const el = document.getElementById(`slot-${slotId}`);
     if (!el) return;
 
+    // ── FQ 2v2 path ─────────────────────────────────────────────────────
+    // Composite slot: two portraits stacked on a 307×45 name bar. Reads
+    // `-player-1-name` as player 1 and new `-player-2-name` field as player 2.
+    // NOTE: `-player-1-name` holds player 1 in 2v2 and "Player Name" in 1v1. When
+    // an operator flips modes mid-broadcast, existing values don't
+    // auto-translate — v1 expects the operator to re-run auto-populate
+    // after switching, same contract as the standings textarea.
+    if (isFlyquest2v2()) {
+        return renderSlotFq2v2(el, slotId, data);
+    }
+
     const rankEl = el.querySelector('.slot-rank');
     const nameEl = el.querySelector('.slot-name');
     const archetypeEl = el.querySelector('.slot-archetype');
     const pointsEl = el.querySelector('.slot-points');
 
     const rank_key = `${slotId}-rank`;
-    const name_key = `${slotId}-name`;
+    const name_key = `${slotId}-player-1-name`;
     const archetype_key = `${slotId}-archetype`;
     const points_key = `${slotId}-points`;
     const win_key = `${slotId}-win`;
@@ -344,12 +452,122 @@ function renderSlot(slotId, data) {
     }
 }
 
+// ── FQ 2v2 slot renderer ────────────────────────────────────────────────
+// Separate function (not inlined) to keep the 1v1 path visually unchanged
+// and isolate 2v2-specific logic (portrait lookup, concatenated name,
+// no win/fade, no frame swap). Skipped fields (-archetype, -points, -win)
+// are hidden via CSS under the body[data-vendor][data-player-count] gate,
+// so we don't bother writing their innerText — but we DO clear the
+// rank/points DOM just so stale 1v1 data doesn't bleed through if a user
+// flipped modes after painting.
+function renderSlotFq2v2(el, slotId, data) {
+    const name_key = `${slotId}-player-1-name`;
+    const player2_key = `${slotId}-player-2-name`;
+    const rank_key = `${slotId}-rank`;
+
+    const player1 = (data[name_key] || '').trim();
+    const player2 = (data[player2_key] || '').trim();
+
+    const portrait1El = el.querySelector('.slot-portrait-1');
+    const portrait2El = el.querySelector('.slot-portrait-2');
+    const nameEl = el.querySelector('.slot-name');
+    const rankEl = el.querySelector('.slot-rank');
+    const archetypeEl = el.querySelector('.slot-archetype');
+    const pointsEl = el.querySelector('.slot-points');
+
+    // Defensive reset: the 1v1 render path (renderSlot above) sets inline
+    // `style.display` / `style.color` on archetype/points/rank and writes
+    // innerText for archetype+points. Two realistic scenarios leave that
+    // inline state on the DOM before we reach this function:
+    //
+    //   1. Page-load race — `bracket-data` arrives before the three
+    //      game/vendor/player-count selection events, so the first
+    //      renderAllSlots() pass runs through the 1v1 branch with default
+    //      vendor/count, painting inline `display: block` onto every
+    //      archetype element. The CSS rule we rely on to hide archetype in
+    //      2v2 mode (`body[...] .slot-archetype { display: none }`) then
+    //      loses the specificity fight against that inline style.
+    //
+    //   2. Operator flips 1v1 → 2v2 mid-broadcast (no reload). Same stale
+    //      inline styles, same override problem.
+    //
+    // Wiping the inline styles (and clearing innerText so no stale "AZORIUS
+    // CONTROL"-style strings ghost around in empty SF/F slots) restores the
+    // CSS rule's authority. Cheap — three elements × a handful of props.
+    if (archetypeEl) {
+        archetypeEl.style.display = '';
+        archetypeEl.style.color = '';
+        archetypeEl.innerText = '';
+    }
+    if (pointsEl) {
+        pointsEl.style.color = '';
+        pointsEl.innerText = '';
+    }
+    if (rankEl) {
+        rankEl.style.color = '';
+    }
+
+    // Resolve portraits via rosterByName (case-insensitive). Unknown names
+    // leave src empty — same graceful degradation the standings page uses.
+    const p1Src = player1 ? (rosterByName.get(normalizeKey(player1)) || '') : '';
+    const p2Src = player2 ? (rosterByName.get(normalizeKey(player2)) || '') : '';
+    if (portrait1El) {
+        if (p1Src) portrait1El.src = p1Src; else portrait1El.removeAttribute('src');
+    }
+    if (portrait2El) {
+        if (p2Src) portrait2El.src = p2Src; else portrait2El.removeAttribute('src');
+    }
+
+    // Concatenated display name. Matches the standings layout's "FirstName
+    // LastName" style — keeps a consistent team label across the two
+    // flyquest-2v2 overlays.
+    if (nameEl) {
+        if (player1 && player2) {
+            nameEl.innerText = `${player1} & ${player2}`;
+        } else {
+            nameEl.innerText = player1 || player2 || '';
+        }
+        // Use the vendor-configured FQ 2v2 text color.
+        const root = document.documentElement;
+        const colorFull = root.style.getPropertyValue('--bracket-text-color').trim() || '#fff';
+        nameEl.style.color = colorFull;
+        // Unset 1v1 line-height override since the 307×45 bar controls it.
+        nameEl.style.lineHeight = '';
+    }
+
+    // Rank is hidden in 2v2 but keep the DOM value in sync so the node
+    // doesn't retain a stale 1v1 seed if the operator flips back.
+    if (rankEl && rank_key in data) rankEl.innerText = data[rank_key];
+}
+
 // --- Render all slots ---
 
 function renderAllSlots() {
     SLOT_CONFIG.forEach((slot) => {
         renderSlot(slot.id, bracketData);
     });
+
+    // 2v2 name bar: 307×45 with 8px horizontal padding → 291px usable.
+    // Names like "Persephone Valentine & Gavin Verhey" blow past the
+    // default 24px size set by --fq2v2-bracket-name-font-size, so we
+    // auto-shrink per-slot using the same helper the 1v1 path uses.
+    // Fallback: text-overflow: ellipsis in CSS kicks in if a name is
+    // still too long at the minimum size.
+    if (isFlyquest2v2()) {
+        document.fonts.ready.then(() => {
+            const nameEls = document.querySelectorAll('.slot-name');
+            // Each slot sizes independently — unlike 1v1 we don't unify
+            // to the smallest size, because the 2v2 bar is wider and a
+            // shared shrink would make short names (e.g. "LS & Reynad")
+            // needlessly tiny. Long names get squeezed; short ones stay
+            // at the configured max.
+            nameEls.forEach((el) => {
+                if (!el.innerText) return;
+                el.style.fontSize = calculateFontSize(el, 24, 12, 291) + 'px';
+            });
+        });
+        return;
+    }
 
     // Unify font sizes: use the smallest size across all slots
     document.fonts.ready.then(() => {
@@ -388,6 +606,13 @@ function renderAllSlots() {
 function drawBracketLines() {
     const svg = document.getElementById('bracket-lines');
     svg.innerHTML = '';
+
+    // FQ 2v2 has its own connector geometry (bottom-up, 4 QF → 2 SF merge).
+    // Delegate and return so the 1v1 line-drawing below is skipped.
+    if (isFlyquest2v2()) {
+        drawBracketLinesFq2v2(svg);
+        return;
+    }
 
     function centerY(i) { return SLOT_CONFIG[i].y + SLOT_HEIGHT / 2; }
     function rightX(i) { return SLOT_CONFIG[i].x + SLOT_WIDTH; }
@@ -458,16 +683,200 @@ function drawBracketLines() {
     });
 }
 
+// ── FQ 2v2 bracket connectors ──────────────────────────────────────────
+// Two separate connector groups:
+//
+//   QF → SF (pair merge, 3 phases):
+//     Phase 1: stubs — short verticals rising from each QF top (left +
+//              right in parallel)
+//     Phase 2: horizontals — from stub tops converging to the SF center-x
+//              (left + right in parallel, "meet in the middle")
+//     Phase 3: merge — single vertical from the meet point up to the SF
+//              slot's bottom edge
+//
+//   SF → F (L-shape, 2 phases per side):
+//     Phase 1: stubs — short verticals rising from each SF top
+//     Phase 2: horizontals — from stub tops running outward into the F
+//              slot's left/right edges
+//
+// F's bottom (y=468) actually sits ~25px BELOW SF's top (y=443) given the
+// current vendor-config — so the L's vertical portion runs from F's mid-y
+// (y=365.5) *down* to SF top (y=443), with the horizontal sitting above
+// the overlap. The horizontal x runs from SF center (547.5 or 1373.5)
+// outward to F left/right edge (806 or 1113), which stays outside F's own
+// x range so there's no clash with the F portraits.
+function drawBracketLinesFq2v2(svg) {
+    // Slot composite 307×205 (matches vendor-config --bracket-slot-width /
+    // --bracket-slot-height). Source of truth for FQ 2v2 positioning —
+    // querying live DOM layout would race CSS-var resolution on first paint.
+    const SLOT_W = 307;
+    const SLOT_H = 205;
+    const POS = {
+        qf1: { x: 214,  y: 708 },  // rank 1 — bottom row, left outer
+        qf4: { x: 574,  y: 709 },  // rank 4 — bottom row, left inner
+        qf2: { x: 1040, y: 708 },  // rank 2 — bottom row, right inner
+        qf3: { x: 1400, y: 709 },  // rank 3 — bottom row, right outer
+        sf1: { x: 394,  y: 443 },  // SF A — middle row left
+        sf2: { x: 1220, y: 443 },  // SF B — middle row right
+        fin: { x: 806,  y: 263 },  // Finals / Champion — top center
+    };
+
+    function topCenter(p)    { return { x: p.x + SLOT_W / 2, y: p.y }; }
+    function bottomCenter(p) { return { x: p.x + SLOT_W / 2, y: p.y + SLOT_H }; }
+    function midY(p)         { return p.y + SLOT_H / 2; }
+
+    // Helper: add a path with dash-offset reveal animation.
+    function addPath(d, delay, duration) {
+        const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        p.setAttribute('d', d);
+        p.dataset.delay = delay;
+        p.dataset.duration = duration;
+        svg.appendChild(p);
+        const len = p.getTotalLength();
+        p.style.transition = 'none';
+        p.style.strokeDasharray = len;
+        p.style.strokeDashoffset = len;
+        p.getBoundingClientRect();
+        p.style.transition = `stroke-dashoffset ${duration}ms ease-out`;
+    }
+
+    // ── QF → SF: phased merge ──────────────────────────────────────────
+    // Break the merge into three discrete phases so the operator-facing
+    // animation reads as "tiny stubs rise → horizontals converge → merge
+    // line lifts into SF". Single-path was too smooth; this sells the
+    // bracket-flow intent.
+    function drawMergeUp(feederA, feederB, target, baseDelay) {
+        const fa = topCenter(feederA);
+        const fb = topCenter(feederB);
+        const t  = bottomCenter(target);
+        // Turn y sits halfway in the ~60px gap between the QF tops and
+        // the SF bottom. Stubs rise to this y; horizontals run along it.
+        const turnY = (fa.y + t.y) / 2;
+        const mergeX = t.x;
+
+        // Phase 1: stubs. Short vertical from each QF top rising to turnY.
+        addPath(`M ${fa.x} ${fa.y} V ${turnY}`, baseDelay,        150);
+        addPath(`M ${fb.x} ${fb.y} V ${turnY}`, baseDelay,        150);
+
+        // Phase 2: horizontals "meet in the middle". Each path starts at
+        // the outer stub top and strokes toward mergeX, so the dash-offset
+        // reveal flows inward — visually the two lines meet at the center.
+        addPath(`M ${fa.x} ${turnY} H ${mergeX}`, baseDelay + 200, 250);
+        addPath(`M ${fb.x} ${turnY} H ${mergeX}`, baseDelay + 200, 250);
+
+        // Phase 3: merge. Single vertical from the meet point up to the
+        // SF bottom — "from the middle to its final height".
+        addPath(`M ${mergeX} ${turnY} V ${t.y}`,  baseDelay + 500, 200);
+    }
+
+    // ── SF → F: horizontals from name bars → meet in middle → up ──────
+    // Per user spec: "lines go left and right from the SF name bars and
+    // meet at the midpoint, then the merged line goes up to the bottom
+    // of the F name bar."
+    //
+    // Emergence points are the INSIDE edge of each SF's name bar at its
+    // vertical midpoint (not SF top centers — the old design). Lines
+    // converge at F's center-x (still at SF name bar midline, comfortably
+    // below F). Then a single vertical rises from the meet point up to
+    // the BOTTOM of F's name bar (which is also F.bottom, y=468) so the
+    // line visually taps F's underside without any hidden-behind-bar
+    // segment.
+    //
+    // Name bar geometry (shared across all FQ 2v2 slots): slot-rel y =
+    // 160..205, so vertical-middle offset from slot.top = 182.5, and the
+    // bottom of the name bar is just slot.top + SLOT_H.
+    function drawMergeUpToFinal(sfA, sfB, target, baseDelay) {
+        const NAME_BAR_MID = 182.5;
+
+        // SF name bar inside edges (right side of SF A, left side of SF B),
+        // both at name-bar midline y.
+        const aX = sfA.x + SLOT_W;                 // 701 — SF A right edge
+        const bX = sfB.x;                           // 1220 — SF B left edge
+        const mergeY = sfA.y + NAME_BAR_MID;       // 625.5 — SF name bar midline
+
+        // Meet point directly below F's center x, still at SF name bar y.
+        const mergeX = target.x + SLOT_W / 2;      // 959.5
+
+        // Final: bottom of F's name bar (= F.bottom = slot.top + SLOT_H).
+        const targetY = target.y + SLOT_H;         // 468
+
+        // Phase 1 — horizontals run inward from each SF name bar's inside
+        // edge and converge at mergeX. Single phase: "go left and right
+        // from the SF name bars and meet at the midpoint."
+        addPath(`M ${aX} ${mergeY} H ${mergeX}`, baseDelay, 350);
+        addPath(`M ${bX} ${mergeY} H ${mergeX}`, baseDelay, 350);
+
+        // Phase 2 — single vertical up from the meet point rising to the
+        // bottom edge of F's name bar. Fully visible the whole way (y=625.5
+        // up to y=468, all outside any opaque slot element); terminates
+        // flush against the underside of F's name bar. Slow 950ms draw —
+        // a deliberate "tap up into the champion" beat that ends the reveal.
+        addPath(`M ${mergeX} ${mergeY} V ${targetY}`, baseDelay + 400, 950);
+    }
+
+    // ── Timing budget ──────────────────────────────────────────────────
+    // QF reveals land 2000-2300. QF→SF lines fill 2350-3050 across three
+    // phases. SFs reveal 3000-3100 (briefly overlapping the merge's tail —
+    // same technique the 1v1 path uses to avoid dead air). SF→F lines fill
+    // 3300-4650 in TWO phases (horizontals converge 3300-3650, then
+    // vertical rises 3700-4650 — slow, deliberate tap into the champion
+    // bar). F reveals 4050, 600ms before the vertical finishes — so F
+    // appears while the line is still rising toward it.
+    //
+    // Both QF→SF pairs share a baseDelay so left and right merges animate
+    // in lockstep — "4 stubs then 2 horizontals then 2 merges" reads as
+    // one coherent beat, not a staggered L/R cascade.
+    drawMergeUp(POS.qf1, POS.qf4, POS.sf1, 2350);
+    drawMergeUp(POS.qf2, POS.qf3, POS.sf2, 2350);
+
+    drawMergeUpToFinal(POS.sf1, POS.sf2, POS.fin, 3300);
+}
+
 // --- Progressive reveal animation ---
+
+// ── FQ 2v2 reveal order ────────────────────────────────────────────────
+// Bottom-up cascade: QF (bottom) first, SF (middle) next, F (top) last.
+// Keyed by slot id since the 1v1 SLOT_CONFIG.delay values land in random
+// order across the shown 2v2 subset (and the 7 hidden-in-2v2 slots don't
+// animate at all — they're display:none).
+//
+// Timing budget (must stay in lock-step with drawBracketLinesFq2v2's
+// phased delays — change one, change the other):
+//   QFs        reveal 2000–2300
+//   QF→SF lines 2350–3050 (stubs → meet in middle → merge up)
+//   SFs        reveal 3000–3100 (slight overlap w/ merge tail — same
+//              "no dead air" trick the 1v1 path uses)
+//   SF→F lines 3300–4650 (horizontals converge → slow vertical tap up)
+//   F          reveals 4050 (600ms before vertical finishes — line
+//              rises toward an already-visible F)
+const FQ2V2_SLOT_DELAYS = {
+    'bracket-quarterfinal-1': 2000,
+    'bracket-quarterfinal-4': 2100,
+    'bracket-quarterfinal-2': 2200,
+    'bracket-quarterfinal-3': 2300,
+    'bracket-semifinal-1a':   3000,
+    'bracket-semifinal-2a':   3100,
+    'bracket-final-1a':       4050,
+};
 
 function animateReveal() {
     const slots = document.querySelectorAll('.bracket-slot');
     const paths = document.querySelectorAll('#bracket-lines path');
     const labels = document.querySelectorAll('.round-label');
+    const fq2v2 = isFlyquest2v2();
 
-    // Each slot has its own delay
+    // Each slot has its own delay. In 2v2 mode, lookup by slot id so the
+    // reveal cascades bottom-up regardless of the 1v1-tuned delay values
+    // baked into SLOT_CONFIG.
     slots.forEach((slot) => {
-        const delay = parseInt(slot.dataset.delay) || 0;
+        let delay;
+        if (fq2v2) {
+            const key = slot.id.replace(/^slot-/, '');
+            delay = FQ2V2_SLOT_DELAYS[key];
+            if (delay == null) return; // hidden slots — skip reveal
+        } else {
+            delay = parseInt(slot.dataset.delay) || 0;
+        }
         setTimeout(() => {
             slot.classList.add('revealed');
         }, delay);
@@ -490,6 +899,63 @@ function animateReveal() {
     });
 }
 
+// ── Replay reveal ──────────────────────────────────────────────────────
+// Used by both the initial boot (animateReveal fires once from a 100ms
+// setTimeout below) and the OBS scene-trigger path (obs-animate-bracket).
+// Strips the `.revealed` class off every slot + round label, and resets
+// each SVG path's stroke-dashoffset back to its full length so the dashed
+// reveal can run again. The transition property is also reset — setting
+// it back to its animation value with a forced reflow in between so the
+// browser treats the next dash-offset change as a fresh animation rather
+// than a continuation of the previous one.
+function replayReveal() {
+    const slots = document.querySelectorAll('.bracket-slot');
+    const labels = document.querySelectorAll('.round-label');
+    const paths = document.querySelectorAll('#bracket-lines path');
+
+    // Strip `.revealed` from everything, but disable transitions during the
+    // strip so slots/labels don't visibly "un-reveal" over their clip-path
+    // transition — we want them to snap back to hidden instantly and then
+    // re-reveal cleanly. Re-enable transitions after a forced reflow so the
+    // browser treats the next `.revealed` add as a fresh animation.
+    slots.forEach((slot) => {
+        slot.style.transition = 'none';
+        slot.classList.remove('revealed');
+    });
+    labels.forEach((label) => {
+        label.style.transition = 'none';
+        label.classList.remove('revealed');
+    });
+    paths.forEach((p) => {
+        const len = p.getTotalLength();
+        p.style.transition = 'none';
+        p.style.strokeDashoffset = len;
+    });
+
+    // Force a reflow so the transition: none + dashoffset reset commits
+    // before we re-enable transitions below. Without this the browser can
+    // coalesce the change with the upcoming `.revealed` add and skip the
+    // animation entirely.
+    document.body.getBoundingClientRect();
+
+    // Clear the inline transition overrides so the CSS rules take over
+    // again (which is what we want for the actual reveal animation).
+    slots.forEach((slot)  => { slot.style.transition = ''; });
+    labels.forEach((label) => { label.style.transition = ''; });
+    paths.forEach((p) => {
+        // Each path stores its transition duration on dataset.duration (set
+        // by drawBracketLinesFq2v2) or falls back to the 1v1 default. This
+        // keeps QF→SF connectors at their 600ms reveal rather than the
+        // multi-second 1v1 sweep.
+        const duration = p.dataset.duration ? `${p.dataset.duration}ms` : '1s';
+        p.style.transition = `stroke-dashoffset ${duration} ease-out`;
+    });
+
+    // Slightly deferred so the transition-reset settles before the reveal
+    // sequence re-arms. 50ms is enough for two paint frames on 60Hz.
+    setTimeout(animateReveal, 50);
+}
+
 // --- Socket events ---
 
 socket.emit('get-bracket-data');
@@ -500,15 +966,34 @@ socket.on('bracket-data', (data) => {
     renderAllSlots();
 });
 
+// OBS scene cut → Bracket: replay the reveal animation. The server-side
+// trigger lives in features/obs-websocket.js::handleSceneChange (watches
+// for scene "Bracket - Top 8"). Fires on every cut to the bracket scene,
+// so the operator gets a fresh animation on every transition without
+// needing to reload the display page.
+socket.on('obs-animate-bracket', () => {
+    console.log('[FullBracket] OBS transition to bracket — replaying animation');
+    replayReveal();
+});
+
 // --- Initialize ---
 
 createRoundLabels();
 createSlotElements();
 drawBracketLines();
 
-// Trigger reveal animation after a brief delay to let elements render
-setTimeout(() => {
-    animateReveal();
-}, 100);
+// The reveal animation is no longer kicked off from here. It runs the
+// first time updateTheme() fires — which happens once the three selection
+// events (game, vendor, playerCount) all arrive and `tryInitialTheme()`
+// unlocks. updateTheme calls `replayReveal()` at its tail after the body
+// data-attrs / SVG paths / slot positions are all in place, so the
+// animation always plays against the correct layout (1v1 or FQ 2v2).
+//
+// Dropping the old setTimeout(animateReveal, 100) here prevents a race
+// where the initial reveal would fire before body attrs were set —
+// snapping slots to `.revealed` under the default 1v1 CSS, so when
+// FQ 2v2 body attrs landed a moment later the 2v2 CSS couldn't animate
+// the transition (slot was already `.revealed`) and the slots appeared
+// instantly without any wipe.
 
 console.log('[FullBracket] Initialized');

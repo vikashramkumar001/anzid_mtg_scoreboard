@@ -2,6 +2,95 @@
     font-family: "Bebas Neue", sans-serif; /* BebasNeueBold */
 }
 
+/*
+ * Visibility gate for controls that only make sense in the FlyQuest 2v2
+ * broadcast layout. Applied via body.dataset.vendor + body.dataset.playerCount
+ * (set by master-control/game-selection.js on commit) so the per-round
+ * fetch input + button and the manual override panel stay hidden for every
+ * other vendor/count combo.
+ */
+.fq2v2-only { display: none; }
+body[data-vendor="flyquest"][data-player-count="2v2"] .fq2v2-only {
+    display: inline-block;
+}
+
+/* Symmetric to `.fq2v2-only`: controls that ONLY make sense outside FQ 2v2
+ * (1v1 bracket editor's Archetype / Points / Win columns). Default
+ * inline-block to match the `.fq2v2-only` reveal rule; `display: none` when
+ * the body attrs flip to FQ 2v2 so the operator only sees the fields that
+ * the 2v2 layout actually consumes. Bootstrap column-specific override
+ * lives immediately below (same reasoning as the .standings-override-col
+ * block — `inline-block` on a Bootstrap column would break its flex flow).
+ */
+.non-fq2v2-only { display: inline-block; }
+body[data-vendor="flyquest"][data-player-count="2v2"] .non-fq2v2-only {
+    display: none;
+}
+/* Restore Bootstrap block-level flow for column elements tagged
+ * `.non-fq2v2-only` when they're visible in 1v1 mode. Matches the
+ * .standings-override-col fix above. */
+.col-12.non-fq2v2-only,
+.col-6.non-fq2v2-only,
+.col-4.non-fq2v2-only,
+.col-3.non-fq2v2-only {
+    display: block;
+}
+body[data-vendor="flyquest"][data-player-count="2v2"] .col-12.non-fq2v2-only,
+body[data-vendor="flyquest"][data-player-count="2v2"] .col-6.non-fq2v2-only,
+body[data-vendor="flyquest"][data-player-count="2v2"] .col-4.non-fq2v2-only,
+body[data-vendor="flyquest"][data-player-count="2v2"] .col-3.non-fq2v2-only {
+    display: none;
+}
+
+/* Bracket editor: hide the 7 slot cards (QF 5/6/7/8, SF 1b/2b, F 1b) that
+ * the FQ 2v2 bracket doesn't use. HTML class added by the one-off patch
+ * script — see /tmp/fix-hidden-slot-class.mjs. */
+body[data-vendor="flyquest"][data-player-count="2v2"] .fq2v2-hidden-slot {
+    display: none;
+}
+/* Bootstrap column children need to re-become block-level flex items when
+ * shown, so `display: inline-block` on a `col-6` breaks its flex layout.
+ * Restore the Bootstrap-expected display for columns / block elements.
+ *
+ * Matches any override column — not just ones tagged `.fq2v2-only` — so a
+ * future non-2v2 layout that reuses `.standings-override-col` can still
+ * control its own visibility without inheriting an `inline-block` from the
+ * generic `.fq2v2-only` rule above. */
+body[data-vendor="flyquest"][data-player-count="2v2"] .standings-override-col {
+    display: block;
+}
+
+/* Bootstrap column override for .fq2v2-only — same reasoning as the
+ * .standings-override-col block above. The new Player 2 editor column in
+ * each bracket slot card is `.col-12.fq2v2-only`, which would otherwise
+ * inherit `display: inline-block` from the generic reveal rule and break
+ * the vertical stack inside the card. Restore block so the column flows
+ * normally. */
+body[data-vendor="flyquest"][data-player-count="2v2"] .col-12.fq2v2-only,
+body[data-vendor="flyquest"][data-player-count="2v2"] .col-6.fq2v2-only,
+body[data-vendor="flyquest"][data-player-count="2v2"] .col-4.fq2v2-only,
+body[data-vendor="flyquest"][data-player-count="2v2"] .col-3.fq2v2-only {
+    display: block;
+}
+
+/*
+ * Override panel sits to the right of the standings textarea within the
+ * standings card. Outside FQ 2v2 the textarea column fills the card (col-12)
+ * and the override column is hidden. Inside FQ 2v2:
+ *   - widen the outer standings card to full row width so there's room for
+ *     a 50/50 split (without this it'd be crammed into a col-6 wrapper)
+ *   - shrink the textarea column from col-12 to 50% so the override panel
+ *     can sit beside it as its own col-6
+ */
+body[data-vendor="flyquest"][data-player-count="2v2"] .standings-card-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+body[data-vendor="flyquest"][data-player-count="2v2"] .standings-textarea-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
 #successMessage {
     color: green;
     display: none; /* Initially hidden */
@@ -196,4 +285,40 @@ textarea[id*="side-deck"] {
 
 [data-bs-theme="dark"] .small-button {
     color: #dee2e6;
+}
+
+/* ── Apply Broadcast Settings button + dropdown dirty-state ───────────────
+   Controlled by public/js/master-control/game-selection.js. See refreshDirtyState().
+   `.is-clean`  → no staged changes: greyed + non-interactive.
+   `.is-dirty`  → at least one of game/vendor/playerCount differs from last server-
+                  confirmed value: amber background signalling "click me to commit".
+   `.dropdown-dirty` is added to whichever <select> is currently staged-but-uncommitted. */
+#apply-broadcast-settings.is-clean {
+    background-color: #6c757d;
+    color: #fff;
+    opacity: 0.55;
+    pointer-events: none;
+    border-color: #6c757d;
+}
+#apply-broadcast-settings.is-dirty {
+    background-color: #d97706;
+    color: #fff;
+    border-color: #b45309;
+}
+select.dropdown-dirty {
+    outline: 2px solid #d97706;
+    outline-offset: 1px;
+}
+
+/* ── Group Assignment sub-section (Config tab) ─────────────────────────
+   Only meaningful for the flyquest 2v2 standings layout — hidden for
+   every other vendor/player-count combo. Body attrs are synced by
+   public/js/master-control/game-selection.js so this rule flips live
+   when the operator commits a vendor/playerCount change via Apply.
+   ─────────────────────────────────────────────────────────────────── */
+.fq-groups-section {
+    display: none;
+}
+body[data-vendor="flyquest"][data-player-count="2v2"] .fq-groups-section {
+    display: block;
 }

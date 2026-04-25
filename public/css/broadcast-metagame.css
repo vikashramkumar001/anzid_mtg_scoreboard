@@ -1,6 +1,6 @@
 :root {
-    --dynamic-font: 'Bebas Neue', sans-serif;
-    --dynamic-font-weight: bold;
+    --metagame-font: 'Bebas Neue', sans-serif;
+    --metagame-font-weight: bold;
     --meta-pie-size: 750px;
     --meta-slice-stroke: #000;
     --meta-slice-stroke-width: 2;
@@ -42,8 +42,8 @@
 }
 
 * {
-    font-family: var(--dynamic-font), sans-serif;
-    font-weight: var(--dynamic-font-weight);
+    font-family: var(--metagame-font), sans-serif;
+    font-weight: var(--metagame-font-weight);
     text-transform: uppercase;
     background-color: transparent;
 }
@@ -148,7 +148,7 @@ body {
 
 /* Pie slice labels */
 .slice-label {
-    font-family: var(--dynamic-font), sans-serif;
+    font-family: var(--metagame-font), sans-serif;
     font-size: var(--meta-label-font-size);
     font-weight: var(--meta-label-font-weight);
     fill: var(--meta-label-color);
@@ -158,7 +158,7 @@ body {
 }
 
 .slice-percent {
-    font-family: var(--dynamic-font), sans-serif;
+    font-family: var(--metagame-font), sans-serif;
     font-size: var(--meta-percent-font-size);
     font-weight: 900;
     fill: var(--meta-label-color);

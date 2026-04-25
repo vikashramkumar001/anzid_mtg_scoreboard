@@ -15,6 +15,31 @@ let currentGame = 'mtg';
 let currentVendor = 'default';
 let currentPlayerCount = '1v1';
 
+// ── FlyQuest 2v2 signature-card decklist state ────────────────────────
+// Portrait roster (mirrors bracket-full-display.js / standings-combined.js):
+// looked up case-insensitively by display name to pull `portraitUrl`.
+let playerRoster = [];
+let rosterByName = new Map();
+function normalizeKey(s) {
+    return (s || '').trim().toLowerCase();
+}
+function rebuildRosterIndex() {
+    rosterByName = new Map();
+    playerRoster.forEach(p => {
+        if (p && p.name) rosterByName.set(normalizeKey(p.name), p.portraitUrl || '');
+    });
+}
+// Slugify matches features/overlays.js portraitStorage filename logic
+// (lowercase → non-alphanum collapsed to '-' → trim edge dashes). Used
+// to key into data/flyquest-2v2-decklist.json from a player display name.
+function slugifyPlayerName(name) {
+    return (name || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+}
+let fqDecklistData = {};  // filled by fetchFlyquest2v2Decklist() on page load
+
 // Star Wars Unlimited Aspects Dictionary
 const SWU_ASPECTS = {
     'aggression': '/assets/images/starwars/icons/Aggression.png',
@@ -119,6 +144,12 @@ socket.on('broadcast-round-data', (data) => {
         createPlayerNameSection(data[match_id][`player-name-${side_id}`] || '');
     }
 
+    // FlyQuest 2v2 decklist reads names straight from roundData (no
+    // deckData transform) — re-render whenever match fields change.
+    if (isFlyquest2v2Mtg()) {
+        renderFlyquest2v2Decklist();
+    }
+
     // Update legend description if game is riftbound and legend data exists
 
     // Server now handles transforms — no client-side transform requests needed.
@@ -216,9 +247,60 @@ socket.on('update-match-global-data', (data) => {
 // Function to check if font family needs updating
 function checkFontFamily(globalFont) {
     if (globalFont) {
-        document.documentElement.style.setProperty('--dynamic-font', globalFont);
+        document.documentElement.style.setProperty('--main-deck-font', globalFont);
     }
 }
+
+// Body data-attrs gate vendor/playerCount-scoped CSS blocks
+// (e.g. body[data-vendor="flyquest"][data-player-count="2v2"] positions
+// the signature-card decklist layout). Re-applied on every selection
+// change so it flips live without a reload.
+function applyBodyAttrs() {
+    if (!document.body) return;
+    document.body.dataset.game        = currentGame        || '';
+    document.body.dataset.vendor      = currentVendor      || '';
+    document.body.dataset.playerCount = currentPlayerCount || '';
+}
+
+function isFlyquest2v2Mtg() {
+    return String(selectedGame).toLowerCase() === 'mtg'
+        && String(currentVendor).toLowerCase() === 'flyquest'
+        && String(currentPlayerCount).toLowerCase() === '2v2';
+}
+
+// Keep the portrait roster fresh — master-control may edit names or
+// upload new portraits while this page is live.
+socket.emit('getPlayerRoster');
+socket.on('playerRosterUpdated', (roster) => {
+    playerRoster = Array.isArray(roster) ? roster : [];
+    rebuildRosterIndex();
+    renderDecks();
+});
+
+// Signature-card map loaded once from the static JSON. Operators edit
+// the file directly; to pick up changes without restarting, re-open
+// the browser source (or refresh) — this is a rare enough edit that
+// a live-reload pipeline isn't worth the complexity.
+async function fetchFlyquest2v2Decklist() {
+    try {
+        const res = await fetch('/data/flyquest-2v2-decklist.json', {cache: 'no-cache'});
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        // Drop the `_comment` key so the render code can iterate cleanly
+        // without special-casing it.
+        if (data && typeof data === 'object') {
+            delete data._comment;
+            fqDecklistData = data;
+        }
+    } catch (err) {
+        console.warn('[FQ 2v2 decklist] Could not load /data/flyquest-2v2-decklist.json:', err);
+        fqDecklistData = {};
+    }
+    // Re-render in case the page was already showing flyquest-2v2 with
+    // an empty map (e.g. round-data arrived before the JSON fetch).
+    renderDecks();
+}
+fetchFlyquest2v2Decklist();
 
 // Function to create the player name section dynamically
 function createPlayerNameSection(playerName) {
@@ -291,8 +373,85 @@ function filterManualEntry(cards) {
     return result;
 }
 
+// FlyQuest 2v2 signature-card decklist renderer.
+// Left-side URL shows P1+P2 (player-name-left / player-name-left-2),
+// right-side URL shows P3+P4 (player-name-right / player-name-right-2).
+// Portrait comes from data/playerRoster.json (name match), card URL
+// comes from data/flyquest-2v2-decklist.json (slug match).
+function renderFlyquest2v2Decklist() {
+    const section = document.getElementById('deck-display-mtg-fq2v2');
+    if (!section) return;
+
+    const matchData = roundData[match_id] || {};
+    const primaryName   = (matchData[`player-name-${sideClass}`]     || '').trim();
+    const secondaryName = (matchData[`player-name-${sideClass}-2`]   || '').trim();
+
+    // Slot 1 = primary (player-name-{side}), Slot 2 = secondary (-{side}-2).
+    // Keep the DOM IDs fixed (portrait-1/portrait-2) and drive positioning
+    // purely from CSS so left/right pages use the same layout unchanged.
+    const slots = [
+        { suffix: '1', name: primaryName },
+        { suffix: '2', name: secondaryName },
+    ];
+
+    for (const {suffix, name} of slots) {
+        const portraitEl = document.getElementById(`fq2v2-dl-portrait-${suffix}`);
+        const nameEl     = document.getElementById(`fq2v2-dl-name-${suffix}`);
+        const cardEl     = document.getElementById(`fq2v2-dl-card-${suffix}`);
+
+        if (nameEl) nameEl.textContent = name || '';
+
+        // Portrait — lookup by exact name (case-insensitive) against roster.
+        if (portraitEl) {
+            const url = name ? (rosterByName.get(normalizeKey(name)) || '') : '';
+            portraitEl.src = url;
+            portraitEl.style.visibility = url ? 'visible' : 'hidden';
+        }
+
+        // Signature card — lookup by slug against the decklist JSON map.
+        if (cardEl) {
+            const slug = slugifyPlayerName(name);
+            const cardUrl = slug && fqDecklistData[slug] ? fqDecklistData[slug].card || '' : '';
+            cardEl.src = cardUrl;
+            cardEl.style.visibility = cardUrl ? 'visible' : 'hidden';
+        }
+    }
+
+    // Background image — mirrors the standard MTG decklist resolver so the
+    // flyquest-2v2 variant of the bg PNG gets picked up via getAssetPath.
+    const bgEl = document.getElementById('fq2v2-dl-bg');
+    const vc = window.VENDOR_CONFIG;
+    if (bgEl && vc) {
+        const bgPath = vc.getAssetPath(
+            '/assets/images/mtg/decklist/mtg-decklist-bg.png',
+            currentVendor, currentPlayerCount
+        );
+        bgEl.style.backgroundImage = `url("${bgPath}")`;
+    }
+
+    // Frame overlay — expected at mtg-decklist-frame-flyquest-2v2.png once
+    // the PSD is exported. Using the same getAssetPath pattern so a future
+    // 1v1 flyquest export can share this code path unchanged.
+    const frameEl = document.getElementById('fq2v2-dl-frame');
+    if (frameEl && vc) {
+        const framePath = vc.getAssetPath(
+            '/assets/images/mtg/decklist/mtg-decklist-frame.png',
+            currentVendor, currentPlayerCount
+        );
+        frameEl.style.backgroundImage = `url("${framePath}")`;
+    }
+}
+
 // Function to render the decks on the page
 function renderDecks() {
+    // FlyQuest 2v2 signature decklist — orthogonal to the normal
+    // deckData pipeline (pulls from roundData + static JSON), so
+    // short-circuit here instead of falling through the MTG branch.
+    if (isFlyquest2v2Mtg()) {
+        renderFlyquest2v2Decklist();
+        return;
+    }
+
     // try to render - clear view regardless
     if (selectedGame === 'riftbound') {
         const riftboundSection = document.getElementById('deck-display-riftbound');
@@ -1235,6 +1394,9 @@ function updateTheme(game, vendor, playerCount) {
     const normalized = gameSelection?.toLowerCase();
     if (!normalized) return;
 
+    // Sync body data-* so vendor/player-count-scoped CSS blocks activate.
+    applyBodyAttrs();
+
     // --- Game switch (only when game actually changes) ---
     if (normalized !== selectedGame) {
         // Remove previous game class if it exists
@@ -1250,6 +1412,7 @@ function updateTheme(game, vendor, playerCount) {
 
         // Show/hide appropriate sections
         const mtgSection = document.getElementById('deck-display-mtg');
+        const fq2v2Section = document.getElementById('deck-display-mtg-fq2v2');
         const riftboundSection = document.getElementById('deck-display-riftbound');
         const vibesSection = document.getElementById('deck-display-vibes');
         const starwarsSection = document.getElementById('deck-display-starwars');
@@ -1257,6 +1420,7 @@ function updateTheme(game, vendor, playerCount) {
         if (selectedGame === 'mtg') {
             console.log('Switching to MTG mode...');
             if (mtgSection) mtgSection.style.display = 'block';
+            if (fq2v2Section) fq2v2Section.style.display = 'none';
             if (riftboundSection) riftboundSection.style.display = 'none';
             if (vibesSection) vibesSection.style.display = 'none';
             if (starwarsSection) starwarsSection.style.display = 'none';
@@ -1333,6 +1497,23 @@ function updateTheme(game, vendor, playerCount) {
                 );
                 bgEl.style.backgroundImage = `url("${bgPath}")`;
             }
+        }
+    }
+
+    // FlyQuest 2v2 decklist swaps in for the default MTG section when
+    // vendor+playerCount matches. Done here (outside the game-switch
+    // block) so vendor/player-count changes flip the layout live without
+    // needing a game re-selection.
+    const classicMtgSection = document.getElementById('deck-display-mtg');
+    const fq2v2Section      = document.getElementById('deck-display-mtg-fq2v2');
+    if (selectedGame === 'mtg' && isFlyquest2v2Mtg()) {
+        if (classicMtgSection) classicMtgSection.style.display = 'none';
+        if (fq2v2Section)      fq2v2Section.style.display = 'block';
+        renderFlyquest2v2Decklist();
+    } else {
+        if (fq2v2Section) fq2v2Section.style.display = 'none';
+        if (selectedGame === 'mtg' && classicMtgSection) {
+            classicMtgSection.style.display = 'block';
         }
     }
 }

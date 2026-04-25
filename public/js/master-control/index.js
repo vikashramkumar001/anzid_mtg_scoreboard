@@ -1,5 +1,6 @@
 import {initOverlayUpload} from './overlays.js';
 import {initArchetypes} from './archetypes.js';
+import {initRoster} from './roster.js';
 import {initMatches} from './matches.js';
 import {initBrackets} from './brackets.js';
 import {initCardView} from './card-view.js';
@@ -8,6 +9,7 @@ import {initCardDB} from './indexeddb-init.js';
 import {initGameSelection} from './game-selection.js';
 import {initTournamentPlatform} from './tournament-platform.js';
 import {initDraftList} from './draft-list.js';
+import {initGroups} from './groups.js';
 
 const socket = io();
 
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Then init modules
     initOverlayUpload(socket);
     initArchetypes(socket);
+    initRoster(socket);
     initGameSelection(socket);
     initMatches(socket);
     initBrackets(socket);
@@ -40,4 +43,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMetaBreakdown(socket);
     initTournamentPlatform(socket);
     initDraftList(socket);
+    initGroups(socket);
 });

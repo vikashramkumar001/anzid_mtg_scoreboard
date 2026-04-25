@@ -2,7 +2,7 @@
   "game": "mtg",
   "vendor": "flyquest",
   "playerCount": "2v2",
-  "savedAt": "2026-04-16T04:53:34.916Z",
+  "savedAt": "2026-04-22T07:36:23.826Z",
   "scenes": {
     "Sponsor - Moxfield*": {
       "sources": [
@@ -138,166 +138,6 @@
             "sourceHeight": 2160,
             "sourceWidth": 3840,
             "width": 3840
-          }
-        }
-      ]
-    },
-    "Event Slides - Prize Pool*": {
-      "sources": [
-        {
-          "sourceName": "Media - BG Info",
-          "sceneItemId": 8,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Group - Event Slides PW",
-          "sceneItemId": 11,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 1238,
-            "positionY": -1372.0001220703125,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 3,
-            "width": 3
-          }
-        },
-        {
-          "sourceName": "Image - Prize Pool Notes",
-          "sceneItemId": 7,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 600,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Prize Pool",
-          "sceneItemId": 5,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 4,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 12,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
           }
         }
       ]
@@ -571,244 +411,6 @@
         {
           "sourceName": "Audio - Event Slides",
           "sceneItemId": 6,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
-    "Event Slides - Casters Day 2*": {
-      "sources": [
-        {
-          "sourceName": "Media - BG Info",
-          "sceneItemId": 14,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Group - Event Slides PW",
-          "sceneItemId": 17,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 1238,
-            "positionY": -1372.0001220703125,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 3,
-            "width": 3
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 2 4",
-          "sceneItemId": 12,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 2 3",
-          "sceneItemId": 11,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 2 2",
-          "sceneItemId": 10,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 2 1",
-          "sceneItemId": 9,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Casters Title",
-          "sceneItemId": 13,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 1080,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 1920
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 5,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 18,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -2343,15 +1945,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -2949,15 +2551,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -3475,7 +3077,7 @@
         {
           "sourceName": "Media - Match 2 Camera Ingest",
           "sceneItemId": 2,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -3487,15 +3089,15 @@
             "cropRight": 3064,
             "cropToBounds": false,
             "cropTop": 3727,
-            "height": 0,
+            "height": 8160,
             "positionX": 706,
             "positionY": 1605,
             "rotation": 90,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
@@ -3525,7 +3127,33 @@
           }
         },
         {
-          "sourceName": "Browser - Match 2 Header",
+          "sourceName": "Browser - Match 2 Header Broadcast",
+          "sceneItemId": 14,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Browser - Match 2 Header Live",
           "sceneItemId": 3,
           "enabled": true,
           "transform": {
@@ -3565,15 +3193,15 @@
             "cropRight": 3907,
             "cropToBounds": false,
             "cropTop": 2898,
-            "height": 0,
+            "height": 8160,
             "positionX": 2365,
             "positionY": 0,
             "rotation": 90,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
@@ -3591,21 +3219,21 @@
             "cropRight": 3907,
             "cropToBounds": false,
             "cropTop": 3273,
-            "height": 0,
+            "height": 8160,
             "positionX": 1616,
             "positionY": 0,
             "rotation": 90,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
           "sourceName": "Media - Match 2 Camera Ingest",
           "sceneItemId": 8,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -3617,21 +3245,21 @@
             "cropRight": 3907,
             "cropToBounds": false,
             "cropTop": 2898,
-            "height": 0,
+            "height": 8160,
             "positionX": 2365,
             "positionY": 0,
             "rotation": 90,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
           "sourceName": "Media - Match 2 Camera Ingest",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -3643,15 +3271,15 @@
             "cropRight": 3064,
             "cropToBounds": false,
             "cropTop": 3727,
-            "height": 0,
+            "height": 8160,
             "positionX": 706,
             "positionY": 1605,
             "rotation": 90,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
@@ -3699,15 +3327,15 @@
             "cropRight": 1859,
             "cropToBounds": false,
             "cropTop": 499,
-            "height": 0,
+            "height": 9189.0263671875,
             "positionX": 2636,
             "positionY": -484,
             "rotation": 90,
             "scaleX": 2.252230405807495,
             "scaleY": 2.2522122859954834,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 9008.921875
           }
         },
         {
@@ -3807,15 +3435,15 @@
             "cropRight": 2796,
             "cropToBounds": false,
             "cropTop": 441,
-            "height": 0,
+            "height": 9115.0986328125,
             "positionX": 2735.5,
             "positionY": -281,
             "rotation": 90,
             "scaleX": 2.2345569133758545,
             "scaleY": 2.2340927124023438,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8938.2275390625
           }
         },
         {
@@ -3915,15 +3543,15 @@
             "cropRight": 1920,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 6365.5556640625,
             "positionX": 3095,
             "positionY": 2160,
             "rotation": 180,
             "scaleX": 1.5600961446762085,
             "scaleY": 1.560185194015503,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 6240.384765625
           }
         },
         {
@@ -4049,15 +3677,15 @@
             "cropRight": 1920,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 6444.88916015625,
             "positionX": -107,
             "positionY": -1252,
             "rotation": 0,
             "scaleX": 1.5798076391220093,
             "scaleY": 1.57962965965271,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 6319.23046875
           }
         },
         {
@@ -4169,9 +3797,35 @@
     "Camera - Match 2 Gameplay": {
       "sources": [
         {
+          "sourceName": "Color Source - BG TES Playmat",
+          "sceneItemId": 5,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 96,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": -2,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
+          }
+        },
+        {
           "sourceName": "Media - Match 2 Camera Ingest",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -4183,21 +3837,21 @@
             "cropRight": 1920,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 4837.44482421875,
             "positionX": 2561,
             "positionY": -190,
             "rotation": 90,
             "scaleX": 1.186057686805725,
             "scaleY": 1.1856482028961182,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4744.23095703125
           }
         },
         {
           "sourceName": "Video - Match 2 Gameplay",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -4222,8 +3876,34 @@
         },
         {
           "sourceName": "Color Source - Frame Gameplay",
-          "sceneItemId": 2,
+          "sceneItemId": 4,
           "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 371,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 3648,
+            "positionY": 1695,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Color Source - Frame Gameplay",
+          "sceneItemId": 2,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -4265,15 +3945,15 @@
             "cropRight": 2160,
             "cropToBounds": false,
             "cropTop": 2160,
-            "height": 0,
+            "height": 8160,
             "positionX": 3840,
             "positionY": 0,
             "rotation": 90,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
@@ -4347,15 +4027,15 @@
             "cropRight": 1080,
             "cropToBounds": false,
             "cropTop": 2160,
-            "height": 0,
+            "height": 8160,
             "positionX": 3840,
             "positionY": 0,
             "rotation": 90,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
@@ -4429,15 +4109,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 2160,
-            "height": 0,
+            "height": 8160,
             "positionX": 3840,
             "positionY": 0,
             "rotation": 90,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
@@ -4511,15 +4191,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 1080,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
@@ -4593,15 +4273,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         },
         {
@@ -4742,32 +4422,6 @@
           }
         },
         {
-          "sourceName": "Browser - Match 1 Header",
-          "sceneItemId": 4,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 4,
-            "positionY": 4,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
           "sourceName": "Text - In Game Ticker",
           "sceneItemId": 5,
           "enabled": false,
@@ -4794,15 +4448,41 @@
           }
         },
         {
-          "sourceName": "Browser - Header Backup",
+          "sourceName": "Browser - Match 1 Header Broadcast",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
             "boundsHeight": 2,
             "boundsType": "OBS_BOUNDS_NONE",
             "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Browser - Match 1 Header Live",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
@@ -6034,6 +5714,36 @@
     "--- Match 1 Camera Ingest ---": {
       "sources": []
     },
+    "Commentator - L3": {
+      "sources": [
+        {
+          "sourceName": "Browser - Commentator L3",
+          "sceneItemId": 1,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        }
+      ]
+    },
     "Commentator - Ingest 1UP": {
       "sources": [
         {
@@ -7195,9 +6905,9 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 0,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
+            "boundsWidth": 1,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
@@ -7229,15 +6939,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 5406,
+            "height": 0,
             "positionX": 1304,
             "positionY": -1685.000732421875,
             "rotation": 0,
             "scaleX": 1.4291566610336304,
             "scaleY": 1.429024577140808,
-            "sourceHeight": 3783,
-            "sourceWidth": 2929,
-            "width": 4186
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
           }
         },
         {
@@ -7329,9 +7039,9 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 0,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
+            "boundsWidth": 1,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
@@ -7363,15 +7073,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 5406,
+            "height": 0,
             "positionX": 1304,
             "positionY": -1685.000732421875,
             "rotation": 0,
             "scaleX": 1.4291566610336304,
             "scaleY": 1.429024577140808,
-            "sourceHeight": 3783,
-            "sourceWidth": 2929,
-            "width": 4186
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
           }
         },
         {
@@ -7497,41 +7207,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 5406,
+            "height": 0,
             "positionX": 1304,
             "positionY": -1685.00048828125,
             "rotation": 0,
             "scaleX": 1.4291566610336304,
             "scaleY": 1.429024577140808,
-            "sourceHeight": 3783,
-            "sourceWidth": 2929,
-            "width": 4186
-          }
-        },
-        {
-          "sourceName": "Browser - Standings 17-32",
-          "sceneItemId": 9,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
           }
         },
         {
@@ -7657,15 +7341,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 5406,
+            "height": 0,
             "positionX": 1304,
             "positionY": -1685.000732421875,
             "rotation": 0,
             "scaleX": 1.4291566610336304,
             "scaleY": 1.429024577140808,
-            "sourceHeight": 3783,
-            "sourceWidth": 2929,
-            "width": 4186
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
           }
         },
         {
@@ -7869,15 +7553,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 200,
-            "height": 0,
+            "height": 2160,
             "positionX": 0,
             "positionY": 530,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
           }
         },
         {
@@ -7902,8 +7586,34 @@
             "scaleX": 1,
             "scaleY": 1,
             "sourceHeight": 3306,
-            "sourceWidth": 6025,
-            "width": 6025
+            "sourceWidth": 4865,
+            "width": 4865
+          }
+        },
+        {
+          "sourceName": "Browser - Bracket Top 8",
+          "sceneItemId": 42,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
           }
         },
         {
@@ -7935,6 +7645,166 @@
         {
           "sourceName": "Audio - Event Slides",
           "sceneItemId": 40,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
+    "Event Slides - Prize Pool": {
+      "sources": [
+        {
+          "sourceName": "Media - BG Info",
+          "sceneItemId": 8,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Group - Event Slides PW",
+          "sceneItemId": 11,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 1238,
+            "positionY": -1372.0001220703125,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 3,
+            "width": 3
+          }
+        },
+        {
+          "sourceName": "Image - Prize Pool Notes",
+          "sceneItemId": 7,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 600,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Image - Prize Pool",
+          "sceneItemId": 5,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 12,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -8015,8 +7885,8 @@
           }
         },
         {
-          "sourceName": "Image - Schedule",
-          "sceneItemId": 1,
+          "sourceName": "Browser - Schedule",
+          "sceneItemId": 16,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -8033,10 +7903,10 @@
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
             "width": 3840
           }
         },
@@ -8069,6 +7939,244 @@
         {
           "sourceName": "Audio - Event Slides",
           "sceneItemId": 15,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
+    "Event Slides - Casters Day 2": {
+      "sources": [
+        {
+          "sourceName": "Media - BG Info",
+          "sceneItemId": 14,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Group - Event Slides PW",
+          "sceneItemId": 17,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 1238,
+            "positionY": -1372.0001220703125,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 3,
+            "width": 3
+          }
+        },
+        {
+          "sourceName": "Image - Casters Day 2 4",
+          "sceneItemId": 12,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Image - Casters Day 2 3",
+          "sceneItemId": 11,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Image - Casters Day 2 2",
+          "sceneItemId": 10,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Image - Casters Day 2 1",
+          "sceneItemId": 9,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Image - Casters Title",
+          "sceneItemId": 13,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 1080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 1920
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 5,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 18,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -8338,6 +8446,32 @@
     "Break - Ending": {
       "sources": [
         {
+          "sourceName": "Browser - Ending",
+          "sceneItemId": 13,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
           "sourceName": "Media - Ending Character",
           "sceneItemId": 8,
           "enabled": true,
@@ -8393,6 +8527,32 @@
     },
     "Break - Be Right Back": {
       "sources": [
+        {
+          "sourceName": "Browser - Be Right Back",
+          "sceneItemId": 17,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
         {
           "sourceName": "Media - BRB Character",
           "sceneItemId": 12,
@@ -8476,6 +8636,32 @@
     "Break - Starting Soon": {
       "sources": [
         {
+          "sourceName": "Browser - Starting Soon",
+          "sceneItemId": 19,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
           "sourceName": "Media - Starting Soon Character",
           "sceneItemId": 10,
           "enabled": true,
@@ -8558,302 +8744,12 @@
     "--- Break ---": {
       "sources": []
     },
-    "Commentators - 3 Shot": {
-      "sources": [
-        {
-          "sourceName": "Commentator - Ingest 1B",
-          "sceneItemId": 3,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 169,
-            "cropLeft": 550,
-            "cropRight": 522,
-            "cropToBounds": false,
-            "cropTop": 70,
-            "height": 2160,
-            "positionX": 2006,
-            "positionY": 140,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Commentator - Ingest 1A",
-          "sceneItemId": 4,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 169,
-            "cropLeft": 550,
-            "cropRight": 522,
-            "cropToBounds": false,
-            "cropTop": 70,
-            "height": 2160,
-            "positionX": 140,
-            "positionY": 140,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Group - C2 Chyron",
-          "sceneItemId": 5,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 237,
-            "positionX": 1970,
-            "positionY": 1816,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 237,
-            "sourceWidth": 1763,
-            "width": 1763
-          }
-        },
-        {
-          "sourceName": "Group - C1 Chyron",
-          "sceneItemId": 6,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 237,
-            "positionX": -1896,
-            "positionY": 1816,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 237,
-            "sourceWidth": 1763,
-            "width": 1763
-          }
-        },
-        {
-          "sourceName": "Image - Commentator Tags Three",
-          "sceneItemId": 16,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Commentator - Ingest 1UP",
-          "sceneItemId": 2,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 60,
-            "cropLeft": 60,
-            "cropRight": 60,
-            "cropToBounds": false,
-            "cropTop": 60,
-            "height": 2430,
-            "positionX": -105,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1.125,
-            "scaleY": 1.125,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 4320
-          }
-        },
-        {
-          "sourceName": "Slideshow - Sponsors In-Match Carousel 3",
-          "sceneItemId": 17,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 1200,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Group - C2 Chyron TES",
-          "sceneItemId": 8,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 1230,
-            "positionY": 600,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Group - C1 Chyron TES",
-          "sceneItemId": 9,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": -1.999955177307129,
-            "positionY": 600,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Group - C3 Chyron TES",
-          "sceneItemId": 11,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 2458,
-            "positionY": 600,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 10,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        }
-      ]
-    },
-    "Commentators - 2 Shot": {
+    "Commentators": {
       "sources": [
         {
           "sourceName": "Commentator - Ingest 1UP",
           "sceneItemId": 37,
-          "enabled": false,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8879,7 +8775,7 @@
         {
           "sourceName": "Commentator - Ingest 1B",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8905,7 +8801,7 @@
         {
           "sourceName": "Commentator - Ingest 1A",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8929,15 +8825,15 @@
           }
         },
         {
-          "sourceName": "Image - BG Caster",
-          "sceneItemId": 18,
+          "sourceName": "Browser - BG Commentators",
+          "sceneItemId": 61,
           "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 0,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
+            "boundsWidth": 0,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
@@ -8947,32 +8843,6 @@
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Browser - C2 Commentator",
-          "sceneItemId": 55,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 1,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 1,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 3510,
-            "positionY": -225,
-            "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
             "sourceHeight": 2160,
@@ -8981,8 +8851,8 @@
           }
         },
         {
-          "sourceName": "Browser - C1 Commentator",
-          "sceneItemId": 54,
+          "sourceName": "Commentator - L3",
+          "sceneItemId": 60,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -8996,8 +8866,8 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 2160,
-            "positionX": -1795,
-            "positionY": -225,
+            "positionX": 0,
+            "positionY": 300,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
@@ -9370,15 +9240,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -9504,15 +9374,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -9742,15 +9612,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -9850,15 +9720,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -9958,15 +9828,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -10268,8 +10138,8 @@
           }
         },
         {
-          "sourceName": "Image - H2H Versus",
-          "sceneItemId": 53,
+          "sourceName": "Browser - H2H Versus",
+          "sceneItemId": 62,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -10286,10 +10156,10 @@
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
             "width": 3840
           }
         },
@@ -10360,15 +10230,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -10497,15 +10367,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -10631,15 +10501,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -10649,7 +10519,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel 2",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10675,7 +10545,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10701,7 +10571,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10727,7 +10597,7 @@
         {
           "sourceName": "Camera - Match 2 BF Blue",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10753,7 +10623,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10779,7 +10649,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10817,15 +10687,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -10835,7 +10705,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel 2",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10861,7 +10731,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10887,7 +10757,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10913,7 +10783,7 @@
         {
           "sourceName": "Camera - Match 2 BF Red",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10939,7 +10809,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -10965,7 +10835,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11003,25 +10873,25 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
     },
-    "Match 2 - Player + Zoom Blue": {
+    "Match 2 - Player + Base Blue": {
       "sources": [
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 18,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11047,7 +10917,7 @@
         {
           "sourceName": "Camera - Match 2 Base Blue",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11073,7 +10943,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11097,9 +10967,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Player Frame Blue",
-          "sceneItemId": 19,
-          "enabled": true,
+          "sourceName": "Browser - Match 2 Player Frame Blue",
+          "sceneItemId": 20,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11125,7 +10995,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11151,7 +11021,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11189,25 +11059,25 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
     },
-    "Match 2 - Player + Zoom Red": {
+    "Match 2 - Player + Base Red": {
       "sources": [
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 19,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11233,7 +11103,7 @@
         {
           "sourceName": "Camera - Match 2 Base Red",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11259,7 +11129,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11283,9 +11153,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Player Frame Red",
-          "sceneItemId": 20,
-          "enabled": true,
+          "sourceName": "Browser - Match 2 Player Frame Red",
+          "sceneItemId": 21,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11311,7 +11181,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 11,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11337,7 +11207,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 14,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11375,15 +11245,97 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
+          }
+        }
+      ]
+    },
+    "Match 2 - Hand Blue": {
+      "sources": [
+        {
+          "sourceName": "Camera - Match 2 Hand Blue",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 100,
+            "cropLeft": 100,
+            "cropRight": 100,
+            "cropToBounds": false,
+            "cropTop": 100,
+            "height": 2380.407958984375,
+            "positionX": -85.5,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1.1019231081008911,
+            "scaleY": 1.1020407676696777,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 4231.384765625
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 6,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 2 Camera Ingest",
+          "sceneItemId": 7,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
           }
         }
       ]
@@ -11393,7 +11345,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 22,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11419,7 +11371,7 @@
         {
           "sourceName": "Camera - Match 2 Hand Blue",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11445,7 +11397,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11469,9 +11421,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Player Frame Blue",
-          "sceneItemId": 23,
-          "enabled": true,
+          "sourceName": "Browser - Match 2 Player Frame Blue",
+          "sceneItemId": 24,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11497,7 +11449,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 11,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11523,7 +11475,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 16,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11561,15 +11513,97 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
+          }
+        }
+      ]
+    },
+    "Match 2 - Hand Red": {
+      "sources": [
+        {
+          "sourceName": "Camera - Match 2 Hand Red",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 100,
+            "cropLeft": 100,
+            "cropRight": 100,
+            "cropToBounds": false,
+            "cropTop": 100,
+            "height": 2380.407958984375,
+            "positionX": -85.5,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1.1019231081008911,
+            "scaleY": 1.1020407676696777,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 4231.384765625
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 6,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 2 Camera Ingest",
+          "sceneItemId": 7,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
           }
         }
       ]
@@ -11579,7 +11613,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 22,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11605,7 +11639,7 @@
         {
           "sourceName": "Camera - Match 2 Hand Red",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11631,7 +11665,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11655,9 +11689,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Player Frame Red",
-          "sceneItemId": 23,
-          "enabled": true,
+          "sourceName": "Browser - Match 2 Player Frame Red",
+          "sceneItemId": 24,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11683,7 +11717,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 11,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11709,7 +11743,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 16,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11747,15 +11781,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -11765,7 +11799,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 24,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11795,29 +11829,55 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 120,
-            "cropLeft": 860,
-            "cropRight": 860,
+            "boundsWidth": 1,
+            "cropBottom": 123,
+            "cropLeft": 183,
+            "cropRight": 183,
             "cropToBounds": false,
-            "cropTop": 120,
-            "height": 740.25,
-            "positionX": 2298,
-            "positionY": 1396,
+            "cropTop": 123,
+            "height": 994.040771484375,
+            "positionX": 1976,
+            "positionY": 1183,
             "rotation": 0,
-            "scaleX": 0.3424796760082245,
-            "scaleY": 0.3427083194255829,
+            "scaleX": 0.4601648449897766,
+            "scaleY": 0.4602040648460388,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 1315.1219482421875
+            "width": 1767.032958984375
+          }
+        },
+        {
+          "sourceName": "Camera - Match 2 Player Red",
+          "sceneItemId": 28,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 123,
+            "cropLeft": 183,
+            "cropRight": 183,
+            "cropToBounds": false,
+            "cropTop": 123,
+            "height": 994.040771484375,
+            "positionX": 264,
+            "positionY": 1183,
+            "rotation": 0,
+            "scaleX": 0.4601648449897766,
+            "scaleY": 0.4602040648460388,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 1767.032958984375
           }
         },
         {
           "sourceName": "Camera - Match 2 Hand Blue",
           "sceneItemId": 14,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11847,28 +11907,28 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 48,
+            "boundsWidth": 1,
+            "cropBottom": 0,
             "cropLeft": 0,
-            "cropRight": 1284,
+            "cropRight": 192,
             "cropToBounds": false,
-            "cropTop": 48,
-            "height": 1892.8043212890625,
-            "positionX": 0,
-            "positionY": 248,
-            "rotation": 0,
-            "scaleX": 0.876369297504425,
-            "scaleY": 0.8762983083724976,
+            "cropTop": 1089,
+            "height": 1961,
+            "positionX": 3576,
+            "positionY": 1067,
+            "rotation": 180,
+            "scaleX": 0.9078947305679321,
+            "scaleY": 0.907870352268219,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 3365.258056640625
+            "width": 3486.315673828125
           }
         },
         {
-          "sourceName": "Browser - Match Hand Frame Blue",
-          "sceneItemId": 26,
+          "sourceName": "Browser - Match 2 Hand Frame Blue",
+          "sceneItemId": 27,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -11895,7 +11955,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -11959,15 +12019,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -11977,7 +12037,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 21,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12001,35 +12061,61 @@
           }
         },
         {
+          "sourceName": "Camera - Match 2 Player Blue",
+          "sceneItemId": 26,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 123,
+            "cropLeft": 183,
+            "cropRight": 183,
+            "cropToBounds": false,
+            "cropTop": 123,
+            "height": 994.040771484375,
+            "positionX": 1976,
+            "positionY": 1183,
+            "rotation": 0,
+            "scaleX": 0.4601648449897766,
+            "scaleY": 0.4602040648460388,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 1767.032958984375
+          }
+        },
+        {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 22,
           "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 120,
-            "cropLeft": 860,
-            "cropRight": 860,
+            "boundsWidth": 1,
+            "cropBottom": 123,
+            "cropLeft": 183,
+            "cropRight": 183,
             "cropToBounds": false,
-            "cropTop": 120,
-            "height": 740.25,
-            "positionX": 820,
-            "positionY": 1396,
+            "cropTop": 123,
+            "height": 994.040771484375,
+            "positionX": 264,
+            "positionY": 1183,
             "rotation": 0,
-            "scaleX": 0.3424796760082245,
-            "scaleY": 0.3427083194255829,
+            "scaleX": 0.4601648449897766,
+            "scaleY": 0.4602040648460388,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 1315.1219482421875
+            "width": 1767.032958984375
           }
         },
         {
           "sourceName": "Camera - Match 2 Hand Red",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12059,28 +12145,28 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 48,
+            "boundsWidth": 1,
+            "cropBottom": 1090,
             "cropLeft": 0,
-            "cropRight": 1284,
+            "cropRight": 192,
             "cropToBounds": false,
-            "cropTop": 48,
-            "height": 1892.8043212890625,
-            "positionX": 1600,
-            "positionY": 248,
+            "cropTop": 0,
+            "height": 1960,
+            "positionX": 265,
+            "positionY": 97,
             "rotation": 0,
-            "scaleX": 0.876369297504425,
-            "scaleY": 0.8762983083724976,
+            "scaleX": 0.9076206088066101,
+            "scaleY": 0.9074074029922485,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 3365.258056640625
+            "width": 3485.26318359375
           }
         },
         {
-          "sourceName": "Browser - Match 1 Hand Frame Red",
-          "sceneItemId": 24,
+          "sourceName": "Browser - Match 2 Hand Frame Red",
+          "sceneItemId": 25,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -12107,7 +12193,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 11,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12171,15 +12257,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -12189,7 +12275,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel 2",
           "sceneItemId": 51,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12213,29 +12299,55 @@
           }
         },
         {
+          "sourceName": "Commentator - Ingest 1UP",
+          "sceneItemId": 52,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 606,
+            "positionX": 2676,
+            "positionY": 777,
+            "rotation": 0,
+            "scaleX": 0.28072917461395264,
+            "scaleY": 0.2805555462837219,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 1078
+          }
+        },
+        {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 39,
           "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 120,
-            "cropLeft": 1080,
-            "cropRight": 1080,
+            "boundsWidth": 1,
+            "cropBottom": 100,
+            "cropLeft": 100,
+            "cropRight": 100,
             "cropToBounds": false,
-            "cropTop": 120,
-            "height": 796.5,
-            "positionX": 3176,
-            "positionY": 328,
+            "cropTop": 100,
+            "height": 653.51025390625,
+            "positionX": 2652,
+            "positionY": 1486,
             "rotation": 0,
-            "scaleX": 0.3688889145851135,
-            "scaleY": 0.3687500059604645,
+            "scaleX": 0.3027472496032715,
+            "scaleY": 0.3025510311126709,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 1416.533447265625
+            "width": 1162.5494384765625
           }
         },
         {
@@ -12245,23 +12357,23 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 120,
-            "cropLeft": 1080,
-            "cropRight": 1080,
+            "boundsWidth": 1,
+            "cropBottom": 100,
+            "cropLeft": 100,
+            "cropRight": 100,
             "cropToBounds": false,
-            "cropTop": 120,
-            "height": 796.5,
-            "positionX": 48,
-            "positionY": 328,
+            "cropTop": 100,
+            "height": 648,
+            "positionX": 2662,
+            "positionY": 85,
             "rotation": 0,
-            "scaleX": 0.3688889145851135,
-            "scaleY": 0.3687500059604645,
+            "scaleX": 0.30000001192092896,
+            "scaleY": 0.30000001192092896,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 1416.533447265625
+            "width": 1152
           }
         },
         {
@@ -12276,18 +12388,18 @@
             "boundsWidth": 0,
             "cropBottom": 0,
             "cropLeft": 0,
-            "cropRight": 1284,
+            "cropRight": 190,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 1988.0001220703125,
-            "positionX": 748,
-            "positionY": 172,
+            "height": 1473,
+            "positionX": 83,
+            "positionY": 431,
             "rotation": 0,
-            "scaleX": 0.920187771320343,
-            "scaleY": 0.9203703999519348,
+            "scaleX": 0.6819248795509338,
+            "scaleY": 0.6819444298744202,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 3533.52099609375
+            "width": 2618.591552734375
           }
         },
         {
@@ -12357,15 +12469,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -12401,7 +12513,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Right",
           "sceneItemId": 36,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12427,7 +12539,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Left",
           "sceneItemId": 37,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12453,7 +12565,7 @@
         {
           "sourceName": "Camera - Match 2 Hand Red",
           "sceneItemId": 22,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12479,7 +12591,7 @@
         {
           "sourceName": "Camera - Match 2 Hand Blue",
           "sceneItemId": 21,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12505,7 +12617,7 @@
         {
           "sourceName": "Camera - Match 2 Gameplay",
           "sceneItemId": 18,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12529,9 +12641,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Pregame Frame",
-          "sceneItemId": 38,
-          "enabled": true,
+          "sourceName": "Browser - Match 2 Pregame Frame",
+          "sceneItemId": 39,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12557,7 +12669,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 19,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12583,7 +12695,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 25,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12621,15 +12733,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -12639,7 +12751,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Right",
           "sceneItemId": 36,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12665,7 +12777,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Left",
           "sceneItemId": 37,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12691,7 +12803,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 25,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12717,7 +12829,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 24,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12743,7 +12855,7 @@
         {
           "sourceName": "Camera - Match 2 Gameplay",
           "sceneItemId": 26,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12767,9 +12879,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Pregame Frame",
-          "sceneItemId": 38,
-          "enabled": true,
+          "sourceName": "Browser - Match 2 Pregame Frame",
+          "sceneItemId": 39,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12795,7 +12907,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 27,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12821,7 +12933,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 31,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -12859,15 +12971,179 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
+          }
+        }
+      ]
+    },
+    "Match 2 - Player Blue In Game": {
+      "sources": [
+        {
+          "sourceName": "Camera - Match 2 Player Blue",
+          "sceneItemId": 1,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 120,
+            "cropLeft": 212,
+            "cropRight": 214,
+            "cropToBounds": false,
+            "cropTop": 120,
+            "height": 2430,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1.125,
+            "scaleY": 1.125,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 4320
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 2,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 2 Camera Ingest",
+          "sceneItemId": 5,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
+          }
+        }
+      ]
+    },
+    "Match 2 - Player Red In Game": {
+      "sources": [
+        {
+          "sourceName": "Camera - Match 2 Player Red",
+          "sceneItemId": 1,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 120,
+            "cropLeft": 212,
+            "cropRight": 214,
+            "cropToBounds": false,
+            "cropTop": 120,
+            "height": 2430,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1.125,
+            "scaleY": 1.125,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 4320
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 2,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 2 Camera Ingest",
+          "sceneItemId": 4,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
           }
         }
       ]
@@ -12941,15 +13217,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 8160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
           }
         }
       ]
@@ -14203,7 +14479,7 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 2160,
-            "positionX": -1644,
+            "positionX": -71.99994659423828,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 1,
@@ -14229,7 +14505,7 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 2160,
-            "positionX": 3840,
+            "positionX": 2131,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 1,
@@ -14240,8 +14516,8 @@
           }
         },
         {
-          "sourceName": "Image - H2H Versus",
-          "sceneItemId": 17,
+          "sourceName": "Browser - H2H Versus",
+          "sceneItemId": 79,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -14258,10 +14534,10 @@
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
             "width": 3840
           }
         },
@@ -14621,7 +14897,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel 2",
           "sceneItemId": 16,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14647,7 +14923,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 5,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14673,7 +14949,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 8,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14699,7 +14975,7 @@
         {
           "sourceName": "Camera - Match 1 BF Blue",
           "sceneItemId": 15,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14725,7 +15001,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 11,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14751,7 +15027,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14807,7 +15083,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel 2",
           "sceneItemId": 16,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14833,7 +15109,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 5,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14859,7 +15135,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 8,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14885,7 +15161,7 @@
         {
           "sourceName": "Camera - Match 1 BF Red",
           "sceneItemId": 15,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14911,7 +15187,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 11,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14937,7 +15213,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -14993,7 +15269,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 31,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15019,7 +15295,7 @@
         {
           "sourceName": "Camera - Match 1 Base Blue",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15045,7 +15321,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 32,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15069,9 +15345,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Player Frame Blue",
+          "sourceName": "Browser - Match 1 Player Frame Blue",
           "sceneItemId": 33,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15097,7 +15373,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 28,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15123,7 +15399,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 29,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15179,7 +15455,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 37,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15205,7 +15481,7 @@
         {
           "sourceName": "Camera - Match 1 Base Red",
           "sceneItemId": 18,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15231,7 +15507,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 31,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15255,9 +15531,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Player Frame Red",
+          "sourceName": "Browser - Match 1 Player Frame Red",
           "sceneItemId": 39,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15283,7 +15559,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 34,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15309,7 +15585,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 35,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15360,12 +15636,94 @@
         }
       ]
     },
+    "Match 1 - Hand Blue": {
+      "sources": [
+        {
+          "sourceName": "Camera - Match 1 Hand Blue",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 100,
+            "cropLeft": 100,
+            "cropRight": 100,
+            "cropToBounds": false,
+            "cropTop": 100,
+            "height": 2380.407958984375,
+            "positionX": -85.5,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1.1019231081008911,
+            "scaleY": 1.1020407676696777,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 4231.384765625
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 6,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 1 Camera Ingest",
+          "sceneItemId": 7,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
+          }
+        }
+      ]
+    },
     "Match 1 - Player + Hand Blue": {
       "sources": [
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 32,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15391,7 +15749,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Blue",
           "sceneItemId": 15,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15417,7 +15775,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 14,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15441,9 +15799,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Player Frame Blue",
+          "sourceName": "Browser - Match 1 Player Frame Blue",
           "sceneItemId": 34,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15469,7 +15827,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 16,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15495,7 +15853,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 25,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15546,12 +15904,94 @@
         }
       ]
     },
+    "Match 1 - Hand Red": {
+      "sources": [
+        {
+          "sourceName": "Camera - Match 1 Hand Red",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 100,
+            "cropLeft": 100,
+            "cropRight": 100,
+            "cropToBounds": false,
+            "cropTop": 100,
+            "height": 2380.407958984375,
+            "positionX": -85.5,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1.1019231081008911,
+            "scaleY": 1.1020407676696777,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 4231.384765625
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 6,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 1 Camera Ingest",
+          "sceneItemId": 7,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
+          }
+        }
+      ]
+    },
     "Match 1 - Player + Hand Red": {
       "sources": [
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 38,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15577,7 +16017,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Red",
           "sceneItemId": 14,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15603,7 +16043,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 15,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15627,9 +16067,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Player Frame Red",
+          "sourceName": "Browser - Match 1 Player Frame Red",
           "sceneItemId": 40,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15655,7 +16095,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 16,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15681,7 +16121,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 23,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15737,7 +16177,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 27,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15767,29 +16207,55 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 120,
-            "cropLeft": 860,
-            "cropRight": 860,
+            "boundsWidth": 1,
+            "cropBottom": 123,
+            "cropLeft": 183,
+            "cropRight": 183,
             "cropToBounds": false,
-            "cropTop": 120,
-            "height": 740.25,
-            "positionX": 2298,
-            "positionY": 1396,
+            "cropTop": 123,
+            "height": 994.040771484375,
+            "positionX": 1976,
+            "positionY": 1183,
             "rotation": 0,
-            "scaleX": 0.3424796760082245,
-            "scaleY": 0.3427083194255829,
+            "scaleX": 0.4601648449897766,
+            "scaleY": 0.4602040648460388,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 1315.1219482421875
+            "width": 1767.032958984375
+          }
+        },
+        {
+          "sourceName": "Camera - Match 1 Player Red",
+          "sceneItemId": 30,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 123,
+            "cropLeft": 183,
+            "cropRight": 183,
+            "cropToBounds": false,
+            "cropTop": 123,
+            "height": 994.040771484375,
+            "positionX": 264,
+            "positionY": 1183,
+            "rotation": 0,
+            "scaleX": 0.4601648449897766,
+            "scaleY": 0.4602040648460388,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 1767.032958984375
           }
         },
         {
           "sourceName": "Camera - Match 1 Hand Blue",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15814,32 +16280,32 @@
         },
         {
           "sourceName": "Camera - Match 1 Gameplay",
-          "sceneItemId": 14,
+          "sceneItemId": 31,
           "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 48,
+            "boundsWidth": 1,
+            "cropBottom": 0,
             "cropLeft": 0,
-            "cropRight": 1284,
+            "cropRight": 192,
             "cropToBounds": false,
-            "cropTop": 48,
-            "height": 1892.8043212890625,
-            "positionX": 0,
-            "positionY": 248,
-            "rotation": 0,
-            "scaleX": 0.876369297504425,
-            "scaleY": 0.8762983083724976,
+            "cropTop": 1089,
+            "height": 1961,
+            "positionX": 3576,
+            "positionY": 1067,
+            "rotation": 180,
+            "scaleX": 0.9078947305679321,
+            "scaleY": 0.907870352268219,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 3365.258056640625
+            "width": 3486.315673828125
           }
         },
         {
-          "sourceName": "Browser - Match Hand Frame Blue",
+          "sourceName": "Browser - Match 1 Hand Frame Blue",
           "sceneItemId": 29,
           "enabled": true,
           "transform": {
@@ -15867,7 +16333,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 15,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15949,7 +16415,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 36,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -15973,35 +16439,61 @@
           }
         },
         {
+          "sourceName": "Camera - Match 1 Player Blue",
+          "sceneItemId": 40,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 123,
+            "cropLeft": 183,
+            "cropRight": 183,
+            "cropToBounds": false,
+            "cropTop": 123,
+            "height": 994.040771484375,
+            "positionX": 1976,
+            "positionY": 1183,
+            "rotation": 0,
+            "scaleX": 0.4601648449897766,
+            "scaleY": 0.4602040648460388,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 1767.032958984375
+          }
+        },
+        {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 35,
           "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 120,
-            "cropLeft": 860,
-            "cropRight": 860,
+            "boundsWidth": 1,
+            "cropBottom": 123,
+            "cropLeft": 183,
+            "cropRight": 183,
             "cropToBounds": false,
-            "cropTop": 120,
-            "height": 740.25,
-            "positionX": 820,
-            "positionY": 1396,
+            "cropTop": 123,
+            "height": 994.040771484375,
+            "positionX": 264,
+            "positionY": 1183,
             "rotation": 0,
-            "scaleX": 0.3424796760082245,
-            "scaleY": 0.3427083194255829,
+            "scaleX": 0.4601648449897766,
+            "scaleY": 0.4602040648460388,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 1315.1219482421875
+            "width": 1767.032958984375
           }
         },
         {
           "sourceName": "Camera - Match 1 Hand Red",
           "sceneItemId": 18,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16031,23 +16523,23 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 48,
+            "boundsWidth": 1,
+            "cropBottom": 1090,
             "cropLeft": 0,
-            "cropRight": 1284,
+            "cropRight": 192,
             "cropToBounds": false,
-            "cropTop": 48,
-            "height": 1892.8043212890625,
-            "positionX": 1600,
-            "positionY": 248,
+            "cropTop": 0,
+            "height": 1960,
+            "positionX": 265,
+            "positionY": 97,
             "rotation": 0,
-            "scaleX": 0.876369297504425,
-            "scaleY": 0.8762983083724976,
+            "scaleX": 0.9076206088066101,
+            "scaleY": 0.9074074029922485,
             "sourceHeight": 2160,
             "sourceWidth": 3840,
-            "width": 3365.258056640625
+            "width": 3485.26318359375
           }
         },
         {
@@ -16079,7 +16571,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 39,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16399,7 +16891,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Right",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16425,7 +16917,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Left",
           "sceneItemId": 5,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16451,7 +16943,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Red",
           "sceneItemId": 21,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16477,7 +16969,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Blue",
           "sceneItemId": 20,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16503,7 +16995,7 @@
         {
           "sourceName": "Camera - Match 1 Gameplay",
           "sceneItemId": 22,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16527,9 +17019,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Pregame Frame",
+          "sourceName": "Browser - Match 1 Pregame Frame",
           "sceneItemId": 40,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16555,7 +17047,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 24,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16581,7 +17073,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 25,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16640,7 +17132,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Right",
           "sceneItemId": 29,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16666,7 +17158,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Left",
           "sceneItemId": 31,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16692,7 +17184,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 34,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16718,7 +17210,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 33,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16744,7 +17236,7 @@
         {
           "sourceName": "Camera - Match 1 Gameplay",
           "sceneItemId": 35,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16768,9 +17260,9 @@
           }
         },
         {
-          "sourceName": "Browser - Match Pregame Frame",
+          "sourceName": "Browser - Match 1 Pregame Frame",
           "sceneItemId": 50,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16796,7 +17288,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 37,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16822,7 +17314,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 39,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -16869,6 +17361,170 @@
             "sourceHeight": 4080,
             "sourceWidth": 4000,
             "width": 8000
+          }
+        }
+      ]
+    },
+    "Match 1 - Player Blue In Game": {
+      "sources": [
+        {
+          "sourceName": "Camera - Match 1 Player Blue",
+          "sceneItemId": 1,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 120,
+            "cropLeft": 212,
+            "cropRight": 214,
+            "cropToBounds": false,
+            "cropTop": 120,
+            "height": 2430,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1.125,
+            "scaleY": 1.125,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 4320
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 1 Camera Ingest",
+          "sceneItemId": 5,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
+          }
+        }
+      ]
+    },
+    "Match 1 - Player Red In Game": {
+      "sources": [
+        {
+          "sourceName": "Camera - Match 1 Player Red",
+          "sceneItemId": 1,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 120,
+            "cropLeft": 212,
+            "cropRight": 214,
+            "cropToBounds": false,
+            "cropTop": 120,
+            "height": 2430,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1.125,
+            "scaleY": 1.125,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 4320
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 1 Camera Ingest",
+          "sceneItemId": 5,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
           }
         }
       ]

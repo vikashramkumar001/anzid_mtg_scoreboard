@@ -306,6 +306,14 @@
     ],
     "cmc": 2
   },
+  "Aberrant Manawurm": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/9/797131cf-d80d-4050-bebd-2ce1d7fae5d0.png?1775937935",
+    "manaCost": "{3}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 4
+  },
   "Aberrant Mind Sorcerer": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/9/d9c6401a-e152-4acf-a2ca-75c484f296d5.png?1767960035",
     "manaCost": "{4}{U}",
@@ -370,6 +378,15 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Abigale, Poet Laureate": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.png?1775938164",
+    "manaCost": "{1}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 3
   },
   "Abjure": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/b/fbad9449-d09c-4fd0-b2ad-2aa3a29e03bf.png?1562804357",
@@ -579,6 +596,23 @@
     "manaCost": "",
     "colors": [],
     "cmc": 0
+  },
+  "Abstract Paintmage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/a/ea008094-d995-4740-9b39-c61049356c55.png?1775938173",
+    "manaCost": "{U}{U/R}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 3
+  },
+  "Abstract Performance": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/7/2795c812-0850-4405-b968-b624deaccd55.png?1775939727",
+    "manaCost": "{5}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 6
   },
   "Abstruse Appropriation": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/7/d7149359-bb3f-413c-b21d-e4cd88618e56.png?1743404340",
@@ -1520,6 +1554,14 @@
     ],
     "cmc": 2
   },
+  "Additive Evolution": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/4/b44ec684-d558-45eb-bcd6-8119428634c2.png?1775937943",
+    "manaCost": "{3}{G}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 5
+  },
   "Addle": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/8/e8afb9d0-affa-4599-bf29-729cfe64703b.png?1562941705",
     "manaCost": "{1}{B}",
@@ -1670,7 +1712,7 @@
     "cmc": 2
   },
   "Adrix and Nev, Twincasters": {
-    "imageUrl": "https://cards.scryfall.io/png/front/8/2/823ccb07-cf08-4ae3-9b9a-f16de8e6d745.png?1625981610",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/a/5a052dd2-6b5e-4f50-b481-7eee3d63a221.png?1776731179",
     "manaCost": "{2}{G}{U}",
     "colors": [
       "G",
@@ -1710,6 +1752,14 @@
     "manaCost": "{3}{U}",
     "colors": [
       "U"
+    ],
+    "cmc": 4
+  },
+  "Advanced Reconstruction": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/c/cc912fec-827d-4deb-8430-79f5ea31ca9b.png?1775939819",
+    "manaCost": "{3}{R}",
+    "colors": [
+      "R"
     ],
     "cmc": 4
   },
@@ -1761,6 +1811,14 @@
     "manaCost": "{1}",
     "colors": [],
     "cmc": 1
+  },
+  "Adventurous Eater": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/4/d40cc7da-c731-418e-8547-7033d1939450.png?1775937412",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
   },
   "Adventurous Impulse": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/4/f426c92c-6e71-49f0-9a91-0d529bf8c17d.png?1562745600",
@@ -3057,7 +3115,7 @@
     "cmc": 2
   },
   "Agility Bobblehead": {
-    "imageUrl": "https://cards.scryfall.io/png/front/1/6/16414b32-2e70-4da6-9556-fcac07528e5f.png?1708560944",
+    "imageUrl": "https://cards.scryfall.io/png/front/1/6/16414b32-2e70-4da6-9556-fcac07528e5f.png?1774938198",
     "manaCost": "{3}",
     "colors": [],
     "cmc": 3
@@ -3647,6 +3705,14 @@
     ],
     "cmc": 2
   },
+  "Ajani's Response": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/c/9cd1417a-badc-4abd-a8ca-5b31f85c1072.png?1776047920",
+    "manaCost": "{4}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 5
+  },
   "Ajani's Sunstriker": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/5/3570c4d9-cd42-4aca-9421-ac44e057a785.png?1562552325",
     "manaCost": "{W}{W}",
@@ -4024,7 +4090,7 @@
     "cmc": 4
   },
   "Akroma's Memorial": {
-    "imageUrl": "https://cards.scryfall.io/png/front/7/c/7c23360d-ff57-412c-9899-6050cb481da6.png?1767689921",
+    "imageUrl": "https://cards.scryfall.io/png/front/7/c/7c23360d-ff57-412c-9899-6050cb481da6.png?1774937997",
     "manaCost": "{7}",
     "colors": [],
     "cmc": 7
@@ -4607,6 +4673,14 @@
     "colors": [],
     "cmc": 5
   },
+  "All Aboard": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/e/4ecbca71-9a1d-44c5-b709-d6f565941d5e.png?1775937376",
+    "manaCost": "{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
+  },
   "All Hallow's Eve": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/8/18787a2d-6688-47e9-94bc-ccf229df823f.png?1562857765",
     "manaCost": "{2}{B}{B}",
@@ -4668,7 +4742,7 @@
     "cmc": 4
   },
   "All-Out Assault": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/2/42c0f348-2435-4c62-9bf7-c1efded1fca0.png?1744454699",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/2/42c0f348-2435-4c62-9bf7-c1efded1fca0.png?1775115109",
     "manaCost": "{2}{R}{W}{B}",
     "colors": [
       "B",
@@ -5068,7 +5142,7 @@
     "cmc": 5
   },
   "Alrund's Epiphany": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/9/c94fcb53-a7bd-4a80-a536-9fb0eb24261a.png?1644607558",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/9/c94fcb53-a7bd-4a80-a536-9fb0eb24261a.png?1776479011",
     "manaCost": "{5}{U}{U}",
     "colors": [
       "U"
@@ -5368,6 +5442,14 @@
       "R"
     ],
     "cmc": 3
+  },
+  "Ambitious Augmenter": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/3/0319c982-e257-42fc-bb85-79da3a6dd6c1.png?1775939366",
+    "manaCost": "{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 1
   },
   "Ambitious Dragonborn": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/e/5e56a516-d71a-49c4-a929-9a8973125d3c.png?1674136941",
@@ -6006,6 +6088,14 @@
   "Ancestral Memories": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/1/b1d1298b-9f56-4540-8d6b-7eecfe38cf62.png?1562721416",
     "manaCost": "{2}{U}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 5
+  },
+  "Ancestral Recall": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/5/75961d36-acf6-425f-9698-0bf52af74f31.png?1775937223",
+    "manaCost": "{U}",
     "colors": [
       "U"
     ],
@@ -7562,6 +7652,14 @@
     ],
     "cmc": 2
   },
+  "Antiquities on the Loose": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/8/68ee92cd-51af-4de5-bcc8-34d0bb2fd398.png?1775936960",
+    "manaCost": "{1}{W}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
+  },
   "Antler Skulkin": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/a/ca66c361-3cea-4f9c-836d-3513f05d6b22.png?1562937757",
     "manaCost": "{5}",
@@ -7878,7 +7976,7 @@
     "cmc": 4
   },
   "Appa, Aang's Companion": {
-    "imageUrl": "https://cards.scryfall.io/png/front/1/c/1c5ae0d3-26e4-4d10-85ae-0578cf90eead.png?1764719299",
+    "imageUrl": "https://cards.scryfall.io/png/front/1/c/1c5ae0d3-26e4-4d10-85ae-0578cf90eead.png?1774851428",
     "manaCost": "{3}{W}",
     "colors": [
       "W"
@@ -7970,6 +8068,15 @@
       "U"
     ],
     "cmc": 2
+  },
+  "Applied Geometry": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/3/03b07915-1d88-4f11-ad35-a0cd849de977.png?1775939413",
+    "manaCost": "{2}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 4
   },
   "Apprentice Necromancer": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/d/6d7cc1f6-9897-4de4-8e94-40cbe2d962a2.png?1562444236",
@@ -8104,6 +8211,14 @@
       "U"
     ],
     "cmc": 5
+  },
+  "Aqueous Aria": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/a/fac8ac39-ecb4-4142-bf37-131c65660a9b.png?1775937189",
+    "manaCost": "{4}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 4
   },
   "Aqueous Form": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/a/ba104245-0483-407f-971b-ad6d8efd9733.png?1562827741",
@@ -8691,6 +8806,14 @@
     ],
     "cmc": 5
   },
+  "Arcane Omens": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/3/d357d997-9d4e-4ade-81f2-37629853f13a.png?1775937419",
+    "manaCost": "{4}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 5
+  },
   "Arcane Proxy": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/6/d6d74d2e-7382-4fe3-ac3e-6906203ffcc7.png?1739650281",
     "manaCost": "{7}",
@@ -8910,7 +9033,7 @@
     "cmc": 1
   },
   "Arcee, Acrobatic Coupe": {
-    "imageUrl": "https://cards.scryfall.io/png/back/2/1/21462db4-7739-4853-845f-0c2aa38fd2a6.png?1763297322",
+    "imageUrl": "https://cards.scryfall.io/png/back/2/1/21462db4-7739-4853-845f-0c2aa38fd2a6.png?1774787058",
     "manaCost": "",
     "colors": [
       "R",
@@ -8919,7 +9042,7 @@
     "cmc": 3
   },
   "Arcee, Sharpshooter": {
-    "imageUrl": "https://cards.scryfall.io/png/front/2/1/21462db4-7739-4853-845f-0c2aa38fd2a6.png?1763297322",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/1/21462db4-7739-4853-845f-0c2aa38fd2a6.png?1774787058",
     "manaCost": "{1}{R}{W}",
     "colors": [
       "R",
@@ -8940,7 +9063,7 @@
     "cmc": 0
   },
   "Archaeomancer": {
-    "imageUrl": "https://cards.scryfall.io/png/front/7/3/73c6d1be-55ad-4ee4-b044-88438e9b78cc.png?1562555558",
+    "imageUrl": "https://cards.scryfall.io/png/front/d/5/d583783f-623c-40dd-9dac-0937d65f9341.png?1775936849",
     "manaCost": "{2}{U}{U}",
     "colors": [
       "U"
@@ -8962,6 +9085,14 @@
       "U"
     ],
     "cmc": 3
+  },
+  "Archaic's Agony": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/d/8d99f8b2-5c1c-4059-bf68-c6b2e9e5b275.png?1775937675",
+    "manaCost": "{4}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 5
   },
   "Archangel": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/6/368144bf-d415-48ab-a957-9d7ac1ceb353.png?1562277438",
@@ -9295,7 +9426,7 @@
     "cmc": 3
   },
   "Archmage Emeritus": {
-    "imageUrl": "https://cards.scryfall.io/png/front/7/6/761df6cd-0928-4167-8902-58fdb50181a0.png?1624589970",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/a/2ab5ba3a-22a5-4d79-af99-fe1ef6cc8676.png?1775936856",
     "manaCost": "{2}{U}{U}",
     "colors": [
       "U"
@@ -9603,7 +9734,7 @@
     "cmc": 3
   },
   "Arden Angel": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/e/ceb42fb7-1ac5-4923-bec8-2aa2d4dbefd5.png?1693634295",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/e/ceb42fb7-1ac5-4923-bec8-2aa2d4dbefd5.png?1776670577",
     "manaCost": "{4}{W}{W}",
     "colors": [
       "W"
@@ -9990,6 +10121,15 @@
     "manaCost": "{2}",
     "colors": [],
     "cmc": 2
+  },
+  "Ark of Hunger": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/3/33669848-23ce-4738-9401-469b03f0fd6e.png?1775939422",
+    "manaCost": "{2}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 4
   },
   "Arlinn Kord": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/3/b37aa12c-a6b3-4cf8-b5a4-0a999ff12d02.png?1576385339",
@@ -10540,6 +10680,14 @@
     ],
     "cmc": 4
   },
+  "Arnyn, Deathbloom Botanist": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/1/6168b472-0930-4db5-9920-407340b99050.png?1775937426",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
+  },
   "Aron, Benalia's Ruin": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/6/861f36b9-9f43-4ace-8e60-4ba671b2655a.png?1674073930",
     "manaCost": "{W}{W}{B}",
@@ -10832,6 +10980,14 @@
     ],
     "cmc": 2
   },
+  "Artistic Process": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/c/bce9d933-be58-4301-beb4-07b04d0b69f0.png?1775937683",
+    "manaCost": "{3}{R}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 5
+  },
   "Artistic Refusal": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/b/2bd05f97-ef8b-4cbe-a44b-6501aa5895b0.png?1682202981",
     "manaCost": "{4}{U}{U}",
@@ -10930,6 +11086,14 @@
     "manaCost": "{4}{G}",
     "colors": [
       "G"
+    ],
+    "cmc": 5
+  },
+  "Ascendant Dustspeaker": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/e/de3de40b-a7ac-455e-add2-4e451b602d17.png?1776000359",
+    "manaCost": "{4}{W}",
+    "colors": [
+      "W"
     ],
     "cmc": 5
   },
@@ -12413,6 +12577,14 @@
     ],
     "cmc": 2
   },
+  "Augusta, Order Returned": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/1/11dee8bb-a19a-44a7-aa19-55cdd3a0bcf6.png?1775940040",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
+  },
   "Aunt May": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/d/ad96343b-baac-428c-8270-fcffbbbe9fb8.png?1757376751",
     "manaCost": "{W}",
@@ -13757,6 +13929,14 @@
     ],
     "cmc": 1
   },
+  "Awaken the Ages": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/d/8de79312-2046-425e-9919-49afe19be81b.png?1775937883",
+    "manaCost": "{5}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Awaken the Ancient": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/4/e4125304-fd68-4051-96d5-625ffa9b0d3c.png?1562836357",
     "manaCost": "{1}{R}{R}{R}",
@@ -14194,6 +14374,15 @@
       "U"
     ],
     "cmc": 3
+  },
+  "Aziza, Mage Tower Captain": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/2/6261e89a-dbf1-481a-823e-6bb00be57195.png?1775938194",
+    "manaCost": "{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 2
   },
   "Azlask, the Swelling Scourge": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/5/25542498-0459-4579-be7c-6f9e531377e7.png?1721158644",
@@ -15516,6 +15705,14 @@
     ],
     "cmc": 3
   },
+  "Banishing Betrayal": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/a/1ae9d2f3-7a9f-433a-aa1f-14337ae6f9d4.png?1775937176",
+    "manaCost": "{1}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
+  },
   "Banishing Coils": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/8/18da890e-0f8d-41e9-a29f-24cb5393c464.png?1674135080",
     "manaCost": "{2}{W}",
@@ -16318,7 +16515,7 @@
     "cmc": 1
   },
   "Barrowgoyf": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/e/cea3b218-0e6e-443a-84f7-380f1021e8e1.png?1721158905",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/e/cea3b218-0e6e-443a-84f7-380f1021e8e1.png?1775745570",
     "manaCost": "{2}{B}",
     "colors": [
       "B"
@@ -18790,6 +18987,15 @@
     ],
     "cmc": 5
   },
+  "Berta, Wise Extrapolator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/b/5bead52e-862e-47aa-916c-79585eb2e7ab.png?1775939437",
+    "manaCost": "{2}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 4
+  },
   "Beseech the Mirror": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/8/18c59776-e1f1-4197-a128-db1d603f56b7.png?1692937498",
     "manaCost": "{1}{B}{B}{B}",
@@ -19061,6 +19267,12 @@
     ],
     "cmc": 5
   },
+  "Biblioplex Tomekeeper": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/f/bf2efdd9-d2b4-4bea-a5b9-dbb2eee4dfba.png?1775938724",
+    "manaCost": "{4}",
+    "colors": [],
+    "cmc": 4
+  },
   "Bident of Thassa": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/5/85e45d14-a501-40b9-af0a-720ecd20dad7.png?1562820883",
     "manaCost": "{2}{U}{U}",
@@ -19256,6 +19468,14 @@
       "U"
     ],
     "cmc": 1
+  },
+  "Bind to Life": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/7/476b6a4d-cc05-4e98-8a45-a5c6582ec514.png?1775938136",
+    "manaCost": "{4}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
   },
   "Binding Agony": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/6/b620a9f4-358d-4436-85b8-b0c16602ff57.png?1562721422",
@@ -19762,7 +19982,7 @@
     "cmc": 2
   },
   "Bitterblossom": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/c/4c2fd7bd-6528-453b-b55d-a708967b14e8.png?1768940671",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/c/4c2fd7bd-6528-453b-b55d-a708967b14e8.png?1775114958",
     "manaCost": "{1}{B}",
     "colors": [
       "B"
@@ -20537,6 +20757,14 @@
     ],
     "cmc": 2
   },
+  "Blazing Firesinger": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/b/3ba971e7-0b7a-4750-896f-7cf063e66b2a.png?1775937691",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Blazing Hellhound": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/3/332769b1-1eb5-4c77-8317-27addc28650b.png?1562013794",
     "manaCost": "{2}{B}{R}",
@@ -20622,6 +20850,15 @@
       "B"
     ],
     "cmc": 5
+  },
+  "Blech, Loafing Pest": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/5/f588fa50-7cc5-41ba-90df-2d252eb5c785.png?1775938208",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
   },
   "Bleed Dry": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/d/3db65755-f104-4de9-bcc9-0a4a7bc66b51.png?1643589104",
@@ -20733,7 +20970,7 @@
     "cmc": 2
   },
   "Blessed Sanctuary": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/f/ff80029e-650e-469d-8393-0edf7d9cd695.png?1774523853",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/f/ff80029e-650e-469d-8393-0edf7d9cd695.png?1775411000",
     "manaCost": "{3}{W}{W}",
     "colors": [
       "W"
@@ -22299,6 +22536,14 @@
     "colors": [],
     "cmc": 3
   },
+  "Bloodletting": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/7/c715fe4c-c0e7-4342-811f-b74687851097.png?1775937525",
+    "manaCost": "{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
+  },
   "Bloodline Bidding": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/7/877d9b75-ad2f-45a6-94d8-68e80d7db789.png?1767732723",
     "manaCost": "{6}{B}{B}",
@@ -23461,6 +23706,15 @@
       "B"
     ],
     "cmc": 6
+  },
+  "Bogwater Lumaret": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/a/7a42f51a-3377-47bb-b6fb-c0515bf1dcfb.png?1775938216",
+    "manaCost": "{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 2
   },
   "Bohn, Beguiling Balladeer": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/8/c80c7702-3226-4ec6-bb75-26621a146a7e.png?1757464159",
@@ -24762,6 +25016,15 @@
     ],
     "cmc": 1
   },
+  "Borrowed Knowledge": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/3/a3226e14-554d-47c9-b8b6-dfeb53cc41ba.png?1775938224",
+    "manaCost": "{2}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 4
+  },
   "Borrowed Malevolence": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/7/a71f123e-aad9-4f3e-9f43-1d1be359affb.png?1576384267",
     "manaCost": "{B}",
@@ -25354,7 +25617,7 @@
     "cmc": 1
   },
   "Brain Freeze": {
-    "imageUrl": "https://cards.scryfall.io/png/front/5/9/59a43ef5-08f0-44fc-802d-b6cfd56b7d1f.png?1562529493",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/9/59a43ef5-08f0-44fc-802d-b6cfd56b7d1f.png?1776775427",
     "manaCost": "{1}{U}",
     "colors": [
       "U"
@@ -25709,6 +25972,12 @@
     "colors": [],
     "cmc": 6
   },
+  "Brass Infiniscope": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/4/549f89a5-1558-4ce5-a579-329e89eeb8aa.png?1775940322",
+    "manaCost": "{4}",
+    "colors": [],
+    "cmc": 4
+  },
   "Brass Knuckles": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/d/fd31ee9e-1af7-4eb4-bda8-11451ebd6927.png?1664414075",
     "manaCost": "{4}",
@@ -25956,7 +26225,7 @@
     "cmc": 7
   },
   "Breaching Dragonstorm": {
-    "imageUrl": "https://cards.scryfall.io/png/front/6/b/6bbfdf32-8b21-4f7a-aa30-42d5362ee352.png?1744455191",
+    "imageUrl": "https://cards.scryfall.io/png/front/6/b/6bbfdf32-8b21-4f7a-aa30-42d5362ee352.png?1775114996",
     "manaCost": "{4}{R}",
     "colors": [
       "R"
@@ -26707,7 +26976,7 @@
     "cmc": 7
   },
   "Brilliant Wings": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/3/c358af5d-61e3-4c4d-9d7d-2f3e43210339.png?1764956537",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/3/c358af5d-61e3-4c4d-9d7d-2f3e43210339.png?1775115359",
     "manaCost": "{1}{W}",
     "colors": [
       "W"
@@ -27664,6 +27933,14 @@
     ],
     "cmc": 4
   },
+  "Brush Off": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/5/151eab82-d20f-433b-b3bb-1d44e2871d5c.png?1775937183",
+    "manaCost": "{2}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 4
+  },
   "Brush with Death": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/4/04013bc6-7774-400b-a6af-de755b4c324d.png?1562595903",
     "manaCost": "{2}{B}",
@@ -28066,7 +28343,7 @@
     "cmc": 5
   },
   "Bumi's Feast Lecture": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/2/f29ba4cb-112a-4065-883b-94d1e154b83f.png?1764118618",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/2/f29ba4cb-112a-4065-883b-94d1e154b83f.png?1776653983",
     "manaCost": "{1}{G}",
     "colors": [
       "G"
@@ -28147,7 +28424,7 @@
     "cmc": 2
   },
   "Burgeoning": {
-    "imageUrl": "https://cards.scryfall.io/png/front/a/5/a53c6a0e-9bbc-4a7b-8059-bc20806823d9.png?1768232795",
+    "imageUrl": "https://cards.scryfall.io/png/front/a/5/a53c6a0e-9bbc-4a7b-8059-bc20806823d9.png?1775114482",
     "manaCost": "{G}",
     "colors": [
       "G"
@@ -28583,6 +28860,22 @@
       "W"
     ],
     "cmc": 5
+  },
+  "Burrog Banemaker": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/e/3e4f9d23-1a17-4188-ac91-f8ddea46a1c4.png?1775937433",
+    "manaCost": "{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 1
+  },
+  "Burrog Barrage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.png?1775937957",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
   },
   "Burrog Befuddler": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/0/6040c573-cd8c-4593-8ade-d9922482035c.png?1624589994",
@@ -29696,7 +29989,7 @@
     "cmc": 7
   },
   "Call the Spirit Dragons": {
-    "imageUrl": "https://cards.scryfall.io/png/front/9/4/9473ac65-acb4-454b-84ce-2a505387cc24.png?1744455193",
+    "imageUrl": "https://cards.scryfall.io/png/front/9/4/9473ac65-acb4-454b-84ce-2a505387cc24.png?1775115008",
     "manaCost": "{W}{U}{B}{R}{G}",
     "colors": [
       "B",
@@ -29993,12 +30286,20 @@
     "cmc": 1
   },
   "Campsite Cuisine": {
-    "imageUrl": "https://cards.scryfall.io/png/front/e/c/ec6d3402-eed6-44be-a572-9ec0678af403.png?1764956585",
+    "imageUrl": "https://cards.scryfall.io/png/front/e/c/ec6d3402-eed6-44be-a572-9ec0678af403.png?1775115352",
     "manaCost": "{1}{G}",
     "colors": [
       "G"
     ],
     "cmc": 2
+  },
+  "Campus Composer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/a/fac8ac39-ecb4-4142-bf37-131c65660a9b.png?1775937189",
+    "manaCost": "{3}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 4
   },
   "Campus Guide": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/7/87a9a8a2-de81-441b-b501-418311b677f7.png?1624740567",
@@ -30462,7 +30763,7 @@
     "cmc": 0
   },
   "Capital Guard": {
-    "imageUrl": "https://cards.scryfall.io/png/front/9/1/91cbed11-3b5c-4e7a-9b13-125c1fe5f22f.png?1764719211",
+    "imageUrl": "https://cards.scryfall.io/png/front/9/1/91cbed11-3b5c-4e7a-9b13-125c1fe5f22f.png?1774851479",
     "manaCost": "{1}{R}",
     "colors": [
       "R"
@@ -31367,7 +31668,7 @@
     "cmc": 3
   },
   "Casal, Lurkwood Pathfinder": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/b/fb348aec-ab4e-4940-9235-43f2ef581195.png?1757464132",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/b/fb348aec-ab4e-4940-9235-43f2ef581195.png?1776671355",
     "manaCost": "{3}{G}",
     "colors": [
       "G"
@@ -31375,7 +31676,7 @@
     "cmc": 4
   },
   "Casal, Pathbreaker Owlbear": {
-    "imageUrl": "https://cards.scryfall.io/png/back/f/b/fb348aec-ab4e-4940-9235-43f2ef581195.png?1757464132",
+    "imageUrl": "https://cards.scryfall.io/png/back/f/b/fb348aec-ab4e-4940-9235-43f2ef581195.png?1776671355",
     "manaCost": "",
     "colors": [
       "G"
@@ -32128,6 +32429,15 @@
     ],
     "cmc": 2
   },
+  "Cauldron of Essence": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/6/96c53f07-b34c-4cc7-a054-f0bdfa48b975.png?1775939445",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
+  },
   "Cauldron of Souls": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/7/c7546996-aa71-45f2-93df-3e1f61b252a9.png?1562835814",
     "manaCost": "{5}",
@@ -32471,6 +32781,14 @@
       "W"
     ],
     "cmc": 3
+  },
+  "Ceaseless Conflict": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/0/a0e18f74-7fa6-4e3a-bc80-390a25055205.png?1775939692",
+    "manaCost": "{3}{W}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 5
   },
   "Ceaseless Searblades": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/7/a7e103a3-555c-4b68-9768-42637bfd2478.png?1562361967",
@@ -34241,6 +34559,14 @@
     "colors": [],
     "cmc": 3
   },
+  "Changing Loyalty": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/2/4260fab8-5597-45d8-8a1c-22ef96939071.png?1775940135",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
+  },
   "Channel": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/1/c1862c47-71cc-45a3-8805-a5ddc62e55ea.png?1559591460",
     "manaCost": "{G}{G}",
@@ -34682,6 +35008,14 @@
     ],
     "cmc": 5
   },
+  "Charging Strifeknight": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/9/9940d992-1ba1-40ec-9b93-17d773452c4b.png?1775937699",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Charging Troll": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/8/58956099-6b97-4c7b-ab23-9f9b4d50ef95.png?1562913006",
     "manaCost": "{2}{G}{W}",
@@ -34917,6 +35251,14 @@
     ],
     "cmc": 6
   },
+  "Chase Inspiration": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.png?1775937195",
+    "manaCost": "{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 1
+  },
   "Chasm Drake": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/e/5e7e246d-92f8-4e6e-89fc-991b888fc1e8.png?1562644250",
     "manaCost": "{4}{U}",
@@ -35003,6 +35345,14 @@
     "colors": [],
     "cmc": 1
   },
+  "Cheerful Osteomancer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/c/3c34660c-25e3-4ff5-9b2b-5554ded2bcc3.png?1775937441",
+    "manaCost": "{3}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 4
+  },
   "Cheering Crowd": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/4/44f436ca-0ae8-4c35-871b-4bd2732e5a49.png?1757379115",
     "manaCost": "{1}{R/G}",
@@ -35025,6 +35375,14 @@
     "manaCost": "{1}{R}{R}",
     "colors": [
       "R"
+    ],
+    "cmc": 3
+  },
+  "Chelonian Tackle": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/8/a82a4d8c-4105-4923-85a2-ef58241f725c.png?1775937964",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
     ],
     "cmc": 3
   },
@@ -35236,7 +35594,7 @@
     "cmc": 3
   },
   "Chilling Chronicle": {
-    "imageUrl": "https://cards.scryfall.io/png/back/c/a/caa57b63-bb11-45e8-8795-de92ca61f4f1.png?1739662006",
+    "imageUrl": "https://cards.scryfall.io/png/back/c/a/caa57b63-bb11-45e8-8795-de92ca61f4f1.png?1776203263",
     "manaCost": "",
     "colors": [
       "U"
@@ -35670,6 +36028,14 @@
       "G"
     ],
     "cmc": 3
+  },
+  "Choreographed Sparks": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/c/0cda4235-4dce-48fe-a8a5-2a952dedbe25.png?1776583993",
+    "manaCost": "{R}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
   },
   "Chorus of Might": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/1/214dc9c1-154d-4c35-845d-dd2928f1e142.png?1562783633",
@@ -38168,6 +38534,12 @@
     ],
     "cmc": 5
   },
+  "Coastal Peak": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/9/494034a4-581a-45fe-8e87-0b0cbf339052.png?1775940330",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Coastal Piracy": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/7/179d1f76-6f4c-4a77-815a-aae7a933c9ad.png?1681616794",
     "manaCost": "{2}{U}{U}",
@@ -38319,7 +38691,7 @@
     "cmc": 1
   },
   "Codie, Vociferous Codex": {
-    "imageUrl": "https://cards.scryfall.io/png/front/e/7/e7d7e96e-5d35-41dc-9a8a-2049e2e56350.png?1630194602",
+    "imageUrl": "https://cards.scryfall.io/png/front/b/b/bb2c1b81-36a5-4b4a-b561-5d5fb807c5f4.png?1776086574",
     "manaCost": "{3}",
     "colors": [],
     "cmc": 3
@@ -38352,6 +38724,14 @@
   },
   "Coercion": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/3/f3b07d33-f5f5-45cc-b2ac-360eaf2d4146.png?1562279113",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
+  },
+  "Coercive Impetus": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/e/1e38b687-3873-454a-91a3-804c5b019d59.png?1775940142",
     "manaCost": "{2}{B}",
     "colors": [
       "B"
@@ -38800,6 +39180,15 @@
     ],
     "cmc": 2
   },
+  "Colorstorm Stallion": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/5/f5b54d46-2caf-4d1b-8be1-dbd9e9dce058.png?1775938240",
+    "manaCost": "{1}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 3
+  },
   "Colos Yearling": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/d/1d68eb62-9f86-4c85-8696-46a248c744ff.png?1562443334",
     "manaCost": "{2}{R}",
@@ -38970,6 +39359,15 @@
     "colors": [],
     "cmc": 9
   },
+  "Colossus of the Blood Age": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/f/bfa7f0a4-6b65-4e53-ba00-848df260d8e3.png?1775938248",
+    "manaCost": "{4}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 6
+  },
   "Coma Veil": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/d/2d5b820c-fd07-4e1f-9451-da9267347acd.png?1562702340",
     "manaCost": "{4}{U}",
@@ -39136,6 +39534,14 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Comforting Counsel": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/f/2ffdf0cc-aa53-4ec0-bed5-e3a04bbabdc6.png?1775939373",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
   },
   "Coming In Hot": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/f/4f6eb966-67af-4b18-8899-4a99a5179aa3.png?1682204111",
@@ -39692,6 +40098,15 @@
     "manaCost": "{2}",
     "colors": [],
     "cmc": 2
+  },
+  "Conciliator's Duelist": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/6/b654da8c-8e93-4d2b-9b10-4b55241bcfbc.png?1775939454",
+    "manaCost": "{W}{W}{B}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 4
   },
   "Conclave Cavalier": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/6/b658a309-d14c-4e20-8c76-e7b3c5156bf2.png?1572893558",
@@ -41571,7 +41986,7 @@
     "cmc": 2
   },
   "Corroding Dragonstorm": {
-    "imageUrl": "https://cards.scryfall.io/png/front/a/8/a8f19964-b37b-4877-bdd5-c5c3022439ef.png?1744455194",
+    "imageUrl": "https://cards.scryfall.io/png/front/a/8/a8f19964-b37b-4877-bdd5-c5c3022439ef.png?1775114993",
     "manaCost": "{1}{B}",
     "colors": [
       "B"
@@ -41904,6 +42319,14 @@
       "R"
     ],
     "cmc": 4
+  },
+  "Cost of Brilliance": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/a/3a46816b-9f75-4c72-9ec6-cded6a4a0d01.png?1775937447",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
   },
   "Costly Plunder": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/3/c3f1f41e-98fc-4f6b-b287-c8899dff8ab0.png?1562563557",
@@ -42381,7 +42804,7 @@
     "cmc": 3
   },
   "Coveted Jewel": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/8/f83ed433-fae3-4fa5-acad-bb8a5b535ce3.png?1592710349",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/8/f83ed433-fae3-4fa5-acad-bb8a5b535ce3.png?1775570919",
     "manaCost": "{6}",
     "colors": [],
     "cmc": 6
@@ -42707,6 +43130,14 @@
     "manaCost": "{1}{B}",
     "colors": [
       "B"
+    ],
+    "cmc": 2
+  },
+  "Craft with Pride": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/8/c85c5f06-dd31-4e2c-97be-2f64d65069ea.png?1775937759",
+    "manaCost": "{R}",
+    "colors": [
+      "R"
     ],
     "cmc": 2
   },
@@ -44803,6 +45234,15 @@
     ],
     "cmc": 3
   },
+  "Cuboid Colony": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/3/6384d135-7780-4d75-9e95-71bce506948e.png?1775938265",
+    "manaCost": "{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Cubwarden": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/c/cc322744-5d8f-448d-b868-381bb86b68f9.png?1591230214",
     "manaCost": "{3}{W}",
@@ -46209,7 +46649,7 @@
     "cmc": 2
   },
   "Cynette, Jelly Drover": {
-    "imageUrl": "https://cards.scryfall.io/png/front/8/8/8810b817-7349-468b-bcca-ba0843bbc852.png?1730485821",
+    "imageUrl": "https://cards.scryfall.io/png/front/8/8/8810b817-7349-468b-bcca-ba0843bbc852.png?1775410974",
     "manaCost": "{3}{U}",
     "colors": [
       "U"
@@ -47003,7 +47443,7 @@
     "cmc": 3
   },
   "Daring Piracy": {
-    "imageUrl": "https://cards.scryfall.io/png/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.png?1679784296",
+    "imageUrl": "https://cards.scryfall.io/png/front/e/c/ec6ce176-a4f3-44dd-b66a-a23b6cf512e4.png?1775411175",
     "manaCost": "{2}{R}",
     "colors": [
       "R"
@@ -47401,7 +47841,7 @@
     "cmc": 0
   },
   "Darkness": {
-    "imageUrl": "https://cards.scryfall.io/png/front/e/f/ef4c2c08-0a4d-4588-bc35-078da7120937.png?1756912074",
+    "imageUrl": "https://cards.scryfall.io/png/front/e/f/ef4c2c08-0a4d-4588-bc35-078da7120937.png?1774843340",
     "manaCost": "{B}",
     "colors": [
       "B"
@@ -48355,6 +48795,14 @@
     ],
     "cmc": 3
   },
+  "Daydream": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/2/e2b16cb2-b8b2-45df-9695-3c16e9d89e28.png?1775936973",
+    "manaCost": "{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 1
+  },
   "Daysquad Marshal": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/7/17d566bd-f272-49d1-bffb-588f2a42046a.png?1591230220",
     "manaCost": "{3}{W}",
@@ -48364,7 +48812,7 @@
     "cmc": 4
   },
   "Daze": {
-    "imageUrl": "https://cards.scryfall.io/png/front/d/0/d03bff25-0d5e-4dcf-8d75-6df846afea3b.png?1562632115",
+    "imageUrl": "https://cards.scryfall.io/png/front/d/0/d03bff25-0d5e-4dcf-8d75-6df846afea3b.png?1776775674",
     "manaCost": "{1}{U}",
     "colors": [
       "U"
@@ -48825,7 +49273,7 @@
     "cmc": 5
   },
   "Deadpool, Trading Card": {
-    "imageUrl": "https://cards.scryfall.io/png/front/3/a/3a14d6c5-cfd1-4860-834a-5a0dc9df0320.png?1743765756",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/7/47a59a26-e061-4b7c-b682-587c7fec67e1.png?1776683899",
     "manaCost": "{2}{B}{R}",
     "colors": [
       "B",
@@ -48868,7 +49316,7 @@
     "cmc": 3
   },
   "Deafening Silence": {
-    "imageUrl": "https://cards.scryfall.io/png/front/d/0/d0269de7-f273-44ac-806b-a36a5cfc6812.png?1768232805",
+    "imageUrl": "https://cards.scryfall.io/png/front/d/0/d0269de7-f273-44ac-806b-a36a5cfc6812.png?1775114475",
     "manaCost": "{W}",
     "colors": [
       "W"
@@ -49884,6 +50332,14 @@
     ],
     "cmc": 5
   },
+  "Decorum Dissertation": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/4/f4ab2d9b-c73d-478d-aac7-4d3bb24296d2.png?1775937454",
+    "manaCost": "{3}{B}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 5
+  },
   "Decoy Gambit": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/9/39671ac5-c730-4ba2-a2d9-23d5ac13f12b.png?1591319425",
     "manaCost": "{2}{U}",
@@ -50019,6 +50475,15 @@
       "G"
     ],
     "cmc": 3
+  },
+  "Deep Sight": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/1/7120e71b-2976-451b-89a7-a1665dc6fb6b.png?1775938655",
+    "manaCost": "{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 4
   },
   "Deep Spawn": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/9/69c9e4a5-735f-471c-ab1a-6e6d50ba5724.png?1562914592",
@@ -50317,6 +50782,15 @@
       "R"
     ],
     "cmc": 5
+  },
+  "Defacing Duskmage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/1/91493530-bc0a-4ed1-8a4a-9a732fcb3752.png?1775940278",
+    "manaCost": "{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 2
   },
   "Defang": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/1/f12fee0b-c237-4188-a718-1572f72c63ba.png?1592708261",
@@ -50634,6 +51108,14 @@
     "manaCost": "{3}{G}{G}",
     "colors": [
       "G"
+    ],
+    "cmc": 5
+  },
+  "Defiling Daemogoth": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/c/2cde79eb-91c3-4a42-a2d3-e733e3b56846.png?1775939785",
+    "manaCost": "{3}{B}{B}",
+    "colors": [
+      "B"
     ],
     "cmc": 5
   },
@@ -50963,6 +51445,14 @@
       "B"
     ],
     "cmc": 4
+  },
+  "Deluge Virtuoso": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/e/2e3b16ed-8727-48fd-8b1f-c0cbd329385e.png?1775937202",
+    "manaCost": "{2}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
   },
   "Delusions of Mediocrity": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/9/899088b3-4cdf-47c0-8c52-3c9f55c086c4.png?1562863298",
@@ -52710,7 +53200,7 @@
     "cmc": 3
   },
   "Devoted Druid": {
-    "imageUrl": "https://cards.scryfall.io/png/front/1/e/1eb51419-726e-4b59-af0e-d1f07ae8ea5f.png?1768953656",
+    "imageUrl": "https://cards.scryfall.io/png/front/1/e/1eb51419-726e-4b59-af0e-d1f07ae8ea5f.png?1774843403",
     "manaCost": "{1}{G}",
     "colors": [
       "G"
@@ -53096,6 +53586,12 @@
     ],
     "cmc": 4
   },
+  "Diary of Dreams": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/e/ee1e0a96-af80-444e-a456-5b256cf60625.png?1775938731",
+    "manaCost": "{2}",
+    "colors": [],
+    "cmc": 2
+  },
   "Dichotomancy": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/1/61583ead-bccc-44d9-bd1d-2a13511990b5.png?1562572855",
     "manaCost": "{7}{U}{U}",
@@ -53189,6 +53685,14 @@
       "G"
     ],
     "cmc": 6
+  },
+  "Dig Site Inventory": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/5/e52464ee-df8b-41ec-af93-4b0eb004383e.png?1775936980",
+    "manaCost": "{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 1
   },
   "Dig Through Time": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/c/5c18c2d8-995c-4736-bdef-464abcd1d31a.png?1562787144",
@@ -53479,6 +53983,15 @@
     ],
     "cmc": 8
   },
+  "Dina, Essence Brewer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/f/9fe237b8-c02c-41ea-9fc4-b771b91d2157.png?1776731047",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
+  },
   "Dina, Soul Steeper": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/c/9cd2b567-0cf7-4441-b3ce-e31141dd91c8.png?1627428607",
     "manaCost": "{B}{G}",
@@ -53487,6 +54000,15 @@
       "G"
     ],
     "cmc": 2
+  },
+  "Dina's Guidance": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/7/775c1e50-08a4-413f-ab0f-f1c2a79cfe94.png?1775938273",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
   },
   "Dingus Egg": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/5/65eb6cda-e512-40a8-9c1f-335b713409ff.png?1559591600",
@@ -53867,6 +54389,14 @@
     "manaCost": "{2}{B}",
     "colors": [
       "B"
+    ],
+    "cmc": 3
+  },
+  "Dirgur Focusmage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/b/7bdabeba-0cfb-4953-b725-50a48164a044.png?1775939734",
+    "manaCost": "{2}{U}",
+    "colors": [
+      "U"
     ],
     "cmc": 3
   },
@@ -54675,6 +55205,14 @@
     "colors": [],
     "cmc": 4
   },
+  "Dissection Practice": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.png?1775937462",
+    "manaCost": "{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 1
+  },
   "Dissection Tools": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/4/048bb2c6-91bd-4d6a-a070-c73d8277c264.png?1726301876",
     "manaCost": "{5}",
@@ -54909,6 +55447,14 @@
       "U"
     ],
     "cmc": 5
+  },
+  "Divergent Equation": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/6/26295e25-f1bf-4665-ba00-dad35c49bbc2.png?1775937210",
+    "manaCost": "{X}{X}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 1
   },
   "Divergent Growth": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/e/0e609448-7868-4e28-b399-3750556a693c.png?1562525426",
@@ -55524,7 +56070,7 @@
     "cmc": 8
   },
   "Dolmen Gate": {
-    "imageUrl": "https://cards.scryfall.io/png/front/5/0/50191314-ad97-4758-895a-5fc61714de32.png?1768953671",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/0/50191314-ad97-4758-895a-5fc61714de32.png?1774843436",
     "manaCost": "{2}",
     "colors": [],
     "cmc": 2
@@ -55996,7 +56542,7 @@
     "cmc": 5
   },
   "Door of Destinies": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/5/c5a60872-d74a-471e-9264-c591a88f2c06.png?1768953673",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/5/c5a60872-d74a-471e-9264-c591a88f2c06.png?1774843438",
     "manaCost": "{4}",
     "colors": [],
     "cmc": 4
@@ -57081,7 +57627,7 @@
     "cmc": 6
   },
   "Dragonlord Kolaghan": {
-    "imageUrl": "https://cards.scryfall.io/png/front/1/c/1cbf8933-32a1-4892-9bdc-89464ed9ce1b.png?1562783323",
+    "imageUrl": "https://cards.scryfall.io/png/front/1/c/1cbf8933-32a1-4892-9bdc-89464ed9ce1b.png?1774995208",
     "manaCost": "{4}{B}{R}",
     "colors": [
       "B",
@@ -59338,7 +59884,7 @@
     "cmc": 2
   },
   "Dualcaster Mage": {
-    "imageUrl": "https://cards.scryfall.io/png/front/0/b/0b80c8a0-0870-4836-bee1-f4a805d119d6.png?1561931952",
+    "imageUrl": "https://cards.scryfall.io/png/front/e/a/ea11f546-4f7c-4649-9e6e-65d0a3ef3912.png?1775936877",
     "manaCost": "{1}{R}{R}",
     "colors": [
       "R"
@@ -59408,6 +59954,14 @@
       "G"
     ],
     "cmc": 2
+  },
+  "Duel Tactics": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/f/8f3a1675-0cc7-4dfd-a12e-4740a2cf81e8.png?1775937718",
+    "manaCost": "{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 1
   },
   "Duelcraft Trainer": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/b/6b75855c-88dc-4491-8045-080debfeb7b5.png?1634346793",
@@ -60599,6 +61153,14 @@
     ],
     "cmc": 2
   },
+  "Eager Glyphmage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/f/bf736de9-9bc4-49df-ae60-672ed4f83f32.png?1775936986",
+    "manaCost": "{3}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 4
+  },
   "Eager Trufflesnout": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/6/a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7.png?1730488975",
     "manaCost": "{2}{G}",
@@ -61201,6 +61763,15 @@
     ],
     "cmc": 3
   },
+  "Eccentric Pestfinder": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/0/508e1dd7-edbd-4b76-90bc-ff58c55b58a3.png?1775939934",
+    "manaCost": "{2}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 4
+  },
   "Echo Chamber": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/6/06425615-6c10-4766-8128-a1a09a35649d.png?1562052329",
     "manaCost": "{4}",
@@ -61246,7 +61817,7 @@
     "cmc": 2
   },
   "Echo of Eons": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/f/ff590af2-2d6c-4f16-a9b8-1a6dab6e9ad5.png?1562201343",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/f/ff590af2-2d6c-4f16-a9b8-1a6dab6e9ad5.png?1775014363",
     "manaCost": "{4}{U}{U}",
     "colors": [
       "U"
@@ -61268,6 +61839,14 @@
       "U"
     ],
     "cmc": 3
+  },
+  "Echocasting Symposium": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/d/5d7086a7-dc42-468a-a2cf-a6f89030f947.png?1775937216",
+    "manaCost": "{4}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 6
   },
   "Echoes of Eternity": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/2/b28b9bee-d726-407b-9e5b-2231384df81e.png?1740308388",
@@ -61400,6 +61979,12 @@
   },
   "Eclipsed Realms": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/1/a174f0db-8b4f-4c37-9583-44c92d37b9c0.png?1767862754",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
+  "Eclipsed Steppe": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/3/93ca39ae-0173-44ba-8c66-9f52f468983d.png?1775940336",
     "manaCost": "",
     "colors": [],
     "cmc": 0
@@ -61695,6 +62280,14 @@
     ],
     "cmc": 4
   },
+  "Efflorescence": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.png?1775937979",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
+  },
   "Effortless Master": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/a/0ae03ca5-cd4b-42b7-8cd5-3f7e753b4147.png?1743204705",
     "manaCost": "{2}{U}{R}",
@@ -61815,6 +62408,14 @@
     "manaCost": "",
     "colors": [],
     "cmc": 0
+  },
+  "Eiganjo Dynastorian": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/9/09d1f048-f411-4677-a0dc-dbddd06fe694.png?1775939699",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
   },
   "Eiganjo Exemplar": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/b/3b0a9cc0-bb6d-47f7-b0d5-3956c46a1b3a.png?1654566221",
@@ -62473,6 +63074,15 @@
     ],
     "cmc": 4
   },
+  "Elemental Mascot": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/5/c507eb1c-48e9-4d28-bb2d-71f2a9df9ab0.png?1775938280",
+    "manaCost": "{1}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 3
+  },
   "Elemental Masterpiece": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/3/4331a7a6-e98e-4517-b0f9-ace379426a94.png?1627428735",
     "manaCost": "{5}{U}{R}",
@@ -62824,6 +63434,14 @@
       "U"
     ],
     "cmc": 3
+  },
+  "Elite Interceptor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/9/2970683e-e69c-42cb-a067-34abd56fb42b.png?1775936992",
+    "manaCost": "{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 1
   },
   "Elite Javelineer": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/a/ea1c730f-76da-4eae-b3fc-b428b860ea93.png?1562057348",
@@ -63715,7 +64333,7 @@
     "cmc": 2
   },
   "Ember Island Production": {
-    "imageUrl": "https://cards.scryfall.io/png/front/0/f/0f79a7fc-36b1-4397-8e67-6638379d3a38.png?1764120215",
+    "imageUrl": "https://cards.scryfall.io/png/front/0/f/0f79a7fc-36b1-4397-8e67-6638379d3a38.png?1775728768",
     "manaCost": "{3}{U}{U}",
     "colors": [
       "U"
@@ -63990,6 +64608,15 @@
     ],
     "cmc": 1
   },
+  "Embrace the Paradox": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/0/c0cf5e0f-3668-46f2-850d-d91a538e8ead.png?1775938288",
+    "manaCost": "{3}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 5
+  },
   "Embrace the Unknown": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/a/0ae6bfbf-b453-4138-9589-92ef6343b9ab.png?1712354007",
     "manaCost": "{2}{R}",
@@ -64183,6 +64810,46 @@
     ],
     "cmc": 7
   },
+  "Emeritus of Abundance": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/b/2b7e8e07-b3ff-496e-923f-42d703f20a1e.png?1775939381",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
+  },
+  "Emeritus of Conflict": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/1/f11b8d24-375d-40dc-8497-c1ee779e156a.png?1775939330",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
+  },
+  "Emeritus of Ideation": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/5/75961d36-acf6-425f-9698-0bf52af74f31.png?1775937223",
+    "manaCost": "{3}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 5
+  },
+  "Emeritus of Truce": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/8/9869a753-5e41-4098-ab41-e75b4396ec50.png?1775936999",
+    "manaCost": "{1}{W}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
+  },
+  "Emeritus of Woe": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/6/26156da4-1ec3-4702-bded-9868af3026b5.png?1775939275",
+    "manaCost": "{3}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 4
+  },
   "Emet-Selch of the Third Seat": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/8/584394a0-9d72-4fe3-bcfe-bfaceac12e98.png?1748704813",
     "manaCost": "{2}{U}{B}",
@@ -64208,6 +64875,14 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Emil, Vastlands Roamer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/6/3654416d-8558-4af2-9e10-18dbc8f2b376.png?1775937993",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
   },
   "Emissary Escort": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/5/b52ba87f-3ac7-4f32-901c-d089df979f94.png?1752946771",
@@ -64600,6 +65275,14 @@
     ],
     "cmc": 3
   },
+  "Encouraging Aviator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/2/72654b84-9902-41db-92ab-a3499c31221c.png?1775937230",
+    "manaCost": "{2}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
+  },
   "Encroach": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/b/fbd48dac-0a1a-49c4-8daf-11972b990454.png?1595573354",
     "manaCost": "{B}",
@@ -64653,6 +65336,14 @@
       "W"
     ],
     "cmc": 5
+  },
+  "End of the Hunt": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/8/0809b51a-6a05-4f18-9bf4-1b8382da648f.png?1775937476",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
   },
   "End the Festivities": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/e/bec748e6-7245-4a71-aeee-cefed8346948.png?1643591154",
@@ -65145,7 +65836,7 @@
     "cmc": 4
   },
   "Engulfing Eruption": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/1/f198c7e3-8a85-48f3-a7c2-93320fd4fb81.png?1592518369",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/1/f198c7e3-8a85-48f3-a7c2-93320fd4fb81.png?1775731700",
     "manaCost": "{2}{R}{R}",
     "colors": [
       "R"
@@ -65285,6 +65976,14 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Ennis, Debate Moderator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/2/d2ef31b4-24fa-4443-9f05-c8e99c3522e5.png?1775937005",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
   },
   "Enormous Baloth": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/e/cebfb5a6-9052-47be-b931-834b5064df31.png?1562936577",
@@ -65718,6 +66417,14 @@
     "imageUrl": "https://cards.scryfall.io/png/front/4/6/46b394fc-a99c-44e7-9226-da0699167541.png?1637082125",
     "manaCost": "{2}",
     "colors": [],
+    "cmc": 2
+  },
+  "Environmental Scientist": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/2/f2bf6b36-43e4-49d9-98b2-cbb4304c248b.png?1775938001",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
     "cmc": 2
   },
   "Envoy of Okinec Ahau": {
@@ -66246,6 +66953,14 @@
       "R"
     ],
     "cmc": 4
+  },
+  "Erode": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/2/32e670da-7563-4f6a-a7db-4c126a440eb8.png?1775937013",
+    "manaCost": "{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 1
   },
   "Eroded Canyon": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/c/5c9d080f-28d7-41d6-a4e0-5b3e3a5ed770.png?1712356324",
@@ -66960,6 +67675,15 @@
     ],
     "cmc": 1
   },
+  "Essenceknit Scholar": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/a/2a3cba55-3fae-4d45-ae03-4d662ec13718.png?1775938295",
+    "manaCost": "{B}{B/G}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
+  },
   "Estinien Varlineau": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/2/421df8fe-e812-4bf2-9aae-b7b47627a884.png?1748704820",
     "manaCost": "{2}{W}{B}",
@@ -67146,6 +67870,14 @@
       "U"
     ],
     "cmc": 5
+  },
+  "Eternal Student": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/9/f97fac69-3e77-4150-9702-cc726daa6d21.png?1775937483",
+    "manaCost": "{3}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 4
   },
   "Eternal Taskmaster": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/7/7789188e-5caa-4500-b3e4-bb95f7657903.png?1557576465",
@@ -68012,6 +68744,15 @@
     "colors": [],
     "cmc": 12
   },
+  "Excava, the Risen Past": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/4/d47ebf19-b3fa-48a2-851a-254d32b0305a.png?1776731053",
+    "manaCost": "{2}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 4
+  },
   "Excavated Wall": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/e/fed54d00-b11f-4529-864c-63a114617b36.png?1624740639",
     "manaCost": "{1}",
@@ -68224,6 +68965,14 @@
     ],
     "cmc": 3
   },
+  "Exhibition Tidecaller": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/4/44304d28-94da-4226-b713-b2c3a4b67e49.png?1775939216",
+    "manaCost": "{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 1
+  },
   "Exhilarating Elocution": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/4/8468417d-7ef5-43e0-9190-e88f3eed9e82.png?1627428957",
     "manaCost": "{2}{W}{B}",
@@ -68397,6 +69146,14 @@
     "manaCost": "{U/R}{U/R} // {X}{U}{U}{R}{R}",
     "colors": [],
     "cmc": 6
+  },
+  "Expansion Algorithm": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/6/06147ee1-0fe8-4daf-962a-317dc908add5.png?1775940106",
+    "manaCost": "{X}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
   },
   "Expedite": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/9/59c65eb7-4353-45ce-9c2e-1791c2804ccf.png?1562913245",
@@ -68844,6 +69601,14 @@
       "W"
     ],
     "cmc": 3
+  },
+  "Expressive Firedancer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/5/259b8c45-6241-4206-a34e-34c7f401f47b.png?1775937734",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
   },
   "Expressive Iteration": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/6/462129ce-da6e-4483-a01d-d5c67707d778.png?1729618858",
@@ -69815,7 +70580,7 @@
     "cmc": 5
   },
   "Faerie Macabre": {
-    "imageUrl": "https://cards.scryfall.io/png/front/b/7/b7873964-b590-47c6-a170-c9290b27e6fc.png?1768953679",
+    "imageUrl": "https://cards.scryfall.io/png/front/b/7/b7873964-b590-47c6-a170-c9290b27e6fc.png?1774843385",
     "manaCost": "{1}{B}{B}",
     "colors": [
       "B"
@@ -71395,6 +72160,14 @@
     ],
     "cmc": 4
   },
+  "Fateful Tempest": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/3/336ea696-43af-4efd-981a-6bf44c0a4286.png?1775940178",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Fates' Reversal": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/9/19ff3d76-e985-4d8d-837e-89360cc23824.png?1627704784",
     "manaCost": "{1}{B}",
@@ -72554,6 +73327,14 @@
     ],
     "cmc": 3
   },
+  "Feral Appetite": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/9/69dda877-c176-456c-8cd8-5a1ea288e4c9.png?1775939878",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
+  },
   "Feral Contest": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/1/215115fa-50a6-42c0-b3c6-8d18e7f65174.png?1562283242",
     "manaCost": "{3}{G}",
@@ -73299,8 +74080,14 @@
     ],
     "cmc": 3
   },
+  "Fields of Strife": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/d/3dc7a4c3-c356-4fba-bea0-e8788da3eb57.png?1775938780",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Fiend Artisan": {
-    "imageUrl": "https://cards.scryfall.io/png/front/5/0/50a31dde-29b0-4c6f-b345-ae3c984cd1c7.png?1730323898",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/0/50a31dde-29b0-4c6f-b345-ae3c984cd1c7.png?1774937918",
     "manaCost": "{B/G}{B/G}",
     "colors": [
       "B",
@@ -74079,7 +74866,7 @@
     "cmc": 1
   },
   "Fire Covenant": {
-    "imageUrl": "https://cards.scryfall.io/png/front/6/a/6a0139c2-ad86-4c71-ab6d-4840c37d5d20.png?1562914627",
+    "imageUrl": "https://cards.scryfall.io/png/front/6/a/6a0139c2-ad86-4c71-ab6d-4840c37d5d20.png?1775570971",
     "manaCost": "{1}{B}{R}",
     "colors": [
       "B",
@@ -75043,6 +75830,15 @@
     ],
     "cmc": 3
   },
+  "Fix What's Broken": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/e/0e91ece4-1e22-4b24-86c7-23d105df1abc.png?1775939470",
+    "manaCost": "{2}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 4
+  },
   "Flagstones of Trokair": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/d/ad23cd0e-6871-4ba6-b5bf-cfd14f8f71b2.png?1562931560",
     "manaCost": "",
@@ -75764,6 +76560,14 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Flashback": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/b/1b832fda-d7c4-4566-884c-2a8b6da15488.png?1775937742",
+    "manaCost": "{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 1
   },
   "Flashfires": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/e/ee8a05a4-0ce3-4abe-bb60-08af53cf08e5.png?1559591304",
@@ -76675,6 +77479,14 @@
     ],
     "cmc": 3
   },
+  "Flow State": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/7/47d6093b-b1b6-4956-8bfd-02cce899f832.png?1775937249",
+    "manaCost": "{1}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
+  },
   "Flower": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/e/feb4b39f-d309-49ba-b427-240b7fdc1099.png?1572893991",
     "manaCost": "{G/W}",
@@ -77288,6 +78100,14 @@
     ],
     "cmc": 3
   },
+  "Follow the Lumarets": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/9/f9488480-2b6c-40bc-a93e-29fb1292a2e4.png?1775938009",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
+  },
   "Followed Footsteps": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/0/d00e2fcc-0fa2-451e-8c69-7a24ba533e0b.png?1598914227",
     "manaCost": "{3}{U}{U}",
@@ -77417,6 +78237,14 @@
     "manaCost": "{4}",
     "colors": [],
     "cmc": 4
+  },
+  "Foolish Fate": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/2/d278f4c9-d20b-4a76-8c5c-4d3e985948b9.png?1775937489",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
   },
   "Foot Chopper": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/4/f43fa5c7-51e6-4824-95f8-837ccc77a6ce.png?1771424180",
@@ -78480,6 +79308,36 @@
     ],
     "cmc": 1
   },
+  "Forum Filibuster": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/c/1c2fcf3e-63ce-45bd-afc4-2c11f54c70c4.png?1775939706",
+    "manaCost": "{3}{W}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 5
+  },
+  "Forum Necroscribe": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/7/67504a12-7414-4209-bf1c-624b4db19d52.png?1775937497",
+    "manaCost": "{5}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 6
+  },
+  "Forum of Amity": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/d/1de6c6cc-0c55-4997-8623-d7f796bd9ab8.png?1775938787",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
+  "Forum's Favor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/9/79a70863-860f-4a7b-9cb2-d3546b689d44.png?1775937039",
+    "manaCost": "{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 4
+  },
   "Fossil Find": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/f/2ff61d34-f38f-440b-a234-7bb7251eb5b8.png?1562828390",
     "manaCost": "{R/G}",
@@ -78785,6 +79643,14 @@
     ],
     "cmc": 6
   },
+  "Fractal Anomaly": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/1/e1975a61-aef0-49a6-a6d6-c3a37e2e2b22.png?1775937257",
+    "manaCost": "{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 1
+  },
   "Fractal Harness": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/3/7315ebbf-44fe-4a6c-848e-917e06d5e355.png?1625983335",
     "manaCost": "{X}{2}{G}",
@@ -78792,6 +79658,15 @@
       "G"
     ],
     "cmc": 3
+  },
+  "Fractal Mascot": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/f/cf5b19e3-eed1-4b36-9756-660ffb3baa08.png?1775938311",
+    "manaCost": "{4}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 6
   },
   "Fractal Summoning": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/c/cc3f1f7e-eb19-49c1-a1ee-93b85ac8815c.png?1637082130",
@@ -78801,6 +79676,23 @@
       "U"
     ],
     "cmc": 2
+  },
+  "Fractal Tender": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/a/ea7f5262-4ddb-410a-be72-4bac6af9b4ec.png?1775938318",
+    "manaCost": "{3}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 5
+  },
+  "Fractalize": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/3/e3c3b19b-01b6-4f5a-b428-513b778c5d89.png?1775937264",
+    "manaCost": "{X}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 1
   },
   "Fracture": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/1/a11224f8-06ea-4ec3-85e6-d5c8d906840c.png?1627429052",
@@ -80602,6 +81494,14 @@
     "colors": [],
     "cmc": 0
   },
+  "Furygale Flocking": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/9/a967af7a-03ed-4858-9c26-66f2cb706b02.png?1775939834",
+    "manaCost": "{8}{R}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 10
+  },
   "Furystoke Giant": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/b/5b102dc6-d7ef-48dd-8b77-2ce43955f7fa.png?1562830554",
     "manaCost": "{3}{R}{R}",
@@ -81767,6 +82667,14 @@
     ],
     "cmc": 1
   },
+  "Garrison Excavator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/1/f11d2846-f181-4751-82ac-1e1ced6f46c7.png?1775937750",
+    "manaCost": "{3}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 4
+  },
   "Garrison Griffin": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/4/94a04717-5cd7-4982-bf36-00cea30b9ef1.png?1572482706",
     "manaCost": "{2}{W}",
@@ -81924,7 +82832,7 @@
     "cmc": 3
   },
   "Garth One-Eye": {
-    "imageUrl": "https://cards.scryfall.io/png/front/2/3/23774462-9f17-4b50-a2ac-b2edd706bbfe.png?1626098353",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/3/23774462-9f17-4b50-a2ac-b2edd706bbfe.png?1775849283",
     "manaCost": "{W}{U}{B}{R}{G}",
     "colors": [
       "B",
@@ -83045,6 +83953,15 @@
     ],
     "cmc": 3
   },
+  "Geometer's Arthropod": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/c/ec0f3613-1edc-40e8-8f26-2e5ef13be55e.png?1775938325",
+    "manaCost": "{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Geometric Nexus": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/f/3f200a52-ecf6-4890-9307-e9296080ff9a.png?1625192673",
     "manaCost": "{2}",
@@ -83122,6 +84039,14 @@
   "Germinating Wurm": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/c/fcde173a-6314-4904-bddd-68b2ab1e4867.png?1752947317",
     "manaCost": "{4}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 5
+  },
+  "Germination Practicum": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/b/abe8332f-c76e-44e2-9427-d1228453abec.png?1775938016",
+    "manaCost": "{3}{G}{G}",
     "colors": [
       "G"
     ],
@@ -86559,6 +87484,14 @@
     ],
     "cmc": 2
   },
+  "Glorious Decay": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/3/a335f396-1004-4fee-842a-a35ff6ba17f2.png?1775938023",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
+  },
   "Glorious End": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/9/2922b976-7beb-4c68-b39e-1b66d5c6f65e.png?1543675588",
     "manaCost": "{2}{R}",
@@ -87381,7 +88314,7 @@
     "cmc": 0
   },
   "Goblin Bushwhacker": {
-    "imageUrl": "https://cards.scryfall.io/png/front/0/5/052df800-9f13-4469-9e8c-16d327025aa0.png?1733001261",
+    "imageUrl": "https://cards.scryfall.io/png/front/0/5/052df800-9f13-4469-9e8c-16d327025aa0.png?1774938002",
     "manaCost": "{R}",
     "colors": [
       "R"
@@ -87449,7 +88382,7 @@
     "cmc": 3
   },
   "Goblin Chieftain": {
-    "imageUrl": "https://cards.scryfall.io/png/front/7/5/75cebafe-00e5-478d-b34e-35b1b3f02e50.png?1768940661",
+    "imageUrl": "https://cards.scryfall.io/png/front/7/5/75cebafe-00e5-478d-b34e-35b1b3f02e50.png?1774843388",
     "manaCost": "{1}{R}{R}",
     "colors": [
       "R"
@@ -87702,6 +88635,14 @@
       "R"
     ],
     "cmc": 3
+  },
+  "Goblin Glasswright": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/8/c85c5f06-dd31-4e2c-97be-2f64d65069ea.png?1775937759",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
   },
   "Goblin Glider": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/c/9c29491b-dec1-429d-9950-062582f8164f.png?1562931819",
@@ -88158,7 +89099,7 @@
     "cmc": 4
   },
   "Goblin Sharpshooter": {
-    "imageUrl": "https://cards.scryfall.io/png/front/6/e/6eca7ad8-73e3-489d-90b7-aff9d4b0a0d9.png?1768953709",
+    "imageUrl": "https://cards.scryfall.io/png/front/6/e/6eca7ad8-73e3-489d-90b7-aff9d4b0a0d9.png?1774843396",
     "manaCost": "{2}{R}",
     "colors": [
       "R"
@@ -89608,6 +90549,15 @@
     ],
     "cmc": 4
   },
+  "Gorma, the Gullet": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/6/86f97dd8-8647-4938-aee0-690bb715f88b.png?1776731057",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
+  },
   "Gornog, the Red Reaper": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/8/c80a88ae-f2f2-426a-88f3-76b5d598c25f.png?1730485874",
     "manaCost": "{2}{R}",
@@ -89789,6 +90739,14 @@
       "G"
     ],
     "cmc": 2
+  },
+  "Graduation Day": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.png?1775937020",
+    "manaCost": "{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 1
   },
   "Graf Harvest": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/b/fbc17697-9db9-41d4-aacf-b2f2e6ff80cf.png?1576384322",
@@ -90082,6 +91040,15 @@
     "colors": [],
     "cmc": 4
   },
+  "Grapple with Death": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/2/62842fb4-8bd3-4d80-b4f9-5bc3c5cebd3a.png?1775938332",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
+  },
   "Grapple with the Past": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/4/d44a77a6-e8a1-4706-886f-8ab3af56b342.png?1576384800",
     "manaCost": "{1}{G}",
@@ -90323,6 +91290,14 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Grave Researcher": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/d/1d12804c-dda0-4dae-9eb8-f670e72c17e7.png?1775939282",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
   },
   "Grave Robbers": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/1/a131605a-f646-4745-a1e4-48d155a3d94f.png?1587910724",
@@ -90879,6 +91854,12 @@
     "colors": [],
     "cmc": 0
   },
+  "Great Hall of the Biblioplex": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/2/42d92674-2664-411c-b9c5-b04da7c845f4.png?1775938794",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Great Hall of the Citadel": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/1/219c7b57-b62b-42d1-85d9-4b57624a3f54.png?1686970335",
     "manaCost": "",
@@ -91197,7 +92178,7 @@
     "cmc": 1
   },
   "Green Sun's Zenith": {
-    "imageUrl": "https://cards.scryfall.io/png/front/b/0/b090cb9e-fcdd-4fc2-8e5d-b63511f83a13.png?1758056627",
+    "imageUrl": "https://cards.scryfall.io/png/front/b/0/b090cb9e-fcdd-4fc2-8e5d-b63511f83a13.png?1774843351",
     "manaCost": "{X}{G}",
     "colors": [
       "G"
@@ -91684,7 +92665,7 @@
     "cmc": 3
   },
   "Grim Haruspex": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/f/cf1fe2bf-1640-4781-87b4-09a1f7d35831.png?1562793791",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/c/2c12928e-ec68-40d4-8126-af5af4b49033.png?1775936871",
     "manaCost": "{2}{B}",
     "colors": [
       "B"
@@ -92438,6 +93419,14 @@
     ],
     "cmc": 1
   },
+  "Group Project": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/8/e8abc1eb-6225-4b18-8502-b5324b818aed.png?1775937026",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
+  },
   "Grove of the Burnwillows": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/0/e0b4d4b1-6e25-4c4b-a21a-1b7b1c1d6452.png?1562940130",
     "manaCost": "",
@@ -92517,6 +93506,15 @@
       "G"
     ],
     "cmc": 3
+  },
+  "Growth Curve": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/6/1675a445-86ae-413b-b95a-a1c254a7f252.png?1775938339",
+    "manaCost": "{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 2
   },
   "Growth Cycle": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/e/1e619121-f2e8-4da5-8652-a2b5dae2e55c.png?1592517240",
@@ -95073,6 +96071,15 @@
     ],
     "cmc": 2
   },
+  "Hardened Academic": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/6/06c9e8a7-2840-4cff-90af-c6636e598f78.png?1775938346",
+    "manaCost": "{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 2
+  },
   "Hardened Berserker": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/1/d10fb883-12b8-4050-967e-4281ea620906.png?1562793395",
     "manaCost": "{2}{R}",
@@ -95260,6 +96267,14 @@
     ],
     "cmc": 6
   },
+  "Harmonized Trio": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/1/617208ff-dd9b-44fd-a740-d3188081e5cc.png?1775937273",
+    "manaCost": "{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 1
+  },
   "Harmony of Nature": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/3/e3fa08d9-d41b-4696-b81a-42c8eebdeb49.png?1562949264",
     "manaCost": "{2}{G}",
@@ -95412,6 +96427,14 @@
       "B"
     ],
     "cmc": 5
+  },
+  "Harsh Annotation": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/0/e07a8fc7-c11c-4469-a31d-0abf40e57bbf.png?1775937033",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
   },
   "Harsh Deceiver": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/1/01e19753-b94b-458f-a51b-c8ec8fbec6c8.png?1562757414",
@@ -95935,6 +96958,14 @@
     "manaCost": "{1}{G}{G}",
     "colors": [
       "G"
+    ],
+    "cmc": 3
+  },
+  "Have a Bite": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/4/d40cc7da-c731-418e-8547-7033d1939450.png?1775937412",
+    "manaCost": "{B}",
+    "colors": [
+      "B"
     ],
     "cmc": 3
   },
@@ -96853,7 +97884,7 @@
     "cmc": 1
   },
   "Heat Shimmer": {
-    "imageUrl": "https://cards.scryfall.io/png/front/b/3/b368c7f9-1f94-481e-9ec3-7f79f99e1d55.png?1768953701",
+    "imageUrl": "https://cards.scryfall.io/png/front/b/3/b368c7f9-1f94-481e-9ec3-7f79f99e1d55.png?1774843400",
     "manaCost": "{2}{R}",
     "colors": [
       "R"
@@ -96875,6 +97906,14 @@
       "R"
     ],
     "cmc": 3
+  },
+  "Heated Argument": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/0/0038d212-3d95-4f98-8c2e-7b2404d0ced7.png?1775937767",
+    "manaCost": "{4}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 5
   },
   "Heated Debate": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/4/f40c88e2-28ed-4e5b-bcb3-4397d6a15a6f.png?1624591954",
@@ -97390,7 +98429,7 @@
     "cmc": 5
   },
   "Helix Pinnacle": {
-    "imageUrl": "https://cards.scryfall.io/png/front/6/c/6c9d51b0-21d4-40e3-91cd-b9d7b6365dda.png?1768954302",
+    "imageUrl": "https://cards.scryfall.io/png/front/6/c/6c9d51b0-21d4-40e3-91cd-b9d7b6365dda.png?1775114961",
     "manaCost": "{G}",
     "colors": [
       "G"
@@ -97806,6 +98845,14 @@
       "R"
     ],
     "cmc": 3
+  },
+  "Herald of Amity": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/a/0a36fe06-225f-44c6-b608-452344e3585a.png?1775939712",
+    "manaCost": "{3}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 4
   },
   "Herald of Anafenza": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/8/e8bf6ed4-48f3-419f-bafd-d1ee4d798482.png?1562795324",
@@ -98360,6 +99407,15 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Heroic Stanza": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.png?1775938164",
+    "manaCost": "{1}{W/B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 3
   },
   "Heroism": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/8/08ee87a0-a7eb-4472-9045-85d11e8a1501.png?1562896711",
@@ -100036,6 +101092,14 @@
     ],
     "cmc": 5
   },
+  "Homesickness": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/e/6e4a1f82-b0b1-4608-91f8-130bee731435.png?1775937280",
+    "manaCost": "{4}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 6
+  },
   "Homestead Courage": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/3/73a9c49f-fcd3-4572-bac7-6eb06fdc0815.png?1634348250",
     "manaCost": "{W}",
@@ -100270,6 +101334,14 @@
       "W"
     ],
     "cmc": 1
+  },
+  "Honorbound Page": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/9/79a70863-860f-4a7b-9cb2-d3546b689d44.png?1775937039",
+    "manaCost": "{3}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 4
   },
   "Honored Crop-Captain": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/1/b1b44194-fed5-491c-a791-80b986dd66d6.png?1543676063",
@@ -101874,6 +102946,14 @@
     ],
     "cmc": 2
   },
+  "Hungry Graffalon": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/3/030b1272-5990-4bc9-8fc1-82cc05602060.png?1775938030",
+    "manaCost": "{3}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 4
+  },
   "Hungry Lynx": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/0/c0ad6f84-8ede-4411-9979-cefee255fa70.png?1562622536",
     "manaCost": "{1}{G}",
@@ -102426,6 +103506,14 @@
       "G"
     ],
     "cmc": 3
+  },
+  "Hydro-Channeler": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/9/099f8400-d70a-48ef-8ff6-645eae97e072.png?1775937286",
+    "manaCost": "{1}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
   },
   "Hydro-Man, Fluid Felon": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/a/0a1265db-ff16-4751-9301-78d29b271cda.png?1757378899",
@@ -103317,7 +104405,7 @@
     "cmc": 0
   },
   "Idyllic Tutor": {
-    "imageUrl": "https://cards.scryfall.io/png/front/0/3/034fb5f8-a121-4145-9650-75c278a4bb19.png?1768940665",
+    "imageUrl": "https://cards.scryfall.io/png/front/0/3/034fb5f8-a121-4145-9650-75c278a4bb19.png?1774843363",
     "manaCost": "{2}{W}",
     "colors": [
       "W"
@@ -104048,6 +105136,15 @@
     ],
     "cmc": 2
   },
+  "Immoral Bargain": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/d/9d475a98-4561-4cbc-bd60-c3bfc33725be.png?1775940292",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
+  },
   "Immortal Coil": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/b/0b79ec57-7c45-4ef9-9051-449d473b65ea.png?1562700966",
     "manaCost": "{2}{B}{B}",
@@ -104305,7 +105402,7 @@
     "cmc": 6
   },
   "Imperial Outrider": {
-    "imageUrl": "https://cards.scryfall.io/png/front/0/d/0dd3aca5-516f-4500-9d7f-95630401d3ae.png?1564023031",
+    "imageUrl": "https://cards.scryfall.io/png/front/0/d/0dd3aca5-516f-4500-9d7f-95630401d3ae.png?1775731696",
     "manaCost": "{3}{W}",
     "colors": [
       "W"
@@ -104351,6 +105448,15 @@
       "G"
     ],
     "cmc": 4
+  },
+  "Imperious Inkmage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/5/d5df1c3f-2536-4476-b8cd-34b026c38366.png?1775938353",
+    "manaCost": "{1}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 3
   },
   "Imperious Mindbreaker": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/8/087a444a-5907-44f6-812b-cfe342e472e4.png?1646180169",
@@ -104525,6 +105631,14 @@
     ],
     "cmc": 6
   },
+  "Impractical Joke": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/9/39a816b4-39b8-421c-b828-68db901d34b7.png?1775937777",
+    "manaCost": "{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 1
+  },
   "Imprison": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/2/12671381-beb7-41b8-9484-97f8aca5c981.png?1740685906",
     "manaCost": "{B}",
@@ -104558,6 +105672,14 @@
       "R"
     ],
     "cmc": 4
+  },
+  "Improvisation Capstone": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/0/d01fe6e9-49ee-4708-833e-75cd5a9f167c.png?1775937787",
+    "manaCost": "{5}{R}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 7
   },
   "Improvised Armor": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/d/8d7d5d79-73d8-4f1a-9dda-4de5f41539d9.png?1562928336",
@@ -105823,6 +106945,14 @@
     ],
     "cmc": 6
   },
+  "Infirmary Healer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/1/911442e3-3003-4683-a766-e791e9553667.png?1775938036",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
+  },
   "Inflame": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/d/cd7bc4c0-9bfd-444b-b22c-f1b7e1426807.png?1562933469",
     "manaCost": "{R}",
@@ -105836,6 +106966,14 @@
     "manaCost": "{1}{U}",
     "colors": [
       "U"
+    ],
+    "cmc": 2
+  },
+  "Informed Inkwright": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/d/5defb2d1-d0fb-4e7f-a5c7-3df99fe675d6.png?1775937046",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
     ],
     "cmc": 2
   },
@@ -106089,6 +107227,15 @@
     ],
     "cmc": 2
   },
+  "Inkling Mascot": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/d/6d4a2f39-0e1e-4076-815a-2676a09a1aab.png?1775938360",
+    "manaCost": "{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 2
+  },
   "Inkling Summoning": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/4/04a8a5b8-9743-4d1a-89e9-61bdf180b2e0.png?1637082323",
     "manaCost": "{1}{W/B}{W/B}",
@@ -106111,6 +107258,14 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Inkshape Demonstrator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/c/bcfac992-9984-4529-b9ff-a42d58832b34.png?1775937053",
+    "manaCost": "{3}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 4
   },
   "Inkshield": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/5/55da1378-89aa-42b3-9323-0842d4831a58.png?1625983656",
@@ -106635,6 +107790,15 @@
     ],
     "cmc": 3
   },
+  "Inspired Skypainter": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/9/29d2186c-c5fb-4439-95c6-ffe46b6dded9.png?1775940300",
+    "manaCost": "{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Inspired Sphinx": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/a/3a679564-9bd1-4dec-81ee-d97d0291a040.png?1592764582",
     "manaCost": "{5}{U}{U}",
@@ -106934,7 +108098,7 @@
     "cmc": 5
   },
   "Intelligence Bobblehead": {
-    "imageUrl": "https://cards.scryfall.io/png/front/1/1/114600bd-4bf5-4eeb-bb9d-25bfb8a54adc.png?1697728042",
+    "imageUrl": "https://cards.scryfall.io/png/front/1/1/114600bd-4bf5-4eeb-bb9d-25bfb8a54adc.png?1774938201",
     "manaCost": "{3}",
     "colors": [],
     "cmc": 3
@@ -106991,6 +108155,22 @@
     "manaCost": "{1}{W}",
     "colors": [
       "W"
+    ],
+    "cmc": 2
+  },
+  "Interjection": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.png?1775937061",
+    "manaCost": "{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 1
+  },
+  "Intermediate Chirography": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/6/d60c64aa-57a9-4082-82f4-af0d89c1a52d.png?1775939792",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
     ],
     "cmc": 2
   },
@@ -108289,7 +109469,7 @@
     "cmc": 4
   },
   "Iroh, Firebending Instructor": {
-    "imageUrl": "https://cards.scryfall.io/png/front/1/e/1ee4bc92-1101-4652-be27-65450abebf00.png?1764719220",
+    "imageUrl": "https://cards.scryfall.io/png/front/1/e/1ee4bc92-1101-4652-be27-65450abebf00.png?1774851493",
     "manaCost": "{2}{R}",
     "colors": [
       "R"
@@ -109764,6 +110944,14 @@
     ],
     "cmc": 8
   },
+  "Jadzi, Steward of Fate": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/2/92fcf155-41ae-4275-8791-27ee95a2f7c0.png?1775939229",
+    "manaCost": "{2}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
+  },
   "Jagged Barrens": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/d/5d809f5b-d965-4cb1-a9f8-2048f8534373.png?1712356337",
     "manaCost": "",
@@ -110571,7 +111759,7 @@
     "cmc": 5
   },
   "Jetmir, Nexus of Revels": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/9/f9c69d75-651f-4b75-b65d-79999d2069f6.png?1664413153",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/9/f9c69d75-651f-4b75-b65d-79999d2069f6.png?1775233418",
     "manaCost": "{1}{R}{G}{W}",
     "colors": [
       "G",
@@ -111059,6 +112247,14 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Joined Researchers": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/5/15d99a75-939e-4584-9b4a-8afd115bab2c.png?1775939188",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
   },
   "Joiner Adept": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/a/7acf1a5f-1dbd-4481-b58d-b84e32d2b6b3.png?1562877892",
@@ -113442,7 +114638,7 @@
     "cmc": 3
   },
   "Katara, Heroic Healer": {
-    "imageUrl": "https://cards.scryfall.io/png/front/b/c/bc2ec498-54eb-41a7-bdf2-8772430e177f.png?1764719305",
+    "imageUrl": "https://cards.scryfall.io/png/front/b/c/bc2ec498-54eb-41a7-bdf2-8772430e177f.png?1774851435",
     "manaCost": "{4}{W}",
     "colors": [
       "W"
@@ -115228,8 +116424,26 @@
     ],
     "cmc": 3
   },
+  "Killian, Decisive Mentor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/6/76b6c35a-bb92-4ad3-8f85-88b9bafc6266.png?1776731061",
+    "manaCost": "{1}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 3
+  },
   "Killian, Ink Duelist": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/3/23ef4f09-2aa1-4a03-b2e2-66d1522f1e46.png?1627429378",
+    "manaCost": "{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 2
+  },
+  "Killian's Confidence": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/5/55ff776a-fc3b-4338-8864-d57a85b3f123.png?1775938369",
     "manaCost": "{W}{B}",
     "colors": [
       "B",
@@ -115465,6 +116679,14 @@
     ],
     "cmc": 4
   },
+  "Kinetic Ooze": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/4/543877dd-c685-46a0-b3e8-db89090c7e31.png?1775940236",
+    "manaCost": "{X}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 1
+  },
   "King Cheetah": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/c/0c607ba1-e133-47f3-a79a-5f0dc8c4b9ac.png?1562636671",
     "manaCost": "{3}{G}",
@@ -115623,7 +116845,7 @@
     "cmc": 3
   },
   "Kinsbaile Cavalier": {
-    "imageUrl": "https://cards.scryfall.io/png/front/1/4/1470087d-ca8e-460a-a419-81888c114f2b.png?1768940651",
+    "imageUrl": "https://cards.scryfall.io/png/front/1/4/1470087d-ca8e-460a-a419-81888c114f2b.png?1774843367",
     "manaCost": "{3}{W}",
     "colors": [
       "W"
@@ -115795,6 +117017,15 @@
       "W"
     ],
     "cmc": 3
+  },
+  "Kirol, History Buff": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/7/676ba521-66e4-42cf-a315-70d03cb7334e.png?1775938375",
+    "manaCost": "{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 2
   },
   "Kirri, Talented Sprout": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/2/22cc9c49-54d7-4989-8d7d-651b17b84b4e.png?1716315648",
@@ -118764,7 +119995,7 @@
     "cmc": 6
   },
   "Kyoshi Battle Fan": {
-    "imageUrl": "https://cards.scryfall.io/png/front/2/5/257e6862-96fe-4312-aff2-509d0696843a.png?1764121899",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/5/257e6862-96fe-4312-aff2-509d0696843a.png?1776653964",
     "manaCost": "{2}",
     "colors": [],
     "cmc": 2
@@ -119394,6 +120625,14 @@
     ],
     "cmc": 5
   },
+  "Landscape Painter": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/0/c0bd30c4-3cdf-4eda-8be5-0fb5e5ddddbf.png?1775937300",
+    "manaCost": "{1}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
+  },
   "Landscaper Colos": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/4/f45a9e86-133e-4626-a239-73ef88d9ae12.png?1626093695",
     "manaCost": "{5}{W}",
@@ -119889,6 +121128,14 @@
       "G"
     ],
     "cmc": 4
+  },
+  "Lattice Library": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/1/51aa3511-e588-4b40-b98c-c5dc3a05bb2d.png?1775939892",
+    "manaCost": "{X}{G}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
   },
   "Lattice-Blade Mantis": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/7/f7427def-c4b2-475a-8dc9-7e89409d9abb.png?1675957148",
@@ -120523,7 +121770,7 @@
     "cmc": 4
   },
   "Leaf-Crowned Visionary": {
-    "imageUrl": "https://cards.scryfall.io/png/front/a/d/adfdc9e2-0ea4-4243-b809-e2d2568c21ff.png?1768940713",
+    "imageUrl": "https://cards.scryfall.io/png/front/a/d/adfdc9e2-0ea4-4243-b809-e2d2568c21ff.png?1774843415",
     "manaCost": "{G}{G}",
     "colors": [
       "G"
@@ -120722,6 +121969,14 @@
     ],
     "cmc": 11
   },
+  "Lecturing Scornmage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/d/ad07091e-8c24-43af-8ce8-031847bcaf30.png?1775937516",
+    "manaCost": "{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 1
+  },
   "Ledev Champion": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/c/bc4f508b-a48d-4462-9d89-ee2ead3a0847.png?1572893727",
     "manaCost": "{1}{G}{W}",
@@ -120754,6 +122009,14 @@
       "U"
     ],
     "cmc": 3
+  },
+  "Leech Collector": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/7/c715fe4c-c0e7-4342-811f-b74687851097.png?1775937525",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
   },
   "Leech Fanatic": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/0/307f9fe7-241b-4eb6-a059-be5384b4a1b6.png?1624591070",
@@ -121067,6 +122330,14 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Leitmotif Composer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/4/04c9c969-4f63-4c16-a1e9-c9a9e05488b1.png?1775940113",
+    "manaCost": "{2}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
   },
   "Lembas": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/b/3b46aacf-b31a-4380-9e4b-82795fbaba3b.png?1686970202",
@@ -121843,6 +123114,12 @@
     ],
     "cmc": 3
   },
+  "Library of Alexandria": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/e/ee266113-34ce-4189-84e7-ee2c86a2722c.png?1562939686",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Library of Lat-Nam": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/f/5f5fa739-e8d4-4e1d-8b6b-c334d1e91bef.png?1562768723",
     "manaCost": "{4}{U}",
@@ -121852,7 +123129,7 @@
     "cmc": 5
   },
   "Library of Leng": {
-    "imageUrl": "https://cards.scryfall.io/png/front/2/3/2340edcb-8cd5-4ccd-99e2-b9a29f72c495.png?1559591372",
+    "imageUrl": "https://cards.scryfall.io/png/front/0/3/038ea81c-b491-4529-936d-c7afad950174.png?1775936914",
     "manaCost": "{1}",
     "colors": [],
     "cmc": 1
@@ -123441,7 +124718,7 @@
     "cmc": 2
   },
   "Lita, Mechanical Engineer": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/3/f3a5a044-d474-43f4-95a9-e67808908e6c.png?1771789333",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/3/f3a5a044-d474-43f4-95a9-e67808908e6c.png?1775411193",
     "manaCost": "{2}{W}",
     "colors": [
       "W"
@@ -123646,6 +124923,14 @@
       "B"
     ],
     "cmc": 0
+  },
+  "Living History": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/0/2028792c-fd60-40d4-bff7-3b82dbe1ffb5.png?1775937797",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
   },
   "Living Hive": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/0/407dad3c-d721-412a-8b29-bc15be56d2fe.png?1562141827",
@@ -123978,6 +125263,15 @@
     "manaCost": "{3}{U}",
     "colors": [
       "U"
+    ],
+    "cmc": 4
+  },
+  "Lluwen, Exchange Student": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/0/a0bcb638-c3c8-4973-9537-5c471f43f34f.png?1775938382",
+    "manaCost": "{2}{B}{G}",
+    "colors": [
+      "B",
+      "G"
     ],
     "cmc": 4
   },
@@ -124951,11 +126245,29 @@
     ],
     "cmc": 2
   },
+  "Lorehold Archivist": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/b/cb535433-f062-4c35-977e-2f896251b1d8.png?1775939956",
+    "manaCost": "{1}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 3
+  },
   "Lorehold Campus": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/3/d35461cf-becf-4399-8329-64b4496b7fc2.png?1707961343",
     "manaCost": "",
     "colors": [],
     "cmc": 0
+  },
+  "Lorehold Charm": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.png?1775938389",
+    "manaCost": "{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 2
   },
   "Lorehold Command": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/1/d1b7df16-e01d-4053-88d3-db78ed26bfe1.png?1630187415",
@@ -124983,6 +126295,15 @@
       "W"
     ],
     "cmc": 3
+  },
+  "Lorehold, the Historian": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/1/71a6701f-40f1-43ef-bff5-a5907fd67cd6.png?1775938396",
+    "manaCost": "{3}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 5
   },
   "Lorescale Coatl": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/8/e81c31c9-d7d7-4b45-893e-7e36d26c645f.png?1562644825",
@@ -125901,6 +127222,14 @@
       "U"
     ],
     "cmc": 3
+  },
+  "Lumaret's Favor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/5/c5e7c856-8b71-44e6-8998-0b0b3ff0ef99.png?1775938045",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
   },
   "Lumbering Battlement": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/4/2469bc93-57ca-4077-bda2-160b4160adad.png?1584829942",
@@ -126887,6 +128216,14 @@
     ],
     "cmc": 5
   },
+  "Maelstrom Artisan": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/c/5c88391d-271f-4021-a5d9-158ebc1e6357.png?1775937805",
+    "manaCost": "{1}{R}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Maelstrom Colossus": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/2/322491d2-d082-4d38-8d81-8588c011e725.png?1608911533",
     "manaCost": "{8}",
@@ -126954,6 +128291,15 @@
       "G"
     ],
     "cmc": 3
+  },
+  "Maestro's Gift": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/9/29d2186c-c5fb-4439-95c6-ffe46b6dded9.png?1775940300",
+    "manaCost": "{3}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 2
   },
   "Maestros Ascendancy": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/6/469a0f03-7874-453d-b9e4-275c13244f4a.png?1664413254",
@@ -127087,6 +128433,12 @@
       "R"
     ],
     "cmc": 3
+  },
+  "Mage Tower Referee": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/c/1ceb704a-97a8-49f9-b799-30f001404144.png?1775938737",
+    "manaCost": "{2}",
+    "colors": [],
+    "cmc": 2
   },
   "Mage-Ring Bully": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/a/1a129f22-dd7e-4b2c-a514-a2ac55bb5661.png?1562009166",
@@ -127380,6 +128732,14 @@
       "R"
     ],
     "cmc": 3
+  },
+  "Magmablood Archaic": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/d/4d611278-9948-4345-b4dd-aa6eaf21b233.png?1775937816",
+    "manaCost": "{2/R}{2/R}{2/R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 6
   },
   "Magmakin Artillerist": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/a/2ac26341-a100-424d-be84-33fbbf1b4078.png?1738356441",
@@ -127687,7 +129047,7 @@
     "cmc": 5
   },
   "Magus of the Library": {
-    "imageUrl": "https://cards.scryfall.io/png/front/8/9/899db99b-df27-4848-a23d-5c645deae450.png?1562576294",
+    "imageUrl": "https://cards.scryfall.io/png/front/d/4/d423c4cc-fecc-4c66-9cb4-2121341c647a.png?1776731153",
     "manaCost": "{G}{G}",
     "colors": [
       "G"
@@ -127719,7 +129079,7 @@
     "cmc": 4
   },
   "Magus of the Moon": {
-    "imageUrl": "https://cards.scryfall.io/png/front/d/8/d8b965ea-1b8e-475a-be58-78c0f815ea87.png?1756912095",
+    "imageUrl": "https://cards.scryfall.io/png/front/d/8/d8b965ea-1b8e-475a-be58-78c0f815ea87.png?1774843343",
     "manaCost": "{2}{R}",
     "colors": [
       "R"
@@ -128622,6 +129982,14 @@
     ],
     "cmc": 6
   },
+  "Mana Sculpt": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/0/200c8e3d-c53b-40c7-a29a-fccc1281bfc6.png?1775937307",
+    "manaCost": "{1}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
+  },
   "Mana Seism": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/b/1bde4cba-57b2-485f-9724-0f79d156d664.png?1562757963",
     "manaCost": "{1}{R}",
@@ -128766,7 +130134,7 @@
     "cmc": 3
   },
   "Manamorphose": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/b/fbbc184e-e74f-4f9d-87d2-b19973d84fbb.png?1768953705",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/b/fbbc184e-e74f-4f9d-87d2-b19973d84fbb.png?1774843422",
     "manaCost": "{1}{R/G}",
     "colors": [
       "G",
@@ -129442,7 +130810,7 @@
     "cmc": 4
   },
   "March of the World Ooze": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/5/455027f1-26a4-464b-a456-271a6ec88669.png?1739042207",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/5/455027f1-26a4-464b-a456-271a6ec88669.png?1775114319",
     "manaCost": "{3}{G}{G}{G}",
     "colors": [
       "G"
@@ -131015,6 +132383,14 @@
     ],
     "cmc": 2
   },
+  "Masterful Flourish": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.png?1775937531",
+    "manaCost": "{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 1
+  },
   "Masterful Replication": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/3/63832647-bb4d-4380-8acb-cf11e8727672.png?1592516426",
     "manaCost": "{5}{U}",
@@ -131093,6 +132469,14 @@
     ],
     "cmc": 3
   },
+  "Mathemagics": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/0/102d4882-9774-4370-aff3-370f7729d7dd.png?1775939244",
+    "manaCost": "{X}{X}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
+  },
   "Mathise, Surge Channeler": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/c/ac9a9cf1-f480-48e8-a9b8-75d7f1640d1a.png?1757464044",
     "manaCost": "{2}{U}",
@@ -131143,6 +132527,14 @@
     "imageUrl": "https://cards.scryfall.io/png/front/3/9/3906b61a-3865-4dfd-ae06-a7d2a608851a.png?1562906487",
     "manaCost": "{2}{C}",
     "colors": [],
+    "cmc": 3
+  },
+  "Matterbending Mage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/6/460c6afd-cddf-4fea-925f-b27517ff250a.png?1775937321",
+    "manaCost": "{2}{U}",
+    "colors": [
+      "U"
+    ],
     "cmc": 3
   },
   "Matzalantli, the Great Door": {
@@ -131838,6 +133230,14 @@
     ],
     "cmc": 7
   },
+  "Melancholic Poet": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/8/d8309815-7035-47a5-acf2-2b2ac1e65037.png?1775937538",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
+  },
   "Melancholy": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/a/faa6fe9a-27ba-480f-84ce-b8d3306f0339.png?1562586555",
     "manaCost": "{2}{B}",
@@ -132471,6 +133871,14 @@
     "manaCost": "{2}{W}{W}",
     "colors": [
       "W"
+    ],
+    "cmc": 4
+  },
+  "Merchant of Venom": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/3/935e0dbb-76fd-4f4f-bcc6-d80a3061bb29.png?1775940156",
+    "manaCost": "{3}{B}",
+    "colors": [
+      "B"
     ],
     "cmc": 4
   },
@@ -133363,7 +134771,7 @@
     "cmc": 3
   },
   "Meteor Sword": {
-    "imageUrl": "https://cards.scryfall.io/png/front/6/8/68b1c746-a4b8-4a45-9f0e-3962f0ae40e3.png?1764121906",
+    "imageUrl": "https://cards.scryfall.io/png/front/6/8/68b1c746-a4b8-4a45-9f0e-3962f0ae40e3.png?1776653933",
     "manaCost": "{7}",
     "colors": [],
     "cmc": 7
@@ -133472,6 +134880,14 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Mica, Reader of Ruins": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/4/949ad3ff-9e80-493c-a3ae-146b919bfcd7.png?1775937824",
+    "manaCost": "{3}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 4
   },
   "Michelangelo, Game Master": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/e/2e914c3d-2eed-48bf-af9a-a8998fd5111d.png?1771502708",
@@ -134350,6 +135766,15 @@
     ],
     "cmc": 1
   },
+  "Mind into Matter": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/a/0a7f0fdf-1d4b-4458-a19c-274611e8a59a.png?1775938403",
+    "manaCost": "{X}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Mind Knives": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/1/d17e23a6-6313-416d-b826-5df5833371dc.png?1562447843",
     "manaCost": "{1}{B}",
@@ -134401,6 +135826,15 @@
     "manaCost": "{2}{B}",
     "colors": [
       "B"
+    ],
+    "cmc": 3
+  },
+  "Mind Roots": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/d/9d5fdbda-ebbe-45d6-a668-5ddee057a063.png?1775938410",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
     ],
     "cmc": 3
   },
@@ -134597,6 +136031,14 @@
       "U"
     ],
     "cmc": 5
+  },
+  "Mindful Biomancer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/c/2c3a6eb8-ce0c-4dc8-9ed6-d2a9223eef53.png?1775938052",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
   },
   "Mindlash Sliver": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/8/f8c54575-dc1d-491c-a4f6-41f76eba2a2d.png?1562947635",
@@ -136134,7 +137576,7 @@
     "cmc": 3
   },
   "Mistbind Clique": {
-    "imageUrl": "https://cards.scryfall.io/png/front/b/f/bfe2fb61-4034-40dd-bd17-345bc42099c5.png?1768953727",
+    "imageUrl": "https://cards.scryfall.io/png/front/b/f/bfe2fb61-4034-40dd-bd17-345bc42099c5.png?1774843370",
     "manaCost": "{3}{U}",
     "colors": [
       "U"
@@ -137351,6 +138793,15 @@
     ],
     "cmc": 8
   },
+  "Molten Note": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/0/506f69aa-7dc4-4dd7-990a-7371fc1762c0.png?1775938416",
+    "manaCost": "{X}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 2
+  },
   "Molten Nursery": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/d/3db8aaf5-e2bf-40ea-bd5d-663017cfd4a6.png?1562909490",
     "manaCost": "{2}{R}",
@@ -137425,6 +138876,14 @@
     ],
     "cmc": 1
   },
+  "Molten-Core Maestro": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/2/326dfe32-3674-4a11-acd8-5ba62371235a.png?1775937832",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
+  },
   "Molten-Tail Masticore": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/8/48311a45-c0e1-4170-8dab-2b3495096c48.png?1562817136",
     "manaCost": "{4}",
@@ -137486,6 +138945,15 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Moment of Reckoning": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/7/577d9dc8-7720-4dc9-b650-64b4729b309b.png?1775938423",
+    "manaCost": "{3}{W}{W}{B}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 7
   },
   "Moment of Silence": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/f/3f50b5f5-8dac-4785-b1af-a0bd64ce7a92.png?1562380387",
@@ -138894,6 +140362,14 @@
     ],
     "cmc": 3
   },
+  "Moseo, Vein's New Dean": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/8/6877180c-22a1-4c4d-9178-316f4c34661b.png?1775937545",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
+  },
   "Mosquito Guard": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/e/5e5bca35-5098-4100-815b-de141c82eb6a.png?1562878773",
     "manaCost": "{W}",
@@ -139496,6 +140972,15 @@
     ],
     "cmc": 2
   },
+  "Muddle, the Ever-Changing": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/1/916d3e31-3243-47b3-b7d2-ce9a6dd47aba.png?1776731076",
+    "manaCost": "{2}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 4
+  },
   "Mudflat Village": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/3/53ec4ad3-9cf0-4f1b-a9db-d63feee594ab.png?1721639657",
     "manaCost": "",
@@ -139916,7 +141401,7 @@
     "cmc": 0
   },
   "Murmuring Mystic": {
-    "imageUrl": "https://cards.scryfall.io/png/front/5/f/5fc6adff-dcb3-456d-a8c2-0e77b784ff89.png?1572892777",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/d/5dc95208-2b3a-44cd-9782-b303379b8174.png?1775936863",
     "manaCost": "{3}{U}",
     "colors": [
       "U"
@@ -139963,6 +141448,14 @@
     ],
     "cmc": 4
   },
+  "Muse Seeker": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/1/71cb4a6b-b500-4b28-bcdb-ec4188242f39.png?1775937328",
+    "manaCost": "{1}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
+  },
   "Muse Vessel": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/0/10482209-19b1-4941-9133-f2764eeba092.png?1593274015",
     "manaCost": "{4}",
@@ -139976,6 +141469,14 @@
       "U"
     ],
     "cmc": 2
+  },
+  "Muse's Encouragement": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/5/c59e0004-1d6a-42a1-8ce4-31da2af2e1bf.png?1775937336",
+    "manaCost": "{4}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 5
   },
   "Museum Nightwatch": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/7/37860682-4973-4a0f-a43a-3056037bd2dc.png?1706241514",
@@ -140591,7 +142092,7 @@
     "cmc": 4
   },
   "Mysterious Tome": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/a/caa57b63-bb11-45e8-8795-de92ca61f4f1.png?1739662006",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/a/caa57b63-bb11-45e8-8795-de92ca61f4f1.png?1776203263",
     "manaCost": "{2}{U}",
     "colors": [
       "U"
@@ -141284,6 +142785,14 @@
     "manaCost": "{5}",
     "colors": [],
     "cmc": 5
+  },
+  "Naktamun Lorespinner": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/c/acca1fd4-6384-460e-905f-118f01aa76ed.png?1775939841",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
   },
   "Nalathni Dragon": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/8/68005c8d-f047-4ee3-99cc-e7cd46feef60.png?1723010007",
@@ -143412,6 +144921,14 @@
     ],
     "cmc": 2
   },
+  "Nev, the Practical Dean": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/3/93341675-0ab1-43da-b0ce-c994d8d8bbb4.png?1775940250",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
+  },
   "Neva, Stalked by Nightmares": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/6/e6f925ab-ade7-4da8-a791-185e098d18f2.png?1692939381",
     "manaCost": "{2}{W}{B}",
@@ -143586,6 +145103,14 @@
     ],
     "cmc": 3
   },
+  "Nexus Mentality": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/2/02d7bd37-5cb4-44ca-a386-57090ca8c725.png?1775940121",
+    "manaCost": "{3}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 4
+  },
   "Nexus of Becoming": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/0/b0f61742-522c-4b36-97db-41d0c412a072.png?1739804233",
     "manaCost": "{6}",
@@ -143593,7 +145118,7 @@
     "cmc": 6
   },
   "Nexus of Fate": {
-    "imageUrl": "https://cards.scryfall.io/png/front/5/0/506dab4a-9b63-4f9f-897f-7bb06fea871f.png?1756912098",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/0/506dab4a-9b63-4f9f-897f-7bb06fea871f.png?1774843324",
     "manaCost": "{5}{U}{U}",
     "colors": [
       "U"
@@ -144559,7 +146084,7 @@
     "cmc": 3
   },
   "Nimble Birdsticker": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/f/4ff9bcbd-48fe-4a74-aae5-a447c99aa64b.png?1564023032",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/f/4ff9bcbd-48fe-4a74-aae5-a447c99aa64b.png?1775731704",
     "manaCost": "{2}{R}",
     "colors": [
       "R"
@@ -145054,6 +146579,15 @@
       "G"
     ],
     "cmc": 4
+  },
+  "Nita, Forum Conciliator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/e/3e0c2dec-7649-495c-b2a7-2465c9e7fedb.png?1775939500",
+    "manaCost": "{1}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 3
   },
   "Niv-Mizzet Reborn": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/6/56a2609d-b535-400b-81d9-72989a33c70f.png?1582037402",
@@ -146028,6 +147562,14 @@
       "G"
     ],
     "cmc": 4
+  },
+  "Noxious Newt": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/a/3a028306-c5d7-4f8f-b6f4-0d103fd47000.png?1775938060",
+    "manaCost": "{1}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 2
   },
   "Noxious Revival": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/b/7b8c04ad-9c81-48f6-85cc-ae30a80a7989.png?1727336590",
@@ -147985,7 +149527,7 @@
     "cmc": 5
   },
   "Ojer Pakpatiq, Deepest Epoch": {
-    "imageUrl": "https://cards.scryfall.io/png/front/a/1/a1fbfb8f-600e-4b29-98c5-7c6714d35347.png?1699100828",
+    "imageUrl": "https://cards.scryfall.io/png/front/a/1/a1fbfb8f-600e-4b29-98c5-7c6714d35347.png?1774938360",
     "manaCost": "{2}{U}{U}",
     "colors": [
       "U"
@@ -148310,6 +149852,15 @@
     ],
     "cmc": 1
   },
+  "Old-Growth Educator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/b/eb7e858a-9b85-49b2-a379-ee656b64935a.png?1775938438",
+    "manaCost": "{2}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 4
+  },
   "Old-Growth Grove": {
     "imageUrl": "https://cards.scryfall.io/png/back/0/3/03522b6b-31ec-4126-8885-5dbb2248688b.png?1717013433",
     "manaCost": "",
@@ -148601,6 +150152,14 @@
     "colors": [],
     "cmc": 0
   },
+  "Ominous Harvest": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/2/2271184b-08eb-4d2a-8ebf-a1807d51dd2a.png?1775939805",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
+  },
   "Ominous Parcel": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/1/e1691374-e9f2-4a8b-abdb-0bb1dbc96715.png?1664414265",
     "manaCost": "{1}",
@@ -148644,7 +150203,7 @@
     "cmc": 5
   },
   "Omnath, Locus of Creation": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/e/4e4fb50c-a81f-44d3-93c5-fa9a0b37f617.png?1639436752",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/e/4e4fb50c-a81f-44d3-93c5-fa9a0b37f617.png?1776479048",
     "manaCost": "{R}{G}{W}{U}",
     "colors": [
       "G",
@@ -149559,6 +151118,14 @@
     ],
     "cmc": 4
   },
+  "Oracle's Gift": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/2/92fcf155-41ae-4275-8791-27ee95a2f7c0.png?1775939229",
+    "manaCost": "{X}{X}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
+  },
   "Oracle's Insight": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/4/546dae51-070c-4f3f-b0b4-6b88ff314af1.png?1593091733",
     "manaCost": "{3}{U}",
@@ -149566,6 +151133,14 @@
       "U"
     ],
     "cmc": 4
+  },
+  "Oracle's Restoration": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/8/0863a19d-4511-4a78-98dd-d194afd1c39b.png?1775938067",
+    "manaCost": "{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 1
   },
   "Oracle's Vault": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/3/43fcc4a5-3ab0-4344-85af-d80aae293b75.png?1543676313",
@@ -150551,6 +152126,14 @@
       "U"
     ],
     "cmc": 4
+  },
+  "Orysa, Tide Choreographer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/1/010ed379-63f5-452c-9cd4-00d51647c0e3.png?1775937343",
+    "manaCost": "{4}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 5
   },
   "Orzhov Advokist": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/0/00464232-2594-405a-95bb-f9b2a3287871.png?1562385692",
@@ -151708,6 +153291,14 @@
     ],
     "cmc": 3
   },
+  "Owlin Historian": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/f/5fe99be0-e1ec-485e-82f8-02eba7b82441.png?1775937078",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
+  },
   "Owlin Shieldmage": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/3/d3350367-42bd-44af-be13-ad31c002f8ac.png?1627429830",
     "manaCost": "{3}{W}{B}",
@@ -151716,6 +153307,14 @@
       "W"
     ],
     "cmc": 5
+  },
+  "Owlin Spiralmancer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/7/176d16bf-22a9-4b5d-8e86-b23fcf822efe.png?1775940128",
+    "manaCost": "{3}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 4
   },
   "Ox Drover": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/f/2f2681b8-0728-47d4-b7f2-dae7fbf87319.png?1692934233",
@@ -151805,7 +153404,7 @@
     "cmc": 2
   },
   "Ozox, the Clattering King": {
-    "imageUrl": "https://cards.scryfall.io/png/front/0/2/02cf5079-9da8-470d-8eea-00d6aac68d04.png?1730485855",
+    "imageUrl": "https://cards.scryfall.io/png/front/0/2/02cf5079-9da8-470d-8eea-00d6aac68d04.png?1775411062",
     "manaCost": "{2}{B}",
     "colors": [
       "B"
@@ -151830,6 +153429,15 @@
     "imageUrl": "https://cards.scryfall.io/png/front/c/8/c891df1b-bae6-4d6d-85ee-42901c149f98.png?1562721896",
     "manaCost": "{1}{W}",
     "colors": [
+      "W"
+    ],
+    "cmc": 2
+  },
+  "Pack a Punch": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/7/676ba521-66e4-42cf-a315-70d03cb7334e.png?1775938375",
+    "manaCost": "{1}{R}{W}",
+    "colors": [
+      "R",
       "W"
     ],
     "cmc": 2
@@ -151962,6 +153570,12 @@
     ],
     "cmc": 4
   },
+  "Page, Loose Leaf": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/c/8c6fecfd-8241-4cf0-b1eb-19472b99e0ed.png?1775938744",
+    "manaCost": "{2}",
+    "colors": [],
+    "cmc": 2
+  },
   "Pain": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/1/81be27d6-e16f-4158-b2b6-66a0f3315327.png?1562921172",
     "manaCost": "{B}",
@@ -152089,7 +153703,7 @@
     "cmc": 0
   },
   "Painter's Servant": {
-    "imageUrl": "https://cards.scryfall.io/png/front/3/5/3541ff97-f630-44f0-964d-b7d7f9353da5.png?1768953727",
+    "imageUrl": "https://cards.scryfall.io/png/front/3/5/3541ff97-f630-44f0-964d-b7d7f9353da5.png?1774843442",
     "manaCost": "{2}",
     "colors": [],
     "cmc": 2
@@ -152582,10 +154196,25 @@
     "colors": [],
     "cmc": 5
   },
+  "Paradox Gardens": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/b/dbc3447e-1329-4ea1-b4ca-b321b0ffec8f.png?1775938801",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Paradox Haze": {
-    "imageUrl": "https://cards.scryfall.io/png/front/3/f/3f92e3ed-32f7-40e0-952d-08ca524579c3.png?1768232800",
+    "imageUrl": "https://cards.scryfall.io/png/front/3/f/3f92e3ed-32f7-40e0-952d-08ca524579c3.png?1775114479",
     "manaCost": "{2}{U}",
     "colors": [
+      "U"
+    ],
+    "cmc": 3
+  },
+  "Paradox Surveyor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/7/d7cb1af2-0302-46ff-8303-ae9d07541a01.png?1775938445",
+    "manaCost": "{G}{G/U}{U}",
+    "colors": [
+      "G",
       "U"
     ],
     "cmc": 3
@@ -152691,7 +154320,7 @@
     "cmc": 4
   },
   "Parallax Wave": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/e/cef789e8-e4cc-4f61-bc15-debc2487777f.png?1562632102",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/e/cef789e8-e4cc-4f61-bc15-debc2487777f.png?1775570989",
     "manaCost": "{2}{W}{W}",
     "colors": [
       "W"
@@ -154014,6 +155643,14 @@
     ],
     "cmc": 3
   },
+  "Pensive Professor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/6/66d47940-84f9-4479-8562-45e5148435d4.png?1775937349",
+    "manaCost": "{1}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
+  },
   "Pentad Prism": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/7/672b9b16-daef-44e6-9a3a-cfd9f3c78bc7.png?1764758688",
     "manaCost": "{2}",
@@ -154097,7 +155734,7 @@
     "cmc": 1
   },
   "Perception Bobblehead": {
-    "imageUrl": "https://cards.scryfall.io/png/front/2/9/2925410a-7c44-4bf4-83cd-3e75dbe82b23.png?1708715190",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/9/2925410a-7c44-4bf4-83cd-3e75dbe82b23.png?1774938215",
     "manaCost": "{3}",
     "colors": [],
     "cmc": 3
@@ -154515,6 +156152,15 @@
     ],
     "cmc": 2
   },
+  "Pest Friend": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/0/a0bcb638-c3c8-4973-9537-5c471f43f34f.png?1775938382",
+    "manaCost": "{B/G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 4
+  },
   "Pest Infestation": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/7/4720b4f2-e6af-4223-9250-a0ed21ed5693.png?1625192367",
     "manaCost": "{X}{X}{G}",
@@ -154522,6 +156168,15 @@
       "G"
     ],
     "cmc": 1
+  },
+  "Pest Mascot": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/8/d882beb9-6766-4818-afbb-f6fd7a2d5b70.png?1775938452",
+    "manaCost": "{1}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 3
   },
   "Pest Problem": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/f/7f4c0959-a107-4d61-9e51-256b2955f6ba.png?1739663117",
@@ -154531,6 +156186,14 @@
     ],
     "cmc": 2
   },
+  "Pest Rescuer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/f/1f2a066a-7bcd-4e9d-8e52-0769cd6c8124.png?1775939906",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
+  },
   "Pest Summoning": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/2/6267e19a-a777-4767-8433-86b6624362b6.png?1637082369",
     "manaCost": "{1}{B/G}{B/G}",
@@ -154539,6 +156202,14 @@
       "G"
     ],
     "cmc": 3
+  },
+  "Pestbrood Sloth": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/1/c1251ae6-2f19-4f84-ab02-6a6cc7ce6056.png?1775938073",
+    "manaCost": "{3}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 4
   },
   "Pestered Wellguard": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/e/3e06c99e-ecb2-42e9-ac58-2542de8d54a5.png?1767871787",
@@ -154707,6 +156378,12 @@
   },
   "Petrified Field": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/a/eaeaf9f2-d196-4607-a704-06f2315d8cc5.png?1562938986",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
+  "Petrified Hamlet": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/5/355dd460-b0e9-41f2-a058-b7f7e39ac387.png?1775938807",
     "manaCost": "",
     "colors": [],
     "cmc": 0
@@ -156118,6 +157795,14 @@
     ],
     "cmc": 5
   },
+  "Pigment Wrangler": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/2/c2faf4cf-c4b6-4721-ac06-0e045dd9704a.png?1775937841",
+    "manaCost": "{4}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 5
+  },
   "Pikemen": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/f/bf2f6936-b50c-4907-9b55-ebf8a3fba8f5.png?1562940095",
     "manaCost": "{1}{W}",
@@ -157175,6 +158860,14 @@
     ],
     "cmc": 2
   },
+  "Planar Engineering": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/1/b1a2df2a-4578-46cd-8b6c-802a5af8d082.png?1775939390",
+    "manaCost": "{3}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 4
+  },
   "Planar Gate": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/d/dd27f0fe-c032-4f61-9f3d-98a6d2e2c426.png?1562861361",
     "manaCost": "{6}",
@@ -157862,6 +159555,14 @@
     ],
     "cmc": 5
   },
+  "Poisoner's Apprentice": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/7/3755a2e9-af55-4625-a006-2a86c7893a96.png?1775937552",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
+  },
   "Pol Jamaar, Illusionist": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/3/63e806ee-3c32-48bf-97a1-160a74765e76.png?1730485831",
     "manaCost": "{4}{U}{U}",
@@ -158453,6 +160154,14 @@
     ],
     "cmc": 1
   },
+  "Postmortem Professor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/7/174f5d7e-5d36-4d13-96bf-9b12cd644716.png?1775937558",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
+  },
   "Pothole Mole": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/1/21c7b59f-fdae-4a11-9784-497a8165d75a.png?1738356535",
     "manaCost": "{2}{G}",
@@ -158468,6 +160177,12 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Potioner's Trove": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/1/2123b349-4649-4a15-a8b5-b54414d2b1b7.png?1775938752",
+    "manaCost": "{3}",
+    "colors": [],
+    "cmc": 3
   },
   "Poultice Sliver": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/3/f3441ae0-4c20-487b-99b8-d6934dfb66ff.png?1562585668",
@@ -158704,6 +160419,14 @@
     ],
     "cmc": 3
   },
+  "Pox Plague": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/c/9c99c17b-ad3a-4859-97e8-469718b81cd9.png?1775937566",
+    "manaCost": "{B}{B}{B}{B}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 5
+  },
   "Poxwalkers": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/a/ca79cd21-daaa-4a1c-bab5-cc4c783994ae.png?1673308762",
     "manaCost": "{2}{B}",
@@ -158720,6 +160443,23 @@
       "U"
     ],
     "cmc": 5
+  },
+  "Practiced Offense": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/9/79c7cf94-c0a1-432d-90d7-7f0599c2e7a8.png?1775937087",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
+  },
+  "Practiced Scrollsmith": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/0/40075e3f-58b3-47fd-8fbe-4b301e9ce7a1.png?1775938459",
+    "manaCost": "{R}{R/W}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 3
   },
   "Practiced Tactics": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/1/91b448f4-aa0c-42c7-a771-e8dd20e0520c.png?1604192922",
@@ -159786,6 +161526,14 @@
     ],
     "cmc": 5
   },
+  "Primary Research": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/6/f6fdb814-45c6-4d14-afff-7f5bd1bd10a1.png?1775937094",
+    "manaCost": "{4}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 5
+  },
   "Prime Speaker Vannifar": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/4/84abfc59-10a7-4cb5-9cdd-81797116c810.png?1572893948",
     "manaCost": "{2}{G}{U}",
@@ -159896,6 +161644,15 @@
       "R"
     ],
     "cmc": 2
+  },
+  "Primo, the Unbounded": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/2/a2d14b99-15e2-4e96-89a2-7e0ee5dc059f.png?1776731080",
+    "manaCost": "{X}{G}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 3
   },
   "Primoc Escapee": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/6/e6cb3e72-bb64-4b1e-a54b-1fe4fb4ad4c9.png?1562941357",
@@ -160058,12 +161815,29 @@
     "colors": [],
     "cmc": 0
   },
+  "Prismari Charm": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/f/8f6c2a5e-fe13-407c-aadd-c9caf2884ff1.png?1775938465",
+    "manaCost": "{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Prismari Command": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/6/866b7fd4-86e3-4b42-b1ea-33bad0db1f9f.png?1627429955",
     "manaCost": "{1}{U}{R}",
     "colors": [
       "R",
       "U"
+    ],
+    "cmc": 3
+  },
+  "Prismari Pianist": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/d/6d3bfd1b-8ea8-43ad-8785-af29c807c935.png?1775940199",
+    "manaCost": "{1}{R}{R}",
+    "colors": [
+      "R"
     ],
     "cmc": 3
   },
@@ -160075,6 +161849,15 @@
       "U"
     ],
     "cmc": 2
+  },
+  "Prismari, the Inspiration": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/6/767ff9fa-4e7f-421a-b911-45186b520ae1.png?1775938472",
+    "manaCost": "{5}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 7
   },
   "Prismatic Boon": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/b/fb774a9b-d29f-4f41-9fb8-a0189205e16f.png?1562722869",
@@ -160353,6 +162136,23 @@
     ],
     "cmc": 3
   },
+  "Procrastinate": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/e/1edb449d-620f-4e21-9d76-2c840635eb9d.png?1775937356",
+    "manaCost": "{X}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 1
+  },
+  "Proctor's Gaze": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/1/b127d543-0a90-4af6-9410-94d5cd30389e.png?1775938479",
+    "manaCost": "{2}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 4
+  },
   "Prodigal Pyromancer": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/7/97787109-408e-42d3-acc5-300f5f5bf2ff.png?1562576997",
     "manaCost": "{2}{R}",
@@ -160461,6 +162261,15 @@
     "imageUrl": "https://cards.scryfall.io/png/front/8/a/8a5381e7-ddda-47e7-886d-812250ffb745.png?1757377496",
     "manaCost": "{3}{G}",
     "colors": [
+      "G"
+    ],
+    "cmc": 4
+  },
+  "Professor Dellian Fel": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/f/6ff3b4d8-1271-4c5d-8834-7662244f173d.png?1775938486",
+    "manaCost": "{2}{B}{G}",
+    "colors": [
+      "B",
       "G"
     ],
     "cmc": 4
@@ -161254,7 +163063,7 @@
     "cmc": 3
   },
   "Psemilla, Meletian Poet": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/3/431258f5-705e-411d-b396-6992bc84d816.png?1730485804",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/3/431258f5-705e-411d-b396-6992bc84d816.png?1775411078",
     "manaCost": "{2}{W}",
     "colors": [
       "W"
@@ -161613,6 +163422,15 @@
     ],
     "cmc": 3
   },
+  "Pterafractyl": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/c/ecd33152-e290-4505-addd-a8d08cefdddd.png?1775938495",
+    "manaCost": "{X}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Pteramander": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/8/280f2a85-1900-460b-a768-164fc2dea636.png?1584830293",
     "manaCost": "{U}",
@@ -161728,6 +163546,14 @@
       "U"
     ],
     "cmc": 4
+  },
+  "Pull from the Grave": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/7/d73612fe-8992-4650-a7e3-c7b662da6a03.png?1775937572",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
   },
   "Pull from Tomorrow": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/1/f1eccf27-c934-45fb-87ae-67006cd4e0ed.png?1543675081",
@@ -162249,6 +164075,15 @@
       "R"
     ],
     "cmc": 4
+  },
+  "Pursue the Past": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/5/4584d5f7-b1f1-4c8e-80c5-ad35e44a968e.png?1775938502",
+    "manaCost": "{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 2
   },
   "Pursued Whale": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/4/143052f0-4fcc-4703-9147-75b65ddb8e0f.png?1615018939",
@@ -163022,6 +164857,15 @@
     "colors": [],
     "cmc": 0
   },
+  "Quandrix Charm": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/1/318486e0-f255-40f5-8150-dc272eec9d7d.png?1775938509",
+    "manaCost": "{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Quandrix Command": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/2/021b62d8-d160-47f5-bc51-0474f160d13f.png?1624739521",
     "manaCost": "{1}{G}{U}",
@@ -163048,6 +164892,15 @@
       "U"
     ],
     "cmc": 3
+  },
+  "Quandrix, the Proof": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/1/015afe31-af3c-4c9b-9997-d7c33b915a33.png?1775938517",
+    "manaCost": "{4}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 6
   },
   "Quantum Misalignment": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/9/497f3315-13d2-41be-bf3a-a75de57a5e08.png?1696637252",
@@ -163595,6 +165448,14 @@
     "colors": [],
     "cmc": 3
   },
+  "Quill-Blade Laureate": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/2/62a47835-5719-48c4-a740-a0c5f00dce11.png?1775937102",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
+  },
   "Quill-Slinger Boggart": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/3/c3a15a9d-46d7-4181-8131-50ba46a11c7b.png?1562366955",
     "manaCost": "{3}{B}",
@@ -163693,6 +165554,15 @@
       "W"
     ],
     "cmc": 5
+  },
+  "Quintorius, History Chaser": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/7/0742f19d-179c-43c4-ab95-4160c56b4384.png?1776731084",
+    "manaCost": "{2}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 4
   },
   "Quintorius, Loremaster": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/1/a19b152c-8376-42f9-9daf-e139dc29c9ca.png?1682205653",
@@ -163836,6 +165706,14 @@
       "R"
     ],
     "cmc": 4
+  },
+  "Rabid Attack": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/5/f5e67560-3135-4b27-a344-5859edf8bcd9.png?1775937579",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
   },
   "Rabid Bite": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/f/2f573622-877b-4d21-adfc-40a32b7c2e6d.png?1576385195",
@@ -165292,6 +167170,14 @@
     ],
     "cmc": 4
   },
+  "Ral Zarek, Guest Lecturer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/f/8fbad757-4081-42f7-a460-68ac03e77510.png?1775937587",
+    "manaCost": "{1}{B}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
+  },
   "Ral, Caller of Storms": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/4/c44f0c60-5732-4c25-9ba9-4829f1891762.png?1572894258",
     "manaCost": "{4}{U}{R}",
@@ -165933,6 +167819,12 @@
     ],
     "cmc": 1
   },
+  "Rancorous Archaic": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/5/2565e16a-ed31-4867-adb8-f1633d580397.png?1775936927",
+    "manaCost": "{5}",
+    "colors": [],
+    "cmc": 5
+  },
   "Random Encounter": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/6/3618e283-2df9-4eb9-97b0-96b55ee31cc0.png?1748706320",
     "manaCost": "{4}{R}{R}",
@@ -166258,6 +168150,14 @@
     ],
     "cmc": 1
   },
+  "Rapier Wit": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/7/97b50521-5a0f-4dbd-8e15-f0f0d059c258.png?1775937109",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
+  },
   "Rappelling Scouts": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/1/113b8366-e6d0-423e-af4b-52c1e08ed446.png?1562379414",
     "manaCost": "{2}{W}{W}",
@@ -166281,6 +168181,15 @@
       "R"
     ],
     "cmc": 2
+  },
+  "Rapturous Moment": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/1/21afe19d-881a-48cb-863e-22942bea5ebe.png?1775938524",
+    "manaCost": "{4}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 6
   },
   "Rasaad yn Bashir": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/b/5b634d96-62ae-46d2-b77f-7148837346b2.png?1674138395",
@@ -167825,6 +169734,14 @@
     ],
     "cmc": 4
   },
+  "Rearing Embermare": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/6/06dd56bd-de92-4202-af31-7e881c34d799.png?1775937851",
+    "manaCost": "{4}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 5
+  },
   "Reason": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/c/1ca644e3-4fb3-4d38-b714-e3d7459bd8b9.png?1562791344",
     "manaCost": "{U}",
@@ -169103,7 +171020,7 @@
     "cmc": 5
   },
   "Regal Force": {
-    "imageUrl": "https://cards.scryfall.io/png/front/3/d/3dc95149-971f-4f36-b572-0463b49bf617.png?1768940719",
+    "imageUrl": "https://cards.scryfall.io/png/front/3/d/3dc95149-971f-4f36-b572-0463b49bf617.png?1774843418",
     "manaCost": "{4}{G}{G}{G}",
     "colors": [
       "G"
@@ -169240,6 +171157,14 @@
       "G"
     ],
     "cmc": 2
+  },
+  "Rehearsed Debater": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/c/fc6a1425-6733-42a2-94d9-605966398092.png?1775937116",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
   },
   "Reidane, God of the Worthy": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/6/3606519e-5677-4c21-a34e-be195b6669fa.png?1631046015",
@@ -169397,6 +171322,14 @@
       "B"
     ],
     "cmc": 6
+  },
+  "Rejoinder": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/9/2970683e-e69c-42cb-a067-34abd56fb42b.png?1775936992",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 1
   },
   "Rejuvenate": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/e/fe3709a3-7a1b-4644-b1d5-e1ffef549f94.png?1562948833",
@@ -169662,6 +171595,14 @@
       "B"
     ],
     "cmc": 3
+  },
+  "Relic Retriever": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/8/2866da1d-62e9-4a0d-9e6c-793d2d38c884.png?1775940206",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
   },
   "Relic Robber": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/5/4540205c-eee8-4db3-8757-710de874b313.png?1604197560",
@@ -169948,6 +171889,15 @@
     ],
     "cmc": 3
   },
+  "Render Speechless": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/5/25bbb1c7-14e8-444f-ab98-e95f50927460.png?1775938531",
+    "manaCost": "{2}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 4
+  },
   "Rending Flame": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/1/51332c31-41df-4379-aa63-6a734a4df618.png?1643591905",
     "manaCost": "{2}{R}",
@@ -169978,6 +171928,14 @@
     "colors": [
       "B",
       "G"
+    ],
+    "cmc": 5
+  },
+  "Renegade Bull": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/a/aa23e922-f44b-4af8-8ce0-bc1bc1e65bad.png?1775939864",
+    "manaCost": "{4}{R}",
+    "colors": [
+      "R"
     ],
     "cmc": 5
   },
@@ -170824,6 +172782,15 @@
     ],
     "cmc": 5
   },
+  "Resonating Lute": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/e/6ef168d6-28f2-4c24-9bfa-82c35663b729.png?1775938538",
+    "manaCost": "{2}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 4
+  },
   "Resounding Roar": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/1/217bf237-a758-4500-b221-5e88fed9d0fc.png?1562701871",
     "manaCost": "{1}{G}",
@@ -171094,6 +173061,14 @@
     ],
     "cmc": 1
   },
+  "Restoration Seminar": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/e/9ebc4ecf-2fa2-4ab8-afde-3b91cf5eadb6.png?1775937123",
+    "manaCost": "{5}{W}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 7
+  },
   "Restoration Specialist": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/3/63682db3-1a56-4d8e-a9b7-04465a577518.png?1576381409",
     "manaCost": "{1}{W}",
@@ -171125,6 +173100,15 @@
       "W"
     ],
     "cmc": 0
+  },
+  "Restore Relic": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/b/cb535433-f062-4c35-977e-2f896251b1d8.png?1775939956",
+    "manaCost": "{2}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 3
   },
   "Restore the Peace": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/0/105902f6-99d0-4bee-9dfd-87a92ac04d91.png?1562898184",
@@ -172464,6 +174448,14 @@
     "colors": [],
     "cmc": 4
   },
+  "Ribtruss Roaster": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/2/8217100d-8244-4565-97bd-6c0f38c3e2f0.png?1775939914",
+    "manaCost": "{4}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 5
+  },
   "Riches": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/1/11d84618-aca9-47dc-ae73-36a2c29f584c.png?1549941948",
     "manaCost": "{5}{U}{U}",
@@ -173075,7 +175067,7 @@
     "cmc": 2
   },
   "Rin and Seri, Inseparable": {
-    "imageUrl": "https://cards.scryfall.io/png/front/9/9/992b2dd3-87e7-48a4-bd8d-84973ff0ee1f.png?1745912080",
+    "imageUrl": "https://cards.scryfall.io/png/front/9/9/992b2dd3-87e7-48a4-bd8d-84973ff0ee1f.png?1774995161",
     "manaCost": "{1}{R}{G}{W}",
     "colors": [
       "G",
@@ -173649,7 +175641,7 @@
     "cmc": 5
   },
   "Risen Reef": {
-    "imageUrl": "https://cards.scryfall.io/png/front/5/0/50d0af6d-8560-4783-90ae-162b2bf11541.png?1768940707",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/0/50d0af6d-8560-4783-90ae-162b2bf11541.png?1774843425",
     "manaCost": "{1}{G}{U}",
     "colors": [
       "G",
@@ -174698,7 +176690,7 @@
     "cmc": 1
   },
   "Robe of Stars": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/8/c89a70e9-c180-483d-8a76-951b52162fda.png?1756912103",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/8/c89a70e9-c180-483d-8a76-951b52162fda.png?1774837740",
     "manaCost": "{1}{W}",
     "colors": [
       "W"
@@ -174859,6 +176851,14 @@
     "manaCost": "{4}",
     "colors": [],
     "cmc": 4
+  },
+  "Rocket Volley": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/c/5c88391d-271f-4021-a5d9-158ebc1e6357.png?1775937805",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
   },
   "Rocket-Powered Goblin Glider": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/f/9fb3e089-17f0-4066-9ab2-c23b7b2a6ee7.png?1757379231",
@@ -175148,7 +177148,7 @@
     "cmc": 5
   },
   "Roiling Dragonstorm": {
-    "imageUrl": "https://cards.scryfall.io/png/front/3/c/3c725add-1cca-4003-8f37-c68f8f8fcc33.png?1744455199",
+    "imageUrl": "https://cards.scryfall.io/png/front/3/c/3c725add-1cca-4003-8f37-c68f8f8fcc33.png?1775114988",
     "manaCost": "{1}{U}",
     "colors": [
       "U"
@@ -175508,6 +177508,15 @@
     ],
     "cmc": 4
   },
+  "Root Manipulation": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/3/5390a79c-bc4b-4edb-a845-0d3514986401.png?1775938546",
+    "manaCost": "{3}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 5
+  },
   "Root Maze": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/9/99a12b74-f191-4362-81ab-77590ae5e68f.png?1562055455",
     "manaCost": "{G}",
@@ -175602,6 +177611,15 @@
       "G"
     ],
     "cmc": 5
+  },
+  "Rootha, Mastering the Moment": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/5/a5b3dbb2-c090-4118-9e47-56c16202572c.png?1776731088",
+    "manaCost": "{2}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 4
   },
   "Rootha, Mercurial Artist": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/c/acb8f24d-8d1d-48aa-a534-238e969a474c.png?1624739798",
@@ -176429,6 +178447,14 @@
     ],
     "cmc": 4
   },
+  "Rubble Rouser": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/f/afe61957-a9bb-42b0-98e8-b5fa418cbaff.png?1775937860",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Rubble Slinger": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/0/f006255f-b18d-4d52-b97a-17909b67decc.png?1584831962",
     "manaCost": "{2}{R/G}",
@@ -176969,6 +178995,14 @@
     ],
     "cmc": 2
   },
+  "Run Behind": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/0/40ecc34b-4cd0-4998-bbf4-7faa6fd3d7e0.png?1775937369",
+    "manaCost": "{3}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 4
+  },
   "Run for Your Life": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/c/3c5ecb3c-5da8-41fc-9196-0d67b4234de3.png?1696637412",
     "manaCost": "{U}{R}",
@@ -176991,6 +179025,15 @@
     "manaCost": "{1}{G}",
     "colors": [
       "G"
+    ],
+    "cmc": 2
+  },
+  "Run the Play": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/5/159c2891-c1e2-4ec3-8c20-d6b97315dd1c.png?1775939963",
+    "manaCost": "{X}{G}{U}",
+    "colors": [
+      "G",
+      "U"
     ],
     "cmc": 2
   },
@@ -179251,6 +181294,15 @@
     ],
     "cmc": 4
   },
+  "Sanar, Unfinished Genius": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/7/173157aa-712d-44f2-89ba-dd2511a07f26.png?1775938553",
+    "manaCost": "{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Sanctified Charge": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/4/6481bf34-192c-4102-8336-4d2d007d9e3c.png?1562788078",
     "manaCost": "{4}{W}",
@@ -179562,7 +181614,7 @@
     "cmc": 2
   },
   "Sandbenders' Storm": {
-    "imageUrl": "https://cards.scryfall.io/png/front/b/3/b3bf4a25-4329-4318-870a-2b06aa620dc4.png?1764120118",
+    "imageUrl": "https://cards.scryfall.io/png/front/b/3/b3bf4a25-4329-4318-870a-2b06aa620dc4.png?1774855638",
     "manaCost": "{3}{W}",
     "colors": [
       "W"
@@ -181633,6 +183685,14 @@
     ],
     "cmc": 3
   },
+  "Scathing Shadelock": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/3/03e664cd-c3a6-4263-b2d8-dd99058fb8ec.png?1775937593",
+    "manaCost": "{4}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 5
+  },
   "Scatter Arc": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/2/32ed969f-2c8e-4421-9448-dc5a2afdc81d.png?1561821983",
     "manaCost": "{3}{U}",
@@ -181916,6 +183976,14 @@
     ],
     "cmc": 2
   },
+  "Scheming Silvertongue": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/c/1c4c2765-2fb0-43f2-9e50-934405d108d2.png?1775939308",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
+  },
   "Scheming Symmetry": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/1/01acc50b-856d-442d-9880-1a892b40643b.png?1592516766",
     "manaCost": "{B}",
@@ -182121,6 +184189,15 @@
     "colors": [],
     "cmc": 3
   },
+  "Scolding Administrator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/9/69757177-aefa-44a6-81db-5ae9b5d2f117.png?1775938562",
+    "manaCost": "{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 2
+  },
   "Scorch Rider": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/e/9ec9d3eb-4729-49a9-8146-7388ff2629df.png?1604197733",
     "manaCost": "{3}{R}",
@@ -182152,6 +184229,12 @@
       "R"
     ],
     "cmc": 1
+  },
+  "Scorched Geyser": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/6/5648788e-af46-4e95-9295-62c0fc2e5105.png?1775940343",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
   },
   "Scorched Ruins": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/5/75a4e843-937c-47fb-8768-0f42c5cb4e4f.png?1562801558",
@@ -182931,6 +185014,15 @@
     ],
     "cmc": 3
   },
+  "Scriv, the Obligator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/1/c133a860-7b8d-485d-b9a2-bf8ae3a68f47.png?1776731024",
+    "manaCost": "{2}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 4
+  },
   "Scrivener": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/b/8b236bba-160a-4637-a83e-8456834ce59f.png?1562088310",
     "manaCost": "{4}{U}",
@@ -182988,6 +185080,14 @@
     "manaCost": "{2}{U}",
     "colors": [
       "U"
+    ],
+    "cmc": 3
+  },
+  "Scrollboost": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/0/c0b85569-2cb3-4b64-b0fe-418195c4dab0.png?1775937144",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
     ],
     "cmc": 3
   },
@@ -183709,7 +185809,7 @@
     "cmc": 3
   },
   "Search for Dagger": {
-    "imageUrl": "https://cards.scryfall.io/png/front/9/a/9adaef20-1d82-4941-b4bb-a037cf3d63db.png?1764956573",
+    "imageUrl": "https://cards.scryfall.io/png/front/9/a/9adaef20-1d82-4941-b4bb-a037cf3d63db.png?1775115356",
     "manaCost": "{1}{W}",
     "colors": [
       "W"
@@ -185463,6 +187563,14 @@
       "U"
     ],
     "cmc": 5
+  },
+  "Send in the Pest": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/8/283b508b-89f0-4c23-9686-b049e402b73c.png?1775937607",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
   },
   "Send to Sleep": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/a/aa34d648-da0a-4615-8dd8-d2c8b1a1a574.png?1562035811",
@@ -187908,6 +190016,14 @@
     ],
     "cmc": 6
   },
+  "Shattered Acolyte": {
+    "imageUrl": "https://cards.scryfall.io/png/front/d/c/dc0517ca-b271-49a1-a286-c20f4e5b9309.png?1775937130",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
+  },
   "Shattered Angel": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/1/012f94e9-91cd-48da-873f-2da2b03a4965.png?1562875115",
     "manaCost": "{3}{W}{W}",
@@ -189389,6 +191505,14 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Shopkeeper's Bane": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/7/97f7fbb9-228c-4a74-975b-38d3b6cecb32.png?1775938087",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
   },
   "Shore Keeper": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/3/135d1145-8640-44e1-8079-45832fa2556d.png?1562551024",
@@ -191534,6 +193658,15 @@
     "colors": [],
     "cmc": 0
   },
+  "Silverquill Charm": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/6/16cbe8e2-a3ea-4b14-a514-39a2f2d5fe0d.png?1776235922",
+    "manaCost": "{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 2
+  },
   "Silverquill Command": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/c/5c55f533-9d31-4ad1-b336-927aba6e74d6.png?1624740020",
     "manaCost": "{2}{W}{B}",
@@ -191568,6 +193701,15 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Silverquill, the Disputant": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/7/1742c9cd-5ba0-4335-9999-acc7f9d4f73c.png?1775938577",
+    "manaCost": "{2}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 4
   },
   "Silverskin Armor": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/1/d1dba839-bd1e-4ce8-ab90-005eb1f0102e.png?1562615008",
@@ -193662,6 +195804,20 @@
     "colors": [],
     "cmc": 0
   },
+  "Skycoach Conductor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/e/4ecbca71-9a1d-44c5-b709-d6f565941d5e.png?1775937376",
+    "manaCost": "{2}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
+  },
+  "Skycoach Waypoint": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/7/6747657b-5ce4-4dbd-b924-ca1f7119faf7.png?1775938823",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Skycrash": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/7/87e82be6-d2b4-4c95-8466-477e8c6832e9.png?1738356462",
     "manaCost": "{1}{R}",
@@ -194542,7 +196698,7 @@
     "cmc": 3
   },
   "Sledding Otter-Penguin": {
-    "imageUrl": "https://cards.scryfall.io/png/front/d/3/d3e0f159-029d-4177-8f20-c96eca0a421c.png?1764719223",
+    "imageUrl": "https://cards.scryfall.io/png/front/d/3/d3e0f159-029d-4177-8f20-c96eca0a421c.png?1774851450",
     "manaCost": "{2}{W}",
     "colors": [
       "W"
@@ -194916,7 +197072,7 @@
     "cmc": 4
   },
   "Slippery Bogle": {
-    "imageUrl": "https://cards.scryfall.io/png/front/a/4/a4ad7a05-20af-4f7a-9dc2-7ce89356364c.png?1768953738",
+    "imageUrl": "https://cards.scryfall.io/png/front/a/4/a4ad7a05-20af-4f7a-9dc2-7ce89356364c.png?1774843433",
     "manaCost": "{G/U}",
     "colors": [
       "G",
@@ -195116,7 +197272,7 @@
     "cmc": 5
   },
   "Sliver Overlord": {
-    "imageUrl": "https://cards.scryfall.io/png/front/9/f/9f1ae7a8-cb6a-4877-810a-f51a3951e7c3.png?1756912105",
+    "imageUrl": "https://cards.scryfall.io/png/front/9/f/9f1ae7a8-cb6a-4877-810a-f51a3951e7c3.png?1774843360",
     "manaCost": "{W}{U}{B}{R}{G}",
     "colors": [
       "B",
@@ -195273,6 +197429,14 @@
     "manaCost": "{3}",
     "colors": [],
     "cmc": 3
+  },
+  "Slumbering Trudge": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/a/3a925370-58ac-4181-9acc-db7b0e0abf17.png?1776584117",
+    "manaCost": "{X}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 1
   },
   "Slumbering Walker": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/1/81e82915-e734-4754-829f-f5da6a7c550d.png?1767862426",
@@ -195890,6 +198054,14 @@
     ],
     "cmc": 2
   },
+  "Snarl Song": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/c/fc4c7fa2-aebb-4636-9afd-f1010c923316.png?1775938101",
+    "manaCost": "{5}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 6
+  },
   "Snarling Gorehound": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/3/93ab3e11-8584-406f-b9ae-9e1df4396cbc.png?1706241754",
     "manaCost": "{B}",
@@ -195955,6 +198127,14 @@
     ],
     "cmc": 2
   },
+  "Sneering Shadewriter": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/b/4b4c120e-abe9-4f11-a7e4-bc3f723da4b2.png?1775937615",
+    "manaCost": "{4}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 5
+  },
   "Snooping Newsie": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/e/bed1e957-3df1-4640-9980-783817826602.png?1664413766",
     "manaCost": "{U}{B}",
@@ -195963,6 +198143,15 @@
       "U"
     ],
     "cmc": 2
+  },
+  "Snooping Page": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/3/73d06987-8686-461b-b260-9a4fee6a3b32.png?1775938584",
+    "manaCost": "{1}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 3
   },
   "Snort": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/f/2fbe13c7-af6c-43f4-b947-f32ea48a0edb.png?1748704637",
@@ -196180,6 +198369,14 @@
     ],
     "cmc": 3
   },
+  "Soaring Stoneglider": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/f/2fbe446b-60fd-43da-8358-985392293af8.png?1775937136",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
+  },
   "Soaring Thought-Thief": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/d/0d73c9c4-8955-499f-8f87-6500b35b4977.png?1604200453",
     "manaCost": "{U}{B}",
@@ -196194,6 +198391,15 @@
     "manaCost": "{2}{G}",
     "colors": [
       "G"
+    ],
+    "cmc": 3
+  },
+  "Social Snub": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/0/a04b6900-0436-4920-a0d4-c0186d605ae3.png?1775938590",
+    "manaCost": "{1}{W}{B}",
+    "colors": [
+      "B",
+      "W"
     ],
     "cmc": 3
   },
@@ -196302,7 +198508,7 @@
     "cmc": 4
   },
   "Sokka, Wolf Cove's Protector": {
-    "imageUrl": "https://cards.scryfall.io/png/front/0/3/039cb105-f8f7-4d04-a137-34b13491ee9a.png?1764719226",
+    "imageUrl": "https://cards.scryfall.io/png/front/0/3/039cb105-f8f7-4d04-a137-34b13491ee9a.png?1774851457",
     "manaCost": "{2}{W}",
     "colors": [
       "W"
@@ -196310,7 +198516,7 @@
     "cmc": 3
   },
   "Sokka's Charge": {
-    "imageUrl": "https://cards.scryfall.io/png/front/a/9/a9dd7fc2-1eab-4f73-a4e8-6d7551c73a3e.png?1764697142",
+    "imageUrl": "https://cards.scryfall.io/png/front/a/9/a9dd7fc2-1eab-4f73-a4e8-6d7551c73a3e.png?1775115379",
     "manaCost": "{3}{W}",
     "colors": [
       "W"
@@ -197444,7 +199650,7 @@
     "cmc": 3
   },
   "Sothera, the Supervoid": {
-    "imageUrl": "https://cards.scryfall.io/png/front/8/0/80d0b4ed-116a-445a-a571-7ebfc1983654.png?1762597905",
+    "imageUrl": "https://cards.scryfall.io/png/front/8/0/80d0b4ed-116a-445a-a571-7ebfc1983654.png?1775115473",
     "manaCost": "{2}{B}{B}",
     "colors": [
       "B"
@@ -198925,6 +201131,12 @@
     ],
     "cmc": 3
   },
+  "Spectacle Summit": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/0/a0a66f7b-eab4-45da-8895-c2c2c7eb05f8.png?1775938830",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Spectacular Pileup": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/2/a24a6309-0e69-45f0-a9ff-44d4997e7e4d.png?1738356171",
     "manaCost": "{3}{W}{W}",
@@ -198940,6 +201152,15 @@
       "R"
     ],
     "cmc": 2
+  },
+  "Spectacular Skywhale": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/9/c90366d5-b4ba-4772-a3c5-f138bbe7f305.png?1775938597",
+    "manaCost": "{2}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 4
   },
   "Spectacular Spider-Man": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/1/011b71a9-c06d-4fd6-8543-ad21f4759473.png?1757378832",
@@ -199382,6 +201603,14 @@
     "manaCost": "{0}",
     "colors": [],
     "cmc": 0
+  },
+  "Spellbook Seeker": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/c/cc44eaa4-59a4-419e-b1d1-d92f354ff588.png?1775937383",
+    "manaCost": "{3}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 4
   },
   "Spellbook Vendor": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/c/4ceac5b5-05eb-4f00-9477-3db490be24dd.png?1692936729",
@@ -199900,7 +202129,7 @@
     "cmc": 3
   },
   "Sphinx's Tutelage": {
-    "imageUrl": "https://cards.scryfall.io/png/front/9/4/94a3673b-6003-4612-a8f6-02829aa9de7d.png?1733168236",
+    "imageUrl": "https://cards.scryfall.io/png/front/9/4/94a3673b-6003-4612-a8f6-02829aa9de7d.png?1774938007",
     "manaCost": "{2}{U}",
     "colors": [
       "U"
@@ -200878,6 +203107,15 @@
     ],
     "cmc": 2
   },
+  "Spirit Mascot": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/2/123f1fde-d8de-4640-baa1-bb3781713168.png?1775938605",
+    "manaCost": "{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 2
+  },
   "Spirit Mirror": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/a/8a7089c9-70ba-4009-86a5-d4e322c00fba.png?1562054989",
     "manaCost": "{2}{W}{W}",
@@ -200893,6 +203131,14 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Spirit of Resilience": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/0/60584e5b-4138-405b-bd02-612cf175184e.png?1775939871",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
   },
   "Spirit of Resistance": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/f/5fb66439-df73-4a01-a8d4-6f2334297fdf.png?1562914374",
@@ -200997,6 +203243,14 @@
       "W"
     ],
     "cmc": 5
+  },
+  "Spiritcall Enthusiast": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/0/c0b85569-2cb3-4b64-b0fe-418195c4dab0.png?1775937144",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
   },
   "Spirited Companion": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/a/5aa91a9e-2fe2-43bc-aa9c-cfb8a71829ff.png?1654566520",
@@ -201344,6 +203598,15 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Splatter Technique": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/6/266b881f-a0a8-4058-bbfe-cc46518f839d.png?1775939514",
+    "manaCost": "{1}{U}{U}{R}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 5
   },
   "Splatter Thug": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/c/7c511805-3392-4033-8679-811711a0aaca.png?1562788673",
@@ -202518,6 +204781,15 @@
     ],
     "cmc": 1
   },
+  "Stadium Tidalmage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/6/a689289e-7141-4950-8a87-82e9bd6846fe.png?1775938619",
+    "manaCost": "{2}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 4
+  },
   "Stadium Vendors": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/d/2d25baa1-4794-4bed-bf0c-7d99f39f9656.png?1562904205",
     "manaCost": "{3}{R}",
@@ -202981,6 +205253,14 @@
     ],
     "cmc": 2
   },
+  "Stand Up for Yourself": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/7/b756ca13-b904-4510-9bbb-5bc2864abfbd.png?1775937151",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
+  },
   "Standard Bearer": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/0/e0f8e16a-55f0-4147-a01a-dba7938f31c4.png?1562948563",
     "manaCost": "{1}{W}",
@@ -203393,6 +205673,15 @@
     ],
     "cmc": 4
   },
+  "Startled Relic Sloth": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/1/f143fd41-58c3-45a0-bef8-e9e4b4a502a5.png?1775938628",
+    "manaCost": "{2}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 4
+  },
   "Startling Development": {
     "imageUrl": "https://cards.scryfall.io/png/front/a/1/a12680db-957f-48c1-9062-2edd9115ba26.png?1591226517",
     "manaCost": "{1}{U}",
@@ -203701,6 +205990,14 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Steal the Show": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/a/7ac6649f-980e-4404-9c05-458c30578ecc.png?1775937875",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
   },
   "Stealer of Secrets": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/0/30ae7001-4d0f-4160-b41c-2fcb83fdb60b.png?1562784480",
@@ -204135,6 +206432,14 @@
     ],
     "cmc": 4
   },
+  "Stensian Sanguinist": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/6/66d88104-c69d-4349-a4ae-4a3d855a3536.png?1775940171",
+    "manaCost": "{1}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 2
+  },
   "Step Between Worlds": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/e/0e532e5b-6d84-4669-8788-f471b1498c7b.png?1712356617",
     "manaCost": "{3}{U}{U}",
@@ -204559,6 +206864,23 @@
     ],
     "cmc": 4
   },
+  "Stirring Honormancer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/e/ee84b04d-78fc-416f-9166-72e5417c3e17.png?1775938634",
+    "manaCost": "{2}{W}{W/B}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 5
+  },
+  "Stirring Hopesinger": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/1/21375667-b318-47f8-a482-9c8c2b5b14c0.png?1775937157",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
+  },
   "Stirring Wildwood": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/5/d556d10b-83cc-4736-b269-4ce65aae2837.png?1764758781",
     "manaCost": "",
@@ -204882,6 +207204,14 @@
       "B"
     ],
     "cmc": 5
+  },
+  "Stone Docent": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/2/c2abfffb-bf36-44af-9a27-6e109e4d77dd.png?1775937164",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
   },
   "Stone Giant": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/f/7ffaedb9-25f8-4304-9085-e12505b93312.png?1559591450",
@@ -206404,6 +208734,15 @@
     ],
     "cmc": 2
   },
+  "Stress Dream": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/e/1ec40a1b-51e7-4a35-966c-ab2a10f21a80.png?1775938641",
+    "manaCost": "{3}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 5
+  },
   "Strict Proctor": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/8/0826e210-2002-43fe-942d-41922dfd7bc2.png?1656684373",
     "manaCost": "{1}{W}",
@@ -206433,6 +208772,23 @@
     ],
     "cmc": 4
   },
+  "Striding Shotcaller": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/5/159c2891-c1e2-4ec3-8c20-d6b97315dd1c.png?1775939963",
+    "manaCost": "{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 2
+  },
+  "Strife Scholar": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/d/8de79312-2046-425e-9919-49afe19be81b.png?1775937883",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Strike It Rich": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/c/1c7c2814-a617-4123-acdf-1b01b2768210.png?1626097050",
     "manaCost": "{R}",
@@ -206440,6 +208796,14 @@
       "R"
     ],
     "cmc": 1
+  },
+  "Striking Palette": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/2/c2faf4cf-c4b6-4721-ac06-0e045dd9704a.png?1775937841",
+    "manaCost": "{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 5
   },
   "Striking Sliver": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/e/4ee9254b-3d98-4477-a82e-1450cf3ee96e.png?1562829076",
@@ -206508,6 +208872,12 @@
       "U"
     ],
     "cmc": 1
+  },
+  "Strixhaven Skycoach": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/7/87741fbb-b426-4f83-a358-587b0907f081.png?1775938759",
+    "manaCost": "{3}",
+    "colors": [],
+    "cmc": 3
   },
   "Strixhaven Stadium": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/7/0795abd9-7294-4f8a-8491-0fe39ae6e273.png?1630194626",
@@ -206856,6 +209226,14 @@
     "manaCost": "{W}",
     "colors": [
       "W"
+    ],
+    "cmc": 1
+  },
+  "Studious First-Year": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/4/24f888dd-785c-4089-a89c-03f9080130ed.png?1775938109",
+    "manaCost": "{G}",
+    "colors": [
+      "G"
     ],
     "cmc": 1
   },
@@ -207882,6 +210260,14 @@
     ],
     "cmc": 4
   },
+  "Summoned Dromedary": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/4/44d0277c-ca82-4334-a15a-cd67a9db0d02.png?1775937170",
+    "manaCost": "{3}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 4
+  },
   "Summoner's Bane": {
     "imageUrl": "https://cards.scryfall.io/png/front/e/d/ed82afba-df51-4bd9-853c-d3ef323095a6.png?1562618060",
     "manaCost": "{2}{U}{U}",
@@ -207998,7 +210384,7 @@
     "cmc": 6
   },
   "Sun Warriors": {
-    "imageUrl": "https://cards.scryfall.io/png/front/e/4/e477d750-42d2-48c8-bc1f-8148d15d5f53.png?1764121800",
+    "imageUrl": "https://cards.scryfall.io/png/front/e/4/e477d750-42d2-48c8-bc1f-8148d15d5f53.png?1774851714",
     "manaCost": "{2}{R}{W}",
     "colors": [
       "R",
@@ -208243,6 +210629,12 @@
       "U"
     ],
     "cmc": 9
+  },
+  "Sundering Archaic": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/3/c35b57e4-2358-46c0-8f09-cd27c10eaf2d.png?1775936933",
+    "manaCost": "{6}",
+    "colors": [],
+    "cmc": 6
   },
   "Sundering Eruption": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/0/50686ac7-346c-43d1-bdaa-28d46a12ad93.png?1717013301",
@@ -209386,7 +211778,7 @@
     "cmc": 3
   },
   "Survival of the Fittest": {
-    "imageUrl": "https://cards.scryfall.io/png/front/c/0/c060c178-3c0e-493f-b6f0-ead5b1d6f191.png?1562088786",
+    "imageUrl": "https://cards.scryfall.io/png/front/c/0/c060c178-3c0e-493f-b6f0-ead5b1d6f191.png?1775571002",
     "manaCost": "{1}{G}",
     "colors": [
       "G"
@@ -209461,6 +211853,15 @@
       "U"
     ],
     "cmc": 1
+  },
+  "Suspend Aggression": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/0/004fdcbe-6dc9-40ad-9467-b89b72a4a8ca.png?1775939523",
+    "manaCost": "{1}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 3
   },
   "Suspended Sentence": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/8/38c98aa0-bfa1-42f4-b035-a48dac86f0ce.png?1726284169",
@@ -210550,7 +212951,7 @@
     "cmc": 2
   },
   "Sylvan Library": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/4/f486df00-7c4a-4ff0-bb0b-c8b5432ac742.png?1562861845",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/6/26a7c62c-12ed-493c-ba95-0f55fec83686.png?1776731170",
     "manaCost": "{1}{G}",
     "colors": [
       "G"
@@ -211180,6 +213581,14 @@
     "colors": [],
     "cmc": 2
   },
+  "Tablet of Discovery": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/3/13059664-a940-4a66-8100-0c90b884bab4.png?1775937891",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Tablet of Epityr": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/d/6d7a2718-301f-4191-b348-0c44c7c07d43.png?1562917978",
     "manaCost": "{1}",
@@ -211199,6 +213608,14 @@
       "B"
     ],
     "cmc": 3
+  },
+  "Tackle Artist": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/8/b87e2474-98c1-4c1a-91ed-340b72d31653.png?1775937898",
+    "manaCost": "{3}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 4
   },
   "Tadeas, Juniper Ascendant": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/0/b0f32937-ca7e-407c-aa23-117b1eae9798.png?1757465775",
@@ -212077,6 +214494,15 @@
     ],
     "cmc": 2
   },
+  "Tam, Observant Sequencer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/1/7120e71b-2976-451b-89a7-a1665dc6fb6b.png?1775938655",
+    "manaCost": "{2}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 4
+  },
   "Tamanoa": {
     "imageUrl": "https://cards.scryfall.io/png/front/6/d/6d32955b-cbf6-429b-9513-17ca75d4ec2c.png?1593275551",
     "manaCost": "{R}{G}{W}",
@@ -212113,7 +214539,7 @@
     "cmc": 4
   },
   "Tamiyo, Compleated Sage": {
-    "imageUrl": "https://cards.scryfall.io/png/front/2/2/222a736e-d819-452d-aeda-eb848c4b2302.png?1656616489",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/2/222a736e-d819-452d-aeda-eb848c4b2302.png?1776203132",
     "manaCost": "{2}{G}{G/U/P}{U}",
     "colors": [
       "G",
@@ -213114,6 +215540,15 @@
     ],
     "cmc": 2
   },
+  "Teacher's Pest": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/a/eaa358ac-761d-4507-aa15-3d4684027207.png?1775938661",
+    "manaCost": "{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 2
+  },
   "Teachings of the Archaics": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/c/1c2c8894-fb24-4356-a71e-2cb924dd4cf0.png?1637082402",
     "manaCost": "{2}{U}",
@@ -214034,7 +216469,7 @@
     "cmc": 5
   },
   "Temple of Cyclical Time": {
-    "imageUrl": "https://cards.scryfall.io/png/back/a/1/a1fbfb8f-600e-4b29-98c5-7c6714d35347.png?1699100828",
+    "imageUrl": "https://cards.scryfall.io/png/back/a/1/a1fbfb8f-600e-4b29-98c5-7c6714d35347.png?1774938360",
     "manaCost": "",
     "colors": [],
     "cmc": 4
@@ -214220,7 +216655,7 @@
     "cmc": 3
   },
   "Temporal Manipulation": {
-    "imageUrl": "https://cards.scryfall.io/png/front/1/5/15993df2-e33d-4c0f-9f41-fc1ec4044271.png?1734371426",
+    "imageUrl": "https://cards.scryfall.io/png/front/1/5/15993df2-e33d-4c0f-9f41-fc1ec4044271.png?1774937927",
     "manaCost": "{3}{U}{U}",
     "colors": [
       "U"
@@ -214671,6 +217106,14 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Tenured Concocter": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/7/376c8b7d-1c90-47e1-bd01-e4c67f3fc4fc.png?1775938116",
+    "manaCost": "{4}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 5
   },
   "Tenured Inkcaster": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/2/92eba33e-efea-4e58-a832-1c6049fb211f.png?1624591454",
@@ -215262,6 +217705,14 @@
     ],
     "cmc": 1
   },
+  "Tester of the Tangential": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/b/bbd708ec-eef4-4f45-99dd-60e1cec4b991.png?1775937389",
+    "manaCost": "{1}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
+  },
   "Tethered Griffin": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/b/2bed19fa-e497-48de-8459-030e60fdc9a8.png?1562443742",
     "manaCost": "{W}",
@@ -215373,6 +217824,14 @@
       "B"
     ],
     "cmc": 5
+  },
+  "Textbook Tabulator": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/6/56f54fee-b48d-4582-8982-ca4c7b8ef553.png?1776000387",
+    "manaCost": "{2}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 3
   },
   "Teyo, Geometric Tactician": {
     "imageUrl": "https://cards.scryfall.io/png/front/c/6/c66fa93a-6888-4297-b22e-7d69fd25c0d7.png?1690003076",
@@ -216364,6 +218823,12 @@
       "B"
     ],
     "cmc": 4
+  },
+  "The Dawning Archaic": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/a/7a451985-37e1-44d8-839b-dc1e88df5c96.png?1775936921",
+    "manaCost": "{10}",
+    "colors": [],
+    "cmc": 10
   },
   "The Day of the Doctor": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/7/9767f42c-df04-4426-929a-87e51aa2b8a5.png?1696636691",
@@ -218937,6 +221402,14 @@
     ],
     "cmc": 3
   },
+  "Thornfist Striker": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/6/f6cb838e-a06a-46ae-a30f-e5192178c1cc.png?1775938123",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
+  },
   "Thornglint Bridge": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/d/9d483643-6a11-47f7-a0aa-190e0179525f.png?1626099925",
     "manaCost": "",
@@ -219422,7 +221895,7 @@
     "cmc": 8
   },
   "Thousand-Year Elixir": {
-    "imageUrl": "https://cards.scryfall.io/png/front/5/8/58f2b68b-d07c-45f1-8db9-9afa952c51ec.png?1768953748",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/8/58f2b68b-d07c-45f1-8db9-9afa952c51ec.png?1774843449",
     "manaCost": "{3}",
     "colors": [],
     "cmc": 3
@@ -220496,6 +222969,14 @@
       "R"
     ],
     "cmc": 5
+  },
+  "Thunderdrum Soloist": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/9/590d1d95-ed13-4121-899f-f5a2d8a6617a.png?1775937905",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
   },
   "Thunderfoot Baloth": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/7/9730de49-efa9-42ec-8531-43313fb58a44.png?1561951126",
@@ -221948,6 +224429,12 @@
     ],
     "cmc": 6
   },
+  "Titan's Grave": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/9/a9ab41c8-3ee2-4676-9b8b-20c34d9f5f21.png?1775938861",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Titan's Presence": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/9/39d5e3ab-9719-4918-af4f-25bda5401191.png?1562908599",
     "manaCost": "{3}",
@@ -222290,6 +224777,12 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Together as One": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/2/82e4948e-5f2b-498f-8864-d46870910d83.png?1775939152",
+    "manaCost": "{6}",
+    "colors": [],
+    "cmc": 6
   },
   "Together Forever": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/a/baef97c2-9b1e-470f-8aeb-a64ef0e66eaa.png?1591027746",
@@ -222655,6 +225148,14 @@
     ],
     "cmc": 4
   },
+  "Tome Blast": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/2/72a3b17d-1e00-48e9-8402-c81bacd595a7.png?1775937914",
+    "manaCost": "{1}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 2
+  },
   "Tome of Legends": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/4/040301e8-20c1-4f4c-8766-d05f11415efd.png?1572482851",
     "manaCost": "{2}",
@@ -222707,6 +225208,15 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Tomik, Wielder of Law": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/a/8a7fc460-fc49-480f-8ee2-28a173509f0b.png?1775941934",
+    "manaCost": "{1}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 3
   },
   "Tomorrow, Azami's Familiar": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/9/095813f9-d559-40bd-a50f-7c1f6e494e60.png?1562875380",
@@ -222882,6 +225392,14 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Topiary Lecturer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/f/4f16a1c2-0a80-45e4-b025-3aa0c0b03812.png?1776000370",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
   },
   "Topiary Panther": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/3/03d0365e-6dee-4236-a997-6761e3cde90d.png?1706242093",
@@ -223984,6 +226502,14 @@
     "colors": [],
     "cmc": 4
   },
+  "Tragedy Feaster": {
+    "imageUrl": "https://cards.scryfall.io/png/front/b/9/b93cbaad-8ed8-4a1d-b95a-20a616dfedc9.png?1775937623",
+    "manaCost": "{2}{B}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 4
+  },
   "Tragic Arrogance": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/6/16acf619-0f45-4985-a8ec-074a4ec33fa7.png?1562008659",
     "manaCost": "{3}{W}{W}",
@@ -224350,6 +226876,12 @@
     ],
     "cmc": 6
   },
+  "Transcendent Archaic": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/6/1624c680-502b-474a-b9b2-888fe3ca008c.png?1775936948",
+    "manaCost": "{7}",
+    "colors": [],
+    "cmc": 7
+  },
   "Transcendent Dragon": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/c/3c9a4205-eda8-4858-9d46-2428058c94fc.png?1743205763",
     "manaCost": "{4}{U}{U}",
@@ -224614,6 +227146,15 @@
       "G"
     ],
     "cmc": 1
+  },
+  "Traumatic Critique": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/b/0b79a6ac-85e7-4941-b7d6-e8a6fbbdded8.png?1775939530",
+    "manaCost": "{X}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 2
   },
   "Traumatic Revelation": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/9/59d40511-c9ff-466c-8eb9-cc7afc5c2eab.png?1682204020",
@@ -226560,7 +229101,7 @@
     "cmc": 3
   },
   "Tundra Wall": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/9/49ae7f36-4b37-415e-ab39-5fa1e3f2e3e9.png?1764719215",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/9/49ae7f36-4b37-415e-ab39-5fa1e3f2e3e9.png?1774851464",
     "manaCost": "{1}{W}",
     "colors": [
       "W"
@@ -226680,6 +229221,36 @@
     ],
     "cmc": 2
   },
+  "Turbulent Fen": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/7/9737159b-256c-4004-ba5f-0417c35e1b30.png?1775939997",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
+  "Turbulent Moor": {
+    "imageUrl": "https://cards.scryfall.io/png/front/7/e/7e96f1dd-71e7-48c0-80aa-c7f49588af9c.png?1775940356",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
+  "Turbulent Springs": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/2/526d3add-b87f-42ba-957b-879fb8fea792.png?1775940364",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
+  "Turbulent Steppe": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/1/a138b2e9-9665-4544-866a-8672ddab79fc.png?1775940372",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
+  "Turbulent Wilderness": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/a/aa9c37ec-7f03-44b7-b973-9ae5edff3149.png?1775940379",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
+  },
   "Turf War": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/e/5e7fecbd-66f6-44b7-8fe4-b9b5bfce3e2c.png?1673482172",
     "manaCost": "{4}{R}",
@@ -226738,6 +229309,15 @@
     "manaCost": "{3}{U}",
     "colors": [
       "U"
+    ],
+    "cmc": 4
+  },
+  "Turn Stones": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/0/508e1dd7-edbd-4b76-90bc-ff58c55b58a3.png?1775939934",
+    "manaCost": "{B}{G}",
+    "colors": [
+      "B",
+      "G"
     ],
     "cmc": 4
   },
@@ -227505,6 +230085,14 @@
     ],
     "cmc": 4
   },
+  "Twofold Intent": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/2/62a47835-5719-48c4-a740-a0c5f00dce11.png?1775937102",
+    "manaCost": "{1}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 2
+  },
   "Ty Lee, Artful Acrobat": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/c/dcd9df24-272b-4aa1-b05f-6ee6b3d3dfe7.png?1764121084",
     "manaCost": "{2}{R}",
@@ -228012,6 +230600,14 @@
     ],
     "cmc": 1
   },
+  "Ulna Alley Shopkeep": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/2/c25e1ae5-f17c-4eee-98f1-5681981af31c.png?1775937633",
+    "manaCost": "{2}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
+  },
   "Ulrich of the Krallenhorde": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/e/3e2011f0-a640-4579-bd67-1dfbc09b8c09.png?1576385037",
     "manaCost": "{3}{R}{G}",
@@ -228325,6 +230921,12 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Umbral Expanse": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/5/15848965-01a8-48bf-aa61-8a753339c761.png?1775940032",
+    "manaCost": "",
+    "colors": [],
+    "cmc": 0
   },
   "Umbral Juke": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/f/3fbd0921-e953-492b-ad73-c8a8bfaa750b.png?1624591481",
@@ -230145,6 +232747,14 @@
     ],
     "cmc": 2
   },
+  "Unsubtle Mockery": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/b/2b7cb1a3-761e-470e-a164-6e29dd9448cd.png?1775937921",
+    "manaCost": "{2}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 3
+  },
   "Unsummon": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/5/8512f2c1-6361-4b79-843f-80b6bceeeb99.png?1600957989",
     "manaCost": "{U}",
@@ -231955,6 +234565,15 @@
     ],
     "cmc": 4
   },
+  "Vandal's Edit": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/1/91493530-bc0a-4ed1-8a4a-9a732fcb3752.png?1775940278",
+    "manaCost": "{1}{W}{B}",
+    "colors": [
+      "B",
+      "W"
+    ],
+    "cmc": 2
+  },
   "Vandalblast": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/9/5925c559-3e3c-481b-ba95-20a405cbffce.png?1562786728",
     "manaCost": "{R}",
@@ -231978,6 +234597,14 @@
       "W"
     ],
     "cmc": 2
+  },
+  "Vanguard of the Restless": {
+    "imageUrl": "https://cards.scryfall.io/png/front/9/1/91211c56-b562-4889-8c5c-110c42be62c8.png?1775939720",
+    "manaCost": "{2}{W}",
+    "colors": [
+      "W"
+    ],
+    "cmc": 3
   },
   "Vanguard of the Rose": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/2/0200c504-9137-4bc2-9cd4-eaf0643a2855.png?1699043492",
@@ -232273,6 +234900,14 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Vastlands Scavenger": {
+    "imageUrl": "https://cards.scryfall.io/png/front/4/7/476b6a4d-cc05-4e98-8a45-a5c6582ec514.png?1775938136",
+    "manaCost": "{1}{G}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
   },
   "Vastwood Animist": {
     "imageUrl": "https://cards.scryfall.io/png/front/d/5/d5cc40e7-fb31-4540-81a1-d0c0f514c8a8.png?1562297097",
@@ -233363,6 +235998,14 @@
     ],
     "cmc": 4
   },
+  "Venomous Words": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/3/03e664cd-c3a6-4263-b2d8-dd99058fb8ec.png?1775937593",
+    "manaCost": "{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 5
+  },
   "Venomsac Lagac": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/1/9142b1c9-09d7-42e4-8138-6c15d31f2470.png?1738358726",
     "manaCost": "{1}{G}",
@@ -234426,6 +237069,23 @@
     "colors": [],
     "cmc": 0
   },
+  "Vibrant Idea": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/0/c0bd30c4-3cdf-4eda-8be5-0fb5e5ddddbf.png?1775937300",
+    "manaCost": "{4}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 2
+  },
+  "Vibrant Outburst": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/9/f9ba68ef-6efc-4249-8b74-e33f47173902.png?1775938674",
+    "manaCost": "{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Vibrating Sphere": {
     "imageUrl": "https://cards.scryfall.io/png/front/4/8/48f93ded-ecf6-4a70-8ca3-a9c0c3201c21.png?1562908328",
     "manaCost": "{4}",
@@ -234488,6 +237148,15 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Vicious Rivalry": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/3/532abbc7-017d-4081-87fc-b0e8bfd804a1.png?1775939538",
+    "manaCost": "{2}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 4
   },
   "Vicious Rumors": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/1/b1939952-608e-4786-beeb-a6ff0fa36624.png?1572893079",
@@ -235638,6 +238307,15 @@
       "W"
     ],
     "cmc": 4
+  },
+  "Visionary's Dance": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/4/846a0e79-a530-429e-8f7f-4b87f1b0156e.png?1776000377",
+    "manaCost": "{5}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 7
   },
   "Visions": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/1/21d00299-e183-4b3d-b015-18808e7135b9.png?1587931063",
@@ -238695,6 +241373,14 @@
     ],
     "cmc": 3
   },
+  "Wander Off": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/d/3d409512-50b9-4a38-91b0-19ba25227992.png?1775937643",
+    "manaCost": "{3}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 4
+  },
   "Wanderbrine Preacher": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/f/3fc3f5f2-5a83-4358-8f23-42f26f345140.png?1767732504",
     "manaCost": "{1}{W}",
@@ -238919,7 +241605,7 @@
     "cmc": 0
   },
   "Wanderwine Prophets": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/b/4b9460f2-b3a9-4b5b-b5e4-39be00ba6ad3.png?1768953714",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/b/4b9460f2-b3a9-4b5b-b5e4-39be00ba6ad3.png?1774843378",
     "manaCost": "{4}{U}{U}",
     "colors": [
       "U"
@@ -239653,7 +242339,7 @@
     "cmc": 7
   },
   "Warping Wail": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/4/f461d613-518f-41cf-b08f-0778d40d3cf7.png?1756912069",
+    "imageUrl": "https://cards.scryfall.io/png/front/f/4/f461d613-518f-41cf-b08f-0778d40d3cf7.png?1774843295",
     "manaCost": "{1}{C}",
     "colors": [],
     "cmc": 2
@@ -239787,7 +242473,7 @@
     "cmc": 2
   },
   "Warrior's Resolve": {
-    "imageUrl": "https://cards.scryfall.io/png/front/7/2/7263ef64-dc8d-4a58-91b9-ff4f718e53ae.png?1764956588",
+    "imageUrl": "https://cards.scryfall.io/png/front/7/2/7263ef64-dc8d-4a58-91b9-ff4f718e53ae.png?1775115349",
     "manaCost": "{2}{W}",
     "colors": [
       "W"
@@ -239819,7 +242505,7 @@
     "cmc": 1
   },
   "Warship Scout": {
-    "imageUrl": "https://cards.scryfall.io/png/front/b/1/b1a95982-be16-465a-9c1b-1f4d875c0c40.png?1764719204",
+    "imageUrl": "https://cards.scryfall.io/png/front/b/1/b1a95982-be16-465a-9c1b-1f4d875c0c40.png?1774851503",
     "manaCost": "{R}",
     "colors": [
       "R"
@@ -242605,6 +245291,23 @@
     ],
     "cmc": 3
   },
+  "Wild Hypothesis": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/4/04fdfabc-c247-4384-a5bb-f49035f8aae0.png?1775938142",
+    "manaCost": "{X}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 1
+  },
+  "Wild Idea": {
+    "imageUrl": "https://cards.scryfall.io/png/front/1/7/173157aa-712d-44f2-89ba-dd2511a07f26.png?1775938553",
+    "manaCost": "{3}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 2
+  },
   "Wild Instincts": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/8/58fafd9d-777f-4d88-ad93-63af6d7ef274.png?1562021350",
     "manaCost": "{3}{G}",
@@ -242940,6 +245643,14 @@
       "R"
     ],
     "cmc": 2
+  },
+  "Wildgrowth Archaic": {
+    "imageUrl": "https://cards.scryfall.io/png/front/0/e/0e6e2188-7203-4d10-a838-27233f283cd5.png?1775938149",
+    "manaCost": "{2/G}{2/G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 4
   },
   "Wildgrowth Walker": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/2/52e4c0f8-d5f0-4224-9974-190606911480.png?1562555416",
@@ -243278,6 +245989,15 @@
       "G"
     ],
     "cmc": 2
+  },
+  "Wilt in the Heat": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/6/f63f7209-fc0f-400c-8076-125f3131cb32.png?1775938697",
+    "manaCost": "{2}{R}{W}",
+    "colors": [
+      "R",
+      "W"
+    ],
+    "cmc": 4
   },
   "Wilt-Leaf Cavaliers": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/8/b8ffe320-c88a-4eb7-a091-e128e6c1f37c.png?1562835145",
@@ -244217,6 +246937,14 @@
     ],
     "cmc": 1
   },
+  "Wisdom of Ages": {
+    "imageUrl": "https://cards.scryfall.io/png/front/8/f/8fcd092c-c317-4b17-8d72-5232b4802b96.png?1775939268",
+    "manaCost": "{4}{U}{U}{U}",
+    "colors": [
+      "U"
+    ],
+    "cmc": 7
+  },
   "Wisecrack": {
     "imageUrl": "https://cards.scryfall.io/png/front/8/f/8f452dac-bf22-4010-8a10-3c1cfa7d4df6.png?1757377408",
     "manaCost": "{2}{R}",
@@ -244516,8 +247244,8 @@
     ],
     "cmc": 4
   },
-  "With Great Power...": {
-    "imageUrl": "https://cards.scryfall.io/png/front/f/7/f717c096-e161-426e-a8d7-c93b117e16b9.png?1757376888",
+  "With Great Power . . .": {
+    "imageUrl": "https://cards.scryfall.io/png/front/f/7/f717c096-e161-426e-a8d7-c93b117e16b9.png?1774784575",
     "manaCost": "{3}{W}",
     "colors": [
       "W"
@@ -244563,6 +247291,15 @@
     "colors": [],
     "cmc": 0
   },
+  "Witherbloom Charm": {
+    "imageUrl": "https://cards.scryfall.io/png/front/2/5/254437f7-7a8a-4b11-9cea-e8e7ea23c59e.png?1775938703",
+    "manaCost": "{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 2
+  },
   "Witherbloom Command": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/f/0f04535d-a6b7-4d91-918d-fccc1adfcaf3.png?1630194579",
     "manaCost": "{B}{G}",
@@ -244580,6 +247317,15 @@
       "G"
     ],
     "cmc": 5
+  },
+  "Witherbloom, the Balancer": {
+    "imageUrl": "https://cards.scryfall.io/png/front/e/d/ed7b2361-97c6-49e2-bf0b-4770f4ffe2f0.png?1775938710",
+    "manaCost": "{6}{B}{G}",
+    "colors": [
+      "B",
+      "G"
+    ],
+    "cmc": 8
   },
   "Withercrown": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/9/597fe119-64a7-4499-8b69-738af5a71a20.png?1631048833",
@@ -244604,6 +247350,14 @@
       "B"
     ],
     "cmc": 2
+  },
+  "Withering Curse": {
+    "imageUrl": "https://cards.scryfall.io/png/front/5/0/50aaf618-dddb-4cbe-8231-d634b4498563.png?1775937655",
+    "manaCost": "{1}{B}{B}",
+    "colors": [
+      "B"
+    ],
+    "cmc": 3
   },
   "Withering Gaze": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/e/0e952a48-9e60-4fce-8423-7f0bafd29bb1.png?1562445668",
@@ -244893,7 +247647,7 @@
     "cmc": 1
   },
   "Wolf Cove Villager": {
-    "imageUrl": "https://cards.scryfall.io/png/front/7/d/7dbeced9-d27d-476c-92d4-3c14d8a40458.png?1764719208",
+    "imageUrl": "https://cards.scryfall.io/png/front/7/d/7dbeced9-d27d-476c-92d4-3c14d8a40458.png?1774851470",
     "manaCost": "{W}",
     "colors": [
       "W"
@@ -245249,7 +248003,7 @@
     "cmc": 3
   },
   "Woodland Mystic": {
-    "imageUrl": "https://cards.scryfall.io/png/front/2/d/2d6117cf-5cb3-41f3-8756-c01b5e9c760e.png?1592518447",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/d/2d6117cf-5cb3-41f3-8756-c01b5e9c760e.png?1775731692",
     "manaCost": "{1}{G}",
     "colors": [
       "G"
@@ -245548,7 +248302,7 @@
     "cmc": 4
   },
   "World War Hulk": {
-    "imageUrl": "https://cards.scryfall.io/png/front/5/1/51524f8a-030c-4522-bfc0-d55c2c7c9326.png?1765294916",
+    "imageUrl": "https://cards.scryfall.io/png/front/5/1/51524f8a-030c-4522-bfc0-d55c2c7c9326.png?1775112580",
     "manaCost": "{3}{G}{G}",
     "colors": [
       "G"
@@ -246700,7 +249454,7 @@
     "cmc": 3
   },
   "Yargle and Multani": {
-    "imageUrl": "https://cards.scryfall.io/png/front/4/6/46df4f25-3705-4d63-aadb-eb89c3476cf4.png?1682206409",
+    "imageUrl": "https://cards.scryfall.io/png/front/4/6/46df4f25-3705-4d63-aadb-eb89c3476cf4.png?1774938500",
     "manaCost": "{3}{B}{B}{G}",
     "colors": [
       "B",
@@ -246818,6 +249572,14 @@
       "R"
     ],
     "cmc": 2
+  },
+  "Yavimaya Bloomsage": {
+    "imageUrl": "https://cards.scryfall.io/png/front/c/2/c243c2c4-f227-42a8-8b78-5f4b761106c2.png?1775940271",
+    "manaCost": "{2}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 3
   },
   "Yavimaya Coast": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/7/177ee102-d981-4fc3-9f09-9dd07755f22c.png?1562900672",
@@ -247716,6 +250478,15 @@
     ],
     "cmc": 2
   },
+  "Zaffai and the Tempests": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/f/3f0fff0a-51be-4c3e-b9f5-6bc6999475d1.png?1775939544",
+    "manaCost": "{5}{U}{R}",
+    "colors": [
+      "R",
+      "U"
+    ],
+    "cmc": 7
+  },
   "Zaffai, Thunder Conductor": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/1/21420f60-6443-4dec-ae35-331706592e7a.png?1625981445",
     "manaCost": "{2}{U}{R}",
@@ -247957,6 +250728,14 @@
       "W"
     ],
     "cmc": 3
+  },
+  "Zealous Lorecaster": {
+    "imageUrl": "https://cards.scryfall.io/png/front/3/6/36ab2130-9f21-4d30-873a-aa72d3d15fa8.png?1775937928",
+    "manaCost": "{5}{R}",
+    "colors": [
+      "R"
+    ],
+    "cmc": 6
   },
   "Zealous Persecution": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/7/07d8ae46-14ec-4878-ba8a-a47d4508c6d7.png?1562639500",
@@ -248506,6 +251285,15 @@
     ],
     "cmc": 3
   },
+  "Zimone, Infinite Analyst": {
+    "imageUrl": "https://cards.scryfall.io/png/front/6/0/605afac4-d2e5-4e68-97d2-3ac2ead5f3a9.png?1776731029",
+    "manaCost": "{1}{G}{U}",
+    "colors": [
+      "G",
+      "U"
+    ],
+    "cmc": 3
+  },
   "Zimone, Mystery Unraveler": {
     "imageUrl": "https://cards.scryfall.io/png/front/3/0/30f23588-5064-48d9-a271-039df757f8d2.png?1726596680",
     "manaCost": "{2}{G}{U}",
@@ -248532,6 +251320,14 @@
       "U"
     ],
     "cmc": 2
+  },
+  "Zimone's Experiment": {
+    "imageUrl": "https://cards.scryfall.io/png/front/a/6/a6597852-4267-4ea6-a391-f927e4833be2.png?1775938156",
+    "manaCost": "{3}{G}",
+    "colors": [
+      "G"
+    ],
+    "cmc": 4
   },
   "Zimone's Hypothesis": {
     "imageUrl": "https://cards.scryfall.io/png/front/0/e/0e0a196a-fff1-4135-8e0f-dc842382523c.png?1729502947",
@@ -248953,7 +251749,7 @@
     "cmc": 5
   },
   "Zuko, Avatar Hunter": {
-    "imageUrl": "https://cards.scryfall.io/png/front/2/a/2a2330fa-a1e1-41d9-bb7b-8aa9b03a0543.png?1764719311",
+    "imageUrl": "https://cards.scryfall.io/png/front/2/a/2a2330fa-a1e1-41d9-bb7b-8aa9b03a0543.png?1774851511",
     "manaCost": "{3}{R}{R}",
     "colors": [
       "R"

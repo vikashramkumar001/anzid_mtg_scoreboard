@@ -58,19 +58,19 @@ function updateTheme(game, vendor, playerCount) {
     document.documentElement.style.setProperty('--standings-color', '#000');
 
     if (game === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
-        document.documentElement.style.setProperty('--dynamic-font-weight', '700');
+        document.documentElement.style.setProperty('--standings-font', 'Gotham Narrow');
+        document.documentElement.style.setProperty('--standings-font-weight', '700');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '400');
     } else if (game === 'starwars') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Barlow');
-        document.documentElement.style.setProperty('--dynamic-font-weight', '600');
+        document.documentElement.style.setProperty('--standings-font', 'Barlow');
+        document.documentElement.style.setProperty('--standings-font-weight', '600');
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '600');
         document.documentElement.style.setProperty('--standings-color', '#fff');
     } else {
-        document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
-        document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
+        document.documentElement.style.setProperty('--standings-font', 'Bebas Neue');
+        document.documentElement.style.setProperty('--standings-font-weight', 'bold');
         document.documentElement.style.setProperty('--archetype-font-style', 'italic');
         document.documentElement.style.setProperty('--archetype-font-weight', 'bold');
     }

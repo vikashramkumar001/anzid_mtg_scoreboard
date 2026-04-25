@@ -113,14 +113,14 @@ function updateTheme(game, vendor, playerCount) {
 
     // Game defaults
     if (game === 'mtg') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Gotham Narrow');
-        document.documentElement.style.setProperty('--dynamic-font-weight', '700');
+        document.documentElement.style.setProperty('--metagame-font', 'Gotham Narrow');
+        document.documentElement.style.setProperty('--metagame-font-weight', '700');
     } else if (game === 'riftbound') {
-        document.documentElement.style.setProperty('--dynamic-font', 'Akzidenz-Grotesk Next');
-        document.documentElement.style.setProperty('--dynamic-font-weight', '900');
+        document.documentElement.style.setProperty('--metagame-font', 'Akzidenz-Grotesk Next');
+        document.documentElement.style.setProperty('--metagame-font-weight', '900');
     } else {
-        document.documentElement.style.setProperty('--dynamic-font', 'Bebas Neue');
-        document.documentElement.style.setProperty('--dynamic-font-weight', 'bold');
+        document.documentElement.style.setProperty('--metagame-font', 'Bebas Neue');
+        document.documentElement.style.setProperty('--metagame-font-weight', 'bold');
     }
 
     // Re-apply vendor overrides

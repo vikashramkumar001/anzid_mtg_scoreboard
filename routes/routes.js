@@ -4,9 +4,10 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
 
-import { overlayStorage, archetypeStorage, getOverlayPaths } from '../features/overlays.js';
+import { overlayStorage, archetypeStorage, portraitStorage, getOverlayPaths } from '../features/overlays.js';
 import { getGameSelection } from '../config/constants.js';
 import { handleArchetypeUpload } from '../features/archetypes.js';
+import { handlePortraitUpload } from '../features/roster.js';
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -15,32 +16,47 @@ const __dirname = path.dirname(__filename);
 // Multer middleware
 const uploadOverlay = multer({ storage: overlayStorage });
 const uploadArchetypeImage = multer({ storage: archetypeStorage });
+const uploadPortrait = multer({ storage: portraitStorage });
 
 // Serve static HTML pages
 router.get('/control/:controlID/:delay', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/control.html'));
 });
 
-// Background scenes — minimal image-only pages that swap based on
+// Event-info scenes — minimal image-only pages that swap based on
 // current game/vendor/playerCount selection. Identifier format:
-// /background/starting-soon, /background/head-to-head, etc.
+// /event-info/starting-soon, /event-info/head-to-head, etc.
+// (Renamed from /background/ — the old prefix didn't describe what the
+// scenes actually are. Old URLs now 404; OBS sources must be repointed.)
 // Match-specific scenes moved to /scoreboard/:matchID/:variant (below)
 // so vendors that need live match data on top (Flyquest 2v2 hand overlays)
 // can render names / life totals via scoreboard-{N}-saved-state.
-router.get('/background/:identifier', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/background.html'));
+router.get('/event-info/:identifier', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/event-info.html'));
 });
 
-// Per-match scene page (frame PNG + optional data overlay). Variants:
+// Per-match SCENE page (frame PNG + optional data overlay). Variants:
 // overview | hand-left | hand-right | player-left | player-right.
 // Data overlay visibility is vendor-gated via CSS custom properties in
-// public/js/vendor-config.js — see scoreboard.js header comment.
+// public/js/vendor-config.js — see scoreboard-scene.js header comment.
 router.get('/scoreboard/:matchID/:variant', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
+  res.sendFile(path.join(__dirname, '../public/html/scoreboard-scene.html'));
 });
 
 // Backward-compat alias for OBS sources still aimed at the old broadcast path.
 router.get('/broadcast/round/scoreboard/:matchID/:variant', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/scoreboard-scene.html'));
+});
+
+// Full-fat classic scoreboard — all-in-one per-match view with event chyron,
+// timer, archetype backgrounds, mana symbols, game-wins pips, per-game DOM
+// for MTG / Riftbound / Vibes / StarWars. Restored from fde4ed2^ (was deleted
+// in the /scoreboard → /background scene refactor, but rendered data fields
+// that aren't covered by any new scene).
+router.get('/scoreboard/:controlID', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
+});
+router.get('/broadcast/round/scoreboard/:matchID', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/scoreboard.html'));
 });
 
@@ -169,6 +185,12 @@ router.post('/upload-footer-overlay', uploadOverlay.single('overlay_footer'), (r
 
 // Upload archetype image
 router.post('/upload-archetype-image', uploadArchetypeImage.single('image'), handleArchetypeUpload);
+
+// Upload player portrait (roster). Multer parses multipart so req.body.playerName
+// is available when portraitStorage's filename callback runs, keeping the saved
+// filename deterministic (<slug>.<ext>). handlePortraitUpload then patches the
+// matching roster entry's portraitUrl and persists playerRoster.json.
+router.post('/upload-player-portrait', uploadPortrait.single('portrait'), handlePortraitUpload);
 
 // Save portrait focus values from debug overlay
 router.post('/save-portrait-focus', express.json(), (req, res) => {

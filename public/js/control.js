@@ -148,39 +148,53 @@ function loadSavedState(data) {
 }
 
 function setupCustomDropdowns() {
+    // Archetype fields (existing behavior)
     const archetypeFields = document.querySelectorAll('[id$="player-archetype-left"], [id$="player-archetype-right"]');
+    archetypeFields.forEach(field => attachDropdown(field, () => currentArchetypeList));
 
-    archetypeFields.forEach(field => {
-        if (field.parentNode.classList.contains('custom-dropdown')) {
-            return; // Skip if already set up
+    // Player-name fields (new — backed by currentPlayerRoster from
+    // `playerRosterUpdated`). Matches both the 1v1 primaries
+    // (#player-name-left, #player-name-right) and any 2v2 partner fields
+    // that may land here via the match-control UI (#...-left-2 / -right-2).
+    const playerNameFields = document.querySelectorAll(
+        '[id$="player-name-left"], [id$="player-name-right"], [id$="player-name-left-2"], [id$="player-name-right-2"]'
+    );
+    playerNameFields.forEach(field => attachDropdown(field, () => currentPlayerRoster));
+}
+
+// Shared wiring between archetype + player-name dropdowns. Takes a getter so
+// the dropdown always reads the latest list (socket updates mutate the
+// module-level arrays in place, not the reference we'd close over).
+function attachDropdown(field, getItems) {
+    if (!field || field.parentNode.classList.contains('custom-dropdown')) {
+        return; // missing or already wired
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'custom-dropdown';
+    field.parentNode.insertBefore(wrapper, field);
+    wrapper.appendChild(field);
+
+    const dropdownList = document.createElement('div');
+    dropdownList.className = 'dropdown-list';
+    wrapper.appendChild(dropdownList);
+
+    field.addEventListener('input', function () {
+        const value = this.textContent.trim().toLowerCase();
+        const filtered = getItems()
+            .filter(item => item.name.toLowerCase().includes(value))
+            .slice(0, 5);
+        renderDropdownList(dropdownList, filtered, field);
+    });
+
+    field.addEventListener('focus', function () {
+        renderDropdownList(dropdownList, getItems(), field);
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!wrapper.contains(e.target)) {
+            dropdownList.style.display = 'none';
         }
-
-        const wrapper = document.createElement('div');
-        wrapper.className = 'custom-dropdown';
-        field.parentNode.insertBefore(wrapper, field);
-        wrapper.appendChild(field);
-
-        const dropdownList = document.createElement('div');
-        dropdownList.className = 'dropdown-list';
-        wrapper.appendChild(dropdownList);
-
-        field.addEventListener('input', function () {
-            const value = this.textContent.trim().toLowerCase();
-            const filteredArchetypes = currentArchetypeList
-                .filter(archetype => archetype.name.toLowerCase().includes(value))
-                .slice(0, 5); // Limit to top 5 results
-            renderDropdownList(dropdownList, filteredArchetypes, field);
-        });
-
-        field.addEventListener('focus', function () {
-            renderDropdownList(dropdownList, currentArchetypeList, field);
-        });
-
-        document.addEventListener('click', function (e) {
-            if (!wrapper.contains(e.target)) {
-                dropdownList.style.display = 'none';
-            }
-        });
     });
 }
 
@@ -221,9 +235,11 @@ console.log('from url - control id - delay', control_id, delay_value);
 socket.emit('getSavedControlState', {control_id});
 
 let currentArchetypeList = []; // To store the current archetype list
+let currentPlayerRoster = [];  // To store the current player roster (for name autocomplete)
 
-// Request the archetype list from the server when the page loads
+// Request the archetype list + player roster from the server when the page loads
 socket.emit('getArchetypeList');
+socket.emit('getPlayerRoster');
 
 // listen for saved state from server
 socket.on('control-' + control_id + '-saved-state', (data) => {
@@ -238,6 +254,13 @@ socket.on('control-' + control_id + '-saved-state', (data) => {
 socket.on('archetypeListUpdated', (archetypes) => {
     currentArchetypeList = archetypes;
     setupCustomDropdowns(); // Set up dropdowns after receiving the archetype list
+});
+
+// Listen for the player roster from the server (autocomplete for name fields)
+socket.on('playerRosterUpdated', (roster) => {
+    currentPlayerRoster = roster;
+    setupCustomDropdowns(); // safe to call — attachDropdown short-circuits
+                            // any field already wrapped in .custom-dropdown
 });
 
 // Initial setup when the page loads

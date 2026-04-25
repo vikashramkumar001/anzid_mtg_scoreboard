@@ -12,6 +12,39 @@ export const controlDataPath     = path.join(rootDir, 'data', 'controlData.json'
 export const bracketDataPath     = path.join(rootDir, 'data', 'bracketData.json');
 export const standingsDataPath   = path.join(rootDir, 'data', 'standingsData.json');
 export const archetypeListPath   = path.join(rootDir, 'data', 'archetypeList.json');
+export const playerRosterPath    = path.join(rootDir, 'data', 'playerRoster.json');
+// Team→group mapping for the flyquest 2v2 standings layout (two brackets on
+// one 1920×1080 canvas). Set once at event start via master-control and then
+// left alone for the duration. Consumed by the broadcast-round-standings
+// layout to split incoming standings rows into GROUP 1 / GROUP 2 columns.
+export const groupAssignmentPath = path.join(rootDir, 'data', 'groupAssignment.json');
+
+// === Data Dictionaries ===
+// Consulted once by features/roster.js when playerRoster.json is empty AND
+// the current selections are mtg + flyquest + 2v2. Keys are portrait filename
+// slugs in public/assets/images/mtg/shared/player-portraits/flyquest-2v2/.
+// Values are the display names written into the roster. Any slug not listed
+// below falls back to a generic title-case deslug at auto-seed time.
+export const FLYQUEST_2V2_ROSTER_SEED = {
+    'baddie':               'Baddie',
+    'joel-r-magic':         'Joel R. Magic',
+    'danny':                'Danny',
+    'yamina':               'Yamina',
+    'zabracus':             'Zabracus',
+    'biqtch-puddin':        "Biqtch Puddin'",
+    'gavin-verhey':         'Gavin Verhey',
+    'persephone-valentine': 'Persephone Valentine',
+    'taalia-vess':          'Taalia Vess',
+    'nemo':                 'Nemo',
+    'ls':                   'LS',
+    'reynad':               'Reynad',
+    'lua-stardust':         'Lua Stardust',
+    'anna-margaret':        'Anna Margaret',
+    'sofia':                'Sofia',
+    'brodin':               'Brodin',
+    'peterpark':            'peterpark',
+    'atrioc':               'Atrioc',
+};
 
 // === Defaults ===
 export let DEFAULT_INITIAL_TIME = 50 * 60 * 1000; // 50 minutes in ms
