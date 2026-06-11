@@ -1,4 +1,4 @@
-import { RIFTBOUND_LEGENDS } from './riftbound/constants.js';
+import { RIFTBOUND_LEGENDS, RIFTBOUND_PORTRAIT_FOCUS } from './riftbound/constants.js';
 
 const socket = io();
 window.roomManager = new RoomManager(socket);
@@ -9,6 +9,58 @@ let currentPlayerCount = '1v1';
 
 const TOTAL_STANDINGS = 16;
 const slider = document.getElementById('standings-slider');
+
+// ── Per-legend portrait positioning (riftbound default 1v1 layout) ───────────
+// Reuses the metagame's RIFTBOUND_PORTRAIT_FOCUS data — single source of
+// truth, tuned once via the metagame's `debugFocus()` overlay. The source
+// image is the same 1200×1200 master portrait the metagame consumes
+// (URL transformed from /legend-portraits-251x124/ → 1200×1200 at render).
+//
+// To align the focus point (the dot at focus.left%, focus.top% in the
+// 1200×1200) with the column center, we render the image larger than the
+// 251×50 frame, wrap it in a frame div with overflow:hidden, then position
+// the image absolutely so the focus pixel lands at the frame's center.
+//
+// At RENDER_PX = 150 with a 45×45 circular frame, the face dot from
+// RIFTBOUND_PORTRAIT_FOCUS lands at the frame center for every legend.
+// Math:
+//   - Image: 150×150 (1200 → 150 = scale 0.125)
+//   - Frame: 45×45
+//   - Slack: 105 horizontal, 105 vertical
+//   - For face at (focus.left%, focus.top%): faceX/Y = (pct/100) × 150
+//   - Centerable range: pct must put face in [22.5, 127.5] of image
+//     (= [15%, 85%] of source). Every legend in the focus map fits;
+//     a few with focus.top under 15% (Lux 9, Diana 11) hit the clamp
+//     and pin the image's top edge to the frame top — face appears
+//     slightly above center but no gaps.
+//
+// Want a tighter / looser zoom on the face? Bump RENDER_PX (bigger = more
+// zoom + bigger face + tighter frame fit; smaller = less zoom but more
+// legends hit the clamp).
+const STANDINGS_PORTRAIT_RENDER_PX = 150;
+const STANDINGS_FRAME_W = 45;
+const STANDINGS_FRAME_H = 45;
+
+function applyStandingsPortraitFocus(imgEl, legendName) {
+    const focus = RIFTBOUND_PORTRAIT_FOCUS[legendName] || { top: 30, left: 50 };
+    const W = STANDINGS_PORTRAIT_RENDER_PX;
+    const faceX = (focus.left / 100) * W;
+    const faceY = (focus.top  / 100) * W;
+    // Ideal positions: face at frame center.
+    const idealLeft = STANDINGS_FRAME_W / 2 - faceX;
+    const idealTop  = STANDINGS_FRAME_H / 2 - faceY;
+    // Clamp so the image always fills the frame (no transparent gaps at
+    // the edges). With image W wide and frame FW wide:
+    //   image left edge ≤ 0      (image's left at-or-past frame's left)
+    //   image right edge ≥ FW    (image's right at-or-past frame's right)
+    //                            → idealLeft ≥ FW - W
+    const left = Math.min(0, Math.max(STANDINGS_FRAME_W - W, idealLeft));
+    const top  = Math.min(0, Math.max(STANDINGS_FRAME_H - W, idealTop));
+    imgEl.style.width  = W + 'px';
+    imgEl.style.height = W + 'px';
+    imgEl.style.left   = left + 'px';
+    imgEl.style.top    = top  + 'px';
+}
 
 // Debug logging
 const DEBUG_OBS = true;
@@ -51,7 +103,9 @@ function generateStandingsRows(wrapperId, startRank) {
         row.id = `${wrapperId}-row-${i}`;
         row.innerHTML = `
             <div class="standings-rank" id="${wrapperId}-rank-${i}"></div>
-            <img class="standings-portrait" id="${wrapperId}-portrait-${i}" src="" alt="">
+            <div class="standings-portrait-frame" id="${wrapperId}-portrait-frame-${i}">
+                <img class="standings-portrait" id="${wrapperId}-portrait-${i}" src="" alt="">
+            </div>
             <div class="player-name-archetype">
                 <div class="standings-name" id="${wrapperId}-name-${i}"></div>
                 <div class="standings-archetype" id="${wrapperId}-archetype-${i}"></div>
@@ -74,12 +128,89 @@ socket.emit('get-player-count');
 socket.emit('get-broadcast-standings');
 socket.emit('get-broadcast-scoreboard-data');
 
-// Event round info
+// Event round info. Some layouts (riftbound default 1v1) want a
+// shorter form — "Round 8 of 15" → "Round 8" — to fit the narrower
+// header pill. Vendor-config opts in via
+// `--standings-event-round-strip-suffix: yes`. Default behavior
+// (var unset / set to anything else) preserves the full string.
+//
+// Also captures the current round number and (when available) total
+// rounds for the live-for-top-8 logic — see refreshTop8Highlights below.
+let currentRoundNum = null;
+let totalRoundsFromData = null;
 socket.on('broadcast-round-data', (data) => {
     const eventRound = data?.match1?.['event-round'] || '';
     const el = document.getElementById('standings-event-round');
-    if (el) el.textContent = eventRound;
+    if (el) {
+        const stripSuffix = getComputedStyle(document.documentElement)
+            .getPropertyValue('--standings-event-round-strip-suffix')
+            .trim() === 'yes';
+        el.textContent = stripSuffix
+            ? eventRound.replace(/\s*of\s+\d+\s*$/i, '').trim()
+            : eventRound;
+    }
+    // Parse "Round 8 of 13" → currentRoundNum=8, totalRoundsFromData=13.
+    // Total rounds in the data takes precedence over the vendor-config
+    // `--standings-total-rounds` fallback (handles events with non-13
+    // round counts without needing a config edit).
+    const m = eventRound.match(/Round\s+(\d+)(?:\s+of\s+(\d+))?/i);
+    if (m) {
+        currentRoundNum = parseInt(m[1], 10);
+        totalRoundsFromData = m[2] ? parseInt(m[2], 10) : null;
+    }
+    refreshTop8Highlights();
+    // Dynamic round number for the branded footer (riftbound default
+    // 1v1 / CSL Bologna). The static prefix ("AFTER ROUND ") is set
+    // via CSS ::before; this just sets the round number itself. No-op
+    // for layouts that don't render the footer (CSS hides it).
+    const afterRoundEl = document.getElementById('standings-footer-after-round');
+    if (afterRoundEl && currentRoundNum != null) {
+        afterRoundEl.textContent = currentRoundNum;
+    }
 });
+
+// ── Live-for-top-8 highlight ────────────────────────────────────────────────
+// A player is "live" if their max possible win count (current_wins +
+// remaining_rounds) meets or exceeds the cut threshold. Visually the
+// CSS adds a gold pulsing glow to the portrait frame of every alive row.
+//
+// Early rounds: most players are alive, so most rows glow — quietly
+// signals "this is the contender pool." Late rounds: alive set narrows
+// naturally, glow distinguishes the actual top-8 race in real time.
+function parseRecord(recordStr) {
+    if (typeof recordStr !== 'string') return { wins: 0, losses: 0, draws: 0 };
+    const parts = recordStr.trim().split('-').map(s => parseInt(s, 10));
+    return {
+        wins:   Number.isFinite(parts[0]) ? parts[0] : 0,
+        losses: Number.isFinite(parts[1]) ? parts[1] : 0,
+        draws:  Number.isFinite(parts[2]) ? parts[2] : 0,
+    };
+}
+
+function isLiveForTop8(recordStr) {
+    if (currentRoundNum === null) return false; // no round info yet
+    const root = getComputedStyle(document.documentElement);
+    const totalRounds = totalRoundsFromData
+        || parseInt(root.getPropertyValue('--standings-total-rounds'), 10)
+        || 13;
+    const cutWins = parseInt(root.getPropertyValue('--standings-top8-cut-wins'), 10) || 10;
+    const { wins } = parseRecord(recordStr);
+    const remaining = Math.max(0, totalRounds - currentRoundNum);
+    return (wins + remaining) >= cutWins;
+}
+
+// Re-evaluate the highlight on every visible row. Called when the round
+// changes (broadcast-round-data) AND when standings repopulate
+// (populatePage sets the attribute per row directly, but this catches
+// edge cases like round arriving after standings).
+function refreshTop8Highlights() {
+    if (currentGame !== 'riftbound') return;
+    document.querySelectorAll('.round-standings-container').forEach(rowEl => {
+        const recordEl = rowEl.querySelector('.standings-record');
+        const record = recordEl?.textContent || '';
+        rowEl.dataset.liveTop8 = isLiveForTop8(record) ? 'true' : 'false';
+    });
+}
 
 // ── Theme ────────────────────────────────────────────────────────────────────
 let _initGame = false, _initVendor = false, _initPlayer = false;
@@ -114,6 +245,9 @@ socket.on('game-selection-updated', ({gameSelection}) => {
     currentGame = gameSelection;
     applyBodyAttrs();
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    // Game change toggles riftbound default 1v1's 10-per-page mode
+    // on/off — re-populate to match.
+    repopulateAllPages();
     rerenderFlyquest2v2IfActive();
 });
 socket.on('server-current-vendor-selection', ({vendorSelection}) => {
@@ -126,6 +260,10 @@ socket.on('vendor-selection-updated', ({vendorSelection}) => {
     currentVendor = vendorSelection;
     applyBodyAttrs();
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    // Vendor change can flip the per-page rank count (e.g. default 1v1
+    // → 10, anything else → 16). Re-populate so pages 2-4 show the
+    // right rank windows without waiting for the next data push.
+    repopulateAllPages();
     rerenderFlyquest2v2IfActive();
 });
 socket.on('server-current-player-count', ({playerCount}) => {
@@ -138,6 +276,10 @@ socket.on('player-count-updated', ({playerCount}) => {
     currentPlayerCount = playerCount;
     applyBodyAttrs();
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    // Same as the vendor branch above — playerCount change can flip
+    // the per-page rank count, so re-populate against the cached
+    // standings data.
+    repopulateAllPages();
     rerenderFlyquest2v2IfActive();
 });
 
@@ -162,6 +304,16 @@ function updateTheme(game, vendor, playerCount) {
         document.documentElement.style.setProperty('--archetype-font-style', 'normal');
         document.documentElement.style.setProperty('--archetype-font-weight', '600');
         document.documentElement.style.setProperty('--standings-color', '#fff');
+    } else if (game === 'riftbound') {
+        // Riftbound brand voice — Beaufort for LoL Bold (700). Loaded
+        // via fonts.css. Vendor-config blocks under riftbound can still
+        // override per-vendor (e.g. flyquest standings continues to use
+        // Carbon via its own block) — these page-wide values are
+        // applied first, then vc.getOverrides() spreads on top.
+        document.documentElement.style.setProperty('--standings-font', "'Beaufort for LoL', serif");
+        document.documentElement.style.setProperty('--standings-font-weight', '700');
+        document.documentElement.style.setProperty('--archetype-font-style', 'normal');
+        document.documentElement.style.setProperty('--archetype-font-weight', '700');
     } else {
         document.documentElement.style.setProperty('--standings-font', 'Bebas Neue');
         document.documentElement.style.setProperty('--standings-font-weight', 'bold');
@@ -170,7 +322,7 @@ function updateTheme(game, vendor, playerCount) {
     }
 
     if (vc) {
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
@@ -206,6 +358,21 @@ function updateTheme(game, vendor, playerCount) {
             img.onload = () => { bgEl.src = bgPath; };
             img.onerror = () => { bgEl.src = ''; };
             img.src = bgPath;
+        }
+
+        // Optional character layer — same HEAD-probe pattern as bg.
+        // Sits above bg/video, below data rows + panel chrome. Mirrors
+        // the loader in broadcast-round-standings-all.js.
+        const charPath = vc.getAssetPath(
+            `/assets/images/${game}/standings/${game}-standings-char.png`,
+            vendor, playerCount
+        );
+        const charEls = document.querySelectorAll('#standings-character, .standings-character-img');
+        if (charEls.length) {
+            const img = new Image();
+            img.onload = () => { charEls.forEach(el => { el.src = charPath; }); };
+            img.onerror = () => { charEls.forEach(el => { el.src = ''; }); };
+            img.src = charPath;
         }
 
         // Event-wide video background (optional — drops on top of PNG bg
@@ -255,14 +422,52 @@ function populatePage(wrapperId, data, startRank) {
             recordEl.innerHTML = rowData['record'] || '';
             rowEl.style.display = 'flex';
 
+            // Mark row as still alive for the top-8 cut. CSS in
+            // broadcast-round-standings-all.css (riftbound block) renders
+            // a gold pulsing glow on the portrait frame for live rows.
+            // Inert for non-riftbound games (the CSS rule is body-scoped).
+            rowEl.dataset.liveTop8 = isLiveForTop8(rowData['record'] || '') ? 'true' : 'false';
+
             // Legend portrait
             const legendName = rowData['archetype'] || '';
             const legendData = RIFTBOUND_LEGENDS[legendName];
             if (portraitEl) {
-                portraitEl.src = legendData?.left || '';
+                // The focus-centered 1200×1200 portrait approach is
+                // specific to the riftbound DEFAULT vendor (Bologna)
+                // layout, where the IMG is sized 150×150 with negative
+                // offsets to land a per-legend focus dot at the frame
+                // center. Other riftbound vendors (TES, atomic-legacy,
+                // DSG, FlyQuest) use simpler CSS-only positioning
+                // (object-fit: cover on a 45×45 frame), so they fall
+                // through to the else branch. Earlier this gate was
+                // `currentGame === 'riftbound'` — too broad, caused
+                // TES portraits to get default's 1200×1200 URL plus
+                // JS-set width:150/height:150/left:-XX/top:-XX inline
+                // styles that prevented .standings-portrait's CSS
+                // width:100% from applying.
+                if (currentGame === 'riftbound' && currentVendor === 'default' && legendData?.left) {
+                    portraitEl.src = legendData.left.replace(
+                        'legend-portraits-251x124/251x124_',
+                        'legend-portraits-1200x1200/1200x1200_'
+                    );
+                    applyStandingsPortraitFocus(portraitEl, legendName);
+                } else {
+                    portraitEl.src = legendData?.left || '';
+                    // Clear only the riftbound-specific inline style we set
+                    // (width/height/left/top) so other layouts can rely on
+                    // the global .standings-portrait CSS rule.
+                    portraitEl.style.width = '';
+                    portraitEl.style.height = '';
+                    portraitEl.style.left = '';
+                    portraitEl.style.top = '';
+                }
             }
 
-            // Hide empty archetype
+            // Hide empty archetype. NOTE: the riftbound default 1v1 layout
+            // hides .standings-archetype globally via CSS (portrait-only
+            // legend column) so this `display: block` toggle is overridden
+            // by `display: none !important` in the body-scoped CSS. Other
+            // layouts use this branch to show/hide the archetype text.
             if (legendName.trim() === '') {
                 archetypeEl.style.display = 'none';
             } else {
@@ -291,11 +496,21 @@ function populatePage(wrapperId, data, startRank) {
                 el.style.fontSize = calculateFontSize(el, maxNameSize, 16, textWidth) + 'px';
             }
         });
-        wrapper.querySelectorAll('.standings-archetype').forEach(el => {
-            if (el.innerText) {
-                el.style.fontSize = calculateFontSize(el, maxArchetypeSize, 10, textWidth) + 'px';
-            }
-        });
+        // Uniform legend sizing: pick the smallest size needed across all
+        // archetype rows, then apply it to every row. Keeps the legend column
+        // visually consistent (no row-by-row size drift) while still
+        // accommodating the longest name in the set.
+        const archetypeEls = Array.from(wrapper.querySelectorAll('.standings-archetype'))
+            .filter(el => el.innerText);
+        if (archetypeEls.length > 0) {
+            const sizes = archetypeEls.map(el =>
+                calculateFontSize(el, maxArchetypeSize, 10, textWidth)
+            );
+            const minSize = Math.min(...sizes);
+            archetypeEls.forEach(el => {
+                el.style.fontSize = minSize + 'px';
+            });
+        }
     });
 }
 
@@ -470,15 +685,40 @@ socket.on('playerRosterUpdated', (roster) => {
     rerenderFlyquest2v2IfActive();
 });
 
+// ── Vendor-aware pagination ─────────────────────────────────────────
+// Default vendor 1v1 (CSL Bologna) renders top-10 standings only — its
+// layout has a single panel with 10 visible rows (rows 11-16 hidden
+// via --rb-stand-rows-overflow-display). Pages cover ranks 1-10,
+// 11-20, 21-30, 31-40.
+// Every other vendor/playerCount uses the classic 8-left + 8-right
+// double-panel layout, 16 ranks per page → 1-16, 17-32, 33-48, 49-64.
+function getRanksPerPage() {
+    return (currentGame === 'riftbound' &&
+            currentVendor === 'default' &&
+            currentPlayerCount === '1v1')
+        ? 10 : 16;
+}
+
+// Re-populates all 4 pages from the cached `lastStandings` using the
+// current vendor's perPage. Called from both the data-arrival handler
+// AND vendor/playerCount-change handlers so a live vendor swap
+// refreshes the rank windows without requiring a fresh standings
+// push.
+function repopulateAllPages() {
+    if (!lastStandings) return;
+    const perPage = getRanksPerPage();
+    populatePage('standings-wrapper-1', lastStandings, 1);
+    populatePage('standings-wrapper-2', lastStandings, 1 + perPage);
+    populatePage('standings-wrapper-3', lastStandings, 1 + 2 * perPage);
+    populatePage('standings-wrapper-4', lastStandings, 1 + 3 * perPage);
+}
+
 socket.on('broadcast-round-standings-data', (incoming) => {
     console.log('standings data', incoming);
     const data = incoming.standings || incoming;
     lastStandings = data || {};
 
-    populatePage('standings-wrapper-1', data, 1);
-    populatePage('standings-wrapper-2', data, 17);
-    populatePage('standings-wrapper-3', data, 33);
-    populatePage('standings-wrapper-4', data, 49);
+    repopulateAllPages();
 
     rerenderFlyquest2v2IfActive();
 });
@@ -545,4 +785,26 @@ socket.on('obs-left-standings', () => {
     jumpTo(1);
     obsLog('Left standings scenes — reset to page 1');
 });
-//   window.dispatchEvent(new CustomEvent('obsSceneChanged', { detail: { name: 'Standings - Current Round 49-64' } }));
+
+// Manual page navigation via keyboard — for testing the URL directly
+// (e.g. http://localhost:1378/broadcast/round/standings-combined) where
+// no OBS scene-change event is driving the slider. Inert during real
+// broadcasts since OBS browser sources don't receive keyboard input.
+//   ← / →     : previous / next page (slide animation)
+//   1 / 2 / 3 / 4 : jump directly to that page (no animation)
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+        const next = (currentPage % 4) + 1;
+        slideTo(next);
+    } else if (e.key === 'ArrowLeft') {
+        const prev = ((currentPage - 2 + 4) % 4) + 1;
+        slideTo(prev);
+    } else if (['1', '2', '3', '4'].includes(e.key)) {
+        jumpTo(parseInt(e.key, 10));
+    }
+});
+//   window.dispatchEvent(new CustomEvent('obsSceneChanged', { detail: { name: 'Standings - Current Round P4' } }));
+
+// Standings-specific debug overlay removed — face positioning is now driven
+// by RIFTBOUND_PORTRAIT_FOCUS (in riftbound/constants.js), which is tuned
+// via the metagame page's `debugFocus()` overlay. Single config, both views.

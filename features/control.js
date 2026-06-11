@@ -28,6 +28,22 @@ let scoreboardState = Object.fromEntries(Array.from({length: 20}, (_, i) => [i +
     match4: {showWins: true}
 }]));
 
+// Visibility flags for the /scoreboard L3 battlefields row (.riftbound-bf-row
+// — see scoreboard.js / scoreboard.css). The strip shows up to four
+// battlefield cards (one per 2v2 player slot) cropped into the lower-third;
+// the operator can hide individual ones via inline master-control "Hide"
+// checkboxes without touching match data. Slot keys mirror the
+// `player-battlefield-*` fields in controlData so the renderer can index
+// into both with the same key. Default: all visible. Resets on server
+// restart — intentional; the operator usually wants a fresh "everything
+// visible" state per stream.
+let battlefieldVisibility = {
+    'left':    true,
+    'left-2':  true,
+    'right':   true,
+    'right-2': true
+};
+
 
 // Load control data from file
 export async function loadControlData() {
@@ -87,6 +103,23 @@ export function getScoreboardState() {
 
 export function updateBroadcastTracker(round_id) {
     broadcastTracker.round_id = round_id;
+}
+
+// Returns a shallow copy so callers can't mutate the live state by reference.
+export function getBattlefieldVisibility() {
+    return { ...battlefieldVisibility };
+}
+
+// Returns true when the requested slot exists and a write actually changed
+// the state — lets the handler skip a redundant broadcast when the value
+// is unchanged. Unknown slot keys are silently rejected (defensive against
+// stale clients sending old field names).
+export function setBattlefieldVisibilitySlot(slot, visible) {
+    if (!(slot in battlefieldVisibility)) return false;
+    const next = !!visible;
+    if (battlefieldVisibility[slot] === next) return false;
+    battlefieldVisibility[slot] = next;
+    return true;
 }
 
 // Emit control data update - master-control listening to update matches

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1920, initial-scale=1">
     <title>Event Info</title>
+    <link href="/css/fonts.css" rel="stylesheet">
     <link href="/css/event-info.css" rel="stylesheet">
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/room-manager.js"></script>
@@ -16,6 +17,27 @@
          SCENE_OVERLAYS registry; empty for scenes that don't register a
          renderer (schedule, prizes, casters-1/2, etc. render PNG only). -->
     <div id="event-info-overlay"></div>
+    <!-- Optional "frame" layer — transparent PNG sitting between the bg
+         (z=0, bottom) and the data layer (z=2). Used by multi-layer scenes
+         that need decorative chrome (logos, borders, branding strip)
+         baked into a separate transparent canvas so the frame can be
+         swapped per-event without re-exporting the whole bg. event-info.js
+         loads the per-scene/per-vendor PNG via getAssetPath; if the file
+         404s the element is hidden. -->
+    <img id="event-info-frame" alt="">
+    <!-- Optional middle "data" layer — transparent PNG with the dynamic-
+         looking content (e.g. day blocks for /event-info/schedule) baked
+         in. Sits between the frame (z=1) and the character (z=3).
+         event-info.js loads the per-scene/per-vendor PNG via
+         getAssetPath; if the file 404s the element is hidden. -->
+    <img id="event-info-data" alt="">
+    <!-- Optional character/foreground image overlaid on TOP of bg + frame
+         + data. Used by multi-layer scenes (currently /event-info/schedule
+         and /event-info/starting-soon with vendor=default) where a
+         transparent character art floats above everything else.
+         event-info.js loads the per-scene/per-vendor PNG via getAssetPath;
+         if the file 404s the element is hidden. -->
+    <img id="event-info-character" alt="">
     <script src="/js/event-info.js"></script>
 </body>
 </html>

@@ -14,6 +14,15 @@
 body {
     margin: 0;
     padding: 0;
+    /* Explicitly inherit the page-wide font-weight var. Without this,
+       Bootstrap's `body { font-weight: 400 }` (shipped via bootstrap.min.css)
+       wins over the universal `*` rule above (selector specificity
+       0,0,1 vs 0,0,0). Result: any element using
+       `font-weight: inherit` (e.g. #standings-event-round) gets 400
+       instead of the 700 that --standings-font-weight is set to.
+       Loading after Bootstrap means same-specificity → we win. */
+    font-weight: var(--standings-font-weight);
+    font-family: var(--standings-font), sans-serif;
 }
 
 /* Retina/HiDPI: scale up when OBS source is 3840x2160 */
@@ -33,6 +42,32 @@ body {
 }
 
 #standings-bg[src=""], .standings-bg-img[src=""] {
+    display: none;
+}
+
+/* Optional character art layer — full 1920×1080 transparent PNG that
+   sits ABOVE the bg img/video and BELOW the data wrapper / panel
+   chrome / footer. Same z-index pattern as the bg (negative) so the
+   default-vendor's data rows render on top by default; layouts that
+   want the character above some chrome can override the per-element
+   z-index in their own scoped rule.
+   Loaded via JS HEAD-probe in updateTheme() — element stays empty +
+   hidden if no PNG exists for the current game/vendor/playerCount.
+   Use case: keep the bg PNG as gradient + branding only, swap the
+   character PNG per event (Bologna=Yasuo, Lille=Jinx, etc.) without
+   re-exporting the entire bg layer. */
+#standings-character, .standings-character-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 0;
+    pointer-events: none;
+    object-fit: contain;
+}
+
+#standings-character[src=""], .standings-character-img[src=""] {
     display: none;
 }
 
@@ -61,13 +96,100 @@ body {
     top: var(--standings-event-round-top, 200px);
     left: var(--standings-event-round-left, 0);
     width: var(--standings-event-round-width, 100%);
-    text-align: left;
+    text-align: var(--standings-event-round-text-align, left);
     font-size: var(--standings-event-round-font-size, 36px);
     font-weight: var(--standings-event-round-font-weight, inherit);
     font-style: var(--standings-event-round-font-style, normal);
+    letter-spacing: var(--standings-event-round-letter-spacing, normal);
     color: var(--standings-event-round-color, #fff);
     text-transform: uppercase;
 }
+
+/* Dynamic title + column headers — hidden by default.
+   A vendor-config layout opts in by setting
+   `--rb-stand-dynamic-headers: block` (see riftbound.default['1v1']),
+   AFTER re-exporting the frame PNG without baked title/header text
+   so the browser-rendered (crisp) versions don't overlap the
+   raster (softer) versions. */
+#standings-dynamic-chrome {
+    display: var(--rb-stand-dynamic-headers, none);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    pointer-events: none;
+    /* Above the frame::before overlay (z=0) so dynamic text renders on
+       top of any chrome that's still in the PNG; below the row text
+       which is unrelated. */
+    z-index: 1;
+}
+
+.standings-title {
+    /* Consumes --rb-stand-title-display so vendors that don't want a big
+       browser-rendered "STANDINGS" header (e.g. Bologna, where the
+       layout has no space for it) can hide it via vendor-config:
+       `--rb-stand-title-display: 'none'`. Defaults to `block` so layouts
+       that don't set the var still render the title (TES/atomic-legacy). */
+    display: var(--rb-stand-title-display, block);
+    position: absolute;
+    top:    var(--rb-stand-title-top, 88px);
+    left:   var(--rb-stand-title-left, 546px);
+    width:  var(--rb-stand-title-width, 827px);
+    font-size: var(--rb-stand-title-font-size, 90px);
+    letter-spacing: var(--rb-stand-title-letter-spacing, normal);
+    color: var(--standings-title-color, #fff);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: var(--rb-stand-title-font-weight, inherit);
+    line-height: 1;
+    pointer-events: auto;
+}
+
+.standings-col-header {
+    position: absolute;
+    top: var(--rb-stand-header-top, 355px);
+    font-size: var(--rb-stand-header-font-size, 20px);
+    letter-spacing: var(--rb-stand-header-letter-spacing, normal);
+    color: var(--standings-col-header-color, #fff);
+    text-transform: uppercase;
+    /* Re-enable pointer events that the parent #standings-dynamic-chrome
+       turns off (parent spans 1920×1080; pointer-events: none on it lets
+       clicks pass through empty regions to the rows behind). With
+       pointer-events: auto on the children only, DevTools' Inspect
+       Element can hit-test the actual labels. */
+    pointer-events: auto;
+}
+/* NAME column — left-aligned with the row name text. */
+.standings-col-header-name-left,
+.standings-col-header-name-right {
+    text-align: left;
+}
+.standings-col-header-name-left   { left: var(--rb-stand-header-name-left,        198px); }
+.standings-col-header-name-right  { left: var(--rb-stand-header-name-right-left, 1122px); }
+
+/* RECORD column — center-aligned with the row record values. The
+   header box is sized + positioned to match the row's record column
+   so text-align: center pivots around the same x. */
+.standings-col-header-record-left,
+.standings-col-header-record-right {
+    width: var(--rb-stand-header-record-width, 80px);
+    text-align: center;
+}
+.standings-col-header-record-left  { left: var(--rb-stand-header-record-left,        535px); }
+.standings-col-header-record-right { left: var(--rb-stand-header-record-right-left, 1459px); }
+
+/* LEGEND column — width + text-align: center pivots the header text
+   around the same x as the portrait below it (both sized to the
+   natural 251px portrait width and positioned at the same row-relative
+   left). Result: "LEGEND" sits dead-center over the portrait column. */
+.standings-col-header-legend-left,
+.standings-col-header-legend-right {
+    width: var(--rb-stand-header-legend-width, 251px);
+    text-align: center;
+}
+.standings-col-header-legend-left  { left: var(--rb-stand-header-legend-left,        718px); }
+.standings-col-header-legend-right { left: var(--rb-stand-header-legend-right-left, 1642px); }
 
 #standings-wrapper, .standings-wrapper-el {
     display: grid;
@@ -163,6 +285,16 @@ body {
 
 .standings-portrait[src=""] {
     visibility: hidden;
+}
+
+/* Portrait frame wraps the IMG so layouts that need precise focus alignment
+   (currently riftbound default 1v1 — see body-scoped block at the bottom of
+   this file) can clip a positioned image to the row's portrait window. For
+   every other layout, display: contents makes the wrapper invisible to the
+   layout engine so the IMG flexes as if it were a direct child of the row,
+   preserving the pre-wrapper behavior of every non-riftbound vendor. */
+.standings-portrait-frame {
+    display: contents;
 }
 
 .standings-record {
@@ -433,3 +565,634 @@ body[data-vendor="flyquest"][data-player-count="2v2"] #standings-slider {
     justify-content: center;
     font-size: var(--stand-row-record-font-size, 32px);
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Riftbound default 1v1 — Vancouver event template.
+ *
+ * Two 8-row panels side-by-side (ranks 1–8 LEFT / 9–16 RIGHT). Static
+ * chrome (frame ornaments, "STANDINGS" big title, regional logo,
+ * column headers, alternating row backgrounds) is baked into:
+ *   /assets/images/riftbound/standings/
+ *     riftbound-standings-bg-default-1v1.png      (1920×1080 backdrop)
+ *     riftbound-standings-frame-default-1v1.png   (1920×1080 transparent overlay)
+ *
+ * Layout coords come from the PSD's "010 - Standings 16" group:
+ *   ~/Desktop/mtg mobile coverage/coverage overlay/info slides/
+ *     20260529 riftbound vancouver/RQ Vancouver Graphic Assets.psd
+ *
+ * Position values + typography tokens live in vendor-config.js under
+ * `riftbound.default['1v1']` — change those, not these CSS rules.
+ *
+ * Default standings layout (sliding 4-page grid) is overridden so this
+ * scope renders rows as absolutely-positioned siblings. nth-child
+ * selectors handle per-row geometry; columns inside each row are
+ * absolutely positioned via the --rb-stand-* vars.
+ * ──────────────────────────────────────────────────────────────────── */
+body[data-game="riftbound"][data-vendor="atomic-legacy"][data-player-count="1v1"] {
+    /* Bootstrap's `body.container-fluid` adds 12px padding on each
+       side. The PSD coords assume an unpadded 1920×1080 canvas, so
+       null out the padding for this layout. */
+    padding: 0 !important;
+
+    /* Full-canvas frame overlay (vines, hextech borders, "STANDINGS"
+       title, alt-row backgrounds, Vancouver logo, column headers).
+       The default broadcast-round-standings-combined.js paints the
+       frame PNG as a per-row backgroundImage — fine for the TES
+       layout where the file is sized to one row, wrong for this
+       layout where it's a full 1920×1080 overlay. We render it via
+       a body pseudo-element so the frame stays in its native
+       coordinate space; rows still render on top via DOM order. */
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        background-image: url('/assets/images/riftbound/standings/riftbound-standings-frame-default-1v1.png');
+        background-size: 1920px 1080px;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        /* z-index 0 sits above the standings-bg img (-1) and below
+           the rows (which become positioned at the body level via
+           the absolute-positioning rules below — without explicit
+           z-index they stack later in DOM order = on top). */
+        z-index: 0;
+    }
+
+    /* Wrapper takes the full canvas — override the default 2-column
+       grid layout that the other vendors / mtg use. */
+    .standings-wrapper-el {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        column-gap: 0;
+        row-gap: 0;
+    }
+
+    /* Each row is its own absolutely-positioned container. The default
+       per-row frame backgroundImage is suppressed because the frame
+       art for this layout (alt-row stripes, panel ornaments) is in
+       the standings-frame PNG, not per-row. */
+    .round-standings-container {
+        position: absolute;
+        display: block;
+        width: var(--rb-stand-row-width, 854px);
+        height: var(--rb-stand-row-height, 54px);
+        background: transparent !important;
+        background-image: none !important;
+        padding: 0;
+    }
+
+    /* Per-row position. Left panel = ranks 1-8, right panel = 9-16
+       (within each page). Computed as row-1-top + (i-1) × pitch on
+       the chosen panel x. Selector is `.standings-wrapper-el` (not
+       `#standings-wrapper-1`) so the same nth-child rules apply to
+       all 4 wrappers — pages 1-4 covering ranks 1-16, 17-32, 33-48,
+       49-64. Page visibility is driven by the .standings-page.active
+       class + jumpTo/slideTo transitions in
+       broadcast-round-standings-combined.js (triggered by the
+       server's obs-current-page event), so only one page is visible
+       at a time even though all 4 wrappers always have rows
+       positioned. */
+    .standings-wrapper-el > .round-standings-container:nth-child(1)  { top: calc(var(--rb-stand-row-1-top, 395px) + 0  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-left-x,  71px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(2)  { top: calc(var(--rb-stand-row-1-top, 395px) + 1  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-left-x,  71px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(3)  { top: calc(var(--rb-stand-row-1-top, 395px) + 2  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-left-x,  71px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(4)  { top: calc(var(--rb-stand-row-1-top, 395px) + 3  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-left-x,  71px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(5)  { top: calc(var(--rb-stand-row-1-top, 395px) + 4  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-left-x,  71px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(6)  { top: calc(var(--rb-stand-row-1-top, 395px) + 5  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-left-x,  71px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(7)  { top: calc(var(--rb-stand-row-1-top, 395px) + 6  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-left-x,  71px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(8)  { top: calc(var(--rb-stand-row-1-top, 395px) + 7  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-left-x,  71px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(9)  { top: calc(var(--rb-stand-row-1-top, 395px) + 0  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-right-x, 995px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(10) { top: calc(var(--rb-stand-row-1-top, 395px) + 1  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-right-x, 995px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(11) { top: calc(var(--rb-stand-row-1-top, 395px) + 2  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-right-x, 995px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(12) { top: calc(var(--rb-stand-row-1-top, 395px) + 3  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-right-x, 995px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(13) { top: calc(var(--rb-stand-row-1-top, 395px) + 4  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-right-x, 995px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(14) { top: calc(var(--rb-stand-row-1-top, 395px) + 5  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-right-x, 995px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(15) { top: calc(var(--rb-stand-row-1-top, 395px) + 6  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-right-x, 995px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(16) { top: calc(var(--rb-stand-row-1-top, 395px) + 7  * var(--rb-stand-row-pitch, 52px)); left: var(--rb-stand-panel-right-x, 995px); }
+
+    /* Row internals — TES-inspired card layout:
+         [rank] [circular portrait] [name (top) + legend (subtitle)] [record]
+       All positioned absolutely against the 854×54 row container so the
+       internal layout works inside whatever frame the PSD provides. */
+    /* TES-style card layout — LEGEND is now a subtitle below the
+       player name, not a separate column, so only the LEGEND header
+       hides. NAME and RECORD column labels stay visible (repositioned
+       via vendor-config to match the new column x-coords). */
+    .standings-col-header-legend-left,
+    .standings-col-header-legend-right {
+        display: none !important;
+    }
+
+    .standings-rank {
+        position: absolute;
+        top: 0;
+        left: var(--rb-stand-rank-left, 30px);
+        width: var(--rb-stand-rank-width, 50px);
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Name + legend stack — flex column. .standings-name renders on top,
+       .standings-archetype below as a smaller subtitle. The wrapper sits
+       to the right of the circular portrait. */
+    .player-name-archetype {
+        position: absolute;
+        top: 0;
+        left: var(--rb-stand-name-left, 160px);
+        width: var(--rb-stand-name-width, 600px);
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--rb-stand-name-archetype-gap, 2px);
+    }
+
+    /* Legend subtitle — flows below name as a flex child. Smaller font,
+       lighter weight, dimmed color. Reset the prior absolute-positioned
+       overlap-with-portrait styling. */
+    .standings-archetype {
+        display: flex !important;
+        position: relative;
+        align-items: center;
+        margin: 0;
+        font-size: var(--standings-archetype-font-size, 14px);
+        font-style: var(--archetype-font-style, normal);
+        font-weight: var(--archetype-font-weight, 400);
+        color: var(--standings-archetype-color, rgba(255, 255, 255, 0.65));
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.1;
+    }
+
+    .standings-name {
+        line-height: 1.1;
+    }
+
+    .standings-record {
+        position: absolute;
+        top: 0;
+        left: var(--rb-stand-record-left, 770px);
+        width: var(--rb-stand-record-width, 84px);
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Round text — keep on a single line. Without `nowrap` "Round 8 of 15"
+       wraps to two rows in the 212px container; we strip "of N" via
+       the JS hook below, but `nowrap` keeps even longer round labels
+       (e.g. "Top 8 - Quarterfinal 1") from breaking. */
+    #standings-event-round {
+        white-space: nowrap;
+    }
+
+    /* Circular portrait thumbnail — 45×45 between rank and name.
+       The IMG inside is rendered at 150×150 (per applyStandingsPortraitFocus
+       in broadcast-round-standings-combined.js) and positioned absolutely
+       so the focus dot from RIFTBOUND_PORTRAIT_FOCUS lands at the frame's
+       center. The frame's overflow:hidden + border-radius:50% gives the
+       circular crop. `display: block` overrides the global display: contents
+       default. */
+    .standings-portrait-frame {
+        display: block;
+        position: absolute;
+        top: var(--rb-stand-portrait-top, 4.5px);
+        left: var(--rb-stand-portrait-left, 95px);
+        width: var(--rb-stand-portrait-width, 45px);
+        height: var(--rb-stand-portrait-height, 45px);
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .standings-portrait {
+        /* Position is set inline by JS — width/height/left/top all come
+           from applyStandingsPortraitFocus(). The CSS just establishes
+           the absolute-positioning context inside the frame. */
+        position: absolute;
+        margin: 0;
+    }
+
+    /* Live-for-top-8 highlight — soft gold pulse on the portrait frame
+       for any row whose player can still mathematically reach the cut.
+       JS sets data-live-top8="true" via populatePage and refreshes when
+       the round changes (broadcast-round-data event). Inert for
+       eliminated rows (no animation). */
+    .round-standings-container[data-live-top8="true"] .standings-portrait-frame {
+        animation: top8Pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes top8Pulse {
+        0%, 100% {
+            box-shadow:
+                0 0 0 2px rgba(255, 215, 100, 0.55),
+                0 0 12px 3px rgba(255, 215, 100, 0.30);
+        }
+        50% {
+            box-shadow:
+                0 0 0 2px rgba(255, 215, 100, 0.90),
+                0 0 18px 5px rgba(255, 215, 100, 0.55);
+        }
+    }
+
+    /* Pages 2-4 of the slider (ranks 17-32, 33-48, 49-64) are wired
+       up — they share the same row-position rules as page 1 (selector
+       broadened to .standings-wrapper-el > ... above). Page visibility
+       is driven by the page-1.active default + jumpTo/slideTo from
+       broadcast-round-standings-combined.js, triggered by the server's
+       obs-current-page event. */
+
+    /* Stagger cascade — when a page slides in (slideTo), each of its
+       rows fades + slides up a few px in turn. The page itself does
+       NOT animate (vendor-config sets --standings-page-anim-in: none
+       so the global .slide-in rule resolves to no animation; rows
+       handle all the motion). The outgoing page uses fadeOut for a
+       soft crossfade. */
+    .standings-page.slide-in .round-standings-container {
+        animation: rowReveal 0.5s ease-out backwards;
+    }
+    /* Synced columns: rank 1 reveals with rank 9, rank 2 with rank 10,
+       etc. Stagger step = 50ms. Total reveal duration = 8 × 50ms +
+       0.5s row anim = 0.9s. Fits within the 1000ms slideTo timeout
+       in broadcast-round-standings-combined.js. */
+    .standings-page.slide-in .round-standings-container:nth-child(1),
+    .standings-page.slide-in .round-standings-container:nth-child(9)  { animation-delay:   0ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(2),
+    .standings-page.slide-in .round-standings-container:nth-child(10) { animation-delay:  50ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(3),
+    .standings-page.slide-in .round-standings-container:nth-child(11) { animation-delay: 100ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(4),
+    .standings-page.slide-in .round-standings-container:nth-child(12) { animation-delay: 150ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(5),
+    .standings-page.slide-in .round-standings-container:nth-child(13) { animation-delay: 200ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(6),
+    .standings-page.slide-in .round-standings-container:nth-child(14) { animation-delay: 250ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(7),
+    .standings-page.slide-in .round-standings-container:nth-child(15) { animation-delay: 300ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(8),
+    .standings-page.slide-in .round-standings-container:nth-child(16) { animation-delay: 350ms; }
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Riftbound default (CSL Bologna) 1v1 standings layout
+   Single panel, 10 rows, character art baked into the bg PNG, gold-
+   bordered legend rectangles, branded footer with dynamic round number.
+   PSD source: 1920×1080 "Leaderboard" group at x=749 width=1078,
+   rows step y=153 → 783 (pitch 70).
+   ────────────────────────────────────────────────────────────────────── */
+body[data-game="riftbound"][data-vendor="default"][data-player-count="1v1"] {
+    padding: 0 !important;
+
+    /* Full-canvas frame overlay — panel chrome / borders / row dividers
+       baked into a transparent 1920×1080 PNG. Same body::before pattern
+       as atomic-legacy. The default broadcast-round-standings-all.js
+       paints the frame PNG as a per-row backgroundImage (correct for the
+       TES layout where the file is sized to a single row), but the
+       Bologna frame is full-canvas, so we suppress the per-row image
+       below and render via this pseudo-element instead.
+       z-index 0 sits above the bg img/video and the character (forced
+       to z=-1 below) so the frame chrome covers the character where
+       they overlap; rows with z=auto stack on top via DOM order. */
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        background-image: url('/assets/images/riftbound/standings/riftbound-standings-frame-default-1v1.png');
+        background-size: 1920px 1080px;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* Drop the character below the frame ::before. The global rule sets
+       #standings-character z-index: 0; with the frame ::before also at
+       z=0, DOM order would put the character above (it's a body child,
+       ::before renders before body's children). Forcing the character
+       to z=-1 (above bg at -1 because it comes later in DOM, but below
+       frame at 0) keeps the panel chrome rendering on top of the
+       character where they overlap. Bologna's character art is
+       positioned to the right of the panel so the overlap is small,
+       but this keeps the layering correct if the character ever bleeds
+       across. */
+    #standings-character, .standings-character-img {
+        z-index: -1;
+    }
+
+    .standings-wrapper-el {
+        display: block;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        margin: 0; padding: 0;
+    }
+
+    .round-standings-container {
+        position: absolute;
+        display: block;
+        width: var(--rb-stand-row-width, 1078px);
+        height: var(--rb-stand-row-height, 72px);
+        background: transparent !important;
+        background-image: none !important;
+        padding: 0;
+    }
+
+    /* Row positions — 10 rows, single panel. Row 1 top=153, pitch=70.
+       Selector uses .standings-wrapper-el (not #standings-wrapper-1)
+       so the same rules apply to all 4 page wrappers in the slider. */
+    .standings-wrapper-el > .round-standings-container:nth-child(1)  { top: calc(var(--rb-stand-row-1-top, 153px) + 0 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(2)  { top: calc(var(--rb-stand-row-1-top, 153px) + 1 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(3)  { top: calc(var(--rb-stand-row-1-top, 153px) + 2 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(4)  { top: calc(var(--rb-stand-row-1-top, 153px) + 3 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(5)  { top: calc(var(--rb-stand-row-1-top, 153px) + 4 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(6)  { top: calc(var(--rb-stand-row-1-top, 153px) + 5 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(7)  { top: calc(var(--rb-stand-row-1-top, 153px) + 6 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(8)  { top: calc(var(--rb-stand-row-1-top, 153px) + 7 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(9)  { top: calc(var(--rb-stand-row-1-top, 153px) + 8 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+    .standings-wrapper-el > .round-standings-container:nth-child(10) { top: calc(var(--rb-stand-row-1-top, 153px) + 9 * var(--rb-stand-row-pitch, 70px)); left: var(--rb-stand-panel-left-x, 749px); }
+
+    /* Hide rows 11-16 — Bologna shows top 10 only. TOTAL_STANDINGS in
+       the JS stays at 16 (no JS branching needed). */
+    .standings-wrapper-el > .round-standings-container:nth-child(n+11) {
+        display: none !important;
+    }
+
+    /* Per-row internal columns ───────────────────────────────────── */
+    /* Weight calibration (operator spec):
+         Column headers (RANK/PLAYER/LEGEND/RECORD): heavy   (900)
+         Row legends (TAALIA VESS / etc):            bold    (700)
+         Row records (3-0-0 / etc):                  bold    (700)
+         Row ranks + names ("everything else"):     medium  (500) */
+    .standings-rank {
+        position: absolute;
+        top: 0;
+        left: var(--rb-stand-rank-left, 20px);
+        width: var(--rb-stand-rank-width, 80px);
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 36px;
+        font-weight: 500;
+        color: #ffffff;
+    }
+
+    .player-name-archetype {
+        position: absolute;
+        top: 0;
+        left: var(--rb-stand-name-left, 153px);
+        width: var(--rb-stand-name-width, 400px);
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: visible;
+    }
+
+    .standings-name {
+        font-size: 30px;
+        font-weight: 500;
+        color: #ffffff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+    }
+
+    /* Hide the gold-bordered legend pill when it has no content. The JS
+       in broadcast-round-standings-all.js sets archetypeEl.style.display
+       to 'none' per-row when archetype is empty AND there's a rowData
+       object — but only after a 'broadcast-round-standings-data' socket
+       event arrives. Before that (testing the page with no live event,
+       or between events) the pills sit at the CSS default `display: flex`
+       and render as 10 empty gold rectangles stacked over the empty rows.
+       Hiding empty ones via :empty matches the populated-state behavior
+       and keeps the no-data view clean. !important needed to override
+       the !important on the populated rule below. */
+    .standings-archetype:empty {
+        display: none !important;
+    }
+
+    /* Legend text in a gold-bordered translucent rectangle. Positioned
+       absolutely within .player-name-archetype but with explicit row-
+       relative coords (left = absolute row-rel x). */
+    .standings-archetype {
+        display: flex !important;
+        position: absolute;
+        top: var(--rb-stand-legend-rect-top, 14px);
+        /* Position relative to the row (parent of player-name-archetype),
+           not the wrapper — use absolute positioning escaping the wrapper
+           by calc'ing back. Simpler: position relative to row by using
+           translateX from wrapper origin. */
+        left: calc(var(--rb-stand-legend-rect-left, 576px) - var(--rb-stand-name-left, 153px));
+        width: var(--rb-stand-legend-rect-width, 331px);
+        height: var(--rb-stand-legend-rect-height, 42px);
+        align-items: center;
+        justify-content: center;
+        background: var(--rb-stand-legend-rect-bg, rgba(0, 30, 80, 0.5));
+        border: var(--rb-stand-legend-rect-border-width, 1px) solid var(--rb-stand-legend-rect-border, #c9a557);
+        border-radius: var(--rb-stand-legend-rect-radius, 4px);
+        font-size: 24px;
+        font-weight: 700;
+        /* Black against the gold pill bg for contrast (the gold rectangles
+           come from the frame PNG; CSS pill is transparent — see
+           `--rb-stand-legend-rect-bg: transparent` in vendor-config). */
+        color: #000;
+        text-transform: uppercase;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+
+    .standings-record {
+        position: absolute;
+        top: 0;
+        left: var(--rb-stand-record-left, 970px);
+        width: var(--rb-stand-record-width, 61px);
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    /* No legend portrait — Bologna doesn't show portraits per row.
+       The character art on the left of the layout is part of the bg PNG. */
+    .standings-portrait,
+    .standings-portrait-frame {
+        display: none !important;
+    }
+
+    /* Column headers — heavy weight (900) per operator spec, distinct
+       from the medium row labels below. line-height:1 collapses the
+       default ~1.2 leading so the 30px text-box height matches the
+       font-size exactly — important for the y=95 top to leave a clean
+       gap before row 1 (top=153). Explicit widths below so the var-
+       driven left coords match the PSD's per-column positions. */
+    .standings-col-header {
+        font-weight: 900;
+        line-height: 1;
+    }
+    .standings-col-header-rank-left {
+        left: var(--rb-stand-header-rank-left, 766px);
+        width: var(--rb-stand-header-rank-width, 87px);
+        text-align: center;
+    }
+    .standings-col-header-name-left {
+        left: var(--rb-stand-header-name-left, 903px);
+        width: var(--rb-stand-header-name-width, 114px);
+        text-align: left;
+    }
+    .standings-col-header-legend-left {
+        left: var(--rb-stand-header-legend-left, 1432px);
+        width: var(--rb-stand-header-legend-width, 116px);
+        text-align: center;
+    }
+    .standings-col-header-record-left {
+        left: var(--rb-stand-header-record-left, 1690px);
+        width: var(--rb-stand-header-record-width, 122px);
+        text-align: center;
+    }
+    /* Right-panel column headers don't apply to single-panel Bologna —
+       hide them. */
+    .standings-col-header-name-right,
+    .standings-col-header-legend-right,
+    .standings-col-header-record-right {
+        display: none !important;
+    }
+
+    /* Footer — branded labels + dynamic round number. JS in
+       broadcast-round-standings-combined.js sets the text content of
+       #standings-footer-after-round; the prefix ("AFTER ROUND ") comes
+       from the var via ::before. Static labels also use var-driven
+       ::before content so per-event copy is editable in vendor-config
+       without HTML edits. */
+    #standings-footer {
+        display: var(--rb-stand-footer-display, none);
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        pointer-events: none;
+        font-family: var(--rb-stand-footer-font, 'Beaufort for LoL', serif);
+        font-size: var(--rb-stand-footer-font-size, 18px);
+        font-weight: var(--rb-stand-footer-font-weight, 700);
+        color: var(--rb-stand-footer-color, #fff);
+        letter-spacing: var(--rb-stand-footer-letter-spacing, 1.5px);
+        text-transform: uppercase;
+    }
+    /* SWISS STANDINGS — sized to match the PSD's yellow rectangle
+       (Rectangle 6, 309×49 at 142, 1009). Flex-centering on the
+       container guarantees the text hits the rectangle's geometric
+       center regardless of font metrics. width/height default to
+       `auto` so other vendors that set top/left without rect dims
+       still get the previous behavior (text positioned at top/left,
+       no fixed box). The rectangle's center y = 1009 + 49/2 = 1033.5
+       — used as the vertical-alignment reference for ROUND N and the
+       share/hashtag stack below. */
+    #standings-footer-label-left {
+        position: absolute;
+        top:    var(--rb-stand-footer-label-left-top, 1023px);
+        left:   var(--rb-stand-footer-label-left-left, 168px);
+        width:  var(--rb-stand-footer-label-left-width, auto);
+        height: var(--rb-stand-footer-label-left-height, auto);
+        font-size: var(--rb-stand-footer-label-left-font-size, inherit);
+        font-weight: var(--rb-stand-footer-label-left-font-weight, inherit);
+        color: var(--rb-stand-footer-label-left-color, inherit);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+    }
+    #standings-footer-label-left::before { content: var(--rb-stand-footer-label-left-text, ""); }
+
+    /* ROUND N — uses the same rectangle-flex-center pattern so its text
+       baseline visually aligns with SWISS STANDINGS at y=1033.5. height
+       defaults to `auto` so other vendors keep the existing top-only
+       positioning unchanged. */
+    #standings-footer-after-round {
+        position: absolute;
+        top: var(--rb-stand-footer-after-round-top, 1025px);
+        left: var(--rb-stand-footer-after-round-left, 469px);
+        height: var(--rb-stand-footer-after-round-height, auto);
+        font-size: var(--rb-stand-footer-after-round-font-size, inherit);
+        font-weight: var(--rb-stand-footer-after-round-font-weight, inherit);
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+    #standings-footer-after-round::before { content: var(--rb-stand-footer-after-round-prefix, "AFTER ROUND "); }
+
+    /* SHARE YOUR STORY / #BOUND/FORGLORY — line-height: 1 makes the
+       text-box height equal the font-size, so the visual center is
+       exactly `top + font-size/2`. Without this, default line-height
+       (~1.2) adds half-leading above the glyphs that pushes the visual
+       center below the math'd center, making the stack look
+       slightly low against SWISS STANDINGS.
+       transform: translateX(-50%) treats `left` as the CENTER X of the
+       text rather than its left edge — both share + hashtag use the
+       same `left` value (1380px) so they share a vertical center axis
+       and stack as a centered block regardless of individual widths. */
+    #standings-footer-share {
+        position: absolute;
+        top: var(--rb-stand-footer-share-top, 1010px);
+        left: var(--rb-stand-footer-share-left, 1269px);
+        transform: translateX(-50%);
+        font-size: var(--rb-stand-footer-share-font-size, inherit);
+        font-weight: var(--rb-stand-footer-share-font-weight, inherit);
+        line-height: 1;
+        white-space: nowrap;
+    }
+    #standings-footer-share::before { content: var(--rb-stand-footer-share-text, ""); }
+    /* Two-tone hashtag — split into a "prefix" segment (e.g. "#BOUND")
+       and a "suffix" segment (e.g. "FORGLORY") so each can have its
+       own color. ::before renders the prefix, ::after renders the
+       suffix, both line up on the same baseline because they share
+       the parent's line-height. To use as a single-color hashtag,
+       only set the prefix var and leave suffix empty (the unused
+       suffix pseudo renders nothing and takes no space). */
+    #standings-footer-hashtag {
+        position: absolute;
+        top: var(--rb-stand-footer-hashtag-top, 1036px);
+        left: var(--rb-stand-footer-hashtag-left, 1248px);
+        transform: translateX(-50%);
+        font-size: var(--rb-stand-footer-hashtag-font-size, 22px);
+        color: var(--rb-stand-footer-hashtag-color, inherit);
+        font-style: var(--rb-stand-footer-hashtag-font-style, normal);
+        line-height: 1;
+        white-space: nowrap;
+    }
+    #standings-footer-hashtag::before {
+        content: var(--rb-stand-footer-hashtag-text-prefix, var(--rb-stand-footer-hashtag-text, ""));
+        color: var(--rb-stand-footer-hashtag-prefix-color, inherit);
+    }
+    #standings-footer-hashtag::after {
+        content: var(--rb-stand-footer-hashtag-text-suffix, "");
+        color: var(--rb-stand-footer-hashtag-suffix-color, inherit);
+    }
+}
+
+

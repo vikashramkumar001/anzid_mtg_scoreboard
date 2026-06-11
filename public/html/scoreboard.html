@@ -148,11 +148,26 @@
         <img id="rb-p2-icon" class="rb-player-icon" src="" alt="">
         <img id="rb-p3-icon" class="rb-player-icon" src="" alt="">
         <img id="rb-p4-icon" class="rb-player-icon" src="" alt="">
+        <!-- Shared score tracker (riftbound-only). Bubbles rendered by
+             scoreboard.js based on player-life-{left,right} + battlefield
+             selections (Aspirant's Climb extends max). Default vendor
+             positions at top center of the bar. -->
+        <div class="riftbound-score-tracker" id="riftbound-score-tracker"></div>
         <div class="riftbound-player-record-wrapper riftbound-player-record-left">
             <div id="player-record-left" class="riftbound-player-record"></div>
         </div>
         <div class="riftbound-player-record-wrapper riftbound-player-record-right">
             <div id="player-record-right" class="riftbound-player-record"></div>
+        </div>
+        <!-- XP tracker (riftbound-only) — mirrors the player-record position
+             on the chrome's PSD. Only displayed when value > 0. -->
+        <div class="riftbound-player-xp-wrapper riftbound-player-xp-left" id="riftbound-player-xp-wrapper-left">
+            <div class="riftbound-player-xp-label">XP</div>
+            <div id="player-xp-left" class="riftbound-player-xp"></div>
+        </div>
+        <div class="riftbound-player-xp-wrapper riftbound-player-xp-right" id="riftbound-player-xp-wrapper-right">
+            <div class="riftbound-player-xp-label">XP</div>
+            <div id="player-xp-right" class="riftbound-player-xp"></div>
         </div>
         <div class="riftbound-player-life-wrapper riftbound-player-life-left">
             <div id="player-life-left" class="riftbound-player-life"></div>
@@ -178,13 +193,29 @@
         </div>
         <div class="riftbound-player-legend-background riftbound-player-legend-background-left"></div>
         <div class="riftbound-player-legend-background riftbound-player-legend-background-right"></div>
+        <!-- Inner team-A / team-B legend slots (P2 / P4) — only visible in
+             vendor/playerCount combos that opt in via --rb-legend-2-display
+             (DSG 2v2 player-info hub). Default display: none. -->
+        <div class="riftbound-player-legend-background riftbound-player-legend-background-left-2"></div>
+        <div class="riftbound-player-legend-background riftbound-player-legend-background-right-2"></div>
         <div class="riftbound-player-legend-over-frame riftbound-player-legend-over-frame-left"></div>
         <div class="riftbound-player-legend-over-frame riftbound-player-legend-over-frame-right"></div>
+        <div class="riftbound-player-legend-over-frame riftbound-player-legend-over-frame-left-2"></div>
+        <div class="riftbound-player-legend-over-frame riftbound-player-legend-over-frame-right-2"></div>
         <div class="riftbound-player-legend-wrapper riftbound-player-legend-left">
             <div id="player-legend-left" class="riftbound-player-legend"></div>
         </div>
         <div class="riftbound-player-legend-wrapper riftbound-player-legend-right">
             <div id="player-legend-right" class="riftbound-player-legend"></div>
+        </div>
+        <!-- Hidden text holders for inner legend names (P2/P4) — kept so
+             scoreboard.js text-update path can write to them without errors;
+             not visible by default. -->
+        <div class="riftbound-player-legend-wrapper riftbound-player-legend-left-2" style="display:none;">
+            <div id="player-legend-left-2" class="riftbound-player-legend"></div>
+        </div>
+        <div class="riftbound-player-legend-wrapper riftbound-player-legend-right-2" style="display:none;">
+            <div id="player-legend-right-2" class="riftbound-player-legend"></div>
         </div>
         <div class="riftbound-player-champion-wrapper riftbound-player-champion-left">
             <div id="player-champion-left" class="riftbound-player-champion"></div>
@@ -217,9 +248,87 @@
                 <p id="timer" class="riftbound-timer">00:00</p>
             </div>
         </div>
-        <!-- Card View Overlay -->
+        <!-- Card View Overlays. Two paths share this DOM:
+             1v1: snap on/off via `overlay.style.display = block/none`. The
+                  first .riftbound-card-slot retains the legacy id, so the
+                  existing `img.src = url` lookup keeps working. The second
+                  slot is hidden by CSS in 1v1 (display:none on :nth-child(2)).
+             2v2: animated path mirroring MTG flyquest (slide+fade+tilt-in,
+                  sequenced two-slot crossfade, drop-shadow halo). Gated by
+                  body[data-player-count="2v2"] in scoreboard.css and a
+                  currentPlayerCount === '2v2' branch in scoreboard.js. Both
+                  slots stack at top:0/left:0 and toggle .active for opacity. -->
         <div class="riftbound-card-overlay riftbound-card-overlay-left" id="riftbound-card-overlay-left">
-            <img id="riftbound-card-overlay-img-left" src="/assets/images/riftbound/cards/riftbound-card-back.jpg" alt="">
+            <img id="riftbound-card-overlay-img-left" class="riftbound-card-slot" src="/assets/images/riftbound/cards/riftbound-card-back.jpg" alt="">
+            <img class="riftbound-card-slot" src="" alt="">
+        </div>
+        <div class="riftbound-card-overlay riftbound-card-overlay-right" id="riftbound-card-overlay-right">
+            <img id="riftbound-card-overlay-img-right" class="riftbound-card-slot" src="/assets/images/riftbound/cards/riftbound-card-back.jpg" alt="">
+            <img class="riftbound-card-slot" src="" alt="">
+        </div>
+
+        <!-- Background dim layer for the 2v2 card view — full-viewport fixed
+             layer with a feathered gradient (transparent on the left, fades
+             to --rb-card-dim-color on the right where the card sits). Fades
+             in/out on .visible, sync'd with the card overlay. Defaults to a
+             no-op (transparent + 0px blur) for non-DSG-2v2 vendors so the
+             element costs nothing visually outside its target combo. -->
+        <div id="riftbound-card-dim"></div>
+
+        <!-- Showdown Might tracker — center-bottom overlay that slides in
+             from below when the operator triggers it from master-control.
+             Shows the active battlefield (1, 2, or Baron Pit) + left and
+             right might values. Hidden by default; `.visible` triggers the
+             slide-in animation. Painted via scoreboard.js based on the
+             showdown-* control data fields. -->
+        <div class="riftbound-showdown-tracker" id="riftbound-showdown-tracker">
+            <!-- Hextech decorative gold-corner frame pieces (PSD layers
+                 "Hextech Left"/"Hexctech Right"; their names are
+                 swapped in the PSD — the asset paths use the visually
+                 correct left/right). -->
+            <div class="riftbound-showdown-hextech riftbound-showdown-hextech-left"></div>
+            <div class="riftbound-showdown-hextech riftbound-showdown-hextech-right"></div>
+            <!-- Gold "SHOWDOWN" pill at top center (PSD: Showdown Icon
+                 117×24 at y=1008-1032). -->
+            <div class="riftbound-showdown-label">SHOWDOWN</div>
+            <div class="riftbound-showdown-might riftbound-showdown-might-left">
+                <div class="riftbound-showdown-might-value" id="riftbound-showdown-might-left-value">0</div>
+            </div>
+            <div class="riftbound-showdown-bf">
+                <div class="riftbound-showdown-bf-art" id="riftbound-showdown-bf-art"></div>
+                <div class="riftbound-showdown-bf-name" id="riftbound-showdown-bf-name"></div>
+            </div>
+            <div class="riftbound-showdown-might riftbound-showdown-might-right">
+                <div class="riftbound-showdown-might-value" id="riftbound-showdown-might-right-value">0</div>
+            </div>
+        </div>
+
+        <!-- 2v2 battlefield strip (lower-third, 4 cards). Hidden by default
+             (--rb-battlefields-row-display: none); DSG 2v2 opts in by flipping
+             that var to `flex`. Slot keys mirror the per-side `player-battlefield-{slot}`
+             fields on the match payload AND the server's battlefieldVisibility
+             map — same key on both ends, no lookup table. The .riftbound-bf-img
+             is the cropped card art (slot is overflow:hidden so only the middle
+             band shows); the .riftbound-bf-label overlays the band as a caption.
+             updateRiftboundBattlefieldsRow() in scoreboard.js fills these from
+             match data + visibility flags. -->
+        <div class="riftbound-bf-row">
+            <div class="riftbound-bf-slot" data-slot="left">
+                <img class="riftbound-bf-img" src="" alt="">
+                <div class="riftbound-bf-label"></div>
+            </div>
+            <div class="riftbound-bf-slot" data-slot="left-2">
+                <img class="riftbound-bf-img" src="" alt="">
+                <div class="riftbound-bf-label"></div>
+            </div>
+            <div class="riftbound-bf-slot" data-slot="right">
+                <img class="riftbound-bf-img" src="" alt="">
+                <div class="riftbound-bf-label"></div>
+            </div>
+            <div class="riftbound-bf-slot" data-slot="right-2">
+                <img class="riftbound-bf-img" src="" alt="">
+                <div class="riftbound-bf-label"></div>
+            </div>
         </div>
     </div>
 </div>

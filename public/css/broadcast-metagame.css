@@ -1,3 +1,9 @@
+/* Global defaults — applied to any vendor that hasn't declared its own
+   value (vendor-config takes precedence via setProperty on documentElement).
+   Color values match the riftbound default 1v1 baseline (dark-purple
+   panels with gold accents) so an unconfigured vendor renders close to
+   the canonical look rather than inheriting TES-flavored values. Sizing
+   defaults stay generic enough to look reasonable across layouts. */
 :root {
     --metagame-font: 'Bebas Neue', sans-serif;
     --metagame-font-weight: bold;
@@ -8,12 +14,15 @@
     --meta-label-font-size: 24px;
     --meta-label-font-weight: 700;
     --meta-percent-font-size: 30px;
-    --meta-card-bg: #000;
-    --meta-card-border: rgba(255, 255, 255, 0.2);
+    --meta-card-bg: rgba(35, 10, 60, 0.85);
+    --meta-card-border: #c9a557;
     --meta-card-text-color: #fff;
+    --meta-label-bg: rgba(35, 10, 60, 0.85);
+    --meta-label-stroke: #c9a557;
+    --meta-label-stroke-width: 1.5;
     --meta-title-color: #fff;
     --meta-title-font-size: 48px;
-    --meta-subtitle-color: #ccc;
+    --meta-subtitle-color: #fff;
     --meta-subtitle-font-size: 28px;
     --meta-subtitle-font-weight: 400;
     --meta-subtitle-top: auto;
@@ -105,18 +114,35 @@ body {
 }
 
 #metagame-title {
+    /* Position vars let layouts that don't have title baked into the
+       bg PNG (e.g. riftbound default 1v1) render "METAGAME" on top of
+       the standings-style bg. Layouts that DO have the title baked
+       (e.g. TES) hide it via --meta-title-display: none. */
+    display: var(--meta-title-display, block);
+    position: absolute;
+    top:    var(--meta-title-top,    auto);
+    left:   var(--meta-title-left,   auto);
+    width:  var(--meta-title-width,  auto);
+    font-family: var(--meta-title-font, var(--metagame-font));
     font-size: var(--meta-title-font-size);
+    font-weight: var(--meta-title-font-weight, inherit);
+    letter-spacing: var(--meta-title-letter-spacing, normal);
     color: var(--meta-title-color);
+    text-align: var(--meta-title-text-align, left);
     line-height: 1;
 }
 
 #metagame-subtitle {
     position: absolute;
+    font-family: var(--meta-subtitle-font, var(--metagame-font));
     font-size: var(--meta-subtitle-font-size);
     color: var(--meta-subtitle-color);
     font-weight: var(--meta-subtitle-font-weight);
-    top: var(--meta-subtitle-top);
-    left: var(--meta-subtitle-left);
+    letter-spacing: var(--meta-subtitle-letter-spacing, normal);
+    top:    var(--meta-subtitle-top);
+    left:   var(--meta-subtitle-left);
+    width:  var(--meta-subtitle-width, auto);
+    text-align: var(--meta-subtitle-text-align, left);
     white-space: nowrap;
 }
 
@@ -157,6 +183,18 @@ body {
     text-transform: uppercase;
 }
 
+/* Label rect (background + border around each pie slice label).
+   JS in broadcast-metagame.js sets `fill` and `stroke` as SVG
+   presentation attributes; these CSS rules override them so each
+   layout can theme via CSS vars without JS changes. Var fallbacks
+   match the global :root defaults (purple/gold) — TES overrides
+   to its black/green via vendor-config. */
+.label-bg {
+    fill: var(--meta-label-bg, rgba(35, 10, 60, 0.85));
+    stroke: var(--meta-label-stroke, #c9a557);
+    stroke-width: var(--meta-label-stroke-width, 1.5);
+}
+
 .slice-percent {
     font-family: var(--metagame-font), sans-serif;
     font-size: var(--meta-percent-font-size);
@@ -174,12 +212,47 @@ body {
     pointer-events: none;
 }
 
-/* Panel header — total player count (spans both columns) */
+/* Panel header — total player count (spans both columns).
+   Same border-image mechanic as .archetype-card below. When
+   --meta-frame-img is unset the regular --meta-card-border color
+   shows; when set, the hextech frame replaces it. The mask-image
+   (when --meta-frame-mask is set) trims the entire element to the
+   silhouette of the frame so bg doesn't bleed past the chamfered
+   corners. */
 #panel-header {
     grid-column: 1 / -1;
     background: var(--meta-card-bg);
-    border: 1px solid var(--meta-card-border);
+    background-clip: border-box;
+    border-style: solid;
+    border-width: var(--meta-frame-border-width, 1px);
+    border-color: var(--meta-card-border);
+    border-image-source: var(--meta-frame-img, none);
+    border-image-slice: var(--meta-frame-slice, 0);
+    border-image-width: var(--meta-frame-border-width, 1px);
+    border-image-outset: var(--meta-frame-outset, 0);
+    border-image-repeat: var(--meta-frame-repeat, stretch);
     border-radius: var(--meta-card-radius);
+    /* mask-border (9-slice mask) — keeps the chamfered corners at a
+       fixed display size regardless of element aspect ratio, instead
+       of stretching the mask PNG. Critical for the panel header which
+       is wide+short (750×44) compared to the square 1008×992 mask:
+       a plain mask-image would smear the mask's edge anti-aliasing
+       across the squashed vertical dimension, creating a "faded"
+       look. mask-border slices the mask the same way border-image
+       does — corners stay 15px, edges scale to fit. The `fill`
+       keyword on mask-border-slice tells the browser to also keep
+       the mask's center region (so the interior of the card stays
+       visible). */
+    -webkit-mask-box-image-source: var(--meta-frame-mask, none);
+    -webkit-mask-box-image-slice: var(--meta-frame-slice, 0) fill;
+    -webkit-mask-box-image-width:  var(--meta-frame-border-width, 0px);
+    -webkit-mask-box-image-outset: var(--meta-frame-outset, 0);
+    -webkit-mask-box-image-repeat: var(--meta-frame-repeat, stretch);
+            mask-border-source: var(--meta-frame-mask, none);
+            mask-border-slice: var(--meta-frame-slice, 0) fill;
+            mask-border-width:  var(--meta-frame-border-width, 0px);
+            mask-border-outset: var(--meta-frame-outset, 0);
+            mask-border-repeat: var(--meta-frame-repeat, stretch);
     height: var(--meta-panel-header-height, auto);
     font-size: var(--meta-card-name-font-size);
     font-weight: 900;
@@ -199,16 +272,23 @@ body {
     transform: translateX(0);
 }
 
-/* Side panel — 2 columns x 8 rows */
+/* Side panel — 2 columns x 8 rows.
+   Uses `height` (not `max-height`) so the grid's rows actually divide
+   the panel height equally. Rows are `minmax(0, 1fr)` (not bare `1fr`)
+   so they can shrink below their content min-content — without the
+   `minmax(0, ...)`, CSS Grid treats `1fr` as `minmax(min-content, 1fr)`
+   which means rows never go below the natural card content height
+   (~91px for the riftbound default cards), causing the grid to ignore
+   the panel's explicit height. */
 #archetype-cards-panel {
     position: absolute;
     right: var(--meta-panel-right);
     top: var(--meta-panel-top);
     width: var(--meta-panel-width);
-    max-height: var(--meta-panel-max-height);
+    height: var(--meta-panel-max-height);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto repeat(8, 1fr);
+    grid-template-rows: auto repeat(8, minmax(0, 1fr));
     gap: var(--meta-panel-gap);
     opacity: 0;
     pointer-events: none;
@@ -222,7 +302,46 @@ body {
 
 .archetype-card {
     background: var(--meta-card-bg);
-    border: 1px solid var(--meta-card-border);
+    /* `border-box` (default) lets the purple bg fill the entire box
+       including the area under the border-image. Where the hextech
+       frame is opaque (the gold lines), the purple is hidden behind
+       it. Where the frame is transparent (corner cuts, gaps in the
+       art, the open center), the purple shows through — making the
+       card "fill out" to the visible frame edges instead of leaving
+       a lighter ring of page bg between the frame and the dark fill. */
+    background-clip: border-box;
+    /* mask-border (9-slice mask) — trims the card to the silhouette
+       of the hextech frame's outer outline. Same 9-slice mechanic as
+       border-image so corner cuts stay at fixed 15px display regardless
+       of card size (avoids the mask-image stretching distortion that
+       would smear anti-aliased edges on wide-short elements like the
+       panel header). The `fill` keyword on slice keeps the mask's
+       center region opaque so the card interior remains visible.
+       When --meta-frame-mask is unset (default `none`), no masking
+       applies — non-hextech vendors are unaffected. */
+    -webkit-mask-box-image-source: var(--meta-frame-mask, none);
+    -webkit-mask-box-image-slice: var(--meta-frame-slice, 0) fill;
+    -webkit-mask-box-image-width:  var(--meta-frame-border-width, 0px);
+    -webkit-mask-box-image-outset: var(--meta-frame-outset, 0);
+    -webkit-mask-box-image-repeat: var(--meta-frame-repeat, stretch);
+            mask-border-source: var(--meta-frame-mask, none);
+            mask-border-slice: var(--meta-frame-slice, 0) fill;
+            mask-border-width:  var(--meta-frame-border-width, 0px);
+            mask-border-outset: var(--meta-frame-outset, 0);
+            mask-border-repeat: var(--meta-frame-repeat, stretch);
+    /* Hextech border via CSS border-image. When --meta-frame-img is unset
+       (CSS default `none`), the solid --meta-card-border color shows.
+       When the var points at a frame PNG, border-image takes over and
+       9-slice-scales the corners + edges to the card size while the
+       card's own --meta-card-bg fills the transparent center. */
+    border-style: solid;
+    border-width: var(--meta-frame-border-width, 1px);
+    border-color: var(--meta-card-border);
+    border-image-source: var(--meta-frame-img, none);
+    border-image-slice: var(--meta-frame-slice, 0);
+    border-image-width: var(--meta-frame-border-width, 1px);
+    border-image-outset: var(--meta-frame-outset, 0);
+    border-image-repeat: var(--meta-frame-repeat, stretch);
     border-radius: var(--meta-card-radius);
     padding: var(--meta-card-padding);
     display: flex;

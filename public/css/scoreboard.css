@@ -186,6 +186,80 @@
     font-style: normal;
 }
 
+/* EB Garamond Font Faces for Riftbound DSG.
+   Cross-platform Garamond via self-hosted webfont — Windows OBS boxes don't
+   ship Garamond, so relying on system fallback would silently degrade to
+   default serif. Full weight ladder (400/500/600/700/800) + italics. */
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('/fonts/EBGaramond-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
 * {
     font-family: "Bebas Neue", sans-serif;
     /* BebasNeueBold */
@@ -202,6 +276,12 @@ body {
 body {
     width: 1920px;
     height: 1080px;
+    /* Clip any elements that extend past the 1920×1080 canvas (e.g. the
+       hextech corner frames on the Showdown tracker extend 30px below
+       canvas per PSD design — visible as grey page-bg in dev preview,
+       invisible in OBS browser source which is already canvas-sized).
+       overflow: hidden ensures the dev view matches the OBS render. */
+    overflow: hidden;
 }
 
 /* Retina/HiDPI: scale up when OBS source is 3840x2160 */
@@ -797,16 +877,26 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 #scoreboard-riftbound .riftbound-player-battlefield-background {
     position: absolute;
     z-index: 1;
-    display: block;
+    /* var-gated so vendors with no battlefield-image slot in their frame
+       (DSG 2v2 ships bf text only, no bg) can hide them. Default `block`
+       preserves TES + every other vendor unchanged. */
+    display: var(--rb-bf-bg-display, block);
     background-size: 120%;
     background-position: center;
+    /* Optional dark overlay on top of the battlefield image — set
+       `--rb-bf-bg-darken` to a 0..1 alpha for a black tint that
+       improves text readability over busy battlefield art. Implemented
+       as an inset box-shadow with 1000px spread (fills the entire box
+       with the semi-transparent black). Default 0 = no overlay,
+       backward-compatible with other vendors. */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, var(--rb-bf-bg-darken, 0));
     background-repeat: no-repeat;
     filter: var(--rb-bg-brightness, none);
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-background-left {
     top: var(--rb-bf-bg-top, 581px);
-    left: var(--rb-bf-bg-side, 53px);
+    left: var(--rb-bf-bg-left-side, var(--rb-bf-bg-side, 53px));
     width: var(--rb-bf-bg-width, 251px);
     height: var(--rb-bf-bg-height, 61px);
     background-size: var(--rb-bf-bg-size, 180%);
@@ -816,7 +906,7 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 
 #scoreboard-riftbound .riftbound-player-battlefield-background-right {
     top: var(--rb-bf-bg-top, 581px);
-    right: var(--rb-bf-bg-side, 53px);
+    right: var(--rb-bf-bg-right-side, var(--rb-bf-bg-side, 53px));
     width: var(--rb-bf-bg-width, 251px);
     height: var(--rb-bf-bg-height, 61px);
     background-size: var(--rb-bf-bg-size, 180%);
@@ -825,16 +915,30 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 /* Riftbound Player Legend Background (portrait box) */
+/* z-index default is 5 — same as .riftbound-frame, so the portrait paints
+   ABOVE the frame via DOM-order tiebreak (legend-background appears after
+   .riftbound-frame in scoreboard.html). This lets the portrait show inside
+   the cutout area of the full-screen frame artwork without being masked.
+   The over-frame at z:6 stays on top, and the legend name text wrapper at
+   z:10 stays above everything. Var-driven so any vendor can opt OUT (e.g.
+   set --rb-legend-bg-z: 2 if their frame is meant to mask the portrait).
+   IMPORTANT: relies on .riftbound-player-legend-background-* being declared
+   AFTER .riftbound-frame in scoreboard.html (currently L141 vs L179–180);
+   reordering would flip the stacking back behind the frame.
+   bg-color var-driven too (default transparent) so vendors can fill the
+   portrait box behind the photo — useful when the photo is transparent /
+   slow-loading / missing, or the design just wants a coloured plate. */
 #scoreboard-riftbound .riftbound-player-legend-background {
     position: absolute;
-    z-index: 2;
+    z-index: var(--rb-legend-bg-z, 5);
     display: block;
     filter: var(--rb-bg-brightness, none);
+    background-color: var(--rb-legend-bg-color, #161f30);
 }
 
 #scoreboard-riftbound .riftbound-player-legend-background-left {
-    top: var(--rb-legend-bg-top, 428px);
-    left: var(--rb-legend-bg-side, 53px);
+    top: var(--rb-legend-bg-left-top, var(--rb-legend-bg-top, 428px));
+    left: var(--rb-legend-bg-left-side, var(--rb-legend-bg-side, 53px));
     width: var(--rb-legend-bg-width, 251px);
     height: var(--rb-legend-bg-height, 124px);
     background-size: var(--rb-legend-bg-size, 120%);
@@ -843,8 +947,14 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 #scoreboard-riftbound .riftbound-player-legend-background-right {
-    top: var(--rb-legend-bg-top, 428px);
-    right: var(--rb-legend-bg-side, 53px);
+    top: var(--rb-legend-bg-right-top, var(--rb-legend-bg-top, 428px));
+    /* Auto-left toggle (same pattern as name-right / life-right / bf-right):
+       default uses right-edge offset so TES + others stay mirror-symmetric;
+       DSG 2v2 sets --rb-legend-bg-right-side: auto + --rb-legend-bg-right-left
+       to land legend-right at an absolute-left coord (P3's outer slot in the
+       new player-info hub). */
+    right: var(--rb-legend-bg-right-side, var(--rb-legend-bg-side, 53px));
+    left: var(--rb-legend-bg-right-left, auto);
     width: var(--rb-legend-bg-width, 251px);
     height: var(--rb-legend-bg-height, 124px);
     background-size: var(--rb-legend-bg-size, 120%);
@@ -856,7 +966,12 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 #scoreboard-riftbound .riftbound-player-legend-over-frame {
     position: absolute;
     z-index: 6;
-    display: block;
+    /* var-gated so the default UNL layout can hide this overlay — the
+       prior default used over_frame.png as a soft gradient on top of the
+       legend portrait, but that tints the chrome's icon corners. UNL's
+       icons read cleanly without it. Other vendors keep `block` via the
+       fallback. */
+    display: var(--rb-legend-over-frame-display, block);
     pointer-events: none;
     background-size: cover;
     background-position: center;
@@ -864,31 +979,71 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 #scoreboard-riftbound .riftbound-player-legend-over-frame-left {
-    top: var(--rb-legend-bg-top, 428px);
-    left: var(--rb-legend-bg-side, 53px);
+    top: var(--rb-legend-bg-left-top, var(--rb-legend-bg-top, 428px));
+    left: var(--rb-legend-bg-left-side, var(--rb-legend-bg-side, 53px));
     width: var(--rb-legend-bg-width, 251px);
     height: var(--rb-legend-bg-height, 124px);
 }
 
 #scoreboard-riftbound .riftbound-player-legend-over-frame-right {
-    top: var(--rb-legend-bg-top, 428px);
-    right: var(--rb-legend-bg-side, 53px);
+    top: var(--rb-legend-bg-right-top, var(--rb-legend-bg-top, 428px));
+    right: var(--rb-legend-bg-right-side, var(--rb-legend-bg-side, 53px));
+    left: var(--rb-legend-bg-right-left, auto);
     width: var(--rb-legend-bg-width, 251px);
     height: var(--rb-legend-bg-height, 124px);
+}
+
+/* Inner team-A / team-B legend slots (P2 / P4). Hidden by default; vendors
+   that need them (DSG 2v2 player-info hub) flip --rb-legend-2-display: block
+   and supply -left-2 / -right-2 position vars. Width/height piggyback on
+   --rb-legend-bg-width/-height so all four slots stay the same size. */
+#scoreboard-riftbound .riftbound-player-legend-background-left-2,
+#scoreboard-riftbound .riftbound-player-legend-background-right-2 {
+    display: var(--rb-legend-2-display, none);
+    width: var(--rb-legend-bg-width, 251px);
+    height: var(--rb-legend-bg-height, 124px);
+    background-size: var(--rb-legend-bg-size, 120%);
+    background-position: var(--rb-legend-bg-pos, center 45%);
+    background-repeat: no-repeat;
+}
+#scoreboard-riftbound .riftbound-player-legend-background-left-2 {
+    top: var(--rb-legend-bg-left-2-top, 0);
+    left: var(--rb-legend-bg-left-2-left, 0);
+}
+#scoreboard-riftbound .riftbound-player-legend-background-right-2 {
+    top: var(--rb-legend-bg-right-2-top, 0);
+    left: var(--rb-legend-bg-right-2-left, 0);
+}
+#scoreboard-riftbound .riftbound-player-legend-over-frame-left-2,
+#scoreboard-riftbound .riftbound-player-legend-over-frame-right-2 {
+    display: var(--rb-legend-2-display, none);
+    width: var(--rb-legend-bg-width, 251px);
+    height: var(--rb-legend-bg-height, 124px);
+}
+#scoreboard-riftbound .riftbound-player-legend-over-frame-left-2 {
+    top: var(--rb-legend-bg-left-2-top, 0);
+    left: var(--rb-legend-bg-left-2-left, 0);
+}
+#scoreboard-riftbound .riftbound-player-legend-over-frame-right-2 {
+    top: var(--rb-legend-bg-right-2-top, 0);
+    left: var(--rb-legend-bg-right-2-left, 0);
 }
 
 /* Riftbound Player Life (circles zone, y≈5–35) */
 #scoreboard-riftbound .riftbound-player-life-wrapper {
     position: absolute;
-    display: flex;
+    /* var-gated so default UNL layout can hide (no life-plate slot in
+       the new chrome). Other vendors keep `flex` via the fallback. */
+    display: var(--rb-life-display, flex);
     align-items: center;
     justify-content: center;
     z-index: 10;
 }
 
+/* Per-side life/points vars (same pattern as name above). */
 #scoreboard-riftbound .riftbound-player-life-left {
-    top: var(--rb-life-top, 365px);
-    left: var(--rb-life-side, 144.5px);
+    top: var(--rb-life-left-top, var(--rb-life-top, 365px));
+    left: var(--rb-life-left-side, var(--rb-life-side, 144.5px));
     width: var(--rb-life-width, 68px);
     height: var(--rb-life-height, 30px);
 }
@@ -902,8 +1057,10 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 #scoreboard-riftbound .riftbound-player-life-right {
-    top: var(--rb-life-top, 365px);
-    right: var(--rb-life-side, 144.5px);
+    top: var(--rb-life-right-top, var(--rb-life-top, 365px));
+    /* Same auto-left toggle as name-right above for FQ-style placement. */
+    right: var(--rb-life-right-side, var(--rb-life-side, 144.5px));
+    left: var(--rb-life-right-left, auto);
     width: var(--rb-life-width, 68px);
     height: var(--rb-life-height, 30px);
 }
@@ -920,8 +1077,16 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 #scoreboard-riftbound .riftbound-player-wins-wrapper {
     position: absolute;
     z-index: 10;
-    display: flex;
+    /* var-gated so default UNL layout can hide pips (the two circles
+       below the legend strip in the new chrome are decorative — they
+       are pre-drawn in the frame PNG, not functional pip slots yet). */
+    display: var(--rb-wins-display, flex);
     flex-direction: var(--rb-wins-direction, row);
+    /* var-gated justify-content so the default UNL layout can center
+       the pip group within the wrapper (so 25px pips land centered
+       inside the chrome's 45px pre-drawn ring slots). */
+    justify-content: var(--rb-wins-justify, flex-start);
+    align-items: var(--rb-wins-align, stretch);
     gap: var(--rb-wins-gap, 17.5px);
 }
 
@@ -941,12 +1106,21 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 #scoreboard-riftbound .riftbound-wins-pip {
-    width: 19px;
-    height: 19px;
+    /* var-gated so the default UNL layout can use solid-color circle pips
+       (`--rb-pip-fill` + `--rb-pip-size`) sized to fit the chrome's
+       pre-drawn medallion rings. Other vendors keep the original image-
+       based behavior via the fallback width/height. */
+    width:  var(--rb-pip-size, 19px);
+    height: var(--rb-pip-size, 19px);
+    background-color: var(--rb-pip-fill, transparent);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    display: none;
+    border-radius: 50%;
+    /* Use visibility (not display) so hidden pips still take their slot
+       in the flex layout — keeps pip1 anchored in its chrome ring even
+       when pip2 is hidden (wins=1). JS toggles `style.visibility`. */
+    visibility: hidden;
     flex-shrink: 0;
 }
 
@@ -969,14 +1143,24 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
     z-index: 10;
 }
 
+/* Per-side position vars fall back to the symmetric --rb-name-top / --rb-name-side
+   so existing vendors (TES, default) render unchanged. DSG 2v2 needs to place
+   both team strips on the right side of the screen stacked vertically (FQ
+   layout per the dsg-2v2 PSD), which the symmetric vars can't express; the
+   per-side vars + the auto-left toggle on the right rule unlock that layout. */
 #scoreboard-riftbound .riftbound-player-name-left {
-    top: var(--rb-name-top, 307px);
-    left: var(--rb-name-side, 53px);
+    top: var(--rb-name-left-top, var(--rb-name-top, 307px));
+    left: var(--rb-name-left-side, var(--rb-name-side, 53px));
     width: var(--rb-name-width, 251px);
     height: var(--rb-name-height, 59px);
 }
 
-#scoreboard-riftbound .riftbound-player-name-left #player-name-left {
+/* Class selector (was #player-name-left) so the secondary span
+   #player-name-left-2 inherits color/font/shadow in 2v2 — both spans share
+   the .riftbound-player-name class. width:100% is harmless in 1v1 (only one
+   span renders, fills the strip); the 2v2 hook below overrides to auto so
+   joined names size to text. */
+#scoreboard-riftbound .riftbound-player-name-left .riftbound-player-name {
     color: var(--scoreboard-name-color, #ffffff);
     font-weight: var(--rb-font-weight, 900);
     white-space: nowrap;
@@ -986,13 +1170,17 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 #scoreboard-riftbound .riftbound-player-name-right {
-    top: var(--rb-name-top, 307px);
-    right: var(--rb-name-side, 53px);
+    top: var(--rb-name-right-top, var(--rb-name-top, 307px));
+    /* Default uses right-edge offset (mirror-symmetric layout). For FQ-style
+       absolute-left placement, override --rb-name-right-side: auto and set
+       --rb-name-right-left to a left-edge px value. */
+    right: var(--rb-name-right-side, var(--rb-name-side, 53px));
+    left: var(--rb-name-right-left, auto);
     width: var(--rb-name-width, 251px);
     height: var(--rb-name-height, 59px);
 }
 
-#scoreboard-riftbound .riftbound-player-name-right #player-name-right {
+#scoreboard-riftbound .riftbound-player-name-right .riftbound-player-name {
     color: var(--scoreboard-name-color, #ffffff);
     font-weight: var(--rb-font-weight, 900);
     white-space: nowrap;
@@ -1004,7 +1192,9 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 /* Riftbound Player Records (rect 1, right of name) */
 #scoreboard-riftbound .riftbound-player-record-wrapper {
     position: absolute;
-    display: flex;
+    /* var-gated so vendor-config can hide records (DSG 2v2 sets to none).
+       Default flex preserves TES + every other vendor unchanged. */
+    display: var(--rb-record-display, flex);
     align-items: center;
     z-index: 10;
 }
@@ -1041,10 +1231,524 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
     text-align: center;
 }
 
+/* Riftbound Showdown Might Tracker — center-bottom overlay that slides
+   in/out per operator trigger. Layout: [left might] [bf art + name +
+   SHOWDOWN label] [right might]. Default state hidden via
+   transform: translateY(100%) + opacity 0; `.visible` slides up to 0. */
+#scoreboard-riftbound .riftbound-showdown-tracker {
+    position: absolute;
+    /* var-gated so vendors can hide entirely. Default UNL opts in via
+       --rb-showdown-display: flex. Other vendors default to none and
+       the element costs nothing visually. */
+    display: var(--rb-showdown-display, none);
+    /* PSD: wrapper at (678, 879) to (1243, 1218) = 565×339. Position
+       centered at x=960 (canvas center) per operator's intent.
+       Use `calc(50% - 282px)` instead of `translateX(-50%)` so the
+       tracker's left edge lands at an INTEGER pixel (canvas x=678,
+       not x=677.5). The 565px-wide tracker centered via `transform`
+       would put children at half-pixel positions, causing the browser
+       to bilinear-sample the Might shield PNG's binary-alpha edges
+       into semi-transparent pixels — letting the video / BF art bleed
+       through as visible "white dots" on the dark navy shield. */
+    left: calc(50% - var(--rb-showdown-half-width, 282px));
+    bottom: var(--rb-showdown-bottom, 0);
+    /* Default off-screen below the canvas, opacity 0. `.visible` flips
+       to translateY(0) + opacity 1 → slide-in animation. */
+    transform: translateY(100%);
+    width: var(--rb-showdown-width, 565px);
+    height: var(--rb-showdown-height, 339px);
+    z-index: 30;
+    pointer-events: none;
+    align-items: flex-end;
+    justify-content: center;
+    gap: var(--rb-showdown-gap, 0);
+    opacity: 0;
+    /* Navy PANEL backing — in the PSD the whole showdown sits on a
+       continuous #1f3548 playmat inside the gold bracket frame, so the
+       shields + the gaps between them + the strip surround all read as
+       one cohesive navy panel (not isolated navy boxes). The live
+       scoreboard has no playmat, so we paint the panel ourselves: a
+       gradient that's transparent for the top --rb-showdown-panel-top
+       px (above the panel) then solid navy down to the bottom. Sits
+       behind every child (BF strip, shields, brackets, pill). */
+    background: var(--rb-showdown-panel-bg, none);
+    transition: transform var(--rb-showdown-anim-ms, 400ms) var(--rb-showdown-anim-ease, cubic-bezier(0.22, 0.61, 0.36, 1)),
+                opacity   var(--rb-showdown-anim-ms, 400ms) var(--rb-showdown-anim-ease, ease);
+}
+
+#scoreboard-riftbound .riftbound-showdown-tracker.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Battlefield strip — only the BOTTOM portion of the PSD's tall card
+   is shown. PSD's "Rectangle 19 copy 3" is the visible gold-bordered
+   strip at y=1019-1081 (62px tall, 435px wide). It contains the
+   battlefield image (cropped via background-size + background-position)
+   and the battlefield name text at the bottom. z-index: 1 so the
+   shields (z=2) and the SHOWDOWN pill (z=3) paint on top. */
+#scoreboard-riftbound .riftbound-showdown-bf {
+    position: absolute;
+    left: 50%;
+    bottom: var(--rb-showdown-bf-bottom, 0);
+    transform: translateX(-50%);
+    width: var(--rb-showdown-bf-width, 435px);
+    height: var(--rb-showdown-bf-height, 62px);
+    overflow: hidden;
+    border-radius: var(--rb-showdown-bf-radius, 0);
+    /* No own border — PSD has no border on the strip. The hextech
+       corner PNGs provide the gold framing. Vendor-overridable. */
+    border: var(--rb-showdown-bf-border, none);
+    /* No drop-shadow by default — the previous `0 4px 12px rgba(0,0,0,0.6)`
+       was casting a grey haze onto the chrome pixels below the strip
+       (visible as a horizontal bar). Vendors that DO want a halo can
+       set --rb-showdown-bf-shadow to a custom value. */
+    box-shadow: var(--rb-showdown-bf-shadow, none);
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* Battlefield card art — zoomed/cropped to show only the central
+   ARTWORK band of the card (the source PNGs are full cards with title
+   text, battlefield tag, and card text below; we hide all of that and
+   show only the illustration). 220% width = 2.2× zoom past `cover`,
+   position vertically biased to the art region (~65% from top). */
+#scoreboard-riftbound .riftbound-showdown-bf-art {
+    position: absolute;
+    inset: 0;
+    background-size: var(--rb-showdown-bf-art-size, 220% auto);
+    /* Battlefield PNGs are full CARDS (title bar at top, art in middle,
+       card text + copyright bar at bottom). Position 40% targets the
+       middle-art zone (source y ≈ 270-340 of 744), well clear of the
+       card text band at the bottom which was previously visible as a
+       dark grey "frame" inside the strip. Vendor-overridable. */
+    background-position: var(--rb-showdown-bf-art-pos, center 40%);
+    background-repeat: no-repeat;
+    /* Subtle dark overlay so text reads on busy battlefield art */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, var(--rb-showdown-bf-darken, 0.35));
+}
+
+/* Thin gold dividers at the seams between Might shields and BF strip.
+   PSD: "Divider L" + "Divider R" — actually a 1px-wide column with a
+   VERTICAL ALPHA GRADIENT (transparent at top → opaque #d7a63f at
+   middle → transparent at bottom). PSD bbox is 3px but cols 0 and 2
+   are fully transparent; only the middle column carries the gradient.
+   Painted as ::before/::after on the TRACKER (not the BF strip) so
+   they:
+   1. Aren't clipped by .bf's overflow:hidden, and
+   2. Sit ABOVE both the BF strip (z=1) AND the Might shields (z=2). */
+#scoreboard-riftbound .riftbound-showdown-tracker::before,
+#scoreboard-riftbound .riftbound-showdown-tracker::after {
+    content: "";
+    position: absolute;
+    bottom: var(--rb-showdown-divider-bottom, 0);
+    width: var(--rb-showdown-divider-width, 1px);
+    height: var(--rb-showdown-divider-height, 62px);
+    background: var(--rb-showdown-divider-bg,
+        linear-gradient(to bottom,
+            transparent 0%,
+            rgba(215, 166, 63, 0.85) 50%,
+            transparent 100%));
+    z-index: 5;
+    pointer-events: none;
+}
+
+#scoreboard-riftbound .riftbound-showdown-tracker::before {
+    /* Left seam — PSD canvas x=743 (the gradient column), tracker starts
+       at canvas x=678 → tracker-relative left = 743-678 = 65. */
+    left: var(--rb-showdown-divider-left, 65px);
+}
+
+#scoreboard-riftbound .riftbound-showdown-tracker::after {
+    /* Right seam — PSD canvas x=1177, tracker ends at x=1243 →
+       tracker-relative right = 1243-1178 = 65. */
+    right: var(--rb-showdown-divider-right, 65px);
+}
+
+#scoreboard-riftbound .riftbound-showdown-bf-name {
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: var(--rb-showdown-text-color, #ffffff);
+    font-weight: 700;
+    font-size: var(--rb-showdown-bf-name-font-size, 14px);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* SHOWDOWN gold pill at top-center (PSD: Showdown Icon group, 117×24
+   at y=1008-1032). PNG asset has the gold pill design baked in; we
+   layer the "SHOWDOWN" text on top via flexbox centering.
+   z-index: 3 so the pill paints on TOP of the BF strip and the
+   shields (per PSD layer order). */
+#scoreboard-riftbound .riftbound-showdown-label {
+    position: absolute;
+    left: 50%;
+    bottom: var(--rb-showdown-label-bottom, 50px);
+    transform: translateX(-50%);
+    width: var(--rb-showdown-label-width, 117px);
+    height: var(--rb-showdown-label-height, 24px);
+    background-image: var(--rb-showdown-label-bg-image,
+        url('/assets/images/riftbound/scoreboard/frame/showdown-icon-default-1v1.png'));
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rb-showdown-label-color, #161f30);
+    font-weight: 900;
+    font-size: var(--rb-showdown-label-font-size, 12px);
+    letter-spacing: var(--rb-showdown-label-spacing, 1.5px);
+    text-shadow: none;
+    /* Optical -1px lift for caps */
+    padding-bottom: 1px;
+    z-index: 3;
+}
+
+/* Hextech decorative gold-corner frames (PSD: "Hexctech Right" / "Hextech Left"
+   smartobjects). Each is 204×92 in the PSD; they flank the visible strip
+   with curling gold-bracket decorations. Anchored to bottom of tracker. */
+#scoreboard-riftbound .riftbound-showdown-hextech {
+    position: absolute;
+    bottom: var(--rb-showdown-hextech-bottom, -30px);
+    width: var(--rb-showdown-hextech-width, 204px);
+    height: var(--rb-showdown-hextech-height, 92px);
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 4;
+}
+
+#scoreboard-riftbound .riftbound-showdown-hextech-left {
+    left: var(--rb-showdown-hextech-left-side, 0);
+    background-image: var(--rb-showdown-hextech-left-url,
+        url('/assets/images/riftbound/scoreboard/frame/showdown-hextech-left-default-1v1.png'));
+    background-position: left center;
+}
+
+#scoreboard-riftbound .riftbound-showdown-hextech-right {
+    right: var(--rb-showdown-hextech-right-side, 0);
+    background-image: var(--rb-showdown-hextech-right-url,
+        url('/assets/images/riftbound/scoreboard/frame/showdown-hextech-right-default-1v1.png'));
+    background-position: right center;
+}
+
+/* Side Might displays — heraldic SHIELD shape (PSD: Might L/R groups
+   72×88, "Might Symbol" pixel layer). The shield PNG is the bg image;
+   the number text overlays it. z-index: 2 so shields paint on TOP of
+   the BF strip (matching PSD's layer order where Might > Battlefield). */
+#scoreboard-riftbound .riftbound-showdown-might {
+    position: absolute;
+    bottom: var(--rb-showdown-might-bottom, 0);
+    width: var(--rb-showdown-might-width, 72px);
+    height: var(--rb-showdown-might-height, 88px);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* NATIVE pixel size (not `contain`) so the 72×88 shield PNG renders
+       1:1 with zero scaling — pixel-exact reproduction of the PSD's
+       "Might L/R" group. */
+    background-size: var(--rb-showdown-might-bg-size, 72px 88px);
+    background-position: var(--rb-showdown-might-bg-pos, center);
+    background-repeat: no-repeat;
+    /* Shield gaps are filled by the tracker's navy PANEL backing
+       (--rb-showdown-panel-bg) which sits behind every child, so the
+       shield needs no own backing. Default transparent; vendor-
+       overridable if a per-shield fill is ever wanted. */
+    background-color: var(--rb-showdown-might-backing, transparent);
+    color: var(--rb-showdown-text-color, #ffffff);
+    z-index: 2;
+}
+
+#scoreboard-riftbound .riftbound-showdown-might-left {
+    left: var(--rb-showdown-might-left-side, 0);
+    background-image: var(--rb-showdown-might-left-url,
+        url('/assets/images/riftbound/scoreboard/frame/showdown-might-left-default-1v1.png'));
+}
+
+#scoreboard-riftbound .riftbound-showdown-might-right {
+    right: var(--rb-showdown-might-right-side, 0);
+    background-image: var(--rb-showdown-might-right-url,
+        url('/assets/images/riftbound/scoreboard/frame/showdown-might-right-default-1v1.png'));
+}
+
+#scoreboard-riftbound .riftbound-showdown-might-value {
+    /* PSD font: BeaufortProHeavy → 'Beaufort for LoL' Heavy (weight 900),
+       30px. Matches the PSD pixel-for-pixel. */
+    font-family: var(--rb-showdown-might-value-font, 'Beaufort for LoL'), sans-serif;
+    font-size: var(--rb-showdown-might-value-font-size, 30px);
+    font-weight: var(--rb-showdown-might-value-weight, 900);
+    line-height: 1;
+    color: var(--rb-showdown-might-value-color, #ffffff);
+    text-shadow: var(--rb-showdown-might-value-shadow, none);
+    /* Per PSD, the number's bbox center (y=1052.5) sits ~2.5px below the
+       shield element's vertical center (y=1050). Nudge down to match. */
+    margin-top: var(--rb-showdown-might-value-offset, 2px);
+}
+
+/* Riftbound Shared Score Tracker — 1-2-...-8-...-2-1 bubble row at the
+   top of the bar. Left player's life fills bubbles from left toward center;
+   right player's life fills from right toward center. Aspirant's Climb
+   battlefield extends max win to 9 (one climb) or 10 (both climb). JS
+   renders bubbles dynamically based on max + life values. */
+/* Wrapper sized to PSD strip dimensions: 806×64 centered at canvas x=960.
+   Strip backdrop + gold accent line painted as ::before / ::after so
+   they sit behind the bubble row without affecting the flex layout. */
+#scoreboard-riftbound .riftbound-score-tracker {
+    position: absolute;
+    display: var(--rb-score-display, none);
+    top: var(--rb-score-top, -1px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--rb-score-width, 806px);
+    height: var(--rb-score-height, 64px);
+    align-items: center;
+    justify-content: center;
+    gap: var(--rb-score-gap, 1.5px);
+    z-index: 11;
+    pointer-events: none;
+    /* Push bubbles up slightly so they sit at the PSD-true y position
+       (canvas y=12-49 within a 64px wrapper starting at canvas y=-1
+        → bubble center at wrapper y=31.5). */
+    padding-bottom: var(--rb-score-bubble-row-padding-bottom, 14px);
+    box-sizing: border-box;
+}
+
+/* Dark navy backdrop strip (PSD's "Divider copy" layer). Painted with
+   a horizontal gradient mask so it fades to transparent at the ends —
+   matches the PSD's asymmetric fade behavior. Bottom 2px excluded so
+   the gold accent line below it stays visible. */
+#scoreboard-riftbound .riftbound-score-tracker::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: var(--rb-score-strip-bottom-offset, 2px);
+    background: var(--rb-score-strip-bg, #161f30);
+    -webkit-mask: var(--rb-score-strip-mask,
+        linear-gradient(to right,
+            transparent 0%,
+            rgba(0,0,0,0.75) 19%,
+            black 30%,
+            black 50%,
+            rgba(0,0,0,0.58) 81%,
+            transparent 100%));
+    mask: var(--rb-score-strip-mask,
+        linear-gradient(to right,
+            transparent 0%,
+            rgba(0,0,0,0.75) 19%,
+            black 30%,
+            black 50%,
+            rgba(0,0,0,0.58) 81%,
+            transparent 100%));
+    z-index: -1;
+}
+
+/* Gold accent line at the bottom of the strip (PSD's "Divider" layer).
+   PSD spans x=624-1297 within an 806-wide wrapper at x=557-1363
+   → left offset = (624-557)/806 = 8.3%, right offset = (1363-1297)/806 = 8.2%.
+   The PSD has a SOFT fade — peak alpha ~98% near the center (45% mark),
+   fading to transparent at both ends. Mask reproduces that curve. */
+#scoreboard-riftbound .riftbound-score-tracker::after {
+    content: "";
+    position: absolute;
+    left: var(--rb-score-accent-left, 8.3%);
+    right: var(--rb-score-accent-right, 8.2%);
+    bottom: 0;
+    height: var(--rb-score-accent-height, 2px);
+    background: var(--rb-score-accent-bg, #d7a63f);
+    -webkit-mask: var(--rb-score-accent-mask,
+        linear-gradient(to right,
+            transparent 0%,
+            rgba(0,0,0,0.35) 22%,
+            rgba(0,0,0,0.78) 30%,
+            black 45%,
+            rgba(0,0,0,0.78) 60%,
+            rgba(0,0,0,0.37) 75%,
+            transparent 100%));
+    mask: var(--rb-score-accent-mask,
+        linear-gradient(to right,
+            transparent 0%,
+            rgba(0,0,0,0.35) 22%,
+            rgba(0,0,0,0.78) 30%,
+            black 45%,
+            rgba(0,0,0,0.78) 60%,
+            rgba(0,0,0,0.37) 75%,
+            transparent 100%));
+    z-index: -1;
+}
+
+#scoreboard-riftbound .riftbound-score-bubble {
+    width: var(--rb-score-bubble-size, 37px);
+    height: var(--rb-score-bubble-size, 37px);
+    border-radius: 50%;
+    background: var(--rb-score-bubble-bg, #161f30);
+    color: var(--rb-score-bubble-color, #ffffff);
+    font-weight: 700;
+    font-size: var(--rb-score-bubble-font-size, 15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--rb-score-bubble-border, 1.5px solid #d7a63f);
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Filled bubble — gold background with dark text. ONLY the bubble
+   matching the current score per side gets this (not cumulative). */
+#scoreboard-riftbound .riftbound-score-bubble.filled {
+    background: var(--rb-score-bubble-fill, #d7a63f);
+    color: var(--rb-score-bubble-fill-color, #000000);
+}
+
+/* Optical centering — the number labels appear slightly low against
+   the bubble center because numerics have no descenders, so the bbox
+   center sits above the visual center. Nudge them up 1px. Vendor-
+   overridable via --rb-score-label-offset. */
+#scoreboard-riftbound .riftbound-score-bubble-label {
+    display: inline-block;
+    transform: translateY(var(--rb-score-label-offset, -1px));
+    pointer-events: none;
+    /* Inherit color from the parent bubble (white normally, black when
+       .filled is applied to the bubble). Explicit `inherit` covers
+       cases where a more-specific selector elsewhere might set color
+       on the span. */
+    color: inherit;
+}
+
+/* Explicit overrides: label inside any filled bubble takes the fill
+   color (defensive — guarantees the override applies even if some
+   other rule sets a color on the span). */
+#scoreboard-riftbound .riftbound-score-bubble.filled .riftbound-score-bubble-label,
+#scoreboard-riftbound .riftbound-score-bubble.center.filled .riftbound-score-bubble-label {
+    color: var(--rb-score-bubble-fill-color, #000000);
+}
+
+/* Center bubble — the "win condition" position. PSD: Vector Smart
+   Object is 44×44 (gold ring with notches at top + bottom). Bubble
+   sized to 44×44; the medallion overlay PNG has a TRANSPARENT interior
+   (just the gold ring + notches), so the bubble's background-color
+   shows through. This lets us swap between "unfilled" (dark navy bg)
+   and "filled" (gold bg) cleanly via background-color alone — the
+   ring + notches stay visible in both states. */
+#scoreboard-riftbound .riftbound-score-bubble.center {
+    width: var(--rb-score-bubble-center-size, 44px);
+    height: var(--rb-score-bubble-center-size-h, 44px);
+    font-size: var(--rb-score-bubble-center-font-size, 24px);
+    margin: 0 var(--rb-score-bubble-center-gap, 8px);
+    border: var(--rb-score-bubble-center-border, none);
+    background-color: var(--rb-score-bubble-bg, #161f30);
+    background-image: var(--rb-score-medallion-url,
+        url('/assets/images/riftbound/scoreboard/frame/score-center-medallion-default-1v1-ring.png'));
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+/* Filled state — pure gold interior + black text, NO medallion ring
+   overlay. The notches/ring design only shows on the unfilled state
+   (chrome decoration); once the score hits MAX, the bubble becomes a
+   clean gold-filled circle so the active state reads cleanly. */
+#scoreboard-riftbound .riftbound-score-bubble.center.filled {
+    background-color: var(--rb-score-bubble-fill, #d7a63f);
+    background-image: none;
+    color: var(--rb-score-bubble-fill-color, #000000);
+}
+
+/* Riftbound Player XP — mirrors the player record position on the chrome.
+   Only displayed when value > 0 (scoreboard.js toggles display). Layout:
+   "XP" label + numeric value, separated by a vertical gold divider. */
+/* PSD-true two-tone XP indicator: dark navy left half with white "XP",
+   gold right half with dark navy number, plus a thin gold stripe on
+   the far left edge of the navy half (a 3px highlight from the PSD's
+   "Gold copy" shape). Label + value butt together with NO gap — the
+   color seam IS the divider. */
+#scoreboard-riftbound .riftbound-player-xp-wrapper {
+    position: absolute;
+    /* var-gated for vendor opt-in/out. Default UNL sets --rb-xp-display: flex
+       only when XP > 0 (toggled in JS via inline style). */
+    display: none;
+    align-items: stretch;
+    justify-content: flex-start;
+    z-index: 10;
+    /* No gap — halves butt directly together. */
+    gap: 0;
+    /* Thin gold edge stripe on the left side (PSD "Gold copy" layer
+       at x=1810-1813, 3px wide, 25px tall inset from the 27px wrapper
+       top/bottom by 1px each). Painted as ::before so the label's
+       own background-color doesn't cover it. */
+    overflow: visible;
+}
+
+#scoreboard-riftbound .riftbound-player-xp-wrapper::before {
+    content: "";
+    position: absolute;
+    left: var(--rb-xp-edge-stripe-left, 1px);
+    top: var(--rb-xp-edge-stripe-top, 1px);
+    bottom: var(--rb-xp-edge-stripe-top, 1px);
+    width: var(--rb-xp-edge-stripe-width, 3px);
+    background: var(--rb-xp-edge-stripe-bg, #d7a63f);
+    z-index: 1;
+}
+
+#scoreboard-riftbound .riftbound-player-xp-left {
+    top: var(--rb-xp-top, 532px);
+    left: var(--rb-xp-left-side, 244px);
+    width: var(--rb-xp-width, 76px);
+    height: var(--rb-xp-height, 27px);
+}
+
+#scoreboard-riftbound .riftbound-player-xp-right {
+    top: var(--rb-xp-top, 532px);
+    right: var(--rb-xp-right-side, 35px);
+    width: var(--rb-xp-width, 76px);
+    height: var(--rb-xp-height, 27px);
+}
+
+/* "XP" label — dark navy box with white text. PSD bbox 40px wide
+   (1809-1849); use 40px so it butts cleanly against the gold half. */
+#scoreboard-riftbound .riftbound-player-xp-label {
+    background: var(--rb-xp-label-bg, #161f30);
+    color: var(--rb-xp-label-color, #ffffff);
+    font-weight: 700;
+    font-size: var(--rb-xp-label-font-size, 18px);
+    text-align: center;
+    flex: 0 0 auto;
+    width: var(--rb-xp-label-width, 40px);
+    line-height: var(--rb-xp-line-height, 27px);
+    /* Border cleared — the two-tone seam IS the divider. */
+    border: none;
+}
+
+/* Numeric value — gold box with dark navy text. PSD bbox 40px wide
+   (1845-1885 with 4px overlap with the label); using 36px in CSS gives
+   the clean 76px total without overlap. */
+#scoreboard-riftbound .riftbound-player-xp {
+    background: var(--rb-xp-value-bg, #d7a63f);
+    color: var(--rb-xp-value-color, #161f30);
+    font-weight: 700;
+    font-size: var(--rb-xp-value-font-size, 18px);
+    text-align: center;
+    flex: 0 0 auto;
+    width: var(--rb-xp-value-width, 36px);
+    line-height: var(--rb-xp-line-height, 27px);
+}
+
 /* Riftbound Player Legend (rect 2, y≈264–305) */
 #scoreboard-riftbound .riftbound-player-legend-wrapper {
     position: absolute;
-    display: flex;
+    /* var-gated for DSG 2v2 hide; default flex keeps other vendors unchanged. */
+    display: var(--rb-legend-display, flex);
     align-items: center;
     justify-content: start;
     z-index: 10;
@@ -1097,7 +1801,8 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 /* Riftbound Player Champion (rect 2, y≈305–337) */
 #scoreboard-riftbound .riftbound-player-champion-wrapper {
     position: absolute;
-    display: flex;
+    /* var-gated for DSG 2v2 hide; default flex keeps other vendors unchanged. */
+    display: var(--rb-champion-display, flex);
     align-items: center;
     justify-content: start;
     z-index: 10;
@@ -1198,18 +1903,21 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
     overflow: hidden;
 }
 
-/* Riftbound Player Battlefield text (rect 3, y≈397) */
+/* Riftbound Player Battlefield text (rect 3, y≈397).
+   --rb-bf-text-display defaults to flex (existing single-side text behaviour
+   for TES + every other vendor). DSG 2v2 flips it to `none` so the new
+   .riftbound-bf-row image+label strip is the sole battlefield treatment. */
 #scoreboard-riftbound .riftbound-player-battlefield-wrapper {
     position: absolute;
-    display: flex;
+    display: var(--rb-bf-text-display, flex);
     align-items: center;
     justify-content: start;
     z-index: 10;
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-left {
-    top: var(--rb-bf-top, 581px);
-    left: var(--rb-bf-side, 53px);
+    top: var(--rb-bf-left-top, var(--rb-bf-top, 581px));
+    left: var(--rb-bf-left-side, var(--rb-bf-side, 53px));
     width: var(--rb-bf-width, 250px);
     height: var(--rb-bf-height, 60px);
 }
@@ -1217,14 +1925,18 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 #scoreboard-riftbound .riftbound-player-battlefield-left #player-battlefield-left {
     color: #ffffff;
     font-weight: var(--rb-detail-font-weight, 700);
-    font-size: 13.5px;
+    font-size: var(--rb-bf-font-size, 13.5px);
     font-style: var(--rb-detail-font-style, normal);
     white-space: nowrap;
     overflow: var(--rb-detail-overflow, hidden);
     text-overflow: ellipsis;
     width: 100%;
     text-align: var(--rb-text-align-left, center);
-    text-shadow: var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
+    /* var-gated so vendors can override per-element. The default UNL
+       layout sets --rb-bf-shadow to a 3-stack black glow that matches
+       the PSD's 3 stacked DropShadow effects (size 16, 100% opacity).
+       Falls back to the legend/champion --rb-detail-shadow. */
+    text-shadow: var(--rb-bf-shadow, var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8)));
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-wrapper.riftbound-player-battlefield-right {
@@ -1232,8 +1944,13 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 #scoreboard-riftbound .riftbound-player-battlefield-right {
-    top: var(--rb-bf-top, 581px);
-    right: var(--rb-bf-side, 53px);
+    top: var(--rb-bf-right-top, var(--rb-bf-top, 581px));
+    /* Same auto-left toggle as name-right above for FQ-style placement.
+       Default uses right-edge offset (mirror-symmetric); override
+       --rb-bf-right-side: auto + --rb-bf-right-left to land at an absolute
+       left coord (used by DSG 2v2 to put bf text inside the L3 bar). */
+    right: var(--rb-bf-right-side, var(--rb-bf-side, 53px));
+    left: var(--rb-bf-right-left, auto);
     width: var(--rb-bf-width, 250px);
     height: var(--rb-bf-height, 60px);
 }
@@ -1241,14 +1958,14 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 #scoreboard-riftbound .riftbound-player-battlefield-right #player-battlefield-right {
     color: #ffffff;
     font-weight: var(--rb-detail-font-weight, 700);
-    font-size: 13.5px;
+    font-size: var(--rb-bf-font-size, 13.5px);
     font-style: var(--rb-detail-font-style, normal);
     white-space: nowrap;
     overflow: var(--rb-detail-overflow, hidden);
     text-overflow: ellipsis;
     width: 100%;
     text-align: var(--rb-text-align-right, center);
-    text-shadow: var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
+    text-shadow: var(--rb-bf-shadow, var(--rb-detail-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8)));
 }
 
 /* Riftbound Icons (hidden in default frame, kept for vendor overrides) */
@@ -1279,7 +1996,8 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 /* Riftbound Event Round (bottom badge, y≈858) */
 #scoreboard-riftbound .riftbound-event-round-wrapper {
     position: absolute;
-    display: flex;
+    /* var-gated for DSG 2v2 hide; default flex keeps other vendors unchanged. */
+    display: var(--rb-round-display, flex);
     align-items: center;
     justify-content: center;
     z-index: 10;
@@ -1290,11 +2008,15 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 #scoreboard-riftbound .riftbound-event-round {
-    color: #ffffff;
-    font-weight: 900;
-    font-size: 24px;
-    white-space: nowrap;
-    text-shadow: var(--rb-round-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
+    /* All four props var-gated so default UNL can use the event-round
+       element as the small dark stage label inside the bottom badge
+       (font 12px, dark navy, no shadow) instead of the legacy big white
+       round caption. Fallbacks preserve atomic-legacy/TES behavior. */
+    color:        var(--rb-round-color,       #ffffff);
+    font-weight:  var(--rb-round-font-weight, 900);
+    font-size:    var(--rb-round-font-size,   24px);
+    white-space:  nowrap;
+    text-shadow:  var(--rb-round-shadow, 1px 1px 3px rgba(0, 0, 0, 0.8));
 }
 
 /* Riftbound Timer (centered, y≈847) */
@@ -1305,7 +2027,8 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
     left: var(--rb-timer-left, 103px);
     width: var(--rb-timer-width, 150px);
     height: var(--rb-timer-height, 51px);
-    display: flex;
+    /* var-gated for DSG 2v2 hide; default flex keeps other vendors unchanged. */
+    display: var(--rb-timer-display, flex);
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -1325,7 +2048,15 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
     font-variant-numeric: tabular-nums;
 }
 
-/* ---- CARD VIEW OVERLAY ---- */
+/* ---- CARD VIEW OVERLAY ----
+   1v1 path: snap on/off via display:block/none. Shared base rules below.
+   2v2 path (DSG riftbound today): animated reveal — slide/fade/tilt-in +
+   sequenced two-slot crossfade + drop-shadow halo + optional dim layer.
+   The 2v2 rules are scoped under body[data-player-count="2v2"] so 1v1
+   behavior is byte-for-byte unchanged. Coords for DSG 2v2 are cloned from
+   the MTG flyquest 2v2 block in vendor-config.js — the DSG 2v2 frame is a
+   visual clone of FQ (same camera columns), so the same numbers land the
+   card centered in the mid cam frame. */
 #scoreboard-riftbound .riftbound-card-overlay {
     position: absolute;
     top: var(--rb-card-overlay-top, 685px);
@@ -1342,11 +2073,189 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
 }
 
 #scoreboard-riftbound .riftbound-card-overlay-left {
+    display: var(--rb-card-overlay-left-display, block);
     left: var(--rb-card-overlay-left, 1615px);
 }
 
 #scoreboard-riftbound .riftbound-card-overlay-right {
-    right: 53px;
+    right: var(--rb-card-overlay-right, 53px);
+}
+
+/* Default (1v1): hide the second crossfade slot. Only the first slot — which
+   carries the legacy id `riftbound-card-overlay-img-{side}` — is used by the
+   1v1 snap path. Hiding via display:none keeps the empty-src second img from
+   rendering as a 0×0 leftover or (in some browsers) a broken-image icon. */
+#scoreboard-riftbound .riftbound-card-overlay .riftbound-card-slot:nth-child(2) {
+    display: none;
+}
+
+/* ---- 2v2: animated card overlay (mirrors MTG flyquest pipeline) ----
+   Base state: opacity 0, translated below rest by --rb-card-slide-offset, rotateY 0.
+   `.visible` animates to opacity 1 + translateY(0) + rotateY(--rb-card-tilt) for
+   the slide-up + fade-in + 3D tilt-in. Reset is handled in JS — translateY pinned
+   inline so only rotateY reverses (no vertical slide on exit), then silently
+   re-cocked for the next reveal. Riftbound card aspect: 733/1024 ≈ 5:7 (matches
+   the local PNG dimensions, same proportion as MTG's 488/680). */
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-card-overlay {
+    aspect-ratio: 733 / 1024;
+    opacity: 0;
+    transform:
+        perspective(var(--rb-card-perspective, 1500px))
+        translateY(var(--rb-card-slide-offset, 0px))
+        rotateY(0deg);
+    transform-origin: center center;
+    transition:
+        opacity   var(--rb-card-fade-duration,  0ms) linear,
+        transform var(--rb-card-slide-duration, 0ms) var(--rb-card-slide-easing, ease-out);
+    pointer-events: none;
+}
+
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-card-overlay.visible {
+    opacity: 1;
+    transform:
+        perspective(var(--rb-card-perspective, 1500px))
+        translateY(0)
+        rotateY(var(--rb-card-tilt, 0deg));
+    /* Drop shadow fades in with the card via the parent opacity transition.
+       Default is none; DSG 2v2 overrides with a soft halo via --rb-card-shadow.
+       Renders in the browser layer so it composites over OBS cam sources. */
+    box-shadow: var(--rb-card-shadow, none);
+}
+
+/* Two stacked .riftbound-card-slot <img>s per overlay. On View, the incoming
+   slot fades in over the current one (z-index boost); after fadeMs the
+   outgoing slot fades out behind it. Sequenced crossfade — see
+   showRiftboundCardOverlay in scoreboard.js. Both slots are absolutely
+   positioned at the same spot so only opacity + z-index differ between them.
+   The `display: block` re-shows the slot hidden by the 1v1 default rule. */
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-card-overlay .riftbound-card-slot {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity var(--rb-card-slot-fade-duration, 400ms) ease-in-out;
+    pointer-events: none;
+}
+
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-card-overlay .riftbound-card-slot.active {
+    opacity: 1;
+}
+
+/* Background dim/blur layer for 2v2 — sits between scoreboard content (z<22)
+   and the card overlay (z=25 in DSG 2v2). Mirrors #mtg-card-dim exactly.
+   Defaults are no-op (transparent + 0px blur) so non-DSG riftbound 2v2 vendors
+   stay neutral until they opt in. See the MTG dim block above for the full
+   rationale on why this is opaque-color rather than backdrop-filter blur
+   (OBS composites the cams BEHIND the browser source, so backdrop-filter
+   can't see them; only an opaque browser-layer pixel visibly dims the cam). */
+body[data-player-count="2v2"] #scoreboard-riftbound #riftbound-card-dim {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--rb-card-dim-z, 22);
+    opacity: 0;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent var(--rb-card-dim-feather-start, 100%),
+        var(--rb-card-dim-color, rgba(0, 0, 0, 0)) var(--rb-card-dim-feather-end, 100%),
+        var(--rb-card-dim-color, rgba(0, 0, 0, 0)) 100%
+    );
+    backdrop-filter:
+        blur(var(--rb-card-blur-amount, 0px))
+        saturate(var(--rb-card-saturate, 100%));
+    -webkit-backdrop-filter:
+        blur(var(--rb-card-blur-amount, 0px))
+        saturate(var(--rb-card-saturate, 100%));
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent var(--rb-card-dim-feather-start, 100%),
+        #000 var(--rb-card-dim-feather-end, 100%),
+        #000 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent var(--rb-card-dim-feather-start, 100%),
+        #000 var(--rb-card-dim-feather-end, 100%),
+        #000 100%
+    );
+    transition: opacity var(--rb-card-fade-duration, 0ms) linear;
+}
+body[data-player-count="2v2"] #scoreboard-riftbound #riftbound-card-dim.visible { opacity: 1; }
+
+/* ---- 2v2 Battlefields Row (lower-third strip) ----
+   Renders up to four battlefield cards as a flex-row in the L3 strip.
+   Hidden by default; opt-in per vendor/playerCount via
+   --rb-battlefields-row-display: flex (DSG 2v2 in vendor-config.js).
+   Geometry mirrors the DSG 2v2 PSD's L3 BG layer: top=992 left=33 1263×55.
+   Slots are overflow:hidden + image stretched to slot width — only the
+   middle band of each card shows. The label overlays the cropped band.
+   Flex `space-evenly` re-flows automatically when slots are hidden via
+   the [hidden] attribute (driven by battlefield-visibility flags), so no
+   per-count layout math is needed. Source layout adapted from the
+   retired event-info "battlefields" scene (see git history). */
+#scoreboard-riftbound .riftbound-bf-row {
+    position: absolute;
+    display: var(--rb-battlefields-row-display, none);
+    top:    var(--rb-battlefields-row-top,    992px);
+    left:   var(--rb-battlefields-row-left,   33px);
+    width:  var(--rb-battlefields-row-width,  1263px);
+    height: var(--rb-battlefields-row-height, 55px);
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#scoreboard-riftbound .riftbound-bf-slot {
+    position: relative;
+    width:  var(--rb-battlefields-slot-width,  250px);
+    height: var(--rb-battlefields-slot-height, 55px);
+    overflow: hidden;
+}
+
+#scoreboard-riftbound .riftbound-bf-slot[hidden] {
+    display: none;
+}
+
+/* Image stretches to slot width and centers vertically — slot's
+   overflow:hidden clips top/bottom so only the middle band is visible.
+   Width-driven scale preserves the card's aspect ratio. */
+#scoreboard-riftbound .riftbound-bf-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+
+/* Label overlays the cropped card image in the same window. White-space
+   nowrap + ellipsis clamps long battlefield names so they don't bleed
+   into neighbouring slots. */
+#scoreboard-riftbound .riftbound-bf-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding:        var(--rb-battlefields-label-padding,    0 8px);
+    font-size:      var(--rb-battlefields-label-font-size,  18px);
+    font-family:    var(--rb-battlefields-label-font,       sans-serif);
+    font-weight:    var(--rb-battlefields-label-font-weight,bold);
+    color:          var(--rb-battlefields-label-color,      #fff);
+    text-transform: var(--rb-battlefields-label-transform,  none);
+    text-shadow:    var(--rb-battlefields-label-text-shadow,0 0 4px rgba(0,0,0,0.85));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ---- MTG CARD VIEW OVERLAY ----
@@ -2168,5 +3077,49 @@ body[data-player-count="2v2"] #scoreboard-starwars .swu-player-name-2 {
 }
 body[data-player-count="2v2"] #scoreboard-starwars .swu-player-name-2::before {
     content: " / ";
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * 2v2 Riftbound: vendor hook to control how the two team-mate names lay
+ * out inside one team strip, and to inject a separator between them
+ * (e.g. " & " for FQ-style stacked-on-right strips per dsg-2v2 PSD).
+ * Defaults preserve existing behavior — row layout, no separator —
+ * which is what TES would inherit if it ever ships a 2v2 setup.
+ * ─────────────────────────────────────────────────────────────────────*/
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-player-name-wrapper {
+    flex-direction: var(--rb-2v2-name-direction, row);
+    gap: var(--rb-2v2-name-gap, 0);
+    justify-content: var(--rb-2v2-name-justify, start);
+}
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-player-name-2::before {
+    content: var(--rb-2v2-name-separator, "");
+}
+/* Right-team flip: render secondary name FIRST so the strip reads
+   "P4 & P3" instead of "P3 & P4" (DSG 2v2 convention — team 2 mirrors
+   team 1's reading order toward the screen edge). flexbox `order: -1`
+   reseats the secondary span visually; the separator moves from the
+   secondary's ::before (which now sits leftmost — would render
+   " & P4 P3") to the primary's ::before so it falls between the two
+   names. The existing .riftbound-player-name-2::before rule above
+   still drives the LEFT team unchanged because these new rules are
+   scoped to .riftbound-player-name-right. Specificity is +1 class so
+   the right-side overrides win on the right without touching the
+   left. */
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-player-name-right .riftbound-player-name-2 {
+    order: -1;
+}
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-player-name-right .riftbound-player-name-2::before {
+    content: "";
+}
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-player-name-right .riftbound-player-name:not(.riftbound-player-name-2)::before {
+    content: var(--rb-2v2-name-separator, "");
+}
+/* In 1v1 the inner name span is width:100% so it fills the wrapper. With two
+   names joined inside one strip in 2v2 (FQ-style), each span needs to size to
+   its text so the separator sits naturally between them — flex on the wrapper
+   then centers the run. Targeting riftbound only; mtg/vibes 2v2 size handling
+   lives in the rule above. */
+body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-player-name-wrapper > .riftbound-player-name {
+    width: auto;
 }
 

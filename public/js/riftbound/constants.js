@@ -305,3 +305,67 @@ export const RIFTBOUND_LEGEND_ANIMATIONS = {
         landscape: '/assets/animations/riftbound/6-Animations/LegendAnimation_0016_L_Master Yi, Wuju Bladesman.mp4'
     },
 };
+
+// ── PORTRAIT FOCUS ──────────────────────────────────────────────────────────
+// Per-legend focus point — where the face sits within the 1200×1200 master
+// portrait, expressed as percentages from the top-left corner. This is the
+// SHARED tuning data: the metagame pie chart and the standings row portraits
+// both consume these values so faces stay framed the same way across views.
+//
+// Tune via `debugFocus()` in the broadcast-metagame.js page (drag/click the
+// crosshair overlay). Whatever you save here propagates to:
+//   - Metagame pie portraits (via getPortraitFocus in broadcast-metagame.js)
+//   - Standings row portraits (via PORTRAIT_FOCUS import in
+//     broadcast-round-standings-combined.js — it converts top% to a 251×50
+//     object-position based on the cover-fit math)
+//
+// Adding a new legend? Tune once in the metagame debug overlay and paste
+// the resulting line into this map. Both views pick it up automatically.
+//
+// Format: top% / left% are 0-100 (image coordinates). scale (optional)
+// is a metagame-only zoom factor — the standings ignore it because the
+// row's 251×50 box has fixed dimensions.
+export const RIFTBOUND_PORTRAIT_FOCUS = {
+    'Annie, Dark Child':                       { top: 18, left: 51 },
+    'Master Yi, Wuju Bladesman':               { top: 17, left: 40 },
+    'Lux, Lady of Luminosity':                 { top: 9,  left: 59 },
+    'Garen, Might of Demacia':                 { top: 36, left: 37 },
+    "Kai'Sa, Daughter of the Void":            { top: 21, left: 71 },
+    'Volibear, Relentless Storm':              { top: 12, left: 50 },
+    'Jinx, Loose Cannon':                      { top: 15, left: 52 },
+    'Darius, Hand of Noxus':                   { top: 25, left: 46 },
+    'Ahri, Nine-Tailed Fox':                   { top: 30, left: 48 },
+    'Lee Sin, Blind Monk':                     { top: 23, left: 49 },
+    'Yasuo, Unforgiven':                       { top: 19, left: 55 },
+    'Leona, Radiant Dawn':                     { top: 14, left: 38 },
+    'Teemo, Swift Scout':                      { top: 35, left: 41 },
+    'Viktor, Herald of the Arcane':            { top: 37, left: 46 },
+    'Miss Fortune, Bounty Hunter':             { top: 24, left: 60 },
+    'Sett, The Boss':                          { top: 14, left: 50 },
+    'Rumble, Mechanized Menace':               { top: 39, left: 51 },
+    'Lucian, Purifier':                        { top: 13, left: 43 },
+    'Draven, Glorious Executioner':            { top: 20, left: 55 },
+    "Rek'Sai, Void Burrower":                  { top: 16, left: 51 },
+    'Ornn, Fire Below the Mountain':           { top: 26, left: 55 },
+    'Jax, Grandmaster at Arms':                { top: 52, left: 61 },
+    'Irelia, Blade Dancer':                    { top: 24, left: 49 },
+    'Azir, Emperor of the Sands':              { top: 21, left: 51 },
+    'Ezreal, Prodigal Explorer':               { top: 21, left: 49 },
+    'Renata Glasc, Chem-Baroness':             { top: 20, left: 50 },
+    'Sivir, Battle Mistress':                  { top: 19, left: 53 },
+    'Fiora, Grand Duelist':                    { top: 28, left: 53 },
+    'Jhin, Virtuoso':                          { top: 13, left: 51 },
+    'Rengar, Pridestalker':                    { top: 31, left: 36 },
+    'Pyke, Bloodharbor Ripper':                { top: 33, left: 58 },
+    'Vi, Piltover Enforcer':                   { top: 12, left: 47 },
+    'Lillia, Bashful Bloom':                   { top: 18, left: 41 },
+    'Master Yi, Wuju Master':                  { top: 18, left: 59 },
+    'Vex, Gloomist':                           { top: 49, left: 56 },
+    'Ivern, Green Father':                     { top: 22, left: 50 },
+    'Diana, Scorn of the Moon':                { top: 11, left: 70 },
+    'LeBlanc, Deceiver':                       { top: 16, left: 46 },
+    "Kha'Zix, Voidreaver":                     { top: 37, left: 42 },
+    'Poppy, Keeper of the Hammer':             { top: 46, left: 59 },
+    'Other':                                   { top: 40, left: 48 },
+};
+

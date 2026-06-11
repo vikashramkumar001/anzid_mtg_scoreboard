@@ -25,6 +25,8 @@ import {
     saveControlData,
     updateBroadcastTracker,
     getBroadcastTracker,
+    getBattlefieldVisibility,
+    setBattlefieldVisibilitySlot,
     emitScoreboardState,
     updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection,
     emitCurrentVendorSelection, updateVendorSelection,
@@ -77,6 +79,7 @@ import {
     addPlayer,
     addMultiplePlayers,
     deletePlayer,
+    clearRoster,
     updatePlayerPortrait,
     maybeAutoSeedRoster
 } from "../features/roster.js";
@@ -118,6 +121,7 @@ import {
     parseMeleeDecklist,
     fetchMeleePairings,
     fetchCardeioDecklist,
+    fetchCardeioPairings,
     fetchCardeioRegistrations,
     fetchCardeioRoundData,
     fetchCardeioEventDetail,
@@ -126,6 +130,352 @@ import {
     loadCachedRegistrations
 } from '../features/tournament-platforms.js';
 
+import {
+    getAllPairingsData,
+    setPairingsForRound,
+    emitAllPairings,
+    loadPairingsData
+} from '../features/pairings.js';
+
+import {
+    getRecordGoingIntoRound,
+    hasStandingsApiData,
+    loadStandingsApiData
+} from '../features/standings-api.js';
+
+import {
+    getLegendForPlayer,
+    hasDecklistsForEvent,
+    loadAllCachedDecklists
+} from '../features/decklist-lookup.js';
+
+import {
+    computeBestOfLegendAllRounds
+} from '../features/best-of-legend.js';
+
+import { promises as fsPromises } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __handlersFilename = fileURLToPath(import.meta.url);
+const __handlersDirname = path.dirname(__handlersFilename);
+// data/cardeio/ — same path other features use; cached as a constant
+// so the fetch-missing-pairings handler can scan for existing per-event
+// round files without re-resolving on every call.
+const CARDEIO_DIR_PATH = path.join(__handlersDirname, '..', 'data', 'cardeio');
+
+
+// Augment a round's matches with extras the pairings table needs:
+//   - pre_round_record  → record going INTO this round (from standings-api)
+//   - legend            → the player's deck legend (from cached decklists)
+//
+// Returns SHALLOW copies so the in-memory pairings cache stays untouched —
+// downstream consumers may mutate the emitted payload, and we don't want
+// per-emit mutations to leak back into setPairingsForRound's data. The
+// underlying relationship/user_event_status objects are shared by reference;
+// only the relationship-level wrapper is duplicated to add new fields.
+//
+// `eventId` is the active tournament ID — used to scope the legend
+// lookup to the right event when the operator has cached decklists
+// for multiple events. Pass null/undefined and legend stays empty.
+function augmentMatches(matches, roundNumber, eventId) {
+    if (!Array.isArray(matches)) return matches;
+    const wantsLegends = eventId != null && hasDecklistsForEvent(eventId);
+    return matches.map(match => {
+        const rels = match.player_match_relationships || [];
+        const augmentedRels = rels.map(rel => {
+            const playerId = rel?.player?.id ?? rel?.user_event_status?.user?.id;
+            const pre_round_record = getRecordGoingIntoRound(roundNumber, playerId);
+            const legend = wantsLegends ? getLegendForPlayer(eventId, playerId) : '';
+            return { ...rel, pre_round_record, legend };
+        });
+        return { ...match, player_match_relationships: augmentedRels };
+    });
+}
+
+
+// Fill in any rounds for the current event that don't have a cached
+// pairings file yet, AND refresh any cached rounds whose file still
+// contains IN_PROGRESS matches (i.e. was fetched mid-round before
+// results were finalized). Called as a side-effect of every per-round
+// Fetch Pairings click so the operator never has to manually fetch
+// rounds one by one — pressing Fetch on ANY round also tops up missing
+// rounds and refreshes stale ones for the rest of the event.
+//
+// "Stale" = a cached file with at least one non-bye match whose
+// `status === 'IN_PROGRESS'` (or any non-draw match missing a
+// `winning_player_id` that matches either side). The matchup-matrix
+// drops these matches entirely since it can't tell who won, so
+// keeping them fresh is critical for matrix accuracy after rounds
+// finish.
+//
+// Skips:
+//   - the round the operator just explicitly refreshed (passed as
+//     `skipRound`) so we don't double-fetch it
+//   - non-cardeio platforms (no-op)
+//
+// Streams progress via `fetch-missing-pairings-progress` and a final
+// `fetch-missing-pairings-complete` on the requesting socket so the
+// status line in the Pairings tab can show what's happening. Per-round
+// `tournament-pairings-fetched` broadcasts (already wired client-side
+// to repaint each round's table) are emitted via RoomUtils so any
+// co-operator's open master-control tab also repaints in real time.
+async function fetchMissingPairingsForEvent(io, socket, tournamentIdOverride, { skipRound } = {}) {
+    const cfg = getPlatformConfig();
+    const tournamentId = tournamentIdOverride || cfg.tournamentId;
+    if (!tournamentId) return;
+    if (cfg.platform && cfg.platform !== 'cardeio') return;
+
+    const roundMap = cfg.cardeioRoundMap || {};
+    const expectedRounds = Object.keys(roundMap)
+        .map(Number)
+        .filter(n => Number.isFinite(n) && n > 0)
+        .sort((a, b) => a - b);
+    if (expectedRounds.length === 0) return;
+
+    // Which rounds already have a cached pairings file for THIS event?
+    // Reuse the same event-scoped filename pattern as the loader.
+    const cachedRounds = new Map();  // roundNumber → filename
+    try {
+        const entries = await fsPromises.readdir(CARDEIO_DIR_PATH);
+        const idEsc = String(tournamentId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const fileRe = new RegExp(`^pairings-api-event-${idEsc}-round-(\\d+)\\.json$`);
+        for (const fname of entries) {
+            const m = fname.match(fileRe);
+            if (m) cachedRounds.set(Number(m[1]), fname);
+        }
+    } catch (e) {
+        // Missing dir → no cached rounds, treat as all missing
+    }
+
+    const skipRoundNum = skipRound != null ? Number(skipRound) : null;
+    const missingRounds = expectedRounds.filter(n => !cachedRounds.has(n) && n !== skipRoundNum);
+
+    // Inspect each cached round (other than the one we just refreshed)
+    // for stale data — any non-bye match whose status is still
+    // IN_PROGRESS, or any non-draw match without a clear
+    // winning_player_id. These can't be used by the matchup matrix and
+    // a re-fetch will usually pick up finalized results.
+    const staleRounds = [];
+    for (const [roundNum, fname] of cachedRounds.entries()) {
+        if (roundNum === skipRoundNum) continue;
+        try {
+            const raw = await fsPromises.readFile(path.join(CARDEIO_DIR_PATH, fname), 'utf8');
+            const matches = JSON.parse(raw);
+            if (roundHasInProgressMatches(matches)) staleRounds.push(roundNum);
+        } catch {
+            // Unreadable / malformed cache → treat as stale so we
+            // re-fetch and overwrite it.
+            staleRounds.push(roundNum);
+        }
+    }
+
+    // Combined list — missing first (gaps), then stale (refreshes).
+    // De-duped via Set just in case the same round shows up twice.
+    const toFetch = [...new Set([...missingRounds, ...staleRounds])]
+        .sort((a, b) => a - b);
+    if (toFetch.length === 0) return;
+
+    if (socket) {
+        socket.emit('fetch-missing-pairings-progress', {
+            phase: 'start',
+            totalExpected: expectedRounds.length,
+            alreadyCached: cachedRounds.size - staleRounds.length,
+            missing: missingRounds,
+            stale: staleRounds,
+            toFetch
+        });
+    }
+
+    let fetched = 0;
+    const failures = [];
+    for (const roundId of toFetch) {
+        const isRefresh = !missingRounds.includes(roundId);
+        if (socket) {
+            socket.emit('fetch-missing-pairings-progress', {
+                phase: 'fetching',
+                roundId,
+                refresh: isRefresh,
+                index: fetched + failures.length + 1,
+                total: toFetch.length
+            });
+        }
+        try {
+            const matches = await fetchCardeioPairings(roundId);
+            setPairingsForRound(roundId, matches);
+            const augmented = augmentMatches(matches, roundId, tournamentId);
+            RoomUtils.emitWithRoomMapping(io, 'tournament-pairings-fetched', {
+                roundId,
+                success: true,
+                count: augmented.length,
+                matches: augmented
+            });
+            fetched++;
+            if (socket) {
+                socket.emit('fetch-missing-pairings-progress', {
+                    phase: 'fetched',
+                    roundId,
+                    refresh: isRefresh,
+                    count: augmented.length,
+                    index: fetched + failures.length,
+                    total: toFetch.length
+                });
+            }
+        } catch (e) {
+            failures.push({ roundId, error: e.message });
+            if (socket) {
+                socket.emit('fetch-missing-pairings-progress', {
+                    phase: 'failed',
+                    roundId,
+                    refresh: isRefresh,
+                    error: e.message,
+                    index: fetched + failures.length,
+                    total: toFetch.length
+                });
+            }
+        }
+        // Small inter-round gap so we don't hammer the Carde API
+        // (matches the bulk script's pacing).
+        await new Promise(r => setTimeout(r, 500));
+    }
+
+    if (socket) {
+        const filledCount = missingRounds.length === 0 ? 0
+            : missingRounds.filter(r => !failures.find(f => f.roundId === r)).length;
+        const refreshedCount = staleRounds.length === 0 ? 0
+            : staleRounds.filter(r => !failures.find(f => f.roundId === r)).length;
+        const summaryParts = [];
+        if (filledCount > 0) summaryParts.push(`filled ${filledCount} missing`);
+        if (refreshedCount > 0) summaryParts.push(`refreshed ${refreshedCount} stale`);
+        if (summaryParts.length === 0) summaryParts.push(`fetched ${fetched}`);
+        const failTail = failures.length > 0 ? `; ${failures.length} failed` : '';
+        socket.emit('fetch-missing-pairings-complete', {
+            success: failures.length === 0,
+            fetched,
+            filled: filledCount,
+            refreshed: refreshedCount,
+            failed: failures.length,
+            failures,
+            totalExpected: expectedRounds.length,
+            message: `Auto-fill done — ${summaryParts.join(', ')} round(s)${failTail}.`
+        });
+    }
+}
+
+// One row of the Player View roster — joins one registration entry
+// with the matching cached decklist (if any). Falls back gracefully
+// when either side is missing: a registration without a decklist still
+// shows up (no legend yet), and a decklist without a matching
+// registration still shows up (player name from best_identifier only).
+function slimRosterEntry(userId, reg, dl) {
+    const firstName = reg?.['First Name'] || '';
+    const lastName = reg?.['Last Name'] || '';
+    const displayName = reg?.['Display Name'] || '';
+    const realName = (firstName || lastName) ? `${firstName} ${lastName}`.trim() : '';
+    const bestIdentifier = dl?.user?.best_identifier || displayName || realName || '';
+    const battlefields = extractAuxCards(dl, 'battlefield');
+    return {
+        userId,
+        firstName,
+        lastName,
+        realName,
+        displayName,
+        bestIdentifier,
+        legend: extractAuxCard(dl, 'legend'),
+        champion: extractAuxCard(dl, 'champion'),
+        // Roster joins all 3 battlefields into one searchable string so
+        // operators can find a player by any battlefield they brought.
+        // Detail view (slimDecklist) sends the array form for rendering.
+        battlefield: battlefields.join(' / '),
+        battlefields,
+        deckName: dl?.deck_name || '',
+        hasDecklist: !!dl
+    };
+}
+
+// Pull the first card name from a Carde decklist auxiliary section.
+// Used for sections that always carry exactly one card (legend,
+// champion). For battlefields use `extractAuxCards` — players bring
+// THREE battlefields to the table. Returns '' when missing so the
+// client doesn't have to null-check.
+function extractAuxCard(decklistEntry, typeCode) {
+    if (!decklistEntry) return '';
+    const aux = decklistEntry.auxiliary_sections || [];
+    const sec = aux.find(s => s?.type_code === typeCode);
+    return sec?.cards?.[0]?.name || '';
+}
+
+// Pull every card name from a Carde decklist auxiliary section. Used
+// for battlefield (3 cards per player in Riftbound). Returns [] when
+// the section is missing.
+function extractAuxCards(decklistEntry, typeCode) {
+    if (!decklistEntry) return [];
+    const aux = decklistEntry.auxiliary_sections || [];
+    const sec = aux.find(s => s?.type_code === typeCode);
+    return (sec?.cards || []).map(c => c?.name).filter(Boolean);
+}
+
+// Slim one full decklist down to just the fields the Player View
+// renderer touches. Drops Carde card IDs and other heavy metadata so
+// the per-player emit stays small.
+function slimDecklist(dl) {
+    if (!dl) return null;
+    const slimCard = c => ({
+        name: c?.name || '',
+        quantity: Number(c?.quantity ?? 1),
+        domains: Array.isArray(c?.domains) ? c.domains : undefined
+    });
+    const sections = (dl.sections || []).map(s => ({
+        key: s?.section_key || '',
+        label: s?.section_label || '',
+        cards: (s?.cards || []).map(slimCard)
+    }));
+    return {
+        userId: Number(dl?.user?.id),
+        bestIdentifier: dl?.user?.best_identifier || '',
+        deckName: dl?.deck_name || '',
+        format: dl?.format || '',
+        domainIdentity: Array.isArray(dl?.domain_identity) ? dl.domain_identity : [],
+        validationStatus: dl?.validation_status || '',
+        legend: extractAuxCard(dl, 'legend'),
+        champion: extractAuxCard(dl, 'champion'),
+        // Players bring 3 battlefields to the table — send all of them
+        // so the detail view can list each one.
+        battlefields: extractAuxCards(dl, 'battlefield'),
+        sections
+    };
+}
+
+// True if the round's cached matches contain at least one non-bye,
+// non-ghost, two-player match whose result hasn't been finalized —
+// either the status is still IN_PROGRESS, or the match isn't a draw
+// and the `winning_player_id` doesn't match either side's player.id.
+// These are the matches the matchup matrix drops because it can't
+// tell who won, so they're the right signal for "this round's cache
+// is stale, re-fetch it."
+//
+// Single-player relationships (rels.length < 2) are skipped — those
+// are Carde's "forced loss" entries for no-shows / DQs at table -1,
+// which carry `match_is_loss=true` and never have a winner. The
+// matrix already ignores them; without the same skip here we'd re-
+// fetch the same round on every click for no benefit.
+function roundHasInProgressMatches(matches) {
+    if (!Array.isArray(matches)) return false;
+    for (const m of matches) {
+        if (m?.match_is_bye) continue;
+        if (m?.match_is_ghost_match) continue;
+        const rels = m?.player_match_relationships || [];
+        if (rels.length < 2) continue;
+        if (m?.status === 'IN_PROGRESS') return true;
+        const isDraw = !!(m?.match_is_intentional_draw || m?.match_is_unintentional_draw);
+        if (isDraw) continue;
+        const p1 = rels[0]?.player?.id;
+        const p2 = rels[1]?.player?.id;
+        const w = m?.winning_player_id;
+        if (w !== p1 && w !== p2) return true;
+    }
+    return false;
+}
 
 export default function registerSocketHandlers(io) {
     io.on('connection', (socket) => {
@@ -262,6 +612,15 @@ export default function registerSocketHandlers(io) {
             }
         });
 
+        // Wholesale clear (master-control "Delete All Players" button). No-op
+        // when already empty so we don't churn the disk + every connected page.
+        socket.on('clearPlayerRoster', async () => {
+            if (clearRoster()) {
+                await saveRoster();
+                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
+            }
+        });
+
         socket.on('upload-player-portrait', async (name, url) => {
             if (updatePlayerPortrait(name, url)) {
                 await saveRoster();
@@ -321,9 +680,12 @@ export default function registerSocketHandlers(io) {
         // Global vendor selection
         socket.on('update-vendor-selection', async ({vendorSelection}) => {
             updateVendorSelection(vendorSelection, io);
-            if (await maybeAutoSeedRoster()) {
-                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
-            }
+            // Per-vendor rosters: switching vendor changes which bucket
+            // getSortedRoster() reads, so always re-broadcast. Auto-seed
+            // attempt happens too — no-op unless the new selection happens
+            // to be mtg+flyquest+2v2 with that bucket still empty.
+            await maybeAutoSeedRoster();
+            RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
         })
 
         socket.on('get-vendor-selection', () => {
@@ -333,9 +695,10 @@ export default function registerSocketHandlers(io) {
         // Global player count
         socket.on('update-player-count', async ({playerCount}) => {
             updatePlayerCount(playerCount, io);
-            if (await maybeAutoSeedRoster()) {
-                RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
-            }
+            // Same as vendor change — count is part of the bucket key, so
+            // 1v1↔2v2 also swaps the visible roster.
+            await maybeAutoSeedRoster();
+            RoomUtils.emitWithRoomMapping(io, 'playerRosterUpdated', getSortedRoster());
         })
 
         socket.on('get-player-count', () => {
@@ -481,6 +844,23 @@ export default function registerSocketHandlers(io) {
             }
         });
 
+        // ── /scoreboard L3 battlefields-row visibility ──────────────────
+        // Operator toggles a per-slot Hide checkbox in master-control to
+        // hide a battlefield card from the .riftbound-bf-row strip without
+        // touching match data. State lives in features/control.js (resets
+        // on server restart; intentional — fresh "all visible" per stream).
+        // Broadcast to every page so the scoreboard reflows in real time.
+        socket.on('get-battlefield-visibility', () => {
+            socket.emit('battlefield-visibility-updated', getBattlefieldVisibility());
+        });
+        socket.on('update-battlefield-visibility', ({ slot, visible }) => {
+            // Validation lives inside the setter so clients can't poison the
+            // state by sending arbitrary slot keys.
+            if (setBattlefieldVisibilitySlot(slot, visible)) {
+                RoomUtils.emitWithRoomMapping(io, 'battlefield-visibility-updated', getBattlefieldVisibility());
+            }
+        });
+
         socket.on('transform-draft-list', (data) => {
             transformDraftList(data, io);
         });
@@ -579,9 +959,27 @@ export default function registerSocketHandlers(io) {
             socket.emit('tournament-platform-config', getPlatformConfig());
         });
 
-        socket.on('set-tournament-platform', (config) => {
+        socket.on('set-tournament-platform', async (config) => {
+            const prevTournamentId = getPlatformConfig().tournamentId;
             setPlatformConfig(config);
             emitPlatformConfig(io);
+
+            // If the operator switched to a different event, reload the
+            // per-event pairings + standings caches so the in-memory
+            // state matches the new event. Without this, the loaders
+            // would still hold the previous event's rounds and any
+            // matrix / standings UI would mix data from both events.
+            const newTournamentId = getPlatformConfig().tournamentId;
+            if (newTournamentId && newTournamentId !== prevTournamentId) {
+                try {
+                    await loadPairingsData();
+                    await loadStandingsApiData();
+                    emitAllPairings(io);
+                    console.log(`[Platform] Reloaded caches after event switch ${prevTournamentId || '(none)'} → ${newTournamentId}`);
+                } catch (e) {
+                    console.error('[Platform] Failed to reload caches after event switch:', e.message);
+                }
+            }
         });
 
         socket.on('fetch-tournament-standings', async ({ platform, tournamentId, roundId }) => {
@@ -591,16 +989,270 @@ export default function registerSocketHandlers(io) {
                 // Pass roundId to fetch standings for that specific round
                 const standings = await fetchTournamentStandings(roundId);
                 socket.emit('tournament-standings-fetched', { standings });
+
+                // ── Auto-refresh side effects ─────────────────────────
+                // The cardeio fetch wrote a fresh standings JSON to
+                // disk (anti-spoiler convention writes round N-1 when
+                // we ask for round N). Reload the standings-api
+                // in-memory cache + recompute Best of Legend so any
+                // master-control tab listening for the BoL snapshot
+                // sees the just-fetched round populate without a page
+                // reload. Broadcast (not socket.emit) so co-operator
+                // tabs watching the same event also refresh.
+                if ((platform || getPlatformConfig().platform) === 'cardeio') {
+                    try {
+                        await loadStandingsApiData();
+                        const activeEventId = getPlatformConfig()?.tournamentId || null;
+                        if (activeEventId && hasDecklistsForEvent(activeEventId)) {
+                            const byRound = computeBestOfLegendAllRounds(activeEventId);
+                            RoomUtils.emitWithRoomMapping(io, 'best-of-legend-data', { byRound, eventId: activeEventId });
+                        }
+                    } catch (e) {
+                        console.error('[BoL] Auto-refresh after standings fetch failed:', e.message);
+                    }
+                }
             } catch (error) {
                 socket.emit('tournament-standings-fetched', { error: error.message });
             }
         });
 
-        // Fetch and cache Carde decklist export for an event
+        // ── Pairings (Carde-only for now) ──────────────────────────────
+        // Fetches one round's matches from Carde via the v2 matches-list
+        // endpoint, caches to disk + in-memory, broadcasts the full round
+        // payload to every master-control client so a sibling tab opened
+        // by a co-operator can repaint without retriggering its own fetch.
+        // Failure path emits to the requesting socket only (no point
+        // broadcasting an error specific to one operator's click).
+        socket.on('fetch-tournament-pairings', async ({ platform, tournamentId, roundId }) => {
+            try {
+                if (platform && platform !== 'cardeio') {
+                    socket.emit('tournament-pairings-fetched', {
+                        roundId,
+                        success: false,
+                        error: 'Pairings fetch is currently only supported for Carde.io. Switch the platform in Global Settings.'
+                    });
+                    return;
+                }
+                if (platform || tournamentId) {
+                    // Mirror the standings flow — let the operator's most
+                    // recent platform/tournament selection win on each click.
+                    setPlatformConfig({ platform, tournamentId });
+                }
+
+                // Step 1 — always refresh the clicked round. This is the
+                // operator's primary intent: "give me the latest matches
+                // for round N." Done first so the per-round status line
+                // updates immediately instead of waiting on the
+                // missing-fill loop.
+                const matches = await fetchCardeioPairings(roundId);
+                setPairingsForRound(roundId, matches);
+                const augmented = augmentMatches(matches, roundId, tournamentId);
+                RoomUtils.emitWithRoomMapping(io, 'tournament-pairings-fetched', {
+                    roundId,
+                    success: true,
+                    count: augmented.length,
+                    matches: augmented
+                });
+
+                // Step 2 — fill in any OTHER rounds that don't have a
+                // cached pairings file yet for this event. Saves the
+                // operator from clicking Fetch on every round tab when
+                // the event is freshly switched or new rounds just
+                // unlocked. Errors per round are tracked but don't
+                // abort the loop — best-effort fill.
+                await fetchMissingPairingsForEvent(io, socket, tournamentId, {
+                    skipRound: roundId
+                });
+            } catch (error) {
+                socket.emit('tournament-pairings-fetched', {
+                    roundId,
+                    success: false,
+                    error: error.message
+                });
+            }
+        });
+
+
+        // Snapshot of every cached round's pairings — fired on master-control
+        // page load so the Pairings tab can repaint instantly without
+        // refetching. Each round's matches are augmented with:
+        //   - pre_round_record (from standings-api cache)
+        //   - legend (from cached decklists for the active event)
+        // The active event ID comes from platformConfig.tournamentId,
+        // which is set when the operator clicks Save in Global Settings.
+        // If neither cache is loaded the raw data is sent through and
+        // the client falls back to the embedded values.
+        socket.on('get-all-pairings', () => {
+            const raw = getAllPairingsData();
+            const activeEventId = getPlatformConfig()?.tournamentId || null;
+            const needsAugment = hasStandingsApiData() || (activeEventId && hasDecklistsForEvent(activeEventId));
+            if (!needsAugment) {
+                socket.emit('all-pairings-data', { pairingsData: raw });
+                return;
+            }
+            const augmented = {};
+            for (const [roundNumber, matches] of Object.entries(raw)) {
+                augmented[roundNumber] = augmentMatches(matches, roundNumber, activeEventId);
+            }
+            socket.emit('all-pairings-data', { pairingsData: augmented });
+        });
+
+        // ── Best of Legend ─────────────────────────────────────────────
+        // Per-round, per-Legend top-5 leaderboard for the active event
+        // (riftbound-only feature). Computed on demand from the cached
+        // standings + decklists; reads standings JSON fresh from disk
+        // on each request so post-boot Fetch Standings clicks reflect
+        // immediately. Sent as a single payload keyed by round number.
+        socket.on('get-best-of-legend', async () => {
+            try {
+                const activeEventId = getPlatformConfig()?.tournamentId || null;
+                if (!activeEventId) {
+                    socket.emit('best-of-legend-data', { byRound: {}, eventId: null });
+                    return;
+                }
+                if (!hasDecklistsForEvent(activeEventId)) {
+                    // No decklists cached for the active event — feature
+                    // can't compute Legends without that join. Tell the
+                    // client so it can render an "unavailable" state.
+                    socket.emit('best-of-legend-data', {
+                        byRound: {},
+                        eventId: activeEventId,
+                        error: 'No cached decklists for the active event. Run Fetch Event Data → Decklists first.'
+                    });
+                    return;
+                }
+                const byRound = computeBestOfLegendAllRounds(activeEventId);
+                socket.emit('best-of-legend-data', { byRound, eventId: activeEventId });
+            } catch (e) {
+                console.error('[BoL] computeBestOfLegendAllRounds failed:', e);
+                socket.emit('best-of-legend-data', {
+                    byRound: {},
+                    error: e.message
+                });
+            }
+        });
+
+        // ── Player View ───────────────────────────────────────────────
+        // Roster lookup for the Player View tab. Joins the active event's
+        // cached registrations (canonical name source) with the cached
+        // decklists (legend / champion / battlefield / deck name). Returns
+        // a slim per-player payload so the client-side search can filter
+        // ~1500 rows without re-fetching. Decklist details are fetched on
+        // demand via `get-player-decklist` when the operator picks a row.
+        socket.on('get-event-player-roster', async () => {
+            try {
+                const eventId = getPlatformConfig()?.tournamentId || null;
+                if (!eventId) {
+                    socket.emit('event-player-roster', { players: [], eventId: null });
+                    return;
+                }
+                const [decklistData, registrations] = await Promise.all([
+                    loadCachedDecklist(eventId),
+                    loadCachedRegistrations(eventId)
+                ]);
+                const decklists = decklistData?.decklists || (Array.isArray(decklistData) ? decklistData : []);
+                // Build user.id → decklist for quick join
+                const dlByUser = new Map();
+                for (const dl of decklists) {
+                    const uid = dl?.user?.id;
+                    if (uid == null) continue;
+                    dlByUser.set(Number(uid), dl);
+                }
+
+                // Use registrations as the source-of-truth roster (every
+                // entrant is listed there, even those who didn't submit
+                // a decklist). Players without a registration but with
+                // a decklist are still included as a fallback so we
+                // don't lose anyone.
+                const seen = new Set();
+                const players = [];
+                if (Array.isArray(registrations)) {
+                    for (const reg of registrations) {
+                        const uid = reg['User ID'];
+                        if (uid == null || uid === '') continue;
+                        const uidNum = Number(uid);
+                        seen.add(uidNum);
+                        const dl = dlByUser.get(uidNum);
+                        players.push(slimRosterEntry(uidNum, reg, dl));
+                    }
+                }
+                // Catch any decklist-only entries (no matching reg)
+                for (const [uidNum, dl] of dlByUser.entries()) {
+                    if (seen.has(uidNum)) continue;
+                    players.push(slimRosterEntry(uidNum, null, dl));
+                }
+
+                // Sort by display name / real name for consistent order
+                players.sort((a, b) => {
+                    const an = (a.displayName || a.realName || a.bestIdentifier || '').toLowerCase();
+                    const bn = (b.displayName || b.realName || b.bestIdentifier || '').toLowerCase();
+                    return an.localeCompare(bn);
+                });
+
+                socket.emit('event-player-roster', {
+                    eventId,
+                    players,
+                    decklistCount: dlByUser.size,
+                    registrationCount: Array.isArray(registrations) ? registrations.length : 0
+                });
+            } catch (e) {
+                console.error('[PlayerView] roster failed:', e);
+                socket.emit('event-player-roster', { players: [], error: e.message });
+            }
+        });
+
+        // Full decklist for one player in the active event. Returns a
+        // slimmed shape (per-card { name, quantity, domains } only —
+        // drops Carde card IDs + nested metadata that bloats the
+        // payload). Operator gets sub-100KB per decklist this way.
+        socket.on('get-player-decklist', async ({ userId } = {}) => {
+            try {
+                const eventId = getPlatformConfig()?.tournamentId || null;
+                if (!eventId) {
+                    socket.emit('player-decklist', { error: 'No active event.' });
+                    return;
+                }
+                if (userId == null) {
+                    socket.emit('player-decklist', { error: 'Missing userId.' });
+                    return;
+                }
+                const data = await loadCachedDecklist(eventId);
+                const decklists = data?.decklists || (Array.isArray(data) ? data : []);
+                const uidNum = Number(userId);
+                const dl = decklists.find(d => Number(d?.user?.id) === uidNum);
+                if (!dl) {
+                    socket.emit('player-decklist', {
+                        eventId,
+                        userId: uidNum,
+                        error: 'No decklist cached for this player.'
+                    });
+                    return;
+                }
+                socket.emit('player-decklist', {
+                    eventId,
+                    userId: uidNum,
+                    decklist: slimDecklist(dl)
+                });
+            } catch (e) {
+                console.error('[PlayerView] player decklist failed:', e);
+                socket.emit('player-decklist', { error: e.message });
+            }
+        });
+
+        // Fetch and cache Carde decklist export for an event.
+        // After writing to disk, ALSO refresh the in-memory
+        // `decklistsByEvent` map so downstream consumers (BoL,
+        // pairings legend augmentation) see the new event without
+        // requiring a server restart. Without the refresh, the
+        // in-memory map only reflects what was on disk at server
+        // boot — fetching a new event mid-session would leave BoL
+        // stuck on "No cached decklists" forever. The reload is
+        // O(N) over cache files (handful, so trivial overhead).
         socket.on('fetch-cardeio-decklists', async ({ eventId }) => {
             try {
                 const data = await fetchCardeioDecklist(eventId);
                 const count = data?.decklists?.length || 0;
+                await loadAllCachedDecklists();
                 socket.emit('cardeio-decklists-fetched', { success: true, count });
             } catch (error) {
                 const msg = error.response?.status === 401

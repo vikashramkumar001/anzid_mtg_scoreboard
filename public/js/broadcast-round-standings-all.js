@@ -139,7 +139,7 @@ function updateTheme(game, vendor, playerCount) {
 
     // Apply new vendor overrides (can override game defaults)
     if (vc) {
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
@@ -166,6 +166,25 @@ function updateTheme(game, vendor, playerCount) {
             img.onload = () => { bgEl.src = bgPath; };
             img.onerror = () => { bgEl.src = ''; };
             img.src = bgPath;
+        }
+
+        // Optional character layer — sits above bg, below data rows.
+        // Same HEAD-probe pattern as the bg above. Hidden via empty src
+        // when the file doesn't exist (CSS rule
+        // `#standings-character[src=""] { display: none }` covers the
+        // empty-string case). Multi-page combined view also has a
+        // .standings-character-img class for any extra instances; we
+        // update both via querySelectorAll so they stay in sync.
+        const charPath = vc.getAssetPath(
+            `/assets/images/${game}/standings/${game}-standings-char.png`,
+            vendor, playerCount
+        );
+        const charEls = document.querySelectorAll('#standings-character, .standings-character-img');
+        if (charEls.length) {
+            const img = new Image();
+            img.onload = () => { charEls.forEach(el => { el.src = charPath; }); };
+            img.onerror = () => { charEls.forEach(el => { el.src = ''; }); };
+            img.src = charPath;
         }
 
         // Event-wide video background (optional — drops on top of PNG bg

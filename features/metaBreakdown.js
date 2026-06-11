@@ -125,13 +125,166 @@ function getLegendFromDecklistEntry(dl) {
 }
 
 async function loadCachedStandingsApi(roundNumber) {
-    const filePath = path.join(CARDEIO_DIR, `standings-api-round-${roundNumber}.json`);
+    const tournamentId = getPlatformConfig().tournamentId;
+    if (!tournamentId) return null;
+    const filePath = path.join(CARDEIO_DIR, `standings-api-event-${tournamentId}-round-${roundNumber}.json`);
     try {
         const raw = await fsPromises.readFile(filePath, 'utf8');
         return JSON.parse(raw);
     } catch (e) {
         return null;
     }
+}
+
+// Scan the cardeio dir for every cached
+// pairings-api-event-{currentEventId}-round-N.json file and load it
+// into memory. Returns a sorted array of { round, matches } pairs.
+// Older unscoped files (pairings-api-round-N.json) AND files for other
+// events are ignored — this is what prevents the matchup matrix from
+// silently inheriting matches from a previous tournament. Missing
+// rounds are simply absent — the caller can ignore them.
+async function loadAllCachedPairingsRounds() {
+    const tournamentId = getPlatformConfig().tournamentId;
+    if (!tournamentId) return [];
+
+    let entries;
+    try {
+        entries = await fsPromises.readdir(CARDEIO_DIR);
+    } catch (e) {
+        return [];
+    }
+    const idEsc = String(tournamentId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const fileRe = new RegExp(`^pairings-api-event-${idEsc}-round-(\\d+)\\.json$`);
+    const rounds = [];
+    for (const fname of entries) {
+        const m = fname.match(fileRe);
+        if (!m) continue;
+        const round = parseInt(m[1], 10);
+        try {
+            const raw = await fsPromises.readFile(path.join(CARDEIO_DIR, fname), 'utf8');
+            const matches = JSON.parse(raw);
+            rounds.push({ round, matches: Array.isArray(matches) ? matches : [] });
+        } catch (e) {
+            // Skip malformed file
+        }
+    }
+    rounds.sort((a, b) => a.round - b.round);
+    return rounds;
+}
+
+// Build a per-player-id → legend map from a cached decklists payload.
+// Reuses the same auxiliary_sections legend extraction the Day 1 path
+// uses (getLegendFromDecklistEntry). Returns Map<userId(number), legend(string)>.
+function buildLegendByUserId(cachedDecklists) {
+    const map = new Map();
+    if (!cachedDecklists?.decklists) return map;
+    for (const dl of cachedDecklists.decklists) {
+        const uid = dl?.user?.id;
+        if (uid == null) continue;
+        const legend = getLegendFromDecklistEntry(dl);
+        if (legend) map.set(Number(uid), legend);
+    }
+    return map;
+}
+
+// Walk every cached pairings round and tally legend-vs-legend records.
+// For each non-bye match:
+//   - look up both players' legends from the per-user map
+//   - identify winner via match.winning_player_id matching rel.player.id
+//   - bump { wins, losses } on the (winnerLegend, loserLegend) pair AND
+//     the mirror entry (loserLegend, winnerLegend) so the matrix reads
+//     correctly in both directions
+//   - draws (match_is_intentional_draw / unintentional_draw) bump
+//     { draws } on both pairs
+// Mirror matches (same legend both sides) increment a games-counter
+// on the diagonal but no W-L since both sides are the same legend.
+//
+// Returns:
+//   {
+//     all:   { [legendA]: { [legendB]: { wins, losses, draws } } },
+//     day2:  { [legendA]: { [legendB]: { wins, losses, draws } } }
+//   }
+// day2 sub-matrix tallies only matches in rounds >= day2Round.
+async function computeMatchupMatrix({ legendByUserId, day2Round }) {
+    const all = {};
+    const day2 = {};
+    const day2Cutoff = parseInt(day2Round, 10);
+    const hasDay2 = Number.isFinite(day2Cutoff) && day2Cutoff > 0;
+
+    function bumpPair(target, a, b, field) {
+        if (!target[a]) target[a] = {};
+        if (!target[a][b]) target[a][b] = { wins: 0, losses: 0, draws: 0 };
+        target[a][b][field]++;
+    }
+
+    const rounds = await loadAllCachedPairingsRounds();
+    for (const { round, matches } of rounds) {
+        const includeInDay2 = hasDay2 && round >= day2Cutoff;
+        for (const match of matches) {
+            if (match.match_is_bye) continue;
+            if (match.match_is_ghost_match) continue;
+            const rels = match.player_match_relationships || [];
+            if (rels.length < 2) continue;
+
+            const rel1 = rels[0];
+            const rel2 = rels[1];
+            const uid1 = rel1?.user_event_status?.user?.id;
+            const uid2 = rel2?.user_event_status?.user?.id;
+            if (uid1 == null || uid2 == null) continue;
+
+            const legend1 = legendByUserId.get(Number(uid1));
+            const legend2 = legendByUserId.get(Number(uid2));
+            if (!legend1 || !legend2) continue;
+
+            const isDraw = !!(match.match_is_intentional_draw || match.match_is_unintentional_draw);
+            const winnerPlayerId = match.winning_player_id;
+            const player1Id = rel1?.player?.id ?? uid1;
+            const player2Id = rel2?.player?.id ?? uid2;
+
+            if (isDraw) {
+                bumpPair(all, legend1, legend2, 'draws');
+                bumpPair(all, legend2, legend1, 'draws');
+                if (includeInDay2) {
+                    bumpPair(day2, legend1, legend2, 'draws');
+                    bumpPair(day2, legend2, legend1, 'draws');
+                }
+                continue;
+            }
+
+            // Mirror matches still count for the diagonal but the
+            // legend-vs-legend W-L is ambiguous (both sides same
+            // legend). Record as games played so the diagonal cell
+            // can show total mirror games. We use wins on the
+            // diagonal as the count (losses stay 0).
+            if (legend1 === legend2) {
+                bumpPair(all, legend1, legend2, 'wins');
+                if (includeInDay2) bumpPair(day2, legend1, legend2, 'wins');
+                continue;
+            }
+
+            let winnerLegend = null;
+            let loserLegend = null;
+            if (winnerPlayerId === player1Id) {
+                winnerLegend = legend1;
+                loserLegend = legend2;
+            } else if (winnerPlayerId === player2Id) {
+                winnerLegend = legend2;
+                loserLegend = legend1;
+            } else {
+                // No clear winner reported — skip rather than guess.
+                continue;
+            }
+
+            bumpPair(all, winnerLegend, loserLegend, 'wins');
+            bumpPair(all, loserLegend, winnerLegend, 'losses');
+            if (includeInDay2) {
+                bumpPair(day2, winnerLegend, loserLegend, 'wins');
+                bumpPair(day2, loserLegend, winnerLegend, 'losses');
+            }
+        }
+    }
+
+    return { all, day2 };
 }
 
 function countArchetypes(items) {
@@ -283,6 +436,23 @@ export async function calculateMetagame({ day1Round, day2Round, day2Cutoff, game
         conversion: otherConversion
     } : null;
 
+    // Legend-vs-legend matchup matrix — computed from cached pairings
+    // joined against the same decklist payload we already loaded for
+    // Day 1. Returns both "all rounds" and "day 2 only" sub-matrices
+    // so the master-control Matrix sub-tab's day-2-toggle pill can
+    // flip client-side without a server round-trip.
+    let matchupMatrix = null;
+    try {
+        const legendByUserId = buildLegendByUserId(cachedDecklists);
+        matchupMatrix = await computeMatchupMatrix({
+            legendByUserId,
+            day2Round
+        });
+    } catch (e) {
+        console.error('[Metagame] computeMatchupMatrix failed:', e);
+        matchupMatrix = { all: {}, day2: {} };
+    }
+
     const result = {
         archetypes: topN,
         allArchetypesSorted: archetypes,
@@ -292,7 +462,8 @@ export async function calculateMetagame({ day1Round, day2Round, day2Cutoff, game
         day1Unmatched,
         day2Total: day2Total || null,
         day2Qualified: day2Qualified || null,
-        day2Unmatched
+        day2Unmatched,
+        matchupMatrix
     };
 
     // Cache to disk

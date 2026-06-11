@@ -13,6 +13,11 @@ import { RoomUtils } from './utils/room-utils.js';
 import { loadControlData } from './features/control.js';
 import { loadBracketData } from './features/brackets.js';
 import { loadStandingsData } from './features/standings.js';
+import { loadPairingsData } from './features/pairings.js';
+import { loadStandingsApiData } from './features/standings-api.js';
+import { loadAllCachedDecklists } from './features/decklist-lookup.js';
+import { loadPlatformConfig } from './features/tournament-platforms.js';
+import { loadLegendPortraits } from './features/best-of-legend.js';
 import { loadArchetypeList } from './features/archetypes.js';
 import { loadRoster } from './features/roster.js';
 import { loadGroupAssignment } from './features/group-assignment.js';
@@ -72,6 +77,14 @@ async function initialize() {
   await loadControlData();
   await loadBracketData();
   await loadStandingsData();
+  // Load platform config FIRST so the per-event pairings/standings
+  // loaders can filter cached files to the current tournament ID and
+  // ignore stale data left behind from previous events.
+  await loadPlatformConfig();
+  await loadPairingsData();
+  await loadStandingsApiData();
+  await loadAllCachedDecklists();
+  await loadLegendPortraits();
   await mtgLoadCardListData();
   await loadArchetypeList();
   await loadRoster();

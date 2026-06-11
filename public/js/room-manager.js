@@ -53,6 +53,18 @@ class RoomManager {
         // Vibes master control
         if (path.includes('/vibes-master-control') || path.includes('vibes/master-control.html')) return 'master-control';
         
+        // Admin control pages (/admin-control/N/delay) — join the SAME
+        // control-{id} room as the regular control page so the admin board
+        // is a co-equal control client for that match (receives the same
+        // control-{id}-saved-state, and its field-updated reaches the
+        // scoreboard + the control page + master-control). Checked BEFORE
+        // the /control/ branch.
+        if (path.includes('/admin-control/')) {
+            const match = path.match(/\/admin-control\/(\d+)/);
+            const controlId = match ? match[1] : '1';
+            return `control-${controlId}`;
+        }
+
         // Control pages - check for /control/ in path
         if (path.includes('/control/')) {
             // Extract control ID from path (e.g., /control/1/1000)
@@ -84,8 +96,13 @@ class RoomManager {
             return `scoreboard-${n}`;
         }
 
-        // Event-info scenes — image-only pages; only need global selection events
-        if (path.includes('/event-info/')) return 'global';
+        // Event-info scenes — mostly image-only, but the dynamic
+        // "battlefields" scene needs broadcast-round-data live updates.
+        // Joining the dedicated 'event-info' room (added to the
+        // broadcast-round-data emit list in utils/room-utils.js) gets us
+        // those updates without coupling to broadcast-scoreboard's other
+        // (irrelevant-to-us) traffic.
+        if (path.includes('/event-info/')) return 'event-info';
 
         // Timer - check for /timer/ in path
         if (path.includes('/timer/')) {
@@ -195,7 +212,13 @@ class RoomManager {
             'broadcast-draft-list': ['broadcast-draft-list', 'global'],
             'broadcast-scoreboard': ['broadcast-scoreboard', 'global'],
             'brackets': ['brackets', 'global'],
-            'meta-breakdown': ['meta-breakdown', 'global']
+            'meta-breakdown': ['meta-breakdown', 'global'],
+            // Event-info pages are PNG/MP4 image scenes only — no live
+            // round data needed since the battlefields scene moved to
+            // /scoreboard's L3 strip. The dedicated room is retained
+            // (rather than collapsed to ['global']) so future scenes can
+            // be wired without changing room-manager.
+            'event-info': ['event-info', 'global']
         };
         
         return roomMapping[pageType] || ['global'];

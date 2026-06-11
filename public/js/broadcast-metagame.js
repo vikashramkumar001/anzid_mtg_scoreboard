@@ -1,4 +1,4 @@
-import { RIFTBOUND_LEGENDS } from './riftbound/constants.js';
+import { RIFTBOUND_LEGENDS, RIFTBOUND_PORTRAIT_FOCUS } from './riftbound/constants.js';
 
 const socket = io();
 window.roomManager = new RoomManager(socket);
@@ -66,7 +66,7 @@ function updateTheme(game, vendor, playerCount) {
         vc.getAllOverrideProperties().forEach(prop => {
             document.documentElement.style.removeProperty(prop);
         });
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
@@ -111,21 +111,26 @@ function updateTheme(game, vendor, playerCount) {
         }
     }
 
-    // Game defaults
+    // Game defaults — only for games whose `default` vendor doesn't yet
+    // declare a metagame font. Riftbound's font now comes from
+    // riftbound.default's --metagame-font (Beaufort), with TES overriding
+    // explicitly to Akzidenz. MTG and Starwars still need the JS fallback
+    // because their `default` vendor blocks don't (yet) set the font.
     if (game === 'mtg') {
         document.documentElement.style.setProperty('--metagame-font', 'Gotham Narrow');
         document.documentElement.style.setProperty('--metagame-font-weight', '700');
-    } else if (game === 'riftbound') {
-        document.documentElement.style.setProperty('--metagame-font', 'Akzidenz-Grotesk Next');
-        document.documentElement.style.setProperty('--metagame-font-weight', '900');
-    } else {
+    } else if (game === 'starwars') {
         document.documentElement.style.setProperty('--metagame-font', 'Bebas Neue');
         document.documentElement.style.setProperty('--metagame-font-weight', 'bold');
     }
+    // Riftbound: font comes from vendor-config (default = Beaufort,
+    // tes = Akzidenz, etc.). Removed the hardcoded Akzidenz default
+    // here since it was effectively making TES's font the riftbound
+    // baseline — wrong now that the `default` vendor IS the baseline.
 
     // Re-apply vendor overrides
     if (vc) {
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
@@ -140,50 +145,11 @@ socket.on('receive-meta-breakdown-data', (data) => {
 });
 
 // ── Portrait Lookup (1200x1200 for metagame) ────────────────────────────────
-// Face focus points: { top%, left% } — where the face is in the 1200x1200 image
-const PORTRAIT_FOCUS = {
-    'Annie, Dark Child':                       { top: 18, left: 51 },
-    'Master Yi, Wuju Bladesman':               { top: 17, left: 40 },
-    'Lux, Lady of Luminosity':                 { top: 9, left: 59 },
-    'Garen, Might of Demacia':                 { top: 36, left: 37 },
-    "Kai'Sa, Daughter of the Void":            { top: 21, left: 71 },
-    'Volibear, Relentless Storm':              { top: 12, left: 50 },
-    'Jinx, Loose Cannon':                      { top: 15, left: 52 },
-    'Darius, Hand of Noxus':                   { top: 25, left: 46 },
-    'Ahri, Nine-Tailed Fox':                   { top: 30, left: 48 },
-    'Lee Sin, Blind Monk':                     { top: 23, left: 49 },
-    'Yasuo, Unforgiven':                       { top: 19, left: 55 },
-    'Leona, Radiant Dawn':                     { top: 14, left: 38 },
-    'Teemo, Swift Scout':                      { top: 35, left: 41 },
-    'Viktor, Herald of the Arcane':            { top: 37, left: 46 },
-    'Miss Fortune, Bounty Hunter':             { top: 24, left: 60 },
-    'Sett, The Boss':                          { top: 14, left: 50 },
-    'Rumble, Mechanized Menace':               { top: 39, left: 51 },
-    'Lucian, Purifier':                        { top: 13, left: 43 },
-    'Draven, Glorious Executioner':            { top: 20, left: 55 },
-    "Rek'Sai, Void Burrower":                  { top: 16, left: 51 },
-    'Ornn, Fire Below the Mountain':           { top: 26, left: 55 },
-    'Jax, Grandmaster at Arms':                { top: 52, left: 61 },
-    'Irelia, Blade Dancer':                    { top: 24, left: 49 },
-    'Azir, Emperor of the Sands':              { top: 21, left: 51 },
-    'Ezreal, Prodigal Explorer':               { top: 21, left: 49 },
-    'Renata Glasc, Chem-Baroness':             { top: 20, left: 50 },
-    'Sivir, Battle Mistress':                  { top: 19, left: 53 },
-    'Fiora, Grand Duelist':                    { top: 28, left: 53 },
-    'Jhin, Virtuoso':                          { top: 13, left: 51 },
-    'Rengar, Pridestalker':                    { top: 31, left: 36 },
-    'Pyke, Bloodharbor Ripper':                { top: 33, left: 58 },
-    'Vi, Piltover Enforcer':                   { top: 12, left: 47 },
-    'Lillia, Bashful Bloom':                   { top: 18, left: 41 },
-    'Master Yi, Wuju Master':                  { top: 18, left: 59 },
-    'Vex, Gloomist':                           { top: 49, left: 56 },
-    'Ivern, Green Father':                     { top: 22, left: 50 },
-    'Diana, Scorn of the Moon':                { top: 11, left: 70 },
-    'LeBlanc, Deceiver':                       { top: 16, left: 46 },
-    "Kha'Zix, Voidreaver":                     { top: 37, left: 42 },
-    'Poppy, Keeper of the Hammer':             { top: 46, left: 59 },
-    'Other':                                   { top: 40, left: 48 },
-};
+// Face focus points moved to riftbound/constants.js as RIFTBOUND_PORTRAIT_FOCUS
+// so the standings page can consume the same tuning data — one debug pass
+// in `debugFocus()` below propagates to both views. Aliased here for the
+// existing local references.
+const PORTRAIT_FOCUS = RIFTBOUND_PORTRAIT_FOCUS;
 
 function getPortraitUrl(archetypeName) {
     if (archetypeName === 'Other') {
@@ -252,7 +218,9 @@ function renderMetagame() {
         color: DEFAULT_COLORS[i % DEFAULT_COLORS.length]
     }));
 
-    document.getElementById('metagame-title').textContent = '';
+    // Title stays as the static "METAGAME" string from the HTML — no
+    // longer cleared here. Layouts that bake the title into the bg PNG
+    // (TES) hide it via --meta-title-display: none in CSS.
 
     const rootStyle = getComputedStyle(document.documentElement);
     const subtitleEl = document.getElementById('metagame-subtitle');
@@ -554,12 +522,13 @@ function renderPieChart(data, sizeOverride) {
             .attr('class', 'label-group')
             .style('opacity', 0);
 
-        // Background rect (sized after text is rendered)
+        // Background rect (sized after text is rendered).
+        // Fill / stroke / stroke-width are driven by the .label-bg CSS
+        // rule via vars (--meta-label-bg, --meta-label-stroke,
+        // --meta-label-stroke-width) so each layout can theme without
+        // JS changes. Only the geometric attrs (rx/ry) stay here.
         const rect = labelG.append('rect')
             .attr('class', 'label-bg')
-            .attr('fill', '#000')
-            .attr('stroke', '#1ae930')
-            .attr('stroke-width', 1.5)
             .attr('rx', 4)
             .attr('ry', 4);
 

@@ -77,7 +77,7 @@ function updateTheme(game, vendor, playerCount) {
 
     // Apply new vendor overrides (can override game defaults)
     if (vc) {
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });

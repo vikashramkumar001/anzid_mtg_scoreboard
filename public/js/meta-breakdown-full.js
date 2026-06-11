@@ -80,7 +80,7 @@ function updateTheme(game, vendor, playerCount) {
             document.documentElement.style.removeProperty(prop);
         });
 
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
@@ -100,7 +100,7 @@ function updateTheme(game, vendor, playerCount) {
 
     // Re-apply vendor overrides (they take priority over game defaults)
     if (vc) {
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });

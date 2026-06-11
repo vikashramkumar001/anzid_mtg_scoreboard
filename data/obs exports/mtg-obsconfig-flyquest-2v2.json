@@ -2,7 +2,7 @@
   "game": "mtg",
   "vendor": "flyquest",
   "playerCount": "2v2",
-  "savedAt": "2026-04-22T07:36:23.826Z",
+  "savedAt": "2026-04-27T07:05:41.811Z",
   "scenes": {
     "Sponsor - Moxfield*": {
       "sources": [
@@ -796,200 +796,6 @@
     "Break - Media Content*": {
       "sources": []
     },
-    "Break - Interstitial*": {
-      "sources": [
-        {
-          "sourceName": "Media - Interstitial Card Titan",
-          "sceneItemId": 2,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
-    "Break - Intro*": {
-      "sources": [
-        {
-          "sourceName": "Media - Intro",
-          "sceneItemId": 1,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Group - Starting Soon Countdown",
-          "sceneItemId": 3,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 352.0028381347656,
-            "positionX": 1418,
-            "positionY": 1458,
-            "rotation": 0,
-            "scaleX": 0.5009980201721191,
-            "scaleY": 0.5014285445213318,
-            "sourceHeight": 702,
-            "sourceWidth": 1002,
-            "width": 502.0000305175781
-          }
-        }
-      ]
-    },
-    "Break - Sponsor Heavy Play*": {
-      "sources": [
-        {
-          "sourceName": "Media - Sponsor Heavy Play VID EquipMag",
-          "sceneItemId": 7,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Media - Sponsor Heavy Play VID ETB",
-          "sceneItemId": 8,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Media - Sponsor Heavy Play VID RFGM",
-          "sceneItemId": 9,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Media - Sponsor Heavy Play RFG",
-          "sceneItemId": 6,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
     "Break - Countdown*": {
       "sources": [
         {
@@ -1063,15 +869,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 1395.684814453125,
             "positionX": 0,
             "positionY": -144,
             "rotation": 0,
             "scaleX": 1.1111111640930176,
             "scaleY": 1.1112140417099,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 1256,
+            "sourceWidth": 960,
+            "width": 1066.666748046875
           }
         },
         {
@@ -1275,15 +1081,15 @@
             "cropRight": 2153,
             "cropToBounds": false,
             "cropTop": 596,
-            "height": 80.7272720336914,
+            "height": 2354.181884765625,
             "positionX": 66,
             "positionY": 226,
             "rotation": 0,
             "scaleX": 1.0910530090332031,
             "scaleY": 1.0909091234207153,
-            "sourceHeight": 74,
-            "sourceWidth": 76,
-            "width": 82.92002868652344
+            "sourceHeight": 2158,
+            "sourceWidth": 3456,
+            "width": 3770.67919921875
           }
         }
       ]
@@ -2958,7 +2764,174 @@
         }
       ]
     },
+    "Sponsor 3 - CTA*": {
+      "sources": [
+        {
+          "sourceName": "Image - Sponsor 3 CTA",
+          "sceneItemId": 7,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": -3840,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 6,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
+    "Sponsor 2 - CTA*": {
+      "sources": [
+        {
+          "sourceName": "Image - Sponsor 2 CTA",
+          "sceneItemId": 14,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 10,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": -3840,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 13,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
     "--- Archive ---": {
+      "sources": []
+    },
+    "Camera - BRB Cam": {
       "sources": []
     },
     "Audio - Ingest": {
@@ -2992,7 +2965,7 @@
         {
           "sourceName": "Browser - Caster 1A VDO |sheet 4",
           "sceneItemId": 2,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -3018,7 +2991,7 @@
         {
           "sourceName": "Browser - Caster 1B VDO |sheet 8",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -3062,6 +3035,32 @@
             "rotation": 0,
             "scaleX": 1.158564805984497,
             "scaleY": 1.1584800481796265,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "A&H QU5D",
+          "sceneItemId": 8,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
             "sourceHeight": 0,
             "sourceWidth": 0,
             "width": 0
@@ -4396,6 +4395,32 @@
           }
         },
         {
+          "sourceName": "BMD - Match 1 Gameplay",
+          "sceneItemId": 20,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": -494,
+            "positionY": 36,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
           "sourceName": "Browser - Match 1 Header VR",
           "sceneItemId": 6,
           "enabled": false,
@@ -4687,8 +4712,8 @@
         },
         {
           "sourceName": "Video - Match 1 Gameplay",
-          "sceneItemId": 6,
-          "enabled": false,
+          "sceneItemId": 10,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -4701,9 +4726,35 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 0,
-            "positionX": -64,
-            "positionY": 4048,
-            "rotation": -90,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Gameplay",
+          "sceneItemId": 11,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": -494,
+            "positionY": 36,
+            "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
             "sourceHeight": 0,
@@ -4769,8 +4820,8 @@
         },
         {
           "sourceName": "Video - Match 1 Gameplay",
-          "sceneItemId": 2,
-          "enabled": false,
+          "sceneItemId": 8,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -4783,9 +4834,35 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 0,
-            "positionX": -64,
-            "positionY": 4048,
-            "rotation": -90,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Gameplay",
+          "sceneItemId": 9,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": -494,
+            "positionY": 36,
+            "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
             "sourceHeight": 0,
@@ -4851,8 +4928,8 @@
         },
         {
           "sourceName": "Video - Match 1 Gameplay",
-          "sceneItemId": 2,
-          "enabled": false,
+          "sceneItemId": 8,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -4865,9 +4942,35 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 0,
-            "positionX": 4020,
-            "positionY": -3760,
-            "rotation": 90,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Gameplay",
+          "sceneItemId": 9,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": -494,
+            "positionY": 36,
+            "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
             "sourceHeight": 0,
@@ -4985,8 +5088,8 @@
         },
         {
           "sourceName": "Video - Match 1 Gameplay",
-          "sceneItemId": 6,
-          "enabled": false,
+          "sceneItemId": 8,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -4999,9 +5102,35 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 0,
-            "positionX": -64,
-            "positionY": 4048,
-            "rotation": -90,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Gameplay",
+          "sceneItemId": 9,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": -494,
+            "positionY": 36,
+            "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
             "sourceHeight": 0,
@@ -5145,34 +5274,8 @@
         },
         {
           "sourceName": "Video - Match 1 Gameplay",
-          "sceneItemId": 3,
+          "sceneItemId": 9,
           "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 124,
-            "height": 0,
-            "positionX": -734,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1.060937523841858,
-            "scaleY": 1.060903787612915,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "BMD - Match 1 Gameplay",
-          "sceneItemId": 5,
-          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -5185,8 +5288,34 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 0,
-            "positionX": -494,
-            "positionY": 36,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Gameplay",
+          "sceneItemId": 5,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 48,
+            "cropRight": 48,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
@@ -5278,8 +5407,8 @@
           }
         },
         {
-          "sourceName": "Video - Match 1 Hand Blue",
-          "sceneItemId": 2,
+          "sourceName": "Video - Match 1 Macro",
+          "sceneItemId": 5,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -5294,6 +5423,32 @@
             "cropTop": 0,
             "height": 0,
             "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Macro",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": -74,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
@@ -5361,7 +5516,7 @@
         },
         {
           "sourceName": "Video - Match 1 Hand Blue",
-          "sceneItemId": 4,
+          "sceneItemId": 6,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -5378,8 +5533,8 @@
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
+            "scaleX": 1,
+            "scaleY": 1,
             "sourceHeight": 0,
             "sourceWidth": 0,
             "width": 0
@@ -5442,6 +5597,32 @@
     "Camera - Match 1 Hand Red": {
       "sources": [
         {
+          "sourceName": "Color Source - BG TES Playmat",
+          "sceneItemId": 5,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": -2,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
+          }
+        },
+        {
           "sourceName": "Media - Match 1 Camera Ingest",
           "sceneItemId": 1,
           "enabled": true,
@@ -5469,7 +5650,7 @@
         },
         {
           "sourceName": "Video - Match 1 Hand Red",
-          "sceneItemId": 4,
+          "sceneItemId": 6,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -5486,8 +5667,34 @@
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Hand Red",
+          "sceneItemId": 7,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
             "sourceHeight": 0,
             "sourceWidth": 0,
             "width": 0
@@ -5551,7 +5758,33 @@
         },
         {
           "sourceName": "Video - Match 1 Player Blue",
-          "sceneItemId": 4,
+          "sceneItemId": 7,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Player Blue",
+          "sceneItemId": 8,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -5633,7 +5866,7 @@
         },
         {
           "sourceName": "Video - Match 1 Player Red",
-          "sceneItemId": 6,
+          "sceneItemId": 11,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -5647,7 +5880,33 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 0,
-            "positionX": 72,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Match 1 Player Red",
+          "sceneItemId": 12,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
@@ -5682,11 +5941,44 @@
             "sourceWidth": 1920,
             "width": 3840
           }
+        }
+      ]
+    },
+    "--- Match 1 Camera Ingest ---": {
+      "sources": []
+    },
+    "Commentator - Pack Opening": {
+      "sources": [
+        {
+          "sourceName": "Color Source - BG TES Playmat",
+          "sceneItemId": 1,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": -2,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
+          }
         },
         {
-          "sourceName": "BMD - Match 1 Player Red",
+          "sourceName": "Video - Commentator Pack Opening",
           "sceneItemId": 7,
-          "enabled": false,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -5708,11 +6000,86 @@
             "sourceWidth": 0,
             "width": 0
           }
+        },
+        {
+          "sourceName": "BMD - Commentator Pack Opening",
+          "sceneItemId": 8,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Media - Match 1 Camera Ingest",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 2920,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 2160,
+            "height": 8160,
+            "positionX": 3840,
+            "positionY": 0,
+            "rotation": 90,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 8000
+          }
+        },
+        {
+          "sourceName": "Color Source - Frame Hand",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
+          }
         }
       ]
-    },
-    "--- Match 1 Camera Ingest ---": {
-      "sources": []
     },
     "Commentator - L3": {
       "sources": [
@@ -6059,9 +6426,35 @@
           }
         },
         {
-          "sourceName": "Video Capture Device",
+          "sourceName": "Video - Commentator Ingest 1UP",
           "sceneItemId": 17,
-          "enabled": false,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "BMD - Commentator Ingest 1UP",
+          "sceneItemId": 18,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -6393,15 +6786,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 1570.291015625,
             "positionX": -679,
             "positionY": -500,
             "rotation": 0,
             "scaleX": 1.2502574920654297,
             "scaleY": 1.2502317428588867,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 1256,
+            "sourceWidth": 960,
+            "width": 1200.2471923828125
           }
         },
         {
@@ -6513,170 +6906,6 @@
     "--- Caster Ingest ---": {
       "sources": []
     },
-    "Sponsor 3 - CTA": {
-      "sources": [
-        {
-          "sourceName": "Image - Sponsor 3 CTA",
-          "sceneItemId": 7,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 4,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": -3840,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 6,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
-    "Sponsor 2 - CTA": {
-      "sources": [
-        {
-          "sourceName": "Image - Sponsor 2 CTA",
-          "sceneItemId": 14,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 10,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": -3840,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 13,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
     "Sponsor 1 - CTA": {
       "sources": [
         {
@@ -6694,15 +6923,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 3002,
-            "positionX": -4,
-            "positionY": 40,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
             "rotation": 0,
             "scaleX": 2,
             "scaleY": 2,
-            "sourceHeight": 1501,
-            "sourceWidth": 1922,
-            "width": 3844
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 3840
           }
         },
         {
@@ -6762,12 +6991,682 @@
     "--- Sponsor ---": {
       "sources": []
     },
+    "Bracket - Top 8": {
+      "sources": [
+        {
+          "sourceName": "Media - BG Info",
+          "sceneItemId": 35,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Group - Bracket PW",
+          "sceneItemId": 39,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 1208,
+            "positionY": -496,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Browser - Bracket Top 8",
+          "sceneItemId": 42,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 7,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 40,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
+    "Standings - Current Round P4": {
+      "sources": [
+        {
+          "sourceName": "Media - BG Info",
+          "sceneItemId": 1,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Group - Standings PW",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 1304,
+            "positionY": -1685.000732421875,
+            "rotation": 0,
+            "scaleX": 1.4291566610336304,
+            "scaleY": 1.429024577140808,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Browser - Standings",
+          "sceneItemId": 3,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 5,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
+    "Standings - Current Round P3": {
+      "sources": [
+        {
+          "sourceName": "Media - BG Info",
+          "sceneItemId": 1,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Group - Standings PW",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 1304,
+            "positionY": -1685.000732421875,
+            "rotation": 0,
+            "scaleX": 1.4291566610336304,
+            "scaleY": 1.429024577140808,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Browser - Standings",
+          "sceneItemId": 3,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 4,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 5,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
+    "Standings - Current Round P2": {
+      "sources": [
+        {
+          "sourceName": "Media - BG Info",
+          "sceneItemId": 1,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Group - Standings PW",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 1304,
+            "positionY": -1685.00048828125,
+            "rotation": 0,
+            "scaleX": 1.4291566610336304,
+            "scaleY": 1.429024577140808,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Browser - Standings",
+          "sceneItemId": 10,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 7,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 8,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
+    "Standings - Current Round P1": {
+      "sources": [
+        {
+          "sourceName": "Media - BG Info",
+          "sceneItemId": 27,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Group - Standings PW",
+          "sceneItemId": 30,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 1304,
+            "positionY": -1685.000732421875,
+            "rotation": 0,
+            "scaleX": 1.4291566610336304,
+            "scaleY": 1.429024577140808,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Browser - Standings",
+          "sceneItemId": 32,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 6,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Event Slides",
+          "sceneItemId": 31,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
     "Event Slides - Metagame": {
       "sources": [
         {
           "sourceName": "Media - BG Info",
           "sceneItemId": 8,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -6896,786 +7795,12 @@
         }
       ]
     },
-    "Standings - Current Round 49-64": {
-      "sources": [
-        {
-          "sourceName": "Media - BG Info",
-          "sceneItemId": 1,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 1,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 1,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Group - Standings PW",
-          "sceneItemId": 2,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 1304,
-            "positionY": -1685.000732421875,
-            "rotation": 0,
-            "scaleX": 1.4291566610336304,
-            "scaleY": 1.429024577140808,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Browser - Standings",
-          "sceneItemId": 3,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 4,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 5,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
-    "Standings - Current Round 33-48": {
-      "sources": [
-        {
-          "sourceName": "Media - BG Info",
-          "sceneItemId": 1,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 1,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 1,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Group - Standings PW",
-          "sceneItemId": 2,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 1304,
-            "positionY": -1685.000732421875,
-            "rotation": 0,
-            "scaleX": 1.4291566610336304,
-            "scaleY": 1.429024577140808,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Browser - Standings",
-          "sceneItemId": 3,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 4,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 5,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
-    "Standings - Current Round 17-32": {
-      "sources": [
-        {
-          "sourceName": "Media - BG Info",
-          "sceneItemId": 1,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 1,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 1,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Group - Standings PW",
-          "sceneItemId": 2,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 1304,
-            "positionY": -1685.00048828125,
-            "rotation": 0,
-            "scaleX": 1.4291566610336304,
-            "scaleY": 1.429024577140808,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Browser - Standings",
-          "sceneItemId": 10,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 7,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 8,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
-    "Standings - Current Round 1-16": {
-      "sources": [
-        {
-          "sourceName": "Media - BG Info",
-          "sceneItemId": 27,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Group - Standings PW",
-          "sceneItemId": 30,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 1304,
-            "positionY": -1685.000732421875,
-            "rotation": 0,
-            "scaleX": 1.4291566610336304,
-            "scaleY": 1.429024577140808,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Browser - Standings",
-          "sceneItemId": 32,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 6,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 31,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
-    "Bracket - Top 8": {
-      "sources": [
-        {
-          "sourceName": "Media - BG Info",
-          "sceneItemId": 35,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Media - BG Bracket",
-          "sceneItemId": 41,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Group - Bracket PW",
-          "sceneItemId": 39,
-          "enabled": false,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 1208,
-            "positionY": -496,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - T8 Bracket Title",
-          "sceneItemId": 2,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Media - T8 Bracket",
-          "sceneItemId": 9,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 200,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 530,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Group - Bracket Top 8",
-          "sceneItemId": 36,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 3306,
-            "positionX": 396,
-            "positionY": 720,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 3306,
-            "sourceWidth": 4865,
-            "width": 4865
-          }
-        },
-        {
-          "sourceName": "Browser - Bracket Top 8",
-          "sceneItemId": 42,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Ingest",
-          "sceneItemId": 7,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Audio - Event Slides",
-          "sceneItemId": 40,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ]
-    },
     "Event Slides - Prize Pool": {
       "sources": [
         {
           "sourceName": "Media - BG Info",
           "sceneItemId": 8,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -7701,7 +7826,7 @@
         {
           "sourceName": "Group - Event Slides PW",
           "sceneItemId": 11,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -7725,55 +7850,29 @@
           }
         },
         {
-          "sourceName": "Image - Prize Pool Notes",
-          "sceneItemId": 7,
+          "sourceName": "Browser - Prize Pool",
+          "sceneItemId": 13,
           "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 0,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
+            "boundsWidth": 0,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 600,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Prize Pool",
-          "sceneItemId": 5,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
+            "height": 2160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
           }
         },
         {
@@ -7835,7 +7934,7 @@
         {
           "sourceName": "Media - BG Info",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -7861,7 +7960,7 @@
         {
           "sourceName": "Group - Event Slides PW",
           "sceneItemId": 14,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -7968,8 +8067,8 @@
       "sources": [
         {
           "sourceName": "Media - BG Info",
-          "sceneItemId": 14,
-          "enabled": true,
+          "sceneItemId": 19,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -7995,7 +8094,7 @@
         {
           "sourceName": "Group - Event Slides PW",
           "sceneItemId": 17,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8019,133 +8118,29 @@
           }
         },
         {
-          "sourceName": "Image - Casters Day 2 4",
-          "sceneItemId": 12,
+          "sourceName": "Browser - Casters 2",
+          "sceneItemId": 20,
           "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 0,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
+            "boundsWidth": 0,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 2160,
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 2 3",
-          "sceneItemId": 11,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 2 2",
-          "sceneItemId": 10,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 2 1",
-          "sceneItemId": 9,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Image - Casters Title",
-          "sceneItemId": 13,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 2,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 1080,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 1920
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
           }
         },
         {
@@ -8206,8 +8201,8 @@
       "sources": [
         {
           "sourceName": "Media - BG Info",
-          "sceneItemId": 12,
-          "enabled": true,
+          "sceneItemId": 19,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8233,7 +8228,7 @@
         {
           "sourceName": "Group - Event Slides PW",
           "sceneItemId": 17,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8257,8 +8252,8 @@
           }
         },
         {
-          "sourceName": "Image - Casters Day 1 4",
-          "sceneItemId": 10,
+          "sourceName": "Browser - Casters 1",
+          "sceneItemId": 20,
           "enabled": true,
           "transform": {
             "alignment": 5,
@@ -8275,114 +8270,10 @@
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 1 3",
-          "sceneItemId": 9,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 1 2",
-          "sceneItemId": 8,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Image - Casters Day 1 1",
-          "sceneItemId": 7,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
-            "width": 3840
-          }
-        },
-        {
-          "sourceName": "Image - Casters Title",
-          "sceneItemId": 4,
-          "enabled": true,
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 2160,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 1080,
-            "sourceWidth": 1920,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
             "width": 3840
           }
         },
@@ -8443,12 +8334,258 @@
     "--- Event Slides Casters ---": {
       "sources": []
     },
+    "Break - Interstitial": {
+      "sources": [
+        {
+          "sourceName": "Media - Interstitial Card Titan",
+          "sceneItemId": 2,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 3,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        }
+      ]
+    },
+    "Break - Sponsor": {
+      "sources": [
+        {
+          "sourceName": "Media - Sponsor 4",
+          "sceneItemId": 7,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Media - Sponsor 3",
+          "sceneItemId": 8,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Media - Sponsor 2",
+          "sceneItemId": 9,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 360,
+            "rotation": 0,
+            "scaleX": 0.6666666865348816,
+            "scaleY": 0.6666666865348816,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Media - Sponsor 1",
+          "sceneItemId": 6,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
+    "Break - Intro": {
+      "sources": [
+        {
+          "sourceName": "Media - Intro",
+          "sceneItemId": 1,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Group - Starting Soon Countdown",
+          "sceneItemId": 3,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 1.5042855739593506,
+            "positionX": 1418,
+            "positionY": 1458,
+            "rotation": 0,
+            "scaleX": 0.5009980201721191,
+            "scaleY": 0.5014285445213318,
+            "sourceHeight": 3,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        }
+      ]
+    },
     "Break - Ending": {
       "sources": [
         {
+          "sourceName": "Commentator - Ingest 1UP",
+          "sceneItemId": 14,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": -993,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
           "sourceName": "Browser - Ending",
           "sceneItemId": 13,
-          "enabled": false,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8474,7 +8611,7 @@
         {
           "sourceName": "Media - Ending Character",
           "sceneItemId": 8,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8528,9 +8665,35 @@
     "Break - Be Right Back": {
       "sources": [
         {
+          "sourceName": "Commentator - Ingest 1UP",
+          "sceneItemId": 18,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": -965,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
           "sourceName": "Browser - Be Right Back",
           "sceneItemId": 17,
-          "enabled": false,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8556,7 +8719,7 @@
         {
           "sourceName": "Media - BRB Character",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8586,21 +8749,21 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 2,
+            "boundsHeight": 492,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 2,
+            "boundsWidth": 2000,
             "cropBottom": 0,
-            "cropLeft": 134,
+            "cropLeft": 216,
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 180,
-            "positionX": 2122,
-            "positionY": 1222,
+            "height": 515.1547241210938,
+            "positionX": 2445,
+            "positionY": 1432,
             "rotation": 0,
-            "scaleX": 2,
-            "scaleY": 2,
-            "sourceHeight": 90,
+            "scaleX": 2.3730404376983643,
+            "scaleY": 2.3739848136901855,
+            "sourceHeight": 217,
             "sourceWidth": 0,
             "width": 0
           }
@@ -8636,9 +8799,35 @@
     "Break - Starting Soon": {
       "sources": [
         {
+          "sourceName": "Commentator - Ingest 1UP",
+          "sceneItemId": 20,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": -965,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
           "sourceName": "Browser - Starting Soon",
           "sceneItemId": 19,
-          "enabled": false,
+          "enabled": true,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8664,7 +8853,7 @@
         {
           "sourceName": "Media - Starting Soon Character",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
@@ -8698,17 +8887,17 @@
             "boundsType": "OBS_BOUNDS_NONE",
             "boundsWidth": 2000,
             "cropBottom": 0,
-            "cropLeft": 134,
+            "cropLeft": 216,
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 213.65863037109375,
-            "positionX": 2122,
-            "positionY": 1200,
+            "height": 515.1547241210938,
+            "positionX": 2472,
+            "positionY": 1432,
             "rotation": 0,
             "scaleX": 2.3730404376983643,
             "scaleY": 2.3739848136901855,
-            "sourceHeight": 90,
+            "sourceHeight": 217,
             "sourceWidth": 0,
             "width": 0
           }
@@ -8743,6 +8932,166 @@
     },
     "--- Break ---": {
       "sources": []
+    },
+    "Commentators - Pack Opening": {
+      "sources": [
+        {
+          "sourceName": "Commentator - Ingest 1UP",
+          "sceneItemId": 1,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 102,
+            "cropRight": 102,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 1476,
+            "positionX": 86,
+            "positionY": 428,
+            "rotation": 0,
+            "scaleX": 0.6833333373069763,
+            "scaleY": 0.6833333373069763,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 2624
+          }
+        },
+        {
+          "sourceName": "Commentator - Pack Opening",
+          "sceneItemId": 8,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 100,
+            "cropLeft": 1384,
+            "cropRight": 1384,
+            "cropToBounds": false,
+            "cropTop": 100,
+            "height": 2196.367431640625,
+            "positionX": 2666,
+            "positionY": 85,
+            "rotation": 0,
+            "scaleX": 1.0167582035064697,
+            "scaleY": 1.0168367624282837,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3904.3515625
+          }
+        },
+        {
+          "sourceName": "Commentator - Ingest 1B",
+          "sceneItemId": 2,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 2,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 2,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 960,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 1920,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Commentator - Ingest 1A",
+          "sceneItemId": 3,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 1920,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Browser - Commentators Pack Opening",
+          "sceneItemId": 7,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 6,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        }
+      ]
     },
     "Commentators": {
       "sources": [
@@ -8867,7 +9216,7 @@
             "cropTop": 0,
             "height": 2160,
             "positionX": 0,
-            "positionY": 300,
+            "positionY": 350,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
@@ -8910,7 +9259,7 @@
     "Match 2 - Sponsor": {
       "sources": [
         {
-          "sourceName": "Sponsor 3 - CTA",
+          "sourceName": "Sponsor 3 - CTA*",
           "sceneItemId": 7,
           "enabled": true,
           "transform": {
@@ -8936,7 +9285,7 @@
           }
         },
         {
-          "sourceName": "Sponsor 2 - CTA",
+          "sourceName": "Sponsor 2 - CTA*",
           "sceneItemId": 8,
           "enabled": true,
           "transform": {
@@ -12266,6 +12615,114 @@
             "sourceHeight": 4080,
             "sourceWidth": 4000,
             "width": 8000
+          }
+        }
+      ]
+    },
+    "Match 2 - Live Backup NDI": {
+      "sources": [
+        {
+          "sourceName": "NDI™ Source",
+          "sceneItemId": 10,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 2,
+            "scaleY": 2,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Audio - Ingest",
+          "sceneItemId": 7,
+          "enabled": true,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2160,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 3840
+          }
+        },
+        {
+          "sourceName": "Media - Match 2 Camera Ingest",
+          "sceneItemId": 8,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 4080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 4080,
+            "sourceWidth": 4000,
+            "width": 4000
+          }
+        },
+        {
+          "sourceName": "Commentator - Ingest 1UP",
+          "sceneItemId": 11,
+          "enabled": false,
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 606,
+            "positionX": 2676,
+            "positionY": 777,
+            "rotation": 0,
+            "scaleX": 0.28072917461395264,
+            "scaleY": 0.2805555462837219,
+            "sourceHeight": 2160,
+            "sourceWidth": 3840,
+            "width": 1078
           }
         }
       ]
@@ -16686,14 +17143,14 @@
             "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
             "boundsWidth": 1,
-            "cropBottom": 0,
+            "cropBottom": 80,
             "cropLeft": 0,
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
             "height": 606,
             "positionX": 2676,
-            "positionY": 777,
+            "positionY": 787,
             "rotation": 0,
             "scaleX": 0.28072917461395264,
             "scaleY": 0.2805555462837219,

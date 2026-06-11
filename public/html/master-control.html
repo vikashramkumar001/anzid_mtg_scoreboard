@@ -86,6 +86,18 @@
                 </button>
             </li>
             <li class="nav-item" role="presentation">
+                <button class="nav-link" id="standings-tab" data-bs-toggle="tab" data-bs-target="#standings-control"
+                    type="button" role="tab" aria-controls="standings" aria-selected="false">
+                    Standings
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pairings-tab" data-bs-toggle="tab" data-bs-target="#pairings-control"
+                    type="button" role="tab" aria-controls="pairings" aria-selected="false">
+                    Pairings
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="bracket-tab" data-bs-toggle="tab" data-bs-target="#bracket-control"
                     type="button" role="tab" aria-controls="bracket" aria-selected="false">
                     Bracket
@@ -96,6 +108,13 @@
                     data-bs-target="#meta-breakdown-control" type="button" role="tab" aria-controls="meta-breakdown"
                     aria-selected="false">
                     Meta Breakdown
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="player-view-tab" data-bs-toggle="tab"
+                    data-bs-target="#player-view-control" type="button" role="tab" aria-controls="player-view"
+                    aria-selected="false">
+                    Player View
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -583,6 +602,9 @@ CommentatorC
                         <ul id="playerRosterList" class="list-group">
                             <!-- Player roster items will be dynamically added here -->
                         </ul>
+                        <button id="deleteAllPlayersBtn" class="btn btn-danger btn-sm mt-3" type="button">
+                            Delete All Players
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1690,6 +1712,60 @@ CommentatorC
 
             </div>
 
+            <!-- Standings Tab Content -->
+            <!-- Per-round sub-tabs mirror the Matches tab's roundTabs structure.
+                 The empty <ul>/<div> below are filled in dynamically by
+                 renderRoundTabs() in matches.js: every round gets a parallel
+                 sub-tab here AND a content pane that the standings card is
+                 appended into. The standings card itself (built by
+                 renderStandings()) carries its own "Fetch Standings" button +
+                 textarea + FQ 2v2 override panel — moves wholesale from the
+                 Matches tab to this tab without splitting up. -->
+            <div class="tab-pane fade" id="standings-control" role="tabpanel" aria-labelledby="standings-tab">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h2>Standings</h2>
+                        <hr>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs" id="standingsRoundTabs" role="tablist">
+                    <!-- Round sub-tabs inserted dynamically by renderRoundTabs() -->
+                </ul>
+                <div class="tab-content" id="standingsRoundTabsContent">
+                    <!-- Round sub-tab panes inserted dynamically by renderRoundTabs() -->
+                </div>
+            </div>
+
+            <!-- Pairings Tab Content -->
+            <!-- Mirrors the Standings tab structure exactly: per-round sub-tabs
+                 are populated dynamically by renderRoundTabs() in matches.js,
+                 and each pane gets a `Fetch Pairings` button + a sortable /
+                 searchable table populated by renderPairings() when the
+                 server emits `tournament-pairings-fetched`. Pairings are
+                 cached server-side under
+                 data/cardeio/pairings-api-event-{eventId}-round-{N}.json
+                 (Carde.io v2 matches-list endpoint, Token auth) so reloading
+                 master-control repaints instantly via `get-all-pairings`. -->
+            <div class="tab-pane fade" id="pairings-control" role="tabpanel" aria-labelledby="pairings-tab">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h2>Pairings</h2>
+                        <hr>
+                    </div>
+                    <!-- Status line for the bulk missing-rounds fill that
+                         piggybacks on every per-round Fetch Pairings click.
+                         Hidden by default; populated by the matches.js
+                         `fetch-missing-pairings-progress` listener. -->
+                    <div class="col-12" id="fetch-missing-pairings-status" style="display:none;"></div>
+                </div>
+                <ul class="nav nav-tabs" id="pairingsRoundTabs" role="tablist">
+                    <!-- Round sub-tabs inserted dynamically by renderRoundTabs() -->
+                </ul>
+                <div class="tab-content" id="pairingsRoundTabsContent">
+                    <!-- Round sub-tab panes inserted dynamically by renderRoundTabs() -->
+                </div>
+            </div>
+
             <!-- Meta Breakdown Tab Content -->
         <div class="tab-pane fade" id="meta-breakdown-control" role="tabpanel" aria-labelledby="card-view-tab">
             <div class="row mt-3">
@@ -1722,12 +1798,106 @@ CommentatorC
                         <h4 id="meta-day1-total" class="mb-0 text-info"></h4>
                         <h4 id="meta-day2-total" class="mb-0 text-success"></h4>
                     </div>
-                </div>
-                <div class="row" id="meta-breakdown-cards-container">
-                    <!-- Archetype cards + Other row generated by JS -->
-                </div>
 
+                    <!-- Input / Matrix sub-tabs. The shared inputs above
+                         (day-1 round / day-2 start / cutoff / show #)
+                         feed BOTH sub-tabs. Matrix shows a legend-vs-
+                         legend matchup grid derived from cached pairings
+                         × decklists; the Input sub-tab keeps the existing
+                         per-archetype cards untouched. -->
+                    <ul class="nav nav-tabs" id="metaSubTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="meta-input-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#meta-input-content"
+                                type="button" role="tab"
+                                aria-controls="meta-input-content"
+                                aria-selected="true">Input</button>
+                        </li>
+                        <li class="nav-item riftbound-only" role="presentation">
+                            <button class="nav-link" id="meta-matrix-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#meta-matrix-content"
+                                type="button" role="tab"
+                                aria-controls="meta-matrix-content"
+                                aria-selected="false">Matrix</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="metaSubTabsContent">
+                        <div class="tab-pane fade show active" id="meta-input-content"
+                            role="tabpanel" aria-labelledby="meta-input-tab">
+                            <div class="row mt-3" id="meta-breakdown-cards-container">
+                                <!-- Archetype cards + Other row generated by JS -->
+                            </div>
+                        </div>
+                        <div class="tab-pane fade riftbound-only" id="meta-matrix-content"
+                            role="tabpanel" aria-labelledby="meta-matrix-tab">
+                            <div class="d-flex align-items-center gap-3 mt-3 mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox"
+                                        role="switch" id="meta-matrix-day2-only">
+                                    <label class="form-check-label" for="meta-matrix-day2-only">
+                                        Day 2 only
+                                    </label>
+                                </div>
+                                <span id="meta-matrix-status" class="text-muted small"></span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered meta-matrix-table mb-0">
+                                    <thead id="meta-matrix-thead"></thead>
+                                    <tbody id="meta-matrix-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            </div>
+
+            <!-- Player View Tab Content -->
+            <!-- Search players in the current event and view their full
+                 decklist. Joins decklists + registrations cached for the
+                 active tournament. Decklist render shows legend +
+                 champion + battlefield + main deck + rune pool +
+                 sideboard, all from the same Carde decklist payload the
+                 meta-breakdown legend lookup uses. -->
+            <div class="tab-pane fade" id="player-view-control" role="tabpanel" aria-labelledby="player-view-tab">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h2>Player View</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Left column: search + roster table -->
+                    <div class="col-lg-5">
+                        <div class="mb-2 d-flex align-items-center gap-2">
+                            <input type="text" id="player-view-search" class="form-control form-control-sm"
+                                placeholder="Search player or legend…" autocomplete="off">
+                            <span id="player-view-count" class="text-muted small flex-shrink-0"></span>
+                        </div>
+                        <div id="player-view-status" class="text-muted small mb-2"></div>
+                        <div class="table-responsive player-view-roster-wrap">
+                            <table class="table table-sm table-hover player-view-roster mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Player</th>
+                                        <th>Legend</th>
+                                        <th>Deck</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="player-view-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Right column: selected player's decklist -->
+                    <div class="col-lg-7">
+                        <div id="player-view-decklist" class="player-view-decklist">
+                            <p class="text-muted">Select a player to view their decklist.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Draft List Tab Content -->

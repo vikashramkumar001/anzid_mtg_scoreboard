@@ -126,7 +126,19 @@
       "Bash(node scripts/inspect-psd.mjs public/assets/images/mtg/decklist/mtg-decklist-frame-flyquest-2v2.psd)",
       "Bash(node --check public/js/broadcast-round-main-deck.js)",
       "Bash(node scripts/inspect-psd.mjs \"public/assets/images/mtg/decklist/mtg-decklist-frame-flyquest-2v2.psd\")",
-      "Bash(node scripts/inspect-psd.mjs \"public/assets/images/mtg/decklist/mtg-decklist-flyquest-2v2.psd\")"
+      "Bash(node scripts/inspect-psd.mjs \"public/assets/images/mtg/decklist/mtg-decklist-flyquest-2v2.psd\")",
+      "Bash(xargs -I {} ls -la \"{}\")",
+      "Bash(awk 'NR==566 || NR==617 || NR==857 || NR==906 || NR==1158 || NR==1196 {printf \"L%d: <%s>\\\\n\", NR, $0}' \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/js/vendor-config.js\")",
+      "Bash(node --check \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/js/vendor-config.js\")",
+      "Bash(node scripts/inspect-psd.mjs public/assets/images/riftbound/scoreboard/frame/riftbound-scoreboard-frame-dsg-2v2.psd)",
+      "Bash(node \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/scripts/inspect-psd.mjs\" \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/assets/images/riftbound/scoreboard/frame/riftbound-scoreboard-frame-dsg-2v2.psd\")",
+      "Bash(curl -sf -o /dev/null -w \"%{http_code}\" http://localhost:3000/scoreboard/match1)",
+      "Bash(curl -sf -o /dev/null -w '%{http_code}' http://localhost:__TRACKED_VAR__/scoreboard/match1)",
+      "Bash(node -c \"/Users/anuraagdas/Desktop/dev/coverage hub/anzid_mtg_scoreboard/public/js/scoreboard.js\")",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "Bash(cat)",
+      "Bash(python /tmp/extract_psd.py)",
+      "Bash(cat > *)"
     ],
     "additionalDirectories": [
       "/Users/anuraagdas/Desktop"

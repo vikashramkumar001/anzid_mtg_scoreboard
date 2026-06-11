@@ -302,6 +302,23 @@ export function initTournamentPlatform(socket) {
                     populateOverridePanelFromFetch(roundId, result.standings);
                 }
 
+                // Best of Legend refresh (riftbound only) — recompute the
+                // per-round legend leaderboard from the freshly-fetched
+                // standings. The server's `get-best-of-legend` handler
+                // reads standings JSON fresh from disk and joins against
+                // cached decklists, so we fire it AFTER the textarea's
+                // input event above (which saves the new standings to
+                // disk via the existing standings-save handler). Result:
+                // operator clicks Fetch Standings once, gets both the
+                // standings + the updated BoL cards for every round.
+                // Gated on game=riftbound because BoL is riftbound-only
+                // (the cards themselves are hidden via .riftbound-only
+                // CSS for other games, but emitting needlessly would
+                // still hit the server).
+                if (document.body.dataset.game === 'riftbound') {
+                    socket.emit('get-best-of-legend');
+                }
+
                 alert('Standings fetched successfully! Use the Broadcast button to send to displays.');
             }
         }

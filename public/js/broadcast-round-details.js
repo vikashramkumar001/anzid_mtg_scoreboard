@@ -95,7 +95,7 @@ function updateTheme(game, vendor, playerCount) {
         vc.getAllOverrideProperties().forEach(prop => {
             document.documentElement.style.removeProperty(prop);
         });
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             // Resolve bg-image paths with playerCount suffix
             if (prop.endsWith('-bg-image') && value.includes('/assets/')) {

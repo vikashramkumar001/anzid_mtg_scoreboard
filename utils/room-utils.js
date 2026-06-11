@@ -95,6 +95,14 @@ export class RoomUtils {
             
             // Broadcast events
             'broadcast-round-data': ['broadcast-details', 'broadcast-main-deck', 'broadcast-side-deck', 'broadcast-draft-list', 'broadcast-standings', 'broadcast-scoreboard', 'riftbound-animation-display-1', 'riftbound-animation-display-2', 'riftbound-animation-display-3', 'riftbound-animation-display-4'],
+            // Battlefield-row visibility flips fan out to scoreboard + master-control:
+            //   - scoreboard-{1..4}: re-render the .riftbound-bf-row strip.
+            //   - master-control:    sync the inline Hide checkboxes for any
+            //     other operator's tab.
+            // 'global' covers both with one emit; pages without a subscriber
+            // (broadcast-* / event-info) ignore the payload so the extra
+            // reach is harmless.
+            'battlefield-visibility-updated': ['global'],
             
             // Overlay events
             'overlayHeaderBackgroundUpdate': ['global'],

@@ -23,6 +23,15 @@ router.get('/control/:controlID/:delay', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/control.html'));
 });
 
+// Admin control — a more robust per-match control board. Starts as a clone
+// of /control but adds game-specific admin tools (riftbound: showdown might,
+// battlefield selection, brush override, baron pit). Shares the same
+// control-{id} room + saved-state as /control (see room-manager.js), so it's
+// a co-equal control client for the same match.
+router.get('/admin-control/:controlID/:delay', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/admin-control.html'));
+});
+
 // Event-info scenes — minimal image-only pages that swap based on
 // current game/vendor/playerCount selection. Identifier format:
 // /event-info/starting-soon, /event-info/head-to-head, etc.
@@ -188,8 +197,9 @@ router.post('/upload-archetype-image', uploadArchetypeImage.single('image'), han
 
 // Upload player portrait (roster). Multer parses multipart so req.body.playerName
 // is available when portraitStorage's filename callback runs, keeping the saved
-// filename deterministic (<slug>.<ext>). handlePortraitUpload then patches the
-// matching roster entry's portraitUrl and persists playerRoster.json.
+// filename deterministic (<slug>.<ext>). handlePortraitUpload confirms the
+// player exists in the current vendor's bucket and returns the resolved URL —
+// no JSON write, since the roster is derived from the portrait files themselves.
 router.post('/upload-player-portrait', uploadPortrait.single('portrait'), handlePortraitUpload);
 
 // Save portrait focus values from debug overlay

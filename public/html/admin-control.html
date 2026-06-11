@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Room Manager -->
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/admin-control.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============================================================
+     BASE CONTROL BOARD — upright two-column layout (admin).
+     Same field IDs + data flow as control.html (per-field
+     `field-updated` via admin-control.js), restructured into a
+     shared top bar + left/right player columns. The second counter
+     swaps XP (riftbound) ↔ Poison (mtg) by game.
+     ============================================================ -->
+<div id="control-base" class="admin-base-v2">
+
+    <!-- Shared top bar: event info + timer + reset -->
+    <div class="abv2-topbar">
+        <div class="abv2-event-group">
+            <div class="abv2-field-inline">
+                <div class="abv2-label">EVENT</div>
+                <div id="event-name" class="abv2-event-val editable dynamic" contenteditable="true"></div>
+            </div>
+            <div class="abv2-field-inline">
+                <div class="abv2-label">ROUND</div>
+                <div id="event-round" class="abv2-event-val editable dynamic" contenteditable="true"></div>
+            </div>
+            <div class="abv2-field-inline">
+                <div class="abv2-label">FORMAT</div>
+                <div id="event-format" class="abv2-event-val editable dynamic" contenteditable="true"></div>
+            </div>
+        </div>
+        <div class="abv2-timer">
+            <span id="timer">00:00</span>
+            <button class="timer-buttons" id="timer-start" title="Start">▶</button>
+            <button class="timer-buttons" id="timer-pause" title="Pause">⏸</button>
+            <button class="timer-buttons" id="timer-add" title="+1 min">＋</button>
+            <button class="timer-buttons" id="timer-minus" title="-1 min">−</button>
+            <button class="timer-buttons" id="timer-reset" title="Reset">⭮</button>
+            <button class="timer-buttons abv2-tbtn-turn" id="timer-turn-minus">-Turn</button>
+            <button class="timer-buttons abv2-tbtn-turn" id="timer-turn-plus">+Turn</button>
+        </div>
+        <button type="button" class="abv2-reset reset-life-btn">Reset Life</button>
+    </div>
+
+    <!-- Player columns -->
+    <div class="abv2-players">
+
+        <!-- LEFT PLAYER -->
+        <div class="abv2-col left">
+            <div class="abv2-nameband">
+                <div class="abv2-label">NAME</div>
+                <div id="player-name-left" class="abv2-name editable dynamic" contenteditable="true"></div>
+            </div>
+            <div class="abv2-colbody">
+                <div class="abv2-cell">
+                    <div class="abv2-label">ARCHETYPE</div>
+                    <div id="player-archetype-left" class="abv2-val editable dynamic" contenteditable="true"></div>
+                </div>
+                <div class="abv2-row2">
+                    <div class="abv2-cell">
+                        <div class="abv2-label">PRONOUNS</div>
+                        <div id="player-pronouns-left" class="abv2-val editable dynamic" contenteditable="true"></div>
+                    </div>
+                    <div class="abv2-cell">
+                        <div class="abv2-label">RECORD</div>
+                        <div id="player-record-left" class="abv2-val editable dynamic" contenteditable="true"></div>
+                    </div>
+                </div>
+                <div class="abv2-counters">
+                    <div class="abv2-counter">
+                        <div class="abv2-label">WINS</div>
+                        <div class="abv2-stepper">
+                            <button type="button" class="abv2-step" data-target="player-wins-left" data-delta="-1" data-min="0">−</button>
+                            <div id="player-wins-left" class="abv2-num dynamic">0</div>
+                            <button type="button" class="abv2-step" data-target="player-wins-left" data-delta="1" data-min="0">+</button>
+                        </div>
+                    </div>
+                    <!-- XP (riftbound) -->
+                    <div class="abv2-counter counter-xp">
+                        <div class="abv2-label">XP</div>
+                        <div class="abv2-stepper">
+                            <button type="button" class="abv2-step" data-target="player-xp-left" data-delta="-1" data-min="0">−</button>
+                            <div id="player-xp-left" class="abv2-num dynamic">0</div>
+                            <button type="button" class="abv2-step" data-target="player-xp-left" data-delta="1" data-min="0">+</button>
+                        </div>
+                    </div>
+                    <!-- Poison (mtg) -->
+                    <div class="abv2-counter counter-poison" style="display:none;">
+                        <div class="abv2-label">POISON</div>
+                        <div class="abv2-stepper">
+                            <button type="button" class="abv2-step" data-target="player-poison-left" data-delta="-1" data-min="0">−</button>
+                            <div id="player-poison-left" class="abv2-num dynamic">0</div>
+                            <button type="button" class="abv2-step" data-target="player-poison-left" data-delta="1" data-min="0">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="abv2-cell abv2-life">
+                    <div class="abv2-label">LIFE</div>
+                    <div class="abv2-stepper">
+                        <button type="button" class="abv2-step" data-target="player-life-left" data-delta="-1">−</button>
+                        <div id="player-life-left" class="abv2-num dynamic">20</div>
+                        <button type="button" class="abv2-step" data-target="player-life-left" data-delta="1">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PLAYER -->
+        <div class="abv2-col right">
+            <div class="abv2-nameband">
+                <div class="abv2-label">NAME</div>
+                <div id="player-name-right" class="abv2-name editable dynamic" contenteditable="true"></div>
+            </div>
+            <div class="abv2-colbody">
+                <div class="abv2-cell">
+                    <div class="abv2-label">ARCHETYPE</div>
+                    <div id="player-archetype-right" class="abv2-val editable dynamic" contenteditable="true"></div>
+                </div>
+                <div class="abv2-row2">
+                    <div class="abv2-cell">
+                        <div class="abv2-label">PRONOUNS</div>
+                        <div id="player-pronouns-right" class="abv2-val editable dynamic" contenteditable="true"></div>
+                    </div>
+                    <div class="abv2-cell">
+                        <div class="abv2-label">RECORD</div>
+                        <div id="player-record-right" class="abv2-val editable dynamic" contenteditable="true"></div>
+                    </div>
+                </div>
+                <div class="abv2-counters">
+                    <div class="abv2-counter">
+                        <div class="abv2-label">WINS</div>
+                        <div class="abv2-stepper">
+                            <button type="button" class="abv2-step" data-target="player-wins-right" data-delta="-1" data-min="0">−</button>
+                            <div id="player-wins-right" class="abv2-num dynamic">0</div>
+                            <button type="button" class="abv2-step" data-target="player-wins-right" data-delta="1" data-min="0">+</button>
+                        </div>
+                    </div>
+                    <!-- XP (riftbound) -->
+                    <div class="abv2-counter counter-xp">
+                        <div class="abv2-label">XP</div>
+                        <div class="abv2-stepper">
+                            <button type="button" class="abv2-step" data-target="player-xp-right" data-delta="-1" data-min="0">−</button>
+                            <div id="player-xp-right" class="abv2-num dynamic">0</div>
+                            <button type="button" class="abv2-step" data-target="player-xp-right" data-delta="1" data-min="0">+</button>
+                        </div>
+                    </div>
+                    <!-- Poison (mtg) -->
+                    <div class="abv2-counter counter-poison" style="display:none;">
+                        <div class="abv2-label">POISON</div>
+                        <div class="abv2-stepper">
+                            <button type="button" class="abv2-step" data-target="player-poison-right" data-delta="-1" data-min="0">−</button>
+                            <div id="player-poison-right" class="abv2-num dynamic">0</div>
+                            <button type="button" class="abv2-step" data-target="player-poison-right" data-delta="1" data-min="0">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="abv2-cell abv2-life">
+                    <div class="abv2-label">LIFE</div>
+                    <div class="abv2-stepper">
+                        <button type="button" class="abv2-step" data-target="player-life-right" data-delta="-1">−</button>
+                        <div id="player-life-right" class="abv2-num dynamic">20</div>
+                        <button type="button" class="abv2-step" data-target="player-life-right" data-delta="1">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ============================================================
+     RIFTBOUND ADMIN TOOLS — shown only when game === 'riftbound'.
+     All controls write through the same per-field `field-updated`
+     path (see admin-control.js). Field IDs are the bare control-data
+     keys (this page maps to a single match), so they hydrate via
+     loadSavedState and the scoreboard consumes them unchanged.
+     ============================================================ -->
+<div id="riftbound-admin" class="riftbound-admin" style="display:none;">
+    <h2 class="ra-title">Riftbound — Battlefield &amp; Showdown</h2>
+
+    <!-- Battlefields: Left | Right | Baron Pit -->
+    <div class="ra-grid ra-battlefields">
+        <!-- LEFT PLAYER -->
+        <div class="ra-col ra-bf-col" data-side="left">
+            <div class="ra-col-head">
+                <span>Left Player — Battlefield</span>
+                <button type="button" class="ra-brush-btn" data-side="left" aria-pressed="false">Brush Override</button>
+            </div>
+            <label class="ra-bf-opt">
+                <input type="radio" name="bf-left-select" class="ra-bf-radio" data-side="left" data-bf="1" value="1" checked>
+                <div id="player-battlefield-1-left" class="editable dynamic ra-bf-slot" contenteditable="true"></div>
+            </label>
+            <label class="ra-bf-opt">
+                <input type="radio" name="bf-left-select" class="ra-bf-radio" data-side="left" data-bf="2" value="2">
+                <div id="player-battlefield-2-left" class="editable dynamic ra-bf-slot" contenteditable="true"></div>
+            </label>
+            <label class="ra-bf-opt">
+                <input type="radio" name="bf-left-select" class="ra-bf-radio" data-side="left" data-bf="3" value="3">
+                <div id="player-battlefield-3-left" class="editable dynamic ra-bf-slot" contenteditable="true"></div>
+            </label>
+            <div class="ra-picker" data-side="left">
+                <input type="text" class="ra-picker-input" data-side="left" placeholder="Override with any battlefield…" autocomplete="off">
+                <div class="ra-picker-list"></div>
+            </div>
+            <div class="ra-active-line">Active: <span class="ra-active-name" data-side="left">—</span></div>
+            <!-- Hidden active field the scoreboard reads -->
+            <div id="player-battlefield-left" class="ra-active-field" style="display:none;"></div>
+        </div>
+
+        <!-- RIGHT PLAYER -->
+        <div class="ra-col ra-bf-col" data-side="right">
+            <div class="ra-col-head">
+                <span>Right Player — Battlefield</span>
+                <button type="button" class="ra-brush-btn" data-side="right" aria-pressed="false">Brush Override</button>
+            </div>
+            <label class="ra-bf-opt">
+                <input type="radio" name="bf-right-select" class="ra-bf-radio" data-side="right" data-bf="1" value="1" checked>
+                <div id="player-battlefield-1-right" class="editable dynamic ra-bf-slot" contenteditable="true"></div>
+            </label>
+            <label class="ra-bf-opt">
+                <input type="radio" name="bf-right-select" class="ra-bf-radio" data-side="right" data-bf="2" value="2">
+                <div id="player-battlefield-2-right" class="editable dynamic ra-bf-slot" contenteditable="true"></div>
+            </label>
+            <label class="ra-bf-opt">
+                <input type="radio" name="bf-right-select" class="ra-bf-radio" data-side="right" data-bf="3" value="3">
+                <div id="player-battlefield-3-right" class="editable dynamic ra-bf-slot" contenteditable="true"></div>
+            </label>
+            <div class="ra-picker" data-side="right">
+                <input type="text" class="ra-picker-input" data-side="right" placeholder="Override with any battlefield…" autocomplete="off">
+                <div class="ra-picker-list"></div>
+            </div>
+            <div class="ra-active-line">Active: <span class="ra-active-name" data-side="right">—</span></div>
+            <div id="player-battlefield-right" class="ra-active-field" style="display:none;"></div>
+        </div>
+
+        <!-- BARON PIT -->
+        <div class="ra-col ra-baron-col">
+            <div class="ra-col-head">
+                <span>Baron Pit (BF 3)</span>
+                <button type="button" class="ra-baron-brush-btn" aria-pressed="false">Brush Override</button>
+            </div>
+            <label class="ra-baron-enable">
+                <input type="checkbox" id="showdown-bf-3-enabled-toggle" class="ra-baron-toggle">
+                <span>Enable Baron Pit</span>
+            </label>
+            <p class="ra-hint">When enabled, BF 3 becomes available as a Showdown battlefield below (name auto-fills "Baron Pit").</p>
+        </div>
+    </div>
+
+    <!-- Showdown Might -->
+    <div class="ra-showdown">
+        <div class="ra-col-head ra-showdown-head">
+            <span>Showdown Might Tracker</span>
+            <button type="button" class="ra-show-btn" aria-pressed="false">Show on Scoreboard</button>
+        </div>
+        <div class="ra-might-headrow">
+            <span class="ra-mh-active">Active</span>
+            <span class="ra-mh-name">Battlefield</span>
+            <span class="ra-mh-might">Left Might</span>
+            <span class="ra-mh-might">Right Might</span>
+        </div>
+
+        <!-- BF 1 -->
+        <div class="ra-might-row" data-bf="1">
+            <input type="radio" name="showdown-active-bf" class="ra-active-radio" data-bf="1" value="1" checked>
+            <div id="showdown-bf-1-name" class="editable dynamic ra-might-name" contenteditable="true"></div>
+            <div class="ra-stepper">
+                <button type="button" class="ra-might-minus" data-target="showdown-bf-1-left-might">-</button>
+                <div id="showdown-bf-1-left-might" class="editable dynamic ra-might-val" contenteditable="true">0</div>
+                <button type="button" class="ra-might-plus" data-target="showdown-bf-1-left-might">+</button>
+            </div>
+            <div class="ra-stepper">
+                <button type="button" class="ra-might-minus" data-target="showdown-bf-1-right-might">-</button>
+                <div id="showdown-bf-1-right-might" class="editable dynamic ra-might-val" contenteditable="true">0</div>
+                <button type="button" class="ra-might-plus" data-target="showdown-bf-1-right-might">+</button>
+            </div>
+        </div>
+
+        <!-- BF 2 -->
+        <div class="ra-might-row" data-bf="2">
+            <input type="radio" name="showdown-active-bf" class="ra-active-radio" data-bf="2" value="2">
+            <div id="showdown-bf-2-name" class="editable dynamic ra-might-name" contenteditable="true"></div>
+            <div class="ra-stepper">
+                <button type="button" class="ra-might-minus" data-target="showdown-bf-2-left-might">-</button>
+                <div id="showdown-bf-2-left-might" class="editable dynamic ra-might-val" contenteditable="true">0</div>
+                <button type="button" class="ra-might-plus" data-target="showdown-bf-2-left-might">+</button>
+            </div>
+            <div class="ra-stepper">
+                <button type="button" class="ra-might-minus" data-target="showdown-bf-2-right-might">-</button>
+                <div id="showdown-bf-2-right-might" class="editable dynamic ra-might-val" contenteditable="true">0</div>
+                <button type="button" class="ra-might-plus" data-target="showdown-bf-2-right-might">+</button>
+            </div>
+        </div>
+
+        <!-- BF 3 (Baron) — hidden until Baron Pit enabled -->
+        <div class="ra-might-row ra-bf3-row" data-bf="3" style="display:none;">
+            <input type="radio" name="showdown-active-bf" class="ra-active-radio" data-bf="3" value="3">
+            <div id="showdown-bf-3-name" class="editable dynamic ra-might-name" contenteditable="true"></div>
+            <div class="ra-stepper">
+                <button type="button" class="ra-might-minus" data-target="showdown-bf-3-left-might">-</button>
+                <div id="showdown-bf-3-left-might" class="editable dynamic ra-might-val" contenteditable="true">0</div>
+                <button type="button" class="ra-might-plus" data-target="showdown-bf-3-left-might">+</button>
+            </div>
+            <div class="ra-stepper">
+                <button type="button" class="ra-might-minus" data-target="showdown-bf-3-right-might">-</button>
+                <div id="showdown-bf-3-right-might" class="editable dynamic ra-might-val" contenteditable="true">0</div>
+                <button type="button" class="ra-might-plus" data-target="showdown-bf-3-right-might">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/js/admin-control.js"></script>
+
+</body>
+</html>

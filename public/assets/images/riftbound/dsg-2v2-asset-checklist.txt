@@ -1,0 +1,111 @@
+DSG 2v2 ASSET CHECKLIST
+=======================
+
+Generated alongside the riftbound-dsg-2v2 vendor-config clone work.
+Tracks which DSG asset files exist vs. which the broadcast pages expect.
+
+Page behavior when a file is missing: code is defensive — broken/blank
+image, no crash. Add only what DSG 2v2 actually plans to use.
+
+
+[x] FILES YOU HAVE
+==================
+data/obs exports/riftbound-obsconfig-dsg-2v2.json
+public/assets/images/riftbound/event-info/riftbound-pack-opening-dsg-2v2.png
+public/assets/images/riftbound/event-info/riftbound-pack-opening-dsg-2v2.psd
+public/assets/images/riftbound/scoreboard/frame/riftbound-scoreboard-frame-dsg-2v2.png
+public/assets/images/riftbound/scoreboard/frame/riftbound-scoreboard-frame-dsg-2v2.psd
+
+
+[ ] REQUIRED BY VENDOR-CONFIG (will 404 today)
+==============================================
+public/assets/images/riftbound/decklist/frame/
+[ ] riftbound-decklist-frame-dsg-2v2-left.png        — --rb-dl-frame-left
+[ ] riftbound-decklist-frame-dsg-2v2-right.png       — --rb-dl-frame-right
+
+
+[ ] REQUIRED BY BROADCAST PAGES (page renders blank if missing)
+===============================================================
+public/assets/images/riftbound/scoreboard/frame/
+[ ] riftbound-scoreboard-frame-hand-left-dsg-2v2.png    — /scoreboard/.../left
+[ ] riftbound-scoreboard-frame-hand-right-dsg-2v2.png   — /scoreboard/.../right
+
+public/assets/images/riftbound/scoreboard/pips/
+[ ] scoreboard-pips-dsg-2v2-left.png
+[ ] scoreboard-pips-dsg-2v2-right.png
+
+public/assets/images/riftbound/lower-third/
+[ ] riftbound-lower-third-commentator-dsg-2v2.png
+[ ] riftbound-lower-third-player-dsg-2v2.png
+
+public/assets/images/riftbound/head-to-head/
+[ ] riftbound-head-to-head-frame-dsg-2v2.png
+
+public/assets/images/riftbound/standings/
+[ ] riftbound-standings-bg-dsg-2v2.png
+[ ] riftbound-standings-frame-dsg-2v2.png
+
+public/assets/images/riftbound/commentator/
+[ ] riftbound-commentator-frame-dsg-2v2.png
+
+public/assets/images/riftbound/metagame/
+[ ] riftbound-metagame-bg-dsg-2v2.png
+[ ] riftbound-metagame-swirl-dsg-2v2.png
+
+
+[ ] EVENT-INFO SCENES (one per scene; only the ones DSG plans to use)
+=====================================================================
+public/assets/images/riftbound/event-info/
+[ ] riftbound-be-right-back-dsg-2v2.png
+[ ] riftbound-casters-1-dsg-2v2.png
+[ ] riftbound-casters-2-dsg-2v2.png
+[ ] riftbound-commentators-dsg-2v2-full.png
+[ ] riftbound-commentators-dsg-2v2-vertical.png
+[ ] riftbound-ending-dsg-2v2.png
+[ ] riftbound-prizes-dsg-2v2.png
+[ ] riftbound-schedule-dsg-2v2.png
+[ ] riftbound-starting-soon-dsg-2v2.png
+
+
+[ ] BRACKET (only if DSG runs a bracket scene)
+==============================================
+public/assets/images/riftbound/bracket/
+[ ] riftbound-bracket-bg-dsg-2v2.png
+[ ] riftbound-bracket-frame-dsg-2v2.png
+
+
+[ ] OPTIONAL VIDEO BACKGROUNDS (mp4 wins over png if present)
+=============================================================
+public/assets/animations/riftbound/shared/
+[ ] riftbound-event-bg-dsg-2v2.mp4
+
+public/assets/animations/riftbound/metagame/
+[ ] riftbound-metagame-bg-dsg-2v2.mp4
+[ ] riftbound-metagame-swirl-dsg-2v2.mp4
+
+
+[ ] DECKLIST BACKGROUND (FQ has one; TES doesn't — DSG can go either way)
+=========================================================================
+public/assets/images/riftbound/decklist/
+[ ] riftbound-decklist-bg-dsg-2v2.png
+
+
+[ ] PREPOPULATED DATA (optional, only for demos)
+================================================
+[ ] data/dsg-2v2-decklist.json
+
+
+DSG 1v1 (separate scope — not addressed in this pass)
+=====================================================
+The vendor-config also scaffolds dsg['1v1'] referencing -dsg-1v1 paths.
+None of those files exist yet. If DSG 1v1 is a planned event, you'll
+need the same list above with -dsg-1v1 suffixes plus
+data/obs exports/riftbound-obsconfig-dsg-1v1.json. If 1v1 isn't planned,
+ignore — the block falls back gracefully (no caller hits it until master
+control sets playerCount=1v1 on DSG).
+
+
+MINIMUM FOR A BASIC BROADCAST PASS
+==================================
+The first two checklist sections above (vendor-config required + broadcast
+pages required). Everything below those is per-scene optional.

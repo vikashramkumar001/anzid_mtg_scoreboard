@@ -322,3 +322,528 @@ select.dropdown-dirty {
 body[data-vendor="flyquest"][data-player-count="2v2"] .fq-groups-section {
     display: block;
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+   BEST OF LEGEND CARD (riftbound only)
+   ────────────────────────────────────────────────────────────────────
+   Lives inside each Standings tab round sub-tab pane, paired
+   side-by-side with the standings textarea card (col-6 each).
+   Shows per-Legend top-N leaderboard with a portrait avatar per
+   legend.
+   ─────────────────────────────────────────────────────────────────── */
+
+/* Bootstrap quirk: `.tab-pane.active.show` sets `display: block`
+   which beats `.row`'s `display: flex` due to source order in the
+   Bootstrap CSS. We bolt the row layout back on for our standings
+   round panes specifically — id-prefixed selector for high enough
+   specificity to win. Without this, the standings card and BoL
+   card stack vertically instead of laying out left/right. */
+#standingsRoundTabsContent > .tab-pane.row.active.show {
+    display: flex;
+    flex-wrap: wrap;
+}
+.riftbound-only {
+    display: none;
+}
+body[data-game="riftbound"] .riftbound-only {
+    display: block;
+}
+
+/* Responsive grid — single column inside the col-6 right pane on
+   typical laptop widths, two columns at desktop widths. The minmax
+   target shrinks to 280px since the BoL card is now half-width
+   (was full-width when the layout had standings + BoL stacked). */
+.bol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+}
+
+/* Set-filter dropdown — Bootstrap `dropdown-menu` with checkbox
+   options ("OGS+OGN / SFD / UNL / Other"). Most of the styling
+   comes from Bootstrap; we just nudge the dropdown items to feel
+   tighter and add a hover state matching the rest of master-control's
+   dark theme. */
+.bol-set-dropdown .bol-set-toggle {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.bol-set-dropdown .bol-set-count {
+    font-weight: normal;
+    opacity: 0.7;
+    margin-left: 4px;
+}
+.bol-set-dropdown .dropdown-item.bol-set-option {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: 13px;
+    user-select: none;
+}
+.bol-set-dropdown .dropdown-item.bol-set-option:hover {
+    background-color: rgba(240, 213, 137, 0.15);
+}
+.bol-set-dropdown .bol-set-checkbox {
+    margin-top: 0;
+}
+
+/* One legend's leaderboard block — portrait left, content right. */
+.bol-legend {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    transition: background-color 120ms ease, border-color 120ms ease;
+}
+.bol-legend:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Round portrait avatar — Riot-style circular crop. */
+.bol-portrait {
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bol-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.bol-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.bol-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+.bol-legend-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0d589;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bol-deck-count {
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+/* Top-5 list — slim rows, position number left, player middle,
+   record + overall rank right. */
+.bol-top5 {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: bol;
+}
+.bol-row {
+    display: grid;
+    /* Three columns: position (fixed) · player (flexible, gets all
+       freed-up space) · meta (record + overall rank stacked
+       vertically on the right). Was four columns before — collapsing
+       record+rank into one stacked cell gives long IGNs the room
+       they need to render without ellipsis truncation. */
+    grid-template-columns: 28px 1fr auto;
+    gap: 8px;
+    align-items: center;
+    padding: 4px 0;
+    border-top: 1px dashed rgba(255, 255, 255, 0.06);
+    font-size: 13px;
+    line-height: 1.2;
+}
+/* Stacked meta cell on the right side of each top-N row. Right-
+   aligned so the record/rank read as a tight column flush with the
+   block edge. */
+.bol-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1px;
+    line-height: 1.1;
+    min-width: 50px;
+}
+.bol-row:first-child {
+    border-top: none;
+}
+.bol-position {
+    font-weight: 700;
+    text-align: center;
+    color: #f0d589;
+    opacity: 0.85;
+}
+/* First-place row gets a brighter accent so the actual "Best of"
+   winner is visually distinct from the rest of the top-5. */
+.bol-row:first-child .bol-position {
+    opacity: 1;
+    font-size: 15px;
+    color: #ffe488;
+}
+.bol-player {
+    min-width: 0;
+}
+.bol-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bol-real {
+    margin-top: -2px;
+}
+.bol-record {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    text-align: right;
+    min-width: 44px;
+    color: #fff;
+}
+.bol-rank {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    min-width: 60px;
+}
+
+/* Empty/error states — keep the card visible but show why it's blank. */
+.bol-status {
+    font-style: italic;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Standings searchable table — sits below the standings textarea.
+ * Mirror of the pairings table styling so the two cards read as a
+ * pair (rank-aligned numeric columns, hover striping, sticky header
+ * inside the scroll container at max-height: 60vh).
+ * ───────────────────────────────────────────────────────────────── */
+.standings-table {
+    font-size: 13px;
+}
+.standings-table thead th {
+    /* Sticky so headers stay visible inside the 60vh-tall scroll
+       container. Default to a Bootstrap-light card surface; the
+       dark-theme override below swaps to the matching dark surface
+       so scrolled rows don't bleed through (which `background: inherit`
+       allowed because the parent was transparent). */
+    position: sticky;
+    top: 0;
+    background: #f8f9fa;
+    z-index: 1;
+}
+[data-bs-theme="dark"] .standings-table thead th {
+    /* Same dark surface other master-control chrome uses
+       (.round-broadcast-container at line 263+). */
+    background: #212529;
+    color: #dee2e6;
+}
+.standings-table td:first-child {
+    /* Rank column — numeric right-align */
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    font-weight: 600;
+}
+.standings-table td:last-child {
+    /* Record column — numeric tabular */
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Meta-breakdown matchup matrix — N×N legend-vs-legend grid.
+ * Row/column labels rotate the column headers slightly for legibility
+ * when N is large. Cells are color-coded by win % (good/neutral/bad).
+ * Mirror cells (Legend A vs Legend A) use a muted gray.
+ * ───────────────────────────────────────────────────────────────── */
+.meta-matrix-table {
+    font-size: 12px;
+    table-layout: fixed;
+    /* Don't stretch to container — width is determined by the
+       per-column widths below (rowlabel + N × cell). Without `width:
+       auto`, table-layout:fixed would size columns evenly across the
+       container and the squares would warp into rectangles when the
+       parent gets wider than N×80px. */
+    width: auto;
+}
+.meta-matrix-table thead th,
+.meta-matrix-table tbody th {
+    background: #f8f9fa;
+    font-weight: 600;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Dark-theme overrides — same surface other master-control chrome
+   uses (#212529 in .round-broadcast-container around line 263). Without
+   this, header cells render as light bars on dark theme — same bug
+   as .standings-table thead before the dark-mode override was added. */
+[data-bs-theme="dark"] .meta-matrix-table thead th,
+[data-bs-theme="dark"] .meta-matrix-table tbody th {
+    background: #212529;
+    color: #dee2e6;
+}
+.meta-matrix-corner {
+    /* Top-left empty cell where row headers + column headers intersect */
+    width: 180px;
+    min-width: 180px;
+}
+.meta-matrix-collabel {
+    /* Column header — fixed width matches the data cell width below
+       so col header + cell stack as a true square column. */
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    font-size: 11px;
+    padding: 6px 2px;
+}
+.meta-matrix-rowlabel {
+    /* Row header — full width, ellipsis if too long. Title attribute
+       on the element gives full name on hover. */
+    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+    font-size: 12px;
+    padding: 6px 8px;
+}
+.meta-matrix-cell {
+    /* True squares — equal width/height. Forced width because <td>
+       doesn't have a default width; height is explicit so we don't
+       depend on content size. Bumped from 80→90 to accommodate the
+       larger 16px text + (W%) suffix without wrapping. */
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+    height: 90px;
+    text-align: center;
+    vertical-align: middle;
+    font-variant-numeric: tabular-nums;
+    padding: 4px 2px;
+    white-space: nowrap;
+    /* All cell text is white — color signal lives in the bg.
+       Buckets below only set background; this is the single source
+       of truth for text color. */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+.meta-matrix-pct {
+    /* Slightly smaller + dimmer than the main W-L number, but still
+       white-on-color (no per-bucket color overrides). */
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 2px;
+}
+.meta-matrix-label-count {
+    /* "(392)" suffix on row/column headers — same size as the label
+       but dimmer so the legend name still reads first. */
+    opacity: 0.65;
+    font-weight: 400;
+}
+/* Match the collabel/rowlabel width so col headers stay above
+   their square cells. Also bump the column header so the legend
+   names don't get clipped at the new 90px width. */
+.meta-matrix-collabel,
+.meta-matrix-cell {
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+}
+
+/* Win-rate color buckets — solid colors fill the whole square so
+   the matrix reads as a heatmap at a glance. Text stays white via
+   the .meta-matrix-cell rule above.
+   We set `--bs-table-bg` instead of `background` because Bootstrap 5
+   paints cell backgrounds via an inset box-shadow keyed off that
+   variable (see .table CSS). Plain `background` gets covered by the
+   shadow; setting the var swaps the shadow color and the green/amber/
+   red actually shows up. */
+.meta-matrix-cell-good {
+    /* Strong green — favorable matchup (≥60% win rate) */
+    --bs-table-bg: #198754;
+    background-color: #198754;
+}
+.meta-matrix-cell-neutral {
+    /* Amber — coin-flip matchup (40-60%) */
+    --bs-table-bg: #d99e2b;
+    background-color: #d99e2b;
+}
+.meta-matrix-cell-bad {
+    /* Strong red — unfavorable matchup (≤40%) */
+    --bs-table-bg: #dc3545;
+    background-color: #dc3545;
+}
+.meta-matrix-cell-empty {
+    /* No data — muted neutral so the cell visually disappears */
+    --bs-table-bg: #495057;
+    background-color: #495057;
+    color: rgba(255, 255, 255, 0.5);
+}
+.meta-matrix-cell-mirror {
+    /* Same legend on both sides — N/A for win-rate, shown muted */
+    --bs-table-bg: #6c757d;
+    background-color: #6c757d;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+}
+
+/* ── Player View tab ─────────────────────────────────────────────────
+   Layout: two columns. Left column scrolls the roster table (sticky
+   header so search results stay anchored as the table grows); right
+   column scrolls the per-player decklist independently. Both columns
+   stay within the master-control content area without forcing the
+   whole page to scroll. */
+.player-view-roster-wrap {
+    /* Constrain height + scroll the table independently so the search
+       box stays visible at the top while operator scrolls through
+       1500+ players. */
+    max-height: 70vh;
+    overflow-y: auto;
+}
+.player-view-roster thead th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+}
+[data-bs-theme="dark"] .player-view-roster thead th {
+    /* Dark mode sticky header — match Bootstrap's dark table bg so the
+       header doesn't pop white against the dark rows. */
+    background: #212529;
+    color: #f8f9fa;
+}
+.player-view-row {
+    cursor: pointer;
+}
+.player-view-row.table-active td {
+    /* Selected row — bump the highlight a notch over Bootstrap's
+       default so the picked player stands out clearly. */
+    font-weight: 600;
+}
+.player-view-name {
+    font-weight: 500;
+}
+.player-view-subname {
+    /* Show real name below display name when both are present. */
+    margin-top: 1px;
+    font-size: 0.85em;
+}
+.player-view-decklist {
+    /* Match the roster's max-height + scroll so both columns stay in
+       lockstep visually. */
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+.player-view-header h4 {
+    margin-bottom: 0;
+}
+.player-view-key-cards {
+    /* Legend / Champion / Battlefield trio at the top of the decklist
+       — small horizontal cards so they don't dominate the deck list. */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.player-view-key-card {
+    /* Each key-card is a small column of "label / value". */
+    padding: 8px 12px;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 6px;
+    min-width: 140px;
+}
+.player-view-key-label {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+.player-view-key-value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.player-view-key-value > div + div {
+    /* Multi-line value (Battlefields stack 3 cards) — small gap between
+       each card name so they don't crowd. */
+    margin-top: 2px;
+}
+.player-view-totals {
+    /* Section quantity summary at the top — Main: 50, Sideboard: 15, etc. */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: rgba(128, 128, 128, 0.9);
+}
+.player-view-section-title {
+    /* Section heading inside the decklist (Main / Rune Pool / Sideboard). */
+    margin-bottom: 8px;
+    font-weight: 600;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+.player-view-card-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    columns: 2;
+    column-gap: 24px;
+}
+.player-view-card {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 2px 0;
+    break-inside: avoid;
+}
+.player-view-card-qty {
+    /* Quantity badge — fixed width so card names line up. */
+    display: inline-block;
+    min-width: 24px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: rgba(128, 128, 128, 0.9);
+}
+.player-view-card-name {
+    flex: 1;
+}
+.player-view-card-domains {
+    /* Domain tags after the card name — small + dim. */
+    margin-left: 6px;
+    font-size: 0.8em;
+}
+
+/* Single-column card lists on narrow screens — the col-lg-7 right pane
+   collapses to full width, but the card grid stays readable. */
+@media (max-width: 991px) {
+    .player-view-roster-wrap,
+    .player-view-decklist {
+        max-height: none;
+    }
+    .player-view-card-list {
+        columns: 1;
+    }
+}

@@ -10,6 +10,7 @@ import {initGameSelection} from './game-selection.js';
 import {initTournamentPlatform} from './tournament-platform.js';
 import {initDraftList} from './draft-list.js';
 import {initGroups} from './groups.js';
+import {initPlayerView} from './player-view.js';
 
 const socket = io();
 
@@ -44,4 +45,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     initTournamentPlatform(socket);
     initDraftList(socket);
     initGroups(socket);
+    initPlayerView(socket);
 });

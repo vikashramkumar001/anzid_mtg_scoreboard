@@ -5,6 +5,11 @@ import { fileURLToPath } from 'url';
 import { RoomUtils } from '../utils/room-utils.js';
 import { RIFTBOUND_CHAMPIONS } from '../config/riftbound/constants.js';
 
+// Hoisted to the top so persistPlatformConfig() / PLATFORM_CONFIG_PATH
+// (defined further down) can reference it without TDZ violations.
+const __filename_tp = fileURLToPath(import.meta.url);
+const __dirname_tp = path.dirname(__filename_tp);
+
 // Browser-like headers to help bypass Cloudflare
 const BROWSER_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -82,6 +87,47 @@ export function setPlatformConfig(config) {
     if (config.meleeClientId) platformConfig.meleeClientId = config.meleeClientId;
     if (config.meleeClientSecret) platformConfig.meleeClientSecret = config.meleeClientSecret;
     if (config.topdeckApiKey) platformConfig.topdeckApiKey = config.topdeckApiKey;
+    // Persist operator-set fields so the active event survives server
+    // restarts. Fire-and-forget — error logged but not propagated, since
+    // this is a "nice to have" save and the in-memory update has already
+    // taken effect for any caller awaiting setPlatformConfig.
+    persistPlatformConfig().catch(e => {
+        console.error('[Platform] Failed to persist platform config:', e.message);
+    });
+}
+
+// Path for the persisted operator-set platform config. Lives next to
+// other operator state under data/. API keys are NOT persisted (they
+// stay in .env / process.env), only platform + tournamentId.
+const PLATFORM_CONFIG_PATH = path.join(__dirname_tp, '..', 'data', 'platformConfig.json');
+
+async function persistPlatformConfig() {
+    const persistable = {
+        platform: platformConfig.platform,
+        tournamentId: platformConfig.tournamentId
+    };
+    await fsPromises.mkdir(path.dirname(PLATFORM_CONFIG_PATH), { recursive: true });
+    await fsPromises.writeFile(PLATFORM_CONFIG_PATH, JSON.stringify(persistable, null, 2));
+}
+
+// Boot loader — restores the operator's last saved platform + tournament
+// ID. Missing file is fine (first boot); we just leave defaults and the
+// operator can configure via Global Settings. Called from server.js
+// during initialize().
+export async function loadPlatformConfig() {
+    try {
+        const raw = await fsPromises.readFile(PLATFORM_CONFIG_PATH, 'utf8');
+        const saved = JSON.parse(raw);
+        if (saved.platform) platformConfig.platform = saved.platform;
+        if (saved.tournamentId) platformConfig.tournamentId = saved.tournamentId;
+        console.log(`[Platform] Restored config — platform=${platformConfig.platform} tournamentId=${platformConfig.tournamentId}`);
+    } catch (e) {
+        if (e.code === 'ENOENT') {
+            console.log('[Platform] No saved config — starting with defaults.');
+            return;
+        }
+        console.error('[Platform] Failed to load saved config:', e.message);
+    }
 }
 
 // Emit platform config to clients
@@ -90,8 +136,6 @@ export function emitPlatformConfig(io) {
 }
 
 // --- Carde.io / Riftbound support ---
-const __filename_tp = fileURLToPath(import.meta.url);
-const __dirname_tp = path.dirname(__filename_tp);
 const CARDEIO_DIR = path.join(__dirname_tp, '../data/cardeio');
 
 const RUNE_NAME_TO_LETTER = { calm: 'g', chaos: 'p', fury: 'r', mind: 'b', order: 'y', body: 'o' };
@@ -881,6 +925,61 @@ async function fetchTopdeckStandings(tournamentId) {
     }
 }
 
+// Fetch pairings (matches) for a specific round from Carde.io v2 API.
+//
+// Uses the same paginated Spicerack endpoint as standings; the URL just
+// flips from /standings/ → /matches-list/. Auth is Token-only (no cookie
+// session needed) — verified against anu-api's generated SDK at
+// `~/Desktop/dev/anu-api/src/client/sdk.gen.ts:16306`. Caches the raw
+// paginated response to disk under
+// data/cardeio/pairings-api-event-{eventId}-round-{N}.json
+// so reconnects + page reloads don't need to refetch.
+//
+// `roundNumber` is the master-control round (1..N); the function looks
+// up the Carde-internal round ID via cardeioRoundMap, which must be
+// populated first via fetchCardeioEventDetail() (the master-control
+// "Save tournament config" flow does this automatically).
+export async function fetchCardeioPairings(roundNumber) {
+    const token = platformConfig.cardeioToken;
+    if (!token) throw new Error('CARDEIO_TOKEN not set in .env');
+
+    const tournamentId = platformConfig.tournamentId;
+    if (!tournamentId) {
+        throw new Error('No tournament ID set. Configure platform tournament ID first.');
+    }
+
+    const cardeRoundId = platformConfig.cardeioRoundMap?.[roundNumber]
+        || platformConfig.cardeioRoundMap?.[String(roundNumber)]
+        || platformConfig.cardeioRoundMap?.[Number(roundNumber)];
+    if (!cardeRoundId) {
+        throw new Error(`No Carde round ID for round ${roundNumber}. Save tournament config first to populate the round map.`);
+    }
+
+    const url = `https://api.admin.carde.io/api/v2/organize/tournament-rounds/${cardeRoundId}/matches-list/`;
+    console.log(`[Carde] Fetching pairings for round ${roundNumber} (carde id ${cardeRoundId}, event ${tournamentId})`);
+
+    let allMatches;
+    try {
+        allMatches = await fetchAllSpicerackPages(url, token);
+    } catch (e) {
+        if (e.response?.status === 401) {
+            throw new Error('Authentication failed — CARDEIO_TOKEN may be expired. Update .env and restart.');
+        }
+        throw e;
+    }
+
+    console.log(`[Carde] Fetched ${allMatches.length} pairings entries for round ${roundNumber}`);
+
+    // Cache raw response — scoped by event ID so switching tournaments
+    // doesn't pollute the new event with stale data from the old one.
+    await fsPromises.mkdir(CARDEIO_DIR, { recursive: true });
+    const cachePath = path.join(CARDEIO_DIR, `pairings-api-event-${tournamentId}-round-${roundNumber}.json`);
+    await fsPromises.writeFile(cachePath, JSON.stringify(allMatches, null, 2));
+    console.log(`[Carde] Cached ${allMatches.length} pairings to ${cachePath}`);
+
+    return allMatches;
+}
+
 // Fetch standings from Carde.io via Spicerack JSON API
 // Auto-pulls previous round's standings to avoid spoilers
 async function fetchCardeioStandings(tournamentId, roundId) {
@@ -924,9 +1023,11 @@ async function fetchCardeioStandings(tournamentId, roundId) {
         console.log(`[Carde] Sample standings entry:`, JSON.stringify(allStandings[0], null, 2).substring(0, 500));
     }
 
-    // Cache raw API response for debugging/reference
+    // Cache raw API response for debugging/reference — scoped by event ID
+    // so switching tournaments doesn't pollute the new event with stale
+    // data from the old one.
     await fsPromises.mkdir(CARDEIO_DIR, { recursive: true });
-    const cachePath = path.join(CARDEIO_DIR, `standings-api-round-${prevRound}.json`);
+    const cachePath = path.join(CARDEIO_DIR, `standings-api-event-${tournamentId}-round-${prevRound}.json`);
     await fsPromises.writeFile(cachePath, JSON.stringify(allStandings, null, 2));
     console.log(`[Carde] Cached ${allStandings.length} standings entries to ${cachePath}`);
 

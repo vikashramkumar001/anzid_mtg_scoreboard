@@ -83,3 +83,84 @@ body[data-scene="pack-opening"] .ei-text {
     color:          var(--ei-pack-opening-text-color,          #fff);
     text-transform: var(--ei-pack-opening-text-transform,      uppercase);
 }
+
+/* The 'battlefields' scene moved to /scoreboard/match1's lower-third strip;
+   see .riftbound-bf-row in scoreboard.css and updateRiftboundBattlefieldsRow()
+   in scoreboard.js. /event-info/battlefields still resolves (PNG only) so
+   stale OBS sources don't 404, but no L3 overlay is rendered here. */
+
+/* ──────────────────────────────────────────────────────────────────────
+   /event-info/schedule (CSL Bologna multi-layer design)
+   3 stacked PNG layers:
+     z=0  #background           bg PNG (gradient + branding sidebar)
+     z=1  #event-info-data      data PNG (day blocks, transparent canvas)
+     z=2  #event-info-character character PNG (Yasuo, transparent canvas)
+   The data layer animates in on page load via @keyframes scheduleEntrance
+   (top-to-bottom row reveal via clip-path with steps()).
+   ────────────────────────────────────────────────────────────────────── */
+
+/* Default state for the frame + data + character images — hidden unless
+   event-info.js explicitly sets src + display:'block' for a layered
+   scene. Keeps all three inert for all the existing single-PNG scenes.
+   Stacking order (bottom → top):
+     z=0  #background           — base bg layer (set via background-image)
+     z=0  #background-video     — optional MP4 swap-in for the bg
+     z=1  #event-info-frame     — decorative chrome / branding overlay
+     z=2  #event-info-data      — dynamic-looking content layer (day
+                                   blocks, schedule rows, etc.)
+     z=3  #event-info-character — foreground character art (top) */
+#event-info-frame,
+#event-info-data,
+#event-info-character {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    pointer-events: none;
+    display: none;
+    object-fit: contain;
+}
+#event-info-frame     { z-index: 1; }
+#event-info-data      { z-index: 2; }
+#event-info-character { z-index: 3; object-position: left center; }
+
+/* Schedule scene under default vendor — default (no `.animating` class)
+   state matches the FROM frame of the entrance animation: hidden + 40px
+   below its rest position. This pairs with the obs-leave-schedule socket
+   handler in event-info.js, which removes the `.animating` class the
+   moment the operator cuts AWAY from the schedule scene. Removing the
+   class causes the element to snap back to this hidden default WHILE
+   the scene is off-screen, so the next cut back to the schedule scene
+   starts from a hidden data layer and the entrance animation fades it
+   in cleanly — no "snap from end-state to start-state" flash visible
+   to the operator.
+   Also covers fresh page-load state: before the initial `.animating`
+   class is applied (see triggerScheduleAnimation('initial-load') in
+   event-info.js), the data layer is already at the from-state, so the
+   first animation fades in cleanly without a static-then-snap flash. */
+body[data-scene="schedule"][data-vendor="default"] #event-info-data {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Schedule scene under default vendor — animate the data layer in on
+   page load AND on OBS scene transitions. The animation is gated on
+   the `.animating` class so JS can re-trigger it (remove → reflow →
+   re-add) when the obs-animate-schedule socket event fires. Without
+   this re-trigger, OBS browser sources that stay loaded across scene
+   switches wouldn't re-play the entrance animation. `forwards` fill
+   mode keeps the element at the TO frame (opacity 1, translateY 0)
+   after the animation completes, overriding the hidden default rule
+   above for as long as the class remains on the element. */
+body[data-scene="schedule"][data-vendor="default"] #event-info-data.animating {
+    animation: scheduleDataEntrance 0.8s ease-out forwards;
+}
+
+/* Fade in + slide up — opacity 0→1, transform 40px→0. Gives the data
+   layer a clean "rise" feel on scene reveal. Bg + char don't animate
+   (they're already onscreen instantly when the layer becomes visible). */
+@keyframes scheduleDataEntrance {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

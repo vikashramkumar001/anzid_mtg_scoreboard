@@ -52,41 +52,60 @@ function applyVendorOverrides() {
     if (!vc) return;
     // Clear any previously-set override, then re-apply for current game+vendor.
     vc.getAllOverrideProperties().forEach(prop => document.documentElement.style.removeProperty(prop));
-    const overrides = vc.getOverrides(currentGame, currentVendor);
+    const overrides = vc.getOverrides(currentGame, currentVendor, currentPlayerCount);
     Object.entries(overrides).forEach(([prop, value]) => document.documentElement.style.setProperty(prop, value));
 }
 
-// ── Player-roster lookup (name → portraitUrl) ─────────────────────────────
-// Kept as a Map so per-icon lookups are O(1) when saved-state arrives.
-// Rebuilt on every `playerRosterUpdated` broadcast; the master-control editor
-// emits this after any add/delete/portrait-upload.
-//
-// Lookup is case-insensitive + whitespace-trimmed: operators enter names as
-// free text on control.html (with autocomplete assist), so "LS" vs "ls" or
-// "Anna Margaret " vs "Anna Margaret" shouldn't break the icon match. Keys
-// are normalized here and on lookup via normalizeName().
-let rosterByName = new Map();
-// Last saved-state cached so we can re-stamp icons when the roster arrives
-// AFTER the match state (order-of-arrival isn't guaranteed on page load).
+// ── Per-vendor player portraits ───────────────────────────────────────────
+// Mirrors the lookup convention used by scoreboard.js applyIcon():
+//   /assets/images/{game}/shared/player-portraits/{vendor}-{playerCount}/{slug}.png
+// Default vendor (or any vendor without a matching file) → no portrait shown.
+// The legacy global roster (rosterByName / playerRosterUpdated) is retained
+// here for compatibility with other code paths but no longer drives the
+// per-match scene's player icons.
+let rosterByName = new Map();    // unused for portraits; kept for compat.
 let lastMatchData = null;
 
 function normalizeName(name) {
     return (name || '').toLowerCase().trim();
 }
 
+// "Rob Stanley" → "rob-stanley". Matches on-disk per-vendor folder convention.
+function nameToSlug(name) {
+    return (name || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
 function applyIcon(iconId, name) {
     const img = document.getElementById(iconId);
     if (!img) return;
-    const url = name ? rosterByName.get(normalizeName(name)) : null;
-    if (url) {
-        // Cache-bust so re-uploading a portrait refreshes on open scenes
-        // (roster payload doesn't include a version; timestamp is enough).
-        img.src = url + '?v=' + Date.now();
-        img.style.display = '';
-    } else {
+
+    if (!name || !currentVendor || currentVendor === 'default' || !currentGame) {
+        img.onerror = null;
+        img.onload = null;
         img.removeAttribute('src');
         img.style.display = 'none';
+        return;
     }
+
+    const slug = nameToSlug(name);
+    const url = `/assets/images/${currentGame}/shared/player-portraits/${currentVendor}-${currentPlayerCount}/${slug}.png`;
+
+    img.onerror = function () {
+        if (img.getAttribute('src') === url) {
+            img.removeAttribute('src');
+            img.style.display = 'none';
+        }
+    };
+    img.onload = function () {
+        if (img.getAttribute('src') === url) {
+            img.style.display = '';
+        }
+    };
+    img.src = url;
 }
 
 function applyAllIcons() {
@@ -134,33 +153,41 @@ socket.emit('get-game-selection');
 socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
 
+// All 6 selection-change handlers re-stamp icons after updating state so
+// the per-vendor portrait pool resolves with the new game/vendor/count.
 socket.on('server-current-game-selection', ({ gameSelection }) => {
     currentGame = gameSelection;
     applyVendorOverrides();
     updateFrame();
+    applyAllIcons();
 });
 socket.on('game-selection-updated', ({ gameSelection }) => {
     currentGame = gameSelection;
     applyVendorOverrides();
     updateFrame();
+    applyAllIcons();
 });
 socket.on('server-current-vendor-selection', ({ vendorSelection }) => {
     currentVendor = vendorSelection;
     applyVendorOverrides();
     updateFrame();
+    applyAllIcons();
 });
 socket.on('vendor-selection-updated', ({ vendorSelection }) => {
     currentVendor = vendorSelection;
     applyVendorOverrides();
     updateFrame();
+    applyAllIcons();
 });
 socket.on('server-current-player-count', ({ playerCount }) => {
     currentPlayerCount = playerCount;
     document.body.dataset.playerCount = playerCount;  // gates 2v2-only CSS vars
     updateFrame();
+    applyAllIcons();
 });
 socket.on('player-count-updated', ({ playerCount }) => {
     currentPlayerCount = playerCount;
     document.body.dataset.playerCount = playerCount;  // gates 2v2-only CSS vars
     updateFrame();
+    applyAllIcons();
 });

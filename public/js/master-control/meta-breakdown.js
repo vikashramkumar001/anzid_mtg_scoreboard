@@ -322,7 +322,160 @@ export function initMetaBreakdown(socket) {
         }
 
         populateMetagameCards();
+        renderMatchupMatrix();
     });
+
+    // ── Matchup matrix (Riftbound) ─────────────────────────────────────
+    // Reads cachedMetagameResult.matchupMatrix.{all,day2} and renders
+    // an N×N table where N = current "Show #" input. Rows + columns
+    // are top-N legends by play count (same set the Input cards use).
+    // Day-2 toggle is a Bootstrap form-switch (#meta-matrix-day2-only)
+    // — flipping it re-renders client-side, no server round-trip.
+    function renderMatchupMatrix() {
+        const thead = document.getElementById('meta-matrix-thead');
+        const tbody = document.getElementById('meta-matrix-tbody');
+        const status = document.getElementById('meta-matrix-status');
+        if (!thead || !tbody) return;
+        const result = cachedMetagameResult;
+        const matrix = result?.matchupMatrix;
+        if (!matrix) {
+            thead.innerHTML = '';
+            tbody.innerHTML = '';
+            if (status) status.textContent = 'Run Calculate Metagame to populate the matrix.';
+            return;
+        }
+
+        const day2Only = !!document.getElementById('meta-matrix-day2-only')?.checked;
+        const data = day2Only ? matrix.day2 : matrix.all;
+        const showCount = parseInt(document.getElementById('meta-archetype-count')?.value) || 7;
+        // Top-N legends — re-use the same sorted list the Input cards
+        // already display (already day1/day2-aware sort).
+        const legends = (result.allArchetypesSorted || []).slice(0, showCount).map(a => a.name);
+
+        if (legends.length === 0) {
+            thead.innerHTML = '';
+            tbody.innerHTML = '<tr><td class="text-muted">No legend data — calculate metagame first.</td></tr>';
+            if (status) status.textContent = '';
+            return;
+        }
+
+        // Pre-compute total matches counted per legend so the labels can
+        // show "Diana (392)". This sums every cell in that legend's row
+        // — off-diagonal cells contribute W+L+D, the diagonal cell
+        // contributes its mirror game count. Each non-mirror Diana match
+        // bumps exactly one (Diana, otherLegend) cell, so summing the
+        // row gives the total non-bye matches Diana played that have
+        // legend data on BOTH sides (the matrix's scope).
+        const totalByLegend = {};
+        for (const leg of legends) totalByLegend[leg] = totalMatchesForLegend(data, leg);
+
+        // Header row: corner cell + one cell per col legend.
+        // Display just the legend's name (everything before the comma)
+        // — full "Jinx, Loose Cannon" wastes horizontal space; the
+        // shortened "Jinx" still uniquely identifies. Full name stays
+        // in the title attribute for hover disambiguation.
+        thead.innerHTML = `
+            <tr>
+                <th class="meta-matrix-corner"></th>
+                ${legends.map(l => `<th class="meta-matrix-collabel" title="${escapeAttr(l)}">${escapeHtmlMm(shortLegendName(l))} <span class="meta-matrix-label-count">(${totalByLegend[l]})</span></th>`).join('')}
+            </tr>
+        `;
+
+        // Body rows: row legend label + N cells. Same short-name
+        // treatment as the column headers.
+        tbody.innerHTML = legends.map(rowLegend => {
+            const cells = legends.map(colLegend => renderMatrixCell(data, rowLegend, colLegend)).join('');
+            return `
+                <tr>
+                    <th class="meta-matrix-rowlabel" title="${escapeAttr(rowLegend)}">${escapeHtmlMm(shortLegendName(rowLegend))} <span class="meta-matrix-label-count">(${totalByLegend[rowLegend]})</span></th>
+                    ${cells}
+                </tr>
+            `;
+        }).join('');
+
+        if (status) {
+            const scope = day2Only ? 'Day 2 only' : 'All rounds';
+            status.textContent = `${scope} · ${legends.length}×${legends.length} grid`;
+        }
+    }
+
+    // One cell of the matrix. Diagonals (same legend both sides) show
+    // total mirror games. Off-diagonals show "W-L (W%)" with a tint
+    // class for the heatmap. Cells with zero data are muted.
+    function renderMatrixCell(data, rowLegend, colLegend) {
+        const entry = data?.[rowLegend]?.[colLegend];
+        if (rowLegend === colLegend) {
+            // Mirror cell — wins counter doubles as games-played count
+            const games = entry?.wins || 0;
+            const txt = games > 0 ? `(${games} games)` : '—';
+            return `<td class="meta-matrix-cell meta-matrix-cell-mirror">${txt}</td>`;
+        }
+        const wins = entry?.wins || 0;
+        const losses = entry?.losses || 0;
+        const draws = entry?.draws || 0;
+        const total = wins + losses + draws;
+        if (total === 0) {
+            return `<td class="meta-matrix-cell meta-matrix-cell-empty">—</td>`;
+        }
+        // Win % excludes draws — a 6-6-1 matchup should read as 50%
+        // (one decisive win, one decisive loss, one drawn game that
+        // doesn't move the needle either way), not 6/13 ≈ 46%.
+        // Falls back to "—" when every game was a draw (no decisive
+        // result to express as a percentage).
+        const decisive = wins + losses;
+        const winPct = decisive > 0 ? Math.round((wins / decisive) * 100) : null;
+        let bucket;
+        if (winPct == null) bucket = 'neutral';
+        else if (winPct >= 60) bucket = 'good';
+        else if (winPct >= 40) bucket = 'neutral';
+        else bucket = 'bad';
+        const recordStr = draws > 0 ? `${wins}-${losses}-${draws}` : `${wins}-${losses}`;
+        const pctStr = winPct == null ? '—' : `${winPct}%`;
+        return `
+            <td class="meta-matrix-cell meta-matrix-cell-${bucket}"
+                title="${escapeAttr(rowLegend)} vs ${escapeAttr(colLegend)}: ${recordStr} (${total} games, ${decisive} decisive)">
+                ${recordStr} <span class="meta-matrix-pct">(${pctStr})</span>
+            </td>
+        `;
+    }
+
+    function escapeHtmlMm(s) {
+        return String(s == null ? '' : s)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function escapeAttr(s) {
+        return escapeHtmlMm(s).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+    // "Jinx, Loose Cannon" → "Jinx" — drop the title/subtitle after the
+    // first comma. Used in the matrix axis labels where horizontal
+    // space is tight; full name preserved in title attr for hover.
+    function shortLegendName(name) {
+        if (typeof name !== 'string') return '';
+        const i = name.indexOf(',');
+        return i === -1 ? name : name.slice(0, i).trim();
+    }
+
+    // Sum of every match in a legend's matrix row — off-diagonal cells
+    // contribute (wins + losses + draws), the diagonal cell contributes
+    // its mirror game count (stored under `wins`). This equals the total
+    // non-bye matches that legend played WHERE both sides had a legend
+    // lookup available — i.e. exactly what the matrix shows for them.
+    // Used to annotate axis labels as "Diana (392)".
+    function totalMatchesForLegend(data, legend) {
+        const row = data?.[legend];
+        if (!row) return 0;
+        let total = 0;
+        for (const [opp, cell] of Object.entries(row)) {
+            if (!cell) continue;
+            if (opp === legend) {
+                // Diagonal — mirror games tracked in `wins`
+                total += cell.wins || 0;
+            } else {
+                total += (cell.wins || 0) + (cell.losses || 0) + (cell.draws || 0);
+            }
+        }
+        return total;
+    }
 
     function renderArchetypeCard(index, data, isOther = false) {
         const showKeyCards = currentGame !== 'riftbound' && !isOther;
@@ -529,10 +682,28 @@ export function initMetaBreakdown(socket) {
         archetypeCountInput.addEventListener('change', () => {
             if (cachedMetagameResult) {
                 populateMetagameCards();
+                renderMatchupMatrix();
             } else {
                 renderEmptyCards();
             }
         });
+    }
+
+    // Day-2 toggle for the matchup matrix — client-side flip between
+    // matchupMatrix.all and matchupMatrix.day2 (server precomputes
+    // both in calculateMetagame, so no round-trip needed).
+    const day2OnlyToggle = document.getElementById('meta-matrix-day2-only');
+    if (day2OnlyToggle) {
+        day2OnlyToggle.addEventListener('change', () => renderMatchupMatrix());
+    }
+
+    // Re-render the matrix when the Matrix sub-tab becomes active. Without
+    // this, switching from Input → Matrix after a Calculate but before
+    // any toggle interaction would show an empty grid (Bootstrap tabs
+    // don't fire a "ready" event for nested panes the way we'd want).
+    const matrixTabBtn = document.getElementById('meta-matrix-tab');
+    if (matrixTabBtn) {
+        matrixTabBtn.addEventListener('shown.bs.tab', () => renderMatchupMatrix());
     }
 
     // Download unmatched players

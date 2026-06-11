@@ -36,14 +36,25 @@
             display: block;
         }
 
+        /* Page slide animations — per-layout via CSS vars. Default
+           values match the TES horizontal slide; layouts can override
+           via vendor-config (e.g. riftbound default 1v1 uses fade). */
         .standings-page.slide-in {
             display: block;
-            animation: slideInFromLeft 1s ease-in-out forwards;
+            animation:
+                var(--standings-page-anim-in, slideInFromLeft)
+                var(--standings-page-anim-duration, 1s)
+                var(--standings-page-anim-easing, ease-in-out)
+                forwards;
         }
 
         .standings-page.slide-out {
             display: block;
-            animation: slideOutToRight 1s ease-in-out forwards;
+            animation:
+                var(--standings-page-anim-out, slideOutToRight)
+                var(--standings-page-anim-duration, 1s)
+                var(--standings-page-anim-easing, ease-in-out)
+                forwards;
         }
 
         @keyframes slideInFromLeft {
@@ -55,12 +66,66 @@
             from { transform: translateX(0); }
             to   { transform: translateX(100%); }
         }
+
+        /* Alt animations — opt in via --standings-page-anim-in/out vars. */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to   { opacity: 0; }
+        }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(40px); opacity: 0; }
+            to   { transform: translateY(0);    opacity: 1; }
+        }
+
+        @keyframes slideOutToTop {
+            from { transform: translateY(0);    opacity: 1; }
+            to   { transform: translateY(-40px); opacity: 0; }
+        }
+
+        /* Per-row reveal — used by layouts that opt into stagger cascade
+           (currently riftbound default 1v1). Each row fades + slides up
+           a few px; nth-child rules in the layout-scoped CSS dictate
+           the per-row delay. */
+        @keyframes rowReveal {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="container-fluid">
 <img id="standings-bg" class="standings-bg-img" src="" alt="">
 <video id="standings-bg-video" autoplay loop muted playsinline></video>
+<!-- Optional character art layer — see -all-1.html for full comment. -->
+<img id="standings-character" class="standings-character-img" src="" alt="">
 <div id="standings-event-round" class="standings-event-round-el"></div>
+
+<!-- Dynamic title + column headers. Hidden by default
+     (`display: none` on the parent). A vendor-config layout that wants
+     crisp browser-rendered titles instead of PSD-baked text in the
+     frame PNG opts in by setting `--rb-stand-dynamic-headers: block`
+     and re-exporting the frame without those text layers. Used by
+     riftbound default 1v1 (Vancouver template). Inert for every
+     other layout. -->
+<div id="standings-dynamic-chrome">
+    <div class="standings-title">STANDINGS</div>
+    <!-- Bologna 1v1 has a 4th (RANK) column header; CSS positioning
+         vars (--rb-stand-header-rank-*) already exist in vendor-config.
+         Other vendors hide #standings-dynamic-chrome entirely via
+         --rb-stand-dynamic-headers, so the extra div is inert there. -->
+    <div class="standings-col-header standings-col-header-rank-left">RANK</div>
+    <div class="standings-col-header standings-col-header-name-left">PLAYER</div>
+    <div class="standings-col-header standings-col-header-record-left">RECORD</div>
+    <div class="standings-col-header standings-col-header-legend-left">LEGEND</div>
+    <div class="standings-col-header standings-col-header-name-right">PLAYER</div>
+    <div class="standings-col-header standings-col-header-record-right">RECORD</div>
+    <div class="standings-col-header standings-col-header-legend-right">LEGEND</div>
+</div>
 <!-- ──────────────────────────────────────────────────────────────────────
      FlyQuest 2v2 standings overlay. Entirely gated by
      body[data-vendor="flyquest"][data-player-count="2v2"] in the CSS — for
@@ -149,6 +214,17 @@
             </div>
         </div>
     </div>
+</div>
+<!-- Branded footer — for layouts that opt in via --rb-stand-footer-display
+     (currently only riftbound default 1v1 / CSL Bologna). Static labels'
+     content comes from CSS vars via ::before pseudo-elements; the dynamic
+     round number is set by JS on #standings-footer-after-round. Inert
+     for every other layout (CSS hides it via display: none default). -->
+<div id="standings-footer">
+    <span id="standings-footer-label-left"></span>
+    <span id="standings-footer-after-round"></span>
+    <span id="standings-footer-share"></span>
+    <span id="standings-footer-hashtag"></span>
 </div>
 <div id="standings-slider">
     <!-- Page 4: Ranks 49-64 (off-screen left) -->

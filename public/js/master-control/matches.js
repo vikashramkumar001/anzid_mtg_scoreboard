@@ -31,6 +31,10 @@ export function initMatches(socket) {
     const matchEventNumberOfRounds = document.querySelector(`#global-event-number-of-rounds`);
     let allControlData = {};
     let allTimerStates = {};
+    // Broadcast round id (string), kept in sync with the server's
+    // `broadcastTracker.round_id`. Null until the first
+    // `control-broadcast-trackers` payload arrives.
+    let currentBroadcastRoundId = null;
     let allStandingsData = {};
     let baseLifePoints = '20';
     let baseTimer = '50';
@@ -276,6 +280,14 @@ export function initMatches(socket) {
                                 <label class="form-label">Record</label>
                                 <div id="${roundId}-${matchId}-player-record-${side}" class="editable form-control" contenteditable="true"></div>
                             </div>
+                            <div class="mb-3 riftbound-only-field" style="display: none;">
+                                <label class="form-label">XP</label>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-xp-${side}" data-life-delta="-1">-1</button>
+                                    <div id="${roundId}-${matchId}-player-xp-${side}" class="editable form-control text-center mx-1" contenteditable="true">0</div>
+                                    <button class="btn btn-sm btn-outline-secondary life-btn" data-life-target="${roundId}-${matchId}-player-xp-${side}" data-life-delta="1">+1</button>
+                                </div>
+                            </div>
                             <div class="mb-3 wins-field" ${hideShared}>
                                 <label class="form-label">Wins</label>
                                 <div class="d-flex align-items-center">
@@ -311,22 +323,10 @@ export function initMatches(socket) {
                                     <div id="${roundId}-${matchId}-player-rune-qty-2-${side}" class="editable form-control" contenteditable="true"></div>
                                 </div>
                             </div>
-                            <div class="mb-3 riftbound-only-field" style="display: none;">
-                                <label class="form-label">Battlefield</label>
-                                <div class="d-flex align-items-center mb-1">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
-                                    <div id="${roundId}-${matchId}-player-battlefield-1-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                                <div class="d-flex align-items-center mb-1">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
-                                    <div id="${roundId}-${matchId}-player-battlefield-2-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <input type="radio" name="${roundId}-${matchId}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
-                                    <div id="${roundId}-${matchId}-player-battlefield-3-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
-                                </div>
-                            </div>
-                            <div id="${roundId}-${matchId}-player-battlefield-${side}" class="editable" style="display:none;"></div>
+                            <!-- Battlefield controls moved OUT of the player
+                                 section into a dedicated battlefields row
+                                 (renderBattlefieldsRow) so the Baron Pit
+                                 control can sit beside them. -->
                             <div class="mb-3 starwars-only-field" style="display: none;">
                                 <label class="form-label">Leader & Aspects</label>
                                 <div id="${roundId}-${matchId}-player-leader-${side}" class="editable form-control" contenteditable="true"></div>
@@ -358,6 +358,151 @@ export function initMatches(socket) {
     }
 
     // Generate HTML for a player's deck section
+    // Riftbound Showdown Might tracker — match-level (not per-player).
+    // Generates the per-match block of controls that drive the
+    // scoreboard's slide-in showdown overlay (PSD center-bottom).
+    //
+    // Fields per match (sent via the standard control-data flow):
+    //   showdown-visible           'true' | 'false'  — slide-in toggle
+    //   showdown-active-bf         '1' | '2' | '3'   — which BF is displayed
+    //   showdown-bf-3-enabled      'true' | 'false'  — adds Baron Pit slot
+    //   showdown-bf-{N}-name       text              — display name override
+    //   showdown-bf-{N}-left-might  integer
+    //   showdown-bf-{N}-right-might integer
+    //
+    // BF #1 default name = player-battlefield-left (left player's active BF).
+    // BF #2 default name = player-battlefield-right (right player's active).
+    // BF #3 name is fixed to "Baron Pit" when enabled.
+    // Names are auto-populated when blank — operator can override per slot.
+    // Battlefield controls for one player slot (the inner content only — the
+    // column wrapper is supplied by renderBattlefieldsRow). 2v2 = single
+    // editable field + Hide toggle; 1v1 = 3-radio pre-selected list + Brush
+    // Override.
+    function renderBattlefieldBlock(roundId, matchId, side, is2v2) {
+        const prefix = `${roundId}-${matchId}`;
+        if (is2v2) {
+            return `
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                    <label class="form-label mb-0">Battlefield</label>
+                    <label class="d-flex align-items-center mb-0 small text-muted" title="Hide this battlefield from the /scoreboard L3 strip">
+                        <span class="me-2">Hide</span>
+                        <input type="checkbox" class="form-check-input battlefield-hide-toggle m-0" data-slot="${side}">
+                    </label>
+                </div>
+                <div id="${prefix}-player-battlefield-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>`;
+        }
+        return `
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                    <label class="form-label mb-0">Battlefield</label>
+                    <!-- Brush is a TOKEN battlefield (not one of the player's
+                         3) — Pressed = override, the hidden field is forced
+                         to "Brush" regardless of radio selection. -->
+                    <button type="button" class="btn btn-sm btn-outline-secondary brush-override-btn" aria-pressed="false" data-side="${side}" data-round="${roundId}" data-match="${matchId}">Brush Override</button>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <input type="radio" name="${prefix}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="1" value="1" checked>
+                    <div id="${prefix}-player-battlefield-1-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <input type="radio" name="${prefix}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="2" value="2">
+                    <div id="${prefix}-player-battlefield-2-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <input type="radio" name="${prefix}-bf-${side}-select" class="form-check-input me-2 battlefield-radio" data-side="${side}" data-round="${roundId}" data-match="${matchId}" data-bf="3" value="3">
+                    <div id="${prefix}-player-battlefield-3-${side}" class="editable form-control battlefield-input" contenteditable="true"></div>
+                </div>
+                <div id="${prefix}-player-battlefield-${side}" class="editable" style="display:none;"></div>`;
+    }
+
+    // Dedicated Battlefields row (riftbound only). 1v1: Left BF | Right BF |
+    // Baron Pit. 2v2: one column per player (no Baron). Wrapped in a block
+    // div so toggleGameFields' display:block doesn't break the .row flex.
+    // The Baron Pit column holds the enable checkbox + its Brush Override —
+    // enabling reveals the Showdown Might Tracker's BF 3 row (name
+    // auto-filled "Baron Pit"); the Brush Override forces BF 3 → "Brush".
+    function renderBattlefieldsRow(roundId, matchId) {
+        const prefix = `${roundId}-${matchId}`;
+        const is2v2 = currentPlayerCount === '2v2';
+        if (is2v2) {
+            const col = (side, label) => `
+                <div class="col-md-3">
+                    <h6 class="text-muted small mb-1">${label}</h6>
+                    ${renderBattlefieldBlock(roundId, matchId, side, true)}
+                </div>`;
+            return `
+                <div class="riftbound-only-field" style="display:none;">
+                    <div class="row mb-3 battlefields-row">
+                        ${col('left', 'P1 (Team A)')}${col('left-2', 'P2 (Team A)')}${col('right', 'P3 (Team B)')}${col('right-2', 'P4 (Team B)')}
+                    </div>
+                </div>`;
+        }
+        return `
+            <div class="riftbound-only-field" style="display:none;">
+                <div class="row mb-3 battlefields-row">
+                    <div class="col-md-5">
+                        <h6 class="text-muted small mb-1">Left Player</h6>
+                        ${renderBattlefieldBlock(roundId, matchId, 'left', false)}
+                    </div>
+                    <div class="col-md-5">
+                        <h6 class="text-muted small mb-1">Right Player</h6>
+                        ${renderBattlefieldBlock(roundId, matchId, 'right', false)}
+                    </div>
+                    <div class="col-md-2 baron-pit-section">
+                        <h6 class="text-muted small mb-1">Baron Pit</h6>
+                        <label class="d-flex align-items-center mb-2 small">
+                            <input type="checkbox" id="${prefix}-showdown-bf-3-enabled" class="form-check-input me-2 showdown-baron-pit-toggle" data-round="${roundId}" data-match="${matchId}">
+                            Enable (BF 3)
+                        </label>
+                        <button type="button" class="btn btn-sm btn-outline-secondary baron-brush-override-btn w-100" aria-pressed="false" data-round="${roundId}" data-match="${matchId}">Brush Override</button>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    function renderShowdownMightSection(roundId, matchId) {
+        const prefix = `${roundId}-${matchId}`;
+        const bfRow = (n, defaultName, hideClass) => `
+            <div class="showdown-bf-row ${hideClass || ''}" data-bf="${n}" style="display: flex; gap: 8px; align-items: end; margin-bottom: 8px;">
+                <div style="flex: 1;">
+                    <label class="form-label mb-0 small text-muted">BF ${n} Name${defaultName ? ` (default: ${defaultName})` : ''}</label>
+                    <div id="${prefix}-showdown-bf-${n}-name" class="editable form-control" contenteditable="true" placeholder="${defaultName || ''}"></div>
+                </div>
+                <div style="width: 80px;">
+                    <label class="form-label mb-0 small text-muted">Left Might</label>
+                    <div id="${prefix}-showdown-bf-${n}-left-might" class="editable form-control text-center" contenteditable="true">0</div>
+                </div>
+                <div style="width: 80px;">
+                    <label class="form-label mb-0 small text-muted">Right Might</label>
+                    <div id="${prefix}-showdown-bf-${n}-right-might" class="editable form-control text-center" contenteditable="true">0</div>
+                </div>
+                <div style="width: 100px;">
+                    <label class="form-label mb-0 small text-muted">Active</label>
+                    <div class="form-check">
+                        <input type="radio" name="${prefix}-showdown-active-bf" value="${n}" class="form-check-input showdown-active-bf-radio" data-round="${roundId}" data-match="${matchId}" data-bf="${n}" ${n === 1 ? 'checked' : ''}>
+                        <label class="form-check-label small">Showdown here</label>
+                    </div>
+                </div>
+            </div>`;
+        return `
+            <div class="row riftbound-only-field showdown-might-section mt-3" style="display: none;">
+                <div class="col-12">
+                    <div class="card border-warning">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="card-title mb-0">Showdown Might Tracker</h6>
+                                <button type="button" class="btn btn-sm btn-outline-primary showdown-visible-toggle" data-round="${roundId}" data-match="${matchId}" aria-pressed="false">
+                                    Show on Scoreboard
+                                </button>
+                            </div>
+                            ${bfRow(1, "Left player's battlefield")}
+                            ${bfRow(2, "Right player's battlefield")}
+                            ${bfRow(3, 'Baron Pit', 'showdown-bf-3-row d-none')}
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+    }
+
     function renderDeckSection(roundId, matchId, side, label) {
         const colClass = currentPlayerCount === '2v2' ? 'col-md-3' : 'col-md-6';
         return `
@@ -562,6 +707,9 @@ export function initMatches(socket) {
                         ${currentPlayerCount === '2v2' ? renderPlayerSection(roundId, matchId, 'right-2', 'P4 (Team B)') : ''}
                     </div>
 
+                    <!-- Battlefields (riftbound): Left BF | Right BF | Baron Pit -->
+                    ${renderBattlefieldsRow(roundId, matchId)}
+
                     <!-- Deck information -->
                     <div class="row">
                         ${renderDeckSection(roundId, matchId, 'left', currentPlayerCount === '2v2' ? 'P1' : 'Left Player')}
@@ -569,6 +717,9 @@ export function initMatches(socket) {
                         ${renderDeckSection(roundId, matchId, 'right', currentPlayerCount === '2v2' ? 'P3' : 'Right Player')}
                         ${currentPlayerCount === '2v2' ? renderDeckSection(roundId, matchId, 'right-2', 'P4') : ''}
                     </div>
+
+                    <!-- Showdown Might tracker (riftbound 1v1) -->
+                    ${currentPlayerCount !== '2v2' ? renderShowdownMightSection(roundId, matchId) : ''}
 
                 </div>
             </div>
@@ -612,11 +763,36 @@ export function initMatches(socket) {
             }
         });
 
+        // Restore Showdown Might section state from saved control data.
+        // The generic loop above already restores the contenteditable
+        // might values (they're .editable contenteditable divs). What's
+        // left: the button's aria-pressed (showdown-visible), the radio
+        // group's :checked (showdown-active-bf), and the Baron Pit
+        // checkbox + BF-3 row visibility (showdown-bf-3-enabled).
+        const showdownVisible = matchData['showdown-visible'] === 'true';
+        const showdownVisibleBtn = document.querySelector(`#match-card-${roundId}-${matchId} .showdown-visible-toggle`);
+        if (showdownVisibleBtn) {
+            showdownVisibleBtn.setAttribute('aria-pressed', String(showdownVisible));
+            showdownVisibleBtn.textContent = showdownVisible ? 'Hide from Scoreboard' : 'Show on Scoreboard';
+        }
+        const activeBf = matchData['showdown-active-bf'] || '1';
+        const activeBfRadio = document.querySelector(`#match-card-${roundId}-${matchId} .showdown-active-bf-radio[data-bf="${activeBf}"]`);
+        if (activeBfRadio) activeBfRadio.checked = true;
+        const baronPitEnabled = matchData['showdown-bf-3-enabled'] === 'true';
+        const baronPitCb = document.getElementById(`${roundId}-${matchId}-showdown-bf-3-enabled`);
+        if (baronPitCb) baronPitCb.checked = baronPitEnabled;
+        const bf3Row = document.querySelector(`#match-card-${roundId}-${matchId} .showdown-bf-3-row`);
+        if (bf3Row) bf3Row.classList.toggle('d-none', !baronPitEnabled);
+
         // Sync active battlefield radio slot → hidden player-battlefield field.
-        // NOTE: do NOT dispatch an 'input' event here — this runs during hydration
-        // (renderMatch) on every page load, and the input listener emits to the
-        // server, which floods every /scoreboard/* page with stale data. The
-        // server already has the authoritative value; DOM sync is purely visual.
+        // Update allControlData DIRECTLY (without dispatching an input event)
+        // so the server has the value, but we avoid flooding /scoreboard/* pages
+        // with N-match-wide redundant emissions on every page load. The next
+        // master-control-matches-updated emission (triggered by any user edit)
+        // will carry the now-correct battlefield value to all scoreboards.
+        // Without this, the hidden field has the right text in the DOM but
+        // allControlData[round][match]['player-battlefield-{side}'] stays empty,
+        // so scoreboards never see the active battlefield.
         for (const side of ['left', 'right', 'left-2', 'right-2']) {
             const checkedRadio = document.querySelector(`input[name="${roundId}-${matchId}-bf-${side}-select"]:checked`);
             if (checkedRadio) {
@@ -624,7 +800,25 @@ export function initMatches(socket) {
                 const sourceEl = document.getElementById(`${roundId}-${matchId}-player-battlefield-${bfNum}-${side}`);
                 const mainField = document.getElementById(`${roundId}-${matchId}-player-battlefield-${side}`);
                 if (sourceEl && mainField) {
-                    mainField.innerText = sourceEl.innerText;
+                    const text = sourceEl.innerText;
+                    mainField.innerText = text;
+                    // Mirror into allControlData so it ships with the next emission.
+                    if (typeof updateControlData === 'function') {
+                        updateControlData(roundId, matchId, `player-battlefield-${side}`, text);
+                    }
+                    // Auto-populate showdown BF name fields based on active
+                    // radio / brush override. Left → BF 1, Right → BF 2.
+                    // (Skip the 2v2 inner slots — showdown is 1v1-only.)
+                    if (side === 'left' || side === 'right') {
+                        const bfNum = side === 'left' ? '1' : '2';
+                        const showdownNameEl = document.getElementById(`${roundId}-${matchId}-showdown-bf-${bfNum}-name`);
+                        if (showdownNameEl && showdownNameEl.innerText !== text) {
+                            showdownNameEl.innerText = text;
+                            if (typeof updateControlData === 'function') {
+                                updateControlData(roundId, matchId, `showdown-bf-${bfNum}-name`, text);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -656,7 +850,10 @@ export function initMatches(socket) {
                     let parsedDeck = parseDeckString(field.value);
 
                     // Update various fields as needed (Legend, Champion, etc.) (Currently only needed for Riftbound, but who knows?)
-                    let sideId = e.target['id'].split('-')[5]
+                    // Strip the well-known prefix so the side suffix survives the dash-split
+                    // ("round1-match1-player-main-deck-left-2" → "left-2", not "left").
+                    const idSuffix = e.target['id'].replace(`${roundId}-${matchId}-player-main-deck-`, '');
+                    const sideId = idSuffix; // 'left' | 'left-2' | 'right' | 'right-2'
                     if (currentGameSelection === 'riftbound') {
                         updateRiftboundFields(parsedDeck, roundId, matchId, sideId);
                     }
@@ -951,7 +1148,8 @@ export function initMatches(socket) {
         });
 
         // Setup legend autocomplete dropdowns
-        const legendFields = document.querySelectorAll('[id$="-player-legend-left"], [id$="-player-legend-right"]');
+        // Includes -left-2 / -right-2 for riftbound 2v2 (P2 + P4 teammates).
+        const legendFields = document.querySelectorAll('[id$="-player-legend-left"], [id$="-player-legend-left-2"], [id$="-player-legend-right"], [id$="-player-legend-right-2"]');
         legendFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
                 return; // Skip if already set up
@@ -985,7 +1183,8 @@ export function initMatches(socket) {
         });
 
         // Setup champion autocomplete dropdowns
-        const championFields = document.querySelectorAll('[id$="-player-champion-left"], [id$="-player-champion-right"]');
+        // Includes -left-2 / -right-2 for riftbound 2v2 (P2 + P4 teammates).
+        const championFields = document.querySelectorAll('[id$="-player-champion-left"], [id$="-player-champion-left-2"], [id$="-player-champion-right"], [id$="-player-champion-right-2"]');
         championFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
                 return; // Skip if already set up
@@ -1214,6 +1413,19 @@ export function initMatches(socket) {
     function renderRoundTabs(allData) {
         const roundTabs = document.getElementById('roundTabs');
         const roundContent = document.getElementById('roundTabsContent');
+        // Standings tab parallel containers — same per-round sub-tab
+        // structure mirrored into the dedicated Standings tab so the
+        // standings card (built by renderStandings()) lands there instead
+        // of inside the Matches tab's per-round match container.
+        const standingsRoundTabs = document.getElementById('standingsRoundTabs');
+        const standingsRoundContent = document.getElementById('standingsRoundTabsContent');
+        // Pairings tab parallel containers — same shape as standings.
+        // Each round sub-tab here gets a self-contained pairings card
+        // (rendered by renderPairings() below); we don't share a card
+        // with the standings tab because the two tables have very
+        // different shapes/columns.
+        const pairingsRoundTabs = document.getElementById('pairingsRoundTabs');
+        const pairingsRoundContent = document.getElementById('pairingsRoundTabsContent');
 
         if (roundTabs.children.length === 0 && roundContent.children.length === 0) {
             // Create tabs and content for each round
@@ -1234,6 +1446,49 @@ export function initMatches(socket) {
                 </button>
             `;
                 roundTabs.appendChild(tab);
+
+                // Mirror the round sub-tab into the Standings tab nav so the
+                // operator can pick which round's standings to view there.
+                // Defensive: skip if the Standings tab markup isn't on the
+                // page (older master-control.html builds, or a future
+                // refactor that drops the tab).
+                if (standingsRoundTabs) {
+                    const standingsTab = document.createElement('li');
+                    standingsTab.className = 'nav-item';
+                    standingsTab.innerHTML = `
+                <button class="nav-link ${index === 0 ? 'active' : ''}"
+                        id="standings-round-${roundId}-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#standings-round-${roundId}-content"
+                        type="button"
+                        role="tab"
+                        aria-controls="standings-round-${roundId}"
+                        aria-selected="${index === 0}">
+                    Round ${roundId}
+                </button>
+            `;
+                    standingsRoundTabs.appendChild(standingsTab);
+                }
+
+                // Mirror into the Pairings tab nav too. Same pattern as
+                // standings — independent sub-tabs with their own cards.
+                if (pairingsRoundTabs) {
+                    const pairingsTab = document.createElement('li');
+                    pairingsTab.className = 'nav-item';
+                    pairingsTab.innerHTML = `
+                <button class="nav-link ${index === 0 ? 'active' : ''}"
+                        id="pairings-round-${roundId}-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#pairings-round-${roundId}-content"
+                        type="button"
+                        role="tab"
+                        aria-controls="pairings-round-${roundId}"
+                        aria-selected="${index === 0}">
+                    Round ${roundId}
+                </button>
+            `;
+                    pairingsRoundTabs.appendChild(pairingsTab);
+                }
 
                 // Create content
                 const content = document.createElement('div');
@@ -1281,6 +1536,51 @@ export function initMatches(socket) {
 
                 roundContent.appendChild(content);
 
+                // Mirror content pane into Standings tab. The pane is just
+                // a `row` container — renderStandings() appends the
+                // standings card (col-6, on the LEFT), and renderBestOfLegend()
+                // appends the BoL card (col-6, on the RIGHT) via
+                // appendChild on first data arrival. Order matters: by
+                // appending standings first and BoL second, Bootstrap's
+                // row layout puts standings left + BoL right without
+                // needing CSS order utilities.
+                if (standingsRoundContent) {
+                    const standingsContent = document.createElement('div');
+                    standingsContent.className = `tab-pane fade ${index === 0 ? 'show active' : ''}`;
+                    standingsContent.id = `standings-round-${roundId}-content`;
+                    standingsContent.role = 'tabpanel';
+                    standingsContent.setAttribute('aria-labelledby', `standings-round-${roundId}-tab`);
+                    standingsContent.classList.add('row', 'mt-3');
+                    standingsRoundContent.appendChild(standingsContent);
+                    // Eagerly render the empty standings card so the
+                    // Fetch Standings button + textarea always exist —
+                    // even for rounds with no fetched data yet (otherwise
+                    // there's no way to click Fetch on round 16+ before
+                    // the cache has any data). Mirrors the pairings tab
+                    // pattern (renderEmptyPairingsCard below). The
+                    // textarea fills in later when populateStandingsData
+                    // fires off the standings-data socket payload.
+                    renderStandings(roundId);
+                }
+
+                // Mirror content pane into Pairings tab. Unlike Standings —
+                // which has a JS-built card appended on demand — we render
+                // the empty pairings card eagerly here. It always shows the
+                // header + Fetch button + empty table; the tbody fills in
+                // when a fetch response arrives (or when the cached
+                // `all-pairings-data` snapshot lands at page-load time).
+                if (pairingsRoundContent) {
+                    const pairingsContent = document.createElement('div');
+                    pairingsContent.className = `tab-pane fade ${index === 0 ? 'show active' : ''}`;
+                    pairingsContent.id = `pairings-round-${roundId}-content`;
+                    pairingsContent.role = 'tabpanel';
+                    pairingsContent.setAttribute('aria-labelledby', `pairings-round-${roundId}-tab`);
+                    pairingsContent.classList.add('row', 'mt-3');
+                    pairingsContent.innerHTML = renderEmptyPairingsCard(roundId);
+                    pairingsRoundContent.appendChild(pairingsContent);
+                    attachPairingsSearchListener(roundId);
+                }
+
                 attachBroadcastButtonListeners(roundId);
 
             });
@@ -1296,13 +1596,29 @@ export function initMatches(socket) {
                 });
         })
 
+        // NOTE: We intentionally do NOT emit master-control-matches-updated
+        // here. An earlier version pushed the full allControlData on every
+        // render to sync derived active-battlefield values to the server —
+        // but that fired on every load/reconnect, hammering the server's
+        // updateFromMaster (80-match merge + ~hundreds of room emits + disk
+        // write) and could jam the event loop. The active-battlefield values
+        // are persisted in controlData.json, so the server already serves
+        // them; the per-radio-change input listeners keep them in sync.
+
         // Re-render if 2v2 was already set before control data arrived
         if (currentPlayerCount === '2v2') {
             toggleTeammateSections();
         }
 
-        // matches are rendered - now ask server for standings
+        // matches are rendered - now ask server for standings + pairings.
+        // Both reuse the per-round sub-tab containers we just created in
+        // the Standings/Pairings tabs above (see renderRoundTabs body).
         socket.emit('get-all-standings');
+        socket.emit('get-all-pairings');
+        // Best of Legend (riftbound) — server computes per-round per-Legend
+        // top-5 from the cached standings + decklists. Empty if active
+        // event has no decklists or selected platform isn't cardeio.
+        socket.emit('get-best-of-legend');
     }
 
     // Add click handlers for the Display Deck buttons
@@ -1326,6 +1642,7 @@ export function initMatches(socket) {
             socket.emit('broadcast-requested', {
                 round_id
             });
+            currentBroadcastRoundId = String(round_id);
         });
     }
 
@@ -1409,10 +1726,20 @@ export function initMatches(socket) {
 
     // Delegated change handler for battlefield radio buttons
     // When a radio is selected, copy that battlefield's text into the hidden player-battlefield field
+    // — but ONLY if the Brush override toggle for this side isn't on.
+    // When Brush override is active, every radio change is muted at
+    // the display level; the override release path (toggling Brush off)
+    // re-applies whatever's currently selected.
     document.addEventListener('change', (e) => {
         if (!e.target.classList.contains('battlefield-radio')) return;
         const radio = e.target;
         const { side, round, match, bf } = radio.dataset;
+        const overrideBtn = document.querySelector(`.brush-override-btn[data-round="${round}"][data-match="${match}"][data-side="${side}"]`);
+        if (overrideBtn?.classList.contains('active')) {
+            // Brush override is on — keep showing "Brush", ignore the
+            // selection change.
+            return;
+        }
         const sourceEl = document.getElementById(`${round}-${match}-player-battlefield-${bf}-${side}`);
         const mainField = document.getElementById(`${round}-${match}-player-battlefield-${side}`);
         if (sourceEl && mainField) {
@@ -1421,8 +1748,47 @@ export function initMatches(socket) {
         }
     });
 
+    // ── Brush override toggle ─────────────────────────────────────────
+    // We own the toggle state via `aria-pressed` + the `.active` class
+    // (instead of Bootstrap's `data-bs-toggle="button"` which would
+    // race with this handler depending on listener registration order).
+    // While pressed, the hidden `player-battlefield-${side}` field is
+    // forced to "Brush" — that flows through the existing editable-
+    // input listener to `master-control-matches-updated` and out to
+    // every connected scoreboard. Toggling off re-derives from the
+    // currently-checked radio.
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest?.('.brush-override-btn');
+        if (!btn) return;
+        const { side, round, match } = btn.dataset;
+        const mainField = document.getElementById(`${round}-${match}-player-battlefield-${side}`);
+        if (!mainField) return;
+        const wasPressed = btn.getAttribute('aria-pressed') === 'true';
+        const nowPressed = !wasPressed;
+        btn.setAttribute('aria-pressed', String(nowPressed));
+        btn.classList.toggle('active', nowPressed);
+        if (nowPressed) {
+            // textContent (not innerText) because the hidden field is
+            // display:none — innerText only reflects rendered text and
+            // can return/set inconsistently on hidden elements. The
+            // input-listener downstream reads textContent too (line ~707).
+            mainField.textContent = 'Brush';
+        } else {
+            // Off → restore from the currently-checked radio for this side.
+            const selectedRadio = document.querySelector(`input[name="${round}-${match}-bf-${side}-select"]:checked`);
+            const bf = selectedRadio?.dataset?.bf || '1';
+            const sourceEl = document.getElementById(`${round}-${match}-player-battlefield-${bf}-${side}`);
+            mainField.textContent = sourceEl?.textContent || '';
+        }
+        mainField.dispatchEvent(new Event('input', { bubbles: true }));
+        console.log(`[Brush Override] ${nowPressed ? 'ON' : 'OFF'} side=${side} round=${round} match=${match} → mainField.textContent="${mainField.textContent}"`);
+    });
+
     // Delegated input handler for battlefield text fields
-    // When editing a battlefield input, sync to the hidden field if this battlefield's radio is selected
+    // When editing a battlefield input, sync to the hidden field if this
+    // battlefield's radio is selected — UNLESS Brush override is on,
+    // in which case the hidden field is locked to "Brush" until the
+    // operator toggles the override off.
     document.addEventListener('input', (e) => {
         if (!e.target.classList.contains('battlefield-input')) return;
         const fieldId = e.target.id; // e.g. "1-match1-player-battlefield-2-left"
@@ -1432,12 +1798,110 @@ export function initMatches(socket) {
         const radioName = `${prefix}-bf-${side}-select`;
         const selectedRadio = document.querySelector(`input[name="${radioName}"]:checked`);
         if (selectedRadio && selectedRadio.dataset.bf === bfNum) {
+            const overrideBtn = document.querySelector(`.brush-override-btn[data-round="${prefix.split('-')[0]}"][data-match="${prefix.split('-').slice(1).join('-')}"][data-side="${side}"]`);
+            if (overrideBtn?.classList.contains('active')) return;
             const mainField = document.getElementById(`${prefix}-player-battlefield-${side}`);
             if (mainField) {
                 mainField.innerText = e.target.innerText;
                 mainField.dispatchEvent(new Event('input', { bubbles: true }));
             }
         }
+    });
+
+    // Auto-sync the Showdown Might Tracker's BF 1 / BF 2 name fields to
+    // mirror the active battlefield for each player. Listens to input
+    // events on the hidden player-battlefield-{left,right} field (which
+    // gets updated by radio clicks, brush override toggles, and battlefield
+    // slot edits). Left → BF 1, Right → BF 2. Dispatching input on the
+    // showdown field triggers the normal editable-input handler → updates
+    // allControlData + emits to server → scoreboard receives.
+    document.addEventListener('input', (e) => {
+        const fieldId = e.target?.id;
+        if (!fieldId) return;
+        const m = fieldId.match(/^(.+)-player-battlefield-(left|right)$/);
+        if (!m) return;
+        const [, prefix, side] = m;
+        const bfNum = side === 'left' ? '1' : '2';
+        const showdownEl = document.getElementById(`${prefix}-showdown-bf-${bfNum}-name`);
+        if (!showdownEl) return;
+        const newText = e.target.innerText;
+        if (showdownEl.innerText === newText) return;
+        showdownEl.innerText = newText;
+        showdownEl.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    // Delegated handlers for the Riftbound Showdown Might section:
+    //   - Visibility toggle button (aria-pressed → showdown-visible field)
+    //   - Baron Pit enable checkbox (toggles BF-3 row visibility +
+    //     persists showdown-bf-3-enabled)
+    //   - Active battlefield radio (sets showdown-active-bf to 1/2/3)
+    // All three persist via the standard control-data flow (write to
+    // allControlData + emit master-control-matches-updated), same as
+    // the other contenteditable fields.
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest?.('.showdown-visible-toggle');
+        if (!btn) return;
+        const round = btn.dataset.round;
+        const match = btn.dataset.match;
+        const nowPressed = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', String(nowPressed));
+        btn.textContent = nowPressed ? 'Hide from Scoreboard' : 'Show on Scoreboard';
+        updateControlData(round, match, 'showdown-visible', nowPressed ? 'true' : 'false');
+        socket.emit('master-control-matches-updated', allControlData);
+    });
+
+    document.addEventListener('change', (e) => {
+        const cb = e.target.closest?.('.showdown-baron-pit-toggle');
+        if (!cb) return;
+        const round = cb.dataset.round;
+        const match = cb.dataset.match;
+        const enabled = cb.checked;
+        // The Baron Pit toggle now lives in its own column (not inside the
+        // Showdown Might card), so locate the BF-3 row via the match card.
+        const bf3Row = document.querySelector(`#match-card-${round}-${match} .showdown-bf-3-row`);
+        if (bf3Row) bf3Row.classList.toggle('d-none', !enabled);
+        // Auto-fill the BF 3 name to "Baron Pit" when enabling (if blank), so
+        // the showdown's third battlefield is ready to use immediately.
+        const nameEl = document.getElementById(`${round}-${match}-showdown-bf-3-name`);
+        if (enabled && nameEl && !nameEl.textContent.trim()) {
+            nameEl.textContent = 'Baron Pit';
+            updateControlData(round, match, 'showdown-bf-3-name', 'Baron Pit');
+        }
+        updateControlData(round, match, 'showdown-bf-3-enabled', enabled ? 'true' : 'false');
+        socket.emit('master-control-matches-updated', allControlData);
+    });
+
+    // Baron Pit Brush Override — forces the showdown BF 3 name to "Brush"
+    // while pressed; restores the prior name (default "Baron Pit") when
+    // released. Mirrors the per-player brush override pattern.
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest?.('.baron-brush-override-btn');
+        if (!btn) return;
+        const round = btn.dataset.round;
+        const match = btn.dataset.match;
+        const nameEl = document.getElementById(`${round}-${match}-showdown-bf-3-name`);
+        if (!nameEl) return;
+        const nowPressed = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', String(nowPressed));
+        btn.classList.toggle('active', nowPressed);
+        if (nowPressed) {
+            btn._priorName = nameEl.textContent.trim() || 'Baron Pit';
+            nameEl.textContent = 'Brush';
+        } else {
+            nameEl.textContent = btn._priorName || 'Baron Pit';
+        }
+        updateControlData(round, match, 'showdown-bf-3-name', nameEl.textContent.trim());
+        socket.emit('master-control-matches-updated', allControlData);
+    });
+
+    document.addEventListener('change', (e) => {
+        const radio = e.target.closest?.('.showdown-active-bf-radio');
+        if (!radio || !radio.checked) return;
+        const round = radio.dataset.round;
+        const match = radio.dataset.match;
+        const bf = radio.dataset.bf;
+        updateControlData(round, match, 'showdown-active-bf', bf);
+        socket.emit('master-control-matches-updated', allControlData);
     });
 
     // add click handler for commentator data
@@ -1830,15 +2294,26 @@ export function initMatches(socket) {
     }
 
     function renderStandings(roundId) {
-        // Check if a card for this match already exists
-        let standingsContainer = document.getElementById(`round-${roundId}-matches`);
+        // Check if a card for this match already exists.
+        // Standings card was previously appended into the Matches tab's
+        // per-round match container (`round-${roundId}-matches`). It now
+        // lives in the dedicated Standings tab — the parallel per-round
+        // pane created by renderRoundTabs(). Fall back to the old container
+        // only if the new one isn't on the page (defensive against an
+        // older master-control.html or a future tab refactor).
+        let standingsContainer = document.getElementById(`standings-round-${roundId}-content`)
+            || document.getElementById(`round-${roundId}-matches`);
         let standingsCard = document.getElementById(`standings-card-${roundId}`);
 
         if (!standingsCard) {
             // make standings card
             // Create new card (use your existing card HTML structure)
             standingsCard = document.createElement('div');
-            standingsCard.classList.add('col-6', 'mb-3', 'standings-card-container');
+            // col-4 (was col-6) — standings text content is ~30-char-wide
+            // lines, doesn't need half the screen. Frees up col-8 for the
+            // BoL card on the right so its legend grid fits 3 columns
+            // instead of 2 at typical viewport widths.
+            standingsCard.classList.add('col-4', 'mb-3', 'standings-card-container');
             standingsCard.id = `standings-card-${roundId}`;
             // For FQ 2v2 we augment the card with a manual override panel to
             // the right of the textarea (rendered empty here, populated by
@@ -1870,6 +2345,9 @@ export function initMatches(socket) {
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                             <label class="form-label mb-0">Round Standings</label>
                                             <div class="d-flex align-items-center gap-2">
+                                                <button class="btn btn-sm btn-success standings-broadcast-btn" data-round-id="${roundId}" title="Push this round to all broadcast scenes">
+                                                    Broadcast
+                                                </button>
                                                 <button class="btn btn-sm btn-primary fetch-standings-btn" data-round-id="${roundId}">
                                                     Fetch Standings
                                                 </button>
@@ -1880,8 +2358,32 @@ export function initMatches(socket) {
                                                     placeholder="Round" />
                                             </div>
                                         </div>
-                                        <textarea id="standings-${roundId}" class="editable form-control" rows="5"
+                                        <textarea id="standings-${roundId}" class="editable form-control" rows="20"
                                         placeholder="Paste standings here..."></textarea>
+                                    </div>
+
+                                    <!-- Searchable structured standings table — mirrors the pairings
+                                         tab's search pattern (attachPairingsSearchListener at ~line
+                                         2430). Re-parses from the textarea on every update so live
+                                         edits flow through. tbody filled by renderStandingsTable(). -->
+                                    <div class="standings-search-wrap mb-2">
+                                        <input type="text"
+                                            class="form-control form-control-sm standings-search"
+                                            data-round-id="${roundId}"
+                                            placeholder="Search player or archetype…" />
+                                    </div>
+                                    <div class="table-responsive" style="max-height: 60vh; overflow-y: auto;">
+                                        <table class="table table-sm table-striped table-hover standings-table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 60px;">Rank</th>
+                                                    <th>Player</th>
+                                                    <th>Archetype</th>
+                                                    <th style="width: 90px;">Record</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="standings-tbody-${roundId}"></tbody>
+                                        </table>
                                     </div>
                                 </div>
                                 <div class="col-6 mt-2 fq2v2-only standings-override-col"
@@ -1906,6 +2408,11 @@ export function initMatches(socket) {
         // Update the fields with the match data
         const standingsTextbox = document.getElementById(`standings-${roundId}`);
         standingsTextbox.value = allStandingsData[roundId];
+        // Render the searchable table from the just-updated textarea
+        // contents. Called on every populate path (initial socket load,
+        // round tab creation) so the table stays in sync with the
+        // textarea without a separate data flow.
+        renderStandingsTable(roundId);
     }
 
     // Function to attach change listeners to all editable fields for a given match ID.
@@ -1928,6 +2435,96 @@ export function initMatches(socket) {
             // Emit the updated standings data to the backend
             console.log('updated standings data', allStandingsData);
             socket.emit('standings-updated', {round_id: roundId, textData: value});
+            // Live edits: re-parse + re-render the searchable table so
+            // the operator sees their corrections reflected immediately.
+            renderStandingsTable(roundId);
+        });
+
+        // Wire the standings-search input to live-filter the table rows.
+        attachStandingsSearchListener(roundId);
+    }
+
+    // Parse the standings textarea into structured rows. The textarea
+    // format is 4 lines per player — rank / name / archetype / record —
+    // matching what tournament-platform.js's fetch-response handler
+    // writes (see `textLines.push(...)` in that file). Returns an array
+    // sorted by rank ascending. Lines are trimmed; blank trailing lines
+    // are tolerated. For FQ 2v2's 4-line "rank / p1 / p2 / record"
+    // shape, this collapses the two player names into a single string
+    // — good enough for search; the broadcast page has its own 2v2
+    // renderer that splits them properly.
+    function parseStandingsTextToRows(rawText) {
+        if (typeof rawText !== 'string' || !rawText.trim()) return [];
+        const lines = rawText.split(/\r?\n/);
+        const rows = [];
+        for (let i = 0; i + 3 < lines.length; i += 4) {
+            const rank = (lines[i] || '').trim();
+            const name = (lines[i + 1] || '').trim();
+            const archetype = (lines[i + 2] || '').trim();
+            const record = (lines[i + 3] || '').trim();
+            // Skip empty groups (textarea trailing newlines)
+            if (!rank && !name && !archetype && !record) continue;
+            rows.push({ rank, name, archetype, record });
+        }
+        // Sort by rank numerically (handles "1", "2", "10" correctly)
+        rows.sort((a, b) => (parseInt(a.rank, 10) || 0) - (parseInt(b.rank, 10) || 0));
+        return rows;
+    }
+
+    // Repaint the per-round searchable standings table from whatever's
+    // currently in the textarea. Called on (1) initial socket load,
+    // (2) Fetch Standings response, (3) any live textarea edit.
+    function renderStandingsTable(roundId) {
+        const tbody = document.getElementById(`standings-tbody-${roundId}`);
+        if (!tbody) return;
+        const raw = allStandingsData[roundId];
+        const rows = parseStandingsTextToRows(typeof raw === 'string' ? raw : '');
+        if (rows.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" class="text-muted text-center">No standings loaded.</td></tr>';
+            return;
+        }
+        tbody.innerHTML = rows.map(r => `
+            <tr>
+                <td>${escapeHtml(r.rank)}</td>
+                <td>${escapeHtml(r.name)}</td>
+                <td>${escapeHtml(r.archetype)}</td>
+                <td>${escapeHtml(r.record)}</td>
+            </tr>
+        `).join('');
+        // Re-apply any active filter — operator might have typed a
+        // search query before the new data landed.
+        applyStandingsFilter(roundId);
+    }
+
+    // Cheap HTML escape so a player name containing < or > doesn't
+    // break the row. Matches the pattern used by pairings rendering.
+    function escapeHtml(s) {
+        return String(s == null ? '' : s)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    // Same live-filter pattern as attachPairingsSearchListener
+    // (line ~2430 below). Case-insensitive substring match across the
+    // whole row's textContent — catches rank, player, archetype,
+    // record without needing per-column logic.
+    function attachStandingsSearchListener(roundId) {
+        const input = document.querySelector(`.standings-search[data-round-id="${roundId}"]`);
+        if (!input) return;
+        input.addEventListener('input', () => applyStandingsFilter(roundId));
+    }
+
+    function applyStandingsFilter(roundId) {
+        const input = document.querySelector(`.standings-search[data-round-id="${roundId}"]`);
+        const tbody = document.getElementById(`standings-tbody-${roundId}`);
+        if (!input || !tbody) return;
+        const q = input.value.trim().toLowerCase();
+        tbody.querySelectorAll('tr').forEach(row => {
+            if (!q) { row.style.display = ''; return; }
+            row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
         });
     }
 
@@ -1938,6 +2535,663 @@ export function initMatches(socket) {
         console.log(roundId, value)
         allStandingsData[roundId] = value;
     }
+
+    // ── BEST OF LEGEND (riftbound) ────────────────────────────────────
+    // Per-round, per-Legend top-3 leaderboard sourced from the server's
+    // `get-best-of-legend` snapshot. Card is appended into each
+    // Standings round sub-tab pane on first data arrival, so it lands
+    // AFTER the standings card (which is appended by renderStandings).
+    // Bootstrap row + col-6 on each puts standings left, BoL right.
+    // `.riftbound-only` keeps the card hidden for non-riftbound games.
+    let allBestOfLegendData = {}; // { [roundId]: { legends: [...], unmatchedPlayers, … } }
+
+    // Per-round filter state — name-search + multi-select set
+    // checkboxes. Held outside the DOM so re-rendering on a fresh
+    // data push preserves operator selections. `activeSets` is a
+    // Set<string> of bucket values that are currently CHECKED. All
+    // sets checked by default = show everything.
+    const bolFilterState = {}; // { [roundId]: { search: '', activeSets: Set<string> } }
+
+    // Set buckets the operator can toggle. Match the server-side
+    // `getLegendSet()` output. "OTHER" is included so future-set
+    // legends still get a checkbox if they show up before this list
+    // is updated.
+    const BOL_SET_BUCKETS = [
+        { value: 'OGS+OGN', label: 'OGS + OGN' },
+        { value: 'SFD',     label: 'SFD'       },
+        { value: 'UNL',     label: 'UNL'       },
+        { value: 'OTHER',   label: 'Other'     }
+    ];
+
+    function bolFilterStateFor(roundId) {
+        if (!bolFilterState[roundId]) {
+            bolFilterState[roundId] = {
+                search: '',
+                activeSets: new Set(BOL_SET_BUCKETS.map(b => b.value))
+            };
+        }
+        return bolFilterState[roundId];
+    }
+
+    function ensureBolCard(roundId) {
+        let card = document.getElementById(`bol-card-${roundId}`);
+        if (card) return card;
+        const pane = document.getElementById(`standings-round-${roundId}-content`);
+        if (!pane) return null;
+        // Set-filter dropdown: Bootstrap dropdown w/ check-list inside.
+        // `data-bs-auto-close="outside"` keeps the menu open while the
+        // operator toggles multiple boxes; clicking outside closes it.
+        const dropdownOptions = BOL_SET_BUCKETS.map(b => `
+            <li>
+                <label class="dropdown-item bol-set-option" style="cursor: pointer;">
+                    <input type="checkbox"
+                        class="form-check-input me-2 bol-set-checkbox"
+                        data-set="${b.value}"
+                        checked>
+                    ${b.label}
+                </label>
+            </li>
+        `).join('');
+
+        const html = `
+            <div class="col-8 mb-3 best-of-legend-card-container riftbound-only" id="bol-card-${roundId}">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                            <h5 class="card-title mb-0">Best of Legend before Round ${roundId}</h5>
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="dropdown bol-set-dropdown" data-round-id="${roundId}">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle bol-set-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                        data-bs-auto-close="outside"
+                                        aria-expanded="false">
+                                        Sets <span class="bol-set-count">(${BOL_SET_BUCKETS.length}/${BOL_SET_BUCKETS.length})</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end p-1" style="min-width: 160px;">
+                                        ${dropdownOptions}
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li class="d-flex gap-1 px-2 pb-1">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary flex-fill bol-set-all" data-round-id="${roundId}">All</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary flex-fill bol-set-none" data-round-id="${roundId}">None</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input type="text"
+                                    class="form-control form-control-sm bol-search"
+                                    data-round-id="${roundId}"
+                                    placeholder="Filter legend…"
+                                    style="width: 200px;" />
+                            </div>
+                        </div>
+                        <div class="bol-status text-muted small mb-2"
+                             id="bol-status-${roundId}">Loading…</div>
+                        <div class="bol-grid" id="bol-grid-${roundId}"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        // appendChild via insertAdjacentHTML so the card lands AFTER
+        // the standings card (which is already in the pane). Result:
+        // standings col-6 LEFT + BoL col-6 RIGHT.
+        pane.insertAdjacentHTML('beforeend', html);
+        attachBolFilterListeners(roundId);
+        return document.getElementById(`bol-card-${roundId}`);
+    }
+
+    // Wires both the name-search input and the set-checkbox dropdown.
+    // All three update the same per-round filter state and call
+    // applyBolFilters() — one source of truth for hiding rows.
+    function attachBolFilterListeners(roundId) {
+        const search = document.querySelector(`.bol-search[data-round-id="${roundId}"]`);
+        if (search) {
+            search.addEventListener('input', () => {
+                bolFilterStateFor(roundId).search = search.value.trim().toLowerCase();
+                applyBolFilters(roundId);
+            });
+        }
+        const dropdown = document.querySelector(`.bol-set-dropdown[data-round-id="${roundId}"]`);
+        if (dropdown) {
+            // Each checkbox toggles its set's membership in activeSets.
+            dropdown.querySelectorAll('.bol-set-checkbox').forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const state = bolFilterStateFor(roundId);
+                    if (cb.checked) state.activeSets.add(cb.dataset.set);
+                    else state.activeSets.delete(cb.dataset.set);
+                    applyBolFilters(roundId);
+                });
+            });
+            // "All" / "None" quick-toggles at the bottom of the menu.
+            const allBtn = dropdown.querySelector('.bol-set-all');
+            const noneBtn = dropdown.querySelector('.bol-set-none');
+            if (allBtn) allBtn.addEventListener('click', () => setAllSetCheckboxes(roundId, true));
+            if (noneBtn) noneBtn.addEventListener('click', () => setAllSetCheckboxes(roundId, false));
+        }
+    }
+
+    // Helper: toggle every set checkbox to a given state. Used by the
+    // All/None buttons so the operator can flip the whole filter
+    // without unchecking each one manually.
+    function setAllSetCheckboxes(roundId, checked) {
+        const dropdown = document.querySelector(`.bol-set-dropdown[data-round-id="${roundId}"]`);
+        if (!dropdown) return;
+        const state = bolFilterStateFor(roundId);
+        dropdown.querySelectorAll('.bol-set-checkbox').forEach(cb => {
+            cb.checked = checked;
+            if (checked) state.activeSets.add(cb.dataset.set);
+            else state.activeSets.delete(cb.dataset.set);
+        });
+        applyBolFilters(roundId);
+    }
+
+    // Hide/show legend blocks based on current name search + active
+    // sets. activeSets is a Set<string> — block must have its set in
+    // the Set to be visible. Empty search + all sets active reveals
+    // everything.
+    function applyBolFilters(roundId) {
+        const grid = document.getElementById(`bol-grid-${roundId}`);
+        if (!grid) return;
+        const { search, activeSets } = bolFilterStateFor(roundId);
+        let visible = 0;
+        grid.querySelectorAll('.bol-legend').forEach(block => {
+            const name = (block.getAttribute('data-legend') || '').toLowerCase();
+            const set = block.getAttribute('data-set') || 'OTHER';
+            const matchesSearch = !search || name.includes(search);
+            const matchesSet = activeSets.has(set);
+            const ok = matchesSearch && matchesSet;
+            block.style.display = ok ? '' : 'none';
+            if (ok) visible++;
+        });
+        // Update the dropdown toggle label to reflect "(N/total)" so
+        // the operator sees at a glance how many sets are active
+        // without opening the menu.
+        const toggle = document.querySelector(`.bol-set-dropdown[data-round-id="${roundId}"] .bol-set-count`);
+        if (toggle) {
+            toggle.textContent = `(${activeSets.size}/${BOL_SET_BUCKETS.length})`;
+        }
+        // Update status to show how many are visible vs total.
+        const status = document.getElementById(`bol-status-${roundId}`);
+        if (status && status.dataset.baseStatus) {
+            const base = status.dataset.baseStatus;
+            const total = grid.querySelectorAll('.bol-legend').length;
+            status.textContent = (visible === total)
+                ? base
+                : `Showing ${visible} of ${total} legends · ${base}`;
+        }
+    }
+
+    // Top-N row HTML for one candidate. Layout:
+    //   #1   IGN (with real name subtitle)            8-0-0
+    //                                                 #157
+    // Record + overall rank are stacked vertically on the right
+    // (was a single horizontal row) so the name column has the
+    // full freed-up width — long IGNs like "Prismaticismism" no
+    // longer truncate with ellipsis. Title attribute on the name
+    // gives operators the full string on hover regardless.
+    function bolCandidateRowHtml(c, position) {
+        const ign = c.displayName || c.bestIdentifier || '';
+        const real = c.realName || '';
+        const fullForTitle = ign && real && ign !== real ? `${ign} (${real})` : (ign || real || '?');
+        const igsAndReal = (ign && real && ign !== real)
+            ? `<div class="bol-name" title="${escapeHtml(fullForTitle)}">${escapeHtml(ign)}</div><div class="bol-real text-muted small">${escapeHtml(real)}</div>`
+            : `<div class="bol-name" title="${escapeHtml(fullForTitle)}">${escapeHtml(ign || real || '?')}</div>`;
+        return `
+            <li class="bol-row">
+                <span class="bol-position">#${position}</span>
+                <span class="bol-player">${igsAndReal}</span>
+                <span class="bol-meta">
+                    <span class="bol-record">${escapeHtml(c.record || '—')}</span>
+                    <span class="bol-rank text-muted small">#${c.rank}</span>
+                </span>
+            </li>
+        `;
+    }
+
+    // Render one legend's block — portrait + header + top-N list.
+    function bolLegendBlockHtml(entry) {
+        // Eager load (no `loading="lazy"`): browsers don't reliably
+        // trigger lazy-load for elements rendered inside an inactive
+        // Bootstrap tab pane, so we end up with permanently-blank
+        // circles when the operator switches tabs. With 251×124
+        // portraits (~55 KB), eager loading 28 × 16 = 448 images
+        // costs ~25 MB total but parallelizes across the connection.
+        const portrait = entry.portraitUrl
+            ? `<img src="${escapeHtml(entry.portraitUrl)}" alt="${escapeHtml(entry.legend)}" class="bol-portrait-img" onerror="this.style.display='none'">`
+            : '';
+        const rows = (entry.topPlayers || []).map((c, i) => bolCandidateRowHtml(c, i + 1)).join('');
+        return `
+            <div class="bol-legend" data-legend="${escapeHtml(entry.legend)}" data-set="${escapeHtml(entry.set || 'OTHER')}">
+                <div class="bol-portrait">${portrait}</div>
+                <div class="bol-content">
+                    <div class="bol-header">
+                        <span class="bol-legend-name">${escapeHtml(entry.legend)}</span>
+                        <span class="bol-deck-count text-muted small">${entry.totalDecks} deck${entry.totalDecks === 1 ? '' : 's'}</span>
+                    </div>
+                    <ol class="bol-top5">
+                        ${rows}
+                    </ol>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderBestOfLegend(roundId, dataForRound) {
+        const card = ensureBolCard(roundId);
+        if (!card) return;
+        const grid = document.getElementById(`bol-grid-${roundId}`);
+        const status = document.getElementById(`bol-status-${roundId}`);
+        if (!grid) return;
+        if (!dataForRound || !Array.isArray(dataForRound.legends) || dataForRound.legends.length === 0) {
+            grid.innerHTML = '';
+            if (status) {
+                status.dataset.baseStatus = '';
+                status.textContent = dataForRound?.error
+                    || 'No legend data for this round. Run Fetch Event Data → Decklists for the active event, then re-fetch standings.';
+            }
+            return;
+        }
+        grid.innerHTML = dataForRound.legends.map(bolLegendBlockHtml).join('');
+        if (status) {
+            const totalLegends = dataForRound.legends.length;
+            const totalDecks = dataForRound.legends.reduce((sum, l) => sum + (l.totalDecks || 0), 0);
+            const unmatched = dataForRound.unmatchedPlayers || 0;
+            const tail = unmatched > 0 ? ` · ${unmatched} player(s) without a cached deck excluded` : '';
+            const base = `${totalLegends} legends played · ${totalDecks} decks total${tail}`;
+            status.dataset.baseStatus = base;
+            status.textContent = base;
+        }
+        // Re-apply any operator-active filter (preserved across refreshes).
+        applyBolFilters(roundId);
+    }
+
+    function populateBestOfLegendData() {
+        // Render every standings round sub-tab — passing the data we
+        // got from the server when it exists, or null otherwise. The
+        // server only emits entries for rounds with standings JSON on
+        // disk, so rounds without cached standings (e.g. operator
+        // moved files out of `data/cardeio/`) get an empty card with
+        // the "No legend data for this round" hint instead of a
+        // missing-card surprise.
+        const tabsContainer = document.getElementById('standingsRoundTabs');
+        if (!tabsContainer) {
+            // Fallback: no standings tabs rendered yet, just paint
+            // whatever the server sent.
+            Object.keys(allBestOfLegendData).forEach(roundId => {
+                renderBestOfLegend(roundId, allBestOfLegendData[roundId]);
+            });
+            return;
+        }
+        Array.from(tabsContainer.querySelectorAll('button')).forEach(btn => {
+            const m = btn.id.match(/^standings-round-(\d+)-tab$/);
+            if (!m) return;
+            const roundId = m[1];
+            renderBestOfLegend(roundId, allBestOfLegendData[roundId] || null);
+        });
+    }
+
+    // ── PAIRINGS (Carde.io v2 matches-list) ────────────────────────────
+    // Per-round table of matches sourced from
+    // `tournament-pairings-fetched` (one round) and `all-pairings-data`
+    // (every cached round on page load). Render shape mirrors anu-api's
+    // pairings columns — Table | P1 | Record | P2 | Record | Status |
+    // Winner — adapted to a plain Bootstrap table since we don't have
+    // tanstack/table on the master-control page.
+    let allPairingsData = {};
+
+    // Build the empty pairings card markup for a round. Card is rendered
+    // synchronously inside renderRoundTabs() so the Fetch button is
+    // clickable before any pairings data has arrived; the tbody fills
+    // in when a fetch response (or cached snapshot) lands.
+    function renderEmptyPairingsCard(roundId) {
+        return `
+            <div class="col-12 mb-3 pairings-card-container" id="pairings-card-${roundId}">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="card-title mb-0">Round ${roundId} Pairings</h5>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text"
+                                    class="form-control form-control-sm pairings-search"
+                                    data-round-id="${roundId}"
+                                    placeholder="Search player or table…"
+                                    style="width: 240px;" />
+                                <button class="btn btn-sm btn-primary fetch-pairings-btn"
+                                    data-round-id="${roundId}">Fetch Pairings</button>
+                            </div>
+                        </div>
+                        <div class="pairings-status text-muted small mb-2"
+                             id="pairings-status-${roundId}">No pairings loaded yet — click Fetch Pairings.</div>
+                        <div class="table-responsive" style="max-height: 70vh; overflow-y: auto;">
+                            <table class="table table-sm table-striped table-hover pairings-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 60px;">Table</th>
+                                        <th>Player 1</th>
+                                        <th style="width: 160px;">Legend</th>
+                                        <th style="width: 70px;">Record</th>
+                                        <th>Player 2</th>
+                                        <th style="width: 160px;">Legend</th>
+                                        <th style="width: 70px;">Record</th>
+                                        <th style="width: 100px;">Status</th>
+                                        <th>Winner</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pairings-tbody-${roundId}"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Live filter for the pairings search box. Hides any tbody row whose
+    // textContent doesn't include the query (case-insensitive). Cheap;
+    // fine for ~1k rows per round.
+    function attachPairingsSearchListener(roundId) {
+        const input = document.querySelector(`.pairings-search[data-round-id="${roundId}"]`);
+        if (!input) return;
+        input.addEventListener('input', () => {
+            const q = input.value.trim().toLowerCase();
+            const tbody = document.getElementById(`pairings-tbody-${roundId}`);
+            if (!tbody) return;
+            tbody.querySelectorAll('tr').forEach(row => {
+                if (!q) {
+                    row.style.display = '';
+                    return;
+                }
+                row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+            });
+        });
+    }
+
+    // Resolve a player cell (HTML) from their pairings relationship.
+    // Layout matches anu-api's pairings page — Riot/in-game name as the
+    // primary line + real name as a smaller, muted subtitle so casters
+    // can quickly recognize either form.
+    //   <div>Anzid To Win</div>
+    //   <div class="text-muted small">Anuraag Das</div>
+    //
+    // Source priority:
+    //   - Primary line: `game_user.display_name` (Carde stores the
+    //     player's Riot-account gameName here, e.g. "Anzid To Win").
+    //     Carde does NOT expose the `#NA1` tagline anywhere — that
+    //     requires hitting Riot's Account API by-PUUID, which needs
+    //     a separate API key. If we add `RIOT_API_KEY` to .env later,
+    //     we can append `#${tagLine}` server-side and this function
+    //     will pick it up via `rel.riot_id_with_tagline` (TBD).
+    //   - Subtitle: `first_last` (the real name on the registration).
+    //   - Fallbacks: best_identifier → "Unknown" if everything is null.
+    //
+    // Returns HTML — caller already uses .innerHTML to lay out rows
+    // and we own the inputs (escapeHtml() applied on every dynamic
+    // segment), so this stays safe.
+    function resolvePairingsPlayerCell(rel) {
+        if (!rel) return '—';
+        const player = rel.player || {};
+        const user = rel.user_event_status?.user || {};
+        const gameName = user.game_user?.display_name || '';
+        const realName = user.first_last
+            || `${player.first_name || ''} ${player.last_name || ''}`.trim()
+            || '';
+        const fallback = user.best_identifier || player.best_identifier || 'Unknown';
+
+        // Build the primary line. If the server has appended a Riot
+        // tagline (future enhancement), it lands on the relationship
+        // as `riot_id_with_tagline` and replaces the gameName.
+        const primary = rel.riot_id_with_tagline || gameName || fallback;
+        const subtitle = realName && realName !== primary ? realName : '';
+
+        if (subtitle) {
+            return `<div>${escapeHtml(primary)}</div>` +
+                   `<div class="text-muted small">${escapeHtml(subtitle)}</div>`;
+        }
+        return escapeHtml(primary);
+    }
+
+    // Plain-text version — used when we need the raw name for search /
+    // logging. Same priority as the cell renderer.
+    function resolvePairingsPlayerName(rel) {
+        if (!rel) return '—';
+        const player = rel.player || {};
+        const user = rel.user_event_status?.user || {};
+        return rel.riot_id_with_tagline
+            || user.game_user?.display_name
+            || user.first_last
+            || user.best_identifier
+            || player.best_identifier
+            || `${player.first_name || ''} ${player.last_name || ''}`.trim()
+            || 'Unknown';
+    }
+
+    // Server augments each relationship with `legend` from the cached
+    // decklist export (joined by player.id). Returns "—" when no
+    // decklist was cached for this event/player (e.g. operator hasn't
+    // run "Fetch Event Data → Decklists" for the active event yet).
+    function resolvePairingsLegend(rel) {
+        const legend = rel?.legend;
+        if (!legend) return '—';
+        return String(legend);
+    }
+
+    function resolvePairingsRecord(rel) {
+        // Server enriches each relationship with `pre_round_record` —
+        // the player's record going INTO the displayed round, joined
+        // server-side from data/cardeio/standings-api-event-{id}-round-{N-1}.json.
+        // That's what an operator wants in a pairings table ("Will sat
+        // down at table 5 with a 4-1 record"), not the player's final
+        // tournament tally that the embedded user_event_status carries.
+        if (rel?.pre_round_record) {
+            const r = String(rel.pre_round_record);
+            // Drop trailing "-0" draws column for symmetry with how
+            // standings textareas format records — but ONLY when the
+            // string has three parts (W-L-D). "0-0" must stay "0-0",
+            // not collapse to "0".
+            const parts = r.split('-');
+            if (parts.length === 3 && parts[2] === '0') {
+                return `${parts[0]}-${parts[1]}`;
+            }
+            return r;
+        }
+        // Fallback path — server didn't have a standings cache loaded
+        // (e.g. operator bulk-fetched pairings but not standings).
+        // Show the embedded final tally so the column isn't blank.
+        const ues = rel?.user_event_status;
+        if (!ues) return '—';
+        const w = ues.matches_won ?? 0;
+        const l = ues.matches_lost ?? 0;
+        const d = ues.matches_drawn ?? 0;
+        return d ? `${w}-${l}-${d}` : `${w}-${l}`;
+    }
+
+    // Resolve which player won a match. Carde's `winning_player_id` is
+    // the player.id (and equivalently user.id — same number). Empty
+    // when the match was an intentional/unintentional draw, or when
+    // the status is still pending/in-progress.
+    function resolvePairingsWinner(match) {
+        if (match.match_is_bye) return '—';
+        if (match.match_is_intentional_draw || match.match_is_unintentional_draw) return 'Draw';
+        if (!match.winning_player_id) {
+            // No winner reported yet — leave blank rather than guessing.
+            return '';
+        }
+        const rels = match.player_match_relationships || [];
+        for (const rel of rels) {
+            const playerId = rel.player?.id ?? rel.user_event_status?.user?.id;
+            if (playerId != null && Number(playerId) === Number(match.winning_player_id)) {
+                return resolvePairingsPlayerName(rel);
+            }
+        }
+        return '';
+    }
+
+    // Format the raw `status` enum into something readable. Carde uses
+    // values like `MATCH_STATUS_REPORTED`, `MATCH_STATUS_PENDING`,
+    // `MATCH_STATUS_IN_PROGRESS`. Strip the prefix + lowercase + title-case.
+    function formatPairingsStatus(status) {
+        if (!status) return '—';
+        return String(status)
+            .replace(/^MATCH_STATUS_/, '')
+            .toLowerCase()
+            .replace(/(^|_)(\w)/g, (_, sep, c) => (sep ? ' ' : '') + c.toUpperCase());
+    }
+
+    // Render the entire tbody for one round's pairings. Sorted by
+    // `table_number` ascending. Idempotent — replaces any prior rows.
+    function renderPairings(roundId, matches) {
+        const tbody = document.getElementById(`pairings-tbody-${roundId}`);
+        const status = document.getElementById(`pairings-status-${roundId}`);
+        if (!tbody) return;
+
+        if (!Array.isArray(matches) || matches.length === 0) {
+            tbody.innerHTML = '';
+            if (status) status.textContent = 'No pairings returned for this round.';
+            return;
+        }
+
+        const sorted = [...matches].sort((a, b) => {
+            const ta = Number(a.table_number ?? Number.POSITIVE_INFINITY);
+            const tb = Number(b.table_number ?? Number.POSITIVE_INFINITY);
+            return ta - tb;
+        });
+
+        const rows = sorted.map(match => {
+            const rels = match.player_match_relationships || [];
+            const p1 = rels[0];
+            const p2 = rels[1];
+            const isBye = !!match.match_is_bye;
+            // Carde returns table_number = -1 for byes (no physical table).
+            // Show an em-dash instead so the column reads cleanly.
+            const tableCell = (match.table_number == null || match.table_number === -1) ? '—' : match.table_number;
+            // Player cells render Riot/in-game name primary + real name
+            // subtitle. resolvePairingsPlayerCell returns pre-escaped HTML.
+            const p1Cell = resolvePairingsPlayerCell(p1);
+            const p1Record = resolvePairingsRecord(p1);
+            const p1Legend = resolvePairingsLegend(p1);
+            const p2Cell = isBye ? 'BYE' : (p2 ? resolvePairingsPlayerCell(p2) : '—');
+            const p2Record = isBye ? '—' : (p2 ? resolvePairingsRecord(p2) : '—');
+            const p2Legend = isBye ? '—' : (p2 ? resolvePairingsLegend(p2) : '—');
+            const winner = resolvePairingsWinner(match);
+            return `
+                <tr>
+                    <td>${tableCell}</td>
+                    <td>${p1Cell}</td>
+                    <td>${escapeHtml(p1Legend)}</td>
+                    <td>${escapeHtml(p1Record)}</td>
+                    <td>${p2Cell}</td>
+                    <td>${escapeHtml(p2Legend)}</td>
+                    <td>${escapeHtml(p2Record)}</td>
+                    <td>${escapeHtml(formatPairingsStatus(match.status))}</td>
+                    <td>${escapeHtml(winner)}</td>
+                </tr>
+            `;
+        });
+        tbody.innerHTML = rows.join('');
+
+        if (status) {
+            // Carde uses `COMPLETE` as the terminal status (occasionally
+            // `REPORTED` on older events). Match either as "finished".
+            const finished = sorted.filter(m => /complete|reported/i.test(m.status || '')).length;
+            const byes = sorted.filter(m => m.match_is_bye).length;
+            status.textContent = `${sorted.length} matches (${finished} finished, ${byes} byes).`;
+        }
+    }
+
+    // Tiny HTML-escape — pairings data comes straight from Carde and may
+    // include user-supplied display names with weird characters. Cheap
+    // safety net since we're using .innerHTML to lay out rows.
+    function escapeHtml(s) {
+        if (s == null) return '';
+        return String(s)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    // Repaint every cached round (called when the `all-pairings-data`
+    // snapshot lands at page-load time).
+    function populatePairingsData() {
+        Object.keys(allPairingsData).forEach(roundId => {
+            renderPairings(roundId, allPairingsData[roundId]);
+        });
+    }
+
+    // Click delegate for `.standings-broadcast-btn` — convenience
+    // duplicate of the Matches tab's per-round Broadcast button so the
+    // operator can push a round to broadcast without leaving the
+    // Standings tab. Same `broadcast-requested` socket event + same
+    // `currentBroadcastRoundId` update as the original handler in
+    // attachBroadcastButtonListeners(). The Matches tab button still
+    // works exactly as before — this just adds a second entry point.
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest?.('.standings-broadcast-btn');
+        if (!btn) return;
+        const roundId = btn.dataset.roundId;
+        if (!roundId) return;
+        console.log(`broadcast clicked from standings tab for round ${roundId}`);
+        if (broadcastDisplay) broadcastDisplay.innerText = `Round ${roundId}`;
+        socket.emit('broadcast-requested', { round_id: roundId });
+        currentBroadcastRoundId = String(roundId);
+    });
+
+    // Click delegate for `.fetch-pairings-btn`. Reads platform +
+    // tournament-id from Global Settings (same source the standings
+    // fetch uses) and emits `fetch-tournament-pairings`. Disabled-state
+    // / restored-state mirrors the existing `.fetch-standings-btn`
+    // delegate in tournament-platform.js.
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest?.('.fetch-pairings-btn');
+        if (!btn) return;
+        const roundId = btn.dataset.roundId;
+        const platformSelect = document.getElementById('tournament-platform-select');
+        const tournamentIdInput = document.getElementById('tournament-id-input');
+        const platform = platformSelect?.value || 'manual';
+        const tournamentId = (tournamentIdInput?.value || '').trim();
+
+        if (platform !== 'cardeio') {
+            alert('Pairings fetch is only supported for Carde.io. Switch the platform in Global Settings → Tournament Platform.');
+            return;
+        }
+        if (!tournamentId) {
+            alert('Please enter a tournament ID in Global Settings.');
+            return;
+        }
+
+        const original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Fetching…';
+        btn.dataset.fetching = 'true';
+
+        const status = document.getElementById(`pairings-status-${roundId}`);
+        if (status) status.textContent = `Fetching round ${roundId} pairings from Carde…`;
+
+        socket.emit('fetch-tournament-pairings', { platform, tournamentId, roundId });
+
+        // Re-enable the button after the response (or 30 s timeout).
+        const restore = () => {
+            btn.disabled = false;
+            btn.textContent = original;
+            delete btn.dataset.fetching;
+        };
+        const onResp = (result) => {
+            if (String(result.roundId) !== String(roundId)) return;
+            socket.off('tournament-pairings-fetched', onResp);
+            restore();
+            if (!result.success && status) {
+                status.textContent = `Fetch failed: ${result.error}`;
+            }
+        };
+        socket.on('tournament-pairings-fetched', onResp);
+        setTimeout(() => {
+            if (btn.dataset.fetching === 'true') {
+                socket.off('tournament-pairings-fetched', onResp);
+                restore();
+                if (status) status.textContent = 'Fetch timed out (30 s).';
+            }
+        }, 30000);
+    });
 
     // ── FQ 2v2 manual override panel ────────────────────────────────────────
     // Renders the 8-team override grid (4 per group) into
@@ -2195,6 +3449,34 @@ export function initMatches(socket) {
     // call for scoreboard state - for now its wins show check
     socket.emit('get-scoreboard-state');
 
+    // ── Scoreboard battlefields-row visibility (inline per-match toggles) ──
+    // The "Hide" checkbox rendered next to each 2v2 battlefield input
+    // (see renderPlayerSection above) writes through to the server's
+    // `update-battlefield-visibility` handler. Semantic is inverted from
+    // the canonical `visible` flag: CHECKED in the UI means HIDDEN in the
+    // /scoreboard L3 strip (.riftbound-bf-row), so we flip at emit + sync
+    // time. Handler is delegated because match cards render dynamically —
+    // there's no single moment when all inline toggles exist in the DOM.
+    socket.emit('get-battlefield-visibility');
+
+    document.addEventListener('change', (e) => {
+        if (!e.target.classList.contains('battlefield-hide-toggle')) return;
+        socket.emit('update-battlefield-visibility', {
+            slot: e.target.dataset.slot,
+            visible: !e.target.checked
+        });
+    });
+
+    socket.on('battlefield-visibility-updated', (flags) => {
+        if (!flags) return;
+        // Inline per-match "Hide" checkboxes — checked = hidden (inverted).
+        document.querySelectorAll('.battlefield-hide-toggle')
+            .forEach(input => {
+                const slot = input.dataset.slot;
+                if (slot in flags) input.checked = !flags[slot];
+            });
+    });
+
     // end setup socket emitters
 
     // setup sockets listeners
@@ -2208,6 +3490,7 @@ export function initMatches(socket) {
         control2Display.innerText = `${data['controlsTracker']['2']['round_id']}-${data['controlsTracker']['2']['match_id']}`;
         control3Display.innerText = `${data['controlsTracker']['3']['round_id']}-${data['controlsTracker']['3']['match_id']}`;
         control4Display.innerText = `${data['controlsTracker']['4']['round_id']}-${data['controlsTracker']['4']['match_id']}`;
+        currentBroadcastRoundId = data['broadcastTracker']['round_id'] || null;
     })
 
     // handle response for global data
@@ -2272,9 +3555,115 @@ export function initMatches(socket) {
         populateStandingsData();
     })
 
+    // ── Pairings socket listeners ───────────────────────────────────────
+    // `all-pairings-data` lands once at page load with whatever the
+    // server has cached on disk under data/cardeio/pairings-api-event-{id}-round-*.json.
+    socket.on('all-pairings-data', ({ pairingsData }) => {
+        console.log('got pairings data', Object.keys(pairingsData || {}).length, 'round(s)');
+        allPairingsData = pairingsData || {};
+        populatePairingsData();
+    });
+
+    // `tournament-pairings-fetched` lands after a per-round fetch click
+    // (broadcast to every client so a co-operator's open tab repaints
+    // without a separate fetch). On error, the click handler above shows
+    // the reason in the round's status line — we just skip the render.
+    socket.on('tournament-pairings-fetched', (result) => {
+        if (!result?.success) return;
+        const { roundId, matches } = result;
+        allPairingsData[String(roundId)] = matches;
+        renderPairings(roundId, matches);
+    });
+
+    // ── Missing-rounds auto-fill status (piggybacks Fetch Pairings) ──
+    // Every per-round Fetch Pairings click also triggers a server-side
+    // scan for OTHER rounds in this event that don't have a cached
+    // pairings file yet, and fetches each one sequentially. The status
+    // line above the round tabs (`#fetch-missing-pairings-status`) shows
+    // live progress for those auto-fills. The per-round table itself
+    // still repaints via the existing `tournament-pairings-fetched`
+    // listener above as each round lands.
+    const fetchMissingStatus = document.getElementById('fetch-missing-pairings-status');
+    function setMissingStatus(msg, kind) {
+        if (!fetchMissingStatus) return;
+        if (!msg) {
+            fetchMissingStatus.style.display = 'none';
+            fetchMissingStatus.textContent = '';
+            fetchMissingStatus.className = '';
+            return;
+        }
+        fetchMissingStatus.style.display = '';
+        fetchMissingStatus.textContent = msg;
+        const cls = kind === 'success' ? 'alert alert-success py-2 mb-2'
+                  : kind === 'danger' ? 'alert alert-danger py-2 mb-2'
+                  : 'alert alert-info py-2 mb-2';
+        fetchMissingStatus.className = cls;
+    }
+    socket.on('fetch-missing-pairings-progress', (p) => {
+        if (!p) return;
+        if (p.phase === 'start') {
+            const missingCount = (p.missing || []).length;
+            const staleCount = (p.stale || []).length;
+            const parts = [];
+            if (missingCount > 0) parts.push(`${missingCount} missing (${p.missing.join(', ')})`);
+            if (staleCount > 0) parts.push(`${staleCount} stale (${p.stale.join(', ')})`);
+            if (parts.length > 0) {
+                setMissingStatus(`Auto-fill: ${parts.join(' + ')}…`, 'info');
+            }
+        } else if (p.phase === 'fetching') {
+            const verb = p.refresh ? 'Refreshing' : 'Fetching';
+            setMissingStatus(`(${p.index}/${p.total}) ${verb} round ${p.roundId}…`, 'info');
+        } else if (p.phase === 'fetched') {
+            const verb = p.refresh ? 'refreshed' : 'fetched';
+            setMissingStatus(`(${p.index}/${p.total}) Round ${p.roundId} ${verb}: ${p.count} matches`, 'info');
+        } else if (p.phase === 'failed') {
+            setMissingStatus(`(${p.index}/${p.total}) Round ${p.roundId} FAILED: ${p.error}`, 'danger');
+        }
+    });
+    socket.on('fetch-missing-pairings-complete', (result) => {
+        if (!result) return;
+        if (!result.success && !result.fetched) {
+            setMissingStatus(result.error || 'Auto-fill failed.', 'danger');
+            return;
+        }
+        // Silent on "nothing to do" — only show toast when we actually
+        // fetched something or hit failures.
+        if ((result.fetched || 0) === 0 && (result.failed || 0) === 0) {
+            setMissingStatus('', 'info');
+            return;
+        }
+        const kind = result.failed && result.failed > 0 ? 'danger' : 'success';
+        setMissingStatus(result.message || `Auto-fill done — fetched ${result.fetched || 0} round(s).`, kind);
+    });
+
+    // Best of Legend — `byRound` is `{ "1": {...}, "2": {...}, ... }`.
+    // Repaints every round's BoL card. If the server reports `error`
+    // (e.g. no decklists cached for the active event), each round's
+    // status line shows the message instead of legend blocks.
+    socket.on('best-of-legend-data', ({ byRound, error, eventId }) => {
+        console.log('got best-of-legend data', Object.keys(byRound || {}).length, 'round(s)', eventId ? `for event ${eventId}` : '');
+        allBestOfLegendData = {};
+        if (byRound) {
+            for (const [roundId, dataForRound] of Object.entries(byRound)) {
+                allBestOfLegendData[roundId] = dataForRound;
+            }
+        }
+        // If the server returned a top-level error, propagate it to every
+        // visible BoL card so the operator sees the reason.
+        if (error) {
+            document.querySelectorAll('.best-of-legend-card-container').forEach(card => {
+                const status = card.querySelector('.bol-status');
+                if (status) status.textContent = error;
+                const grid = card.querySelector('.bol-grid');
+                if (grid) grid.innerHTML = '';
+            });
+            return;
+        }
+        populateBestOfLegendData();
+    });
+
     // handle updates to full control data to update the page (initial load)
     socket.on('control-data-updated', (allData) => {
-        console.log('Control data was updated', allData);
         // save to local object
         allControlData = allData;
 
@@ -2301,11 +3690,63 @@ export function initMatches(socket) {
         if (timestamp > currentTimestamp) {
             allControlData[round_id][match_id][field] = value;
             allControlData[round_id][match_id]._timestamps[field] = timestamp;
-            
+
             // Update ONLY the specific field in DOM
             const fieldElement = document.getElementById(`${round_id}-${match_id}-${field}`);
             if (fieldElement) {
                 fieldElement.textContent = value;
+            }
+
+            // Mirror admin-driven RIFTBOUND changes onto master-control's DERIVED
+            // controls (radios / toggle buttons / checkbox), which aren't plain
+            // text fields — so they MOVE live instead of only catching up on the
+            // next full re-render. (The text fields above — names, might values,
+            // battlefield slots — already update via fieldElement.)
+            const prefix = `${round_id}-${match_id}`;
+            const card = `#match-card-${prefix}`;
+            if (field === 'showdown-active-bf') {
+                const radio = document.querySelector(`${card} .showdown-active-bf-radio[data-bf="${value}"]`);
+                if (radio) radio.checked = true;
+            } else if (field === 'showdown-visible') {
+                const btn = document.querySelector(`${card} .showdown-visible-toggle`);
+                if (btn) {
+                    const on = value === 'true';
+                    btn.setAttribute('aria-pressed', String(on));
+                    btn.textContent = on ? 'Hide from Scoreboard' : 'Show on Scoreboard';
+                }
+            } else if (field === 'showdown-bf-3-enabled') {
+                const enabled = value === 'true';
+                const cb = document.getElementById(`${prefix}-showdown-bf-3-enabled`);
+                if (cb) cb.checked = enabled;
+                const bf3Row = document.querySelector(`${card} .showdown-bf-3-row`);
+                if (bf3Row) bf3Row.classList.toggle('d-none', !enabled);
+            } else if (field === 'showdown-bf-3-name') {
+                // Baron brush override forces this name to "Brush".
+                const btn = document.querySelector(`${card} .baron-brush-override-btn`);
+                if (btn) {
+                    const isBrush = (value || '').trim() === 'Brush';
+                    btn.setAttribute('aria-pressed', String(isBrush));
+                    btn.classList.toggle('active', isBrush);
+                }
+            } else if (field === 'player-battlefield-left' || field === 'player-battlefield-right') {
+                const side = field.endsWith('left') ? 'left' : 'right';
+                const active = (value || '').trim();
+                const isBrush = active === 'Brush';
+                const brushBtn = document.querySelector(`.brush-override-btn[data-round="${round_id}"][data-match="${match_id}"][data-side="${side}"]`);
+                if (brushBtn) {
+                    brushBtn.setAttribute('aria-pressed', String(isBrush));
+                    brushBtn.classList.toggle('active', isBrush);
+                }
+                if (!isBrush && active) {
+                    for (const bf of ['1', '2', '3']) {
+                        const slot = document.getElementById(`${prefix}-player-battlefield-${bf}-${side}`);
+                        if (slot && (slot.textContent || '').trim() === active) {
+                            const radio = document.querySelector(`input[name="${prefix}-bf-${side}-select"][data-bf="${bf}"]`);
+                            if (radio) radio.checked = true;
+                            break;
+                        }
+                    }
+                }
             }
         }
     });
@@ -2335,6 +3776,13 @@ export function initMatches(socket) {
                 // If nextSibling is null, it was already appended at the end which is correct
             }
         });
+        // Re-attach autocomplete dropdown wrappers — every match card we just
+        // re-rendered has fresh DOM nodes whose focus/input listeners need to
+        // be wired up. The other re-render entry point (control-data-updated)
+        // calls this same function; missing it here is what made player-name,
+        // archetype, and SWU dropdowns silently disappear after a player-count
+        // swap.
+        setupCustomDropdowns();
     }
 
     function toggleGameFields(gameSelection) {
@@ -2408,7 +3856,7 @@ export function initMatches(socket) {
             vc.getAllOverrideProperties().forEach(prop => {
                 document.documentElement.style.removeProperty(prop);
             });
-            const overrides = vc.getOverrides(game, vendor);
+            const overrides = vc.getOverrides(game, vendor, playerCount);
             Object.entries(overrides).forEach(([prop, value]) => {
                 document.documentElement.style.setProperty(prop, value);
             });

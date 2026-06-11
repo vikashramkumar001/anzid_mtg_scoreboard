@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import { RoomUtils } from '../utils/room-utils.js';
-import { getGameSelection } from '../config/constants.js';
+import { getGameSelection, getVendorSelection, getPlayerCount } from '../config/constants.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -72,21 +72,24 @@ export const archetypeStorage = multer.diskStorage({
   }
 });
 
-// Multer storage config for player portrait uploads. Destination matches the
-// folder features/roster.js auto-seeds from (single global roster — no per-
-// vendor split yet). Filename slugifies the operator-supplied `playerName`
-// so it lines up with the FLYQUEST_2V2_ROSTER_SEED keys in config/constants.js
-// and is stable across re-uploads (new upload for "Atrioc" overwrites atrioc.png).
-const portraitDir = path.join(imagesDir, 'mtg/shared/player-portraits/flyquest-2v2');
-
-// Ensure directory exists (noop if the operator pre-populated it).
-if (!fs.existsSync(portraitDir)) {
-  fs.mkdirSync(portraitDir, { recursive: true });
+// Multer storage config for player portrait uploads. Destination follows the
+// per-vendor portrait pool convention used by scoreboard.js / scoreboard-scene.js:
+//   /assets/images/{game}/shared/player-portraits/{vendor}-{count}/{slug}.{ext}
+// Resolved per-request from the current selections so uploading while on
+// dsg+riftbound+2v2 lands in riftbound/.../dsg-2v2/ — not the legacy flyquest
+// folder. Mirrors overlayStorage's dynamic-destination pattern above.
+function getPortraitDir() {
+  const game = getGameSelection();
+  const vendor = getVendorSelection();
+  const count = getPlayerCount();
+  return path.join(imagesDir, game, 'shared', 'player-portraits', `${vendor}-${count}`);
 }
 
 export const portraitStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, portraitDir);
+    const dir = getPortraitDir();
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    cb(null, dir);
   },
   filename: function (req, file, cb) {
     const playerName = req.body.playerName || 'unknown_player';
@@ -99,6 +102,16 @@ export const portraitStorage = multer.diskStorage({
     cb(null, `${sanitized}${ext}`);
   }
 });
+
+// Exported so handlePortraitUpload can re-derive the public URL without
+// duplicating the path math. Reads the same in-memory selections multer's
+// `destination` callback uses, so file-on-disk and URL-in-response agree.
+export function getPortraitUrlBase() {
+  const game = getGameSelection();
+  const vendor = getVendorSelection();
+  const count = getPlayerCount();
+  return `/assets/images/${game}/shared/player-portraits/${vendor}-${count}`;
+}
 
 export function emitOverlayBackgrounds(io) {
   const game = getGameSelection();

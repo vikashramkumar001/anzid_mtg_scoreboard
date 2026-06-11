@@ -1,0 +1,772 @@
+// admin-control.js — clone of control.js (the base per-match control board)
+// plus a Riftbound-only admin section (battlefield selection, brush override,
+// baron pit, full showdown might). Every riftbound control writes through the
+// SAME per-field `field-updated` path as the base board, so the server's
+// updateFieldFromControl persists it and fans the full match state to the
+// scoreboard — no heavy master-control-matches-updated emit.
+import { RIFTBOUND_BATTLEFIELD_NAMES } from '/js/riftbound/constants.js';
+
+let baseLifePoints = '20';
+
+function scale_element(element, reset = false) {
+    element.style.maxWidth = "";
+    element.style.transform = "scale(1)";
+    let max_width = element.dataset.maxWidth;
+    let current_width = element.scrollWidth;
+    if (current_width > max_width) {
+        let scale = max_width / current_width;
+        // scale = 1 - scale;
+        // scale = scale * 1;
+        // scale = 1 - scale;
+        element.style.transform = "scale(" + scale + ",1)";
+    }
+    if ("maxWidthOrigin" in element.dataset) {
+        element.style.transformOrigin = element.dataset.maxWidthOrigin;
+    }
+    // element.style.maxWidth = max_width + "px";
+}
+
+Array.from(document.getElementsByClassName("has-maximum-width")).forEach((element) => {
+    scale_element(element);
+});
+
+function onLifeTotalChange(element, modifier) {
+    let div = document.getElementById(element);
+    div.innerHTML = parseInt(div.innerHTML) + modifier;
+    armTimeout(div);
+}
+
+function resetLifeTotals() {
+    const divs = ['player-life-left', 'player-life-right'].map(e => {
+        const div = document.getElementById(e);
+        div.innerHTML = baseLifePoints;
+        return div;
+    });
+    armTimeout(divs[0]);
+    armTimeout(divs[1]);
+}
+
+// Add event listeners after DOM is fully loaded
+function setupLifeUpdateListeners() {
+    // Unified stepper for the base-board counters (wins / xp / poison / life).
+    // Each +/- button carries data-target (the value div id), data-delta, and
+    // optional data-min (clamp floor). We update the value div and armTimeout
+    // to debounce the emit through the standard field-updated path.
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest?.('.abv2-step');
+        if (!btn) return;
+        const target = document.getElementById(btn.dataset.target);
+        if (!target) return;
+        let v = parseInt((target.textContent || '').trim(), 10);
+        if (isNaN(v)) v = 0;
+        v += parseInt(btn.dataset.delta, 10) || 0;
+        if (btn.dataset.min !== undefined) v = Math.max(parseInt(btn.dataset.min, 10), v);
+        target.textContent = String(v);
+        armTimeout(target);
+    });
+
+    // Reset Life
+    document.querySelector('.reset-life-btn')?.addEventListener('click', resetLifeTotals);
+}
+
+setupLifeUpdateListeners();
+
+function sendData(eventTarget) {
+    let field, value;
+    
+    if (eventTarget) {
+        // Send individual field update
+        field = eventTarget.id;
+        if (eventTarget.tagName === "SELECT") {
+            value = eventTarget.value.trim();
+        } else {
+            value = eventTarget.innerHTML.trim();
+        }
+        
+        const timestamp = Date.now();
+        console.log('emitting field update', field, '=', value);
+        
+        socket.emit('field-updated', {
+            round_id, 
+            match_id, 
+            field: field,
+            value: value,
+            timestamp: timestamp
+        });
+        
+        // Also update local current_state
+        current_state[field] = value;
+    } else {
+        // Fallback: send all data (for compatibility)
+        document.querySelectorAll(".dynamic").forEach(element => {
+            if (element.tagName === "SELECT") {
+                current_state[element.id] = element.value.trim();
+            } else {
+                current_state[element.id] = element.innerHTML.trim();
+            }
+        });
+        console.log('emitting updated content', match_id, current_state);
+        socket.emit('control-data-updated', {round_id, match_id, current_state});
+    }
+}
+
+const fieldTimeouts = {};
+function armTimeout(targetElement) {
+    if (targetElement) {
+        const key = targetElement.id;
+        clearTimeout(fieldTimeouts[key]);
+        fieldTimeouts[key] = setTimeout(() => sendData(targetElement), delay_value);
+    } else {
+        // No element — fallback to send all fields
+        clearTimeout(timeout);
+        timeout = setTimeout(() => sendData(undefined), delay_value);
+    }
+}
+
+document.querySelectorAll(".editable").forEach(editable => 
+    editable.addEventListener("input", (e) => armTimeout(e.target))
+);
+document.querySelectorAll(".editable").forEach(editable => editable.addEventListener('keypress', (evt) => {
+    if (evt.which === 13) {
+        evt.preventDefault();
+    }
+}));
+
+// Wins +/- buttons
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('wins-plus-btn') || e.target.classList.contains('wins-minus-btn')) {
+        const targetId = e.target.dataset.target;
+        const winsEl = document.getElementById(targetId);
+        if (!winsEl) return;
+        let current = parseInt(winsEl.textContent) || 0;
+        if (e.target.classList.contains('wins-plus-btn')) {
+            current++;
+        } else {
+            current = Math.max(0, current - 1);
+        }
+        winsEl.textContent = current.toString();
+        winsEl.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+});
+
+function loadSavedState(data) {
+    Object.entries(data).forEach((element) => {
+        let [key, value] = element;
+        if (document.getElementById(key) != null) {
+            let el = document.getElementById(key);
+            if (el.tagName === "SELECT") {
+                el.selectedIndex = [...el.options].findIndex(option => option.text === value);
+            } else {
+                document.getElementById(key).innerHTML = value;
+            }
+        }
+    });
+    setupCustomDropdowns(); // Set up dropdowns after loading saved state
+}
+
+function setupCustomDropdowns() {
+    // Archetype fields (existing behavior)
+    const archetypeFields = document.querySelectorAll('[id$="player-archetype-left"], [id$="player-archetype-right"]');
+    archetypeFields.forEach(field => attachDropdown(field, () => currentArchetypeList));
+
+    // Player-name fields (new — backed by currentPlayerRoster from
+    // `playerRosterUpdated`). Matches both the 1v1 primaries
+    // (#player-name-left, #player-name-right) and any 2v2 partner fields
+    // that may land here via the match-control UI (#...-left-2 / -right-2).
+    const playerNameFields = document.querySelectorAll(
+        '[id$="player-name-left"], [id$="player-name-right"], [id$="player-name-left-2"], [id$="player-name-right-2"]'
+    );
+    playerNameFields.forEach(field => attachDropdown(field, () => currentPlayerRoster));
+}
+
+// Shared wiring between archetype + player-name dropdowns. Takes a getter so
+// the dropdown always reads the latest list (socket updates mutate the
+// module-level arrays in place, not the reference we'd close over).
+function attachDropdown(field, getItems) {
+    if (!field || field.parentNode.classList.contains('custom-dropdown')) {
+        return; // missing or already wired
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'custom-dropdown';
+    field.parentNode.insertBefore(wrapper, field);
+    wrapper.appendChild(field);
+
+    const dropdownList = document.createElement('div');
+    dropdownList.className = 'dropdown-list';
+    wrapper.appendChild(dropdownList);
+
+    field.addEventListener('input', function () {
+        const value = this.textContent.trim().toLowerCase();
+        const filtered = getItems()
+            .filter(item => item.name.toLowerCase().includes(value))
+            .slice(0, 5);
+        renderDropdownList(dropdownList, filtered, field);
+    });
+
+    field.addEventListener('focus', function () {
+        renderDropdownList(dropdownList, getItems(), field);
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!wrapper.contains(e.target)) {
+            dropdownList.style.display = 'none';
+        }
+    });
+}
+
+function renderDropdownList(dropdownList, items, field) {
+    dropdownList.innerHTML = '';
+    items.forEach(item => {
+        const div = document.createElement('div');
+        div.textContent = item.name;
+        div.classList.add('dropdown-item');
+        div.addEventListener('click', function () {
+            field.textContent = item.name;
+            dropdownList.style.display = 'none';
+            field.dispatchEvent(new Event('input'));
+            field.dispatchEvent(new Event('change')); // Trigger change event
+        });
+        dropdownList.appendChild(div);
+    });
+    dropdownList.style.display = items.length > 0 ? 'block' : 'none';
+}
+
+// start
+
+const socket = io();
+// Initialize Room Manager
+window.roomManager = new RoomManager(socket);
+let timeout = null;
+let current_state = {};
+// Get match name from the URL
+const pathSegments = window.location.pathname.split('/');
+const control_id = pathSegments[2];
+let round_id = '1';
+let match_id = 'match1';
+const delay_value = Number(pathSegments[3]) || 1000;        // Debounce delay in ms
+
+console.log('from url - control id - delay', control_id, delay_value);
+
+// Send the match ID to the server when the client connects - will send back saved data if control already exists
+socket.emit('getSavedControlState', {control_id});
+
+let currentArchetypeList = []; // To store the current archetype list
+let currentPlayerRoster = [];  // To store the current player roster (for name autocomplete)
+
+// Request the archetype list + player roster from the server when the page loads
+socket.emit('getArchetypeList');
+socket.emit('getPlayerRoster');
+
+// listen for saved state from server
+socket.on('control-' + control_id + '-saved-state', (data) => {
+    console.log('got saved state from server', data);
+    round_id = data['round_id'];
+    match_id = data['match_id'];
+    current_state = data['data'];
+    loadSavedState(data['data']);
+    hydrateRiftboundControls(data['data']);   // radio/checkbox/toggle states
+})
+
+// Listen for the archetype list from the server
+socket.on('archetypeListUpdated', (archetypes) => {
+    currentArchetypeList = archetypes;
+    setupCustomDropdowns(); // Set up dropdowns after receiving the archetype list
+});
+
+// Listen for the player roster from the server (autocomplete for name fields)
+socket.on('playerRosterUpdated', (roster) => {
+    currentPlayerRoster = roster;
+    setupCustomDropdowns(); // safe to call — attachDropdown short-circuits
+                            // any field already wrapped in .custom-dropdown
+});
+
+// Initial setup when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    setupCustomDropdowns();
+});
+
+// Poison is now one of the unified base-board steppers (.abv2-step targeting
+// player-poison-{side}, with data-min="0"), so it no longer needs its own
+// wiring. The XP ↔ Poison slot swap is handled by updateCounterVisibility().
+
+// START TIMER FUNCTIONS
+
+// at the start, ask for all timer states from the server
+socket.emit('get-all-timer-states');
+
+// handle getting all timer states
+socket.on('current-all-timer-states', ({timerState}) => {
+    // console.log('got all timer states', timerState);
+    const matchState = timerState[round_id][match_id];
+    // console.log(matchState)
+    if (matchState) {
+        const timerElement = document.querySelector(`#timer`);
+        const inTurns = matchState.time === 0;
+        timerElement.innerText = inTurns ? `TURN ${matchState.turnCount ?? 0}` : formatTime(matchState.time);
+        document.querySelector('#timer-turn-plus').style.display = inTurns ? 'inline-block' : 'none';
+        document.querySelector('#timer-turn-minus').style.display = inTurns ? 'inline-block' : 'none';
+    }
+});
+
+function updateTimerState(round_id, match_id, action) {
+    console.log('update time state', round_id, match_id, action)
+    socket.emit('update-timer-state', {round_id, match_id, action});
+}
+
+function formatTime(ms) {
+    const totalSeconds = Math.floor(ms / 1000);
+    const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+    const seconds = String(totalSeconds % 60).padStart(2, '0');
+    return `${minutes}:${seconds}`;
+}
+
+// Add event listeners for reset life buttons
+function attachMatchTimerButtonListeners() {
+    const startButton = document.querySelector(`#timer-start`);
+    const addButton = document.querySelector(`#timer-add`);
+    const minusButton = document.querySelector(`#timer-minus`);
+    const pauseButton = document.querySelector(`#timer-pause`);
+    const resetButton = document.querySelector(`#timer-reset`);
+    startButton.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'start');
+    });
+    addButton.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'add');
+    });
+    minusButton.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'minus');
+    });
+    pauseButton.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'pause');
+    });
+    resetButton.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'reset');
+    });
+    document.querySelector(`#timer-turn-plus`)?.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'turn-plus');
+    });
+    document.querySelector(`#timer-turn-minus`)?.addEventListener('click', () => {
+        updateTimerState(round_id, match_id, 'turn-minus');
+    });
+}
+
+
+// attach button listeners for timers
+attachMatchTimerButtonListeners();
+
+// END TIMER FUNCTIONS
+
+// HANDLE GLOBAL DATA
+
+// request global data on start up
+socket.emit('get-match-global-data');
+
+// listen for global event details update from server
+socket.on('update-match-global-data', (data) => {
+    // let globalMatchData = {'global-commentator-one': null, 'global-commentator-one-subtext': null,...}
+    console.log('got global event data from server', data);
+    // update the base life points from server
+    if ('global-event-base-life-points' in data['globalData']) {
+        baseLifePoints = data['globalData']['global-event-base-life-points'] ? data['globalData']['global-event-base-life-points'] : '20';
+    }
+
+    const globalData = data.globalData || {};
+
+    const eventFormatText = globalData['global-event-format'];
+    const eventNameText = globalData['global-event-name'];
+    const globalBaseLifePoints = globalData['global-event-base-life-points'];
+
+    const eventFormatElement = document.getElementById('event-format');
+    if (eventFormatElement && eventFormatText) {
+        eventFormatElement.innerText = eventFormatText;
+    }
+
+    const eventNameElement = document.getElementById('event-name');
+    if (eventNameElement && eventNameText) {
+        eventNameElement.innerText = eventNameText;
+    }
+
+    if (globalBaseLifePoints) {
+        baseLifePoints = globalBaseLifePoints;
+    }
+
+})
+
+// END HANDLE GLOBAL DATA
+
+// GAME SELECTION — the second per-player counter swaps by game:
+//   riftbound → XP, mtg → Poison, anything else → neither.
+function updateCounterVisibility(game) {
+    const showXp = game === 'riftbound';
+    const showPoison = game === 'mtg';
+    document.querySelectorAll('.counter-xp').forEach(el => { el.style.display = showXp ? '' : 'none'; });
+    document.querySelectorAll('.counter-poison').forEach(el => { el.style.display = showPoison ? '' : 'none'; });
+}
+
+socket.on('server-current-game-selection', ({gameSelection}) => {
+    updateCounterVisibility(gameSelection?.toLowerCase());
+    updateRiftboundVisibility(gameSelection?.toLowerCase());
+});
+socket.on('game-selection-updated', ({gameSelection}) => {
+    updateCounterVisibility(gameSelection?.toLowerCase());
+    updateRiftboundVisibility(gameSelection?.toLowerCase());
+});
+socket.emit('get-game-selection');
+
+// ============================================================
+// RIFTBOUND ADMIN TOOLS
+// Shown only when game === 'riftbound'. Battlefield selection (3 radios +
+// searchable override picker + brush override), Baron Pit enable/brush, and
+// the full Showdown Might tracker (BF1/2/3 name + L/R might + active radio +
+// show toggle). Replicates master-control/matches.js behavior but emits
+// per-field via the same `field-updated` path the base board uses.
+// ============================================================
+
+// Show/hide the whole riftbound section based on the active game.
+function updateRiftboundVisibility(game) {
+    const el = document.getElementById('riftbound-admin');
+    if (el) el.style.display = game === 'riftbound' ? '' : 'none';
+}
+
+// Emit a single field through the same timestamped path sendData uses, for
+// values that aren't backed by an .editable element (the hidden active
+// battlefield field + the radio/checkbox/toggle-derived showdown-* keys).
+function emitField(field, value) {
+    const timestamp = Date.now();
+    console.log('emitting field update', field, '=', value);
+    socket.emit('field-updated', {round_id, match_id, field, value, timestamp});
+    current_state[field] = value;
+}
+
+// Set a player's active battlefield: writes the hidden field the scoreboard
+// reads (player-battlefield-{side}), updates the "Active:" label, and emits.
+function setActiveBattlefield(side, text) {
+    const hidden = document.getElementById(`player-battlefield-${side}`);
+    if (hidden) hidden.textContent = text;
+    const label = document.querySelector(`.ra-active-name[data-side="${side}"]`);
+    if (label) label.textContent = text || '—';
+    emitField(`player-battlefield-${side}`, text);
+}
+
+function setupRiftboundAdminControls() {
+    const root = document.getElementById('riftbound-admin');
+    if (!root) return;
+
+    // ── Battlefield radios (per side) ─────────────────────────────────
+    // Selecting a radio copies that slot's text into the active field —
+    // unless Brush override is on (then the selection is muted).
+    root.querySelectorAll('.ra-bf-radio').forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (!radio.checked) return;
+            const { side, bf } = radio.dataset;
+            const brushBtn = root.querySelector(`.ra-brush-btn[data-side="${side}"]`);
+            if (brushBtn?.classList.contains('active')) return; // brush locked
+            const slot = document.getElementById(`player-battlefield-${bf}-${side}`);
+            setActiveBattlefield(side, (slot?.innerText || '').trim());
+        });
+    });
+
+    // ── Battlefield slot edits ────────────────────────────────────────
+    // Each .ra-bf-slot is .editable, so it already emits its own field
+    // (player-battlefield-{n}-{side}) via the base armTimeout listener.
+    // Here we ALSO mirror into the active field when the edited slot is the
+    // currently-selected radio (and brush is off) — matching master-control.
+    root.querySelectorAll('.ra-bf-slot').forEach(slot => {
+        slot.addEventListener('input', () => {
+            const m = slot.id.match(/^player-battlefield-(\d)-(left|right)$/);
+            if (!m) return;
+            const [, bf, side] = m;
+            const checked = root.querySelector(`input[name="bf-${side}-select"]:checked`);
+            if (!checked || checked.dataset.bf !== bf) return;
+            const brushBtn = root.querySelector(`.ra-brush-btn[data-side="${side}"]`);
+            if (brushBtn?.classList.contains('active')) return;
+            setActiveBattlefield(side, slot.innerText.trim());
+        });
+    });
+
+    // ── Brush override toggle (per side) ──────────────────────────────
+    // Pressed → active field = "Brush". Released → restore from the
+    // currently-checked radio's slot. (aria-pressed + .active, like MC.)
+    root.querySelectorAll('.ra-brush-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const side = btn.dataset.side;
+            const nowPressed = btn.getAttribute('aria-pressed') !== 'true';
+            btn.setAttribute('aria-pressed', String(nowPressed));
+            btn.classList.toggle('active', nowPressed);
+            if (nowPressed) {
+                setActiveBattlefield(side, 'Brush');
+            } else {
+                const checked = root.querySelector(`input[name="bf-${side}-select"]:checked`);
+                const bf = checked?.dataset?.bf || '1';
+                const slot = document.getElementById(`player-battlefield-${bf}-${side}`);
+                setActiveBattlefield(side, (slot?.innerText || '').trim());
+            }
+        });
+    });
+
+    // ── Searchable override picker (per side) ─────────────────────────
+    // Sets the active field to ANY battlefield (independent of the 3 radios).
+    ['left', 'right'].forEach(side => setupBattlefieldPicker(side));
+
+    // ── Baron Pit enable ──────────────────────────────────────────────
+    const baronToggle = document.getElementById('showdown-bf-3-enabled-toggle');
+    baronToggle?.addEventListener('change', () => {
+        const enabled = baronToggle.checked;
+        const bf3Row = root.querySelector('.ra-bf3-row');
+        if (bf3Row) bf3Row.style.display = enabled ? '' : 'none';
+        const nameEl = document.getElementById('showdown-bf-3-name');
+        if (enabled && nameEl && !nameEl.textContent.trim()) {
+            nameEl.textContent = 'Baron Pit';
+            emitField('showdown-bf-3-name', 'Baron Pit');
+        }
+        emitField('showdown-bf-3-enabled', enabled ? 'true' : 'false');
+    });
+
+    // ── Baron Pit brush override ──────────────────────────────────────
+    const baronBrush = root.querySelector('.ra-baron-brush-btn');
+    baronBrush?.addEventListener('click', () => {
+        const nameEl = document.getElementById('showdown-bf-3-name');
+        if (!nameEl) return;
+        const nowPressed = baronBrush.getAttribute('aria-pressed') !== 'true';
+        baronBrush.setAttribute('aria-pressed', String(nowPressed));
+        baronBrush.classList.toggle('active', nowPressed);
+        if (nowPressed) {
+            baronBrush._priorName = nameEl.textContent.trim() || 'Baron Pit';
+            nameEl.textContent = 'Brush';
+        } else {
+            nameEl.textContent = baronBrush._priorName || 'Baron Pit';
+        }
+        emitField('showdown-bf-3-name', nameEl.textContent.trim());
+    });
+
+    // ── Showdown might steppers (+/-) ─────────────────────────────────
+    // The value divs are .editable too, so manual edits auto-emit; the
+    // buttons nudge the value and re-use the debounced armTimeout emit.
+    root.querySelectorAll('.ra-might-plus, .ra-might-minus').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = document.getElementById(btn.dataset.target);
+            if (!target) return;
+            let v = parseInt(target.innerText, 10);
+            if (isNaN(v)) v = 0;
+            v += btn.classList.contains('ra-might-plus') ? 1 : -1;
+            if (v < 0) v = 0;
+            target.innerText = String(v);
+            armTimeout(target);
+        });
+    });
+
+    // ── Active battlefield radio (showdown-active-bf) ─────────────────
+    root.querySelectorAll('.ra-active-radio').forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (!radio.checked) return;
+            emitField('showdown-active-bf', radio.dataset.bf);
+        });
+    });
+
+    // ── Show on Scoreboard toggle (showdown-visible) ──────────────────
+    const showBtn = root.querySelector('.ra-show-btn');
+    showBtn?.addEventListener('click', () => {
+        const nowPressed = showBtn.getAttribute('aria-pressed') !== 'true';
+        showBtn.setAttribute('aria-pressed', String(nowPressed));
+        showBtn.classList.toggle('active', nowPressed);
+        showBtn.textContent = nowPressed ? 'Hide from Scoreboard' : 'Show on Scoreboard';
+        emitField('showdown-visible', nowPressed ? 'true' : 'false');
+    });
+}
+
+// Searchable battlefield override picker over RIFTBOUND_BATTLEFIELD_NAMES.
+function setupBattlefieldPicker(side) {
+    const wrap = document.querySelector(`.ra-picker[data-side="${side}"]`);
+    if (!wrap) return;
+    const input = wrap.querySelector('.ra-picker-input');
+    const list = wrap.querySelector('.ra-picker-list');
+
+    function render(items) {
+        list.innerHTML = '';
+        items.slice(0, 60).forEach(name => {
+            const div = document.createElement('div');
+            div.className = 'ra-picker-item';
+            div.textContent = name;
+            // mousedown (not click) + preventDefault so the input's blur
+            // doesn't hide the list before the selection registers.
+            div.addEventListener('mousedown', (ev) => {
+                ev.preventDefault();
+                const brushBtn = document.querySelector(`.ra-brush-btn[data-side="${side}"]`);
+                if (brushBtn?.classList.contains('active')) {
+                    brushBtn.setAttribute('aria-pressed', 'false');
+                    brushBtn.classList.remove('active');
+                }
+                setActiveBattlefield(side, name);
+                // Free-form override (not one of the 3 preset slots): clear the
+                // radio group so it honestly shows "no preset selected". This
+                // also means clicking any preset radio afterward fires `change`
+                // and re-applies it (otherwise the still-checked radio would be
+                // a no-op on re-click).
+                document.querySelectorAll(`.ra-bf-radio[data-side="${side}"]`).forEach(r => { r.checked = false; });
+                input.value = name;
+                list.style.display = 'none';
+            });
+            list.appendChild(div);
+        });
+        list.style.display = items.length ? 'block' : 'none';
+    }
+
+    input.addEventListener('focus', () => render(RIFTBOUND_BATTLEFIELD_NAMES));
+    input.addEventListener('input', () => {
+        const v = input.value.trim().toLowerCase();
+        render(RIFTBOUND_BATTLEFIELD_NAMES.filter(n => n.toLowerCase().includes(v)));
+    });
+    document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target)) list.style.display = 'none';
+    });
+}
+
+// Hydrate radio/checkbox/toggle states from saved control data. The text
+// fields (slots, names, might values, hidden active field) are already
+// populated by loadSavedState; this restores the derived UI states.
+function hydrateRiftboundControls(data) {
+    if (!data) return;
+
+    ['left', 'right'].forEach(side => {
+        const active = (data[`player-battlefield-${side}`] || '').trim();
+        const label = document.querySelector(`.ra-active-name[data-side="${side}"]`);
+        if (label) label.textContent = active || '—';
+
+        const brushBtn = document.querySelector(`.ra-brush-btn[data-side="${side}"]`);
+        const isBrush = active === 'Brush';
+        if (brushBtn) {
+            brushBtn.setAttribute('aria-pressed', String(isBrush));
+            brushBtn.classList.toggle('active', isBrush);
+        }
+        // Reflect the persisted active battlefield in the radio group: check
+        // the matching preset slot, or leave all unchecked for a free-form
+        // override. Skipped entirely when Brush is active — brush keeps the
+        // prior radio so releasing it restores the right preset.
+        if (!isBrush) {
+            document.querySelectorAll(`.ra-bf-radio[data-side="${side}"]`).forEach(r => { r.checked = false; });
+            if (active) {
+                for (const bf of ['1', '2', '3']) {
+                    const slot = (data[`player-battlefield-${bf}-${side}`] || '').trim();
+                    if (slot && slot === active) {
+                        const radio = document.querySelector(`.ra-bf-radio[data-side="${side}"][data-bf="${bf}"]`);
+                        if (radio) radio.checked = true;
+                        break;
+                    }
+                }
+            }
+        }
+    });
+
+    // Baron Pit enable + BF3 row visibility
+    const baronEnabled = data['showdown-bf-3-enabled'] === 'true';
+    const baronToggle = document.getElementById('showdown-bf-3-enabled-toggle');
+    if (baronToggle) baronToggle.checked = baronEnabled;
+    const bf3Row = document.querySelector('.ra-bf3-row');
+    if (bf3Row) bf3Row.style.display = baronEnabled ? '' : 'none';
+
+    // Baron brush override
+    const baronBrush = document.querySelector('.ra-baron-brush-btn');
+    const baronIsBrush = (data['showdown-bf-3-name'] || '').trim() === 'Brush';
+    if (baronBrush) {
+        baronBrush.setAttribute('aria-pressed', String(baronIsBrush));
+        baronBrush.classList.toggle('active', baronIsBrush);
+    }
+
+    // Active battlefield radio
+    const activeBf = data['showdown-active-bf'] || '1';
+    const activeRadio = document.querySelector(`.ra-active-radio[data-bf="${activeBf}"]`);
+    if (activeRadio) activeRadio.checked = true;
+
+    // Show-on-scoreboard toggle
+    const showVisible = data['showdown-visible'] === 'true';
+    const showBtn = document.querySelector('.ra-show-btn');
+    if (showBtn) {
+        showBtn.setAttribute('aria-pressed', String(showVisible));
+        showBtn.classList.toggle('active', showVisible);
+        showBtn.textContent = showVisible ? 'Hide from Scoreboard' : 'Show on Scoreboard';
+    }
+}
+
+// Wire up the riftbound controls once at load (elements are static markup).
+setupRiftboundAdminControls();
+
+// ============================================================
+// NUMBER INPUTS — drag-to-scrub + tap-to-type (so you don't spam +/-)
+// Each numeric value (life / wins / xp / poison + showdown might) supports:
+//   • drag up/down on the number to spin it quickly (no keyboard)
+//   • tap the number to type an exact value
+//   • the +/- steppers still work for fine ±1
+// Every path commits through the same debounced field-updated emit (armTimeout).
+// ============================================================
+function attachNumberInput(valueEl, { min } = {}) {
+    if (!valueEl || valueEl._numInputWired) return;
+    valueEl._numInputWired = true;
+    valueEl.setAttribute('contenteditable', 'false');
+    valueEl.classList.add('ac-num-input');
+
+    const readVal = () => { const v = parseInt((valueEl.textContent || '').trim(), 10); return isNaN(v) ? 0 : v; };
+    const clamp = v => (min !== undefined ? Math.max(min, v) : v);
+
+    let startY = 0, startVal = 0, moved = false, dragging = false;
+
+    const onMove = (e) => {
+        if (!dragging) return;
+        const dy = startY - e.clientY;                 // drag up = increase
+        if (Math.abs(dy) > 4) moved = true;
+        if (moved) {
+            e.preventDefault();
+            const v = clamp(startVal + Math.round(dy / 7));   // ~1 unit per 7px
+            if (String(v) !== valueEl.textContent.trim()) valueEl.textContent = String(v);
+        }
+    };
+    const onUp = () => {
+        if (!dragging) return;
+        dragging = false;
+        document.removeEventListener('pointermove', onMove);
+        document.removeEventListener('pointerup', onUp);
+        document.removeEventListener('pointercancel', onUp);
+        if (moved) {
+            armTimeout(valueEl);                       // emit scrubbed value
+        } else {
+            // a clean tap → enter edit mode, select all so typing replaces
+            valueEl.setAttribute('contenteditable', 'true');
+            valueEl.focus();
+            const range = document.createRange();
+            range.selectNodeContents(valueEl);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+    };
+    valueEl.addEventListener('pointerdown', (e) => {
+        if (valueEl.getAttribute('contenteditable') === 'true') return; // already editing
+        e.preventDefault();                            // suppress default focus/text-selection
+        dragging = true; moved = false; startY = e.clientY; startVal = readVal();
+        // Track on the document so the drag keeps working even when the pointer
+        // leaves the small number box — more reliable than setPointerCapture.
+        document.addEventListener('pointermove', onMove, { passive: false });
+        document.addEventListener('pointerup', onUp);
+        document.addEventListener('pointercancel', onUp);
+    });
+
+    // Commit the typed value: clamp, leave edit mode, emit. Guarded so the
+    // Enter-key path and the blur path don't double-fire.
+    const commit = () => {
+        if (valueEl.getAttribute('contenteditable') !== 'true') return;
+        valueEl.setAttribute('contenteditable', 'false');
+        valueEl.textContent = String(clamp(readVal()));   // sanitize + clamp
+        armTimeout(valueEl);                               // emit typed value
+    };
+
+    valueEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); commit(); valueEl.blur(); }
+    });
+    valueEl.addEventListener('blur', commit);
+}
+
+function setupNumberInputs() {
+    document.querySelectorAll('#control-base .abv2-num').forEach(el => attachNumberInput(el, { min: 0 }));
+    document.querySelectorAll('#riftbound-admin .ra-might-val').forEach(el => attachNumberInput(el, { min: 0 }));
+}
+setupNumberInputs();

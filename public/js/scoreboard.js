@@ -54,11 +54,28 @@ function autoScaleRiftboundNames() {
 }
 
 function autoScaleRiftboundDetails() {
+    // Legend + champion text — var-gated max font so vendors can pin to
+    // PSD-true sizes (e.g. default UNL chrome wants 12px). Fallback 13.5
+    // preserves prior behavior for other vendors.
+    const root = document.documentElement;
+    const detMax   = parseFloat(getComputedStyle(root).getPropertyValue('--rb-details-max-font')  || '13.5');
+    const detMin   = parseFloat(getComputedStyle(root).getPropertyValue('--rb-details-min-font')  || '8');
+    const detWidth = parseFloat(getComputedStyle(root).getPropertyValue('--rb-details-max-width') || '251');
     autoScalePaired([
         '#player-legend-left', '#player-legend-right',
-        '#player-champion-left', '#player-champion-right',
+        '#player-champion-left', '#player-champion-right'
+    ], detMax, detMin, detWidth);
+
+    // Battlefield text has its own var trio so the default UNL chrome
+    // can use a smaller PSD-true 10px in the thin strip while keeping
+    // legend/champion at 12px. Falls back to the details trio so other
+    // vendors stay identical.
+    const bfMax   = parseFloat(getComputedStyle(root).getPropertyValue('--rb-bf-max-font')  || detMax);
+    const bfMin   = parseFloat(getComputedStyle(root).getPropertyValue('--rb-bf-min-font')  || detMin);
+    const bfWidth = parseFloat(getComputedStyle(root).getPropertyValue('--rb-bf-max-width') || detWidth);
+    autoScalePaired([
         '#player-battlefield-left', '#player-battlefield-right'
-    ], 13.5, 8, 251);
+    ], bfMax, bfMin, bfWidth);
 }
 
 function autoScaleRiftboundRecords() {
@@ -80,37 +97,201 @@ function autoScaleRiftboundPoints() {
     if (right) autoScaleText(right, maxFont, minFont, maxWidth);
 }
 
+// Showdown Might Tracker — center-bottom slide-in overlay.
+// Reads showdown-* control data fields and paints the active battlefield
+// (1, 2, or Baron Pit) with its left + right might values.
+//   showdown-visible           'true' | 'false'  — controls slide-in
+//   showdown-active-bf         '1' | '2' | '3'   — which BF to show
+//   showdown-bf-3-enabled      'true' | 'false'  — Baron Pit available
+//   showdown-bf-{N}-name       text              — display name override
+//   showdown-bf-{N}-left-might  integer
+//   showdown-bf-{N}-right-might integer
+//
+// BF #1 default name = left's active battlefield (player-battlefield-left)
+// BF #2 default name = right's active battlefield (player-battlefield-right)
+// BF #3 default name = "Baron Pit" (when enabled)
+function renderRiftboundShowdown() {
+    const tracker = document.getElementById('riftbound-showdown-tracker');
+    if (!tracker) return;
+
+    const visible = lastState['showdown-visible'] === 'true';
+    const activeBf = (lastState['showdown-active-bf'] || '1').toString();
+    const baronPitEnabled = lastState['showdown-bf-3-enabled'] === 'true';
+
+    // Resolve the display name for the active BF — operator override
+    // (showdown-bf-N-name) wins; otherwise fall back to the auto source.
+    const bfNameOverride = (lastState[`showdown-bf-${activeBf}-name`] || '').trim();
+    let bfName = bfNameOverride;
+    if (!bfName) {
+        if (activeBf === '1') bfName = (lastState['player-battlefield-left'] || '').trim();
+        else if (activeBf === '2') bfName = (lastState['player-battlefield-right'] || '').trim();
+        else if (activeBf === '3' && baronPitEnabled) bfName = 'Baron Pit';
+    }
+
+    // Look up the battlefield art URL from the RIFTBOUND_BATTLEFIELDS
+    // table (built at module init). Try exact key first, then a
+    // case-insensitive match against the registered names. Falls back to
+    // no background if unmatched.
+    const bfArt = document.getElementById('riftbound-showdown-bf-art');
+    if (bfArt) {
+        let bfData = bfName ? RIFTBOUND_BATTLEFIELDS[bfName] : null;
+        if (!bfData && bfName) {
+            const lower = bfName.toLowerCase();
+            const exactKey = Object.keys(RIFTBOUND_BATTLEFIELDS).find(k => k.toLowerCase() === lower);
+            if (exactKey) bfData = RIFTBOUND_BATTLEFIELDS[exactKey];
+        }
+        const url = bfData?.left || '';
+        bfArt.style.backgroundImage = url ? `url("${encodeURI(url)}")` : 'none';
+    }
+
+    // Update the visible text fields
+    const nameEl = document.getElementById('riftbound-showdown-bf-name');
+    if (nameEl) nameEl.textContent = bfName;
+    const leftMightEl = document.getElementById('riftbound-showdown-might-left-value');
+    if (leftMightEl) leftMightEl.textContent = lastState[`showdown-bf-${activeBf}-left-might`] || '0';
+    const rightMightEl = document.getElementById('riftbound-showdown-might-right-value');
+    if (rightMightEl) rightMightEl.textContent = lastState[`showdown-bf-${activeBf}-right-might`] || '0';
+
+    // Toggle slide-in class — CSS handles the transform animation.
+    tracker.classList.toggle('visible', visible);
+}
+
+// Shared score tracker bubble row — 1 2 3 ... MAX ... 3 2 1.
+// Reads player-life-{left,right} as the player's current score, and
+// checks player-battlefield-{left,right} for "Aspirant's Climb" (case
+// insensitive substring match) which adds +1 to MAX per occurrence.
+// Default MAX = 8, max possible MAX = 10 (both players have climb).
+// Left's life fills bubbles from left edge inward; right's life fills
+// from right edge inward. Filled bubbles get .filled class (gold).
+function renderRiftboundScoreTracker() {
+    const tracker = document.getElementById('riftbound-score-tracker');
+    if (!tracker) return;
+
+    // Read current state — life values + battlefield names. Fall back
+    // to 0 / empty so the tracker still renders in idle state.
+    const leftLife = parseInt(lastState['player-life-left'], 10) || 0;
+    const rightLife = parseInt(lastState['player-life-right'], 10) || 0;
+    const leftBf = (lastState['player-battlefield-left'] || '').toLowerCase();
+    const rightBf = (lastState['player-battlefield-right'] || '').toLowerCase();
+
+    // Climb detection — substring match on "aspirant" handles
+    // both "Aspirant's Climb" and any future variant. One match per
+    // side; max climb count = 2.
+    let climbCount = 0;
+    if (leftBf.includes('aspirant')) climbCount++;
+    if (rightBf.includes('aspirant')) climbCount++;
+    const maxScore = 8 + climbCount; // 8, 9, or 10
+
+    // Build the bubble sequence: 1..MAX..1 mirrored about the center.
+    // For MAX=8 → [1,2,3,4,5,6,7,8,7,6,5,4,3,2,1] (15 bubbles).
+    const bubbles = [];
+    for (let n = 1; n <= maxScore; n++) bubbles.push(n);
+    for (let n = maxScore - 1; n >= 1; n--) bubbles.push(n);
+
+    const centerIndex = maxScore - 1; // index of the MAX bubble
+
+    // Render — clear and rebuild. Bubble count changes when climb
+    // selections change, so we can't reuse existing nodes safely.
+    // Only the bubble for the CURRENT score is filled (single-bubble
+    // highlight per side), NOT cumulative. Left's filled bubble is at
+    // index leftLife-1 (counted from the left edge); right's filled
+    // bubble is at index bubbles.length-rightLife (counted from the
+    // right edge). Both CLAMPED to the center index — if a player
+    // overshoots the max (impossible in normal play but possible if
+    // life is operator-set beyond the cap), their pip caps at the
+    // center bubble rather than crossing onto the other player's side.
+    const leftFilledIdx  = leftLife  >= 1 ? Math.min(leftLife - 1, centerIndex) : -1;
+    const rightFilledIdx = rightLife >= 1 ? Math.max(bubbles.length - rightLife, centerIndex) : -1;
+
+    tracker.innerHTML = '';
+    bubbles.forEach((num, i) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'riftbound-score-bubble';
+        if (i === centerIndex) bubble.classList.add('center');
+
+        // Wrap the number in a span so CSS can nudge only the text up
+        // a pixel (optical centering trick — flex align-items: center on
+        // the bubble would otherwise sit the digits slightly low).
+        const label = document.createElement('span');
+        label.className = 'riftbound-score-bubble-label';
+        label.textContent = num;
+        bubble.appendChild(label);
+
+        if (i === leftFilledIdx || i === rightFilledIdx) {
+            bubble.classList.add('filled');
+        }
+
+        tracker.appendChild(bubble);
+    });
+}
+
 let lastState = {};
 let archetypeList = [];
 
-// ── Player-roster → portrait-icon wiring (mirrors scoreboard-scene.js) ────
-// Kept here so both the `mtg-pN-icon` and `rb-pN-icon` overlays stamp src
-// from a single name → portraitUrl lookup. Hidden vendors/games fall through
-// to --*-icon-opacity: 0 in scoreboard.css so this costs them nothing.
+// ── Per-vendor player portraits ───────────────────────────────────────────
+// Portrait pools live at:
+//   /assets/images/{game}/shared/player-portraits/{vendor}-{playerCount}/{slug}.png
+//   e.g. /assets/images/mtg/shared/player-portraits/flyquest-2v2/ls.png
+//        /assets/images/riftbound/shared/player-portraits/dsg-2v2/rob-stanley.png
+// "{slug}" is the operator-typed name lowercased with non-alphanumerics
+// collapsed to hyphens ("Anna Margaret" → "anna-margaret").
 //
-// Lookup is case-insensitive + whitespace-trimmed (matches scoreboard-scene.js):
-// operators type free-text names on control.html, so "ls" vs "LS" or trailing
-// whitespace shouldn't break the icon match.
-let rosterByName = new Map();
-let lastMatchData = null;
+// Default vendor (or any vendor without a matching portrait file) shows no
+// portrait — the slot's <img> is hidden via display:none. Missing files 404
+// gracefully through the onerror handler. The legacy global-roster system
+// (rosterByName / playerRosterUpdated) is still in use for master-control
+// autocomplete + other broadcast pages, but the scoreboard portrait slots
+// no longer consult it — they read straight from the per-vendor folder.
+let rosterByName = new Map();    // unused for scoreboard portraits, retained
+let lastMatchData = null;        // for compatibility with other code paths.
 
 function normalizeName(name) {
     return (name || '').toLowerCase().trim();
 }
 
+// "Rob Stanley" → "rob-stanley" — collapses non-alphanumerics to hyphens
+// and trims leading/trailing hyphens. Matches the on-disk file convention
+// used by both flyquest-2v2 (mtg) and dsg-2v2 (riftbound).
+function nameToSlug(name) {
+    return (name || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
 function applyIcon(iconId, name) {
     const img = document.getElementById(iconId);
     if (!img) return;
-    const url = name ? rosterByName.get(normalizeName(name)) : null;
-    if (url) {
-        // Cache-bust so re-uploaded portraits refresh on open scoreboards
-        // (roster payload doesn't carry a version; timestamp is enough).
-        img.src = url + '?v=' + Date.now();
-        img.style.display = '';
-    } else {
+
+    // No name OR vendor='default' (or unset) → no portrait. The "default"
+    // vendor case is intentional per operator request: roster is opt-in
+    // per vendor+count combo, not a global fallback.
+    if (!name || !currentVendor || currentVendor === 'default' || !currentGame) {
+        img.onerror = null;
+        img.onload = null;
         img.removeAttribute('src');
         img.style.display = 'none';
+        return;
     }
+
+    const slug = nameToSlug(name);
+    const url = `/assets/images/${currentGame}/shared/player-portraits/${currentVendor}-${currentPlayerCount}/${slug}.png`;
+
+    // Capture the intended URL in the closure so a stale onerror from a
+    // previous attempt doesn't hide a newer src that's still loading.
+    img.onerror = function () {
+        if (img.getAttribute('src') === url) {
+            img.removeAttribute('src');
+            img.style.display = 'none';
+        }
+    };
+    img.onload = function () {
+        if (img.getAttribute('src') === url) {
+            img.style.display = '';
+        }
+    };
+    img.src = url;
 }
 
 // Stamp every icon on both game overlays. Only one overlay is ever visible
@@ -238,6 +419,68 @@ RIFTBOUND_BATTLEFIELD_NAMES.forEach(name => {
     RIFTBOUND_BATTLEFIELDS[name] = { left: url, right: url };
 });
 
+// ── 2v2 Battlefields Row state ─────────────────────────────────────────
+// Slot keys mirror the per-side `player-battlefield-{slot}` fields on the
+// match payload AND the server's battlefieldVisibility map (features/control.js).
+// Same key on both ends — no lookup table.
+//
+// Names cached separately from `lastState` because slots `-left-2`/`-right-2`
+// don't have matching DOM elements in scoreboard.html (only `-left`/`-right`
+// do — they drive the 1v1 battlefield-background images). Pulling from a
+// dedicated cache keeps the row renderer agnostic of whether updateElementText
+// was able to write through to a real element for each slot.
+//
+// Visibility defaults to "all visible" so the first render before the
+// `battlefield-visibility-updated` reply isn't blank. Server is authoritative;
+// `battlefieldVisibility` keys mirror this map exactly.
+const RB_BF_SLOTS = ['left', 'left-2', 'right', 'right-2'];
+let rbBattlefieldNames = { 'left': '', 'left-2': '', 'right': '', 'right-2': '' };
+let rbBattlefieldVisibility = { 'left': true, 'left-2': true, 'right': true, 'right-2': true };
+
+// Render the .riftbound-bf-row strip from cached names + visibility flags.
+// Idempotent — safe to call on every state update or visibility flip; only
+// changed images/text are written. Slots without a name OR flagged hidden
+// are toggled off via the [hidden] attribute, which CSS converts to
+// display:none. Flex `space-evenly` reflows the remaining cards
+// automatically — no per-count math.
+function updateRiftboundBattlefieldsRow() {
+    const riftboundContainer = document.getElementById('scoreboard-riftbound');
+    if (!riftboundContainer) return;
+    const row = riftboundContainer.querySelector('.riftbound-bf-row');
+    if (!row) return;
+
+    RB_BF_SLOTS.forEach(slot => {
+        const slotEl = row.querySelector(`.riftbound-bf-slot[data-slot="${slot}"]`);
+        if (!slotEl) return;
+        const visible = rbBattlefieldVisibility[slot] !== false;
+        const name = (rbBattlefieldNames[slot] || '').trim();
+
+        if (!visible || !name) {
+            slotEl.hidden = true;
+            return;
+        }
+
+        slotEl.hidden = false;
+        const img = slotEl.querySelector('.riftbound-bf-img');
+        const label = slotEl.querySelector('.riftbound-bf-label');
+        if (label && label.textContent !== name) label.textContent = name;
+        if (img) {
+            // Battlefield image filenames preserve the literal name (apostrophes
+            // and spaces). encodeURIComponent makes the URL safe; onerror hides
+            // the broken image so a typo in the operator's input doesn't show
+            // a busted icon — the label stays visible on its own.
+            const src = `${RIFTBOUND_BATTLEFIELDS_BASE}/${encodeURIComponent(name)}.png`;
+            // Compare via getAttribute so a relative src isn't normalized to
+            // an absolute URL on read (would cause a needless reload each call).
+            if (img.getAttribute('src') !== src) {
+                img.style.display = '';
+                img.src = src;
+                img.onerror = () => { img.style.display = 'none'; };
+            }
+        }
+    });
+}
+
 function updateElementText(id, value) {
     // Update element in both MTG and Riftbound sections if they exist
     // This ensures data is ready when switching between games
@@ -318,6 +561,18 @@ function updateState(data) {
     // both pipes (the socket below + this one) end by calling applyAllIcons()
     // and reading from whichever cache is populated.
     lastMatchData = data;
+
+    // Snapshot the four 2v2 battlefield names into the row cache before the
+    // per-key loop. Slots `-left-2` / `-right-2` have no matching DOM IDs in
+    // scoreboard.html, so updateElementText would no-op on them — the row
+    // renderer reads from this cache instead. We update before the loop so
+    // updateRiftboundBattlefieldsRow() at the bottom sees consistent values
+    // regardless of which slot's key the loop handled last.
+    RB_BF_SLOTS.forEach(slot => {
+        const k = `player-battlefield-${slot}`;
+        if (k in data) rbBattlefieldNames[slot] = (data[k] || '').toString().trim();
+    });
+
     Object.entries(data).forEach(([key, value]) => {
         // Handle runes (player-rune-color-1/2-left/right → render icons)
         if (/^player-rune-color-[12]-(left|right)$/.test(key)) {
@@ -349,24 +604,29 @@ function updateState(data) {
             return;
         }
         
-        // Handle legend backgrounds BEFORE general element handling
-        if (["player-legend-left", "player-legend-right"].includes(key)) {
+        // Handle legend backgrounds BEFORE general element handling.
+        // Supports 1v1 ('-left'/'-right') AND 2v2 inner slots ('-left-2'/'-right-2').
+        // The "side" suffix selects the background div; the team orientation
+        // (left vs right asset variant in RIFTBOUND_LEGENDS) drops the trailing
+        // '-2' so P2/P4 reuse the team's canonical legend image.
+        if (["player-legend-left", "player-legend-right", "player-legend-left-2", "player-legend-right-2"].includes(key)) {
             // Handle Riftbound legend background images (only update if value changed)
             const riftboundContainer = document.getElementById('scoreboard-riftbound');
             if (riftboundContainer) {
-                const side = key === 'player-legend-left' ? 'left' : 'right';
+                const side = key.replace('player-legend-', ''); // 'left' | 'left-2' | 'right' | 'right-2'
+                const team = side.startsWith('left') ? 'left' : 'right'; // strip '-2' for asset lookup
                 const currentValue = lastState[`legend-value-${side}`];
                 const newValue = value ? value.trim() : '';
-                
+
                 // Only update if the value actually changed
                 if (currentValue !== newValue) {
                     const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-legend-background.riftbound-player-legend-background-${side}`);
-                    
+
                     if (backgroundDiv) {
                         if (newValue) {
                             const legendValueLower = newValue.toLowerCase();
                             let matchedLegendKey = null;
-                            
+
                             // First try exact case-insensitive match
                             for (const legendKey in RIFTBOUND_LEGENDS) {
                                 if (legendKey.toLowerCase() === legendValueLower) {
@@ -374,7 +634,7 @@ function updateState(data) {
                                     break;
                                 }
                             }
-                            
+
                             // If no exact match, check if the value contains any of the legend dictionary keys
                             // This handles cases like "Jinx, Loose Cannon" matching "Jinx"
                             if (!matchedLegendKey) {
@@ -387,11 +647,11 @@ function updateState(data) {
                                     }
                                 }
                             }
-                            
+
                             if (matchedLegendKey) {
                                 const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
-                                if (legendData && legendData[side]) {
-                                    const imageUrl = legendData[side];
+                                if (legendData && legendData[team]) {
+                                    const imageUrl = legendData[team];
                                     // Encode the URL to handle spaces and special characters in filenames
                                     const encodedUrl = encodeURI(imageUrl);
                                     // Add cache buster to force browser to reload image
@@ -401,14 +661,15 @@ function updateState(data) {
                                     backgroundDiv.style.backgroundSize = '';
                                     backgroundDiv.style.backgroundPosition = '';
                                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                                    backgroundDiv.style.display = 'block';
+                                    // Don't force display: block on inner slots — CSS toggles visibility via --rb-legend-2-display
+                                    if (side === 'left' || side === 'right') backgroundDiv.style.display = 'block';
                                     lastState[`legend-${side}`] = imageUrl;
                                     lastState[`legend-value-${side}`] = newValue;
                                 } else {
                                 }
                             } else {
                                 // Use default images if legend name doesn't match
-                                const defaultImageUrl = RIFTBOUND_LEGENDS_DEFAULT[side];
+                                const defaultImageUrl = RIFTBOUND_LEGENDS_DEFAULT[team];
                                 const encodedUrl = encodeURI(defaultImageUrl);
                                 const cacheBuster = new Date().getTime();
                                 const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
@@ -416,13 +677,13 @@ function updateState(data) {
                                 backgroundDiv.style.backgroundSize = '';
                                 backgroundDiv.style.backgroundPosition = '';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                                backgroundDiv.style.display = 'block';
+                                if (side === 'left' || side === 'right') backgroundDiv.style.display = 'block';
                                 lastState[`legend-${side}`] = defaultImageUrl;
                                 lastState[`legend-value-${side}`] = newValue;
                             }
                         } else {
                             // Show default image if value is empty
-                            const defaultImageUrl = RIFTBOUND_LEGENDS_DEFAULT[side];
+                            const defaultImageUrl = RIFTBOUND_LEGENDS_DEFAULT[team];
                             const encodedUrl = encodeURI(defaultImageUrl);
                             const cacheBuster = new Date().getTime();
                             const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
@@ -430,7 +691,7 @@ function updateState(data) {
                             backgroundDiv.style.backgroundSize = '';
                             backgroundDiv.style.backgroundPosition = '';
                             backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                            backgroundDiv.style.display = 'block';
+                            if (side === 'left' || side === 'right') backgroundDiv.style.display = 'block';
                             lastState[`legend-${side}`] = defaultImageUrl;
                             lastState[`legend-value-${side}`] = '';
                         }
@@ -451,12 +712,12 @@ function updateState(data) {
                 // Only update if the value actually changed
                 if (currentValue !== newValue) {
                     const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-battlefield-background.riftbound-player-battlefield-background-${side}`);
-                    
+
                     if (backgroundDiv) {
                         if (newValue) {
                             // Try exact match first
                             let battlefieldData = RIFTBOUND_BATTLEFIELDS[newValue];
-                            
+
                             // If no exact match, try case-insensitive match
                             if (!battlefieldData) {
                                 const battlefieldNameLower = newValue.toLowerCase();
@@ -467,7 +728,7 @@ function updateState(data) {
                                     }
                                 }
                             }
-                            
+
                             if (battlefieldData && battlefieldData[side]) {
                                 const imageUrl = battlefieldData[side];
                                 // Encode the URL to handle spaces and special characters in filenames
@@ -479,7 +740,9 @@ function updateState(data) {
                                 backgroundDiv.style.backgroundSize = '';
                                 backgroundDiv.style.backgroundPosition = '';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                                backgroundDiv.style.display = 'block';
+                                // Don't force display:block — CSS gates visibility via
+                                // --rb-bf-bg-display so DSG 2v2 (which set this to `none`
+                                // because its frame has no battlefield-bg slot) stays hidden.
                                 lastState[`battlefield-${side}`] = imageUrl;
                                 lastState[`battlefield-value-${side}`] = newValue;
                             } else {
@@ -492,7 +755,7 @@ function updateState(data) {
                                 backgroundDiv.style.backgroundSize = '';
                                 backgroundDiv.style.backgroundPosition = '';
                                 backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                                backgroundDiv.style.display = 'block';
+                                // Don't force display:block — see note on the matched-bf branch.
                                 lastState[`battlefield-${side}`] = defaultImageUrl;
                                 lastState[`battlefield-value-${side}`] = newValue;
                             }
@@ -506,7 +769,7 @@ function updateState(data) {
                             backgroundDiv.style.backgroundSize = '';
                             backgroundDiv.style.backgroundPosition = '';
                             backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                            backgroundDiv.style.display = 'block';
+                            // Don't force display:block — see note on the matched-bf branch.
                             lastState[`battlefield-${side}`] = defaultImageUrl;
                             lastState[`battlefield-value-${side}`] = '';
                         }
@@ -609,6 +872,27 @@ function updateState(data) {
             lastState[key] = value;
         }
 
+        // Riftbound Showdown Might tracker — any showdown-* field change
+        // triggers a re-render. Also re-render when the auto-source
+        // battlefield names change (player-battlefield-left/right) so the
+        // active BF's auto-derived name stays in sync.
+        //
+        // For showdown-* keys (which have NO matching #id DOM element on
+        // the scoreboard), updateElementText would never set lastState[key],
+        // so we must set it here for renderRiftboundShowdown to read the
+        // new value. For player-battlefield-{left,right} (which DO have
+        // matching elements), we leave it to updateElementText — setting
+        // it here would suppress the DOM write (the guard skips if
+        // lastState matches), which empties the text element and triggers
+        // updateTheme's riftbound mode-switch to reset the bg to the
+        // default URL.
+        if (key.startsWith('showdown-')) {
+            lastState[key] = value;
+            renderRiftboundShowdown();
+        } else if (key === 'player-battlefield-left' || key === 'player-battlefield-right') {
+            renderRiftboundShowdown();
+        }
+
         const el = document.getElementById(key);
 
         if (el) {
@@ -617,6 +901,18 @@ function updateState(data) {
                 const shouldShow = value > 0;
                 if (lastState[key + '_display'] !== shouldShow) {
                     parent.style.display = shouldShow ? 'inherit' : 'none';
+                    lastState[key + '_display'] = shouldShow;
+                }
+            }
+
+            // Riftbound XP tracker — toggle wrapper display based on > 0.
+            // Mirrors the poison pattern above; the wrapper is .riftbound-player-xp-wrapper.
+            if (["player-xp-left", "player-xp-right"].includes(key)) {
+                const wrapper = el.parentElement;
+                const numeric = parseInt(value, 10);
+                const shouldShow = Number.isFinite(numeric) && numeric > 0;
+                if (lastState[key + '_display'] !== shouldShow) {
+                    wrapper.style.display = shouldShow ? 'flex' : 'none';
                     lastState[key + '_display'] = shouldShow;
                 }
             }
@@ -632,11 +928,18 @@ function updateState(data) {
             }
             if (['player-life-left', 'player-life-right'].includes(key)) {
                 autoScaleRiftboundPoints();
+                // Score tracker bubbles fill based on life values.
+                renderRiftboundScoreTracker();
             }
             if (['player-legend-left', 'player-legend-right',
                  'player-champion-left', 'player-champion-right',
                  'player-battlefield-left', 'player-battlefield-right'].includes(key)) {
                 autoScaleRiftboundDetails();
+            }
+            // Battlefield changes affect the score tracker's MAX
+            // (Aspirant's Climb adds +1), so re-render on bf updates.
+            if (['player-battlefield-left', 'player-battlefield-right'].includes(key)) {
+                renderRiftboundScoreTracker();
             }
 
             if (key === 'player-archetype-left') {
@@ -666,15 +969,18 @@ function updateState(data) {
                     const pip1 = riftboundContainer.querySelector('#riftbound-wins-left-1');
                     const pip2 = riftboundContainer.querySelector('#riftbound-wins-left-2');
                     if (pip1 && pip2) {
+                        // Use visibility (not display) so hidden pips keep their
+                        // slot in the flex layout — pip1 stays anchored in its
+                        // chrome ring even when pip2 is hidden.
                         if (value > 1) {
-                            pip1.style.display = 'block';
-                            pip2.style.display = 'block';
+                            pip1.style.visibility = 'visible';
+                            pip2.style.visibility = 'visible';
                         } else if (value > 0) {
-                            pip1.style.display = 'block';
-                            pip2.style.display = 'none';
+                            pip1.style.visibility = 'visible';
+                            pip2.style.visibility = 'hidden';
                         } else {
-                            pip1.style.display = 'none';
-                            pip2.style.display = 'none';
+                            pip1.style.visibility = 'hidden';
+                            pip2.style.visibility = 'hidden';
                         }
                     }
                 } else if (key === 'player-wins-right') {
@@ -682,14 +988,14 @@ function updateState(data) {
                     const pip2 = riftboundContainer.querySelector('#riftbound-wins-right-2');
                     if (pip1 && pip2) {
                         if (value > 1) {
-                            pip1.style.display = 'block';
-                            pip2.style.display = 'block';
+                            pip1.style.visibility = 'visible';
+                            pip2.style.visibility = 'visible';
                         } else if (value > 0) {
-                            pip1.style.display = 'block';
-                            pip2.style.display = 'none';
+                            pip1.style.visibility = 'visible';
+                            pip2.style.visibility = 'hidden';
                         } else {
-                            pip1.style.display = 'none';
-                            pip2.style.display = 'none';
+                            pip1.style.visibility = 'hidden';
+                            pip2.style.visibility = 'hidden';
                         }
                     }
                 }
@@ -726,6 +1032,10 @@ function updateState(data) {
     // Re-stamp portrait icons whenever state changes (name edits arrive here).
     // Safe to call every update: applyIcon is idempotent on same-src writes.
     applyAllIcons();
+    // Re-render the 2v2 battlefields row from the cache populated above.
+    // No-op on vendor/playerCount combos that haven't opted in
+    // (--rb-battlefields-row-display defaults to none).
+    updateRiftboundBattlefieldsRow();
 }
 
 function updateBackground(side, archetypeName) {
@@ -833,6 +1143,18 @@ socket.on('playerRosterUpdated', (players) => {
     applyAllIcons();
 });
 socket.emit('getPlayerRoster');
+
+// 2v2 battlefields row visibility — operator toggles per-slot Hide checkboxes
+// in master-control. State lives in features/control.js (server authoritative,
+// resets on restart). Independent of match data, so the row renderer needs to
+// be re-run when only the flags change. Initial fetch handles late joiners.
+socket.emit('get-battlefield-visibility');
+socket.on('battlefield-visibility-updated', (flags) => {
+    if (flags && typeof flags === 'object') {
+        rbBattlefieldVisibility = { ...rbBattlefieldVisibility, ...flags };
+    }
+    updateRiftboundBattlefieldsRow();
+});
 
 // TIMER
 socket.emit('get-all-timer-states');
@@ -1056,7 +1378,8 @@ function updateTheme(game, vendor, playerCount) {
                     backgroundDiv.style.backgroundSize = '';
                     backgroundDiv.style.backgroundPosition = '';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                    backgroundDiv.style.display = 'block';
+                    // Don't force display:block — CSS gates visibility via
+                    // --rb-bf-bg-display (DSG 2v2 sets it `none`).
                     lastState['battlefield-left'] = imageUrl;
                 }
             }
@@ -1096,7 +1419,7 @@ function updateTheme(game, vendor, playerCount) {
                     backgroundDiv.style.backgroundSize = '';
                     backgroundDiv.style.backgroundPosition = '';
                     backgroundDiv.style.backgroundRepeat = 'no-repeat';
-                    backgroundDiv.style.display = 'block';
+                    // Don't force display:block — see note on the left branch above.
                     lastState['battlefield-right'] = imageUrl;
                 }
             }
@@ -1194,6 +1517,44 @@ function updateTheme(game, vendor, playerCount) {
                     lastState['legend-right'] = imageUrl;
                 }
             }
+
+            // Inner team-A / team-B legend slots (P2 / P4) — only paint if the
+            // corresponding text holder is present (it always is in scoreboard.html
+            // now). Don't force display:block; CSS gates visibility via
+            // --rb-legend-2-display so 1v1 / non-DSG vendors stay hidden.
+            ['left-2', 'right-2'].forEach(slot => {
+                const team = slot.startsWith('left') ? 'left' : 'right';
+                const textEl = riftboundContainer.querySelector(`#player-legend-${slot}`);
+                const backgroundDiv = riftboundContainer.querySelector(`.riftbound-player-legend-background.riftbound-player-legend-background-${slot}`);
+                if (!backgroundDiv) return;
+                const legendValue = textEl && textEl.textContent ? textEl.textContent.trim().toLowerCase() : '';
+                let matchedLegendKey = null;
+                if (legendValue) {
+                    for (const legendKey in RIFTBOUND_LEGENDS) {
+                        if (legendKey.toLowerCase() === legendValue) { matchedLegendKey = legendKey; break; }
+                    }
+                    if (!matchedLegendKey) {
+                        for (const legendKey in RIFTBOUND_LEGENDS) {
+                            if (legendValue.includes(legendKey.toLowerCase())) { matchedLegendKey = legendKey; break; }
+                        }
+                    }
+                }
+                let imageUrl;
+                if (matchedLegendKey) {
+                    const legendData = RIFTBOUND_LEGENDS[matchedLegendKey];
+                    imageUrl = legendData && legendData[team] ? legendData[team] : RIFTBOUND_LEGENDS_DEFAULT[team];
+                } else {
+                    imageUrl = RIFTBOUND_LEGENDS_DEFAULT[team];
+                }
+                const encodedUrl = encodeURI(imageUrl);
+                const cacheBuster = new Date().getTime();
+                const finalUrl = `${encodedUrl}?v=${cacheBuster}`;
+                backgroundDiv.style.backgroundImage = `url("${finalUrl}")`;
+                backgroundDiv.style.backgroundSize = '';
+                backgroundDiv.style.backgroundPosition = '';
+                backgroundDiv.style.backgroundRepeat = 'no-repeat';
+                lastState[`legend-${slot}`] = imageUrl;
+            });
         }
     } else if (selectedGame === 'vibes') {
         console.log('Scoreboard switching to Vibes mode...');
@@ -1224,7 +1585,7 @@ function updateTheme(game, vendor, playerCount) {
             document.documentElement.style.removeProperty(prop);
         });
         // Apply new vendor overrides
-        const overrides = vc.getOverrides(normalized, vendor);
+        const overrides = vc.getOverrides(normalized, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
@@ -1284,6 +1645,13 @@ function updateTheme(game, vendor, playerCount) {
             autoScaleRiftboundDetails();
             autoScaleRiftboundRecords();
             autoScaleRiftboundPoints();
+            // Re-render the shared score tracker — bubble layout depends
+            // on current life + battlefield values; refresh after vendor
+            // switch so the right vendor's display var applies.
+            renderRiftboundScoreTracker();
+            // Re-render the showdown might tracker — text + art may have
+            // been hydrated before the vendor's display var applied.
+            renderRiftboundShowdown();
         }
     }
 }
@@ -1293,31 +1661,40 @@ socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
 socket.emit('starwars-get-leaders-and-bases');
 
+// Game/vendor/playerCount handlers all call applyAllIcons() at the end so
+// the per-vendor portrait pool re-resolves whenever the selection changes
+// (URL is keyed off currentGame + currentVendor + currentPlayerCount).
 socket.on('server-current-game-selection', ({gameSelection}) => {
     currentGame = gameSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    applyAllIcons();
 });
 socket.on('game-selection-updated', ({gameSelection}) => {
     currentGame = gameSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    applyAllIcons();
 });
 socket.on('server-current-vendor-selection', ({vendorSelection}) => {
     currentVendor = vendorSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    applyAllIcons();
 });
 socket.on('vendor-selection-updated', ({vendorSelection}) => {
     currentVendor = vendorSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    applyAllIcons();
 });
 socket.on('server-current-player-count', ({playerCount}) => {
     currentPlayerCount = playerCount;
     document.body.dataset.playerCount = playerCount;  // gates 2v2 DOM via CSS
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    applyAllIcons();
 });
 socket.on('player-count-updated', ({playerCount}) => {
     currentPlayerCount = playerCount;
     document.body.dataset.playerCount = playerCount;  // gates 2v2 DOM via CSS
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    applyAllIcons();
 });
 
 socket.on('starwars-leaders-and-bases', ({ leaders, bases }) => {
@@ -1410,15 +1787,55 @@ function showCardOverlay(prefix, overlay, img, url) {
         showMtgCardOverlay(overlay, url);
         return;
     }
-    // riftbound + swu: unchanged — local assets, no preload needed. Set src
-    // and snap on via display:block.
+    if (prefix === 'riftbound' && currentPlayerCount === '2v2') {
+        // 2v2 riftbound (DSG today) routes through the slide+fade+tilt-in
+        // pipeline that mirrors MTG flyquest. No Scryfall preload needed —
+        // riftbound card PNGs are served locally so onload is effectively
+        // immediate; the function just runs the crossfade in the same tick.
+        showRiftboundCardOverlay(overlay, url);
+        return;
+    }
+    // riftbound 1v1 + swu: unchanged — local assets, no preload needed. Set
+    // src and snap on via display:block.
     img.src = url;
     overlay.style.display = 'block';
 }
 
 function resetCardOverlay(prefix, overlay, img) {
     if (prefix === 'riftbound') {
-        // Riftbound resets to a card-back image rather than hiding.
+        if (currentPlayerCount === '2v2') {
+            // 2v2: animated reset — mirrors the MTG path. Pin transform inline
+            // so ONLY rotateY reverses (no vertical slide on exit), fade dim
+            // + overlay opacity in parallel, then on transitionend silently
+            // re-cock to the base below-rest anchor for the next reveal.
+            // Mark slots stale so the next reveal instant-clears them before
+            // fading the new card in (same recovery pattern as MTG —
+            // otherwise the prior card flashes through the overlay's 0→1
+            // opacity fade-in on the next View).
+            const state = riftboundOverlayState.get(overlay);
+            if (state) {
+                if (state.pendingFadeTimer) {
+                    clearTimeout(state.pendingFadeTimer);
+                    state.pendingFadeTimer = null;
+                }
+                state.stale = true;
+            }
+            const perspective = getComputedStyle(overlay).getPropertyValue('--rb-card-perspective').trim() || '1500px';
+            overlay.style.transform = `perspective(${perspective}) translateY(0px) rotateY(0deg)`;
+            document.getElementById('riftbound-card-dim')?.classList.remove('visible');
+            overlay.classList.remove('visible');
+            const cleanup = (e) => {
+                if (e.propertyName !== 'opacity' || e.target !== overlay) return;
+                overlay.removeEventListener('transitionend', cleanup);
+                overlay.style.transition = 'none';
+                overlay.style.transform = '';
+                void overlay.offsetWidth;       // flush the no-transition state
+                overlay.style.transition = '';  // restore CSS-defined transitions
+            };
+            overlay.addEventListener('transitionend', cleanup);
+            return;
+        }
+        // 1v1 (legacy): reset to a card-back image rather than hiding.
         img.src = '/assets/images/riftbound/cards/riftbound-card-back.jpg';
         return;
     }
@@ -1616,6 +2033,123 @@ function showMtgCardOverlay(overlay, url) {
     preloader.src = url;
 
     setTimeout(onSuccess, MTG_PRELOAD_TIMEOUT_MS);
+}
+
+// Per-overlay state for the riftbound 2v2 sequenced-crossfade pipeline. Keyed
+// by the overlay element so left/right are independent. Mirrors mtgOverlayState
+// but without the `token`/preload guard since riftbound PNGs are served locally
+// (onload is effectively immediate; the reveal can run in the same tick as the
+// call without flashing a half-loaded image):
+//   activeIdx        : which of the two .riftbound-card-slot imgs currently
+//                      holds the visible card (0 or 1). The next View targets
+//                      the OTHER slot so the crossfade has a destination.
+//   pendingFadeTimer : handle for the delayed outgoing-slot fade-out. Kept so
+//                      Reset (or a rapid subsequent View) can cancel it.
+//   stale            : set by Reset. On the next reveal we instant-clear slot
+//                      state (transition:none) while the overlay is still
+//                      hidden — otherwise the prior card's slot, still .active
+//                      with opacity 1, flashes through the overlay's fade-in.
+const riftboundOverlayState = new WeakMap();
+
+// Riftbound 2v2 reveal path — mirrors showMtgCardOverlay's three-case
+// crossfade pattern, minus the off-DOM Scryfall preload (local assets):
+//   Case A (viewer off, press View)       — wasVisible=false; runs the
+//                                            overlay slide+fade+tilt-in *and*
+//                                            the incoming slot's fade.
+//   Case B (viewer on, press View again)  — wasVisible=true; overlay stays
+//                                            put, only the slots crossfade.
+//   Case Reset → View                     — stale flag from resetCardOverlay
+//                                            triggers an instant slot-clear
+//                                            here before the new fade starts.
+function showRiftboundCardOverlay(overlay, url) {
+    const slots = overlay.querySelectorAll('.riftbound-card-slot');
+    if (slots.length !== 2) return;  // HTML drift guard; should always be 2
+
+    let state = riftboundOverlayState.get(overlay);
+    if (!state) {
+        state = { activeIdx: 0, pendingFadeTimer: null, stale: false };
+        riftboundOverlayState.set(overlay, state);
+    }
+
+    // Capture visibility *before* any state change so the Case A vs Case B
+    // branch below is correct even if .visible is being toggled elsewhere.
+    const wasVisible = overlay.classList.contains('visible');
+
+    // Read slot-fade duration from CSS so the setTimeout that delays the
+    // outgoing slot's fade-out stays in lockstep with the CSS transition.
+    const fadeMs = parseFloat(
+        getComputedStyle(overlay).getPropertyValue('--rb-card-slot-fade-duration')
+    ) || 400;
+
+    // If a previous swap's outgoing-slot fade-out is still pending, run it
+    // now so that slot is cleanly inactive before we repurpose it for the
+    // incoming card.
+    if (state.pendingFadeTimer) {
+        clearTimeout(state.pendingFadeTimer);
+        state.pendingFadeTimer = null;
+        slots.forEach(s => s.classList.remove('active'));
+    }
+
+    // Reset→View recovery: slots still hold the previous card as .active but
+    // the overlay itself was hidden by the reset. Instant-clear (with
+    // transition suppressed) while the overlay is still at opacity 0, so
+    // there's no visible flash when the overlay fades back in on Case A.
+    if (state.stale) {
+        state.stale = false;
+        slots.forEach(s => {
+            s.style.transition = 'none';
+            s.classList.remove('active');
+        });
+        void slots[0].offsetWidth;                      // flush no-transition state
+        slots.forEach(s => { s.style.transition = ''; });
+    }
+
+    const nextIdx = 1 - state.activeIdx;
+    const nextSlot = slots[nextIdx];
+    const prevSlot = slots[state.activeIdx];
+    nextSlot.src = url;
+
+    // Both slots are absolute at top:0 left:0 — DOM order alone would put
+    // slots[1] always on top. On every swap, hoist the incoming slot so it
+    // fades in *over* the outgoing (which stays fully opaque for the first
+    // fadeMs of the sequenced crossfade, occluded once new hits opacity 1).
+    nextSlot.style.zIndex = '2';
+    prevSlot.style.zIndex = '1';
+
+    requestAnimationFrame(() => {
+        nextSlot.classList.add('active');
+        state.activeIdx = nextIdx;
+
+        // Sequenced fade-out: don't pull .active off the outgoing slot until
+        // the incoming is fully opaque (fadeMs later). Skip the timer entirely
+        // if the outgoing slot isn't actually .active — fresh install,
+        // post-Reset clear, or two blank slots.
+        if (prevSlot.classList.contains('active')) {
+            const timer = setTimeout(() => {
+                if (state.pendingFadeTimer !== timer) return;
+                state.pendingFadeTimer = null;
+                prevSlot.classList.remove('active');
+            }, fadeMs);
+            state.pendingFadeTimer = timer;
+        }
+
+        // Case A (overlay was hidden): run the overlay's slide/tilt-in reveal
+        // now. Mirrors the MTG snap-to-base-state pattern so a Reset-pinned
+        // inline transform doesn't stick through the fresh animation.
+        if (!wasVisible) {
+            // Clear any inline display:none left from a prior 1v1 path. The
+            // 2v2 path controls visibility via the .visible class on opacity,
+            // not display, so this gets out of the way for the CSS rules.
+            overlay.style.display = '';
+            overlay.style.transition = 'none';
+            overlay.style.transform = '';
+            overlay.style.transitionProperty = '';
+            void overlay.offsetWidth;
+            overlay.style.transition = '';
+            document.getElementById('riftbound-card-dim')?.classList.add('visible');
+            overlay.classList.add('visible');
+        }
+    });
 }
 
 CARD_VIEW_EVENTS.forEach(event => {

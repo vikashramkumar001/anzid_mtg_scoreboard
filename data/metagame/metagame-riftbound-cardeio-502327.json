@@ -1,0 +1,381 @@
+{
+  "archetypes": [
+    {
+      "name": "Draven, Glorious Executioner",
+      "day1Count": 216,
+      "day1Percent": "14.2",
+      "day2Count": 70,
+      "day2Percent": "23.9",
+      "conversion": "32"
+    },
+    {
+      "name": "Irelia, Blade Dancer",
+      "day1Count": 179,
+      "day1Percent": "11.8",
+      "day2Count": 39,
+      "day2Percent": "13.3",
+      "conversion": "22"
+    },
+    {
+      "name": "Master Yi, Wuju Bladesman",
+      "day1Count": 89,
+      "day1Percent": "5.9",
+      "day2Count": 24,
+      "day2Percent": "8.2",
+      "conversion": "27"
+    },
+    {
+      "name": "Kai'Sa, Daughter of the Void",
+      "day1Count": 103,
+      "day1Percent": "6.8",
+      "day2Count": 19,
+      "day2Percent": "6.5",
+      "conversion": "18"
+    },
+    {
+      "name": "Viktor, Herald of the Arcane",
+      "day1Count": 74,
+      "day1Percent": "4.9",
+      "day2Count": 17,
+      "day2Percent": "5.8",
+      "conversion": "23"
+    },
+    {
+      "name": "Lucian, Purifier",
+      "day1Count": 60,
+      "day1Percent": "3.9",
+      "day2Count": 16,
+      "day2Percent": "5.5",
+      "conversion": "27"
+    },
+    {
+      "name": "Azir, Emperor of the Sands",
+      "day1Count": 49,
+      "day1Percent": "3.2",
+      "day2Count": 16,
+      "day2Percent": "5.5",
+      "conversion": "33"
+    },
+    {
+      "name": "Annie, Dark Child",
+      "day1Count": 54,
+      "day1Percent": "3.6",
+      "day2Count": 13,
+      "day2Percent": "4.4",
+      "conversion": "24"
+    },
+    {
+      "name": "Darius, Hand of Noxus",
+      "day1Count": 33,
+      "day1Percent": "2.2",
+      "day2Count": 11,
+      "day2Percent": "3.8",
+      "conversion": "33"
+    },
+    {
+      "name": "Ezreal, Prodigal Explorer",
+      "day1Count": 58,
+      "day1Percent": "3.8",
+      "day2Count": 10,
+      "day2Percent": "3.4",
+      "conversion": "17"
+    },
+    {
+      "name": "Fiora, Grand Duelist",
+      "day1Count": 55,
+      "day1Percent": "3.6",
+      "day2Count": 8,
+      "day2Percent": "2.7",
+      "conversion": "15"
+    },
+    {
+      "name": "Rek'Sai, Void Burrower",
+      "day1Count": 52,
+      "day1Percent": "3.4",
+      "day2Count": 7,
+      "day2Percent": "2.4",
+      "conversion": "13"
+    },
+    {
+      "name": "Ahri, Nine-Tailed Fox",
+      "day1Count": 61,
+      "day1Percent": "4.0",
+      "day2Count": 6,
+      "day2Percent": "2.0",
+      "conversion": "10"
+    },
+    {
+      "name": "Rumble, Mechanized Menace",
+      "day1Count": 41,
+      "day1Percent": "2.7",
+      "day2Count": 4,
+      "day2Percent": "1.4",
+      "conversion": "10"
+    },
+    {
+      "name": "Teemo, Swift Scout",
+      "day1Count": 32,
+      "day1Percent": "2.1",
+      "day2Count": 4,
+      "day2Percent": "1.4",
+      "conversion": "13"
+    }
+  ],
+  "allArchetypesSorted": [
+    {
+      "name": "Draven, Glorious Executioner",
+      "day1Count": 216,
+      "day1Percent": "14.2",
+      "day2Count": 70,
+      "day2Percent": "23.9",
+      "conversion": "32"
+    },
+    {
+      "name": "Irelia, Blade Dancer",
+      "day1Count": 179,
+      "day1Percent": "11.8",
+      "day2Count": 39,
+      "day2Percent": "13.3",
+      "conversion": "22"
+    },
+    {
+      "name": "Master Yi, Wuju Bladesman",
+      "day1Count": 89,
+      "day1Percent": "5.9",
+      "day2Count": 24,
+      "day2Percent": "8.2",
+      "conversion": "27"
+    },
+    {
+      "name": "Kai'Sa, Daughter of the Void",
+      "day1Count": 103,
+      "day1Percent": "6.8",
+      "day2Count": 19,
+      "day2Percent": "6.5",
+      "conversion": "18"
+    },
+    {
+      "name": "Viktor, Herald of the Arcane",
+      "day1Count": 74,
+      "day1Percent": "4.9",
+      "day2Count": 17,
+      "day2Percent": "5.8",
+      "conversion": "23"
+    },
+    {
+      "name": "Lucian, Purifier",
+      "day1Count": 60,
+      "day1Percent": "3.9",
+      "day2Count": 16,
+      "day2Percent": "5.5",
+      "conversion": "27"
+    },
+    {
+      "name": "Azir, Emperor of the Sands",
+      "day1Count": 49,
+      "day1Percent": "3.2",
+      "day2Count": 16,
+      "day2Percent": "5.5",
+      "conversion": "33"
+    },
+    {
+      "name": "Annie, Dark Child",
+      "day1Count": 54,
+      "day1Percent": "3.6",
+      "day2Count": 13,
+      "day2Percent": "4.4",
+      "conversion": "24"
+    },
+    {
+      "name": "Darius, Hand of Noxus",
+      "day1Count": 33,
+      "day1Percent": "2.2",
+      "day2Count": 11,
+      "day2Percent": "3.8",
+      "conversion": "33"
+    },
+    {
+      "name": "Ezreal, Prodigal Explorer",
+      "day1Count": 58,
+      "day1Percent": "3.8",
+      "day2Count": 10,
+      "day2Percent": "3.4",
+      "conversion": "17"
+    },
+    {
+      "name": "Fiora, Grand Duelist",
+      "day1Count": 55,
+      "day1Percent": "3.6",
+      "day2Count": 8,
+      "day2Percent": "2.7",
+      "conversion": "15"
+    },
+    {
+      "name": "Rek'Sai, Void Burrower",
+      "day1Count": 52,
+      "day1Percent": "3.4",
+      "day2Count": 7,
+      "day2Percent": "2.4",
+      "conversion": "13"
+    },
+    {
+      "name": "Ahri, Nine-Tailed Fox",
+      "day1Count": 61,
+      "day1Percent": "4.0",
+      "day2Count": 6,
+      "day2Percent": "2.0",
+      "conversion": "10"
+    },
+    {
+      "name": "Rumble, Mechanized Menace",
+      "day1Count": 41,
+      "day1Percent": "2.7",
+      "day2Count": 4,
+      "day2Percent": "1.4",
+      "conversion": "10"
+    },
+    {
+      "name": "Teemo, Swift Scout",
+      "day1Count": 32,
+      "day1Percent": "2.1",
+      "day2Count": 4,
+      "day2Percent": "1.4",
+      "conversion": "13"
+    },
+    {
+      "name": "Jax, Grandmaster at Arms",
+      "day1Count": 29,
+      "day1Percent": "1.9",
+      "day2Count": 4,
+      "day2Percent": "1.4",
+      "conversion": "14"
+    },
+    {
+      "name": "Sivir, Battle Mistress",
+      "day1Count": 28,
+      "day1Percent": "1.8",
+      "day2Count": 4,
+      "day2Percent": "1.4",
+      "conversion": "14"
+    },
+    {
+      "name": "Ornn, Fire Below the Mountain",
+      "day1Count": 39,
+      "day1Percent": "2.6",
+      "day2Count": 3,
+      "day2Percent": "1.0",
+      "conversion": "8"
+    },
+    {
+      "name": "Sett, The Boss",
+      "day1Count": 33,
+      "day1Percent": "2.2",
+      "day2Count": 3,
+      "day2Percent": "1.0",
+      "conversion": "9"
+    },
+    {
+      "name": "Miss Fortune, Bounty Hunter",
+      "day1Count": 25,
+      "day1Percent": "1.6",
+      "day2Count": 3,
+      "day2Percent": "1.0",
+      "conversion": "12"
+    },
+    {
+      "name": "Jinx, Loose Cannon",
+      "day1Count": 25,
+      "day1Percent": "1.6",
+      "day2Count": 3,
+      "day2Percent": "1.0",
+      "conversion": "12"
+    },
+    {
+      "name": "Lee Sin, Blind Monk",
+      "day1Count": 24,
+      "day1Percent": "1.6",
+      "day2Count": 3,
+      "day2Percent": "1.0",
+      "conversion": "13"
+    },
+    {
+      "name": "Volibear, Relentless Storm",
+      "day1Count": 30,
+      "day1Percent": "2.0",
+      "day2Count": 2,
+      "day2Percent": "0.7",
+      "conversion": "7"
+    },
+    {
+      "name": "Yasuo, Unforgiven",
+      "day1Count": 30,
+      "day1Percent": "2.0",
+      "day2Count": 2,
+      "day2Percent": "0.7",
+      "conversion": "7"
+    },
+    {
+      "name": "Lux, Lady of Luminosity",
+      "day1Count": 27,
+      "day1Percent": "1.8",
+      "day2Count": 2,
+      "day2Percent": "0.7",
+      "conversion": "7"
+    },
+    {
+      "name": "Leona, Radiant Dawn",
+      "day1Count": 34,
+      "day1Percent": "2.2",
+      "day2Count": 0,
+      "day2Percent": "0.0",
+      "conversion": "0"
+    },
+    {
+      "name": "Renata Glasc, Chem-Baroness",
+      "day1Count": 22,
+      "day1Percent": "1.4",
+      "day2Count": 0,
+      "day2Percent": "0.0",
+      "conversion": "0"
+    },
+    {
+      "name": "Garen, Might of Demacia",
+      "day1Count": 18,
+      "day1Percent": "1.2",
+      "day2Count": 0,
+      "day2Percent": "0.0",
+      "conversion": "0"
+    }
+  ],
+  "other": {
+    "name": "Other",
+    "day1Count": 364,
+    "day1Percent": "23.9",
+    "day2Count": 29,
+    "day2Percent": "9.9",
+    "conversion": "8"
+  },
+  "day1Total": 1520,
+  "day1Registered": 1520,
+  "day1Unmatched": [],
+  "day2Total": 293,
+  "day2Qualified": 295,
+  "day2Unmatched": [
+    {
+      "name": "Justyce Briney",
+      "displayId": "Justyce B",
+      "uid": 109133,
+      "record": "6-2-0",
+      "points": 18,
+      "reason": "No decklist found"
+    },
+    {
+      "name": "Meno Gonzalez",
+      "displayId": "Meno G",
+      "uid": 109713,
+      "record": "6-2-0",
+      "points": 18,
+      "reason": "No decklist found"
+    }
+  ]
+}

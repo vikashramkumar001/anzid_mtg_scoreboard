@@ -1037,7 +1037,7 @@ function renderRiftboundDeckSections(deckObj) {
     } else {
         const vc = window.VENDOR_CONFIG;
         if (vc) {
-            const overrides = vc.getOverrides(currentGame, currentVendor);
+            const overrides = vc.getOverrides(currentGame, currentVendor, currentPlayerCount);
             root.style.setProperty('--rb-dl-card-width', overrides['--rb-dl-card-width'] || '132px');
             root.style.setProperty('--rb-dl-main-max-cards', overrides['--rb-dl-main-max-cards'] || '30');
             root.style.setProperty('--rb-dl-main-row-gap', overrides['--rb-dl-main-row-gap'] || '18px');
@@ -1462,7 +1462,7 @@ function updateTheme(game, vendor, playerCount) {
         });
         // Also clear side-specific frame (set outside vendor overrides)
         document.documentElement.style.removeProperty('--rb-dl-frame');
-        const overrides = vc.getOverrides(game, vendor);
+        const overrides = vc.getOverrides(game, vendor, playerCount);
         Object.entries(overrides).forEach(([prop, value]) => {
             document.documentElement.style.setProperty(prop, value);
         });
