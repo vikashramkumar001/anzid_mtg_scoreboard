@@ -58,7 +58,11 @@ export const RIFTBOUND_BATTLEFIELD_NAMES = [
     'Black Flame Altar', 'Brush', 'Dusk Rose Lab', 'Forbidding Waste',
     'Forgotten Library', 'Frozen Fortress', 'Gardens of Becoming',
     'Ripper\'s Bay', 'Star Spring', 'The Academy', 'Trapping Grounds',
-    'Valley of Idols', 'Vaults of Helia'
+    'Valley of Idols', 'Vaults of Helia',
+    // Vendetta
+    'Dragon Roost', 'Heisho, Shell of the World', 'Kinkou Temple',
+    'Mystic Vortex', 'Piltovan Forge', 'Protective Sands', 'Risen Altar',
+    'Sandswept Tomb', 'Shadow Temple', 'Threshold of the Gray'
 ];
 
 // ── BATTLEFIELD PATHS: SCOREBOARD & BROADCAST ───────────────────────────────
@@ -111,6 +115,16 @@ export const RIFTBOUND_LEGENDS_DESCRIPTIONS = {
     'Rengar, Pridestalker': null,
     'Vex, Gloomist': null,
     'Vi, Piltover Enforcer': null,
+    // Vendetta (assets pending)
+    'Akali, Rogue Assassin': null,
+    'Ambessa, Matriarch of War': null,
+    'Jayce, Defender of Tomorrow': null,
+    'Kennen, Heart of the Tempest': null,
+    'Mel, Soul\'s Reflection': null,
+    'Nasus, Curator of the Sands': null,
+    'Renekton, Butcher of the Sands': null,
+    'Shen, Eye of Twilight': null,
+    'Zed, Master of Shadows': null,
 };
 
 // ── DROPDOWN LISTS (for master control) ────────────────────────────────────
@@ -166,15 +180,25 @@ export const RIFTBOUND_CHAMPIONS_LIST = [
     "Vi, Hotheaded", "Vi, Peacekeeper", "Vi, Destructive",
     "Poppy, Defender of the Meek", "Poppy, Paragon",
     "Vex, Cheerless", "Vex, Apathetic", "Vex, Mocking",
+    // Vendetta
+    "Akali, Deadly Weapon", "Akali, Silent",
+    "Ambessa, Respected and Feared", "Ambessa, The Wolf",
+    "Jayce, Brilliant Inventor", "Jayce, Hammer in Hand",
+    "Kennen, Keeper of Balance", "Kennen, Storm of Shuriken",
+    "Mel, Defiant Soul", "Mel, Newly Awakened",
+    "Nasus, Ascended", "Nasus, Guardian of Knowledge",
+    "Renekton, Brute", "Renekton, Rage Fueled",
+    "Shen, Leader of the Kinkou Order", "Shen, Scourge of Shadows",
+    "Zed, From the Shadows", "Zed, Without a Sound",
 ].map(name => ({name}));
 
 // ── LEGEND CARD FRAMES (mp4) ────────────────────────────────────────────────
 export const RIFTBOUND_LEGENDS_CARD_FRAMES = {
     'Kai\'Sa, Daughter of the Void': '/assets/animations/riftbound/cards/Kai\'Sa, Daughter of the Void - Card Frame.mp4',
-    'Draven, Glorious Executioner': '/assets/animations/riftbound/cards/Draven, Glorious Executioner - Card Frame.mp4',
-    'Ezreal, Prodigal Explorer': '/assets/animations/riftbound/cards/Ezreal, Prodigal Explorer - Card Frame.mp4',
-    'Fiora, Grand Duelist': '/assets/animations/riftbound/cards/Fiora, Grand Duelist - Card Frame.mp4',
-    'Irelia, Blade Dancer': '/assets/animations/riftbound/cards/Irelia, Blade Dancer - Card Frame.mp4',
+    'Draven, Glorious Executioner': '/assets/animations/riftbound/cards/draven.mp4',
+    'Ezreal, Prodigal Explorer': '/assets/animations/riftbound/cards/EZREAL.mp4',
+    'Fiora, Grand Duelist': '/assets/animations/riftbound/cards/fiora.mp4',
+    'Irelia, Blade Dancer': '/assets/animations/riftbound/cards/irelia.mp4',
 };
 
 // ── LEGEND PORTRAITS (scoreboard + standings) ──────────────────────────────
@@ -235,6 +259,16 @@ export const RIFTBOUND_LEGENDS = {
     'LeBlanc, Deceiver':               _RB_PORTRAIT('0038', 'LeBlanc, Deceiver'),
     'Kha\'Zix, Voidreaver':            _RB_PORTRAIT('0039', "Kha'Zix, Voidreaver"),
     'Poppy, Keeper of the Hammer':     _RB_PORTRAIT('0040', 'Poppy, Keeper of the Hammer'),
+    // Vendetta (VEN) — indexes 0041-0049 in collector order (VEN-139..155)
+    'Akali, Rogue Assassin':           _RB_PORTRAIT('0041', 'Akali, Rogue Assassin'),
+    'Renekton, Butcher of the Sands':  _RB_PORTRAIT('0042', 'Renekton, Butcher of the Sands'),
+    'Zed, Master of Shadows':          _RB_PORTRAIT('0043', 'Zed, Master of Shadows'),
+    'Nasus, Curator of the Sands':     _RB_PORTRAIT('0044', 'Nasus, Curator of the Sands'),
+    'Shen, Eye of Twilight':           _RB_PORTRAIT('0045', 'Shen, Eye of Twilight'),
+    'Jayce, Defender of Tomorrow':     _RB_PORTRAIT('0046', 'Jayce, Defender of Tomorrow'),
+    'Mel, Soul\'s Reflection':         _RB_PORTRAIT('0047', "Mel, Soul's Reflection"),
+    'Ambessa, Matriarch of War':       _RB_PORTRAIT('0048', 'Ambessa, Matriarch of War'),
+    'Kennen, Heart of the Tempest':    _RB_PORTRAIT('0049', 'Kennen, Heart of the Tempest'),
 };
 
 // ── LEGEND ANIMATIONS ───────────────────────────────────────────────────────
@@ -324,48 +358,62 @@ export const RIFTBOUND_LEGEND_ANIMATIONS = {
 //
 // Format: top% / left% are 0-100 (image coordinates). scale (optional)
 // is a metagame-only zoom factor — the standings ignore it because the
-// row's 251×50 box has fixed dimensions.
+// row's 251×50 box has fixed dimensions. heroScale (optional, default 1.0)
+// sizes the metagame CENTRAL figure only — bump it above 1 for full-body
+// poses (small face in a tall frame, e.g. Lux) so the #1 legend's face
+// matches a tight crouch like Master Yi; nothing else uses it.
 export const RIFTBOUND_PORTRAIT_FOCUS = {
-    'Annie, Dark Child':                       { top: 18, left: 51 },
-    'Master Yi, Wuju Bladesman':               { top: 17, left: 40 },
-    'Lux, Lady of Luminosity':                 { top: 9,  left: 59 },
-    'Garen, Might of Demacia':                 { top: 36, left: 37 },
-    "Kai'Sa, Daughter of the Void":            { top: 21, left: 71 },
-    'Volibear, Relentless Storm':              { top: 12, left: 50 },
-    'Jinx, Loose Cannon':                      { top: 15, left: 52 },
-    'Darius, Hand of Noxus':                   { top: 25, left: 46 },
-    'Ahri, Nine-Tailed Fox':                   { top: 30, left: 48 },
-    'Lee Sin, Blind Monk':                     { top: 23, left: 49 },
-    'Yasuo, Unforgiven':                       { top: 19, left: 55 },
-    'Leona, Radiant Dawn':                     { top: 14, left: 38 },
-    'Teemo, Swift Scout':                      { top: 35, left: 41 },
-    'Viktor, Herald of the Arcane':            { top: 37, left: 46 },
-    'Miss Fortune, Bounty Hunter':             { top: 24, left: 60 },
-    'Sett, The Boss':                          { top: 14, left: 50 },
-    'Rumble, Mechanized Menace':               { top: 39, left: 51 },
-    'Lucian, Purifier':                        { top: 13, left: 43 },
-    'Draven, Glorious Executioner':            { top: 20, left: 55 },
-    "Rek'Sai, Void Burrower":                  { top: 16, left: 51 },
-    'Ornn, Fire Below the Mountain':           { top: 26, left: 55 },
-    'Jax, Grandmaster at Arms':                { top: 52, left: 61 },
-    'Irelia, Blade Dancer':                    { top: 24, left: 49 },
-    'Azir, Emperor of the Sands':              { top: 21, left: 51 },
-    'Ezreal, Prodigal Explorer':               { top: 21, left: 49 },
-    'Renata Glasc, Chem-Baroness':             { top: 20, left: 50 },
-    'Sivir, Battle Mistress':                  { top: 19, left: 53 },
-    'Fiora, Grand Duelist':                    { top: 28, left: 53 },
-    'Jhin, Virtuoso':                          { top: 13, left: 51 },
-    'Rengar, Pridestalker':                    { top: 31, left: 36 },
-    'Pyke, Bloodharbor Ripper':                { top: 33, left: 58 },
-    'Vi, Piltover Enforcer':                   { top: 12, left: 47 },
-    'Lillia, Bashful Bloom':                   { top: 18, left: 41 },
-    'Master Yi, Wuju Master':                  { top: 18, left: 59 },
-    'Vex, Gloomist':                           { top: 49, left: 56 },
-    'Ivern, Green Father':                     { top: 22, left: 50 },
-    'Diana, Scorn of the Moon':                { top: 11, left: 70 },
-    'LeBlanc, Deceiver':                       { top: 16, left: 46 },
-    "Kha'Zix, Voidreaver":                     { top: 37, left: 42 },
-    'Poppy, Keeper of the Hammer':             { top: 46, left: 59 },
+    'Annie, Dark Child':                       { top: 18, left: 51, heroScale: 1.2 },
+    'Master Yi, Wuju Bladesman':               { top: 17, left: 40, heroScale: 1.6 },
+    'Lux, Lady of Luminosity':                 { top: 9,  left: 59, heroScale: 2.0 },
+    'Garen, Might of Demacia':                 { top: 36, left: 37, heroScale: 1.6 },
+    "Kai'Sa, Daughter of the Void":            { top: 21, left: 71, heroScale: 1.7 },
+    'Volibear, Relentless Storm':              { top: 12, left: 50, heroScale: 1.7 },
+    'Jinx, Loose Cannon':                      { top: 15, left: 52, heroScale: 1.4 },
+    'Darius, Hand of Noxus':                   { top: 25, left: 46, heroScale: 1.3 },
+    'Ahri, Nine-Tailed Fox':                   { top: 30, left: 48, heroScale: 1.9 },
+    'Lee Sin, Blind Monk':                     { top: 23, left: 49, heroScale: 1.5 },
+    'Yasuo, Unforgiven':                       { top: 19, left: 55, heroScale: 1.45 },
+    'Leona, Radiant Dawn':                     { top: 14, left: 38, heroScale: 1.45 },
+    'Teemo, Swift Scout':                      { top: 35, left: 41, heroScale: 1.7 },
+    'Viktor, Herald of the Arcane':            { top: 37, left: 46, heroScale: 1.9 },
+    'Miss Fortune, Bounty Hunter':             { top: 24, left: 60, heroScale: 1.45 },
+    'Sett, The Boss':                          { top: 14, left: 50, heroScale: 1.5 },
+    'Rumble, Mechanized Menace':               { top: 39, left: 51, heroScale: 1.6 },
+    'Lucian, Purifier':                        { top: 13, left: 43, heroScale: 2.0 },
+    'Draven, Glorious Executioner':            { top: 20, left: 55, heroScale: 1.3 },
+    "Rek'Sai, Void Burrower":                  { top: 16, left: 51, heroScale: 1.4 },
+    'Ornn, Fire Below the Mountain':           { top: 26, left: 55, heroScale: 1.15 },
+    'Jax, Grandmaster at Arms':                { top: 52, left: 61, heroScale: 1.5 },
+    'Irelia, Blade Dancer':                    { top: 24, left: 49, heroScale: 1.7 },
+    'Azir, Emperor of the Sands':              { top: 21, left: 51, heroScale: 1.45 },
+    'Ezreal, Prodigal Explorer':               { top: 21, left: 49, heroScale: 1.45 },
+    'Renata Glasc, Chem-Baroness':             { top: 20, left: 50, heroScale: 1.5 },
+    'Sivir, Battle Mistress':                  { top: 19, left: 53, heroScale: 1.45 },
+    'Fiora, Grand Duelist':                    { top: 28, left: 53, heroScale: 1.9 },
+    'Jhin, Virtuoso':                          { top: 13, left: 51, heroScale: 2.0 },
+    'Rengar, Pridestalker':                    { top: 31, left: 36, heroScale: 1.2 },
+    'Pyke, Bloodharbor Ripper':                { top: 33, left: 58, heroScale: 1.6 },
+    'Vi, Piltover Enforcer':                   { top: 12, left: 47, heroScale: 1.6 },
+    'Lillia, Bashful Bloom':                   { top: 18, left: 41, heroScale: 1.7 },
+    'Master Yi, Wuju Master':                  { top: 18, left: 59, heroScale: 1.5 },
+    'Vex, Gloomist':                           { top: 49, left: 56, heroScale: 1.7 },
+    'Ivern, Green Father':                     { top: 22, left: 50, heroScale: 1.2 },
+    'Diana, Scorn of the Moon':                { top: 11, left: 70, heroScale: 2.0 },
+    'LeBlanc, Deceiver':                       { top: 16, left: 46, heroScale: 1.8 },
+    "Kha'Zix, Voidreaver":                     { top: 37, left: 42, heroScale: 1.15 },
+    'Poppy, Keeper of the Hammer':             { top: 46, left: 59, heroScale: 1.6 },
+    // Vendetta — starting estimates from the 1200 crops; fine-tune with
+    // heroDebug() on the metagame page (saves via POST /save-hero-position)
+    'Akali, Rogue Assassin':                   { top: 18, left: 46, heroScale: 1.4 },
+    'Renekton, Butcher of the Sands':          { top: 20, left: 48, heroScale: 1.15 },
+    'Zed, Master of Shadows':                  { top: 16, left: 50, heroScale: 1.4 },
+    'Nasus, Curator of the Sands':             { top: 12, left: 50, heroScale: 1.6 },
+    'Shen, Eye of Twilight':                   { top: 14, left: 50, heroScale: 1.7 },
+    'Jayce, Defender of Tomorrow':             { top: 16, left: 44, heroScale: 1.5 },
+    "Mel, Soul's Reflection":                  { top: 12, left: 52, heroScale: 1.8 },
+    'Ambessa, Matriarch of War':               { top: 12, left: 50, heroScale: 1.6 },
+    'Kennen, Heart of the Tempest':            { top: 22, left: 50, heroScale: 1.3 },
     'Other':                                   { top: 40, left: 48 },
 };
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Guess the Flavor Text</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <link href="/css/broadcast-guess-flavor.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="gf-stage">
+    <!-- Background = the PSD truth composite (jungle bg + caster silhouettes +
+         translucent panel + Regional_Logo). Derived from the composite because
+         the BACKGROUND group's adjustment layers (Value Clamp / Vignette /
+         Brightness-Contrast) don't re-render via ag-psd — a layer recomposite
+         came out ~2x too bright. The composite's baked example card (Gloomist)
+         is patched over with the cardback so a failed DOM image load can never
+         leak the answer mid-guess; the baked example quote is covered by the
+         opaque box fill in the frame overlay below. -->
+    <img id="gf-bg" src="/assets/images/riftbound/guess-flavor/riftbound-guess-flavor-bg-uvs-unleashed-1v1.png" alt="">
+    <!-- Frame = Box (navy fill + gold border + baked GUESS THE FLAVOR TEXT
+         caption + corner foliage) + Divider L / Divider R / Divider Bottom. -->
+    <img id="gf-frame" src="/assets/images/riftbound/guess-flavor/riftbound-guess-flavor-frame-uvs-unleashed-1v1.png" alt="">
+    <!-- Dynamic flavor quote (inside the box, above the frame's opaque fill).
+         JS wraps the text in quotation marks and auto-shrinks long quotes. -->
+    <div id="gf-quote" class="unl-fade-rise" style="--unl-d:.25s">"I AM THE FIRST OF MANY."</div>
+    <!-- Card slot @ PSD coords 859,540 202x283 — topmost, matching the PSD
+         (the card overlays the divider foliage). Two states: cardback
+         (hidden answer) vs revealed card image; .revealed rotates #gf-flipper
+         180° (3D flip — cardback front face, card back face). The entrance
+         unl-scale-in lives on the slot; the flip transform on the flipper —
+         they never share an element, so neither clobbers the other. -->
+    <div id="gf-card-slot" class="unl-scale-in">
+        <div id="gf-flipper">
+            <img id="gf-cardback" src="/assets/images/riftbound/guess-flavor/riftbound-guess-flavor-cardback-uvs-unleashed-1v1.png" alt="">
+            <img id="gf-card" src="" alt="">
+        </div>
+    </div>
+</div>
+<script type="module" src="/js/broadcast-guess-flavor.js"></script>
+</body>
+</html>

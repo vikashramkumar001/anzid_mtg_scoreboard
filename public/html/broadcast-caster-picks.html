@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Caster Picks</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <link href="/css/broadcast-caster-picks.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="cp-stage">
+    <!-- Background: designer's flattened composite (purple swirl bg + baked
+         chrome + a STALE take of the caster photos). The PSD's own BG group
+         is hidden (designer used a motion loop) and re-compositing it loses
+         adjustment layers, so the bg is the flattened composite. Every
+         dynamic/stale region is covered: the 8 card slots by opaque DOM card
+         images, the stale baked photos by the DOM photo layers, chrome by
+         the frame overlay. -->
+    <img id="cp-bg" src="/assets/images/riftbound/caster-picks/riftbound-caster-picks-bg-uvs-unleashed-1v1.png" alt="">
+    <!-- Dynamic card picks: 2 per caster quadrant, at exact PSD slots -->
+    <div id="cp-cards"></div>
+    <!-- Caster photos: DOM imgs, always rendered — scene-content `photo`
+         wins, null falls back to the slot's current PSD photo layer (the
+         baked bg photos are a stale take and must stay covered). PSD order:
+         photos sit ABOVE the cards, BELOW the footer/divider chrome. -->
+    <div id="cp-photos"></div>
+    <!-- Static chrome over everything: leaf dividers, divider bars, footer
+         (CASTER PICKS / UNLEASHED META MVPs / share-your-story / #RQSydney /
+         Regional Qualifier logo / hextech wings) + center UNLEASHED logo. -->
+    <img id="cp-frame" src="/assets/images/riftbound/caster-picks/riftbound-caster-picks-frame-uvs-unleashed-1v1.png" alt="">
+</div>
+<script type="module" src="/js/broadcast-caster-picks.js"></script>
+</body>
+</html>

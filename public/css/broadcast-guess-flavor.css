@@ -1,0 +1,130 @@
+/* broadcast-guess-flavor.css — UNLEASHED "Guess the Flavor Text" scene
+ * (riftbound, uvs-unleashed, 1v1)
+ *
+ * Fixed 1920x1080 stage. Static chrome lives in two PNGs (bg = truth-derived
+ * composite, frame = box/dividers/caption/foliage). Dynamic DOM: the flavor
+ * quote and the card slot (cardback vs revealed card).
+ *
+ * Quote geometry from the PSD text layer ("i am the first of many."):
+ *   BeaufortPro-BoldItalic, 20pt x 1.14216 transform = 22.84px, white,
+ *   fontCaps=2 (all caps), center-justified anchor x = 958.7, baseline y = 922.45
+ *   ink bounds 816,906 288x16 (cap height 16 ≈ 22.84 * 0.70)
+ * Baseline math (Beaufort metrics ≈ ascent 1.006em / descent 0.258em,
+ * line-height 1.226em = 28px):
+ *   baseline = top + (28 - 28.87)/2 + 22.97 = top + 22.5  →  top = 922.45 - 22.5 ≈ 900
+ */
+
+/* fonts.css only declares the upright Beaufort faces — add the real
+   BoldItalic so the quote isn't a synthesized oblique. */
+@font-face {
+    font-family: 'Beaufort for LoL';
+    src: url('/fonts/BeaufortforLOL-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#gf-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS has a global `* { font-family: var(...) }` that beats inheritance —
+   force Beaufort on everything inside the stage. */
+#gf-stage,
+#gf-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#gf-bg,
+#gf-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* ── Flavor quote (inside the box, above the frame's opaque navy fill) ──────
+ * Box interior: Shape 1 @ 641,821 629x151; caption ends y=893, gold border
+ * ~y=965 → quote zone 900..960. Single line lands the PSD baseline (922.45);
+ * longer quotes wrap downward and JS auto-shrinks to keep scrollHeight ≤ 60. */
+#gf-quote {
+    position: absolute;
+    /* 899/658 (not the derived 900/659): verified against the truth PNG's ink
+       scan — live ink top 906.9/left 817.6 vs truth 906/816 → nudge -1,-1. */
+    top: 899px;
+    left: 658px;
+    width: 600px;
+    text-align: center;
+    font-family: 'Beaufort for LoL', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 22.84px;
+    line-height: 1.226;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/* ── Card slot @ PSD 859,540 202x283 (topmost — overlays divider foliage) ───
+ * Cardback (191x268) and card art (e.g. UNL-232 744x1039) both stretch to the exact slot
+ * rect (aspect ratios within 0.6% of the slot).
+ *
+ * Reveal = 3D flip: the slot supplies perspective (and carries the entrance
+ * unl-scale-in — perspective isn't a transform, so the keyframes can't clobber
+ * it); #gf-flipper rotates 180° with the cardback as its front face and the
+ * card as its back face (pre-rotated 180°, so at rest-revealed the net
+ * transform is identity and the card rect is pixel-identical to the slot).
+ * .revealed lands in render() before first paint, so a revealed default shows
+ * flipped with no load-time animation; subsequent toggles ('r' / JSON) flip. */
+#gf-card-slot {
+    position: absolute;
+    top: 540px;
+    left: 859px;
+    width: 202px;
+    height: 283px;
+    perspective: 800px;
+}
+
+#gf-flipper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 202px;
+    height: 283px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.25, 1);
+}
+
+.revealed #gf-flipper { transform: rotateY(180deg); }
+
+#gf-card-slot img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 202px;
+    height: 283px;
+    object-fit: fill;
+    backface-visibility: hidden;
+    /* Face swap at the flip's 0.3s midpoint (card edge-on at 90° → invisible
+       swap). Also keeps the entrance clean: unl-scale-in animates opacity on
+       the slot, which flattens the 3D subtree mid-animation — without this the
+       inactive face ghosts through; with it, the wrong face is opacity 0. */
+    transition: opacity 0s linear 0.3s;
+}
+
+#gf-cardback           { opacity: 1; }
+#gf-card               { opacity: 0; transform: rotateY(180deg); }
+.revealed #gf-cardback { opacity: 0; }
+.revealed #gf-card     { opacity: 1; }

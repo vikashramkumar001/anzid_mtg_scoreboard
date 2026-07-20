@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Community Choice</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <link href="/css/broadcast-community-choice.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<!-- UNLEASHED "Community Choice" — 4 match rows (left/right player plates, VS
+     ornament, domain runes). The bg is the PSD truth composite (adjustment
+     layers don't survive ag-psd re-compositing); every dynamic region is
+     covered by the designer's own opaque row-plate PNGs (M1-M4 left/right,
+     full-canvas), so the baked sample data never shows through. The gold
+     "Selected" plate overlays a side's name area (winner state) — drawn at
+     row 1 in the source art and shifted per row via translateY. -->
+<div id="cc-stage">
+    <img id="cc-bg" src="/assets/images/riftbound/community-choice/riftbound-community-choice-bg-uvs-unleashed-1v1.png" alt="">
+    <div id="cc-rows"></div>
+</div>
+<script type="module" src="/js/broadcast-community-choice.js"></script>
+</body>
+</html>

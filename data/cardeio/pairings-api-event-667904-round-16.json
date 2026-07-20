@@ -1,0 +1,140 @@
+[
+  {
+    "id": 5523914,
+    "table_number": 1,
+    "pod_number": null,
+    "order": 0,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 24330,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 1,
+    "player_match_relationships": [
+      {
+        "id": 10622722,
+        "match_id": 5523914,
+        "player_order": 1,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 3742889,
+          "user_identifier": "Pedro B",
+          "special_user_identifier": null,
+          "matches_won": 15,
+          "matches_lost": 0,
+          "matches_drawn": 1,
+          "total_match_points": 46,
+          "registration_status": "COMPLETE",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 24330,
+            "email": "pbaneres911@gmail.com",
+            "last_name": "Bañeres",
+            "last_first": "Bañeres, Pedro",
+            "first_last": "Pedro Bañeres",
+            "best_identifier": "Pedro B",
+            "initials": "PB",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "Squirtle"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "e80694ca-4928-466c-81b3-98ff61b39ef3",
+            "deck_id": "4b18dc72-b7e3-4158-aecd-52103c3c1138",
+            "deck_name": "Shurima Unleashed",
+            "deck_defining_card": {
+              "id": "68322e9d-9f74-42fa-9e23-08accdf440ac",
+              "name": "Azir, Emperor of the Sands",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/28299956-0f42-4221-93c6-428e14aef235.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055145Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=70b659383ab1173b8feea7d136ff7f323c58a1bf9ecd688de726bdca643112d46c4fb8399f7e0eb2bc3bfc041f879e887b2a1978ff09bd54032309e52fee892259b1fd82a27d27e0aa5004824fbb52f4a31d06d11f871ea9b270c4183519fd1816856e254cfff9cd897c444a8733e7cc9a6681c73f69c323356b22de8711f0057b0052c9fc8bf3a8de4d18c4c6048401662372d36a8433b6ce82b3b8888827b0b1e0ebc3717b63478cdc548becbf2f0c4238b7889f402fab5cd6cf39103daa1aff4bcd4ef9629fe63760a52339e27741b45b2868ba44361e47e8717719e998ca66bc5950ff9bce760761d2a1cf8e380a900a534de1a2085a21e83aee469423e9"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 24330,
+          "email": "pbaneres911@gmail.com",
+          "first_name": "Pedro",
+          "last_name": "Bañeres",
+          "best_identifier": "Pedro B",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 1
+      },
+      {
+        "id": 10622723,
+        "match_id": 5523914,
+        "player_order": 2,
+        "games_won": 1,
+        "user_event_status": {
+          "id": 3744071,
+          "user_identifier": "Mike P",
+          "special_user_identifier": null,
+          "matches_won": 13,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 40,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 96248,
+            "email": "mikepapagathangelou@gmail.com",
+            "last_name": "Papagathangelou",
+            "last_first": "Papagathangelou, Mike",
+            "first_last": "Mike Papagathangelou",
+            "best_identifier": "Mike P",
+            "initials": "MP",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "Rednaxell"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "8bfa7570-2a26-422c-b1ea-3e9783588f99",
+            "deck_id": "333a1e38-8042-4e03-ae48-9874d5445d25",
+            "deck_name": "VI-KT",
+            "deck_defining_card": {
+              "id": "603b4961-ddff-4933-ab97-bc978cbbda38",
+              "name": "Viktor, Herald of the Arcane",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/a9b7f199-a31b-4f94-9b17-7cf640d5853a.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055145Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=5a696c26e780aca536181b41fa0aea72cccf26b4ae45d102c9017f171e60bf08fbda19e1c190384ececeda682ff746dbc7e7390ea393708511cf701fcdf295516bafccbfad762094011df2e5dad9d5abc1ea176de4fca343c6f31e4615994c9418722b6486a61547f2358c0ef05fcdd048272d9a63d3cf43f6067795e38d09256239ce89e057c289764ddc64a9184957c98caaa6d1fba2a12ad0adf5e9195357650a8ba6dea477c30fc23082764f10c56f671f971c9d3bbfc490e3d628b74a905da5bc16157074c7eceb4f246b8ea979bf6e7096b1cf79da7feed45160c68c3e9011b77acdf18749e3e10d0556230725cede2881147e3ba4557b4a94028eb89a"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 96248,
+          "email": "mikepapagathangelou@gmail.com",
+          "first_name": "Mike",
+          "last_name": "Papagathangelou",
+          "best_identifier": "Mike P",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 8
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-06-14T19:29:31+00:00",
+    "updated_at": "2026-06-14T20:59:38+00:00"
+  }
+]

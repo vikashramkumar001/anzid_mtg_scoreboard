@@ -1,0 +1,152 @@
+/* broadcast-tournament-format.css — UNLEASHED tournament-format scene
+ * (riftbound, uvs-unleashed, 1v1)
+ *
+ * Fixed 1920x1080 stage; all chrome baked into the bg PNG (truth-derived,
+ * sample text inpainted out). Text geometry from the PSD text layers
+ * (BeaufortPro sizes x ~0.998 transform → round px sizes; paragraph
+ * center-justified anchors + baselines):
+ *   constructed        80px Heavy   cx 482  baseline 358
+ *   DAY one/TWO        48px Heavy   cx 324 / 642  baseline 498
+ *   SWISS PLAY (d1)    48px Heavy   cx 293  baseline 644   pink
+ *   eight rounds       32px Medium  cx 293  baseline 688
+ *   6 wins to advance  24px Medium  cx 293  baseline 727
+ *   SWISS PLAY (d2)    48px Heavy   cx 673  baseline 610   pink
+ *   five rounds        32px Medium  cx 673  baseline 654
+ *   top 8              48px Heavy   cx 671  baseline 716   pink
+ *   single elimination 32px Medium  cx 673  baseline 760
+ * Baseline → box top (Beaufort hhea: asc 1.006em, desc 0.258em; with
+ * line-height = 1em, baseline sits at 0.874em below box top):
+ *   top = baselineY - 0.874 * fontSize
+ * PSD strings are mixed-case with faux all-caps styling → text-transform.
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#tournament-format-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS has a global `* { font-family: var(...) }` that beats inheritance —
+   force Beaufort on everything inside the stage. */
+#tournament-format-stage,
+#tournament-format-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#tf-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+.tf-text {
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+/* ── Headline: format name ─────────────────────────────────────────────── */
+#tf-format {
+    top: 288px;
+    left: 132px;
+    width: 700px;
+    font-size: 80px;
+    line-height: 80px;
+    font-weight: 900;
+}
+
+/* ── Day titles (straddle the panel's top edge) ────────────────────────── */
+#tf-day1-title {
+    top: 456px;
+    left: 124px;
+    width: 400px;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 900;
+}
+#tf-day2-title {
+    top: 456px;
+    left: 442px;
+    width: 400px;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 900;
+}
+
+/* ── Day 1 column (centered on x 293) ──────────────────────────────────── */
+#tf-day1-headline {
+    top: 602px;
+    left: 93px;
+    width: 400px;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 900;
+    color: #c2458f;
+}
+#tf-day1-subline {
+    top: 660px;
+    left: 93px;
+    width: 400px;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 500;
+}
+#tf-day1-note {
+    top: 706px;
+    left: 93px;
+    width: 400px;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+/* ── Day 2 column (centered on x 673) ──────────────────────────────────── */
+#tf-day2-headline {
+    top: 568px;
+    left: 473px;
+    width: 400px;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 900;
+    color: #c2458f;
+}
+#tf-day2-subline {
+    top: 626px;
+    left: 473px;
+    width: 400px;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 500;
+}
+#tf-day2-headline2 {
+    top: 674px;
+    left: 471px;
+    width: 400px;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 900;
+    color: #c2458f;
+}
+#tf-day2-subline2 {
+    top: 732px;
+    left: 473px;
+    width: 400px;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 500;
+}

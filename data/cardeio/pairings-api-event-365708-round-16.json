@@ -1,0 +1,131 @@
+[
+  {
+    "id": 3100727,
+    "table_number": 101,
+    "pod_number": null,
+    "order": 0,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 135798,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 0,
+    "player_match_relationships": [
+      {
+        "id": 5969967,
+        "match_id": 3100727,
+        "player_order": 1,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 1987018,
+          "user_identifier": "Mateusz J",
+          "special_user_identifier": null,
+          "matches_won": 15,
+          "matches_lost": 0,
+          "matches_drawn": 1,
+          "total_match_points": 46,
+          "registration_status": "COMPLETE",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 135798,
+            "email": "jasinski.mateusz.92@gmail.com",
+            "last_name": "Jasinski",
+            "last_first": "Jasinski, Mateusz",
+            "first_last": "Mateusz Jasinski",
+            "best_identifier": "Mateusz J",
+            "initials": "MJ",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "CTG Alanzq"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": null,
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 135798,
+          "email": "jasinski.mateusz.92@gmail.com",
+          "first_name": "Mateusz",
+          "last_name": "Jasinski",
+          "best_identifier": "Mateusz J",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 1
+      },
+      {
+        "id": 5969968,
+        "match_id": 3100727,
+        "player_order": 2,
+        "games_won": 0,
+        "user_event_status": {
+          "id": 1987085,
+          "user_identifier": "Sebastian M",
+          "special_user_identifier": null,
+          "matches_won": 13,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 40,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 107222,
+            "email": "sebastianagraffka1@gmail.com",
+            "last_name": "Matuszak",
+            "last_first": "Matuszak, Sebastian",
+            "first_last": "Sebastian Matuszak",
+            "best_identifier": "Sebastian M",
+            "initials": "SM",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "SEBIQQQQQQQQQQQQ"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "6c81c917-0d50-4c2c-9bd3-c0f84ecb066f",
+            "deck_id": "33d4d666-3e3f-4f67-825f-172d66be55f5",
+            "deck_name": "Misska",
+            "deck_defining_card": {
+              "id": "01c9bc3b-55cd-4427-ae5e-cd6b94983ddf",
+              "name": "Miss Fortune, Bounty Hunter",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/919ae049-0778-4f7a-853e-fd162dc8a224.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055649Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=a748c3e61562cca77e632072fc132d6bc5455a1421a06874c25a620d3f3a0247b7f6dbfc60e7f4806ae67bf0355716715880b84d42e614de2fb9d9d5b59f04d320ae5b0661b3af4b96cce1a4bb7071c0b32ec38ca3c02a7acd5e03c50ab7917864877bafe06478b737305d7a22ed3e850e43bf17986e7f7e9a2ba5ff95a3aaf84cf825f6cc10591d9466e8f01582b2af9a3b4ca75b0c976a15aa672f07bf698f1b1fae9c153f3120dcad24db759eae4194f639cc26ca953a587b50dc291fbfb470402e0b8ccd75406e93b23b1ad2e33e6b8b274ecd8445d0e9fb554f205d9d6825e64f7c9dc0d2f967a2a438cae5ce619a3c126fb556ed3410774c255d69889a"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 107222,
+          "email": "sebastianagraffka1@gmail.com",
+          "first_name": "Sebastian",
+          "last_name": "Matuszak",
+          "best_identifier": "Sebastian M",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 8
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-02-22T21:36:11+00:00",
+    "updated_at": "2026-02-22T21:36:21+00:00"
+  }
+]

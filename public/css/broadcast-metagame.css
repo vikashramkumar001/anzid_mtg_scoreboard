@@ -390,3 +390,274 @@ body {
     line-height: 1.3;
     margin-top: 4px;
 }
+
+/* ── "Most Played Decks" — fully CSS-recreated chrome (CSL default + uvs) ───────
+   Shared 8-card metagame layout. NOTHING is baked into a frame PNG anymore — the
+   card boxes/panels/pills/labels/divider, the headline, and the footer (bar, pill,
+   gold lines, text) are all CSS/DOM. The only images are the bg (jungle/character),
+   the corner leaves (#metagame-leaves), and the event logo (.mpd-footer-logo).
+   Page is 1920×1080 so PSD px map 1:1.
+
+   Card origins (portrait-box top-left): left x=236, right x=1276; rows y=137 /
+   318 / 502 / 688. Per-card offsets from origin: portrait box 0,0 (157²); info
+   panel 153,1 (256×155); name 206,14; TOTAL label 183,64 / pill 183,95 (75×46);
+   SHARE label 306,64 / pill 304,95 (76×46); internal gold divider 279,38 (4×118). */
+:root {
+    --mpd-navy: #2a2648;                       /* solid — borders, value text */
+    --mpd-panel-bg: rgba(42, 38, 72, 0.9);     /* box / panel / footer fill */
+    --mpd-gold: #d7a63f;
+    --mpd-pink: #c2458f;
+}
+
+/* corner leaves overlay (was the baked frame) — sits above bg, below chrome */
+#metagame-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 1;
+    pointer-events: none;
+}
+#metagame-leaves[src=""] { display: none; }
+
+#most-played-decks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 2;
+    display: none;
+    /* Hardcoded (not --metagame-font) so the layout is vendor-proof — the PSD is
+       Beaufort for LoL (BeaufortPro) for both CSL default and uvs. */
+    font-family: 'Beaufort for LoL', serif;
+}
+#most-played-decks.active { display: block; }
+/* The global `* { font-family: var(--metagame-font) }` sets font-family directly
+   on every descendant (specificity 0,0,0), beating inheritance from
+   #most-played-decks. This descendant rule (0,1,0+id) overrides it so the whole
+   layout is Beaufort regardless of the vendor's --metagame-font. */
+#most-played-decks * { font-family: 'Beaufort for LoL', serif; }
+
+#mpd-cards { position: absolute; inset: 0; }
+
+/* Pixel-perfect PSD card-frame chrome (boxes, panels, gold borders, dividers,
+   value pills, TOTAL/SHARE labels) — one image behind all the per-card data,
+   so the gold hextech exactly matches the PSD. */
+#mpd-chrome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-image: url('/assets/images/riftbound/metagame/riftbound-metagame-cards.png');
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2;   /* gold frame sits ON TOP of the portraits (z-index 1); text/gem (3) above */
+}
+
+/* Dynamic central figure — the #1 most-played legend (1200×1200 cutout), centred
+   over the portal, behind the headline + cards. */
+#mpd-character,
+#mpd-character-video {
+    position: absolute;
+    /* left/top are set per-legend in renderMostPlayedDecks() so the FACE (from
+       RIFTBOUND_PORTRAIT_FOCUS / the animation map) lands at a fixed point —
+       centred, above the headline — regardless of where the face sits in the art.
+       height is overridden per-legend in JS. */
+    height: 1050px;
+    width: auto;
+    pointer-events: none;
+}
+#mpd-character[src=""] { display: none; }
+/* video hidden until JS assigns one (and shown only for animated legends) */
+#mpd-character-video { display: none; }
+
+/* headline — two lines, centered */
+.mpd-headline {
+    position: absolute;
+    top: 456px;
+    left: 0;
+    width: 1920px;
+    text-align: center;
+    color: #fff;
+    line-height: 1;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.55);
+}
+/* PSD: "MOST PLAYED" Beaufort Medium 60px, "DECKS" Beaufort Heavy 150px */
+.mpd-headline-top  { font-size: 60px;  font-weight: 500; letter-spacing: 2px; line-height: 1; }
+.mpd-headline-main { font-size: 150px; font-weight: 900; letter-spacing: 1px; line-height: 1; margin-top: -6px; }
+
+/* card */
+.mpd-card { position: absolute; width: 409px; height: 157px; }
+
+.mpd-portrait {
+    position: absolute;
+    /* Sits UNDER the gold frame (#mpd-chrome, z-index 2) and fills the box
+       interior, which is knocked out (transparent) in cards.png so the portrait
+       shows through. Sized to the gold border (slot+3, 150px) so it tucks just
+       under the border on all sides — the border is at slot+2..+154, and
+       outside it cards.png is transparent, so a full-box portrait would spill. */
+    left: 3px;
+    top: 3px;
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+    /* Headshot crop from the full-body cutout — background-size/position set inline
+       per-legend (from RIFTBOUND_PORTRAIT_FOCUS) in renderMostPlayedDecks(). */
+    background-repeat: no-repeat;
+    /* PSD box-fill navy painted BEHIND the portrait image, so transparent-cutout
+       legends (e.g. Sivir) get the navy box background instead of the portal bg
+       showing through the knockout — matching legends whose art has a baked bg
+       (e.g. Jhin). Sampled from the PSD box interior (uniform, no gradient). */
+    background-color: #192540;
+    overflow: hidden;
+}
+/* name / value-pills / gem sit ABOVE the gold frame (on the panels / box corner) */
+.mpd-name, .mpd-pill, .mpd-hex { z-index: 3; }
+
+.mpd-name {
+    position: absolute;
+    left: 155px;          /* centered over the info panel (153..409), not left-aligned */
+    top: 14px;
+    width: 252px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1;
+}
+
+/* Hextech gem at the portrait box's top-right corner (PSD "Polygon 1") — layered
+   over the portrait (the rest of the chrome, incl. the divider, is #mpd-chrome). */
+.mpd-hex {
+    position: absolute;
+    left: 144px;
+    top: -4px;
+    width: 15px;
+    height: 17px;
+    background-image: url('/assets/images/riftbound/metagame/riftbound-metagame-hex.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* value text only — the gold pill itself is part of the #mpd-chrome image */
+.mpd-pill {
+    position: absolute;
+    top: 95px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mpd-navy);
+    font-size: 30px;
+    font-weight: 900;
+}
+.mpd-pill-total { left: 183px; width: 75px; }
+.mpd-pill-share { left: 304px; width: 76px; }
+
+/* footer — bar + gold lines + logo + METAGAME pill + dynamic DAY + share text */
+.mpd-footer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    pointer-events: none;
+}
+.mpd-footer-bar {
+    position: absolute;
+    left: 0;
+    top: 983px;
+    width: 1920px;
+    height: 97px;
+    background: var(--mpd-panel-bg);
+}
+/* PSD hextech line (thin line + mid notch + diamond cap toward the logo). The
+   element spans y971-995 (line sits ~y982, above the footer text). Right side is
+   the same art mirrored. */
+.mpd-footer-line {
+    position: absolute;
+    top: 971px;
+    height: 24px;
+    background-image: url('/assets/images/riftbound/metagame/riftbound-metagame-footerline.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.mpd-footer-line.left  { left: 0px;    width: 806px; }
+.mpd-footer-line.right { left: 1114px; width: 806px; transform: scaleX(-1); }
+.mpd-footer-logo {
+    position: absolute;
+    left: 889px;
+    top: 901px;
+    width: 142px;
+    height: 150px;
+}
+.mpd-footer-logo[src=""] { display: none; }
+.mpd-footer-pill {
+    position: absolute;
+    left: 379px;
+    top: 1009px;
+    width: 197px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mpd-pink);
+    color: #fff;
+    /* pixel-matched to PSD "METAGAME" text (166×22 glyph box) */
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    box-sizing: border-box;
+}
+.mpd-footer-day {
+    position: absolute;
+    left: 597px;
+    top: 1009px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    /* pixel-matched to PSD "DAY 1" text (76×21 glyph box) */
+    font-size: 29px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+.mpd-footer-share {
+    position: absolute;
+    left: 1269px;
+    top: 1002px;
+    width: 219px;
+    text-align: center;
+    /* pixel-matched to the standings footer's "SHARE YOUR STORY" (22px, glyph-top y1010) */
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+.mpd-footer-hash {
+    position: absolute;
+    left: 1269px;
+    top: 1025px;
+    width: 219px;
+    text-align: center;
+    /* sized to match the standings footer's "#RQSYDNEY" (~27px) */
+    font-size: 27px;
+    font-weight: 700;
+    font-style: italic;
+    /* Two-tone hashtag to match the standings footer: "#RQ" magenta + "SYDNEY" white. */
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+.mpd-footer-hash .mpd-hash-rq { color: var(--mpd-pink); }

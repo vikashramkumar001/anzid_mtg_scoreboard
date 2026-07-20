@@ -116,8 +116,11 @@ export function getPortraitUrlBase() {
 export function emitOverlayBackgrounds(io) {
   const game = getGameSelection();
   const paths = getOverlayPaths(game);
-  RoomUtils.emitWithRoomMapping(io, 'overlayHeaderBackgroundUpdate', paths.headerUrl);
-  RoomUtils.emitWithRoomMapping(io, 'overlayFooterBackgroundUpdate', paths.footerUrl);
+  // Only emit a URL when the overlay file has actually been uploaded for this game
+  const headerExists = fs.existsSync(path.join(paths.dir, paths.headerFilename));
+  const footerExists = fs.existsSync(path.join(paths.dir, paths.footerFilename));
+  RoomUtils.emitWithRoomMapping(io, 'overlayHeaderBackgroundUpdate', headerExists ? paths.headerUrl : null);
+  RoomUtils.emitWithRoomMapping(io, 'overlayFooterBackgroundUpdate', footerExists ? paths.footerUrl : null);
 }
 
 export { getOverlayPaths };

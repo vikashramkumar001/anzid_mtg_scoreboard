@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Upcoming Events</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-upcoming-events.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="upcoming-events-stage">
+    <!-- Everything static is baked into this one bg: painted jungle + bolts +
+         leaves, RIFTBOUND / LEAGUE OF LEGENDS / ORGANIZED PLAY lockup,
+         PREPARE FOR YOUR NEXT BATTLE / divider / FIND OUT WHERE TO PLAY,
+         the lower band, corner foliage AND the two empty navy event plates.
+         (Derived from the PSD composite — fill/adjustment layers made a
+         re-composite unusable — with the sample card contents, the two QR
+         codes and event lockups, interpolated out of the plates.) -->
+    <img id="upcoming-events-bg" src="/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-bg-uvs-unleashed-1v1.png" alt="">
+    <!-- Event cards: rebuilt by JS from DEFAULTS / scene-content JSON.
+         Hardcoded here with the PSD's own sample events so the page paints
+         correctly before JS runs (inline geometry mirrors render() exactly). -->
+    <div id="ue-cards">
+        <div class="ue-card" style="left: 613px;">
+            <img class="ue-logo unl-fade-rise" src="/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-logo-summoner-skirmish-uvs-unleashed-1v1.png" alt="Summoner Skirmish" style="left: 82px; top: 28px; width: 178px; height: 139px; --unl-d:.10s;">
+            <img class="ue-qr unl-scale-in" src="/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-qr-uvs-unleashed-1v1.png" alt="" style="left: 81px; --unl-d:.18s;">
+        </div>
+        <div class="ue-card" style="left: 965px;">
+            <img class="ue-logo unl-fade-rise" src="/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-logo-nexus-night-uvs-unleashed-1v1.png" alt="Nexus Night" style="left: 27px; top: 110px; width: 287px; height: 31px; --unl-d:.25s;">
+            <img class="ue-qr unl-scale-in" src="/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-qr-uvs-unleashed-1v1.png" alt="" style="left: 80px; --unl-d:.33s;">
+        </div>
+    </div>
+</div>
+<script type="module" src="/js/broadcast-upcoming-events.js"></script>
+</body>
+</html>

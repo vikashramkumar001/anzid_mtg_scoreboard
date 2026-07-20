@@ -206,6 +206,17 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
     pointer-events: none;
 }
 
+/* When the sideboard cards are hidden (Show Sideboard off), swap to the frame
+   variant whose SIDEBOARD header is erased — so the "on" state keeps the header
+   above its cards, and the "off" state has no orphaned label above an empty
+   column. The default vendor has a generated no-label twin
+   (…-default-1v1-nosb.png, the fallback here). Other vendors keep their own
+   frame when hidden (label stays — unchanged) until they supply
+   --rb-dl-frame-hidden. */
+body[data-sideboard="hidden"] #riftbound-dl-frame {
+    background-image: var(--rb-dl-frame-hidden, var(--rb-dl-frame, url('/assets/images/riftbound/decklist/frame/riftbound-decklist-frame-default-1v1-nosb.png')));
+}
+
 /* === LEGEND CARD (left column) === */
 #riftbound-dl-legend-card {
     position: absolute;
@@ -407,11 +418,72 @@ body.vertical #deck-display-vibes #vibes-main-deck-container {
     z-index: 5;
 }
 
+/* Global "Show Sideboard" toggle (from master-control). Hidden by default;
+   !important so it wins over the vendor-set --rb-dl-side-display. */
+body[data-sideboard="hidden"] #deck-display-riftbound .deck-section-wrapper.side-deck-section {
+    display: none !important;
+}
+
+/* With the sideboard hidden, the maindeck/battlefield/runes have the whole blue
+   area to themselves — slide them right as a group so they sit centered in it
+   instead of hugging the sidebar. Blue area is 346–1920, content center 969,
+   so +164px lands it on 1133 (symmetric, 245px each side). Uniform shift keeps
+   the three aligned. Vendors with a different decklist layout (TES/DSG, wide)
+   set --rb-dl-sb-off-shift: 0px to opt out. Applied instantly (no transition):
+   the data-sideboard flip is on <body> and a descendant transform-transition
+   fires unreliably from an ancestor-attribute change, so we snap rather than
+   risk a half-shifted frame on air. */
+body[data-sideboard="hidden"] #deck-display-riftbound .deck-section-wrapper.other-section,
+body[data-sideboard="hidden"] #deck-display-riftbound .deck-section-wrapper.battlefields-section,
+body[data-sideboard="hidden"] #deck-display-riftbound .deck-section-wrapper.runes-section {
+    transform: translateX(var(--rb-dl-sb-off-shift, 164px));
+}
+
 #deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card {
     position: relative;
     width: var(--rb-dl-side-card-width, 132px);
     flex-shrink: 0;
     display: block;
+}
+
+/* ───────── Decklist staggered card entrance ─────────
+   When the OBS scene becomes active, deck cards + battlefields + runes fade in
+   and rise one at a time. Gated on #deck-display-riftbound.deck-entrance and
+   restarted from JS via a synchronous reflow (broadcast-round-main-deck.js →
+   playDeckEntrance). .deck-primed holds the tiles hidden while off-screen so the
+   cut-in starts clean. Stagger order + index (--deck-card-i) set per tile in JS.
+   Opacity gets its own gentle ease-out curve so the fade is clearly visible; the
+   rise keeps a snappy ease-out. Legend + champion are intentionally excluded.
+   Tune feel: 26px rise, 1s duration, 0.07s per-tile stagger. */
+/* Start delay before the stagger begins. Now 0 — the SERVER (OBS WebSocket,
+   features/obs-websocket.js) times the entrance to the live transition and fires
+   obs-animate-decklist AFTER the stinger, so no client-side delay is needed and
+   the stinger timing lives in one place server-side (computeScheduleDelay). This
+   is only a fallback offset used when OBS WebSocket is disconnected and the
+   obsSourceActiveChanged path drives the entrance instead. */
+#deck-display-riftbound { --deck-start-delay: 0s; }
+
+@keyframes deck-card-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes deck-card-rise {
+    from { transform: translateY(26px); }
+    to   { transform: translateY(0); }
+}
+#deck-display-riftbound.deck-primed .deck-section-wrapper.other-section .main-deck-card,
+#deck-display-riftbound.deck-primed .deck-section-wrapper.side-deck-section .main-deck-card,
+#deck-display-riftbound.deck-primed .battlefields-section .riftbound-battlefield-background,
+#deck-display-riftbound.deck-primed .runes-section .rfb-rune-item {
+    opacity: 0;
+}
+#deck-display-riftbound.deck-entrance .deck-section-wrapper.other-section .main-deck-card,
+#deck-display-riftbound.deck-entrance .deck-section-wrapper.side-deck-section .main-deck-card,
+#deck-display-riftbound.deck-entrance .battlefields-section .riftbound-battlefield-background,
+#deck-display-riftbound.deck-entrance .runes-section .rfb-rune-item {
+    animation: deck-card-fade 1s ease-out both,
+               deck-card-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--deck-start-delay, 0.5s) + var(--deck-card-i, 0) * 0.07s);
 }
 
 #deck-display-riftbound .deck-section-wrapper.side-deck-section .main-deck-card .card-src {

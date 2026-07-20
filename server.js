@@ -47,8 +47,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// Static files
-app.use(express.static(path.join(__dirname, 'public')));
+// Static files. `no-store` on the broadcast assets so OBS's CEF can't serve a
+// stale re-encoded video / edited CSS-JS from its disk cache (it does this even
+// with the default max-age=0, which forced full OBS restarts). Assets are local
+// so re-fetching each load is cheap. (Revisit if live scene-loads feel slow —
+// could scope to html/css/js/mp4 and version-query the big media instead.)
+app.use(express.static(path.join(__dirname, 'public'), {
+    setHeaders: (res) => res.setHeader('Cache-Control', 'no-store'),
+}));
 app.use('/data', express.static(path.join(__dirname, 'data')));
 app.use(express.json());
 

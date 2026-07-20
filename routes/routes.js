@@ -134,6 +134,25 @@ router.get('/broadcast/metagame', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-metagame.html'));
 });
 
+// UNLEASHED broadcast scene pages (one HTML/JS/CSS trio each; see
+// public/html/broadcast-<scene>.html). Pages are also reachable statically at
+// /html/broadcast-<scene>.html before a server restart picks these routes up.
+const UNLEASHED_SCENES = [
+  'vs-pip', 'l-frame', 'countdown', 'battlefield-meta', 'most-played-cards',
+  'caster-picks', 'caster-predictions', 'community-choice', 'event-winners',
+  'schedule', 'tournament-format', 'upcoming-events', 'thanks', 'banned-cards',
+  'guess-flavor', 'legend-spotlight',
+];
+UNLEASHED_SCENES.forEach((scene) => {
+  router.get(`/broadcast/${scene}`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../public/html/broadcast-${scene}.html`));
+  });
+});
+// variant-parameterized: /broadcast/most-played-cards/spells|gear|units
+router.get('/broadcast/most-played-cards/:variant', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/html/broadcast-most-played-cards.html'));
+});
+
 router.get('/broadcast/round/standings-combined', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/broadcast-round-standings-combined.html'));
 });
@@ -231,6 +250,31 @@ router.post('/save-portrait-focus', express.json(), (req, res) => {
 
   console.log(`[Focus] Saved ${Object.keys(focusMap).length} portrait focus values`);
   res.json({ ok: true, count: Object.keys(focusMap).length });
+});
+
+// Save one animated-legend central-figure position from heroDebug(). Surgically
+// patches just that legend's line in RIFTBOUND_LEGEND_ART_ANIM (preserves src / aspect /
+// trailing comment) so the position persists across reloads and to every client.
+router.post('/save-hero-position', express.json(), (req, res) => {
+  const { name, left, top, width, height } = req.body || {};
+  if (!name || ![left, top, width, height].every((v) => Number.isFinite(v))) {
+    return res.status(400).json({ error: 'need name + numeric left/top/width/height' });
+  }
+  const filePath = path.join(__dirname, '../public/js/broadcast-metagame.js');
+  let content = fs.readFileSync(filePath, 'utf-8');
+  // Entries have no nested braces, so {[^}]*} matches exactly one entry's body.
+  const esc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const m = content.match(new RegExp(`"${esc}":\\s*\\{[^}]*\\}`));
+  if (!m) return res.status(404).json({ error: 'legend not in map: ' + name });
+  const updated = m[0]
+    .replace(/height:\s*-?\d+(?:\.\d+)?/, `height: ${Math.round(height)}`)
+    .replace(/width:\s*-?\d+(?:\.\d+)?/, `width: ${Math.round(width)}`)
+    .replace(/left:\s*-?\d+(?:\.\d+)?/, `left: ${Math.round(left)}`)
+    .replace(/top:\s*-?\d+(?:\.\d+)?/, `top: ${Math.round(top)}`);
+  content = content.replace(m[0], updated);
+  fs.writeFileSync(filePath, content, 'utf-8');
+  console.log(`[Hero] Saved ${name}: left ${Math.round(left)} top ${Math.round(top)} w ${Math.round(width)} h ${Math.round(height)}`);
+  res.json({ ok: true, name });
 });
 
 // VIBES

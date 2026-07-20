@@ -27,6 +27,7 @@
         "user_event_status": {
           "id": 3328315,
           "user_identifier": "Wyatt H",
+          "special_user_identifier": null,
           "matches_won": 14,
           "matches_lost": 2,
           "matches_drawn": 0,
@@ -55,9 +56,13 @@
             "deck_defining_card": {
               "id": "671cf265-3ce8-4610-aa20-9bcb253c837a",
               "name": "Sivir, Battle Mistress",
-              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/a378da80-7bda-4bd3-9a77-93dfd3ab4e48.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260518%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260518T021044Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=1a08ae6a6617631051ca14956676529c0567d2b5f3e33e9a434f9fd8934059bc3b5eb7aa59409aeb2a24949c7961340f85198a15fc182dc815a47a81938f11d15954f7b0e554471f58686accb6a498681165a06e105ff12fd60f32bbca0016cf7c5c2510c7e62dbd212f53738c7c6846ed81f0fc3fa00124782290effe87d2a897caff4cb7ae2d88465f8623a5acbec5b4a45c24cd309debe0a1700af9a36774ceee7154f6ef2307c26ab44b1cbc902fcddade8c58235b997cd79cf21a13b68e026954ae3b3842628e630d6fe3861830b6e6ff50512352ddaae2f6ec958e3a8e4ff44cb43d28b046386a4886f71b3468189d9170cba2dafe42edb1243fd5e13e"
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/a378da80-7bda-4bd3-9a77-93dfd3ab4e48.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055236Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=78f78e7d2ea4a6fc13a5099d5e87a8080ab2f569f6993fb504556c93ba17854368bbe446154121bf9fe8f678a68e50dfdfa71bf05a2de0ba09a188a3c4e4e38193b714c31bd3fadced3d1319fa67518cfea6028ac5ddc038e0b3da3b851025dbe05525e1d933e89b3d02c29c51e712ffee5918f4c1cb1fef3962aa55cdbe740e8855bc767cbe9b2f1398165a27250f603841bb611b298d3c1372e6ed6431c050caae818d5bc58af172294e60ab33545c8d233ad90a76190c078b29c7f595c569d44224747b5a5733a3c7b778f8d40410335625a439b161d50c16ee8fa07293b9edc9cce6d2fbd8ec8aa17f1182320653f42308f692095a40cff35047b081d697"
             }
-          }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
         },
         "player": {
           "id": 201897,
@@ -78,6 +83,7 @@
         "user_event_status": {
           "id": 3327579,
           "user_identifier": "Muhan Y",
+          "special_user_identifier": null,
           "matches_won": 14,
           "matches_lost": 1,
           "matches_drawn": 1,
@@ -106,9 +112,11 @@
             "deck_defining_card": {
               "id": "3bf6bd64-164e-4e47-9daa-871274568b6b",
               "name": "Irelia, Blade Dancer",
-              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/4f2c62f6-6859-4ee9-9e17-cbc52a19f692.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260518%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260518T021044Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=b6f287a3cf077526bd7d4638174187996a427625da76b22d2ebfc47284d3dff641ce6303487e58ae30b900d5d115c7a381fa7fb38ffcc7a2cc355e2dd76d697f8835531f7494fe5241909a016718a9ffbeebb9aecb2fe433b6e42b111e4d55d4928d65a34ff9092b57e5ca6b95079e1e8a93a46cf6a45e3860b9037defca49dde478755955a61a9dc7e3194eee79f8fae7f7d4b7e6015514d8b8d235da7f7a5157fbe8591124b5b4e748a6516fcc88fcf5e881b8abd86f9739fc61b35cb9826502d5b950c8e2e7e819e51440e386674699add465c3f9aab5f3cea4bdc523b98fd984be6392150d4559cfdfb2a5b7f9177d4e47ac46d20d3eb6763810e4504ccd"
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/4f2c62f6-6859-4ee9-9e17-cbc52a19f692.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055236Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=8380ffa7a61e94c792d34ea109869673d003a3b00be4b35865bd2df70ab5b2efb455ce29a0ae9da7a2d8e153622e6a9b0ae1c62f02903ec4168307ac196937492af6c3b8bacfadc715b8f9d8110f6228af25ef9668912f2a0f295c296d063d2a173e1136ba33e382739a9ca557d68c8c51d7e5591fefe79acba44800ab2dca947b5c2b68927cc2401fbddf21dece029884358ebc7acba7def9650a88e83f02e8d81448fb30327aa9e5a8609b988b01ee64ab4846c4194b11597be27838dfa5c2bed3ff315483201c1283c28f02c258a33b3791f2341219e59d60eefe6bf0301c9994a92529de25c8e90a0e4b89bf3152e05b6a67dd604d30ced358207bd38e85"
             }
-          }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": null
         },
         "player": {
           "id": 303303,
@@ -124,8 +132,6 @@
     ],
     "assigned_judge": null,
     "reporting_player": null,
-    "last_modified_by_name": "Tali M",
-    "result_reported_at": "2026-05-17T12:27:56+00:00",
     "created_at": "2026-05-17T11:30:49+00:00",
     "updated_at": "2026-05-17T12:27:56+00:00"
   }

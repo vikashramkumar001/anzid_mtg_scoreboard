@@ -1,0 +1,84 @@
+/* broadcast-countdown.css — UNLEASHED pre-show countdown (riftbound, uvs-unleashed, 1v1)
+ *
+ * Fixed 1920x1080 stage; everything except the timer is baked into the bg PNG.
+ * Timer geometry from the PSD's Countdown text layer:
+ *   font BeaufortforLOL-Heavy, 48.837pt x 4.1952 transform = 204.9px ≈ 205px
+ *   paragraph center-justified at x = 1489, baseline at y = 563
+ *   sample "23:11" ink bounds: 1226,424 505x143 (cap height 143 ≈ 205 * 0.70)
+ * Beaufort Heavy digits are tabular (all 0-9 share a 0.583em advance), so the
+ * timer doesn't jitter while ticking.
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#countdown-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS has a global `* { font-family: var(...) }` that beats inheritance —
+   force Beaufort on everything inside the stage. */
+#countdown-stage,
+#countdown-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#countdown-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Baseline math (Chrome/skia line box, Beaufort Heavy hhea metrics measured at
+ * 205px: ascent 206.2, descent 52.9):
+ *   line-height 205 → half-leading = (205 - 259.1)/2 = -27.1
+ *   baseline = top + (-27.1 + 206.2) = top + 179.1  →  top = 563 - 179.1 ≈ 384
+ * Box centered on x=1489 (PSD paragraph anchor): left 1089 + width 800 / 2. */
+#countdown-timer {
+    position: absolute;
+    top: 384px;
+    left: 1089px;
+    width: 800px;
+    text-align: center;
+    font-family: 'Beaufort for LoL', serif;
+    font-weight: 900;
+    font-size: 205px;
+    line-height: 205px;
+    color: #c2458f;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Optional caption — hidden unless JS gets a `label` (JSON/URL). Lives in the
+   36px gap between the RQ logo (bottom=388) and the timer cap top (424). */
+#countdown-label {
+    display: none;
+    position: absolute;
+    top: 388px;
+    left: 1089px;
+    width: 800px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-family: 'Beaufort for LoL', serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #d7a63f;
+}
+#countdown-label.visible {
+    display: block;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Tournament Format</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-tournament-format.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="tournament-format-stage">
+    <!-- All static chrome is baked into this one bg: painted background +
+         Kha'Zix art + forest/leaves, the RQ logo + FORMAT kicker headline,
+         the day-panel plate (hextech corners, divider, dots, vines) and the
+         full footer (TOURNAMENT FORMAT pill, Regional Qualifier logo,
+         SHARE YOUR STORY / #RQSYDNEY). Derived from the PSD composite —
+         adjustment layers made a re-composite color-shifted — with the
+         sample text (CONSTRUCTED / DAY ONE / DAY TWO / SWISS PLAY / ...)
+         inpainted out row-wise so the panel edge survives. -->
+    <img id="tf-bg" src="/assets/images/riftbound/tournament-format/riftbound-tournament-format-bg-uvs-unleashed-1v1.png" alt="">
+
+    <!-- Dynamic copy — hardcoded to the PSD's own sample data so the page
+         paints correctly before JS runs; JS re-renders from DEFAULTS merged
+         with /data/scene-content/tournament-format.json. -->
+    <!-- Entrance choreography (unleashed-motion.css): format headline leads,
+         both DAY titles land together, then the panel lines cascade strictly
+         top-to-bottom by y-position (columns interleave) at 80ms steps. -->
+    <div id="tf-format" class="tf-text unl-fade-rise">constructed</div>
+
+    <div id="tf-day1-title" class="tf-text unl-fade-rise" style="--unl-d:.16s">DAY one</div>
+    <div id="tf-day1-headline" class="tf-text unl-fade-rise" style="--unl-d:.38s">SWISS PLAY</div>
+    <div id="tf-day1-subline" class="tf-text unl-fade-rise" style="--unl-d:.54s">eight rounds</div>
+    <div id="tf-day1-note" class="tf-text unl-fade-rise" style="--unl-d:.70s">6 wins to advance</div>
+
+    <div id="tf-day2-title" class="tf-text unl-fade-rise" style="--unl-d:.16s">DAY TWO</div>
+    <div id="tf-day2-headline" class="tf-text unl-fade-rise" style="--unl-d:.30s">SWISS PLAY</div>
+    <div id="tf-day2-subline" class="tf-text unl-fade-rise" style="--unl-d:.46s">five rounds</div>
+    <div id="tf-day2-headline2" class="tf-text unl-fade-rise" style="--unl-d:.62s">top 8</div>
+    <div id="tf-day2-subline2" class="tf-text unl-fade-rise" style="--unl-d:.78s">single elimination</div>
+</div>
+<script type="module" src="/js/broadcast-tournament-format.js"></script>
+</body>
+</html>

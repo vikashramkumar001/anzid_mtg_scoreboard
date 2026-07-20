@@ -1,0 +1,16 @@
+{
+  "left": {
+    "gamertag": "GAMERTAG",
+    "deckLabel": "",
+    "battlefields": ["vilemaw’s lair", "the arena’S greatest", ""],
+    "tabLabels": ["game 1", "game 2", ""],
+    "activeGame": null
+  },
+  "right": {
+    "gamertag": "GAMERTAG",
+    "deckLabel": "",
+    "battlefields": ["startipped peak", "targon’s peak", ""],
+    "tabLabels": ["game 1", "game 2", "game3"],
+    "activeGame": null
+  }
+}

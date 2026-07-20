@@ -7,6 +7,7 @@ let currentGame = 'mtg';
 let currentVendor = 'default';
 let currentPlayerCount = '1v1';
 let metagameData = null;
+let _bgToken = 0;   // invalidates a pending async bg-image load when the theme changes again
 
 // Color palette for pie slices (will be overridable per vendor)
 const DEFAULT_COLORS = [
@@ -28,6 +29,9 @@ let _initGame = false, _initVendor = false, _initPlayer = false;
 function tryInitialTheme() {
     if (_initGame && _initVendor && _initPlayer) {
         updateTheme(currentGame, currentVendor, currentPlayerCount);
+        // Re-render: metagame data may have arrived before game/vendor/count were
+        // known, and the layout gate (pie vs Most Played Decks) depends on all three.
+        if (metagameData) renderMetagame();
     }
 }
 
@@ -39,6 +43,7 @@ socket.on('server-current-game-selection', ({gameSelection}) => {
 socket.on('game-selection-updated', ({gameSelection}) => {
     currentGame = gameSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    if (metagameData) renderMetagame();
 });
 socket.on('server-current-vendor-selection', ({vendorSelection}) => {
     currentVendor = vendorSelection;
@@ -48,6 +53,7 @@ socket.on('server-current-vendor-selection', ({vendorSelection}) => {
 socket.on('vendor-selection-updated', ({vendorSelection}) => {
     currentVendor = vendorSelection;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    if (metagameData) renderMetagame();
 });
 socket.on('server-current-player-count', ({playerCount}) => {
     currentPlayerCount = playerCount;
@@ -57,11 +63,19 @@ socket.on('server-current-player-count', ({playerCount}) => {
 socket.on('player-count-updated', ({playerCount}) => {
     currentPlayerCount = playerCount;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+    if (metagameData) renderMetagame();
 });
 
 
 function updateTheme(game, vendor, playerCount) {
     const vc = window.VENDOR_CONFIG;
+    // The "Most Played Decks" layout (CSL default + uvs-unleashed, riftbound 1v1)
+    // owns its own background: uvs uses a baked jungle+character video, default
+    // uses its bg PNG. Skip the shared event-bg-video load for both (handled at
+    // the end of this fn), and skip the shared PNG-bg load for uvs only (it uses
+    // the video) — avoids an async src race that would clobber the MPD background.
+    const isMPD = (game === 'riftbound' && (vendor === 'uvs-unleashed' || vendor === 'default') && playerCount === '1v1');
+    const bgToken = ++_bgToken;   // a later updateTheme() bumps _bgToken, invalidating this call's async bg load
     if (vc) {
         vc.getAllOverrideProperties().forEach(prop => {
             document.documentElement.style.removeProperty(prop);
@@ -77,10 +91,10 @@ function updateTheme(game, vendor, playerCount) {
             vendor, playerCount
         );
         const bgEl = document.getElementById('metagame-bg');
-        if (bgEl) {
+        if (bgEl && !(isMPD && vendor === 'uvs-unleashed')) {
             const img = new Image();
-            img.onload = () => { bgEl.src = bgPath; };
-            img.onerror = () => { bgEl.src = ''; };
+            img.onload = () => { if (bgToken === _bgToken) bgEl.src = bgPath; };
+            img.onerror = () => { if (bgToken === _bgToken) bgEl.src = ''; };
             img.src = bgPath;
         }
 
@@ -92,7 +106,7 @@ function updateTheme(game, vendor, playerCount) {
             vendor, playerCount
         );
         const videoEl = document.getElementById('metagame-bg-video');
-        if (videoEl) {
+        if (videoEl && !isMPD) {
             fetch(videoPath, { method: 'HEAD' })
                 .then(r => {
                     if (r.ok) {
@@ -135,6 +149,35 @@ function updateTheme(game, vendor, playerCount) {
             document.documentElement.style.setProperty(prop, value);
         });
     }
+
+    // ── "Most Played Decks" chrome (CSL default + uvs) ────────────────────────
+    // Chrome is CSS now; the only images are the corner leaves + the event logo,
+    // both per-vendor (uvs has Sydney art; default falls back to none → 404 hides
+    // the element). Background is per-vendor too: uvs = baked jungle+character
+    // video; default = its bg PNG (loaded by the shared block above).
+    const leavesEl = document.getElementById('metagame-leaves');
+    const logoEl = document.querySelector('.mpd-footer-logo');
+    if (isMPD) {
+        const leavesPath = `/assets/images/${game}/metagame/${game}-metagame-leaves-${vendor}-1v1.png`;
+        if (leavesEl) { const im = new Image(); im.onload = () => { leavesEl.src = leavesPath; }; im.onerror = () => { leavesEl.src = ''; }; im.src = leavesPath; }
+        const logoPath = `/assets/images/${game}/metagame/${game}-metagame-logo-${vendor}-1v1.png`;
+        if (logoEl) { const im = new Image(); im.onload = () => { logoEl.src = logoPath; }; im.onerror = () => { logoEl.src = ''; }; im.src = logoPath; }
+        const vid = document.getElementById('metagame-bg-video');
+        if (vendor === 'uvs-unleashed') {
+            const bgImg = document.getElementById('metagame-bg');
+            if (bgImg) bgImg.src = '';                                    // the video is the background
+            if (vid) {
+                const mpdBg = `/assets/animations/${game}/metagame/${game}-metagame-bg-uvs-unleashed-1v1.mp4`;
+                if (!vid.src.endsWith(mpdBg)) { vid.src = mpdBg; vid.load(); }
+                vid.play().catch(() => {});
+            }
+        } else if (vid && vid.getAttribute('src')) {
+            vid.removeAttribute('src'); vid.load();                       // default uses the PNG bg
+        }
+    } else {
+        if (leavesEl) leavesEl.src = '';
+        if (logoEl) logoEl.src = '';
+    }
 }
 
 // ── Metagame Data ────────────────────────────────────────────────────────────
@@ -175,7 +218,7 @@ function getBgPortraitUrl(archetypeName) {
 
 function getPortraitFocus(archetypeName) {
     const entry = PORTRAIT_FOCUS[archetypeName] || { top: 20, left: 50 };
-    return { top: entry.top, left: entry.left, scale: entry.scale || 1.0 };
+    return { top: entry.top, left: entry.left, scale: entry.scale || 1.0, heroScale: entry.heroScale || 1.0 };
 }
 
 // ── Parse metagame data from the flat field format ───────────────────────────
@@ -211,6 +254,29 @@ function renderMetagame() {
 
     // Use day2Percent if available, otherwise day1Percent for pie sizing
     const hasDay2 = archetypes.some(a => a.day2Count !== null);
+
+    // ── UVS Unleashed: render the 8-card "Most Played Decks" layout instead of
+    // the pie chart + side panel. Structural swap (fixed card positions), so the
+    // gate is JS-driven rather than a CSS body class. Toggle visibility, dispatch,
+    // and bail before any pie/panel work.
+    const isMPD = (currentGame === 'riftbound' && (currentVendor === 'uvs-unleashed' || currentVendor === 'default') && currentPlayerCount === '1v1');
+    const mpdEl = document.getElementById('most-played-decks');
+    const pieEl = document.getElementById('pie-chart-container');
+    const panelEl = document.getElementById('archetype-cards-panel');
+    const headerEl = document.getElementById('metagame-header');
+    if (isMPD) {
+        if (pieEl) pieEl.style.display = 'none';
+        if (panelEl) panelEl.style.display = 'none';
+        if (headerEl) headerEl.style.display = 'none';            // METAGAME/DAY live in the baked footer
+        renderMostPlayedDecks(hasDay2);
+        return;
+    }
+    // Non-uvs: ensure the MPD layout is hidden and pie/panel restored.
+    if (mpdEl) mpdEl.classList.remove('active');
+    if (pieEl) pieEl.style.display = '';
+    if (panelEl) panelEl.style.display = '';
+    if (headerEl) headerEl.style.display = '';
+
     const pieData = archetypes.map((a, i) => ({
         ...a,
         value: hasDay2 ? (a.day2Count || 0) : a.day1Count,
@@ -302,6 +368,294 @@ function renderMetagame() {
     }
 
     renderSidePanel(panelData, hasDay2, activeTotal);
+}
+
+// ── "Most Played Decks" — 8-card render (CSL default + uvs) ───────────────────
+// Card origins (= portrait-box top-left) in PSD/page px, in rank order:
+// left column ranks 1-4 (top→bottom), then right column ranks 5-8 (top→bottom).
+const MPD_SLOTS = [
+    { x: 236,  y: 137 }, { x: 236,  y: 318 }, { x: 236,  y: 502 }, { x: 236,  y: 688 },
+    { x: 1276, y: 137 }, { x: 1276, y: 318 }, { x: 1276, y: 502 }, { x: 1276, y: 688 },
+];
+
+// Animated legend art (transparent VP9-alpha webm) for the central figure.
+// Each animation has its OWN canvas/framing (unlike the square 1200² PNGs), so the
+// face focus (left/top %) + render height live here PER-ANIMATION, not in
+// RIFTBOUND_PORTRAIT_FOCUS. Legends absent from this map fall back to their PNG.
+const RIFTBOUND_LEGEND_ART_ANIM = {
+    // All 32 animated legends, face-anchored to a shared target (face lands at ~950,275 on the
+    // 1920×1080 stage, rendered ~210px tall) so every figure's face sits in the same spot at the
+    // same apparent size regardless of how each .mov is cropped. Tags: KEEP = hand-locked (Yi is
+    // the reference pose/size); det(score) = YuNet auto-detected face; HAND = eye-marked (mask or
+    // monster YuNet can't see). All values are absolute px — nudge left/top/height with heroDebug()
+    // then re-bake. (Source aspect kept as a decimal so width = round(height × aspect).)
+    "Ahri, Nine-Tailed Fox": { src: '/assets/animations/riftbound/legend-art/ahri-nine-tailed-fox.webm', aspect: 1.7778, height: 2104, width: 3741, left: -900, top: -265 },  // det(0.91)
+    "Annie, Dark Child": { src: '/assets/animations/riftbound/legend-art/annie-dark-child.webm', aspect: 0.55, height: 1744, width: 959, left: 445, top: -109 },  // det(0.93)
+    "Darius, Hand of Noxus": { src: '/assets/animations/riftbound/legend-art/darius-hand-of-noxus.webm', aspect: 1.3924, height: 1383, width: 1926, left: -104, top: -132 },  // det(0.91)
+    "Diana, Scorn of the Moon": { src: '/assets/animations/riftbound/legend-art/diana-scorn-of-the-moon.webm', aspect: 1.0825, height: 2688, width: 2910, left: -1000, top: 63 },  // KEEP
+    "Draven, Glorious Executioner": { src: '/assets/animations/riftbound/legend-art/draven-glorious-executioner.webm', aspect: 1.0, height: 1989, width: 1989, left: -219, top: -176 },  // det(0.83)
+    "Ezreal, Prodigal Explorer": { src: '/assets/animations/riftbound/legend-art/ezreal-prodigal-explorer.webm', aspect: 0.8, height: 2199, width: 1759, left: 206, top: -118 },  // det(0.93)
+    "Fiora, Grand Duelist": { src: '/assets/animations/riftbound/legend-art/fiora-grand-duelist.webm', aspect: 0.774, height: 2354, width: 1822, left: -20, top: -629 },  // det(0.91)
+    "Garen, Might of Demacia": { src: '/assets/animations/riftbound/legend-art/garen-might-of-demacia.webm', aspect: 0.9768, height: 2010, width: 1963, left: 537, top: -315 },  // det(0.92)
+    "Irelia, Blade Dancer": { src: '/assets/animations/riftbound/legend-art/irelia-blade-dancer.webm', aspect: 1.0, height: 2893, width: 2893, left: -448, top: -209 },  // det(0.92)
+    "Ivern, Green Father": { src: '/assets/animations/riftbound/legend-art/ivern-green-father.webm', aspect: 0.8639, height: 2333, width: 2016, left: -18, top: -192 },  // HAND
+    "Jhin, Virtuoso": { src: '/assets/animations/riftbound/legend-art/jhin-virtuoso.webm', aspect: 0.7778, height: 2846, width: 2213, left: -175, top: -167 },  // det(0.83)
+    "Jinx, Loose Cannon": { src: '/assets/animations/riftbound/legend-art/jinx-loose-cannon.webm', aspect: 1.1788, height: 1899, width: 2238, left: 3, top: -40 },  // det(0.89)
+    "Kai'Sa, Daughter of the Void": { src: '/assets/animations/riftbound/legend-art/kaisa-daughter-of-the-void.webm', aspect: 1.263, height: 1886, width: 2382, left: -448, top: -189 },  // KEEP
+    "Kha'Zix, Voidreaver": { src: '/assets/animations/riftbound/legend-art/khazix-voidreaver.webm', aspect: 0.7159, height: 2100, width: 1503, left: 198, top: -416 },  // HAND (real-page corrected)
+    "LeBlanc, Deceiver": { src: '/assets/animations/riftbound/legend-art/leblanc-deceiver.webm', aspect: 1.0, height: 3448, width: 3448, left: -674, top: -659 },  // det(0.92)
+    "Lee Sin, Blind Monk": { src: '/assets/animations/riftbound/legend-art/lee-sin-blind-monk.webm', aspect: 0.9316, height: 2100, width: 1956, left: -67, top: -368 },  // HAND (real-page corrected)
+    "Leona, Radiant Dawn": { src: '/assets/animations/riftbound/legend-art/leona-radiant-dawn.webm', aspect: 1.0, height: 2143, width: 2143, left: -38, top: -40 },  // det(0.9)
+    "Lillia, Bashful Bloom": { src: '/assets/animations/riftbound/legend-art/lillia-bashful-bloom.webm', aspect: 0.7168, height: 3393, width: 2432, left: -71, top: -615 },  // det(0.89)
+    "Lux, Lady of Luminosity": { src: '/assets/animations/riftbound/legend-art/lux-lady-of-luminosity.webm', aspect: 0.7368, height: 2529, width: 1863, left: -158, top: -2 },  // KEEP
+    "Master Yi, Wuju Bladesman": { src: '/assets/animations/riftbound/legend-art/master-yi-wuju-bladesman.webm', aspect: 0.61, height: 3200, width: 1952, left: 126, top: -1264 },  // KEEP (reference)
+    "Master Yi, Wuju Master": { src: '/assets/animations/riftbound/legend-art/master-yi-wuju-master.webm', aspect: 1.25, height: 2100, width: 2625, left: -362, top: -126 },  // HAND (real-page corrected)
+    "Miss Fortune, Bounty Hunter": { src: '/assets/animations/riftbound/legend-art/miss-fortune-bounty-hunter.webm', aspect: 0.9406, height: 2349, width: 2209, left: -217, top: -335 },  // det(0.91)
+    "Poppy, Keeper of the Hammer": { src: '/assets/animations/riftbound/legend-art/poppy-keeper-of-the-hammer.webm', aspect: 1.0417, height: 2333, width: 2431, left: -168, top: -663 },  // HAND (real-page corrected)
+    "Pyke, Bloodharbor Ripper": { src: '/assets/animations/riftbound/legend-art/pyke-bloodharbor-ripper.webm', aspect: 0.8284, height: 2333, width: 1933, left: -94, top: -345 },  // HAND (real-page corrected)
+    "Rengar, Pridestalker": { src: '/assets/animations/riftbound/legend-art/rengar-pridestalker.webm', aspect: 1.1812, height: 1750, width: 2067, left: 20, top: -110 },  // HAND
+    "Sett, The Boss": { src: '/assets/animations/riftbound/legend-art/sett-the-boss.webm', aspect: 1.044, height: 2433, width: 2540, left: -121, top: -174 },  // det(0.91)
+    "Teemo, Swift Scout": { src: '/assets/animations/riftbound/legend-art/teemo-swift-scout.webm', aspect: 0.7521, height: 1909, width: 1436, left: 261, top: -489 },  // HAND
+    "Vex, Gloomist": { src: '/assets/animations/riftbound/legend-art/vex-gloomist.webm', aspect: 0.7979, height: 3000, width: 2394, left: 749, top: -418 },  // HAND (real-page corrected; small char beside big companion — may want manual love)
+    "Vi, Piltover Enforcer": { src: '/assets/animations/riftbound/legend-art/vi-piltover-enforcer.webm', aspect: 0.7727, height: 2253, width: 1741, left: 197, top: -80 },  // det(0.9)
+    "Viktor, Herald of the Arcane": { src: '/assets/animations/riftbound/legend-art/viktor-herald-of-the-arcane.webm', aspect: 1.0, height: 2100, width: 2100, left: 47, top: -376 },  // HAND
+    "Volibear, Relentless Storm": { src: '/assets/animations/riftbound/legend-art/volibear-relentless-storm.webm', aspect: 0.8348, height: 2389, width: 1994, left: -29, top: -148 },  // KEEP
+    "Yasuo, Unforgiven": { src: '/assets/animations/riftbound/legend-art/yasuo-unforgiven.webm', aspect: 0.9836, height: 3349, width: 3294, left: -788, top: -692 },  // det(0.9)
+};
+
+// ── Dev helper: precisely position the animated central figure from DevTools.
+// On the metagame page open the Console and run:
+//   tuneHero({ x: -50 })   move 50px  (x: +right / -left)
+//   tuneHero({ y: 30 })    move 30px  (y: +down / -up)
+//   tuneHero({ h: 200 })   200px taller, scaled around its centre  (negative = smaller)
+//   tuneHero({ left: 300, top: -1200, height: 3000 })   set exact values
+//   tuneHero()             just print the current numbers
+// It logs { left, top, height, width } — paste those back to me and I'll bake them in.
+window.tuneHero = (p = {}) => {
+    const v = document.getElementById('mpd-character-video');
+    if (!v || v.style.display === 'none' || !v.style.height) {
+        console.warn('[tuneHero] no animated figure on screen — make an animated legend the #1 card first');
+        return null;
+    }
+    const px = k => parseFloat(v.style[k]) || 0;
+    const aspect = (v.videoWidth && v.videoHeight) ? v.videoWidth / v.videoHeight : 0.61;
+    if (p.h != null || p.height != null) {
+        // resize around the current centre so the figure doesn't jump
+        const oH = px('height'), oW = px('width');
+        const cx = px('left') + oW / 2, cy = px('top') + oH / 2;
+        const nH = p.height != null ? p.height : oH + p.h;
+        const nW = Math.round(nH * aspect);
+        v.style.height = nH + 'px'; v.style.width = nW + 'px';
+        v.style.left = Math.round(cx - nW / 2) + 'px';
+        v.style.top  = Math.round(cy - nH / 2) + 'px';
+    }
+    if (p.x != null)    v.style.left = Math.round(px('left') + p.x) + 'px';
+    if (p.left != null) v.style.left = p.left + 'px';
+    if (p.y != null)    v.style.top  = Math.round(px('top') + p.y) + 'px';
+    if (p.top != null)  v.style.top  = p.top + 'px';
+    const out = { left: px('left'), top: px('top'), height: px('height'), width: px('width') };
+    console.log('%c[tuneHero] ' + JSON.stringify(out) + '  ← paste these to me to bake', 'color:#d7a63f;font-weight:bold');
+    return out;
+};
+
+// ── Hero positioning DEBUG MENU — toggle in the console with heroDebug() ──────────
+// On the metagame page with an animated legend as #1: drag the figure to move it,
+// arrow keys nudge (Shift = 10px), [ and ] resize (Shift = 100px). A green crosshair
+// marks the shared face target. "💾 Save to code" writes the position straight into
+// RIFTBOUND_LEGEND_ART_ANIM (POST /save-hero-position) so it persists across reloads and to
+// every client; "Copy config" just copies the numbers. (Sibling of debugFocus() for the PNGs.)
+let _heroDebugCleanup = null;
+window.heroDebug = function () {
+    if (_heroDebugCleanup) { _heroDebugCleanup(); console.log('[heroDebug] off'); return; }
+    const v = document.getElementById('mpd-character-video');
+    if (!v || getComputedStyle(v).display === 'none' || !v.style.height) {
+        console.warn('[heroDebug] make an animated legend the #1 figure first'); return;
+    }
+    const px = k => parseFloat(v.style[k]) || 0;
+    const aspect = (v.videoWidth && v.videoHeight) ? v.videoWidth / v.videoHeight : (px('width') / px('height')) || 0.61;
+    const scale = () => (v.getBoundingClientRect().width / (px('width') || 1)) || 1;
+    v.style.pointerEvents = 'auto';
+    v.style.outline = '2px dashed rgba(215,166,63,.7)';
+
+    const cross = document.createElement('div'); cross.id = 'hero-debug-cross';
+    Object.assign(cross.style, { position: 'absolute', left: 0, top: 0, width: '1920px', height: '1080px', pointerEvents: 'none', zIndex: 60 });
+    cross.innerHTML =
+        '<div style="position:absolute;left:910px;top:0;width:1px;height:1080px;background:rgba(60,180,75,.7)"></div>' +
+        '<div style="position:absolute;left:0;top:274px;width:1920px;height:1px;background:rgba(60,180,75,.7)"></div>' +
+        '<div style="position:absolute;left:910px;top:274px;width:16px;height:16px;border:2px solid #3cb44b;border-radius:50%;transform:translate(-50%,-50%)"></div>';
+    document.getElementById('most-played-decks').appendChild(cross);
+
+    const panel = document.createElement('div'); panel.id = 'hero-debug-panel';
+    Object.assign(panel.style, { position: 'fixed', top: '10px', right: '10px', zIndex: 99999,
+        background: 'rgba(13,10,26,.94)', color: '#fff', font: '12px/1.5 monospace',
+        padding: '10px 12px', borderRadius: '8px', border: '1px solid #d7a63f', width: '240px' });
+    document.body.appendChild(panel);
+
+    const apply = o => { for (const k in o) v.style[k] = Math.round(o[k]) + 'px'; render(); };
+    const nudge = (dx, dy) => apply({ left: px('left') + dx, top: px('top') + dy });
+    const resize = dh => { const oH = px('height'), oW = px('width'), cx = px('left') + oW / 2, cy = px('top') + oH / 2, nH = oH + dh, nW = nH * aspect; apply({ height: nH, width: nW, left: cx - nW / 2, top: cy - nH / 2 }); };
+    function render() {
+        const r = { left: px('left'), top: px('top'), height: px('height'), width: px('width') };
+        panel.innerHTML = `<b style="color:#d7a63f">heroDebug · ${(window.__heroName || '').split(',')[0]}</b><br>` +
+            `left ${r.left}&nbsp; top ${r.top}<br>height ${r.height}&nbsp; width ${r.width}<br>` +
+            `<span style="opacity:.7">drag · arrows (⇧10) · [ ] size</span>`;
+        const mk = (t, fn, col) => { const b = document.createElement('button'); b.textContent = t; Object.assign(b.style, { marginTop: '6px', width: '100%', cursor: 'pointer', padding: '4px', background: col || '', color: col ? '#fff' : '', border: col ? 'none' : '', borderRadius: '4px' }); b.onclick = () => fn(b); panel.appendChild(b); };
+        mk('💾 Save to code', async (b) => {
+            const cur = { left: px('left'), top: px('top'), width: px('width'), height: px('height') };
+            const nm = window.__heroName; b.textContent = 'Saving…';
+            try {
+                const res = await fetch('/save-hero-position', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: nm, ...cur }) });
+                const j = await res.json();
+                if (j.ok) { if (RIFTBOUND_LEGEND_ART_ANIM[nm]) Object.assign(RIFTBOUND_LEGEND_ART_ANIM[nm], cur); b.textContent = '✓ saved'; console.log('[heroDebug] saved to broadcast-metagame.js:', nm, cur); }
+                else { b.textContent = '✗ ' + (j.error || 'error'); console.warn('[heroDebug] save failed:', j); }
+            } catch (e) { b.textContent = '✗ ' + e.message; console.warn('[heroDebug] save failed:', e); }
+        }, '#3cb44b');
+        mk('Copy config', () => { const s = `left: ${r.left}, top: ${r.top}, width: ${r.width}, height: ${r.height}`; navigator.clipboard && navigator.clipboard.writeText(s); console.log('[heroDebug]', window.__heroName, '→', s); });
+        mk('Close', () => window.heroDebug());
+    }
+    render();
+
+    let drag = false, sx = 0, sy = 0, sl = 0, st = 0;
+    const md = e => { drag = true; sx = e.clientX; sy = e.clientY; sl = px('left'); st = px('top'); e.preventDefault(); };
+    const mm = e => { if (!drag) return; const s = scale(); apply({ left: sl + (e.clientX - sx) / s, top: st + (e.clientY - sy) / s }); };
+    const mu = () => { drag = false; };
+    const kd = e => { const s = e.shiftKey ? 10 : 1, k = e.key;
+        if (k === 'ArrowLeft') nudge(-s, 0); else if (k === 'ArrowRight') nudge(s, 0); else if (k === 'ArrowUp') nudge(0, -s); else if (k === 'ArrowDown') nudge(0, s);
+        else if (k === ']' || k === '=' || k === '+') resize(e.shiftKey ? 100 : 20); else if (k === '[' || k === '-' || k === '_') resize(e.shiftKey ? -100 : -20); else return;
+        e.preventDefault(); };
+    v.addEventListener('mousedown', md);
+    document.addEventListener('mousemove', mm);
+    document.addEventListener('mouseup', mu);
+    document.addEventListener('keydown', kd);
+
+    _heroDebugCleanup = () => {
+        panel.remove(); cross.remove();
+        v.removeEventListener('mousedown', md);
+        document.removeEventListener('mousemove', mm);
+        document.removeEventListener('mouseup', mu);
+        document.removeEventListener('keydown', kd);
+        v.style.pointerEvents = 'none'; v.style.outline = '';
+        _heroDebugCleanup = null;
+    };
+    console.log('[heroDebug] on — drag the figure, arrows nudge, [ ] resize, "Save to code" to persist. heroDebug() again to close.');
+};
+
+function renderMostPlayedDecks(hasDay2) {
+    const root = document.getElementById('most-played-decks');
+    const cards = document.getElementById('mpd-cards');
+    if (!root || !cards) return;
+    // Cards + central figure follow the operator's EDITED archetype cards
+    // (parseMetagameFields reads the flat meta-breakdown-archetype-N fields the
+    // master-control sends), so renaming card #1 changes the #1 figure live —
+    // not just whatever Calculate Metagame computed. Pad any unfilled slots from
+    // the calculated sorted list (_allArchetypes) so all 8 cards stay populated
+    // when the operator displays fewer than 8.
+    const edited = parseMetagameFields(metagameData);
+    const sorted = metagameData._allArchetypes || [];
+    const all = edited.length ? edited.slice() : sorted.slice();
+    if (sorted.length) {
+        const have = new Set(all.map(a => a.name));
+        for (const a of sorted) {
+            if (all.length >= MPD_SLOTS.length) break;
+            if (!have.has(a.name)) all.push(a);
+        }
+    }
+    const top = all.slice(0, MPD_SLOTS.length);
+
+    // Central figure = the #1 most-played legend, over the portal. Animated legends
+    // play the transparent webm <video>; the rest show the static PNG <img>. Both
+    // anchor the FACE to a fixed point (centred, just above the headline) so the
+    // figure lands consistently regardless of pose/framing.
+    const charEl = document.getElementById('mpd-character');
+    const vidEl  = document.getElementById('mpd-character-video');
+    if (charEl && vidEl) {
+        const topName = (all[0] && all[0].name) || '';
+        window.__heroName = topName;   // for the heroDebug() positioning menu
+        const anim = RIFTBOUND_LEGEND_ART_ANIM[topName];
+        const FACE_X = 960, FACE_Y = 250;
+        if (anim) {
+            charEl.style.display = 'none'; charEl.src = '';
+            vidEl.style.display = 'block';   // explicit — '' would revert to the CSS display:none
+            if (!vidEl.src || vidEl.src.indexOf(anim.src) === -1) { vidEl.src = anim.src; vidEl.play().catch(() => {}); }
+            const vH = anim.height, vW = anim.width || Math.round(vH * anim.aspect);
+            const vFaceY = (anim.faceY != null) ? anim.faceY : FACE_Y;   // animations sit higher than the PNG default
+            vidEl.style.height = vH + 'px';
+            vidEl.style.width  = vW + 'px';   // explicit — <video> width:auto won't scale to the intrinsic aspect like <img>
+            // Explicit left/top (hand-tuned via tuneHero) win; otherwise face-anchor math.
+            vidEl.style.left = (anim.left != null ? anim.left : Math.round(FACE_X - (anim.faceLeft / 100) * vW)) + 'px';
+            vidEl.style.top  = (anim.top  != null ? anim.top  : Math.round(vFaceY - (anim.faceTop  / 100) * vH)) + 'px';
+        } else {
+            vidEl.style.display = 'none'; vidEl.removeAttribute('src'); vidEl.load();
+            charEl.style.display = '';
+            charEl.src = (topName && getPortraitUrl(topName)) || '';
+            // heroScale normalises apparent size: a full-body pose (small face in a
+            // tall frame, e.g. Lux) scales UP so its face matches a tight crouch.
+            const cf = getPortraitFocus(topName);
+            const charH = Math.round(1050 * cf.heroScale);
+            charEl.style.height = charH + 'px';
+            charEl.style.left = Math.round(FACE_X - (cf.left / 100) * charH) + 'px';
+            charEl.style.top  = Math.round(FACE_Y - (cf.top  / 100) * charH) + 'px';
+        }
+    }
+
+    cards.innerHTML = '';
+    top.forEach((a, i) => {
+        const slot = MPD_SLOTS[i];
+        if (!slot) return;
+        const total = hasDay2 ? (parseInt(a.day2Count) || 0) : (parseInt(a.day1Count) || 0);
+        const pct   = hasDay2 ? (parseFloat(a.day2Percent) || 0) : (parseFloat(a.day1Percent) || 0);
+        const portraitUrl = getPortraitUrl(a.name) || '';
+        const focus = getPortraitFocus(a.name);
+        // Headshot framing into the 147×127 portrait area (matches .mpd-portrait):
+        // scale the square source to 3× the area width, then place the face (focus
+        // left/top %) centred horizontally and TGT_Y down. px-based so the landscape
+        // area keeps the source square. (%27-encode apostrophes — e.g. "Kai'Sa" —
+        // so they can't terminate the url('…') string.)
+        const PW = 150, PH = 150, Z = 3.0, TGT_Y = 0.40;
+        const imgPx = Math.round(Z * PW);
+        const bgX = Math.round(PW * 0.5 - (focus.left / 100) * imgPx);
+        const bgY = Math.round(PH * TGT_Y - (focus.top / 100) * imgPx);
+        const portraitStyle = portraitUrl
+            ? `background-image:url('${portraitUrl.replace(/'/g, '%27')}');background-size:${imgPx}px ${imgPx}px;background-position:${bgX}px ${bgY}px`
+            : '';
+
+        // Full CSS chrome: box + panel are the navy/gold frame; the portrait
+        // headshot sits in the box; name/divider/labels/value-pills in the panel.
+        // DOM order = paint order — divider BEFORE name so the centred name paints
+        // on top of (not cut by) the divider.
+        const card = document.createElement('div');
+        card.className = 'mpd-card';
+        card.style.left = slot.x + 'px';
+        card.style.top  = slot.y + 'px';
+        // Box / panel / borders / divider / TOTAL+SHARE labels / pills all live in
+        // the pixel-perfect #mpd-chrome PSD image; only the dynamic data is here.
+        // The hexagon gem (.mpd-hex) sits on top of the portrait corner.
+        card.innerHTML = `
+            <div class="mpd-portrait" style="${portraitStyle}"></div>
+            <div class="mpd-hex"></div>
+            <div class="mpd-name">${(a.name || '').split(',')[0].trim()}</div>
+            <div class="mpd-pill mpd-pill-total">${total}</div>
+            <div class="mpd-pill mpd-pill-share">${Math.round(pct)}%</div>
+        `;
+        cards.appendChild(card);
+    });
+
+    // Dynamic DAY label in the footer (replaces the old baked "DAY 1").
+    const dayEl = root.querySelector('.mpd-footer-day');
+    if (dayEl) dayEl.textContent = hasDay2 ? 'DAY 2' : 'DAY 1';
+
+    root.classList.add('active');
+
+    // Shrink any over-long legend name to fit its info-panel column. Re-run after
+    // the font loads — Beaufort is async, and measuring against a fallback font
+    // under-shrinks, so the name overflows once the real (wider) font swaps in.
+    const fitNames = () => cards.querySelectorAll('.mpd-name').forEach(el => {
+        el.style.fontSize = '';
+        let size = 28;
+        while (el.scrollWidth > el.clientWidth && size > 12) { size -= 1; el.style.fontSize = size + 'px'; }
+    });
+    fitNames();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNames);
 }
 
 // ── Pie Chart (D3.js) ────────────────────────────────────────────────────────

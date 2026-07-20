@@ -1,0 +1,103 @@
+/* UNLEASHED "Caster Predictions" — 4 caster columns at exact PSD pixel coords.
+   Stack (bottom → top): bg PNG (base + panels) → caster photos (clipped per
+   column, gradient baked into the PNGs) → frame PNG (dividers + name ornaments
+   + footer) → card thumbs → handle/legend text → foliage PNG. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#cp-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS elsewhere sets * { font-family: var(...) } which beats inheritance —
+   pin every descendant explicitly (Kai'Sa-gotcha sibling). */
+#cp-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#cp-bg, #cp-frame, #cp-foliage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* ── Caster photo columns ────────────────────────────────────────────────────
+   One container per PSD panel (349x1083 at x267/613/959/1304, y-2); the PSD
+   clips each photo to its panel → overflow hidden. Photo left/top set by JS
+   from the PSD photo-layer bounds (native-size PNGs, masks + fade baked). */
+.cp-col {
+    position: absolute;
+    overflow: hidden;
+}
+
+.cp-photo {
+    position: absolute;
+}
+
+/* ── Predicted-card thumbs ───────────────────────────────────────────────────
+   PSD: big 144x202 (y543), small 115x162 (y603) overlapping the big card's
+   lower right. The PSD card layers carry a drop shadow (FX) — approximated
+   here; corner radius scaled from the real card scans (~45px at 1024w). */
+.cp-card-big, .cp-card-small {
+    position: absolute;
+    border-radius: 7px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.55);
+    object-fit: cover;
+}
+
+.cp-card-big {
+    width: 144px;
+    height: 202px;
+}
+
+.cp-card-small {
+    width: 115px;
+    height: 162px;
+    border-radius: 6px;
+}
+
+/* ── Name block ──────────────────────────────────────────────────────────────
+   Ornaments (gold rules + diamond, y787-801) are baked into the frame PNG.
+   Handle: BeaufortPro-Bold 28px caps, white, caps-top y811, centered on the
+   column. Legend: BeaufortPro 18px caps, white, caps-top y841. Tops derived
+   the house way: capsTop - (lineHeight - 0.72*fontSize)/2. */
+.cp-handle {
+    position: absolute;
+    top: 804px;              /* caps top ≈ y811 (28px → caps 20.2, line 34) */
+    height: 34px;
+    line-height: 34px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.cp-legend {
+    position: absolute;
+    top: 835px;              /* caps top ≈ y841 (18px → caps 13, line 24) */
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+}

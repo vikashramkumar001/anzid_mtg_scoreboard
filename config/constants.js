@@ -83,3 +83,14 @@ export function getPlayerCount() {
 export function setPlayerCount(count) {
   DEFAULT_PLAYER_COUNT = count.toLowerCase();
 }
+
+// Global "show sideboard on the decklist broadcast" flag (default: hidden).
+export let DEFAULT_SIDEBOARD_VISIBLE = false;
+
+export function getSideboardVisible() {
+  return DEFAULT_SIDEBOARD_VISIBLE;
+}
+
+export function setSideboardVisible(visible) {
+  DEFAULT_SIDEBOARD_VISIBLE = !!visible;
+}

@@ -1,0 +1,8095 @@
+{
+  "archetypes": [
+    {
+      "name": "Master Yi, Wuju Bladesman",
+      "day1Count": 185,
+      "day1Percent": "11.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Diana, Scorn of the Moon",
+      "day1Count": 135,
+      "day1Percent": "8.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Irelia, Blade Dancer",
+      "day1Count": 96,
+      "day1Percent": "5.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "LeBlanc, Deceiver",
+      "day1Count": 79,
+      "day1Percent": "4.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Azir, Emperor of the Sands",
+      "day1Count": 71,
+      "day1Percent": "4.2",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Viktor, Herald of the Arcane",
+      "day1Count": 65,
+      "day1Percent": "3.9",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Ahri, Nine-Tailed Fox",
+      "day1Count": 53,
+      "day1Percent": "3.2",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Sivir, Battle Mistress",
+      "day1Count": 51,
+      "day1Percent": "3.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Pyke, Bloodharbor Ripper",
+      "day1Count": 46,
+      "day1Percent": "2.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Rengar, Pridestalker",
+      "day1Count": 46,
+      "day1Percent": "2.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Kai'Sa, Daughter of the Void",
+      "day1Count": 45,
+      "day1Percent": "2.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Ezreal, Prodigal Explorer",
+      "day1Count": 42,
+      "day1Percent": "2.5",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Miss Fortune, Bounty Hunter",
+      "day1Count": 41,
+      "day1Percent": "2.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Jhin, Virtuoso",
+      "day1Count": 40,
+      "day1Percent": "2.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Draven, Glorious Executioner",
+      "day1Count": 40,
+      "day1Percent": "2.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    }
+  ],
+  "allArchetypesSorted": [
+    {
+      "name": "Master Yi, Wuju Bladesman",
+      "day1Count": 185,
+      "day1Percent": "11.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Diana, Scorn of the Moon",
+      "day1Count": 135,
+      "day1Percent": "8.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Irelia, Blade Dancer",
+      "day1Count": 96,
+      "day1Percent": "5.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "LeBlanc, Deceiver",
+      "day1Count": 79,
+      "day1Percent": "4.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Azir, Emperor of the Sands",
+      "day1Count": 71,
+      "day1Percent": "4.2",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Viktor, Herald of the Arcane",
+      "day1Count": 65,
+      "day1Percent": "3.9",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Ahri, Nine-Tailed Fox",
+      "day1Count": 53,
+      "day1Percent": "3.2",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Sivir, Battle Mistress",
+      "day1Count": 51,
+      "day1Percent": "3.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Pyke, Bloodharbor Ripper",
+      "day1Count": 46,
+      "day1Percent": "2.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Rengar, Pridestalker",
+      "day1Count": 46,
+      "day1Percent": "2.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Kai'Sa, Daughter of the Void",
+      "day1Count": 45,
+      "day1Percent": "2.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Ezreal, Prodigal Explorer",
+      "day1Count": 42,
+      "day1Percent": "2.5",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Miss Fortune, Bounty Hunter",
+      "day1Count": 41,
+      "day1Percent": "2.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Jhin, Virtuoso",
+      "day1Count": 40,
+      "day1Percent": "2.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Draven, Glorious Executioner",
+      "day1Count": 40,
+      "day1Percent": "2.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Vex, Gloomist",
+      "day1Count": 39,
+      "day1Percent": "2.3",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Annie, Dark Child",
+      "day1Count": 38,
+      "day1Percent": "2.3",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Lillia, Bashful Bloom",
+      "day1Count": 36,
+      "day1Percent": "2.1",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Leona, Radiant Dawn",
+      "day1Count": 36,
+      "day1Percent": "2.1",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Rek'Sai, Void Burrower",
+      "day1Count": 35,
+      "day1Percent": "2.1",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Kha'Zix, Voidreaver",
+      "day1Count": 34,
+      "day1Percent": "2.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Jinx, Loose Cannon",
+      "day1Count": 33,
+      "day1Percent": "2.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Lucian, Purifier",
+      "day1Count": 29,
+      "day1Percent": "1.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Yasuo, Unforgiven",
+      "day1Count": 28,
+      "day1Percent": "1.7",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Volibear, Relentless Storm",
+      "day1Count": 27,
+      "day1Percent": "1.6",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Fiora, Grand Duelist",
+      "day1Count": 25,
+      "day1Percent": "1.5",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Jax, Grandmaster at Arms",
+      "day1Count": 25,
+      "day1Percent": "1.5",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Ornn, Fire Below the Mountain",
+      "day1Count": 25,
+      "day1Percent": "1.5",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Lux, Lady of Luminosity",
+      "day1Count": 24,
+      "day1Percent": "1.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Master Yi, Wuju Master",
+      "day1Count": 24,
+      "day1Percent": "1.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Lee Sin, Blind Monk",
+      "day1Count": 24,
+      "day1Percent": "1.4",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Renata Glasc, Chem-Baroness",
+      "day1Count": 22,
+      "day1Percent": "1.3",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Teemo, Swift Scout",
+      "day1Count": 21,
+      "day1Percent": "1.2",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Garen, Might of Demacia",
+      "day1Count": 20,
+      "day1Percent": "1.2",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Sett, The Boss",
+      "day1Count": 20,
+      "day1Percent": "1.2",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Darius, Hand of Noxus",
+      "day1Count": 20,
+      "day1Percent": "1.2",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Vi, Piltover Enforcer",
+      "day1Count": 19,
+      "day1Percent": "1.1",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Ivern, Green Father",
+      "day1Count": 16,
+      "day1Percent": "1.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Poppy, Keeper of the Hammer",
+      "day1Count": 16,
+      "day1Percent": "1.0",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    },
+    {
+      "name": "Rumble, Mechanized Menace",
+      "day1Count": 10,
+      "day1Percent": "0.6",
+      "day2Count": null,
+      "day2Percent": null,
+      "conversion": null
+    }
+  ],
+  "other": {
+    "name": "Other",
+    "day1Count": 646,
+    "day1Percent": "38.4",
+    "day2Count": null,
+    "day2Percent": null,
+    "conversion": null
+  },
+  "day1Total": 1681,
+  "day1Registered": 1681,
+  "day1Unmatched": [],
+  "day2Total": null,
+  "day2Qualified": null,
+  "day2Unmatched": [],
+  "matchupMatrix": {
+    "all": {
+      "Lee Sin, Blind Monk": {
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 1
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 1
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 8,
+          "losses": 7,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 1
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 3,
+          "losses": 7,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 1
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 9,
+          "losses": 7,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 1
+        },
+        "Teemo, Swift Scout": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Miss Fortune, Bounty Hunter": {
+        "Master Yi, Wuju Bladesman": {
+          "wins": 18,
+          "losses": 10,
+          "draws": 1
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 8,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 2,
+          "losses": 7,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 0,
+          "losses": 8,
+          "draws": 1
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 6,
+          "losses": 8,
+          "draws": 3
+        },
+        "Annie, Dark Child": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 5,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 6,
+          "losses": 2,
+          "draws": 1
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 4,
+          "losses": 5,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 1
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        }
+      },
+      "Master Yi, Wuju Bladesman": {
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 10,
+          "losses": 18,
+          "draws": 1
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 40,
+          "losses": 31,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 7,
+          "losses": 2,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 7,
+          "losses": 1,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 7,
+          "losses": 9,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 66,
+          "losses": 55,
+          "draws": 3
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 15,
+          "losses": 10,
+          "draws": 1
+        },
+        "Jhin, Virtuoso": {
+          "wins": 19,
+          "losses": 3,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 28,
+          "losses": 59,
+          "draws": 2
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 58,
+          "losses": 40,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 7,
+          "losses": 8,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 10,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 22,
+          "losses": 9,
+          "draws": 2
+        },
+        "Teemo, Swift Scout": {
+          "wins": 12,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 18,
+          "losses": 15,
+          "draws": 2
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 14,
+          "losses": 6,
+          "draws": 1
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 7,
+          "losses": 18,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 1
+        },
+        "Lucian, Purifier": {
+          "wins": 13,
+          "losses": 12,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 27,
+          "losses": 4,
+          "draws": 2
+        },
+        "Sett, The Boss": {
+          "wins": 8,
+          "losses": 5,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 15,
+          "losses": 15,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 14,
+          "losses": 6,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 78,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 17,
+          "losses": 18,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 20,
+          "losses": 26,
+          "draws": 2
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 8,
+          "losses": 4,
+          "draws": 1
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 6,
+          "losses": 6,
+          "draws": 1
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 10,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 11,
+          "losses": 9,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 18,
+          "losses": 22,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 20,
+          "losses": 13,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 29,
+          "losses": 18,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 28,
+          "losses": 21,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 29,
+          "losses": 21,
+          "draws": 1
+        },
+        "Rengar, Pridestalker": {
+          "wins": 13,
+          "losses": 14,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 14,
+          "losses": 7,
+          "draws": 1
+        },
+        "Ivern, Green Father": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 7,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        }
+      },
+      "Azir, Emperor of the Sands": {
+        "Master Yi, Wuju Bladesman": {
+          "wins": 31,
+          "losses": 40,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 10,
+          "losses": 17,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 8,
+          "losses": 3,
+          "draws": 2
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 21,
+          "losses": 25,
+          "draws": 2
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 1
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 7,
+          "losses": 3,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 15,
+          "losses": 14,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 8,
+          "losses": 1,
+          "draws": 2
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 5,
+          "losses": 4,
+          "draws": 1
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 5,
+          "losses": 4,
+          "draws": 1
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 13,
+          "losses": 9,
+          "draws": 2
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 6,
+          "losses": 5,
+          "draws": 1
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 6,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 1
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 5,
+          "losses": 8,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 9,
+          "losses": 7,
+          "draws": 2
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 8,
+          "losses": 6,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 6,
+          "losses": 8,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 5,
+          "losses": 4,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 1
+        },
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Jinx, Loose Cannon": {
+        "Diana, Scorn of the Moon": {
+          "wins": 7,
+          "losses": 8,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 1
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 1,
+          "losses": 8,
+          "draws": 2
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 6,
+          "losses": 14,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 6,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 5,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 7,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 1
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 1
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Diana, Scorn of the Moon": {
+        "Jinx, Loose Cannon": {
+          "wins": 8,
+          "losses": 7,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 5,
+          "losses": 13,
+          "draws": 1
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 6,
+          "losses": 23,
+          "draws": 1
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 7,
+          "losses": 3,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 5,
+          "losses": 4,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 24,
+          "losses": 7,
+          "draws": 3
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 55,
+          "losses": 66,
+          "draws": 3
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 37,
+          "losses": 19,
+          "draws": 1
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 1
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 25,
+          "losses": 21,
+          "draws": 2
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 41,
+          "losses": 0,
+          "draws": 2
+        },
+        "Lucian, Purifier": {
+          "wins": 7,
+          "losses": 3,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 42,
+          "losses": 20,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 9,
+          "losses": 5,
+          "draws": 1
+        },
+        "Sett, The Boss": {
+          "wins": 6,
+          "losses": 5,
+          "draws": 1
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 17,
+          "losses": 19,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 11,
+          "losses": 12,
+          "draws": 1
+        },
+        "Ivern, Green Father": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 1
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 6,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 1
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 11,
+          "losses": 5,
+          "draws": 1
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 19,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 13,
+          "losses": 16,
+          "draws": 1
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 9,
+          "losses": 7,
+          "draws": 1
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 14,
+          "losses": 6,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 9,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 8,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 11,
+          "losses": 10,
+          "draws": 4
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 10,
+          "losses": 3,
+          "draws": 1
+        },
+        "Teemo, Swift Scout": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 1
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 13,
+          "losses": 12,
+          "draws": 1
+        },
+        "Annie, Dark Child": {
+          "wins": 11,
+          "losses": 12,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 11,
+          "losses": 7,
+          "draws": 1
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 7,
+          "losses": 5,
+          "draws": 1
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 7,
+          "losses": 19,
+          "draws": 3
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 7,
+          "losses": 9,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Kha'Zix, Voidreaver": {
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 8,
+          "losses": 4,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 10,
+          "losses": 15,
+          "draws": 1
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 1
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 0,
+          "losses": 0,
+          "draws": 1
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 6,
+          "losses": 14,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 8,
+          "losses": 5,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 2
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 9,
+          "losses": 4,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Sett, The Boss": {
+        "Kha'Zix, Voidreaver": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 1
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 5,
+          "losses": 6,
+          "draws": 1
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 5,
+          "losses": 8,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 1
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 1
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Ornn, Fire Below the Mountain": {
+        "Master Yi, Wuju Bladesman": {
+          "wins": 2,
+          "losses": 7,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 5,
+          "losses": 9,
+          "draws": 1
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 1
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 1
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 1
+        },
+        "Rengar, Pridestalker": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Darius, Hand of Noxus": {
+        "Viktor, Herald of the Arcane": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 4,
+          "losses": 5,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 7,
+          "losses": 14,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 1
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 1
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 0,
+          "losses": 0,
+          "draws": 1
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Viktor, Herald of the Arcane": {
+        "Darius, Hand of Noxus": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 17,
+          "losses": 10,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 11,
+          "losses": 1,
+          "draws": 1
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 7,
+          "losses": 4,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 10,
+          "losses": 2,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 19,
+          "losses": 17,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 5,
+          "losses": 10,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 9,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 6,
+          "losses": 9,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 9,
+          "losses": 16,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 7,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 7,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 7,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 17,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 6,
+          "losses": 5,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 21,
+          "losses": 29,
+          "draws": 1
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 0,
+          "losses": 10,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 7,
+          "losses": 3,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 10,
+          "losses": 12,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 0,
+          "losses": 6,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Kai'Sa, Daughter of the Void": {
+        "Rek'Sai, Void Burrower": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 7,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 9,
+          "losses": 5,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 4,
+          "losses": 5,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 10,
+          "losses": 5,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 5,
+          "losses": 6,
+          "draws": 1
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 16,
+          "losses": 13,
+          "draws": 1
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 18,
+          "losses": 29,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 1
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 2,
+          "losses": 8,
+          "draws": 1
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 7,
+          "losses": 2,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 4,
+          "losses": 13,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 1
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Rek'Sai, Void Burrower": {
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 8,
+          "losses": 5,
+          "draws": 1
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 4,
+          "losses": 7,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 15,
+          "losses": 15,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 1
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 7,
+          "losses": 9,
+          "draws": 1
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 1
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 4,
+          "losses": 11,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 3,
+          "losses": 7,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Jhin, Virtuoso": {
+        "Diana, Scorn of the Moon": {
+          "wins": 13,
+          "losses": 5,
+          "draws": 1
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 1,
+          "losses": 11,
+          "draws": 1
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 7,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 2
+        },
+        "Garen, Might of Demacia": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 2
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 4,
+          "losses": 7,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 3,
+          "losses": 19,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 6,
+          "losses": 8,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 5,
+          "losses": 4,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 6,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 1
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 1
+        },
+        "Rengar, Pridestalker": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        }
+      },
+      "Draven, Glorious Executioner": {
+        "Vex, Gloomist": {
+          "wins": 9,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 8,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 6,
+          "losses": 5,
+          "draws": 1
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 13,
+          "losses": 20,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 6,
+          "losses": 7,
+          "draws": 1
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 5,
+          "losses": 6,
+          "draws": 1
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 1
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 12,
+          "losses": 13,
+          "draws": 1
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 7,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 5,
+          "losses": 7,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 6,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 0,
+          "losses": 5,
+          "draws": 1
+        },
+        "Teemo, Swift Scout": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Vex, Gloomist": {
+        "Draven, Glorious Executioner": {
+          "wins": 1,
+          "losses": 9,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 7,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 7,
+          "losses": 1,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 12,
+          "losses": 11,
+          "draws": 1
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 7,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 1
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 8,
+          "losses": 3,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 22,
+          "losses": 18,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 6,
+          "losses": 8,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 1
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Lucian, Purifier": {
+        "Azir, Emperor of the Sands": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 3,
+          "losses": 7,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 7,
+          "losses": 4,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 12,
+          "losses": 13,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 1
+        },
+        "Jhin, Virtuoso": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Vi, Piltover Enforcer": {
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 1
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 0,
+          "losses": 5,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 1
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 2
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Yasuo, Unforgiven": {
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 1
+        },
+        "Rengar, Pridestalker": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 6,
+          "losses": 10,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 2
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 5,
+          "losses": 7,
+          "draws": 1
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        }
+      },
+      "Leona, Radiant Dawn": {
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 1,
+          "losses": 7,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 2,
+          "losses": 10,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 1
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 4,
+          "losses": 5,
+          "draws": 1
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 4,
+          "losses": 19,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 7,
+          "losses": 5,
+          "draws": 1
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 2
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 7,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 1
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 1
+        },
+        "Jhin, Virtuoso": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Teemo, Swift Scout": {
+        "Vex, Gloomist": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 2,
+          "losses": 12,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 0,
+          "losses": 5,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 1
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Ivern, Green Father": {
+        "Viktor, Herald of the Arcane": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 1
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 0,
+          "draws": 1
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 1
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 1
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Ezreal, Prodigal Explorer": {
+        "Diana, Scorn of the Moon": {
+          "wins": 23,
+          "losses": 6,
+          "draws": 1
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 1
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 1
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 1
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 15,
+          "losses": 18,
+          "draws": 2
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 9,
+          "losses": 6,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 1
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 2
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 8,
+          "losses": 11,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 7,
+          "draws": 1
+        },
+        "Rengar, Pridestalker": {
+          "wins": 7,
+          "losses": 5,
+          "draws": 1
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 5,
+          "losses": 10,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 9,
+          "losses": 5,
+          "draws": 2
+        },
+        "Jhin, Virtuoso": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 1
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 5,
+          "losses": 0,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 2
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 1
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 7,
+          "losses": 3,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 6
+        },
+        "Lucian, Purifier": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 1
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Ahri, Nine-Tailed Fox": {
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 8,
+          "draws": 2
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 7,
+          "losses": 24,
+          "draws": 3
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 2,
+          "losses": 6,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 4,
+          "losses": 5,
+          "draws": 2
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 5,
+          "losses": 12,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 6,
+          "losses": 6,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 18,
+          "losses": 17,
+          "draws": 1
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 5,
+          "losses": 7,
+          "draws": 1
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 0,
+          "losses": 6,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 5,
+          "losses": 0,
+          "draws": 4
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 1
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 1
+        }
+      },
+      "Irelia, Blade Dancer": {
+        "Darius, Hand of Noxus": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 5,
+          "losses": 8,
+          "draws": 1
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 19,
+          "losses": 37,
+          "draws": 1
+        },
+        "Rengar, Pridestalker": {
+          "wins": 8,
+          "losses": 7,
+          "draws": 2
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 40,
+          "losses": 58,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 4,
+          "losses": 7,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 8,
+          "losses": 6,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 9,
+          "losses": 2,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 14,
+          "losses": 15,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 12,
+          "losses": 5,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 1
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 1
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 22,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 25,
+          "losses": 14,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 16,
+          "losses": 9,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 7,
+          "losses": 6,
+          "draws": 1
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 8,
+          "losses": 6,
+          "draws": 3
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 1
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 1
+        },
+        "Ivern, Green Father": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Garen, Might of Demacia": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 1
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 7,
+          "losses": 4,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 1
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 8,
+          "losses": 7,
+          "draws": 1
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 7,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 10,
+          "losses": 5,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 14,
+          "losses": 15,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 13,
+          "losses": 4,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 4,
+          "losses": 9,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        }
+      },
+      "Poppy, Keeper of the Hammer": {
+        "Diana, Scorn of the Moon": {
+          "wins": 3,
+          "losses": 7,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 9,
+          "losses": 7,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 1
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 1
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Annie, Dark Child": {
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 7,
+          "losses": 9,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 1
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 7,
+          "losses": 1,
+          "draws": 1
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 21,
+          "losses": 28,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 8,
+          "losses": 2,
+          "draws": 1
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 7,
+          "losses": 8,
+          "draws": 1
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 12,
+          "losses": 11,
+          "draws": 1
+        },
+        "Ivern, Green Father": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 10,
+          "losses": 0,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 8,
+          "losses": 6,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 7,
+          "losses": 5,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Sett, The Boss": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Renata Glasc, Chem-Baroness": {
+        "Master Yi, Wuju Bladesman": {
+          "wins": 1,
+          "losses": 7,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 0,
+          "losses": 6,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 1
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 2
+        },
+        "Sett, The Boss": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Lillia, Bashful Bloom": {
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 9,
+          "losses": 22,
+          "draws": 2
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 2,
+          "losses": 9,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 7,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 4,
+          "losses": 7,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 5,
+          "losses": 11,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 3,
+          "losses": 8,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 7,
+          "losses": 1,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 1
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Lux, Lady of Luminosity": {
+        "Garen, Might of Demacia": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 9,
+          "losses": 11,
+          "draws": 1
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 1,
+          "losses": 7,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 4,
+          "losses": 7,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 1
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 1
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        }
+      },
+      "Garen, Might of Demacia": {
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 2
+        },
+        "Vex, Gloomist": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 1,
+          "losses": 8,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 1
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 3,
+          "losses": 7,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 1
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Jax, Grandmaster at Arms": {
+        "Jhin, Virtuoso": {
+          "wins": 7,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 6,
+          "losses": 14,
+          "draws": 1
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 4,
+          "losses": 6,
+          "draws": 1
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 1
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 0,
+          "losses": 7,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 2
+        },
+        "Vex, Gloomist": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 0,
+          "losses": 5,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Master Yi, Wuju Master": {
+        "Yasuo, Unforgiven": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 6,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 1
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 0,
+          "losses": 9,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 1
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 4,
+          "losses": 8,
+          "draws": 1
+        },
+        "Lucian, Purifier": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 1,
+          "losses": 9,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 0,
+          "losses": 4,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 1
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 2
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Pyke, Bloodharbor Ripper": {
+        "Leona, Radiant Dawn": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 6,
+          "losses": 2,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 2,
+          "losses": 10,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 1,
+          "losses": 5,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 4,
+          "losses": 27,
+          "draws": 2
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 7,
+          "losses": 8,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 2,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 1
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 2
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 1
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 1
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 19,
+          "losses": 7,
+          "draws": 3
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 2,
+          "losses": 6,
+          "draws": 1
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Sivir, Battle Mistress": {
+        "Kha'Zix, Voidreaver": {
+          "wins": 4,
+          "losses": 8,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 2
+        },
+        "Annie, Dark Child": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 6,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 4,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 26,
+          "losses": 20,
+          "draws": 2
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 7,
+          "losses": 4,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 8,
+          "losses": 0,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 7,
+          "losses": 11,
+          "draws": 1
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 15,
+          "losses": 14,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 7,
+          "losses": 9,
+          "draws": 2
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 5,
+          "losses": 9,
+          "draws": 2
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 2
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 3,
+          "losses": 7,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 2,
+          "losses": 6,
+          "draws": 2
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 6,
+          "losses": 7,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 5,
+          "losses": 0,
+          "draws": 1
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        }
+      },
+      "Rengar, Pridestalker": {
+        "Fiora, Grand Duelist": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 1
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 7,
+          "losses": 8,
+          "draws": 2
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 5,
+          "losses": 1,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 5,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 1
+        },
+        "Vex, Gloomist": {
+          "wins": 4,
+          "losses": 7,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 4,
+          "losses": 5,
+          "draws": 1
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 4,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 6,
+          "losses": 6,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 4,
+          "losses": 0,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 5,
+          "losses": 6,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 10,
+          "losses": 11,
+          "draws": 4
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 14,
+          "losses": 13,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 5,
+          "losses": 7,
+          "draws": 1
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 8,
+          "losses": 4,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Lucian, Purifier": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 7,
+          "losses": 6,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 6,
+          "losses": 2,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Fiora, Grand Duelist": {
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 4,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 1,
+          "losses": 9,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 3,
+          "losses": 5,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 6,
+          "losses": 6,
+          "draws": 1
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 3,
+          "losses": 4,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 6,
+          "losses": 3,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 2,
+          "losses": 5,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "LeBlanc, Deceiver": {
+        "Jhin, Virtuoso": {
+          "wins": 7,
+          "losses": 4,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 59,
+          "losses": 28,
+          "draws": 2
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 9,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 5,
+          "losses": 9,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 20,
+          "losses": 42,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 1
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 5,
+          "losses": 0,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 5,
+          "losses": 4,
+          "draws": 2
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 8,
+          "losses": 7,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 9,
+          "losses": 7,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 14,
+          "losses": 25,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 9,
+          "losses": 13,
+          "draws": 2
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 5,
+          "losses": 5,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 11,
+          "losses": 8,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 9,
+          "losses": 4,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 11,
+          "losses": 4,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 4,
+          "losses": 8,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 7,
+          "losses": 0,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 17,
+          "losses": 0,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 4,
+          "losses": 5,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 4,
+          "losses": 4,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 4,
+          "losses": 5,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 6,
+          "losses": 4,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 12,
+          "losses": 10,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 6,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 5,
+          "losses": 3,
+          "draws": 1
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 6,
+          "losses": 2,
+          "draws": 2
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 4,
+          "losses": 2,
+          "draws": 1
+        },
+        "Ivern, Green Father": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      "Volibear, Relentless Storm": {
+        "Lee Sin, Blind Monk": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 18,
+          "losses": 7,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vi, Piltover Enforcer": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 1
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ornn, Fire Below the Mountain": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 1
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 3,
+          "losses": 3,
+          "draws": 0
+        },
+        "LeBlanc, Deceiver": {
+          "wins": 4,
+          "losses": 9,
+          "draws": 0
+        },
+        "Draven, Glorious Executioner": {
+          "wins": 4,
+          "losses": 1,
+          "draws": 1
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 3,
+          "losses": 10,
+          "draws": 1
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 5,
+          "losses": 2,
+          "draws": 0
+        },
+        "Annie, Dark Child": {
+          "wins": 3,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 3,
+          "losses": 6,
+          "draws": 0
+        },
+        "Pyke, Bloodharbor Ripper": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 1,
+          "losses": 6,
+          "draws": 0
+        },
+        "Lux, Lady of Luminosity": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 1
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Rengar, Pridestalker": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Rek'Sai, Void Burrower": {
+          "wins": 1,
+          "losses": 3,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 1
+        },
+        "Darius, Hand of Noxus": {
+          "wins": 0,
+          "losses": 0,
+          "draws": 1
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Teemo, Swift Scout": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Poppy, Keeper of the Hammer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        }
+      },
+      "Rumble, Mechanized Menace": {
+        "LeBlanc, Deceiver": {
+          "wins": 2,
+          "losses": 3,
+          "draws": 0
+        },
+        "Lucian, Purifier": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Volibear, Relentless Storm": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sivir, Battle Mistress": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Irelia, Blade Dancer": {
+          "wins": 0,
+          "losses": 3,
+          "draws": 0
+        },
+        "Azir, Emperor of the Sands": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ezreal, Prodigal Explorer": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Miss Fortune, Bounty Hunter": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Kha'Zix, Voidreaver": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Sett, The Boss": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jax, Grandmaster at Arms": {
+          "wins": 3,
+          "losses": 0,
+          "draws": 0
+        },
+        "Jhin, Virtuoso": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Yasuo, Unforgiven": {
+          "wins": 2,
+          "losses": 1,
+          "draws": 0
+        },
+        "Kai'Sa, Daughter of the Void": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Leona, Radiant Dawn": {
+          "wins": 2,
+          "losses": 0,
+          "draws": 0
+        },
+        "Master Yi, Wuju Bladesman": {
+          "wins": 2,
+          "losses": 2,
+          "draws": 0
+        },
+        "Ivern, Green Father": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Ahri, Nine-Tailed Fox": {
+          "wins": 3,
+          "losses": 2,
+          "draws": 0
+        },
+        "Jinx, Loose Cannon": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Master Yi, Wuju Master": {
+          "wins": 1,
+          "losses": 2,
+          "draws": 0
+        },
+        "Vex, Gloomist": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 1
+        },
+        "Renata Glasc, Chem-Baroness": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Viktor, Herald of the Arcane": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Garen, Might of Demacia": {
+          "wins": 0,
+          "losses": 2,
+          "draws": 0
+        },
+        "Fiora, Grand Duelist": {
+          "wins": 1,
+          "losses": 1,
+          "draws": 0
+        },
+        "Lee Sin, Blind Monk": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Lillia, Bashful Bloom": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        },
+        "Diana, Scorn of the Moon": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0
+        },
+        "Rumble, Mechanized Menace": {
+          "wins": 1,
+          "losses": 0,
+          "draws": 0
+        }
+      }
+    },
+    "day2": {}
+  }
+}

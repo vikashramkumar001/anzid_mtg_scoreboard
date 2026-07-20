@@ -353,7 +353,12 @@ function updateTheme(game, vendor, playerCount) {
             vendor, playerCount
         );
         const bgEl = document.getElementById('standings-bg');
-        if (bgEl) {
+        if (game === 'riftbound' && vendor === 'uvs-unleashed' && playerCount === '1v1') {
+            // UVS - Unleashed: the animated Poppy bg-video (below) is the full
+            // background. Clear the static bg img so it doesn't cover the video
+            // (the img is z-index -1, above the video's -2).
+            if (bgEl) bgEl.src = '';
+        } else if (bgEl) {
             const img = new Image();
             img.onload = () => { bgEl.src = bgPath; };
             img.onerror = () => { bgEl.src = ''; };
@@ -368,7 +373,12 @@ function updateTheme(game, vendor, playerCount) {
             vendor, playerCount
         );
         const charEls = document.querySelectorAll('#standings-character, .standings-character-img');
-        if (charEls.length) {
+        if (game === 'riftbound' && vendor === 'uvs-unleashed' && playerCount === '1v1') {
+            // UVS - Unleashed standings bg is an ANIMATED Poppy (the static char
+            // baked onto the bg, played as the bg-video below). Clear the static
+            // character so it doesn't double on top of the animation.
+            charEls.forEach(el => { el.src = ''; });
+        } else if (charEls.length) {
             const img = new Image();
             img.onload = () => { charEls.forEach(el => { el.src = charPath; }); };
             img.onerror = () => { charEls.forEach(el => { el.src = ''; }); };
@@ -383,7 +393,15 @@ function updateTheme(game, vendor, playerCount) {
             vendor, playerCount
         );
         const videoEl = document.getElementById('standings-bg-video');
-        if (videoEl) {
+        if (videoEl && game === 'riftbound' && vendor === 'uvs-unleashed' && playerCount === '1v1') {
+            // UVS - Unleashed: animated Poppy background (static char baked onto
+            // the bg → H.264 Main loop), played in place of the static bg + char.
+            // Reversible: delete this branch + the char-clear above to restore
+            // the static bg/char swap.
+            videoEl.src = '/assets/animations/riftbound/standings/riftbound-standings-bg-uvs-unleashed-1v1.mp4';
+            videoEl.load();
+            videoEl.play().catch(() => {});
+        } else if (videoEl) {
             fetch(videoPath, { method: 'HEAD' })
                 .then(r => {
                     if (r.ok) {
@@ -503,8 +521,25 @@ function populatePage(wrapperId, data, startRank) {
         const archetypeEls = Array.from(wrapper.querySelectorAll('.standings-archetype'))
             .filter(el => el.innerText);
         if (archetypeEls.length > 0) {
+            // For riftbound the legend sits in a fixed-width gold pill
+            // (.standings-archetype, ~331px), NOT the wider name column —
+            // sizing to `textWidth` (--standings-text-width, 428px) let long
+            // legends like "AZIR, EMPEROR OF THE SANDS" overrun the pill.
+            // Size to the pill's own inner width instead. Other games keep the
+            // name-column width.
+            let legendMaxWidth = textWidth;
+            if (currentGame === 'riftbound') {
+                const acs = getComputedStyle(archetypeEls[0]);
+                const padX = (parseFloat(acs.paddingLeft) || 0) + (parseFloat(acs.paddingRight) || 0);
+                const borderX = (parseFloat(acs.borderLeftWidth) || 0) + (parseFloat(acs.borderRightWidth) || 0);
+                // clientWidth is 0 for off-screen (display:none) slider pages, so
+                // pages 2-4 (ranks 11-40) silently skipped the fit. Fall back to the
+                // computed box width minus its border so EVERY page sizes its legends.
+                const cw = archetypeEls[0].clientWidth || (parseFloat(acs.width) - borderX) || 0;
+                if (cw > 0) legendMaxWidth = cw - padX;
+            }
             const sizes = archetypeEls.map(el =>
-                calculateFontSize(el, maxArchetypeSize, 10, textWidth)
+                calculateFontSize(el, maxArchetypeSize, 10, legendMaxWidth)
             );
             const minSize = Math.min(...sizes);
             archetypeEls.forEach(el => {
@@ -694,7 +729,7 @@ socket.on('playerRosterUpdated', (roster) => {
 // double-panel layout, 16 ranks per page → 1-16, 17-32, 33-48, 49-64.
 function getRanksPerPage() {
     return (currentGame === 'riftbound' &&
-            currentVendor === 'default' &&
+            (currentVendor === 'default' || currentVendor === 'uvs-unleashed') &&
             currentPlayerCount === '1v1')
         ? 10 : 16;
 }
@@ -729,7 +764,9 @@ let currentPage = 1;
 obsLog('Combined page initialized');
 
 let isAnimating = false;
-let wasAway = false;
+// Start "away" so the very first cut INTO the standings scene cascades page 1
+// in (rather than it appearing instantly). Reset on each leave/enter below.
+let wasAway = true;
 
 function jumpTo(targetPage) {
     if (targetPage === currentPage) return;
@@ -765,19 +802,50 @@ function slideTo(targetPage) {
     }, 1000);
 }
 
-// ── OBS Scene Detection (via server obs-websocket) ──────────────────────────
-socket.on('obs-standings-page', ({ page }) => {
-    obsLog(`Server says go to page ${page} | currentPage: ${currentPage}`);
-    if (page && page !== currentPage) {
-        if (wasAway) {
-            jumpTo(page);
-        } else {
-            slideTo(page);
+// Fresh scene entrance — cascade the target page's rows in. Unlike slideTo
+// there's no outgoing page to fade (we're arriving from another scene), and
+// it works even when targetPage === currentPage (the usual page-1 entrance,
+// which slideTo would no-op on).
+function animateIn(targetPage, delay = 0) {
+    const page = document.getElementById(`standings-page-${targetPage}`);
+    if (!page) return;
+    for (let p = 1; p <= 4; p++) {
+        if (p !== targetPage) {
+            const el = document.getElementById(`standings-page-${p}`);
+            if (el) el.classList.remove('active', 'slide-in', 'slide-out');
         }
-        wasAway = false;
-    } else if (page) {
-        wasAway = false;
     }
+    // Hold the page hidden during `delay` (the entrance stinger), then cascade
+    // its rows in once it clears. delay=0 (cut entrance / in-scene) fires now.
+    page.classList.remove('active', 'slide-out', 'slide-in');
+    currentPage = targetPage;
+    const cascade = () => {
+        void page.offsetWidth;            // reflow so the row cascade restarts
+        page.classList.add('slide-in');
+        setTimeout(() => {
+            page.classList.remove('slide-in');
+            page.classList.add('active');
+        }, 1000);
+    };
+    if (delay > 0) setTimeout(cascade, delay);
+    else cascade();
+}
+
+// ── OBS Scene Detection (via server obs-websocket) ──────────────────────────
+socket.on('obs-standings-page', ({ page, delay }) => {
+    obsLog(`Server says go to page ${page} (delay=${delay || 0}ms) | currentPage: ${currentPage}`);
+    if (!page) return;
+    // Riftbound default/uvs cascade their rows in on a fresh scene entrance
+    // too (not just page-to-page). Other layouts keep the instant jump-in.
+    const cascadeEntrance = currentGame === 'riftbound' &&
+        (currentVendor === 'default' || currentVendor === 'uvs-unleashed');
+    if (wasAway) {
+        if (cascadeEntrance) animateIn(page, delay || 0);   // entrance honors the stinger delay
+        else jumpTo(page);
+    } else if (page !== currentPage) {
+        slideTo(page);                                       // in-scene change — always immediate
+    }
+    wasAway = false;
 });
 
 socket.on('obs-left-standings', () => {

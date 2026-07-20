@@ -1,0 +1,84 @@
+/* Broadcast L-Frame — break-screen chrome (UNLEASHED / RQ Sydney).
+ *
+ * Fixed 1920x1080 stage of absolutely positioned elements at PSD pixel
+ * coords. The content window (0,0 -> 1554x885) is TRANSPARENT: the live
+ * feed sits behind this browser source in OBS, so the page body must not
+ * paint any background.
+ *
+ * PSD text bounds (RFB_L-Frame_UNL.psd), measured from the truth export
+ * (ink pixels, not layer bounds):
+ *   status  "the battle will continue soon"  ink 261..1294, caps y 948.5..988.5 (h~40)
+ *   next-up "NEXT UP: round 5"               ink 640..913,  caps y 1010.6..1031.8 (h~21.2)
+ * Both are centered on the content window (center x = 777).
+ * Beaufort canvas metrics (cap = 0.666em at any weight; line-height:1 ->
+ * baseline = top + (fs - (fbA+fbD))/2 + fbA). Weights solved by XOR
+ * cross-correlating canvas-rendered text against the truth export ink:
+ *   status  = HEAVY (900) fs 60 / ls 0.15  (14.8% ink mismatch vs 18.4% Bold)
+ *   next-up = BOLD  (700) fs 31 / ls 0     (16.7% vs 67.9% Heavy)
+ * Residual is sub-pixel stroke-weight noise (PSD Strong AA). 2026-07-18.
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    background: transparent;
+    overflow: hidden;
+}
+
+#l-frame-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Descendant rule (not inheritance): a global `* { font-family: var(...) }`
+ * in shared CSS would otherwise beat inheritance (house gotcha). */
+#l-frame-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#l-frame-bg,
+#l-frame-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Status line — white caps, centered on the 1554px window. Sits UNDER the
+ * frame image so Diana's sword overlaps the tail of the text (PSD look). */
+#l-frame-status {
+    position: absolute;
+    left: 1.2px;                /* XOR-optimal pen x 259.5 given adv 1037.4 */
+    top: 936px;                 /* baseline 988.5, cap-top ~948.5 */
+    width: 1554px;
+    text-align: center;
+    font-size: 60px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0.15px;
+    color: #ffffff;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* "NEXT UP: ROUND N" — UNLEASHED pink caps. */
+#l-frame-next-up {
+    position: absolute;
+    left: 0;
+    top: 1005px;                /* baseline 1032, cap-top ~1011.3 */
+    width: 1554px;
+    text-align: center;
+    font-size: 31px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #c2458f;
+    text-transform: uppercase;
+    white-space: nowrap;
+}

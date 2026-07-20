@@ -28,6 +28,25 @@
     "illustrator": "Envar Studio",
     "collectorNumber": 205
   },
+  "Acceleration Gate": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-150.png",
+    "type": "Spell",
+    "id": "ven-150-166",
+    "publicCode": "VEN-150",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind",
+      "Body"
+    ],
+    "rarity": "Epic",
+    "energy": "3",
+    "tags": [
+      "Jayce"
+    ],
+    "illustrator": "小牛设计/Kudos Productions",
+    "collectorNumber": 150
+  },
   "Acceptable Losses": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-179.png",
     "type": "Spell",
@@ -62,6 +81,26 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 56
+  },
+  "Affectionate Poro": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-024.png",
+    "type": "Unit",
+    "id": "ven-024-166",
+    "publicCode": "VEN-024",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Poro",
+      "Noxus"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 24
   },
   "Against the Odds": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-001.png",
@@ -141,6 +180,11 @@
         "standard": true
       },
       {
+        "code": "VEN-SP3",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-SP3.png",
+        "standard": false
+      },
+      {
         "code": "OGN-119a",
         "imageUrl": "/assets/images/riftbound/cards/OGN-119a.png",
         "standard": false
@@ -148,6 +192,70 @@
       {
         "code": "SFD-227*",
         "imageUrl": "/assets/images/riftbound/cards/SFD-227_.png",
+        "standard": false
+      }
+    ]
+  },
+  "Akali, Deadly Weapon": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-021.png",
+    "type": "Unit",
+    "id": "ven-021-166",
+    "publicCode": "VEN-021",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Epic",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Ionia",
+      "Akali"
+    ],
+    "illustrator": "莺之歌",
+    "collectorNumber": 21,
+    "variants": [
+      {
+        "code": "VEN-021",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-021.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-021a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-021a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Akali, Silent": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-038.png",
+    "type": "Unit",
+    "id": "ven-038-166",
+    "publicCode": "VEN-038",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Ionia",
+      "Akali"
+    ],
+    "illustrator": "League Splash Team",
+    "collectorNumber": 38,
+    "variants": [
+      {
+        "code": "VEN-038",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-038.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-038a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-038a.png",
         "standard": false
       }
     ]
@@ -307,6 +415,75 @@
     "rarity": "Uncommon",
     "illustrator": "Envar Studio",
     "collectorNumber": 207
+  },
+  "Ambessa, Respected and Feared": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-136.png",
+    "type": "Unit",
+    "id": "ven-136-166",
+    "publicCode": "VEN-136",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Epic",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Noxus",
+      "Ambessa"
+    ],
+    "illustrator": "Pandart Studio",
+    "collectorNumber": 136,
+    "variants": [
+      {
+        "code": "VEN-136",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-136.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-187",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-187.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-136a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-136a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Ambessa, The Wolf": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-084.png",
+    "type": "Unit",
+    "id": "ven-084-166",
+    "publicCode": "VEN-084",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Rare",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Noxus",
+      "Ambessa"
+    ],
+    "illustrator": "Pandart Studio",
+    "collectorNumber": 84,
+    "variants": [
+      {
+        "code": "VEN-084",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-084.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-084a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-084a.png",
+        "standard": false
+      }
+    ]
   },
   "Ancient Henge": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-117.png",
@@ -474,6 +651,44 @@
         "standard": false
       }
     ]
+  },
+  "Applied Researchers": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-055.png",
+    "type": "Unit",
+    "id": "ven-055-166",
+    "publicCode": "VEN-055",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 55
+  },
+  "Apprentice Mage": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-047.png",
+    "type": "Unit",
+    "id": "ven-047-166",
+    "publicCode": "VEN-047",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Bilgewater"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 47
   },
   "Apprentice Smith": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-041.png",
@@ -674,6 +889,26 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 19
   },
+  "Astral Heron": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-044.png",
+    "type": "Unit",
+    "id": "ven-044-166",
+    "publicCode": "VEN-044",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Epic",
+    "energy": "7",
+    "might": "7",
+    "tags": [
+      "Bird",
+      "Mount Targon"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 44
+  },
   "Atakhan": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-170.png",
     "type": "Unit",
@@ -693,6 +928,26 @@
     ],
     "illustrator": "Grafit Studio",
     "collectorNumber": 170
+  },
+  "Aurok General": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-130.png",
+    "type": "Unit",
+    "id": "ven-130-166",
+    "publicCode": "VEN-130",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Trifarian",
+      "Noxus"
+    ],
+    "illustrator": "Slawomir Maniak",
+    "collectorNumber": 130
   },
   "Ava Achiever": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-107.png",
@@ -796,6 +1051,63 @@
     ],
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 161
+  },
+  "Baccai Reaper": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-009.png",
+    "type": "Unit",
+    "id": "ven-009-166",
+    "publicCode": "VEN-009",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "4",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 9
+  },
+  "Baccai Sandspinner": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-001.png",
+    "type": "Unit",
+    "id": "ven-001-166",
+    "publicCode": "VEN-001",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 1
+  },
+  "Baccai Witherclaw": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-078.png",
+    "type": "Unit",
+    "id": "ven-078-166",
+    "publicCode": "VEN-078",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Will Gist",
+    "collectorNumber": 78
   },
   "Back Off": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-042.png",
@@ -1234,6 +1546,26 @@
       }
     ]
   },
+  "Blade Twirler": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-002.png",
+    "type": "Unit",
+    "id": "ven-002-166",
+    "publicCode": "VEN-002",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Yordle",
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 2
+  },
   "Blade of the Ruined King": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-178.png",
     "type": "Gear",
@@ -1576,6 +1908,11 @@
         "standard": true
       },
       {
+        "code": "VEN-R04",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-R04.png",
+        "standard": false
+      },
+      {
         "code": "OGN-126a",
         "imageUrl": "/assets/images/riftbound/cards/OGN-126a.png",
         "standard": false
@@ -1647,6 +1984,21 @@
     ],
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 133
+  },
+  "Bottled Constellation": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-067.png",
+    "type": "Gear",
+    "id": "ven-067-166",
+    "publicCode": "VEN-067",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Epic",
+    "energy": "10",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 67
   },
   "Miss Fortune, Bounty Hunter": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-267.png",
@@ -1724,6 +2076,21 @@
     "illustrator": "Caravan Studio",
     "collectorNumber": 71
   },
+  "Brittle Steel": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-003.png",
+    "type": "Spell",
+    "id": "ven-003-166",
+    "publicCode": "VEN-003",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 3
+  },
   "Brush": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-T03.png",
     "type": "Battlefield",
@@ -1737,6 +2104,25 @@
     "rarity": "Common",
     "illustrator": "Kudos Productions",
     "collectorNumber": 3
+  },
+  "Brutal Hunter": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-070.png",
+    "type": "Unit",
+    "id": "ven-070-166",
+    "publicCode": "VEN-070",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "4",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 70
   },
   "Brutalizer": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-042.png",
@@ -1796,6 +2182,20 @@
     "illustrator": "Envar Studio",
     "collectorNumber": 62
   },
+  "Buff": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-T04.png",
+    "type": "Unknown",
+    "id": "unl-t04",
+    "publicCode": "UNL-T04",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Common",
+    "illustrator": "League Splash Team",
+    "collectorNumber": 4
+  },
   "Buhru Captain": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-091.png",
     "type": "Unit",
@@ -1848,6 +2248,36 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 4
+  },
+  "Renekton, Butcher of the Sands": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-141.png",
+    "type": "Legend",
+    "id": "ven-141-166",
+    "publicCode": "VEN-141",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury",
+      "Body"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Renekton"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 141,
+    "variants": [
+      {
+        "code": "VEN-141",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-141.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-190",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-190.png",
+        "standard": true
+      }
+    ]
   },
   "Caitlyn, Patrolling": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-068.png",
@@ -1932,6 +2362,11 @@
         "code": "OGN-042",
         "imageUrl": "/assets/images/riftbound/cards/OGN-042.png",
         "standard": true
+      },
+      {
+        "code": "VEN-R02",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-R02.png",
+        "standard": false
       },
       {
         "code": "OGN-042a",
@@ -2033,6 +2468,21 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 153
   },
+  "Cataclysmic Duel": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-090.png",
+    "type": "Spell",
+    "id": "ven-090-166",
+    "publicCode": "VEN-090",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Epic",
+    "energy": "8",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 90
+  },
   "Catalyst of Aeons": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-138.png",
     "type": "Spell",
@@ -2120,6 +2570,11 @@
         "code": "OGN-166",
         "imageUrl": "/assets/images/riftbound/cards/OGN-166.png",
         "standard": true
+      },
+      {
+        "code": "VEN-R05",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-R05.png",
+        "standard": false
       },
       {
         "code": "OGN-166a",
@@ -2227,6 +2682,21 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 139
   },
+  "Clairvoyance": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-056.png",
+    "type": "Spell",
+    "id": "ven-056-166",
+    "publicCode": "VEN-056",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Uncommon",
+    "energy": "7",
+    "illustrator": "Max Grecke",
+    "collectorNumber": 56
+  },
   "Clash of Giants": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-110.png",
     "type": "Spell",
@@ -2293,6 +2763,26 @@
     ],
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 64
+  },
+  "Cloud Drake": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-048.png",
+    "type": "Unit",
+    "id": "ven-048-166",
+    "publicCode": "VEN-048",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "6",
+    "might": "5",
+    "tags": [
+      "Dragon",
+      "Demacia"
+    ],
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 48
   },
   "Combat Chef": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-092.png",
@@ -2408,6 +2898,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 83
   },
+  "Consuming Curse": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-010.png",
+    "type": "Spell",
+    "id": "ven-010-166",
+    "publicCode": "VEN-010",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 10
+  },
   "Convergent Mutation": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-108.png",
     "type": "Spell",
@@ -2461,6 +2966,26 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 123
   },
+  "Corrupted Dragon": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-091.png",
+    "type": "Unit",
+    "id": "ven-091-166",
+    "publicCode": "VEN-091",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Epic",
+    "energy": "10",
+    "might": "10",
+    "tags": [
+      "Dragon",
+      "Shadow Isles"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 91
+  },
   "Counter Strike": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-194.png",
     "type": "Spell",
@@ -2479,6 +3004,25 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 194
+  },
+  "Covert Informant": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-057.png",
+    "type": "Unit",
+    "id": "ven-057-166",
+    "publicCode": "VEN-057",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "4",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Grafit Studio",
+    "collectorNumber": 57
   },
   "Crackshot Corsair": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-130.png",
@@ -2592,6 +3136,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 208
   },
+  "Crumbling Sands": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-039.png",
+    "type": "Spell",
+    "id": "ven-039-166",
+    "publicCode": "VEN-039",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "1",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 39
+  },
   "Cull": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-134.png",
     "type": "Gear",
@@ -2624,6 +3183,36 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 209
+  },
+  "Nasus, Curator of the Sands": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-145.png",
+    "type": "Legend",
+    "id": "ven-145-166",
+    "publicCode": "VEN-145",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm",
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Nasus"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 145,
+    "variants": [
+      {
+        "code": "VEN-145",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-145.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-192",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-192.png",
+        "standard": true
+      }
+    ]
   },
   "Cursed Sarcophagus": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-148.png",
@@ -2679,6 +3268,25 @@
     ],
     "illustrator": "Polar Engine Studio",
     "collectorNumber": 196
+  },
+  "Dame the Despoiler": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-079.png",
+    "type": "Unit",
+    "id": "ven-079-166",
+    "publicCode": "VEN-079",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 79
   },
   "Dancing Grenade": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-020.png",
@@ -2962,6 +3570,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 73
   },
+  "Death Mark": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-144.png",
+    "type": "Spell",
+    "id": "ven-144-166",
+    "publicCode": "VEN-144",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury",
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "2",
+    "tags": [
+      "Zed"
+    ],
+    "illustrator": "JunHuan",
+    "collectorNumber": 144
+  },
   "Death from Below": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-186.png",
     "type": "Spell",
@@ -3049,6 +3676,126 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 24
+  },
+  "Decree of Discord": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-107.png",
+    "type": "Spell",
+    "id": "ven-107-166",
+    "publicCode": "VEN-107",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "1",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 107
+  },
+  "Decree of Focus": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-040.png",
+    "type": "Spell",
+    "id": "ven-040-166",
+    "publicCode": "VEN-040",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "1",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 40
+  },
+  "Decree of Insight": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-061.png",
+    "type": "Spell",
+    "id": "ven-061-166",
+    "publicCode": "VEN-061",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "1",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 61
+  },
+  "Decree of Rage": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-015.png",
+    "type": "Spell",
+    "id": "ven-015-166",
+    "publicCode": "VEN-015",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "1",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 15
+  },
+  "Decree of Strength": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-085.png",
+    "type": "Spell",
+    "id": "ven-085-166",
+    "publicCode": "VEN-085",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Rare",
+    "energy": "1",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 85
+  },
+  "Decree of Unity": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-131.png",
+    "type": "Spell",
+    "id": "ven-131-166",
+    "publicCode": "VEN-131",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 131
+  },
+  "Jayce, Defender of Tomorrow": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-149.png",
+    "type": "Legend",
+    "id": "ven-149-166",
+    "publicCode": "VEN-149",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind",
+      "Body"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Jayce"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 149,
+    "variants": [
+      {
+        "code": "VEN-149",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-149.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-194",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-194.png",
+        "standard": true
+      }
+    ]
   },
   "Defiant Dance": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-196.png",
@@ -3211,6 +3958,11 @@
         "standard": true
       },
       {
+        "code": "VEN-183",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-183.png",
+        "standard": true
+      },
+      {
         "code": "UNL-149a",
         "imageUrl": "/assets/images/riftbound/cards/UNL-149a.png",
         "standard": false
@@ -3255,6 +4007,25 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 32
+  },
+  "Disciple of Shen": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-117.png",
+    "type": "Unit",
+    "id": "ven-117-166",
+    "publicCode": "VEN-117",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "1",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 117
   },
   "Discipline": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-058.png",
@@ -3330,6 +4101,25 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 161
+  },
+  "Dominus": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-142.png",
+    "type": "Spell",
+    "id": "ven-142-166",
+    "publicCode": "VEN-142",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury",
+      "Body"
+    ],
+    "rarity": "Epic",
+    "energy": "4",
+    "tags": [
+      "Renekton"
+    ],
+    "illustrator": "小牛设计",
+    "collectorNumber": 142
   },
   "Doran's Blade": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-095.png",
@@ -3465,6 +4255,35 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 164
   },
+  "Dragon Form": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-116.png",
+    "type": "Spell",
+    "id": "ven-116-166",
+    "publicCode": "VEN-116",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 116
+  },
+  "Dragon Roost": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-157.png",
+    "type": "Battlefield",
+    "id": "ven-157-166",
+    "publicCode": "VEN-157",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 157
+  },
   "Dragon's Rage": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-258.png",
     "type": "Spell",
@@ -3572,7 +4391,19 @@
       "Noxus"
     ],
     "illustrator": "Six More Vodka",
-    "collectorNumber": 28
+    "collectorNumber": 28,
+    "variants": [
+      {
+        "code": "OGN-028",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-028.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-172",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-172.png",
+        "standard": true
+      }
+    ]
   },
   "Draven, Vanquisher": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-020.png",
@@ -3605,6 +4436,21 @@
         "standard": false
       }
     ]
+  },
+  "Dredge Up": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-049.png",
+    "type": "Spell",
+    "id": "ven-049-166",
+    "publicCode": "VEN-049",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 49
   },
   "Dropboarder": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-072.png",
@@ -3644,6 +4490,25 @@
     ],
     "illustrator": "Bubble Cat Studio",
     "collectorNumber": 131
+  },
+  "Dune Surfer": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-004.png",
+    "type": "Unit",
+    "id": "ven-004-166",
+    "publicCode": "VEN-004",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Dao Trong Le",
+    "collectorNumber": 4
   },
   "Dunebreaker": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-027.png",
@@ -3732,6 +4597,26 @@
     "energy": "3",
     "illustrator": "Kudos Productions",
     "collectorNumber": 63
+  },
+  "Eclipse Dragon": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-016.png",
+    "type": "Unit",
+    "id": "ven-016-166",
+    "publicCode": "VEN-016",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "8",
+    "might": "8",
+    "tags": [
+      "Dragon",
+      "Mount Targon"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 16
   },
   "Eclipse Herald": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-059.png",
@@ -3935,6 +4820,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 46
   },
+  "Endless Riches": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-022.png",
+    "type": "Gear",
+    "id": "ven-022-166",
+    "publicCode": "VEN-022",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Epic",
+    "energy": "5",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 22
+  },
   "Energy Conduit": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-098.png",
     "type": "Gear",
@@ -3989,6 +4889,44 @@
     ],
     "illustrator": "Valentin Gloaguen",
     "collectorNumber": 43
+  },
+  "Escaped Grayback": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-124.png",
+    "type": "Unit",
+    "id": "ven-124-166",
+    "publicCode": "VEN-124",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Michal Ivan",
+    "collectorNumber": 124
+  },
+  "Esteemed Hierophant": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-025.png",
+    "type": "Unit",
+    "id": "ven-025-166",
+    "publicCode": "VEN-025",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 25
   },
   "Evelynn, Entrancing": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-141.png",
@@ -4061,6 +4999,36 @@
     ],
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 73
+  },
+  "Shen, Eye of Twilight": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-147.png",
+    "type": "Legend",
+    "id": "ven-147-166",
+    "publicCode": "VEN-147",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm",
+      "Order"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Shen"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 147,
+    "variants": [
+      {
+        "code": "VEN-147",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-147.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-193",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-193.png",
+        "standard": true
+      }
+    ]
   },
   "Eye of the Herald": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-153.png",
@@ -4136,6 +5104,11 @@
         "code": "SFD-149",
         "imageUrl": "/assets/images/riftbound/cards/SFD-149.png",
         "standard": true
+      },
+      {
+        "code": "VEN-SP5",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-SP5.png",
+        "standard": false
       },
       {
         "code": "SFD-149a",
@@ -4249,6 +5222,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 211
   },
+  "Fallen Feline": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-132.png",
+    "type": "Unit",
+    "id": "ven-132-166",
+    "publicCode": "VEN-132",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "might": "3",
+    "tags": [
+      "Cat",
+      "Piltover"
+    ],
+    "illustrator": "Dao Trong Le",
+    "collectorNumber": 132
+  },
   "Falling Comet": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-085.png",
     "type": "Spell",
@@ -4333,6 +5326,25 @@
     ],
     "illustrator": "Envar Studio",
     "collectorNumber": 21
+  },
+  "Field Musicians": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-026.png",
+    "type": "Unit",
+    "id": "ven-026-166",
+    "publicCode": "VEN-026",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "3",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 26
   },
   "Fight or Flight": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-168.png",
@@ -4729,6 +5741,21 @@
     "illustrator": "Envar Studio",
     "collectorNumber": 209
   },
+  "Forgotten Relic": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-108.png",
+    "type": "Gear",
+    "id": "ven-108-166",
+    "publicCode": "VEN-108",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 108
+  },
   "Forgotten Signpost": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-045.png",
     "type": "Gear",
@@ -4743,6 +5770,25 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 45
+  },
+  "Forsaken Baccai": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-005.png",
+    "type": "Unit",
+    "id": "ven-005-166",
+    "publicCode": "VEN-005",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 5
   },
   "Fortified Position": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-279.png",
@@ -4791,6 +5837,26 @@
     "energy": "2",
     "illustrator": "Wild Blue Studios",
     "collectorNumber": 11
+  },
+  "Fretful Feline": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-071.png",
+    "type": "Unit",
+    "id": "ven-071-166",
+    "publicCode": "VEN-071",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "6",
+    "might": "5",
+    "tags": [
+      "Cat",
+      "Piltover"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 71
   },
   "Friendship": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-046.png",
@@ -4877,6 +5943,26 @@
     "illustrator": "Caravan Studio",
     "collectorNumber": 67
   },
+  "Frostcoat Mother": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-032.png",
+    "type": "Unit",
+    "id": "ven-032-166",
+    "publicCode": "VEN-032",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Dog",
+      "Freljord"
+    ],
+    "illustrator": "Caravan Studio",
+    "collectorNumber": 32
+  },
   "Frozen Fortress": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-212.png",
     "type": "Battlefield",
@@ -4911,6 +5997,11 @@
         "standard": true
       },
       {
+        "code": "VEN-R01",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-R01.png",
+        "standard": false
+      },
+      {
         "code": "OGN-007a",
         "imageUrl": "/assets/images/riftbound/cards/OGN-007a.png",
         "standard": false
@@ -4936,6 +6027,38 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 171
+  },
+  "Gangplank, Naval": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-086.png",
+    "type": "Unit",
+    "id": "ven-086-166",
+    "publicCode": "VEN-086",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Rare",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Bilgewater",
+      "Gangplank"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 86,
+    "variants": [
+      {
+        "code": "VEN-086",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-086.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-181",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-181.png",
+        "standard": true
+      }
+    ]
   },
   "Garbage Grabber": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-099.png",
@@ -5220,6 +6343,21 @@
       }
     ]
   },
+  "Glowstone": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-133.png",
+    "type": "Gear",
+    "id": "ven-133-166",
+    "publicCode": "VEN-133",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 133
+  },
   "Gold": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-T03.png",
     "type": "Gear",
@@ -5404,6 +6542,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 280
   },
+  "Grumpy Rockbear": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-050.png",
+    "type": "Unit",
+    "id": "ven-050-166",
+    "publicCode": "VEN-050",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Dao Trong Le",
+    "collectorNumber": 50
+  },
   "Guardian Angel": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-051.png",
     "type": "Gear",
@@ -5491,6 +6648,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 169
   },
+  "Gust Monk": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-101.png",
+    "type": "Unit",
+    "id": "ven-101-166",
+    "publicCode": "VEN-101",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Yordle",
+      "Bandle City"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 101
+  },
   "Gustwalker": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-075.png",
     "type": "Unit",
@@ -5526,6 +6703,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 88
   },
+  "Guttural Roar": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-072.png",
+    "type": "Spell",
+    "id": "ven-072-166",
+    "publicCode": "VEN-072",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 72
+  },
   "Hall of Legends": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-210.png",
     "type": "Battlefield",
@@ -5553,6 +6745,24 @@
     "rarity": "Uncommon",
     "illustrator": "Kudos Productions",
     "collectorNumber": 281
+  },
+  "Hand Hammer": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-027.png",
+    "type": "Gear",
+    "id": "ven-027-166",
+    "publicCode": "VEN-027",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "tags": [
+      "Equipment"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 27
   },
   "Darius, Hand of Noxus": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-253.png",
@@ -5695,6 +6905,35 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 111
   },
+  "Heisho, Shell of the World": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-158.png",
+    "type": "Battlefield",
+    "id": "ven-158-166",
+    "publicCode": "VEN-158",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 158
+  },
+  "Helm of Suppression": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-045.png",
+    "type": "Gear",
+    "id": "ven-045-166",
+    "publicCode": "VEN-045",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Epic",
+    "energy": "4",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 45
+  },
   "Herald of Scales": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-140.png",
     "type": "Unit",
@@ -5831,6 +7070,36 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 83
   },
+  "Hextech Disc": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-087.png",
+    "type": "Gear",
+    "id": "ven-087-166",
+    "publicCode": "VEN-087",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Rare",
+    "energy": "4",
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 87
+  },
+  "Hextech Formula": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-062.png",
+    "type": "Gear",
+    "id": "ven-062-166",
+    "publicCode": "VEN-062",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 62
+  },
   "Hextech Gauntlets": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-188.png",
     "type": "Gear",
@@ -5934,6 +7203,25 @@
     "illustrator": "黯荧岛Dark Glow",
     "collectorNumber": 49
   },
+  "Horns of the Dragon": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-118.png",
+    "type": "Unit",
+    "id": "ven-118-166",
+    "publicCode": "VEN-118",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "JiHun Lee",
+    "collectorNumber": 118
+  },
   "Hostile Takeover": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-202.png",
     "type": "Spell",
@@ -5952,6 +7240,26 @@
     ],
     "illustrator": "Grafit Studio",
     "collectorNumber": 202
+  },
+  "Hungry Wolf": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-125.png",
+    "type": "Unit",
+    "id": "ven-125-166",
+    "publicCode": "VEN-125",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Dog",
+      "Freljord"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 125
   },
   "Hunter's Machete": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-096.png",
@@ -6047,6 +7355,38 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 65
+  },
+  "Illaoi, Prophet of the Great Kraken": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-109.png",
+    "type": "Unit",
+    "id": "ven-109-166",
+    "publicCode": "VEN-109",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "6",
+    "might": "4",
+    "tags": [
+      "Bilgewater",
+      "Illaoi"
+    ],
+    "illustrator": "Michal Ivan",
+    "collectorNumber": 109,
+    "variants": [
+      {
+        "code": "VEN-109",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-109.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-182",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-182.png",
+        "standard": true
+      }
+    ]
   },
   "Immortal Phoenix": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-037.png",
@@ -6215,6 +7555,11 @@
         "standard": true
       },
       {
+        "code": "VEN-174",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-174.png",
+        "standard": true
+      },
+      {
         "code": "SFD-225",
         "imageUrl": "/assets/images/riftbound/cards/SFD-225.png",
         "standard": true
@@ -6313,6 +7658,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 124
   },
+  "Iterative Design": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-051.png",
+    "type": "Spell",
+    "id": "ven-051-166",
+    "publicCode": "VEN-051",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 51
+  },
   "Ivern, Friend to All": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-177.png",
     "type": "Unit",
@@ -6395,6 +7755,24 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 142
+  },
+  "Jagged Cutlass": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-073.png",
+    "type": "Gear",
+    "id": "ven-073-166",
+    "publicCode": "VEN-073",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "tags": [
+      "Equipment"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 73
   },
   "Janna, Savior": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-053.png",
@@ -6499,6 +7877,70 @@
       }
     ]
   },
+  "Jayce, Brilliant Inventor": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-068.png",
+    "type": "Unit",
+    "id": "ven-068-166",
+    "publicCode": "VEN-068",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Epic",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Jayce",
+      "Piltover"
+    ],
+    "illustrator": "Pandart Studio",
+    "collectorNumber": 68,
+    "variants": [
+      {
+        "code": "VEN-068",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-068.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-068a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-068a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Jayce, Hammer in Hand": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-088.png",
+    "type": "Unit",
+    "id": "ven-088-166",
+    "publicCode": "VEN-088",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Rare",
+    "energy": "4",
+    "might": "5",
+    "tags": [
+      "Jayce",
+      "Piltover"
+    ],
+    "illustrator": "League of Legends",
+    "collectorNumber": 88,
+    "variants": [
+      {
+        "code": "VEN-088",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-088.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-088a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-088a.png",
+        "standard": false
+      }
+    ]
+  },
   "Jayce, Man of Progress": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-084.png",
     "type": "Unit",
@@ -6517,7 +7959,19 @@
       "Piltover"
     ],
     "illustrator": "TUTU",
-    "collectorNumber": 84
+    "collectorNumber": 84,
+    "variants": [
+      {
+        "code": "SFD-084",
+        "imageUrl": "/assets/images/riftbound/cards/SFD-084.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-175",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-175.png",
+        "standard": true
+      }
+    ]
   },
   "Jeweled Colossus": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-086.png",
@@ -6625,6 +8079,11 @@
       {
         "code": "OGN-030",
         "imageUrl": "/assets/images/riftbound/cards/OGN-030.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-168",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-168.png",
         "standard": true
       },
       {
@@ -6744,6 +8203,11 @@
         "standard": true
       },
       {
+        "code": "VEN-SP1",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-SP1.png",
+        "standard": false
+      },
+      {
         "code": "OGN-039a",
         "imageUrl": "/assets/images/riftbound/cards/OGN-039a.png",
         "standard": false
@@ -6847,6 +8311,26 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 112
   },
+  "Kayle, Justified": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-134.png",
+    "type": "Unit",
+    "id": "ven-134-166",
+    "publicCode": "VEN-134",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Mount Targon",
+      "Kayle"
+    ],
+    "illustrator": "Michal Ivan",
+    "collectorNumber": 134
+  },
   "Kayn, Unleashed": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-189.png",
     "type": "Unit",
@@ -6866,6 +8350,25 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 189
+  },
+  "Keeper of Law": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-119.png",
+    "type": "Unit",
+    "id": "ven-119-166",
+    "publicCode": "VEN-119",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 119
   },
   "Keeper of Masks": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-081.png",
@@ -6940,6 +8443,71 @@
     "illustrator": "莺之歌",
     "collectorNumber": 204
   },
+  "Kennen, Keeper of Balance": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-135.png",
+    "type": "Unit",
+    "id": "ven-135-166",
+    "publicCode": "VEN-135",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "2",
+    "tags": [
+      "Yordle",
+      "Ionia",
+      "Kennen"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 135,
+    "variants": [
+      {
+        "code": "VEN-135",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-135.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-135a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-135a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Kennen, Storm of Shuriken": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-113.png",
+    "type": "Unit",
+    "id": "ven-113-166",
+    "publicCode": "VEN-113",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "3",
+    "might": "4",
+    "tags": [
+      "Yordle",
+      "Kennen"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 113,
+    "variants": [
+      {
+        "code": "VEN-113",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-113.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-113a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-113a.png",
+        "standard": false
+      }
+    ]
+  },
   "Kha'Zix, Evolving Hunter": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-119.png",
     "type": "Unit",
@@ -6963,6 +8531,11 @@
       {
         "code": "UNL-119",
         "imageUrl": "/assets/images/riftbound/cards/UNL-119.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-180",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-180.png",
         "standard": true
       },
       {
@@ -7004,6 +8577,41 @@
       }
     ]
   },
+  "Kharox": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-114.png",
+    "type": "Unit",
+    "id": "ven-114-166",
+    "publicCode": "VEN-114",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "6",
+    "might": "5",
+    "tags": [
+      "Spirit",
+      "Shadow Isles"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 114
+  },
+  "Ki Barrier": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-126.png",
+    "type": "Spell",
+    "id": "ven-126-166",
+    "publicCode": "VEN-126",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 126
+  },
   "King's Edict": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-237.png",
     "type": "Spell",
@@ -7038,6 +8646,25 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 97
   },
+  "Kinkou Lifeblade": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-093.png",
+    "type": "Unit",
+    "id": "ven-093-166",
+    "publicCode": "VEN-093",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 93
+  },
   "Kinkou Monk": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-141.png",
     "type": "Unit",
@@ -7056,6 +8683,20 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 141
+  },
+  "Kinkou Temple": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-159.png",
+    "type": "Battlefield",
+    "id": "ven-159-166",
+    "publicCode": "VEN-159",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Grafit Studio",
+    "collectorNumber": 159
   },
   "Kog'Maw, Caustic": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-190.png",
@@ -7096,6 +8737,21 @@
     ],
     "illustrator": "JiHun Lee",
     "collectorNumber": 150
+  },
+  "Lacerate": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-127.png",
+    "type": "Spell",
+    "id": "ven-127-166",
+    "publicCode": "VEN-127",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 127
   },
   "Lux, Lady of Luminosity - Starter": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-021.png",
@@ -7353,6 +9009,26 @@
       }
     ]
   },
+  "Legion Marauder": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-074.png",
+    "type": "Unit",
+    "id": "ven-074-166",
+    "publicCode": "VEN-074",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Trifarian",
+      "Noxus"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 74
+  },
   "Legion Quartermaster": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-044.png",
     "type": "Unit",
@@ -7394,12 +9070,12 @@
     "collectorNumber": 10
   },
   "Leona, Determined": {
-    "imageUrl": "/assets/images/riftbound/cards/OGN-238.png",
+    "imageUrl": "/assets/images/riftbound/cards/VEN-184.png",
     "type": "Unit",
-    "id": "ogn-238-298",
-    "publicCode": "OGN-238",
-    "set": "Origins",
-    "setCode": "OGN",
+    "id": "ven-184-166",
+    "publicCode": "VEN-184",
+    "set": "Vendetta",
+    "setCode": "VEN",
     "domain": [
       "Order"
     ],
@@ -7407,12 +9083,16 @@
     "energy": "4",
     "might": "4",
     "tags": [
-      "Leona",
-      "Mount Targon"
+      "Leona"
     ],
-    "illustrator": "Six More Vodka",
-    "collectorNumber": 238,
+    "illustrator": "Naifan Zhang",
+    "collectorNumber": 184,
     "variants": [
+      {
+        "code": "VEN-184",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-184.png",
+        "standard": true
+      },
       {
         "code": "OGN-238",
         "imageUrl": "/assets/images/riftbound/cards/OGN-238.png",
@@ -7456,6 +9136,25 @@
         "standard": false
       }
     ]
+  },
+  "Lightning Rush": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-156.png",
+    "type": "Spell",
+    "id": "ven-156-166",
+    "publicCode": "VEN-156",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order",
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "1",
+    "tags": [
+      "Kennen"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 156
   },
   "Lillia, Fae Fawn": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-082.png",
@@ -7800,7 +9499,19 @@
       "Demacia"
     ],
     "illustrator": "Envar Studio",
-    "collectorNumber": 14
+    "collectorNumber": 14,
+    "variants": [
+      {
+        "code": "OGS-014",
+        "imageUrl": "/assets/images/riftbound/cards/OGS-014.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-SP6",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-SP6.png",
+        "standard": false
+      }
+    ]
   },
   "Lux, Illuminated": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-006.png",
@@ -7986,6 +9697,46 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 114
   },
+  "Masa, Crashing Thunder": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-120.png",
+    "type": "Unit",
+    "id": "ven-120-166",
+    "publicCode": "VEN-120",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Yordle",
+      "Bandle City"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 120
+  },
+  "Mask Mother": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-094.png",
+    "type": "Unit",
+    "id": "ven-094-166",
+    "publicCode": "VEN-094",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Spirit",
+      "Shadow Isles"
+    ],
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 94
+  },
   "Mask of Foresight": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-060.png",
     "type": "Gear",
@@ -8084,6 +9835,66 @@
       }
     ]
   },
+  "Zed, Master of Shadows": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-143.png",
+    "type": "Legend",
+    "id": "ven-143-166",
+    "publicCode": "VEN-143",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury",
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Zed"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 143,
+    "variants": [
+      {
+        "code": "VEN-143",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-143.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-191",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-191.png",
+        "standard": true
+      }
+    ]
+  },
+  "Ambessa, Matriarch of War": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-153.png",
+    "type": "Legend",
+    "id": "ven-153-166",
+    "publicCode": "VEN-153",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body",
+      "Order"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Ambessa"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 153,
+    "variants": [
+      {
+        "code": "VEN-153",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-153.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-196",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-196.png",
+        "standard": true
+      }
+    ]
+  },
   "Rumble, Mechanized Menace": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-181.png",
     "type": "Legend",
@@ -8168,6 +9979,90 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 126
   },
+  "Mel, Defiant Soul": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-110.png",
+    "type": "Unit",
+    "id": "ven-110-166",
+    "publicCode": "VEN-110",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "might": "4",
+    "tags": [
+      "Noxus",
+      "Mel"
+    ],
+    "illustrator": "Pandart Studio",
+    "collectorNumber": 110,
+    "variants": [
+      {
+        "code": "VEN-110",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-110.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-188",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-188.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-110a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-110a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Mel, Newly Awakened": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-069.png",
+    "type": "Unit",
+    "id": "ven-069-166",
+    "publicCode": "VEN-069",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Epic",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Noxus",
+      "Mel"
+    ],
+    "illustrator": "Pandart Studio",
+    "collectorNumber": 69,
+    "variants": [
+      {
+        "code": "VEN-069",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-069.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-069a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-069a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Mesmerize": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-052.png",
+    "type": "Spell",
+    "id": "ven-052-166",
+    "publicCode": "VEN-052",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "1",
+    "illustrator": "小牛设计",
+    "collectorNumber": 52
+  },
   "Garen, Might of Demacia - Starter": {
     "imageUrl": "/assets/images/riftbound/cards/OGS-023.png",
     "type": "Legend",
@@ -8185,6 +10080,25 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 23
+  },
+  "Minah Swiftfoot": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-111.png",
+    "type": "Unit",
+    "id": "ven-111-166",
+    "publicCode": "VEN-111",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 111
   },
   "Mind Rune": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-089.png",
@@ -8204,6 +10118,11 @@
         "code": "OGN-089",
         "imageUrl": "/assets/images/riftbound/cards/OGN-089.png",
         "standard": true
+      },
+      {
+        "code": "VEN-R03",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-R03.png",
+        "standard": false
       },
       {
         "code": "OGN-089a",
@@ -8516,6 +10435,26 @@
     "illustrator": "Rafael Zanchetin",
     "collectorNumber": 170
   },
+  "Morgana, Vindictive": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-017.png",
+    "type": "Unit",
+    "id": "ven-017-166",
+    "publicCode": "VEN-017",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Demacia",
+      "Morgana"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 17
+  },
   "Mosstomper": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-047.png",
     "type": "Unit",
@@ -8554,6 +10493,26 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 142
+  },
+  "Mournful Witness": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-028.png",
+    "type": "Unit",
+    "id": "ven-028-166",
+    "publicCode": "VEN-028",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Fae",
+      "Ionia"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 28
   },
   "Mushroom Pouch": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-101.png",
@@ -8636,6 +10595,20 @@
     "illustrator": "Polar Engine Studio",
     "collectorNumber": 80
   },
+  "Mystic Vortex": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-160.png",
+    "type": "Battlefield",
+    "id": "ven-160-166",
+    "publicCode": "VEN-160",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Caravan Studio",
+    "collectorNumber": 160
+  },
   "Nami, Headstrong": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-052.png",
     "type": "Unit",
@@ -8655,6 +10628,77 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 52
+  },
+  "Nasus, Ascended": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-046.png",
+    "type": "Unit",
+    "id": "ven-046-166",
+    "publicCode": "VEN-046",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Epic",
+    "energy": "8",
+    "might": "8",
+    "tags": [
+      "Dog",
+      "Shurima",
+      "Nasus"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 46,
+    "variants": [
+      {
+        "code": "VEN-046",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-046.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-046a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-046a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Nasus, Guardian of Knowledge": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-063.png",
+    "type": "Unit",
+    "id": "ven-063-166",
+    "publicCode": "VEN-063",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "might": "6",
+    "tags": [
+      "Dog",
+      "Shurima",
+      "Nasus"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 63,
+    "variants": [
+      {
+        "code": "VEN-063",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-063.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-178",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-178.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-063a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-063a.png",
+        "standard": false
+      }
+    ]
   },
   "Navori Fighting Pit": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-283.png",
@@ -8821,6 +10865,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 45
   },
+  "Noxian Demolitionist": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-080.png",
+    "type": "Unit",
+    "id": "ven-080-166",
+    "publicCode": "VEN-080",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "might": "1",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Dao Trong Le",
+    "collectorNumber": 80
+  },
   "Noxian Drummer": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-222.png",
     "type": "Unit",
@@ -8840,6 +10903,25 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 222
+  },
+  "Noxian Emissary": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-128.png",
+    "type": "Unit",
+    "id": "ven-128-166",
+    "publicCode": "VEN-128",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 128
   },
   "Noxian Guillotine": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-254.png",
@@ -8900,6 +10982,25 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 18
   },
+  "Oasis Raider": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-006.png",
+    "type": "Unit",
+    "id": "ven-006-166",
+    "publicCode": "VEN-006",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "JiHun Lee",
+    "collectorNumber": 6
+  },
   "Obelisk of Power": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-284.png",
     "type": "Battlefield",
@@ -8913,6 +11014,46 @@
     "rarity": "Uncommon",
     "illustrator": "Chris Kintner",
     "collectorNumber": 284
+  },
+  "Ocean Drake": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-115.png",
+    "type": "Unit",
+    "id": "ven-115-166",
+    "publicCode": "VEN-115",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "8",
+    "might": "7",
+    "tags": [
+      "Dragon",
+      "Ionia"
+    ],
+    "illustrator": "Caravan Studio",
+    "collectorNumber": 115
+  },
+  "Ol' Poro": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-029.png",
+    "type": "Unit",
+    "id": "ven-029-166",
+    "publicCode": "VEN-029",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "4",
+    "tags": [
+      "Poro",
+      "Bandle City"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 29
   },
   "On the Hunt": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-204.png",
@@ -8932,6 +11073,21 @@
     ],
     "illustrator": "Grafit Studio",
     "collectorNumber": 204
+  },
+  "Onslaught": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-081.png",
+    "type": "Spell",
+    "id": "ven-081-166",
+    "publicCode": "VEN-081",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 81
   },
   "Orb of Regret": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-090.png",
@@ -8966,6 +11122,11 @@
         "code": "OGN-214",
         "imageUrl": "/assets/images/riftbound/cards/OGN-214.png",
         "standard": true
+      },
+      {
+        "code": "VEN-R06",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-R06.png",
+        "standard": false
       },
       {
         "code": "OGN-214a",
@@ -9052,6 +11213,25 @@
       }
     ]
   },
+  "Otterpus": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-053.png",
+    "type": "Unit",
+    "id": "ven-053-166",
+    "publicCode": "VEN-053",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Bandle City"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 53
+  },
   "Overt Operation": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-153.png",
     "type": "Spell",
@@ -9121,6 +11301,26 @@
     "illustrator": "Bubble Cat Studio",
     "collectorNumber": 135
   },
+  "Pakaa Protector": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-033.png",
+    "type": "Unit",
+    "id": "ven-033-166",
+    "publicCode": "VEN-033",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "5",
+    "might": "4",
+    "tags": [
+      "Cat",
+      "Shurima"
+    ],
+    "illustrator": "Bubble Cat Studio",
+    "collectorNumber": 33
+  },
   "Party Favors": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-071.png",
     "type": "Spell",
@@ -9135,6 +11335,27 @@
     "energy": "3",
     "illustrator": "Kudos Productions",
     "collectorNumber": 71
+  },
+  "Patched Porobot": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-058.png",
+    "type": "Unit",
+    "id": "ven-058-166",
+    "publicCode": "VEN-058",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Mech",
+      "Poro",
+      "Piltover"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 58
   },
   "Peak Guardian": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-223.png",
@@ -9155,6 +11376,24 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 223
   },
+  "Pendulum Blade": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-011.png",
+    "type": "Gear",
+    "id": "ven-011-166",
+    "publicCode": "VEN-011",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "tags": [
+      "Equipment"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 11
+  },
   "Perched Grimwyrm": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-015.png",
     "type": "Unit",
@@ -9174,6 +11413,21 @@
     ],
     "illustrator": "Kudos Productions & 黯荧岛Dark Glow",
     "collectorNumber": 15
+  },
+  "Perfect Execution": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-012.png",
+    "type": "Spell",
+    "id": "ven-012-166",
+    "publicCode": "VEN-012",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "illustrator": "莺之歌",
+    "collectorNumber": 12
   },
   "Petal Pixie": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-076.png",
@@ -9264,6 +11518,20 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 23
   },
+  "Piltovan Forge": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-161.png",
+    "type": "Battlefield",
+    "id": "ven-161-166",
+    "publicCode": "VEN-161",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 161
+  },
   "Vi, Piltover Enforcer": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-187.png",
     "type": "Legend",
@@ -9352,6 +11620,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 136
   },
+  "Platewyrm Egg": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-075.png",
+    "type": "Gear",
+    "id": "ven-075-166",
+    "publicCode": "VEN-075",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 75
+  },
   "Playful Phantom": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-049.png",
     "type": "Unit",
@@ -9371,6 +11654,26 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 49
+  },
+  "Plaza Guardian": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-064.png",
+    "type": "Unit",
+    "id": "ven-064-166",
+    "publicCode": "VEN-064",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "10",
+    "might": "8",
+    "tags": [
+      "Mech",
+      "Piltover"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 64
   },
   "Plundering Poro": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-069.png",
@@ -9729,6 +12032,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 76
   },
+  "Profiteer": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-082.png",
+    "type": "Unit",
+    "id": "ven-082-166",
+    "publicCode": "VEN-082",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Grafit Studio",
+    "collectorNumber": 82
+  },
   "Progress Day": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-114.png",
     "type": "Spell",
@@ -9759,6 +12081,39 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 115
   },
+  "Protective Sands": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-162.png",
+    "type": "Battlefield",
+    "id": "ven-162-166",
+    "publicCode": "VEN-162",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 162
+  },
+  "Public Execution": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-154.png",
+    "type": "Spell",
+    "id": "ven-154-166",
+    "publicCode": "VEN-154",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body",
+      "Order"
+    ],
+    "rarity": "Epic",
+    "energy": "2",
+    "tags": [
+      "Ambessa"
+    ],
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 154
+  },
   "Punch First": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-097.png",
     "type": "Spell",
@@ -9773,6 +12128,26 @@
     "energy": "1",
     "illustrator": "Kudos Productions",
     "collectorNumber": 97
+  },
+  "Punching Poro": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-007.png",
+    "type": "Unit",
+    "id": "ven-007-166",
+    "publicCode": "VEN-007",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Poro",
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 7
   },
   "Lucian, Purifier": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-183.png",
@@ -9888,6 +12263,21 @@
     "illustrator": "League Splash Team",
     "collectorNumber": 155
   },
+  "Questionable Tome": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-054.png",
+    "type": "Gear",
+    "id": "ven-054-166",
+    "publicCode": "VEN-054",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 54
+  },
   "Rabadon's Deathcrown": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-191.png",
     "type": "Gear",
@@ -9942,6 +12332,21 @@
         "standard": false
       }
     ]
+  },
+  "Rage Amplifier": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-018.png",
+    "type": "Gear",
+    "id": "ven-018-166",
+    "publicCode": "VEN-018",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "4",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 18
   },
   "Raging Firebrand": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-031.png",
@@ -9998,6 +12403,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 166
   },
+  "Rampage": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-083.png",
+    "type": "Spell",
+    "id": "ven-083-166",
+    "publicCode": "VEN-083",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 83
+  },
   "Ravenbloom Conservatory": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-215.png",
     "type": "Battlefield",
@@ -10011,6 +12431,25 @@
     "rarity": "Uncommon",
     "illustrator": "Will Gist",
     "collectorNumber": 215
+  },
+  "Ravenbloom Prefect": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-102.png",
+    "type": "Unit",
+    "id": "ven-102-166",
+    "publicCode": "VEN-102",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Noxus"
+    ],
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 102
   },
   "Ravenbloom Student": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-103.png",
@@ -10075,6 +12514,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 172
   },
+  "Rebuttal": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-152.png",
+    "type": "Spell",
+    "id": "ven-152-166",
+    "publicCode": "VEN-152",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind",
+      "Chaos"
+    ],
+    "rarity": "Epic",
+    "energy": "1",
+    "tags": [
+      "Mel"
+    ],
+    "illustrator": "小牛设计",
+    "collectorNumber": 152
+  },
   "Reckoner's Arena": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-286.png",
     "type": "Battlefield",
@@ -10123,7 +12581,19 @@
       "Recruit"
     ],
     "illustrator": "Six More Vodka",
-    "collectorNumber": 272
+    "collectorNumber": 272,
+    "variants": [
+      {
+        "code": "OGN-272",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-272.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-T04",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-T04.png",
+        "standard": false
+      }
+    ]
   },
   "Recruit (ZN)": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-273.png",
@@ -10375,6 +12845,25 @@
     "illustrator": "League Splash Team",
     "collectorNumber": 24
   },
+  "Reluctant Leader": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-121.png",
+    "type": "Unit",
+    "id": "ven-121-166",
+    "publicCode": "VEN-121",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "might": "3",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 121
+  },
   "Renata Glasc, Industrialist": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-171.png",
     "type": "Unit",
@@ -10439,6 +12928,75 @@
       }
     ]
   },
+  "Renekton, Brute": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-092.png",
+    "type": "Unit",
+    "id": "ven-092-166",
+    "publicCode": "VEN-092",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Epic",
+    "energy": "5",
+    "might": "4",
+    "tags": [
+      "Shurima",
+      "Renekton"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 92,
+    "variants": [
+      {
+        "code": "VEN-092",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-092.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-177",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-177.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-092a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-092a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Renekton, Rage Fueled": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-019.png",
+    "type": "Unit",
+    "id": "ven-019-166",
+    "publicCode": "VEN-019",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Shurima",
+      "Renekton"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 19,
+    "variants": [
+      {
+        "code": "VEN-019",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-019.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-019a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-019a.png",
+        "standard": false
+      }
+    ]
+  },
   "Rengar, Pouncing": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-025.png",
     "type": "Unit",
@@ -10487,6 +13045,11 @@
         "standard": true
       },
       {
+        "code": "VEN-179",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-179.png",
+        "standard": true
+      },
+      {
         "code": "UNL-120a",
         "imageUrl": "/assets/images/riftbound/cards/UNL-120a.png",
         "standard": false
@@ -10526,6 +13089,25 @@
       }
     ]
   },
+  "Repair Specialist": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-076.png",
+    "type": "Unit",
+    "id": "ven-076-166",
+    "publicCode": "VEN-076",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Zaun"
+    ],
+    "illustrator": "Dao Trong Le",
+    "collectorNumber": 76
+  },
   "Repulse": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-106.png",
     "type": "Spell",
@@ -10540,6 +13122,21 @@
     "energy": "1",
     "illustrator": "Kudos Productions",
     "collectorNumber": 106
+  },
+  "Resonating Strike": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-034.png",
+    "type": "Spell",
+    "id": "ven-034-166",
+    "publicCode": "VEN-034",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 34
   },
   "Retreat": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-104.png",
@@ -10728,6 +13325,52 @@
     "illustrator": "MAR Studio",
     "collectorNumber": 92
   },
+  "Risen Altar": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-163.png",
+    "type": "Battlefield",
+    "id": "ven-163-166",
+    "publicCode": "VEN-163",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 163
+  },
+  "Riven, Shattered": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-041.png",
+    "type": "Unit",
+    "id": "ven-041-166",
+    "publicCode": "VEN-041",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Noxus",
+      "Riven"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 41,
+    "variants": [
+      {
+        "code": "VEN-041",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-041.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-171",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-171.png",
+        "standard": true
+      }
+    ]
+  },
   "Rocket Barrage": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-077.png",
     "type": "Spell",
@@ -10756,6 +13399,36 @@
     "rarity": "Uncommon",
     "illustrator": "Polar Engine Studio",
     "collectorNumber": 216
+  },
+  "Akali, Rogue Assassin": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-139.png",
+    "type": "Legend",
+    "id": "ven-139-166",
+    "publicCode": "VEN-139",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury",
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Akali"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 139,
+    "variants": [
+      {
+        "code": "VEN-139",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-139.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-189",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-189.png",
+        "standard": true
+      }
+    ]
   },
   "Royal Entourage": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-039.png",
@@ -10916,6 +13589,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 50
   },
+  "Ruthless Strike": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-008.png",
+    "type": "Spell",
+    "id": "ven-008-166",
+    "publicCode": "VEN-008",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 8
+  },
   "Sabotage": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-156.png",
     "type": "Spell",
@@ -10930,6 +13618,26 @@
     "energy": "1",
     "illustrator": "Kudos Productions",
     "collectorNumber": 156
+  },
+  "Sacred Protector": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-129.png",
+    "type": "Unit",
+    "id": "ven-129-166",
+    "publicCode": "VEN-129",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "might": "6",
+    "tags": [
+      "Fae",
+      "Ionia"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 129
   },
   "Sacred Shears": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-172.png",
@@ -11018,6 +13726,21 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 224
   },
+  "Sanction": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-035.png",
+    "type": "Spell",
+    "id": "ven-035-166",
+    "publicCode": "VEN-035",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 35
+  },
   "Sandshifter": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-158.png",
     "type": "Unit",
@@ -11036,6 +13759,39 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 158
+  },
+  "Sandstone Chimera": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-036.png",
+    "type": "Unit",
+    "id": "ven-036-166",
+    "publicCode": "VEN-036",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "7",
+    "might": "8",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 36
+  },
+  "Sandswept Tomb": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-164.png",
+    "type": "Battlefield",
+    "id": "ven-164-166",
+    "publicCode": "VEN-164",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 164
   },
   "Scorchclaw": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-016.png",
@@ -11397,6 +14153,25 @@
     "illustrator": "Wild Blue Studios",
     "collectorNumber": 8
   },
+  "Serene Ascetic": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-030.png",
+    "type": "Unit",
+    "id": "ven-030-166",
+    "publicCode": "VEN-030",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 30
+  },
   "Serrated Dirk": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-009.png",
     "type": "Gear",
@@ -11444,6 +14219,11 @@
         "code": "SFD-232",
         "imageUrl": "/assets/images/riftbound/cards/SFD-232.png",
         "standard": true
+      },
+      {
+        "code": "VEN-SP4",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-SP4.png",
+        "standard": false
       },
       {
         "code": "OGN-164a",
@@ -11510,6 +14290,96 @@
     "illustrator": "莺之歌",
     "collectorNumber": 194
   },
+  "Shadow Assassin": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-013.png",
+    "type": "Unit",
+    "id": "ven-013-166",
+    "publicCode": "VEN-013",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "JiHun Lee",
+    "collectorNumber": 13
+  },
+  "Shadow Dash": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-148.png",
+    "type": "Spell",
+    "id": "ven-148-166",
+    "publicCode": "VEN-148",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm",
+      "Order"
+    ],
+    "rarity": "Epic",
+    "energy": "2",
+    "tags": [
+      "Shen"
+    ],
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 148
+  },
+  "Shadow Fiend": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-014.png",
+    "type": "Unit",
+    "id": "ven-014-166",
+    "publicCode": "VEN-014",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 14
+  },
+  "Shadow Order Disciple": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-095.png",
+    "type": "Unit",
+    "id": "ven-095-166",
+    "publicCode": "VEN-095",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "2",
+    "might": "2",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 95
+  },
+  "Shadow Temple": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-165.png",
+    "type": "Battlefield",
+    "id": "ven-165-166",
+    "publicCode": "VEN-165",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Grafit Studio",
+    "collectorNumber": 165
+  },
   "Shadow Watcher": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-037.png",
     "type": "Unit",
@@ -11543,6 +14413,58 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 165
+  },
+  "Shadowblade Lurker": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-096.png",
+    "type": "Unit",
+    "id": "ven-096-166",
+    "publicCode": "VEN-096",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 96
+  },
+  "Shadows of the Past": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-103.png",
+    "type": "Spell",
+    "id": "ven-103-166",
+    "publicCode": "VEN-103",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 103
+  },
+  "Shady Spectacles": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-137.png",
+    "type": "Gear",
+    "id": "ven-137-166",
+    "publicCode": "VEN-137",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Epic",
+    "energy": "4",
+    "tags": [
+      "Equipment"
+    ],
+    "illustrator": "Polar Engine Studio",
+    "collectorNumber": 137
   },
   "Shakedown": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-033.png",
@@ -11613,6 +14535,75 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 241
   },
+  "Shen, Leader of the Kinkou Order": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-138.png",
+    "type": "Unit",
+    "id": "ven-138-166",
+    "publicCode": "VEN-138",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Epic",
+    "energy": "6",
+    "might": "7",
+    "tags": [
+      "Shen",
+      "Ionia"
+    ],
+    "illustrator": "Pandart Studio",
+    "collectorNumber": 138,
+    "variants": [
+      {
+        "code": "VEN-138",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-138.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-138a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-138a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Shen, Scourge of Shadows": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-042.png",
+    "type": "Unit",
+    "id": "ven-042-166",
+    "publicCode": "VEN-042",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "might": "6",
+    "tags": [
+      "Shen",
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 42,
+    "variants": [
+      {
+        "code": "VEN-042",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-042.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-170",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-170.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-042a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-042a.png",
+        "standard": false
+      }
+    ]
+  },
   "Shepherd's Heirloom": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-158.png",
     "type": "Gear",
@@ -11650,6 +14641,21 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 175
+  },
+  "Shock Blast": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-059.png",
+    "type": "Spell",
+    "id": "ven-059-166",
+    "publicCode": "VEN-059",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 59
   },
   "Show of Strength": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-106.png",
@@ -11704,6 +14710,25 @@
     ],
     "illustrator": "Grafit Studio",
     "collectorNumber": 192
+  },
+  "Shuriken Flip": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-140.png",
+    "type": "Spell",
+    "id": "ven-140-166",
+    "publicCode": "VEN-140",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury",
+      "Calm"
+    ],
+    "rarity": "Epic",
+    "energy": "1",
+    "tags": [
+      "Akali"
+    ],
+    "illustrator": "莺之歌",
+    "collectorNumber": 140
   },
   "Sigil of the Storm": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-287.png",
@@ -11792,6 +14817,25 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 266
   },
+  "Siphoning Strike": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-146.png",
+    "type": "Spell",
+    "id": "ven-146-166",
+    "publicCode": "VEN-146",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm",
+      "Mind"
+    ],
+    "rarity": "Epic",
+    "energy": "4",
+    "tags": [
+      "Nasus"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 146
+  },
   "Sivir, Ambitious": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-120.png",
     "type": "Unit",
@@ -11855,6 +14899,25 @@
         "standard": false
       }
     ]
+  },
+  "Sky Cruiser": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-060.png",
+    "type": "Unit",
+    "id": "ven-060-166",
+    "publicCode": "VEN-060",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "might": "3",
+    "tags": [
+      "Piltover"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 60
   },
   "Sky Splitter": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-014.png",
@@ -12042,6 +15105,26 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 72
   },
+  "Solari Sunhawk": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-122.png",
+    "type": "Unit",
+    "id": "ven-122-166",
+    "publicCode": "VEN-122",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Bird",
+      "Mount Targon"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 122
+  },
   "Sona, Harmonious": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-073.png",
     "type": "Unit",
@@ -12060,7 +15143,19 @@
       "Demacia"
     ],
     "illustrator": "League Splash Team",
-    "collectorNumber": 73
+    "collectorNumber": 73,
+    "variants": [
+      {
+        "code": "OGN-073",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-073.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-SP2",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-SP2.png",
+        "standard": false
+      }
+    ]
   },
   "Soraka, Wanderer": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-173.png",
@@ -12151,6 +15246,36 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 39
   },
+  "Mel, Soul's Reflection": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-151.png",
+    "type": "Legend",
+    "id": "ven-151-166",
+    "publicCode": "VEN-151",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind",
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Mel"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 151,
+    "variants": [
+      {
+        "code": "VEN-151",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-151.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-195",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-195.png",
+        "standard": true
+      }
+    ]
+  },
   "Soulgorger": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-196.png",
     "type": "Unit",
@@ -12170,6 +15295,26 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 196
+  },
+  "Soulspinner": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-123.png",
+    "type": "Unit",
+    "id": "ven-123-166",
+    "publicCode": "VEN-123",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Shadow Isles",
+      "Spider"
+    ],
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 123
   },
   "Spectral Centaur": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-068.png",
@@ -12210,6 +15355,26 @@
     ],
     "illustrator": "Six More Vodka",
     "collectorNumber": 226
+  },
+  "Spiderling": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-097.png",
+    "type": "Unit",
+    "id": "ven-097-166",
+    "publicCode": "VEN-097",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "1",
+    "tags": [
+      "Shadow Isles",
+      "Spider"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 97
   },
   "Spinning Axe": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-186.png",
@@ -12518,6 +15683,25 @@
     "illustrator": "Polar Engine Studio",
     "collectorNumber": 107
   },
+  "Stargazer": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-098.png",
+    "type": "Unit",
+    "id": "ven-098-166",
+    "publicCode": "VEN-098",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "5",
+    "might": "4",
+    "tags": [
+      "Mount Targon"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 98
+  },
   "Starhound": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-167.png",
     "type": "Unit",
@@ -12570,6 +15754,26 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 177
+  },
+  "Steel Paws": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-043.png",
+    "type": "Unit",
+    "id": "ven-043-166",
+    "publicCode": "VEN-043",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Rare",
+    "energy": "1",
+    "might": "0",
+    "tags": [
+      "Cat",
+      "Piltover"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 43
   },
   "Stellacorn Herder": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-048.png",
@@ -12791,6 +15995,39 @@
     "illustrator": "Envar Studio",
     "collectorNumber": 59
   },
+  "Swain, Visionary": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-065.png",
+    "type": "Unit",
+    "id": "ven-065-166",
+    "publicCode": "VEN-065",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "6",
+    "might": "6",
+    "tags": [
+      "Noxus",
+      "Swain",
+      "Demon"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 65,
+    "variants": [
+      {
+        "code": "VEN-065",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-065.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-173",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-173.png",
+        "standard": true
+      }
+    ]
+  },
   "Teemo, Swift Scout": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-263.png",
     "type": "Legend",
@@ -12890,6 +16127,25 @@
     "energy": "2",
     "illustrator": "Kudos Productions",
     "collectorNumber": 175
+  },
+  "Tail-Cloaked Matriarch": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-104.png",
+    "type": "Unit",
+    "id": "ven-104-166",
+    "publicCode": "VEN-104",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 104
   },
   "Targon's Peak": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-289.png",
@@ -13029,9 +16285,9 @@
         "standard": true
       },
       {
-        "code": "SFD-230",
-        "imageUrl": "/assets/images/riftbound/cards/SFD-230.png",
-        "standard": true
+        "code": "OGN-121a",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-121a.png",
+        "standard": false
       },
       {
         "code": "SFD-230*",
@@ -13039,6 +16295,21 @@
         "standard": false
       }
     ]
+  },
+  "Temporal Breach": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-066.png",
+    "type": "Spell",
+    "id": "ven-066-166",
+    "publicCode": "VEN-066",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Mind"
+    ],
+    "rarity": "Rare",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 66
   },
   "Temporal Portal": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-078.png",
@@ -13301,6 +16572,20 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 116
   },
+  "Threshold of the Gray": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-166.png",
+    "type": "Battlefield",
+    "id": "ven-166-166",
+    "publicCode": "VEN-166",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Uncommon",
+    "illustrator": "Envar Studio",
+    "collectorNumber": 166
+  },
   "Thrill of the Hunt": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-184.png",
     "type": "Spell",
@@ -13408,6 +16693,60 @@
     "energy": "10",
     "illustrator": "Kudos Productions",
     "collectorNumber": 122
+  },
+  "Tomb-Raider Barbara": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-037.png",
+    "type": "Unit",
+    "id": "ven-037-166",
+    "publicCode": "VEN-037",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Uncommon",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Shurima"
+    ],
+    "illustrator": "Caravan Studio",
+    "collectorNumber": 37
+  },
+  "Tools of Empire": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-077.png",
+    "type": "Gear",
+    "id": "ven-077-166",
+    "publicCode": "VEN-077",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Common",
+    "energy": "4",
+    "illustrator": "Wild Blue Studios",
+    "collectorNumber": 77
+  },
+  "Tornado Warrior": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-099.png",
+    "type": "Unit",
+    "id": "ven-099-166",
+    "publicCode": "VEN-099",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Yordle",
+      "Bandle City"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 99
   },
   "Towering Combatant": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-099.png",
@@ -13690,6 +17029,55 @@
     "illustrator": "Kudos Productions",
     "collectorNumber": 70
   },
+  "Twilight Reveler": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-020.png",
+    "type": "Unit",
+    "id": "ven-020-166",
+    "publicCode": "VEN-020",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Rare",
+    "energy": "3",
+    "might": "3",
+    "tags": [
+      "Ionia"
+    ],
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 20
+  },
+  "Twilight Shroud": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-031.png",
+    "type": "Spell",
+    "id": "ven-031-166",
+    "publicCode": "VEN-031",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Calm"
+    ],
+    "rarity": "Common",
+    "energy": "1",
+    "illustrator": "小牛设计",
+    "collectorNumber": 31
+  },
+  "Twilight Step": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-105.png",
+    "type": "Spell",
+    "id": "ven-105-166",
+    "publicCode": "VEN-105",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "2",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 105
+  },
   "Twisted Fate, Gambler": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-200.png",
     "type": "Unit",
@@ -13919,6 +17307,21 @@
     "energy": "1",
     "illustrator": "Max Grecke",
     "collectorNumber": 145
+  },
+  "Up from the Deep": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-100.png",
+    "type": "Spell",
+    "id": "ven-100-166",
+    "publicCode": "VEN-100",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Common",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 100
   },
   "Upstage Comedy": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-009.png",
@@ -14271,7 +17674,19 @@
       "Piltover"
     ],
     "illustrator": "Kudos Productions",
-    "collectorNumber": 36
+    "collectorNumber": 36,
+    "variants": [
+      {
+        "code": "OGN-036",
+        "imageUrl": "/assets/images/riftbound/cards/OGN-036.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-167",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-167.png",
+        "standard": true
+      }
+    ]
   },
   "Vi, Hotheaded": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-030.png",
@@ -14379,6 +17794,11 @@
       {
         "code": "OGN-117",
         "imageUrl": "/assets/images/riftbound/cards/OGN-117.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-176",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-176.png",
         "standard": true
       },
       {
@@ -14915,6 +18335,21 @@
     "illustrator": "Six More Vodka",
     "collectorNumber": 55
   },
+  "Wild Claw": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-089.png",
+    "type": "Spell",
+    "id": "ven-089-166",
+    "publicCode": "VEN-089",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Body"
+    ],
+    "rarity": "Rare",
+    "energy": "7",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 89
+  },
   "Wildclaw Shaman": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-147.png",
     "type": "Unit",
@@ -14967,6 +18402,21 @@
     "energy": "3",
     "illustrator": "Max Grecke",
     "collectorNumber": 64
+  },
+  "Wind and Ghosts": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-106.png",
+    "type": "Spell",
+    "id": "ven-106-166",
+    "publicCode": "VEN-106",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Uncommon",
+    "energy": "3",
+    "illustrator": "Kudos Productions",
+    "collectorNumber": 106
   },
   "Windsinger": {
     "imageUrl": "/assets/images/riftbound/cards/SFD-138.png",
@@ -15129,6 +18579,20 @@
         "standard": false
       }
     ]
+  },
+  "XP Tracker": {
+    "imageUrl": "/assets/images/riftbound/cards/UNL-T08.png",
+    "type": "Unknown",
+    "id": "unl-t08",
+    "publicCode": "UNL-T08",
+    "set": "Unleashed",
+    "setCode": "UNL",
+    "domain": [
+      "Colorless"
+    ],
+    "rarity": "Common",
+    "illustrator": "Rafael Zanchetin",
+    "collectorNumber": 8
   },
   "Xerath, Freed": {
     "imageUrl": "/assets/images/riftbound/cards/UNL-026.png",
@@ -15395,6 +18859,75 @@
     "illustrator": "Envar Studio",
     "collectorNumber": 188
   },
+  "Zed, From the Shadows": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-023.png",
+    "type": "Unit",
+    "id": "ven-023-166",
+    "publicCode": "VEN-023",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Fury"
+    ],
+    "rarity": "Epic",
+    "energy": "4",
+    "might": "4",
+    "tags": [
+      "Ionia",
+      "Zed"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 23,
+    "variants": [
+      {
+        "code": "VEN-023",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-023.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-169",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-169.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-023a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-023a.png",
+        "standard": false
+      }
+    ]
+  },
+  "Zed, Without a Sound": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-112.png",
+    "type": "Unit",
+    "id": "ven-112-166",
+    "publicCode": "VEN-112",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "energy": "5",
+    "might": "5",
+    "tags": [
+      "Ionia",
+      "Zed"
+    ],
+    "illustrator": "Six More Vodka",
+    "collectorNumber": 112,
+    "variants": [
+      {
+        "code": "VEN-112",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-112.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-112a",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-112a.png",
+        "standard": false
+      }
+    ]
+  },
   "Zenith Blade": {
     "imageUrl": "/assets/images/riftbound/cards/OGN-262.png",
     "type": "Spell",
@@ -15508,5 +19041,36 @@
     ],
     "illustrator": "Kudos Productions",
     "collectorNumber": 4
+  },
+  "Kennen, Heart of the Tempest": {
+    "imageUrl": "/assets/images/riftbound/cards/VEN-155.png",
+    "type": "Legend",
+    "id": "ven-155-166",
+    "publicCode": "VEN-155",
+    "set": "Vendetta",
+    "setCode": "VEN",
+    "domain": [
+      "Order",
+      "Chaos"
+    ],
+    "rarity": "Rare",
+    "tags": [
+      "Yordle",
+      "Kennen"
+    ],
+    "illustrator": "Envar Studio",
+    "collectorNumber": 155,
+    "variants": [
+      {
+        "code": "VEN-155",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-155.png",
+        "standard": true
+      },
+      {
+        "code": "VEN-197",
+        "imageUrl": "/assets/images/riftbound/cards/VEN-197.png",
+        "standard": true
+      }
+    ]
   }
 }

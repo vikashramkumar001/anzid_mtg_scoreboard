@@ -1,0 +1,21 @@
+{
+    "_comment": "Caster Picks scene content. 4 casters in quadrant order: top-left, top-right, bottom-left, bottom-right. Each pick resolves by explicit `image` path first, then by `name` lookup in /data/riftbound/riftboundCardNames.json. `photo` null falls back to the slot's current PSD photo layer (logan / naomi / julian / steph — the bg's baked photos are a stale take and always stay covered). To swap a photo, set `photo` to an asset path and optionally override placement with photoX/photoY/photoW/photoH (defaults are the PSD slot bounds).",
+    "casters": [
+        { "photo": null, "picks": [
+            { "name": "Elder Dragon",          "image": "/assets/images/riftbound/cards/UNL-118.png" },
+            { "name": "Vex, Apathetic",        "image": "/assets/images/riftbound/cards/UNL-150.png" }
+        ] },
+        { "photo": null, "picks": [
+            { "name": "Vex, Apathetic",        "image": "/assets/images/riftbound/cards/UNL-150.png" },
+            { "name": "Star-Crossed",          "image": "/assets/images/riftbound/cards/UNL-128.png" }
+        ] },
+        { "photo": null, "picks": [
+            { "name": "Heedless Resurrection", "image": "/assets/images/riftbound/cards/UNL-142.png" },
+            { "name": "Ashe, Focused",         "image": "/assets/images/riftbound/cards/UNL-169.png" }
+        ] },
+        { "photo": null, "picks": [
+            { "name": "Baron Nashor",          "image": "/assets/images/riftbound/cards/UNL-147.png" },
+            { "name": "Hwei, Brooding Painter", "image": "/assets/images/riftbound/cards/UNL-080.png" }
+        ] }
+    ]
+}

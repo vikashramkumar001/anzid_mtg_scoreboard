@@ -12,6 +12,7 @@ window.VENDOR_CONFIG = {
         ],
         riftbound: [
             { value: 'default', label: 'Default (CSL)' },
+            { value: 'uvs-unleashed', label: 'UVS - Unleashed' },
             { value: 'atomic-legacy', label: 'Atomic Legacy' },
             { value: 'dsg', label: 'DSG' },
             { value: 'tes', label: 'TES' },
@@ -518,6 +519,78 @@ window.VENDOR_CONFIG = {
             },
         },
         riftbound: {
+            // 'uvs-unleashed' = UVS - Unleashed look. Identical to the default
+            // layout (same grid, sections and corner ornaments) — it only swaps
+            // the decklist background to the Unleashed motion loop. Everything
+            // else inherits from `default` via getOverrides()'s fallback merge.
+            // The bg video is applied by broadcast-round-main-deck.js, which
+            // reads --rb-dl-bg-video and sets #riftbound-dl-video.src.
+            'uvs-unleashed': {
+                '--rb-dl-bg-video': '/assets/animations/riftbound/decklist/frame/riftbound-decklist-bg-uvs-unleashed-1v1.mp4',
+
+                '1v1': {
+                    // ── Top-8 bracket (/display/bracket/top8) ─────────
+                    // RQ Sydney UNLEASHED reskin of bracket-full-display.
+                    // Source PSD: RFB_Bracket_UNL.psd. All chrome is baked
+                    // into the full-page #bracket-frame PNG
+                    // (bracket/riftbound-bracket-frame-uvs-unleashed-1v1.png,
+                    // see assetVendorOwns); these vars position the DOM
+                    // slots over the baked 555x124 match boxes. Inner slot
+                    // layout (name/legend/runes/score offsets) lives in the
+                    // body-attr-gated block in bracket-full-display.css.
+                    //
+                    // PSD match boxes (Base 555x124): QF column x=65 at
+                    // y 200/350/500/650, SF column x=710 at y 275/575,
+                    // GF x=1319 y 425. Player row 2 = row 1 top + 62.
+                    '--bracket-font':              "'Beaufort for LoL'",
+                    '--bracket-font-weight':       '700',
+                    '--archetype-font-style':      'normal',
+                    '--archetype-font-weight':     '500',
+                    '--bracket-text-color':        'rgba(255, 255, 255, 1)',
+                    '--bracket-text-color-faded':  'rgba(255, 255, 255, 0.5)',
+                    // Navy digits on the baked gold score box (sampled
+                    // from the PSD composite at the GF score digits).
+                    '--bracket-score-color':       '#161f30',
+
+                    '--bracket-slot-width':        '555px',
+                    '--bracket-slot-height':       '56px',
+
+                    // QF Match 1 (seeds 1 v 8) — box 65,200
+                    '--slot-bracket-quarterfinal-1-top':  '200px',
+                    '--slot-bracket-quarterfinal-1-left': '65px',
+                    '--slot-bracket-quarterfinal-8-top':  '262px',
+                    '--slot-bracket-quarterfinal-8-left': '65px',
+                    // QF Match 2 (4 v 5) — box 65,350
+                    '--slot-bracket-quarterfinal-4-top':  '350px',
+                    '--slot-bracket-quarterfinal-4-left': '65px',
+                    '--slot-bracket-quarterfinal-5-top':  '412px',
+                    '--slot-bracket-quarterfinal-5-left': '65px',
+                    // QF Match 3 (2 v 7) — box 65,500
+                    '--slot-bracket-quarterfinal-2-top':  '500px',
+                    '--slot-bracket-quarterfinal-2-left': '65px',
+                    '--slot-bracket-quarterfinal-7-top':  '562px',
+                    '--slot-bracket-quarterfinal-7-left': '65px',
+                    // QF Match 4 (3 v 6) — box 65,650
+                    '--slot-bracket-quarterfinal-3-top':  '650px',
+                    '--slot-bracket-quarterfinal-3-left': '65px',
+                    '--slot-bracket-quarterfinal-6-top':  '712px',
+                    '--slot-bracket-quarterfinal-6-left': '65px',
+                    // SF — boxes 710,275 and 710,575
+                    '--slot-bracket-semifinal-1a-top':    '275px',
+                    '--slot-bracket-semifinal-1a-left':   '710px',
+                    '--slot-bracket-semifinal-1b-top':    '337px',
+                    '--slot-bracket-semifinal-1b-left':   '710px',
+                    '--slot-bracket-semifinal-2a-top':    '575px',
+                    '--slot-bracket-semifinal-2a-left':   '710px',
+                    '--slot-bracket-semifinal-2b-top':    '637px',
+                    '--slot-bracket-semifinal-2b-left':   '710px',
+                    // GF — box 1319,425
+                    '--slot-bracket-final-1a-top':        '425px',
+                    '--slot-bracket-final-1a-left':       '1319px',
+                    '--slot-bracket-final-1b-top':        '487px',
+                    '--slot-bracket-final-1b-left':       '1319px',
+                },
+            },
             // ── riftbound + default vendor ────────────────────────────────
             // 'default' = current active layout (CSL Bologna event).
             // Single column of 10 rows, large character art on left,
@@ -844,7 +917,7 @@ window.VENDOR_CONFIG = {
                     //    top = 186.5 − height/2 = 186.5 − 5.5 = 181.
                     //    Font: PSD 12pt → 12px (shared with legend name).
                     '--rb-champion-display':   'flex',
-                    '--rb-champion-top':       '181px',
+                    '--rb-champion-top':       '207px',   // BOTTOM row (legend/champion rows swapped 2026-06 to match frame icons)
                     '--rb-champion-side':      '36px',
                     '--rb-champion-width':     '282px',
                     '--rb-champion-height':    '11px',
@@ -853,7 +926,7 @@ window.VENDOR_CONFIG = {
                     //    (PSD "volibear, relentless storm" bbox y=208-219,
                     //     center 213.5). top = 213.5 − 6.5 = 207.
                     //    Font: PSD 12pt → 12px.
-                    '--rb-legend-top':         '207px',
+                    '--rb-legend-top':         '179px',   // TOP row (legend/champion rows swapped 2026-06; nudged -2px per user)
                     '--rb-legend-side':        '36px',
                     '--rb-legend-width':       '282px',
                     '--rb-legend-height':      '13px',
@@ -1693,6 +1766,7 @@ window.VENDOR_CONFIG = {
                     '--rb-dl-main-top': '39px',
                     '--rb-dl-main-left': '661px',
                     '--rb-dl-main-width': '1225px',
+                    '--rb-dl-sb-off-shift': '0px',
                     '--rb-dl-main-height': '600px',
                     '--rb-dl-main-row-gap': '20px',
                     '--rb-dl-main-col-gap': '12px',
@@ -2206,6 +2280,7 @@ window.VENDOR_CONFIG = {
                     '--rb-dl-main-top': '39px',
                     '--rb-dl-main-left': '661px',
                     '--rb-dl-main-width': '1225px',
+                    '--rb-dl-sb-off-shift': '0px',
                     '--rb-dl-main-height': '600px',
                     '--rb-dl-main-row-gap': '20px',
                     '--rb-dl-main-col-gap': '12px',
@@ -2533,6 +2608,7 @@ window.VENDOR_CONFIG = {
                 '--rb-dl-main-top': '39px',
                 '--rb-dl-main-left': '661px',
                 '--rb-dl-main-width': '1225px',
+                '--rb-dl-sb-off-shift': '0px',
                 '--rb-dl-main-height': '600px',
                 '--rb-dl-main-row-gap': '20px',
                 '--rb-dl-main-col-gap': '12px',
@@ -2736,11 +2812,55 @@ window.VENDOR_CONFIG = {
         return this.gameVendors[game] || [{ value: 'default', label: 'Default' }];
     },
 
+    // Some vendors ship NO image/video/mask asset FILES of their own and
+    // reuse another vendor's. Their on-screen look can still differ via the
+    // CSS-var overrides in `overrides`; only the underlying asset files are
+    // shared. e.g. 'uvs-unleashed' is a clone of 'default' that swaps just
+    // the decklist background video (a CSS var, --rb-dl-bg-video) — every
+    // other asset must resolve to 'default' so it doesn't 404 on
+    // `…-uvs-unleashed-1v1.*` files that were never created.
+    assetVendorAlias: {
+        'uvs-unleashed': 'default',
+    },
+
+    // Assets an aliased vendor has RESKINNED with its own files. Matched as
+    // substrings of the asset path passed to getAssetPath(). As each scene is
+    // reskinned, add its asset-path fragments here — the vendor then uses its
+    // own UNLEASHED art for those, and still falls back to default everywhere
+    // else (so nothing 404s mid-migration).
+    assetVendorOwns: {
+        'uvs-unleashed': [
+            'standings/riftbound-standings-bg',
+            'standings/riftbound-standings-char',
+            'standings/riftbound-standings-frame',
+            'bracket/riftbound-bracket-bg',
+            'bracket/riftbound-bracket-frame',
+        ],
+    },
+
+    // Resolve a vendor to the vendor whose asset FILES should be used.
+    // Use this anywhere an asset path is built from the vendor name. NOTE: this
+    // path-less form always falls back to the alias; getAssetPath() does the
+    // per-asset owns-list check (since it has the path).
+    resolveAssetVendor(vendor) {
+        const v = vendor || 'default';
+        return this.assetVendorAlias[v] || v;
+    },
+
     // Returns the asset path with vendor + player count suffix
     // e.g., getAssetPath('/assets/images/mtg/bracket/bracket-frame.png', 'dsg', '1v1')
     //     → '/assets/images/mtg/bracket/bracket-frame-dsg-1v1.png'
+    // The vendor is run through resolveAssetVendor() first, so asset-aliased
+    // vendors (e.g. uvs-unleashed → default) point at files that exist.
     getAssetPath(basePath, vendor, playerCount) {
-        const v = vendor || 'default';
+        // Aliased vendors borrow default's files UNLESS they own this specific
+        // asset (reskinned) — see assetVendorOwns.
+        let v = vendor || 'default';
+        const alias = this.assetVendorAlias[v];
+        if (alias) {
+            const owns = (this.assetVendorOwns[v] || []).some(frag => basePath.includes(frag));
+            if (!owns) v = alias;
+        }
         const p = playerCount || '1v1';
         const suffix = '-' + v + '-' + p;
         const lastDot = basePath.lastIndexOf('.');

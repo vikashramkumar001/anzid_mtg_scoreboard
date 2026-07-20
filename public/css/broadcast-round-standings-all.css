@@ -854,8 +854,19 @@ body[data-game="riftbound"][data-vendor="atomic-legacy"][data-player-count="1v1"
    PSD source: 1920×1080 "Leaderboard" group at x=749 width=1078,
    rows step y=153 → 783 (pitch 70).
    ────────────────────────────────────────────────────────────────────── */
-body[data-game="riftbound"][data-vendor="default"][data-player-count="1v1"] {
+body[data-game="riftbound"][data-vendor="default"][data-player-count="1v1"],
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] {
     padding: 0 !important;
+
+    /* Page transitions: the ROWS do the motion (rowReveal cascade below), so the
+       panel itself must NOT slide — fade the outgoing page out, no slide on the
+       incoming. The CSL default gets these from vendor-config (JS); set them
+       here too so uvs-unleashed — which doesn't inherit that vendor's overrides —
+       stops falling back to the default left-slide and gets the fade + cascade. */
+    --standings-page-anim-in: none;
+    --standings-page-anim-out: fadeOut;
+    --standings-page-anim-duration: 0.5s;
+    --standings-page-anim-easing: ease-out;
 
     /* Full-canvas frame overlay — panel chrome / borders / row dividers
        baked into a transparent 1920×1080 PNG. Same body::before pattern
@@ -932,6 +943,26 @@ body[data-game="riftbound"][data-vendor="default"][data-player-count="1v1"] {
     .standings-wrapper-el > .round-standings-container:nth-child(n+11) {
         display: none !important;
     }
+
+    /* Page-entrance cascade — when a page slides in (P2/P3/P4 via slideTo in
+       broadcast-round-standings-combined.js), its 10 rows fade + rise in
+       sequentially, 50ms apart (9×50 + 500 = 950ms, inside the 1000ms slideTo
+       window). The outgoing page fades out (--standings-page-anim-out: fadeOut
+       from vendor-config). Single-column equivalent of the atomic-legacy
+       2-column cascade. `backwards` holds row N hidden until its delay starts. */
+    .standings-page.slide-in .round-standings-container {
+        animation: rowReveal 0.5s ease-out backwards;
+    }
+    .standings-page.slide-in .round-standings-container:nth-child(1)  { animation-delay:   0ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(2)  { animation-delay:  50ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(3)  { animation-delay: 100ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(4)  { animation-delay: 150ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(5)  { animation-delay: 200ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(6)  { animation-delay: 250ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(7)  { animation-delay: 300ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(8)  { animation-delay: 350ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(9)  { animation-delay: 400ms; }
+    .standings-page.slide-in .round-standings-container:nth-child(10) { animation-delay: 450ms; }
 
     /* Per-row internal columns ───────────────────────────────────── */
     /* Weight calibration (operator spec):
@@ -1193,6 +1224,26 @@ body[data-game="riftbound"][data-vendor="default"][data-player-count="1v1"] {
         content: var(--rb-stand-footer-hashtag-text-suffix, "");
         color: var(--rb-stand-footer-hashtag-suffix-color, inherit);
     }
+}
+
+/* UVS - Unleashed standings shares the default (CSL Bologna) single-column
+   layout block above — same row/column/header/legend/footer coordinates (the
+   Sydney art was designed to the same grid). Only the frame-chrome PNG differs.
+   The shared block's ::before points at the default frame; override just the
+   background-image here. Same selector specificity as the shared rule but
+   declared later, so it wins for uvs-unleashed. bg + character PNGs are
+   swapped separately via getAssetPath's assetVendorOwns list. */
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"]::before {
+    background-image: url('/assets/images/riftbound/standings/riftbound-standings-frame-uvs-unleashed-1v1.png');
+}
+
+/* The UNLEASHED frame bakes the complete footer (SWISS STANDINGS label,
+   Regional Qualifier Sydney logo, SHARE YOUR STORY, #RQSydney) — and the PSD
+   has NO round-number slot, so the entire DOM footer is redundant for uvs.
+   Hide it (the shared default block turns it on via --rb-stand-footer-display:
+   flex inherited from CSL) so only the baked Sydney branding shows. */
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] #standings-footer {
+    display: none !important;
 }
 
 

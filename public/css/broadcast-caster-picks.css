@@ -1,0 +1,57 @@
+/* Caster Picks — UNLEASHED (RQ Sydney) broadcast scene.
+ * Fixed 1920x1080 stage, absolute positions at exact PSD pixel coords.
+ * Layering (PSD order): bg (truth composite incl. baked caster photos)
+ * -> card picks -> caster photos (roster-swap DOM imgs, over the cards)
+ * -> chrome frame (leaf dividers + divider bars + footer + UNLEASHED logo).
+ * The scene has no dynamic text — all captions are baked into bg/frame. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+#cp-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+/* Shared CSS ships a global `* { font-family: var(...) }` that beats
+ * inheritance — force Beaufort on anything inside the stage (alt text,
+ * future labels). */
+#cp-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#cp-bg,
+#cp-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+#cp-bg     { z-index: 1; }
+#cp-cards  { position: absolute; inset: 0; z-index: 2; }
+#cp-photos { position: absolute; inset: 0; z-index: 3; }
+#cp-frame  { z-index: 4; pointer-events: none; }
+
+/* Card pick — exact per-slot geometry is set inline by JS (slots differ by
+ * a pixel in the PSD). Card PNGs carry their own rounded corners. */
+.cp-card {
+    position: absolute;
+    object-fit: fill;
+}
+
+/* Caster photo — PSD-native bounds set inline by JS; photos bleed past the
+ * canvas edges (stage overflow crops) and tuck under the footer chrome. */
+.cp-photo {
+    position: absolute;
+    object-fit: fill;
+}

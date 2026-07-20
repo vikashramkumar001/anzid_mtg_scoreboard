@@ -1,0 +1,16 @@
+{
+    "format": "constructed",
+    "day1": {
+        "title": "DAY one",
+        "headline": "SWISS PLAY",
+        "subline": "eight rounds",
+        "note": "6 wins to advance"
+    },
+    "day2": {
+        "title": "DAY TWO",
+        "headline": "SWISS PLAY",
+        "subline": "five rounds",
+        "headline2": "top 8",
+        "subline2": "single elimination"
+    }
+}

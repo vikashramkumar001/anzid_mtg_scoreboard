@@ -1,0 +1,24 @@
+{
+  "matches": [
+    {
+      "left":  { "name": "Firstname Lastname", "deck": "Master Yi, Wuju Bladesman", "domains": ["Calm", "Body"] },
+      "right": { "name": "Firstname Lastname", "deck": "Master Yi, Wuju Bladesman", "domains": ["Calm", "Body"] },
+      "selected": null
+    },
+    {
+      "left":  { "name": "Firstname Lastname", "deck": "Master Yi, Wuju Bladesman", "domains": ["Calm", "Body"] },
+      "right": { "name": "Firstname Lastname", "deck": "Master Yi, Wuju Bladesman", "domains": ["Calm", "Body"] },
+      "selected": null
+    },
+    {
+      "left":  { "name": "Firstname Lastname", "deck": "Master Yi, Wuju Bladesman", "domains": ["Calm", "Body"] },
+      "right": { "name": "Firstname Lastname", "deck": "Master Yi, Wuju Bladesman", "domains": ["Calm", "Body"] },
+      "selected": null
+    },
+    {
+      "left":  { "name": "Firstname Lastname", "deck": "Master Yi, Wuju Bladesman", "domains": ["Calm", "Body"] },
+      "right": { "name": "Firstname Lastname", "deck": "Master Yi, Wuju Bladesman", "domains": ["Calm", "Body"] },
+      "selected": null
+    }
+  ]
+}

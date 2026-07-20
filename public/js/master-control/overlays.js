@@ -84,6 +84,13 @@ export function initOverlayUpload(socket) {
     socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
         // console.log('Overlay header background image:', newImageUrl);
 
+        // null = no overlay uploaded for the current game
+        if (!newImageUrl) {
+            currentHeaderImage.removeAttribute('src');
+            currentHeaderImage.style.display = 'none';
+            return;
+        }
+
         // Update the currently set image
         currentHeaderImage.src = newImageUrl; // Set the src to the new image URL
         currentHeaderImage.style.display = 'block'; // Display the image
@@ -158,6 +165,11 @@ export function initOverlayUpload(socket) {
     // Listen for footer background image update
     socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
         // console.log('Overlay footer background image:', newImageUrl);
+        if (!newImageUrl) {
+            currentFooterImage.removeAttribute('src');
+            currentFooterImage.style.display = 'none';
+            return;
+        }
         currentFooterImage.src = newImageUrl;
         currentFooterImage.style.display = 'block';
     });

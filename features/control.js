@@ -1,5 +1,5 @@
 import {promises as fs} from 'fs';
-import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection, getVendorSelection, setVendorSelection, getPlayerCount, setPlayerCount} from '../config/constants.js';
+import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection, getVendorSelection, setVendorSelection, getPlayerCount, setPlayerCount, getSideboardVisible, setSideboardVisible} from '../config/constants.js';
 import {getSortedArchetypes} from './archetypes.js';
 import {emitBroadcastStandings} from "./standings.js";
 import { RoomUtils } from '../utils/room-utils.js';
@@ -347,6 +347,20 @@ export function emitUpdatedPlayerCount(io) {
 export function updatePlayerCount(playerCount, io) {
     setPlayerCount(playerCount);
     emitUpdatedPlayerCount(io);
+}
+
+// sideboard-visible handlers (global show/hide of the decklist sideboard)
+export function emitCurrentSideboardVisible(io) {
+    RoomUtils.emitWithRoomMapping(io, 'server-current-sideboard-visible', {sideboardVisible: getSideboardVisible()})
+}
+
+export function emitUpdatedSideboardVisible(io) {
+    RoomUtils.emitWithRoomMapping(io, 'sideboard-visible-updated', {sideboardVisible: getSideboardVisible()})
+}
+
+export function updateSideboardVisible(sideboardVisible, io) {
+    setSideboardVisible(sideboardVisible);
+    emitUpdatedSideboardVisible(io);
 }
 
 

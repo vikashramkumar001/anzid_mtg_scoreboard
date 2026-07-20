@@ -1,0 +1,317 @@
+{
+  "default": "vex",
+  "legends": {
+    "vex": {
+      "legend": "Vex, Gloomist",
+      "name": "Vex",
+      "subtitle": "Apathetic",
+      "cards": [
+        {
+          "label": "Vex - Apathetic",
+          "name": "Vex, Apathetic"
+        },
+        {
+          "label": "Back Off",
+          "name": "Back Off"
+        },
+        {
+          "label": "Boots of Swiftness",
+          "name": "Boots of Swiftness"
+        }
+      ],
+      "bullets": [
+        "Vex uses the Calm defensive cards to be a Holding POWERHOUSE.",
+        "Stun spells can also be used offensively.",
+        "Boots of Swiftness or Vilemaw can give you offensive pushes, whilst controlling the game."
+      ]
+    },
+    "leblanc": {
+      "legend": "LeBlanc, Deceiver",
+      "name": "LeBlanc",
+      "subtitle": "Deceiver",
+      "cards": [
+        {
+          "label": "Leblanc - Fragmented",
+          "name": "LeBlanc, Fragmented"
+        },
+        {
+          "label": "Karthus - Eternal",
+          "name": "Karthus, Eternal"
+        },
+        {
+          "label": "Rift- Herald",
+          "name": "Rift Herald"
+        }
+      ],
+      "bullets": [
+        "Gains advantage through reflection unit tokens of deathknell units.",
+        "Multiple high-cost units and a lot of ramp can give the deck early power turns.",
+        "Gets consistency from sacrifce-type spells and stacking deathknells with Karthus Eternal."
+      ]
+    },
+    "master-yi": {
+      "legend": "Master Yi, Wuju Bladesman",
+      "name": "Master Yi",
+      "subtitle": "Wuju Bladesman",
+      "cards": [
+        {
+          "label": "Master Yi - Tempered",
+          "name": "Master Yi, Tempered"
+        },
+        {
+          "label": "Rengar - Trophy Hunter",
+          "name": "Rengar, Trophy Hunter"
+        },
+        {
+          "label": "Ruin Runner",
+          "name": "Ruin Runner"
+        }
+      ],
+      "bullets": [
+        "Overpower battlefields with combat tricks and then hold from the defensive Legend ability.",
+        "Can use high Might units with Trinity Force to accelerate points.",
+        "When you conquer a Battlefield with Rengar Trophy Hunter it effectively becomes an 8 might unit for 5 Energy 1 Power."
+      ]
+    },
+    "lucian": {
+      "legend": "Lucian, Purifier",
+      "name": "Lucian",
+      "subtitle": "Merciless",
+      "cards": [
+        {
+          "label": "Lucian - Merciless",
+          "name": "Lucian, Merciless"
+        },
+        {
+          "label": "Skyfall of Areion",
+          "name": "Skyfall of Areion"
+        },
+        {
+          "label": "Ruin Runner",
+          "name": "Ruin Runner"
+        }
+      ],
+      "bullets": [
+        "Aggressive combo deck that excels in combat with fewer units.",
+        "Skyfall of Areion and Trinity Force make you catch up easily when behind.",
+        "An equipped Ruin Runner that can dodge showdowns can auto-win a lot of Matchups"
+      ]
+    },
+    "akali": {
+      "legend": "Akali, Rogue Assassin",
+      "name": "Akali",
+      "subtitle": "Rogue Assassin",
+      "cards": [
+        {
+          "label": "Akali - Deadly Weapon",
+          "name": "Akali, Deadly Weapon"
+        },
+        {
+          "label": "Akali - Silent",
+          "name": "Akali, Silent"
+        },
+        {
+          "label": "Akali - Rogue Assassin",
+          "name": "Akali, Rogue Assassin"
+        }
+      ],
+      "bullets": [
+        "Fury / Calm legend from the new Vendetta set.",
+        "Champion units: Deadly Weapon and Silent.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    },
+    "renekton": {
+      "legend": "Renekton, Butcher of the Sands",
+      "name": "Renekton",
+      "subtitle": "Butcher of the Sands",
+      "cards": [
+        {
+          "label": "Renekton - Brute",
+          "name": "Renekton, Brute"
+        },
+        {
+          "label": "Renekton - Rage Fueled",
+          "name": "Renekton, Rage Fueled"
+        },
+        {
+          "label": "Renekton - Butcher of the Sands",
+          "name": "Renekton, Butcher of the Sands"
+        }
+      ],
+      "bullets": [
+        "Fury / Body legend from the new Vendetta set.",
+        "Champion units: Brute and Rage Fueled.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    },
+    "zed": {
+      "legend": "Zed, Master of Shadows",
+      "name": "Zed",
+      "subtitle": "Master of Shadows",
+      "cards": [
+        {
+          "label": "Zed - From the Shadows",
+          "name": "Zed, From the Shadows"
+        },
+        {
+          "label": "Zed - Without a Sound",
+          "name": "Zed, Without a Sound"
+        },
+        {
+          "label": "Zed - Master of Shadows",
+          "name": "Zed, Master of Shadows"
+        }
+      ],
+      "bullets": [
+        "Fury / Chaos legend from the new Vendetta set.",
+        "Champion units: From the Shadows and Without a Sound.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    },
+    "nasus": {
+      "legend": "Nasus, Curator of the Sands",
+      "name": "Nasus",
+      "subtitle": "Curator of the Sands",
+      "cards": [
+        {
+          "label": "Nasus - Ascended",
+          "name": "Nasus, Ascended"
+        },
+        {
+          "label": "Nasus - Guardian of Knowledge",
+          "name": "Nasus, Guardian of Knowledge"
+        },
+        {
+          "label": "Nasus - Curator of the Sands",
+          "name": "Nasus, Curator of the Sands"
+        }
+      ],
+      "bullets": [
+        "Calm / Mind legend from the new Vendetta set.",
+        "Champion units: Ascended and Guardian of Knowledge.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    },
+    "shen": {
+      "legend": "Shen, Eye of Twilight",
+      "name": "Shen",
+      "subtitle": "Eye of Twilight",
+      "cards": [
+        {
+          "label": "Shen - Leader of the Kinkou Order",
+          "name": "Shen, Leader of the Kinkou Order"
+        },
+        {
+          "label": "Shen - Scourge of Shadows",
+          "name": "Shen, Scourge of Shadows"
+        },
+        {
+          "label": "Shen - Eye of Twilight",
+          "name": "Shen, Eye of Twilight"
+        }
+      ],
+      "bullets": [
+        "Calm / Order legend from the new Vendetta set.",
+        "Champion units: Leader of the Kinkou Order and Scourge of Shadows.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    },
+    "jayce": {
+      "legend": "Jayce, Defender of Tomorrow",
+      "name": "Jayce",
+      "subtitle": "Defender of Tomorrow",
+      "cards": [
+        {
+          "label": "Jayce - Brilliant Inventor",
+          "name": "Jayce, Brilliant Inventor"
+        },
+        {
+          "label": "Jayce - Hammer in Hand",
+          "name": "Jayce, Hammer in Hand"
+        },
+        {
+          "label": "Jayce - Defender of Tomorrow",
+          "name": "Jayce, Defender of Tomorrow"
+        }
+      ],
+      "bullets": [
+        "Mind / Body legend from the new Vendetta set.",
+        "Champion units: Brilliant Inventor and Hammer in Hand.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    },
+    "mel": {
+      "legend": "Mel, Soul's Reflection",
+      "name": "Mel",
+      "subtitle": "Soul's Reflection",
+      "cards": [
+        {
+          "label": "Mel - Defiant Soul",
+          "name": "Mel, Defiant Soul"
+        },
+        {
+          "label": "Mel - Newly Awakened",
+          "name": "Mel, Newly Awakened"
+        },
+        {
+          "label": "Mel - Soul's Reflection",
+          "name": "Mel, Soul's Reflection"
+        }
+      ],
+      "bullets": [
+        "Mind / Chaos legend from the new Vendetta set.",
+        "Champion units: Defiant Soul and Newly Awakened.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    },
+    "ambessa": {
+      "legend": "Ambessa, Matriarch of War",
+      "name": "Ambessa",
+      "subtitle": "Matriarch of War",
+      "cards": [
+        {
+          "label": "Ambessa - Respected and Feared",
+          "name": "Ambessa, Respected and Feared"
+        },
+        {
+          "label": "Ambessa - The Wolf",
+          "name": "Ambessa, The Wolf"
+        },
+        {
+          "label": "Ambessa - Matriarch of War",
+          "name": "Ambessa, Matriarch of War"
+        }
+      ],
+      "bullets": [
+        "Body / Order legend from the new Vendetta set.",
+        "Champion units: Respected and Feared and The Wolf.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    },
+    "kennen": {
+      "legend": "Kennen, Heart of the Tempest",
+      "name": "Kennen",
+      "subtitle": "Heart of the Tempest",
+      "cards": [
+        {
+          "label": "Kennen - Keeper of Balance",
+          "name": "Kennen, Keeper of Balance"
+        },
+        {
+          "label": "Kennen - Storm of Shuriken",
+          "name": "Kennen, Storm of Shuriken"
+        },
+        {
+          "label": "Kennen - Heart of the Tempest",
+          "name": "Kennen, Heart of the Tempest"
+        }
+      ],
+      "bullets": [
+        "Order / Chaos legend from the new Vendetta set.",
+        "Champion units: Keeper of Balance and Storm of Shuriken.",
+        "Edit deck notes in scene-content/legend-spotlight.json before showtime."
+      ]
+    }
+  }
+}

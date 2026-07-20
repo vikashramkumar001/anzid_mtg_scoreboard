@@ -33,12 +33,10 @@ const OBS_WS_PASSWORD = 'RRWtUPVpGf6myRvx';
 const RECONNECT_INTERVAL = 5000;
 
 // Scene name mappings. Note: Metagame intentionally lives OUTSIDE the
-// "Event Slides - *" group — operator's OBS uses the full stinger
-// transition into Metagame (rather than the fast inter-Event-Slides
-// crossfade), so the 1400ms METAGAME_DELAY still applies. The schedule
-// delay branches on the FROM scene's "Event Slides" prefix; Metagame's
-// rename means transitioning Metagame → Schedule correctly resolves to
-// the long 1800ms delay (full stinger play-out).
+// "Event Slides - *" group — operator's OBS uses the full stinger transition
+// into Metagame (rather than the fast inter-Event-Slides crossfade). The
+// entrance delay is now read live from that transition (computeScheduleDelay),
+// so it tracks whatever stinger is configured — no fixed per-scene number.
 const METAGAME_SCENE = 'Metagame - Current Round';
 const BRACKET_SCENE = 'Bracket - Top 8';
 const SCHEDULE_SCENE = 'Event Slides - Schedule';
@@ -62,13 +60,15 @@ let reconnectTimer = null;
 let wasOnStandings = false;
 let lastProgramScene = null;
 
-const METAGAME_DELAY = 1400;
+// Standings leave-reset delay (off-screen, ms). Kept fixed on purpose — it's
+// about when to reset the standings data AFTER cutting away, not an entrance.
 const STANDINGS_DELAY = 2000;
-// Bracket scene: delay between transition start and the replay trigger so
-// the OBS cut finishes before the display page begins its reveal. Matches
-// the metagame/standings latency — 1400 ms leaves enough room for a
-// stinger transition to complete.
-const BRACKET_DELAY = 1400;
+// NOTE: metagame, bracket, and decklist entrance delays are no longer fixed
+// constants. They all run through computeScheduleDelay(transitionInfo) — the
+// same live-transition-aware path the schedule uses — so they auto-adapt to the
+// stinger with zero hand-tuning. The single stinger knob is SCHEDULE_STINGER_OFFSET
+// (the stinger's visual tail past transition_point); transition_point itself is
+// read live from OBS per cut.
 // Schedule scene — delay before the entrance animation fires. Computed
 // per-transition based on what OBS reports for the transition that
 // just started. Three cases (computeScheduleDelay below):
@@ -126,6 +126,12 @@ let scheduleAnimateTimer = null;
 const SCHEDULE_LEAVE_DELAY = 400;
 let scheduleLeaveTimer = null;
 
+// Decklist entrance emit timer — cancelled on every scene change (like the
+// schedule timer) so rapid cuts between decklist scenes (e.g. Match 1 Red →
+// Match 1 Blue) only fire the latest one, never a stale emit on a scene
+// that's no longer in program.
+let deckAnimateTimer = null;
+
 // Compute the schedule entrance-animation delay from the transition
 // info that OBS reports. transitionInfo shape:
 //   { transitionName, transitionKind, transitionDuration, transitionSettings }
@@ -142,6 +148,12 @@ function computeScheduleDelay(transitionInfo, videoFps = 60) {
     if (transitionKind === 'cut_transition') return 0;
     if (transitionKind === 'obs_stinger_transition') {
         const s = transitionSettings ?? {};
+        // Per-scene transition overrides don't expose the stinger's settings
+        // (transition_point) via the API — only its duration. When there's no
+        // transition_point, fall back to the configured duration (fire when the
+        // stinger completes).
+        const hasTp = s.tp_type === 1 ? (s.transition_point_frame != null) : (s.transition_point != null);
+        if (!hasTp) return transitionDuration ?? SCHEDULE_DELAY_FALLBACK;
         let tp;
         if (s.tp_type === 1) {
             const frames = s.transition_point_frame ?? 0;
@@ -170,6 +182,12 @@ function computeScheduleLeaveDelay(transitionInfo) {
 // convert frame-based stinger transition_points to ms. Refreshed
 // on InputSettingsChanged or VideoSettingsChanged events if needed.
 let cachedVideoFps = 60;
+
+// Map<transitionName, transitionKind> cached at connect from
+// GetSceneTransitionList. Per-scene transition OVERRIDES only report a name +
+// duration (not the kind), so we look the kind up here to decide cut vs
+// stinger vs fade for the delay.
+let transitionKindByName = {};
 
 function handleSceneChange(sceneName, transitionInfo = null) {
     if (sceneName === lastProgramScene) return;
@@ -202,12 +220,17 @@ function handleSceneChange(sceneName, transitionInfo = null) {
         clearTimeout(scheduleLeaveTimer);
         scheduleLeaveTimer = null;
     }
+    if (deckAnimateTimer) {
+        clearTimeout(deckAnimateTimer);
+        deckAnimateTimer = null;
+    }
 
-    // Metagame
+    // Metagame — entrance delay now computed from the live transition
+    // (was a fixed METAGAME_DELAY) so it tracks the stinger automatically.
     if (sceneName === METAGAME_SCENE) {
         setTimeout(() => {
             RoomUtils.emitWithRoomMapping(io, 'obs-animate-metagame', {});
-        }, METAGAME_DELAY);
+        }, computeScheduleDelay(transitionInfo, cachedVideoFps));
     }
 
     // Bracket — replay the QF→SF→F reveal animation on every cut to the
@@ -216,7 +239,23 @@ function handleSceneChange(sceneName, transitionInfo = null) {
     if (sceneName === BRACKET_SCENE) {
         setTimeout(() => {
             RoomUtils.emitWithRoomMapping(io, 'obs-animate-bracket', {});
-        }, BRACKET_DELAY);
+        }, computeScheduleDelay(transitionInfo, cachedVideoFps));
+    }
+
+    // Decklist — match-specific scenes ("Match 1 - Decklist - Red", etc.).
+    // Pattern-matched on "Decklist" so all four (and any future ones) work
+    // without registering each name. Same transition-aware delay; the display
+    // page (broadcast-round-main-deck.js) plays its staggered card entrance on
+    // obs-animate-decklist. Broadcast globally like metagame/bracket — only the
+    // decklist sources carry the handler. Cancelled on scene change via
+    // deckAnimateTimer so Match 1 Red → Blue fires only the latest.
+    if (sceneName.includes('Decklist')) {
+        const delay = computeScheduleDelay(transitionInfo, cachedVideoFps);
+        console.log(`[OBS] Decklist scene "${sceneName}" — emitting obs-animate-decklist (delay=${delay}ms)`);
+        deckAnimateTimer = setTimeout(() => {
+            deckAnimateTimer = null;
+            RoomUtils.emitWithRoomMapping(io, 'obs-animate-decklist', {});
+        }, delay);
     }
 
     // Leave schedule — when transitioning AWAY from the schedule scene,
@@ -271,7 +310,21 @@ function handleSceneChange(sceneName, transitionInfo = null) {
     // Standings
     const standingsPage = STANDINGS_SCENE_MAP[sceneName];
     if (standingsPage) {
-        RoomUtils.emitWithRoomMapping(io, 'obs-standings-page', { page: standingsPage });
+        // Only the ENTRANCE (cutting into standings from another scene — usually
+        // P1) gets a delay so its row cascade fires AFTER the entrance stinger
+        // clears. In-scene P1→P2→P3→P4 changes (wasOnStandings already true) stay
+        // immediate. computeScheduleDelay → the stinger's tail for a stinger, 0
+        // for a cut, so it auto-adapts (and a cut entrance gets 0 = no wait).
+        // STANDINGS_ENTRANCE_OFFSET = extra settle past the stinger before the
+        // cascade — standings needs a touch more than the decklist (tuned by eye).
+        // Standings-specific (does NOT shift the global SCHEDULE_STINGER_OFFSET).
+        const STANDINGS_ENTRANCE_OFFSET = 1000;
+        let enterDelay = 0;
+        if (!wasOnStandings) {
+            const base = computeScheduleDelay(transitionInfo, cachedVideoFps);
+            enterDelay = base > 0 ? base + STANDINGS_ENTRANCE_OFFSET : 0;
+        }
+        RoomUtils.emitWithRoomMapping(io, 'obs-standings-page', { page: standingsPage, delay: enterDelay });
         wasOnStandings = true;
     } else if (wasOnStandings) {
         setTimeout(() => {
@@ -965,6 +1018,17 @@ async function connect() {
             log(`[OBS WebSocket] Could not fetch video settings (using ${cachedVideoFps}fps default): ${err.message}`);
         }
 
+        // Cache transition name → kind so per-scene override lookups (which
+        // only return a name) can resolve cut vs stinger vs fade.
+        try {
+            const tl = await obs.call('GetSceneTransitionList');
+            transitionKindByName = {};
+            for (const t of (tl.transitions || [])) transitionKindByName[t.transitionName] = t.transitionKind;
+            log(`[OBS WebSocket] Cached ${Object.keys(transitionKindByName).length} transition kinds`);
+        } catch (err) {
+            log(`[OBS WebSocket] Could not fetch transition list: ${err.message}`);
+        }
+
         let pendingScene = null;
 
         obs.on('SceneTransitionStarted', async () => {
@@ -979,13 +1043,31 @@ async function connect() {
                 // full list at connect.
                 let transitionInfo = null;
                 try {
-                    const cur = await obs.call('GetCurrentSceneTransition');
-                    transitionInfo = {
-                        transitionName: cur.transitionName,
-                        transitionKind: cur.transitionKind,
-                        transitionDuration: cur.transitionDuration,
-                        transitionSettings: cur.transitionSettings ?? {}
-                    };
+                    // A per-scene transition OVERRIDE takes precedence over the
+                    // global transition. GetCurrentSceneTransition only reports
+                    // the GLOBAL one, so without this an overridden scene (e.g. a
+                    // decklist scene set to "Stinger - Decklist") reads as the
+                    // global "Cut" → 0 delay. OBS doesn't expose the override
+                    // transition's stinger settings, only its duration —
+                    // computeScheduleDelay falls back to that duration.
+                    let ov = null;
+                    try { ov = await obs.call('GetSceneSceneTransitionOverride', { sceneName: pendingScene }); } catch (e) {}
+                    if (ov && ov.transitionName) {
+                        transitionInfo = {
+                            transitionName: ov.transitionName,
+                            transitionKind: transitionKindByName[ov.transitionName] ?? null,
+                            transitionDuration: ov.transitionDuration,
+                            transitionSettings: {}
+                        };
+                    } else {
+                        const cur = await obs.call('GetCurrentSceneTransition');
+                        transitionInfo = {
+                            transitionName: cur.transitionName,
+                            transitionKind: cur.transitionKind,
+                            transitionDuration: cur.transitionDuration,
+                            transitionSettings: cur.transitionSettings ?? {}
+                        };
+                    }
                 } catch (err) {
                     // Non-fatal — handleSceneChange falls back to a
                     // default delay when transitionInfo is null.

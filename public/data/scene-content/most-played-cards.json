@@ -1,0 +1,50 @@
+{
+  "spells": {
+    "featured": [
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" },
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" },
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" }
+    ],
+    "table": [
+      { "name": "Rebuke", "usage": "18%" },
+      { "name": "Hard Bargain", "usage": "15%" },
+      { "name": "Brynhir Thundersong", "usage": "15%" },
+      { "name": "Noxu Hopeful", "usage": "12%" },
+      { "name": "Discipline", "usage": "8%" },
+      { "name": "Ferrous Forerunner", "usage": "4%" },
+      { "name": "Ride the Wind", "usage": "4%" }
+    ]
+  },
+  "gear": {
+    "featured": [
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" },
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" },
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" }
+    ],
+    "table": [
+      { "name": "Rebuke", "usage": "18%" },
+      { "name": "Hard Bargain", "usage": "15%" },
+      { "name": "Brynhir Thundersong", "usage": "15%" },
+      { "name": "Noxu Hopeful", "usage": "12%" },
+      { "name": "Discipline", "usage": "8%" },
+      { "name": "Ferrous Forerunner", "usage": "4%" },
+      { "name": "Ride the Wind", "usage": "4%" }
+    ]
+  },
+  "units": {
+    "featured": [
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" },
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" },
+      { "name": "Upstage Comedy", "usage": "24%", "image": "/assets/images/riftbound/cards/UNL-009.png" }
+    ],
+    "table": [
+      { "name": "Rebuke", "usage": "18%" },
+      { "name": "Hard Bargain", "usage": "15%" },
+      { "name": "Brynhir Thundersong", "usage": "15%" },
+      { "name": "Noxu Hopeful", "usage": "12%" },
+      { "name": "Discipline", "usage": "8%" },
+      { "name": "Ferrous Forerunner", "usage": "4%" },
+      { "name": "Ride the Wind", "usage": "4%" }
+    ]
+  }
+}

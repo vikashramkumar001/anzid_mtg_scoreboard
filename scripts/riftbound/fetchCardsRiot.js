@@ -101,7 +101,10 @@ async function main() {
             if (obj.length > 0 && obj[0]?.name && obj[0]?.cardImage) { cards = obj; return; }
             obj.forEach(findCards);
         } else if (obj && typeof obj === 'object') {
-            if (obj.items && Array.isArray(obj.items) && obj.items[0]?.name) { cards = obj.items; return; }
+            // Require cardImage as well as name: the gallery page also ships a
+            // sets list ({id, name, collectorNumberMax}) whose items would
+            // otherwise match first and yield 0 parseable cards.
+            if (obj.items && Array.isArray(obj.items) && obj.items[0]?.name && obj.items[0]?.cardImage) { cards = obj.items; return; }
             Object.values(obj).forEach(findCards);
         }
     }
@@ -242,6 +245,8 @@ async function main() {
     const NAME_CORRECTIONS = {
         'Yi, Honed': 'Master Yi, Honed',
         'Yi, Meditative': 'Master Yi, Meditative',
+        // VEN: Riot tags Kennen's legend by species ("Yordle") — the champion is Kennen
+        'Yordle, Heart of the Tempest': 'Kennen, Heart of the Tempest',
     };
     const TAG_CORRECTIONS = {
         'Karma, Channeler': { from: 'Vi', to: 'Karma' },
@@ -264,7 +269,17 @@ async function main() {
         }
     }
 
-    // Write JSON
+    // Write JSON — but never shrink the DB: a parse regression once yielded 0
+    // cards and wiped the file (the live pages + card viewer read it). If the
+    // fresh scrape has fewer unique cards than what's on disk, abort without
+    // writing (pass --force to override deliberately).
+    let existingCount = 0;
+    try { existingCount = Object.keys(JSON.parse(fs.readFileSync(OUTPUT_JSON, 'utf8'))).length; } catch { /* no existing file */ }
+    if (Object.keys(cardMap).length < existingCount && !process.argv.includes('--force')) {
+        console.error(`ABORTED: scrape produced ${Object.keys(cardMap).length} unique cards but ${OUTPUT_JSON} already has ${existingCount}.`);
+        console.error('Not overwriting a larger DB with a smaller one (parse regression guard). Re-run with --force to override.');
+        process.exit(1);
+    }
     fs.writeFileSync(OUTPUT_JSON, JSON.stringify(cardMap, null, 2));
 
     console.log(`\nDone!`);

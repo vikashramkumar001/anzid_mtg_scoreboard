@@ -48,6 +48,7 @@ function getLegendSet(legendNumber) {
     if (n <= 16) return 'OGS+OGN';   // 0001-0004 OGS, 0005-0016 OGN
     if (n <= 28) return 'SFD';       // 0017-0028 Spiritforged
     if (n <= 40) return 'UNL';       // 0029-0040 Unleashed
+    if (n <= 49) return 'VEN';       // 0041-0049 Vendetta
     return 'OTHER';
 }
 

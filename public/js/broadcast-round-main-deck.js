@@ -974,22 +974,48 @@ function renderRiftboundDeckSections(deckObj) {
     const legendCardImg = document.getElementById('riftbound-dl-legend-card-img');
     const legendFrameUrl = getLegendCardFrameUrl(legend);
 
+    // Set the static legend image, hiding it when there's no resolved URL so an
+    // empty src never renders as a broken-image link (mirrors the champion guard).
+    const showLegendImage = () => {
+        if (!legendCardImg) return;
+        if (deckObj.legendImageUrl) {
+            legendCardImg.src = deckObj.legendImageUrl;
+            legendCardImg.style.display = 'block';
+        } else {
+            legendCardImg.removeAttribute('src');
+            legendCardImg.style.display = 'none';
+        }
+    };
+
     if (legendFrameUrl && legendCardVideo) {
+        // Safety net: if the mapped mp4 is missing/unplayable, fall back to the
+        // static legend image instead of leaving a blank card.
+        legendCardVideo.onerror = () => {
+            legendCardVideo.style.display = 'none';
+            showLegendImage();
+        };
         legendCardVideo.src = legendFrameUrl;
         legendCardVideo.style.display = 'block';
         if (legendCardImg) legendCardImg.style.display = 'none';
     } else {
         if (legendCardVideo) { legendCardVideo.src = ''; legendCardVideo.style.display = 'none'; }
-        if (legendCardImg) {
-            legendCardImg.src = deckObj.legendImageUrl || '';
-            legendCardImg.style.display = 'block';
-        }
+        showLegendImage();
     }
 
-    // Update static champion card image (resolved server-side from master control field)
+    // Update static champion card image (resolved server-side from master control field).
+    // Hide it when there's no resolved image — e.g. the champion field holds a name with
+    // no matching card (a legend name like "Annie, Dark Child", which only exists in the
+    // card data as the legend "Annie, Dark Child - Starter"). An empty src would otherwise
+    // render as a broken-image link.
     const championCardImg = document.getElementById('riftbound-dl-champion-card-img');
     if (championCardImg) {
-        championCardImg.src = deckObj.championImageUrl || '';
+        if (deckObj.championImageUrl) {
+            championCardImg.src = deckObj.championImageUrl;
+            championCardImg.style.display = '';
+        } else {
+            championCardImg.removeAttribute('src');
+            championCardImg.style.display = 'none';
+        }
     }
 
     // Clear previous battlefields/runes from riftboundSection (they live outside the deck container)
@@ -1086,7 +1112,87 @@ function renderRiftboundDeckSections(deckObj) {
 
         container.appendChild(sideDeckWrapper);
     }
+
+    // Prime the cards hidden, then stagger them in. queueDeckEntrance only
+    // plays while the source is on-air; if it loads off-screen, the cut-in
+    // (obsSourceActiveChanged / visibilitychange) replays it. See below.
+    riftboundSection.classList.add('deck-primed');
+    queueDeckEntrance();
 }
+
+// ─────────────────────────────────────────────────────────────────────────
+// Decklist staggered card entrance
+// Cards fade in + rise one at a time when the OBS scene becomes active.
+// Mirrors event-info.js's schedule animation: a gating class on the section,
+// restarted with a synchronous reflow (void offsetWidth) instead of rAF,
+// because OBS throttles rAF on hidden/inactive sources. Triggers, most to
+// least reliable:
+//   1. obsSourceActiveChanged — OBS browser-source built-in event, fires the
+//      instant the operator cuts TO the scene (no OBS-WebSocket needed).
+//   2. visibilitychange — fallback for OBS configs that toggle visibility /
+//      "refresh browser when scene becomes active", and for direct browser view.
+//   3. render-complete (queueDeckEntrance) — covers a source that loads while
+//      already on-air, plus live deck-data updates.
+// ─────────────────────────────────────────────────────────────────────────
+function _deckEntranceSection() {
+    return selectedGame === 'riftbound' ? document.getElementById('deck-display-riftbound') : null;
+}
+// Hold cards hidden while off-screen so the next cut-in starts with no flash.
+function primeDeckEntrance() {
+    const section = _deckEntranceSection();
+    if (!section) return;
+    section.classList.remove('deck-entrance');
+    section.classList.add('deck-primed');
+}
+// Restart the staggered entrance on whatever cards are currently rendered.
+function playDeckEntrance() {
+    const section = _deckEntranceSection();
+    if (!section) return;
+    // Stagger order: battlefields → maindeck → runes → sideboard. Legend and
+    // champion are intentionally excluded — they stay as static framing.
+    const tiles = [
+        ...section.querySelectorAll('.battlefields-section .riftbound-battlefield-background'),
+        ...section.querySelectorAll('.deck-section-wrapper.other-section .main-deck-card'),
+        ...section.querySelectorAll('.runes-section .rfb-rune-item'),
+        ...section.querySelectorAll('.deck-section-wrapper.side-deck-section .main-deck-card'),
+    ];
+    if (!tiles.length) return;
+    tiles.forEach((el, i) => el.style.setProperty('--deck-card-i', i));
+    section.classList.remove('deck-primed');
+    section.classList.remove('deck-entrance');
+    void section.offsetWidth;          // sync reflow → guarantees the restart
+    section.classList.add('deck-entrance');
+}
+// Coalesce the two render passes (broadcast-round-data + transformed-main-deck-data)
+// into one entrance, and only animate while the source is actually visible.
+let _deckEntranceQueued = false;
+function queueDeckEntrance() {
+    if (_deckEntranceQueued) return;
+    _deckEntranceQueued = true;
+    requestAnimationFrame(() => {
+        _deckEntranceQueued = false;
+        if (document.visibilityState === 'visible') playDeckEntrance();
+    });
+}
+window.addEventListener('obsSourceActiveChanged', (e) => {
+    if (e.detail && e.detail.active) playDeckEntrance();
+    else primeDeckEntrance();
+});
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') playDeckEntrance();
+    else primeDeckEntrance();
+});
+// Authoritative trigger: the server (features/obs-websocket.js) watches the
+// OBS program scene and fires obs-animate-decklist AFTER the live transition,
+// timed by computeScheduleDelay — so the entrance auto-adapts to the stinger
+// with no client-side delay. The obsSourceActiveChanged / visibilitychange
+// handlers above stay as a fallback (they play under the stinger if OBS
+// WebSocket is disconnected); --deck-start-delay is 0 so the server's timing
+// drives the visible play.
+socket.on('obs-animate-decklist', () => playDeckEntrance());
+
+// Manual test hook from a DevTools console: window._playDeckEntrance()
+window._playDeckEntrance = playDeckEntrance;
 
 // VERTICAL RENDERING FUNCTIONS
 function renderMTGVerticalDeck() {
@@ -1480,6 +1586,28 @@ function updateTheme(game, vendor, playerCount) {
             root.style.setProperty('--rb-dl-legend-name-color', sideLegendColor);
         }
 
+        // Riftbound decklist background video — per-vendor. A vendor sets
+        // --rb-dl-bg-video (e.g. 'uvs-unleashed' → the Unleashed motion loop);
+        // everything else falls back to the standard CSL loop. Only swap the
+        // src when it actually changes so re-applying the same vendor doesn't
+        // restart the video mid-broadcast.
+        const rbVideo = document.getElementById('riftbound-dl-video');
+        if (rbVideo) {
+            const RB_DEFAULT_BG = '/assets/animations/riftbound/decklist/frame/riftbound-scoreboard-frame-default-1v1.mp4';
+            const bgVar = root.style.getPropertyValue('--rb-dl-bg-video').trim()
+                .replace(/^url\((["']?)(.*)\1\)$/, '$2').replace(/^["']|["']$/g, '');
+            const desiredBg = bgVar || RB_DEFAULT_BG;
+            const currentSrc = rbVideo.getAttribute('src') || '';
+            if (!currentSrc.endsWith(desiredBg)) {
+                rbVideo.setAttribute('src', desiredBg);
+                rbVideo.load();
+                // autoplay doesn't always re-fire after a programmatic src swap;
+                // nudge it so OBS shows motion immediately (ignored if the tab is
+                // backgrounded, which pauses muted video by policy).
+                rbVideo.play().catch(() => {});
+            }
+        }
+
         // Update decklist background image dynamically
         const bgSelectors = {
             mtg: '#mtg-bg-image',
@@ -1526,6 +1654,7 @@ function setRiftboundBackground() {
 socket.emit('get-game-selection');
 socket.emit('get-vendor-selection');
 socket.emit('get-player-count');
+socket.emit('get-sideboard-visible');
 socket.emit('get-broadcast-scoreboard-data');
 
 socket.on('server-current-game-selection', ({gameSelection}) => {
@@ -1555,6 +1684,25 @@ socket.on('server-current-player-count', ({playerCount}) => {
 socket.on('player-count-updated', ({playerCount}) => {
     currentPlayerCount = playerCount;
     updateTheme(currentGame, currentVendor, currentPlayerCount);
+});
+
+// --- Sideboard visibility (global toggle driven from master-control) ---
+// We toggle a body[data-sideboard] attribute (not the vendor-set
+// --rb-dl-side-display var) so the global flag stays authoritative even after
+// updateTheme() re-applies vendor CSS vars. Default hidden until the server
+// confirms; the CSS rule hides .side-deck-section when data-sideboard="hidden".
+let sideboardVisible = false;
+function applySideboardVisibility() {
+    document.body.dataset.sideboard = sideboardVisible ? 'shown' : 'hidden';
+}
+applySideboardVisibility();
+socket.on('server-current-sideboard-visible', ({sideboardVisible: v}) => {
+    sideboardVisible = !!v;
+    applySideboardVisibility();
+});
+socket.on('sideboard-visible-updated', ({sideboardVisible: v}) => {
+    sideboardVisible = !!v;
+    applySideboardVisibility();
 });
 
 // end game selection logic

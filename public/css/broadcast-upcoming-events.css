@@ -1,0 +1,132 @@
+/* broadcast-upcoming-events.css — UNLEASHED "Upcoming Events" scene
+ * (riftbound, uvs-unleashed, 1v1)
+ *
+ * Fixed 1920x1080 stage; all chrome (logo lockup, captions, lower band,
+ * foliage, the two empty navy event plates) is baked into the bg PNG.
+ * Card geometry from the PSD:
+ *   plates (Rectangle 15)  341x434 at x=613 / x=965, y=647 (11px gap)
+ *   card 1 logo lockup     178x139 at 695,675  -> card-relative 82,28
+ *   card 2 text lockup     287x31  at 992,757  -> card-relative 27,110
+ *   QR codes               181x181 at 694,846 / 1045,846 -> rel 81/80, top 199
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#upcoming-events-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS has a global `* { font-family: var(...) }` that beats inheritance —
+   force Beaufort on everything inside the stage. */
+#upcoming-events-stage,
+#upcoming-events-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#upcoming-events-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* ── Event cards ─────────────────────────────────────────────────────────── */
+
+.ue-card {
+    position: absolute;
+    top: 647px;
+    width: 341px;
+    height: 434px;
+}
+
+/* When the JSON override supplies a count other than the two PSD slots, the
+   extra/re-positioned cards draw their own plate (approximation of the baked
+   navy + purple-vignette gradient measured off the truth composite). */
+.ue-card.own-plate {
+    background: linear-gradient(#27173d, #2a2547);
+}
+
+.ue-logo {
+    position: absolute;
+    /* geometry set inline by JS (logoRect), or .centered below */
+}
+
+/* Entrance-animation wrapper for .ue-logo.centered (its translate(-50%,-50%)
+   must not be clobbered by the motion keyframes — the wrapper animates, the
+   img keeps its own transform). Spans the logo zone, so the img's centering
+   resolves to the same pixels as when it sat directly on the card. */
+.ue-logo-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 199px;
+}
+
+/* Override events without an explicit logoRect: center the lockup in the
+   logo zone (card top -> QR top, 0..199). */
+.ue-logo.centered {
+    left: 50%;
+    top: 99px;
+    transform: translate(-50%, -50%);
+    max-width: 300px;
+    max-height: 150px;
+}
+
+/* Text fallback when an override event has a name but no logo image —
+   styled after the PSD's NEXUS NIGHT lockup (white Beaufort caps,
+   ink height 31px -> ~43px font, centered in the logo zone). */
+.ue-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 199px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 18px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.ue-qr {
+    position: absolute;
+    top: 199px;
+    width: 181px;
+    height: 181px;
+    /* left set inline (PSD: 81 on card 1, 80 on card 2; default 80) */
+}
+
+/* Optional date line in the strip under the QR (no PSD sample — hidden
+   unless the JSON provides one). */
+.ue-date {
+    position: absolute;
+    top: 388px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #d7a63f;
+}

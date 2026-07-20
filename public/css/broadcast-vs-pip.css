@@ -1,0 +1,173 @@
+/* VS PiP Split Screen — UNLEASHED (RQ Sydney) broadcast scene.
+   1920x1080 OBS browser source. The two PiP video windows
+   (left x-1..961 / right x959..1921, y33..1047) MUST stay transparent —
+   the page only paints chrome around/over them and the OBS camera feeds
+   show through. body background is therefore transparent, and the bg PNG
+   has those window rects punched to alpha 0.
+
+   All coords are exact PSD pixels inside the fixed 1920x1080 stage.
+   Text metrics from the PSD text layers (BeaufortProHeavy):
+     battlefield names 18px white,  tab labels 16px navy ls .1em,
+     gamertags 29px white. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    background: transparent;
+    overflow: hidden;
+}
+
+#vsp-stage {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS elsewhere uses a global `* { font-family: var(...) }` which beats
+   inheritance — pin the family on every descendant. */
+#vsp-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#vsp-stage img { display: block; }
+
+/* ── Full-canvas chrome layers (z-order = DOM order) ─────────────────────── */
+#vsp-bg,
+#vsp-bf-under,
+#vsp-bf-over,
+#vsp-nameplates-img,
+#vsp-leaves {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    pointer-events: none;
+}
+
+/* PSD "VS Frame" layer exported at native bounds 0,22 1920x1035 */
+#vsp-frame {
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 1920px;
+    height: 1035px;
+    pointer-events: none;
+}
+
+/* ── Battlefield slots (positioned per-slot from JS geometry) ────────────── */
+.vsp-slot {
+    position: absolute;
+    overflow: hidden;
+}
+
+/* The repo battlefield assets are full 1039x744 card scans; the PSD slots show
+   a pure art crop. Scale the card so its clean art band (x47-992, y143-449 —
+   above the BATTLEFIELD badge/name plate, below the upside-down text box)
+   fills the 304x208 slot: scale 208/306 = 0.68, horizontally centered.
+   (Empty slots render nothing — plate + faint swirl are baked in bf-under.) */
+.vsp-slot-art {
+    position: absolute;
+    width: 706px;   /* 1039 x 0.6797 */
+    height: 506px;  /*  744 x 0.6797 */
+    left: -201px;   /* center the y143-449 art band horizontally */
+    top: -97px;     /* band top (143 x 0.6797) to slot top */
+}
+
+/* Entrance-motion wrapper for the battlefield name: .vsp-slot-name carries its
+   own translateX(-50%) centering, which the unleashed-motion keyframes would
+   clobber (they end at transform:none) — so the animation class goes on this
+   full-slot wrapper instead. Zero visual footprint at rest. */
+.vsp-slot-name-wrap {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* Battlefield name — centered on the slot, cap-top y908 (slot-rel 97),
+   baseline y920.5. 18px BeaufortProHeavy white, rendered uppercase.
+   top 94: content top 905 - 2.5 half-leading + 18 ascent = baseline 920.5,
+   cap-top 908.2 — measured against the truth PNG ink (908..920). */
+.vsp-slot-name {
+    position: absolute;
+    left: 50%;
+    top: 94px;
+    transform: translateX(-50%);
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85), 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Game tabs (96x24 at y996; gold rect itself is baked into bf-over) ───── */
+.vsp-tab {
+    position: absolute;
+    top: 996px;
+    width: 96px;
+    height: 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em; /* recenter: letter-spacing adds a trailing gap */
+    color: #161f30;
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* PSD caps sit ~1.3px ABOVE the rect's optical center: truth ink rows
+       1002-1012 (baseline ~1012.7). Flex-start + 2.7px top padding puts the
+       live 16px baseline at 996 + 2.7 - 2 (half-leading) + 16 = 1012.7.
+       (padding-bottom can't do this: with a definite height the content box
+       doesn't shrink, so align-items:center ignores it.) */
+    padding-top: 2.7px;
+}
+
+/* Current-game highlight — DOM state, not in the PSD (UNLEASHED pink) */
+.vsp-tab.active {
+    background: #c2458f;
+    color: #fff;
+}
+
+/* ── Nameplates ──────────────────────────────────────────────────────────── */
+/* GAMERTAG: 29px BeaufortProHeavy white; caps y747-767 on the 724..792 plate.
+   Left plate text anchored x13; right plate right-anchored x1906 (=1920-14). */
+.vsp-gamertag {
+    position: absolute;
+    top: 741px;
+    font-size: 29px;
+    line-height: 29px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    white-space: nowrap;
+    max-width: 350px;
+    overflow: hidden;
+}
+
+.vsp-gamertag.left  { left: 13px; }
+.vsp-gamertag.right { right: 14px; text-align: right; }
+
+/* Optional deck/team label above the plate (empty by default — the PSD's
+   "Hextech" layer at y716 is a gold ornament graphic, baked into the
+   nameplates chrome, NOT text). Populated from live player-legend data. */
+.vsp-deck-label {
+    position: absolute;
+    top: 692px;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #d7a63f;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.vsp-deck-label.left  { left: 13px; }
+.vsp-deck-label.right { right: 14px; text-align: right; }

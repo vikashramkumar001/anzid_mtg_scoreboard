@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UNLEASHED Scene Gallery</title>
+<style>
+  /* Dev/operator utility: every UNLEASHED broadcast scene at a glance.
+     Each tile is the LIVE page in a 1920x1080 iframe scaled to fit —
+     click a title to open the real page in a new tab. */
+  body { margin: 0; background: #14101f; color: #f8f0e7; font: 14px/1.4 -apple-system, sans-serif; }
+  h1 { font-size: 18px; margin: 16px 20px 4px; }
+  p.hint { margin: 0 20px 14px; color: #9a8fb8; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; padding: 0 20px 30px; }
+  .tile { background: #1e1830; border: 1px solid #3a2f56; border-radius: 8px; overflow: hidden; }
+  .tile a.label { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; color: #f8f0e7; text-decoration: none; font-weight: 600; }
+  .tile a.label:hover { color: #d7a63f; }
+  .tile a.label small { color: #9a8fb8; font-weight: 400; }
+  .frame-box { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+  .frame-box iframe { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; border: 0; transform-origin: 0 0; pointer-events: none; }
+  /* checkerboard behind transparent scenes (L3 / L-frame / vs-pip) so cutouts read as cutouts */
+  .frame-box.alpha { background: repeating-conic-gradient(#242424 0% 25%, #3a3a3a 0% 50%) 0 0 / 40px 40px; }
+</style>
+</head>
+<body>
+<h1>UNLEASHED Scene Gallery — all 17 live pages</h1>
+<p class="hint">Tiles are the real pages, scaled down. Click a scene name to open it full-size. Checkerboard = transparent regions (OBS feed/camera shows through there).</p>
+<div class="grid" id="grid"></div>
+<script>
+const SCENES = [
+  ['Bracket (Top 8)', '/display/bracket/top8'],
+  ['VS PiP', '/broadcast/vs-pip?match=1', 'alpha'],
+  ['L-Frame', '/broadcast/l-frame', 'alpha'],
+  ['Countdown', '/broadcast/countdown?until=19:00'],
+  ['Battlefield Meta', '/broadcast/battlefield-meta'],
+  ['Most Played — Spells', '/broadcast/most-played-cards/spells'],
+  ['Most Played — Gear', '/broadcast/most-played-cards/gear'],
+  ['Most Played — Units', '/broadcast/most-played-cards/units'],
+  ['Caster Picks', '/broadcast/caster-picks'],
+  ['Caster Predictions', '/broadcast/caster-predictions'],
+  ['Community Choice', '/broadcast/community-choice'],
+  ['Event Winners', '/broadcast/event-winners'],
+  ['Schedule', '/broadcast/schedule'],
+  ['Tournament Format', '/broadcast/tournament-format'],
+  ['Upcoming Events', '/broadcast/upcoming-events'],
+  ['Thanks for Watching', '/broadcast/thanks'],
+  ['Banned Cards', '/broadcast/banned-cards'],
+  ['Guess the Flavor', '/broadcast/guess-flavor'],
+  ['Legend Spotlight (L3)', '/broadcast/legend-spotlight?legend=leblanc', 'alpha'],
+];
+const grid = document.getElementById('grid');
+for (const [name, url, alpha] of SCENES) {
+  const tile = document.createElement('div');
+  tile.className = 'tile';
+  tile.innerHTML = `
+    <a class="label" href="${url}" target="_blank">${name} <small>${url}</small></a>
+    <div class="frame-box${alpha ? ' alpha' : ''}" data-url="${url}"></div>`;
+  grid.appendChild(tile);
+}
+// 19 live 1080p pages at once starves the renderer — mount each scene's iframe
+// only while its tile is near the viewport, tear it down when scrolled away,
+// so only ~4-6 scenes run concurrently.
+function rescaleBox(box) {
+  const f = box.querySelector('iframe');
+  if (f) f.style.transform = `scale(${box.clientWidth / 1920})`;
+}
+const io = new IntersectionObserver((entries) => {
+  for (const e of entries) {
+    const box = e.target, f = box.querySelector('iframe');
+    if (e.isIntersecting && !f) {
+      const el = document.createElement('iframe');
+      el.src = box.dataset.url;
+      box.appendChild(el);
+      rescaleBox(box);
+    } else if (!e.isIntersecting && f) {
+      f.remove();
+    }
+  }
+}, { rootMargin: '400px 0px' });
+document.querySelectorAll('.frame-box').forEach(b => io.observe(b));
+new ResizeObserver(() => document.querySelectorAll('.frame-box').forEach(rescaleBox)).observe(grid);
+</script>
+</body>
+</html>

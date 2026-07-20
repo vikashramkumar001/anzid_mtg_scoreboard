@@ -1,0 +1,133 @@
+/* broadcast-schedule.css — UNLEASHED event schedule (riftbound, uvs-unleashed, 1v1)
+ *
+ * Fixed 1920x1080 stage; all chrome is baked into the bg PNG. The nine dynamic
+ * text lines sit at exact PSD coords (RFB_Schedule_UNL.psd):
+ *   sat times   918,207 / 1147,207 (divider tick baked at 1117)   36px Regular
+ *   sat box     label centered in plate 922,374 397x58            36px Bold
+ *   sun times   918,505 / 1147,505                                36px Regular
+ *   kicker      "championship" centered x=1119, top 567, PINK     36px Bold
+ *   sun boxes   plates 922,722 397x58 and 1043,801 151x58         36px Bold
+ *   note        "single elimination" centered x=1121, top 872     24px Medium
+ *
+ * Baseline math (BeaufortforLOL hhea metrics @36px: ascent 36.22, descent 9.29):
+ *   line-height 26 → half-leading (26-45.5)/2 = -9.75
+ *   baseline = top - 9.75 + 36.22 = top + 26.47 → top = PSD boundsTop - 1
+ *   (PSD baselines sit at boundsTop + 25.3; cap-ascent 25 ≈ bounds height 26)
+ * @24px (ascent 24.14, descent 6.19): line-height 17 → baseline = top + 17.47,
+ *   PSD baseline 889.3 with bounds top 872 → top = 872.
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#schedule-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS has a global `* { font-family: var(...) }` that beats inheritance —
+   force Beaufort on everything inside the stage. */
+#schedule-stage,
+#schedule-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#schedule-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* ── Time rows (Beaufort Regular 36, all caps, white) ─────────────────────────
+   Left time is right-anchored just before the baked divider tick (right edge
+   x=1093 → right: 827); right time is left-anchored after it (x=1147), so
+   longer/shorter strings grow away from the divider. */
+.sched-time {
+    position: absolute;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 26px;
+    /* Web BeaufortforLOL Regular runs ~4px/string wider than the PSD's
+       BeaufortPro — tighten to match truth ink width (measured: '10AM AEST'
+       ink 177 vs PSD 173 over 8 gaps). */
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+}
+/* right: 828 (not 827): Chrome adds trailing letter-spacing to the advance,
+   so the shrink-to-fit box's right edge sits 1px left of the last glyph. */
+#sat-time-left  { top: 206px; right: 828px; text-align: right; }
+#sat-time-right { top: 206px; left: 1147px; }
+#sun-time-left  { top: 504px; right: 828px; text-align: right; }
+#sun-time-right { top: 504px; left: 1147px; }
+
+/* ── Box-plate labels (Beaufort Bold 36, all caps, white) ─────────────────────
+   Containers span the baked pink plates exactly; labels center within. */
+.sched-box-label {
+    position: absolute;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 26px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+}
+/* Containers sit 1-2px left of the baked plates: the PSD text layers are
+   optically centered (truth ink centers 1118 / 1117.5), not mathematically
+   centered in the 922-1319 plate (center 1120.5). */
+#sat-box1 { top: 389px; left: 920px;  width: 397px; }
+#sun-box1 { top: 737px; left: 920px;  width: 397px; }
+#sun-box2 { top: 816px; left: 1042px; width: 151px;
+    /* Web Bold runs wide on this short string too: 'TOP 8' ink 97.1 vs truth
+       95px over 4 gaps → -0.5px. (Longer ROUNDS OF SWISS lines match truth
+       without spacing — do not generalize this to .sched-box-label.) */
+    letter-spacing: -0.5px; }
+
+/* ── "Championship" kicker (Bold 36, UNLEASHED pink) — flanking dashes are
+   baked at 934,575 and 1266,575; text centers on x=1119 between them. */
+#sun-kicker {
+    position: absolute;
+    top: 566px;
+    /* Truth ink center measured 1119.0 (canvas scan of _truth/schedule.png);
+       live ink centered 1118.27 at left 918 → nudge +0.7. */
+    left: 918.7px;
+    width: 400px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #c2458f;
+    white-space: nowrap;
+}
+
+/* ── "Single elimination" footnote (Medium 24, white), centered on x=1121. */
+#sun-note {
+    position: absolute;
+    /* Empirical: at top 872 the live caps sat ~1.5px below truth ink
+       (canvas scan: truth cap top/bottom ≈871.6/888.5 vs live 873.28/890.03) —
+       the @24px baseline math in the header overshoots; trust the scan. */
+    top: 870.5px;
+    left: 920px; /* PSD footnote ink centers on 1120 */
+    width: 400px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+}

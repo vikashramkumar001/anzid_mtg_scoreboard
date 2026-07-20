@@ -1,0 +1,551 @@
+[
+  {
+    "id": 3248996,
+    "table_number": 1,
+    "pod_number": null,
+    "order": 0,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 105058,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 1,
+    "player_match_relationships": [
+      {
+        "id": 6254720,
+        "match_id": 3248996,
+        "player_order": 1,
+        "games_won": 1,
+        "user_event_status": {
+          "id": 2312797,
+          "user_identifier": "Kyle B",
+          "special_user_identifier": null,
+          "matches_won": 11,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 34,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 98709,
+            "email": "belaiche.kyle@gmail.com",
+            "last_name": "Belaiche",
+            "last_first": "Belaiche, Kyle",
+            "first_last": "Kyle Belaiche",
+            "best_identifier": "Kyle B",
+            "initials": "KB",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "Prismaticismism"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "24c02330-2d94-4d5d-a9bf-0244c872892e",
+            "deck_id": "a65a3304-bd69-4173-8de2-fc41d68f5d33",
+            "deck_name": "Riftbound TCG 2K Presented by The People's Card Shop & Top Choice Gaming Player Deck Submission",
+            "deck_defining_card": {
+              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
+              "name": "Draven, Glorious Executioner",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055547Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=6eb002303374b1744567c4c8dffe8367994a231ddd99b62a69ea932a8fe20d266f114df6163a070cc459594295a5e88160f3f2a6529bf492bd544228cb272e89a7ad618ad7fc9902cd2f6f34ea2f260c64dda496a748d2df22fe17ad87651be54dac4ca551556b15a92b7970c5f218edbb9937c67ce7855fef06a423445e422508746a76c0892f6e527973de01e41d176f31d542866c6dd30e2cbd11a7dd20d0a3d723a697cf0622a7c61ef443c89720582f24197e7d33a1259db159a203525a1331831c28c0d177e4f3f57ffee1b77612e19f5269fcd6008950db241cf9d97794df55cdd1e74a8f7878f534df86c948f954d4e8e611f6a001ded2cb8e22dc6f"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 98709,
+          "email": "belaiche.kyle@gmail.com",
+          "first_name": "Kyle",
+          "last_name": "Belaiche",
+          "best_identifier": "Kyle B",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 1
+      },
+      {
+        "id": 6254721,
+        "match_id": 3248996,
+        "player_order": 2,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 1988303,
+          "user_identifier": "JJ A",
+          "special_user_identifier": null,
+          "matches_won": 12,
+          "matches_lost": 3,
+          "matches_drawn": 0,
+          "total_match_points": 36,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 105058,
+            "email": "keaton_313@yahoo.com",
+            "last_name": "Alanis",
+            "last_first": "Alanis, JJ",
+            "first_last": "JJ Alanis",
+            "best_identifier": "JJ A",
+            "initials": "JA",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "shizzle"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "d7006482-3f13-410e-b9f4-877665df62ee",
+            "deck_id": "b6c80698-32b7-4e53-ad0f-0b19ca74ac07",
+            "deck_name": "Riftbound TCG 2K Presented by The People's Card Shop & Top Choice Gaming Player Deck Submission",
+            "deck_defining_card": {
+              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
+              "name": "Draven, Glorious Executioner",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055547Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=6eb002303374b1744567c4c8dffe8367994a231ddd99b62a69ea932a8fe20d266f114df6163a070cc459594295a5e88160f3f2a6529bf492bd544228cb272e89a7ad618ad7fc9902cd2f6f34ea2f260c64dda496a748d2df22fe17ad87651be54dac4ca551556b15a92b7970c5f218edbb9937c67ce7855fef06a423445e422508746a76c0892f6e527973de01e41d176f31d542866c6dd30e2cbd11a7dd20d0a3d723a697cf0622a7c61ef443c89720582f24197e7d33a1259db159a203525a1331831c28c0d177e4f3f57ffee1b77612e19f5269fcd6008950db241cf9d97794df55cdd1e74a8f7878f534df86c948f954d4e8e611f6a001ded2cb8e22dc6f"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 105058,
+          "email": "keaton_313@yahoo.com",
+          "first_name": "JJ",
+          "last_name": "Alanis",
+          "best_identifier": "JJ A",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 8
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-03-02T01:44:35+00:00",
+    "updated_at": "2026-03-02T04:11:37+00:00"
+  },
+  {
+    "id": 3248997,
+    "table_number": 2,
+    "pod_number": null,
+    "order": 1,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 94937,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 0,
+    "player_match_relationships": [
+      {
+        "id": 6254722,
+        "match_id": 3248997,
+        "player_order": 1,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 1988414,
+          "user_identifier": "Steven D",
+          "special_user_identifier": null,
+          "matches_won": 13,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 40,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 94937,
+            "email": "sthdinh@gmail.com",
+            "last_name": "Dinh",
+            "last_first": "Dinh, Steven",
+            "first_last": "Steven Dinh",
+            "best_identifier": "Steven D",
+            "initials": "SD",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "TTA"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "cce6d236-dc2f-4859-a3d7-7e11091a7b23",
+            "deck_id": "9412c20e-30ce-4471-95cc-be786bdf7d8d",
+            "deck_name": "Riftbound Regional Qualifier - Las Vegas Player Deck Submission",
+            "deck_defining_card": {
+              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
+              "name": "Draven, Glorious Executioner",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055547Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=6eb002303374b1744567c4c8dffe8367994a231ddd99b62a69ea932a8fe20d266f114df6163a070cc459594295a5e88160f3f2a6529bf492bd544228cb272e89a7ad618ad7fc9902cd2f6f34ea2f260c64dda496a748d2df22fe17ad87651be54dac4ca551556b15a92b7970c5f218edbb9937c67ce7855fef06a423445e422508746a76c0892f6e527973de01e41d176f31d542866c6dd30e2cbd11a7dd20d0a3d723a697cf0622a7c61ef443c89720582f24197e7d33a1259db159a203525a1331831c28c0d177e4f3f57ffee1b77612e19f5269fcd6008950db241cf9d97794df55cdd1e74a8f7878f534df86c948f954d4e8e611f6a001ded2cb8e22dc6f"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 94937,
+          "email": "sthdinh@gmail.com",
+          "first_name": "Steven",
+          "last_name": "Dinh",
+          "best_identifier": "Steven D",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 2
+      },
+      {
+        "id": 6254723,
+        "match_id": 3248997,
+        "player_order": 2,
+        "games_won": 0,
+        "user_event_status": {
+          "id": 1988507,
+          "user_identifier": "Mateusz J",
+          "special_user_identifier": null,
+          "matches_won": 11,
+          "matches_lost": 3,
+          "matches_drawn": 0,
+          "total_match_points": 33,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 135798,
+            "email": "jasinski.mateusz.92@gmail.com",
+            "last_name": "Jasinski",
+            "last_first": "Jasinski, Mateusz",
+            "first_last": "Mateusz Jasinski",
+            "best_identifier": "Mateusz J",
+            "initials": "MJ",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "CTG Alanzq"
+            }
+          },
+          "player_interactions": [
+            {
+              "id": 6702,
+              "player_interaction_type": "FeatureMatch",
+              "time_extension_seconds_added": null,
+              "notes": null,
+              "infraction_details": [],
+              "created_at": "2026-03-01T00:37:57+00:00",
+              "judge_name": null
+            }
+          ],
+          "deck_submission": null,
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": null
+        },
+        "player": {
+          "id": 135798,
+          "email": "jasinski.mateusz.92@gmail.com",
+          "first_name": "Mateusz",
+          "last_name": "Jasinski",
+          "best_identifier": "Mateusz J",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 7
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-03-02T01:44:35+00:00",
+    "updated_at": "2026-03-02T03:34:43+00:00"
+  },
+  {
+    "id": 3248998,
+    "table_number": 3,
+    "pod_number": null,
+    "order": 2,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 224028,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 0,
+    "player_match_relationships": [
+      {
+        "id": 6254724,
+        "match_id": 3248998,
+        "player_order": 1,
+        "games_won": 0,
+        "user_event_status": {
+          "id": 1988008,
+          "user_identifier": "Phillip P",
+          "special_user_identifier": null,
+          "matches_won": 11,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 34,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 14839,
+            "email": "p.pena.pp01@gmail.com",
+            "last_name": "Pena",
+            "last_first": "Pena, Phillip",
+            "first_last": "Phillip Pena",
+            "best_identifier": "Phillip P",
+            "initials": "PP",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "DeluxePhilCheeze"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "376c754a-53fd-4fe8-a722-caf7497c533c",
+            "deck_id": "b661f12e-3404-49e9-962a-6b5b0229713d",
+            "deck_name": "Eye-rell-E-ahhhh",
+            "deck_defining_card": {
+              "id": "3bf6bd64-164e-4e47-9daa-871274568b6b",
+              "name": "Irelia, Blade Dancer",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/4f2c62f6-6859-4ee9-9e17-cbc52a19f692.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055547Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=b7756722908b36e20e1eb776bc1d988457bfa506f558c3b0887a0848eb03c5c74e08ac2acb49937bcb180eab6b0785434782ecedf96b30a78974efe5053c773d252f5c495e4cdf9e6032c54166a9e2cdf02727a6dd678101bf1d4f7dc5f758a325120b52306f3db5ecf6753719e1d9019ae0f840885034c6b903942e789566b92e2bcea514e3f7cab375e6cc2898cc835c4b8ce021ee1a522ee084a505a8c34e27bb7f7f68230a13cce7c5b7de53fd5cb097fcd4fbb3dbfe1b7a59404eb4810f78a17d01c63bcef1da6a319b125be14baf022763305eecfe722f07330f5a160e4a116074e88d99b4f09b23d0203687db05ff32f83dc791c0eee9b3818d08bf36"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 14839,
+          "email": "p.pena.pp01@gmail.com",
+          "first_name": "Phillip",
+          "last_name": "Pena",
+          "best_identifier": "Phillip P",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 3
+      },
+      {
+        "id": 6254725,
+        "match_id": 3248998,
+        "player_order": 2,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 2263661,
+          "user_identifier": "Collin K",
+          "special_user_identifier": null,
+          "matches_won": 12,
+          "matches_lost": 3,
+          "matches_drawn": 0,
+          "total_match_points": 36,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 224028,
+            "email": "collinkaiserssg@gmail.com",
+            "last_name": "Kaiser",
+            "last_first": "Kaiser, Collin",
+            "first_last": "Collin Kaiser",
+            "best_identifier": "Collin K",
+            "initials": "CK",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "Argan"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "629b3df8-0087-4ea3-a69e-ff37674e911e",
+            "deck_id": "58ddeb8b-87ec-4e8b-9cbe-ab000c885b9b",
+            "deck_name": "A",
+            "deck_defining_card": {
+              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
+              "name": "Draven, Glorious Executioner",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055547Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=6eb002303374b1744567c4c8dffe8367994a231ddd99b62a69ea932a8fe20d266f114df6163a070cc459594295a5e88160f3f2a6529bf492bd544228cb272e89a7ad618ad7fc9902cd2f6f34ea2f260c64dda496a748d2df22fe17ad87651be54dac4ca551556b15a92b7970c5f218edbb9937c67ce7855fef06a423445e422508746a76c0892f6e527973de01e41d176f31d542866c6dd30e2cbd11a7dd20d0a3d723a697cf0622a7c61ef443c89720582f24197e7d33a1259db159a203525a1331831c28c0d177e4f3f57ffee1b77612e19f5269fcd6008950db241cf9d97794df55cdd1e74a8f7878f534df86c948f954d4e8e611f6a001ded2cb8e22dc6f"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 224028,
+          "email": "collinkaiserssg@gmail.com",
+          "first_name": "Collin",
+          "last_name": "Kaiser",
+          "best_identifier": "Collin K",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 6
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-03-02T01:44:35+00:00",
+    "updated_at": "2026-03-02T03:34:57+00:00"
+  },
+  {
+    "id": 3248999,
+    "table_number": 4,
+    "pod_number": null,
+    "order": 3,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 158620,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 1,
+    "player_match_relationships": [
+      {
+        "id": 6254726,
+        "match_id": 3248999,
+        "player_order": 1,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 1988128,
+          "user_identifier": "Sam S",
+          "special_user_identifier": null,
+          "matches_won": 14,
+          "matches_lost": 1,
+          "matches_drawn": 1,
+          "total_match_points": 43,
+          "registration_status": "COMPLETE",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 158620,
+            "email": "samdsherman@gmail.com",
+            "last_name": "Sherman",
+            "last_first": "Sherman, Sam",
+            "first_last": "Sam Sherman",
+            "best_identifier": "Sam S",
+            "initials": "SS",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "ASC samdsherman"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "cd73f941-8010-4c96-9c29-7c604a2a9460",
+            "deck_id": "55a62a27-04b3-4e4b-9558-bd878ad3d726",
+            "deck_name": "Imported Deck 2026-02-26",
+            "deck_defining_card": {
+              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
+              "name": "Draven, Glorious Executioner",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055547Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=6eb002303374b1744567c4c8dffe8367994a231ddd99b62a69ea932a8fe20d266f114df6163a070cc459594295a5e88160f3f2a6529bf492bd544228cb272e89a7ad618ad7fc9902cd2f6f34ea2f260c64dda496a748d2df22fe17ad87651be54dac4ca551556b15a92b7970c5f218edbb9937c67ce7855fef06a423445e422508746a76c0892f6e527973de01e41d176f31d542866c6dd30e2cbd11a7dd20d0a3d723a697cf0622a7c61ef443c89720582f24197e7d33a1259db159a203525a1331831c28c0d177e4f3f57ffee1b77612e19f5269fcd6008950db241cf9d97794df55cdd1e74a8f7878f534df86c948f954d4e8e611f6a001ded2cb8e22dc6f"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 158620,
+          "email": "samdsherman@gmail.com",
+          "first_name": "Sam",
+          "last_name": "Sherman",
+          "best_identifier": "Sam S",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 4
+      },
+      {
+        "id": 6254727,
+        "match_id": 3248999,
+        "player_order": 2,
+        "games_won": 1,
+        "user_event_status": {
+          "id": 1987881,
+          "user_identifier": "Charley L",
+          "special_user_identifier": null,
+          "matches_won": 11,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 34,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 95004,
+            "email": "clowe777777@gmail.com",
+            "last_name": "Lowe",
+            "last_first": "Lowe, Charley",
+            "first_last": "Charley Lowe",
+            "best_identifier": "Charley L",
+            "initials": "CL",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "TheVeryBestGamer"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "e4f2a5e2-73d5-4ca0-b632-c108c906a808",
+            "deck_id": "0f527d55-ef45-4e72-95a4-f303ef789e9d",
+            "deck_name": "JAX BONK",
+            "deck_defining_card": {
+              "id": "18a94848-c7e4-4baa-a2cb-1b3c40c9f309",
+              "name": "Jax, Grandmaster at Arms",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/d1d2edc4-cfc2-4c9f-bb07-49ca35ab3082.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055547Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=6b21704e84572c6dd1bb0da2da3741d058ad593f7c467141b7d9e7d19c2f0ceb23fcc8be1234d4071032fa5dfd518374809bc975457bdcc34ef5e850b45a96922cb28ec615ff43c2d885378d040a8ffd6f015b11e1f2a32d5c331d0677e626ebf26e69454906f7b27b27af1ccc467416e93a8a8d39770b23cb0142980d616ef789929804d94d731cb63a81278f22131256c58aaea19a1b57e63cd4d306dc0472c3876d27024f4b4370ff4bd5d6020543893173e878e2abdf7a928a27937dfbb9a309ce01cdfcca5be9a376659809aeeb479878c17d8976dc8cb12d126d641dd2724d4bf16a21b1145dab3bfe7c88f52eb1245af41787e8e06f4569552f24475b"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": null
+        },
+        "player": {
+          "id": 95004,
+          "email": "clowe777777@gmail.com",
+          "first_name": "Charley",
+          "last_name": "Lowe",
+          "best_identifier": "Charley L",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 5
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-03-02T01:44:35+00:00",
+    "updated_at": "2026-03-02T04:11:47+00:00"
+  }
+]

@@ -1,0 +1,140 @@
+[
+  {
+    "id": 5703751,
+    "table_number": 25,
+    "pod_number": null,
+    "order": 0,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 97640,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 0,
+    "player_match_relationships": [
+      {
+        "id": 10968618,
+        "match_id": 5703751,
+        "player_order": 1,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 3859775,
+          "user_identifier": "Nathan L",
+          "special_user_identifier": null,
+          "matches_won": 14,
+          "matches_lost": 1,
+          "matches_drawn": 1,
+          "total_match_points": 43,
+          "registration_status": "COMPLETE",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 97640,
+            "email": "natelassen@gmail.com",
+            "last_name": "Lassen",
+            "last_first": "Lassen, Nathan",
+            "first_last": "Nathan Lassen",
+            "best_identifier": "Nathan L",
+            "initials": "NL",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "Factor"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "8c7349e3-8f13-40bc-b1fc-4874b366378a",
+            "deck_id": "36834b9a-9a02-445d-97fd-1f8a8a3f66e5",
+            "deck_name": "Mister Yi",
+            "deck_defining_card": {
+              "id": "dd07cdb7-d9d9-4a85-9b79-4b05524dbe37",
+              "name": "Master Yi, Wuju Bladesman",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/b975c54c-20cc-45e9-a4ef-2d9f7ec10d42.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T054818Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=c8c5ceef645a0373c113deae25101d37fc325bc8843973b6a8177df5b36b4aa31c6a19c70c7b35f59eb51b031c6ceab8f856179b823b8a430627e2697d04cec975ea3a1c0930b04d724236cd84aaf1c8de3eb3555886b1184106c0d9f4d15089205b65363335b930e6f267ab9f451fa8f30a70777d2f8a1cd5c5762fd5dfeccc1afe1ee7ca77c028b08204083da907522224a8ae0c40247e5644eebe16fbff4495e4a89933d49bbfc490da0a87f34d9fe2773853ebb7bd856190771bfb4a16a59972e20261ad6ffe35863cf99fc301aee9d1f00b814439f2b93223aa98e17ff0bd5b6cf462c73f1abb779d0451eaba123b78d8f9d65ca95fb60e62b96d14feb9"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 97640,
+          "email": "natelassen@gmail.com",
+          "first_name": "Nathan",
+          "last_name": "Lassen",
+          "best_identifier": "Nathan L",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 1
+      },
+      {
+        "id": 10968619,
+        "match_id": 5703751,
+        "player_order": 2,
+        "games_won": 0,
+        "user_event_status": {
+          "id": 3858948,
+          "user_identifier": "Benjamin W",
+          "special_user_identifier": null,
+          "matches_won": 13,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 40,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 119723,
+            "email": "bsweitz123@gmail.com",
+            "last_name": "Weitz",
+            "last_first": "Weitz, Benjamin",
+            "first_last": "Benjamin Weitz",
+            "best_identifier": "Benjamin W",
+            "initials": "BW",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "bsweitz"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "ed923b77-66c3-4049-871f-a0d3e4bd475d",
+            "deck_id": "21c53eb4-ac0d-4406-ba53-ba3ccb36d329",
+            "deck_name": "Pre-Regional Challenge - RQ Vancouver Friday 1pm Benjamin W Deck Submission",
+            "deck_defining_card": {
+              "id": "7cc99ade-5a96-4724-a25e-42c9dadf4e61",
+              "name": "Diana, Scorn of the Moon",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/3fdea3a0-2265-480d-9c26-bb7ce08f6cb5.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T054818Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=61c19e25f3f5ce9cda393255cc118f7f0a954cf3e5e1b07ce8a72c060f95f9e8fa53cb196f85cc906973e627d68e2311248191ada62bce8ff061986e11b6d933b9e5824c0fe7157d6bb360f285bd6d0c97c09d27ef4d2844cdcc2ee8aa3c61e45d6e94747d1dca50690192d3f40ca9c7636f711e874ab9b5f325caac50c9500424b375decb5447b2cfb4c6d536d170d9553c2451bea26ba4b46b1a5e2cc8f8af2309555f89b8d1cae31e842c8f75501b55cc1c52d3136e0cb546def6026f5b45eee5ff7258c6395a98281f848c601f52289d8ee649ff55c29c4deeaeefef9012f0ffabb47437471022e6d14669a9d4d80982c924da109180255bfcafd319fbc4"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 119723,
+          "email": "bsweitz123@gmail.com",
+          "first_name": "Benjamin",
+          "last_name": "Weitz",
+          "best_identifier": "Benjamin W",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 8
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-06-22T00:55:16+00:00",
+    "updated_at": "2026-06-22T01:46:55+00:00"
+  }
+]

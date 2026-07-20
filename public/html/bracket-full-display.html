@@ -10,11 +10,17 @@
     <script src="/js/vendor-config.js"></script>
     <link href="/css/fonts.css" rel="stylesheet">
     <link href="/css/bracket-full-display.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
 </head>
 <body>
 <div id="bracket-canvas">
     <img id="bracket-bg" src="" alt="">
     <video id="bracket-bg-video" autoplay loop muted playsinline></video>
+    <!-- Full-page chrome overlay (vendors that bake ALL box plates / lines /
+         labels / footer into a single 1920x1080 PNG, e.g. riftbound
+         uvs-unleashed). Hidden unless JS sets a src (see updateTheme). -->
+    <img id="bracket-frame" alt="">
     <svg id="bracket-lines" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"></svg>
     <div id="bracket-slots"></div>
 </div>

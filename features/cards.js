@@ -47,6 +47,24 @@ function createCleanedCardMap(cardsList, gameType) {
     return cleanedMap;
 }
 
+// Riftbound deck ordering: Units, then Spells, then Gears (anything else after),
+// and within each card type by energy ascending (name as a final tiebreak).
+// Cards must carry `type` and `energy` (string) — attached during transform.
+const RIFTBOUND_TYPE_ORDER = { Unit: 0, Spell: 1, Gear: 2 };
+function sortRiftboundDeckCards(cards) {
+    return cards.sort((a, b) => {
+        const ta = RIFTBOUND_TYPE_ORDER[a.type] ?? 99;
+        const tb = RIFTBOUND_TYPE_ORDER[b.type] ?? 99;
+        if (ta !== tb) return ta - tb;
+        const ea = parseInt(a.energy, 10);
+        const eb = parseInt(b.energy, 10);
+        const eaN = Number.isNaN(ea) ? 99 : ea;
+        const ebN = Number.isNaN(eb) ? 99 : eb;
+        if (eaN !== ebN) return eaN - ebN;
+        return String(a['card-name'] || '').localeCompare(String(b['card-name'] || ''));
+    });
+}
+
 // Emit selected card for viewing
 export function emitCardView(io, cardSelected) {
     // this should cater for game id being passed - mtg / vibes
@@ -189,6 +207,12 @@ function resolveRiftboundLegendUrl(legendTitle, cleanedCardsMap, gameType) {
     let url = getURLFromCardName(legendTitle, cleanedCardsMap, gameType);
     if (url) return url;
 
+    // Full-name starter card: some starter legends are keyed by the FULL legend
+    // name + " - Starter" (e.g. "Annie, Dark Child" → "Annie, Dark Child - Starter"),
+    // not just the title suffix — try that before stripping the character name.
+    url = getURLFromCardName(legendTitle + ' - Starter', cleanedCardsMap, gameType);
+    if (url) return url;
+
     // Strip character name: "Draven, Glorious Executioner" → "Glorious Executioner"
     const commaIdx = legendTitle.indexOf(',');
     if (commaIdx !== -1) {
@@ -266,9 +290,11 @@ export function transformMainDeckPure(data) {
             } else if (type === 'Rune') {
                 runeCountFallback.push({ name, count });
             } else {
-                other.push({ 'card-name': name, 'card-count': count, 'card-url': url });
+                other.push({ 'card-name': name, 'card-count': count, 'card-url': url, type, energy: cleanedCardsMap[name]?.energy });
             }
         });
+        // Order: Units, Spells, Gears — then by energy ascending.
+        sortRiftboundDeckCards(other);
         if (runes.length > 0 && runes.every(r => r.count === 0) && runeCountFallback.length > 0) {
             const runeLetterToName = { 'g': 'calm', 'p': 'chaos', 'r': 'fury', 'b': 'mind', 'y': 'order', 'o': 'body' };
             for (const rune of runes) {
@@ -328,8 +354,15 @@ export function transformSideDeckPure(data) {
         const name = parts[2];
         const url = getURLFromCardName(name, cleanedCardsMap, gameType);
         const manaCost = getManaCostFromCardName(name, cleanedCardsMap, gameType);
-        flatDeck.push({ 'card-name': name, 'card-count': count, 'card-url': url, 'mana-cost': manaCost });
+        const entry = { 'card-name': name, 'card-count': count, 'card-url': url, 'mana-cost': manaCost };
+        if (gameType === 'riftbound') {
+            entry.type = cleanedCardsMap[name]?.type || 'Other';
+            entry.energy = cleanedCardsMap[name]?.energy;
+        }
+        flatDeck.push(entry);
     });
+    // Riftbound sideboard follows the same Units → Spells → Gears, then energy order.
+    if (gameType === 'riftbound') sortRiftboundDeckCards(flatDeck);
     return { deckData: flatDeck, gameType, sideID, matchID };
 }
 

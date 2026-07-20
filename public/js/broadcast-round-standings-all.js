@@ -279,9 +279,20 @@ socket.on('broadcast-round-standings-data', (incoming) => {
             }
         });
 
+        // Riftbound legends sit in a fixed-width gold pill (.standings-archetype),
+        // not the wider name column — size to the pill so long names like
+        // "AZIR, EMPEROR OF THE SANDS" don't overrun it (mirrors the fix in
+        // broadcast-round-standings-combined.js). Other games keep textWidth.
         document.querySelectorAll('.standings-archetype').forEach(el => {
             if (el.innerText) {
-                el.style.fontSize = calculateFontSize(el, maxArchetypeSize, 10, textWidth) + 'px';
+                let legendMaxWidth = textWidth;
+                if (currentGame === 'riftbound') {
+                    const acs = getComputedStyle(el);
+                    const padX = (parseFloat(acs.paddingLeft) || 0) + (parseFloat(acs.paddingRight) || 0);
+                    const cw = el.clientWidth;
+                    if (cw) legendMaxWidth = cw - padX;
+                }
+                el.style.fontSize = calculateFontSize(el, maxArchetypeSize, 10, legendMaxWidth) + 'px';
             }
         });
     });

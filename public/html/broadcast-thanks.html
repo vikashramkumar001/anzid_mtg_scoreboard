@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Thanks For Watching</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-thanks.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="thanks-stage">
+    <!-- Everything static is baked into this one bg: painted background
+         (swooshes/bolts/leaves/forest), bottom band, RIFTBOUND / LEAGUE OF
+         LEGENDS / ORGANIZED PLAY lockup, THANKS FOR WATCHING + divider +
+         PREPARE FOR THE NEXT BATTLE, the two navy event panels AND their QR
+         codes. (Derived from the PSD composite — adjustment layers made a
+         re-composite unusable — with the sample event logos + dates
+         inpainted out to flat panel navy.) -->
+    <img id="thanks-bg" src="/assets/images/riftbound/thanks/riftbound-thanks-bg-uvs-unleashed-1v1.png" alt="">
+
+    <!-- Dynamic: the two upcoming-event tile contents (logo + date).
+         Hardcoded to the PSD's own sample events (RQ Vancouver / RQ Utrecht)
+         so the page paints correctly before JS runs; JS re-renders from
+         /data/scene-content/thanks.json when present. -->
+    <div class="thanks-event" id="thanks-event-1">
+        <img class="thanks-event-logo unl-scale-in" src="/assets/images/riftbound/thanks/riftbound-thanks-logo-vancouver-uvs-unleashed-1v1.png" alt="">
+        <div class="thanks-event-date unl-fade-rise" style="--unl-d:.12s">MAY 29 - 31</div>
+    </div>
+    <div class="thanks-event" id="thanks-event-2">
+        <img class="thanks-event-logo unl-scale-in" style="--unl-d:.15s" src="/assets/images/riftbound/thanks/riftbound-thanks-logo-utrecht-uvs-unleashed-1v1.png" alt="">
+        <div class="thanks-event-date unl-fade-rise" style="--unl-d:.27s">JUN. 12 - 14</div>
+    </div>
+</div>
+<script type="module" src="/js/broadcast-thanks.js"></script>
+</body>
+</html>

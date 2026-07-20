@@ -62,4 +62,14 @@ export const RIFTBOUND_CHAMPIONS = new Set([
     "Rengar, Trophy Hunter", "Rengar, Unseen",
     "Vi, Hotheaded", "Vi, Peacekeeper",
     "Poppy, Defender of the Meek", "Poppy, Paragon",
+    // Vendetta
+    "Akali, Deadly Weapon", "Akali, Silent",
+    "Ambessa, Respected and Feared", "Ambessa, The Wolf",
+    "Jayce, Brilliant Inventor", "Jayce, Hammer in Hand",
+    "Kennen, Keeper of Balance", "Kennen, Storm of Shuriken",
+    "Mel, Defiant Soul", "Mel, Newly Awakened",
+    "Nasus, Ascended", "Nasus, Guardian of Knowledge",
+    "Renekton, Brute", "Renekton, Rage Fueled",
+    "Shen, Leader of the Kinkou Order", "Shen, Scourge of Shadows",
+    "Zed, From the Shadows", "Zed, Without a Sound",
 ]);

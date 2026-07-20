@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast L-Frame</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-l-frame.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<!-- Break-screen L-frame (UNLEASHED / RQ Sydney). The 1554x885 content
+     window at 0,0 stays fully transparent — the live feed sits behind this
+     browser source in OBS. Layer order matters: bg (the L: right column +
+     bottom strip, window cleared) -> DOM text -> frame chrome (border,
+     leaves, regional logo, share-your-story, Diana). Diana is ABOVE the
+     text so her sword clips the status line exactly like the PSD. -->
+<div id="l-frame-stage">
+    <img id="l-frame-bg" src="/assets/images/riftbound/l-frame/riftbound-l-frame-bg-uvs-unleashed-1v1.png" alt="">
+    <!-- Defaults hardcoded so text shows immediately; JS overrides from
+         /data/scene-content/l-frame.json when present. -->
+    <div id="l-frame-status" class="unl-fade-rise">The battle will continue soon</div>
+    <div id="l-frame-next-up" class="unl-fade-rise" style="--unl-d:.15s">NEXT UP: Round 5</div>
+    <img id="l-frame-frame" src="/assets/images/riftbound/l-frame/riftbound-l-frame-frame-uvs-unleashed-1v1.png" alt="">
+</div>
+<script type="module" src="/js/broadcast-l-frame.js"></script>
+</body>
+</html>

@@ -1112,7 +1112,8 @@ socket.on('overlayHeaderBackgroundUpdate', (newImageUrl) => {
     if (last !== newImageUrl) {
         const cacheBuster = new Date().getTime();
         const el = document.querySelector(`#scoreboard-${currentGame} .header .background`);
-        if (el) el.style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+        // null = no overlay uploaded for this game; clear inline style so CSS defaults apply
+        if (el) el.style.backgroundImage = newImageUrl ? `url(${newImageUrl}?v=${cacheBuster})` : '';
         lastState['header-background'] = newImageUrl;
     }
 });
@@ -1122,7 +1123,7 @@ socket.on('overlayFooterBackgroundUpdate', (newImageUrl) => {
     if (last !== newImageUrl) {
         const cacheBuster = new Date().getTime();
         const el = document.querySelector(`#scoreboard-${currentGame} .footer .background`);
-        if (el) el.style.backgroundImage = `url(${newImageUrl}?v=${cacheBuster})`;
+        if (el) el.style.backgroundImage = newImageUrl ? `url(${newImageUrl}?v=${cacheBuster})` : '';
         lastState['footer-background'] = newImageUrl;
     }
 });
@@ -1616,7 +1617,9 @@ function updateTheme(game, vendor, playerCount) {
 
         // Riftbound: try animated mp4 frame, fallback to PNG
         if (normalized === 'riftbound') {
-            const v = vendor || 'default';
+            // resolveAssetVendor → asset-aliased vendors (e.g. uvs-unleashed)
+            // borrow default's chrome FILES so these raw paths don't 404.
+            const v = vc.resolveAssetVendor(vendor);
             const p = playerCount || '1v1';
             const videoEl = document.getElementById('riftbound-frame-video');
             const bgVideoContainer = document.querySelector('#scoreboard-riftbound .riftbound-bg-video');

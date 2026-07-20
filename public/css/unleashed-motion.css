@@ -1,0 +1,55 @@
+/* unleashed-motion.css — shared entrance-motion language for the UNLEASHED
+   broadcast scene pages (broadcast-*.html + the uvs bracket skin).
+   One <link> per page, plus /js/unleashed-motion.js for the replay hook.
+
+   Usage — one utility class + an optional per-element stagger delay:
+       <div class="unl-fade-rise" style="--unl-d:.24s">…</div>
+   Animations run once when the element enters the DOM (page load or a JS
+   render) and END in the element's exact resting position (fill-mode both,
+   end transform none) — the pixel-perfect layout is the final frame.
+
+   ⚠️ Never put these classes on an element that carries its own transform
+   (translateX centering, scaleX mirroring, rotation…): the keyframes end at
+   transform:none and would clobber it. Wrap the element and animate the
+   wrapper instead.
+
+   Re-render suppression: after the entrance has played, page JS may add
+   .unl-still to a container so live-data re-renders don't re-pop elements.
+   Replay everything (console, or a future OBS stinger hook): window.unlReplay()
+*/
+
+:root {
+    --unl-ease: cubic-bezier(0.22, 1, 0.36, 1);   /* fast out, soft settle */
+    --unl-dur: 0.6s;
+}
+
+@keyframes unl-fade        { from { opacity: 0; } to { opacity: 1; } }
+@keyframes unl-fade-rise   { from { opacity: 0; transform: translateY(14px); }  to { opacity: 1; transform: none; } }
+@keyframes unl-rise-lg     { from { opacity: 0; transform: translateY(64px); }  to { opacity: 1; transform: none; } }
+@keyframes unl-slide-left  { from { opacity: 0; transform: translateX(-44px); } to { opacity: 1; transform: none; } }
+@keyframes unl-slide-right { from { opacity: 0; transform: translateX(44px); }  to { opacity: 1; transform: none; } }
+@keyframes unl-scale-in    { from { opacity: 0; transform: scale(0.94); }       to { opacity: 1; transform: none; } }
+@keyframes unl-pop         { 0%   { opacity: 0; transform: scale(0.7); }
+                             70%  { opacity: 1; transform: scale(1.03); }
+                             100% { opacity: 1; transform: none; } }
+
+.unl-fade, .unl-fade-rise, .unl-rise-lg, .unl-slide-left,
+.unl-slide-right, .unl-scale-in, .unl-pop {
+    animation-duration: var(--unl-dur);
+    animation-timing-function: var(--unl-ease);
+    animation-fill-mode: both;
+    animation-delay: var(--unl-d, 0s);
+}
+.unl-fade        { animation-name: unl-fade; }
+.unl-fade-rise   { animation-name: unl-fade-rise; }
+.unl-rise-lg     { animation-name: unl-rise-lg; animation-duration: 0.7s; }
+.unl-slide-left  { animation-name: unl-slide-left; }
+.unl-slide-right { animation-name: unl-slide-right; }
+.unl-scale-in    { animation-name: unl-scale-in; }
+.unl-pop         { animation-name: unl-pop; animation-duration: 0.45s; }
+
+/* once .unl-still is set on a container, its children stop re-animating on
+   live-data re-renders (they render straight at rest) */
+.unl-still .unl-fade, .unl-still .unl-fade-rise, .unl-still .unl-rise-lg,
+.unl-still .unl-slide-left, .unl-still .unl-slide-right,
+.unl-still .unl-scale-in, .unl-still .unl-pop { animation: none; }

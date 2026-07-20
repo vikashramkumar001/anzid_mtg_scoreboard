@@ -1,0 +1,112 @@
+/* Battlefield Meta — UNLEASHED (RQ Sydney) broadcast scene.
+ * Fixed 1920x1080 stage, absolute positions at exact PSD pixel coords.
+ * Layering: bg (truth composite) -> battlefield art strips -> chrome frame
+ * (gold ornaments + opaque percent boxes + footer) -> dynamic text. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+#bfm-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+/* Shared CSS ships a global `* { font-family: var(...) }` that beats
+ * inheritance — force Beaufort on everything inside the stage. */
+#bfm-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#bfm-bg,
+#bfm-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+#bfm-bg    { z-index: 1; }
+#bfm-tiles { position: absolute; inset: 0; z-index: 2; }
+#bfm-frame { z-index: 3; pointer-events: none; }
+#bfm-labels { position: absolute; inset: 0; z-index: 4; }
+
+/* Battlefield art strip — PSD Mask/Layer 5: 480x143 at x197/x899, y216/421/627.
+ * Clip wrapper + manually placed img: the 1039x744 battlefield scans carry a
+ * baked-in black card border (L35 R32 T40 B61) that a plain object-fit cover
+ * leaves visible as ~15px black bands at the strip's left/right edges. The JS
+ * insets the border and cover-fits the true art region into the window. */
+.bfm-art {
+    position: absolute;
+    width: 480px;
+    height: 143px;
+    overflow: hidden;
+}
+
+/* Static opaque underlay per tile (chrome — never animated). The truth bg has
+ * example art + 'BATTLEFIELDS NAME' baked into the tile regions; while the
+ * animated art strip fades in, this panel hides them so the entrance reveals
+ * over a clean navy slot (scene navy, sampled from the bg at the tile edges)
+ * instead of double-exposing the baked placeholder. Fully covered at rest. */
+.bfm-art-under {
+    position: absolute;
+    width: 480px;
+    height: 143px;
+    background: #131b2c;
+}
+
+.bfm-art img {
+    position: absolute;
+}
+
+/* Entrance-motion wrappers: .bfm-name/.bfm-pct carry their own
+ * translate(-50%,-50%) centering, so the unl-* classes go on these 0x0
+ * positioned wrappers instead (keyframes end at transform:none and would
+ * clobber the centering). JS puts left/top on the wrapper; the inner element
+ * anchors to the wrapper origin and keeps its centering transform. */
+.bfm-name-wrap,
+.bfm-pct-wrap {
+    position: absolute;
+}
+
+.bfm-name-wrap > .bfm-name,
+.bfm-pct-wrap > .bfm-pct {
+    left: 0;
+    top: 0;
+}
+
+/* Battlefield name — BeaufortProHeavy, white, all caps, centered on the art
+ * strip. 27px verified: canvas advance of 'BATTLEFIELDS NAME' at 27px is
+ * 279.1px vs 279px measured in the truth PNG. */
+.bfm-name {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-weight: 900;
+    font-size: 27px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Percent value — BeaufortProHeavy, navy #131b2c, centered in the gold box
+ * (PSD text center x727/x1429). Caps-height 31px -> font-size ~43px. */
+.bfm-pct {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-weight: 900;
+    font-size: 43px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #131b2c;
+}

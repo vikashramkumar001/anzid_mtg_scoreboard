@@ -1534,18 +1534,14 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
     -webkit-mask: var(--rb-score-strip-mask,
         linear-gradient(to right,
             transparent 0%,
-            rgba(0,0,0,0.75) 19%,
-            black 30%,
-            black 50%,
-            rgba(0,0,0,0.58) 81%,
+            black 11%,
+            black 89%,
             transparent 100%));
     mask: var(--rb-score-strip-mask,
         linear-gradient(to right,
             transparent 0%,
-            rgba(0,0,0,0.75) 19%,
-            black 30%,
-            black 50%,
-            rgba(0,0,0,0.58) 81%,
+            black 11%,
+            black 89%,
             transparent 100%));
     z-index: -1;
 }

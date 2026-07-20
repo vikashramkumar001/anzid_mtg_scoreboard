@@ -94,6 +94,24 @@ body {
     object-fit: cover;
 }
 
+/* Full-page chrome overlay (see #bracket-frame in the HTML). Sits above the
+   bg image but below the slots so DOM data (names / runes / scores) renders
+   on top of the baked plates. Only shown when JS gives it a src — vendors
+   without a full-page frame never set one, so this stays display:none. */
+#bracket-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 1;
+    display: none;
+    pointer-events: none;
+}
+#bracket-frame[src] {
+    display: block;
+}
+
 #bracket-lines {
     position: absolute;
     top: 0;
@@ -142,6 +160,14 @@ body {
     height: 56px;
     z-index: 0;
     pointer-events: none;
+}
+
+/* Vendors with a full-page #bracket-frame (riftbound uvs-unleashed) clear the
+   per-slot frame src via removeAttribute — hide the empty img so the browser
+   doesn't paint a broken-image placeholder. */
+.slot-frame:not([src]),
+.slot-frame[src=""] {
+    display: none;
 }
 
 .slot-rank {
@@ -360,3 +386,145 @@ body[data-vendor="flyquest"][data-player-count="2v2"] .bracket-slot.revealed {
     clip-path: inset(0 0 0 0);
     transform: translateY(0);
 }
+
+/* ── Riftbound UVS UNLEASHED (RQ Sydney) reskin ─────────────────────────
+ * Source PSD: RFB_Bracket_UNL.psd (1920x1080). ALL chrome — match-box
+ * plates, gold score boxes, rune-holder rings, connector lines, rotated
+ * round labels, footer, foliage — is baked into the full-page
+ * #bracket-frame PNG (riftbound-bracket-frame-uvs-unleashed-1v1.png).
+ * The bg PNG carries the background art + Ivern.
+ *
+ * DOM per player slot (555x56, positioned via the --slot-*-top/left vars
+ * set in vendor-config.js → overrides.riftbound['uvs-unleashed']['1v1']):
+ *   name      x34  y13 (caps top), 265x17  → ~24px Beaufort bold
+ *   legend    x35  y38 (caps top), 220x11  → ~16px Beaufort medium
+ *   runes     x400/x446 y13, 35x35 each (inside the baked gold rings)
+ *   score     gold box spans x494..555 → digit flex-centered, ~39px navy
+ * PSD row pitch inside a 124-tall match box: row 2 top = row 1 top + 62.
+ */
+
+/* Rune imgs exist in every slot but sit dormant outside this vendor. */
+.slot-rune {
+    display: none;
+}
+.slot-rune:not([src]),
+.slot-rune[src=""] {
+    visibility: hidden;
+}
+
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] #bracket-lines,
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .round-label-wrapper {
+    /* Connector lines + QUARTERFINALS/SEMIFINALS/GRAND FINALS labels are
+       baked into the frame PNG — hide the browser-drawn versions. */
+    display: none;
+}
+
+/* UNLEASHED entrance motion: for this vendor the shared unl-* utilities
+   (unleashed-motion.css) own the reveal — the DATA layer (names / legend
+   lines / runes / scores) slides in per element, classes applied in
+   bracket-full-display.js. Neutralize the legacy 1v1 clip-path wipe +
+   translateX on the slot shell so the two systems never fight and slots sit
+   at their resting position from frame 0 (the baked frame chrome is covered
+   by the OBS stinger and doesn't move). Specificity: 3 attrs + 1 class beats
+   both `.bracket-slot` and `.bracket-slot.revealed`. */
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .bracket-slot {
+    clip-path: none;
+    transform: none;
+    transition: none;
+}
+
+/* NOTE: no .bracket-slot display override here — the per-slot #slot-* ID
+   rules (higher specificity) keep it flex, which is irrelevant because every
+   visible child below is position:absolute (out of flow). */
+
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .slot-rank {
+    /* PSD has no seed/rank column. */
+    display: none;
+}
+
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .slot-name-archetype {
+    position: absolute;
+    top: 0;
+    left: 34px;
+    width: 265px;
+    height: 56px;
+    flex: none;
+    display: block;
+    overflow: visible;
+    z-index: 1;
+}
+
+/* The PSD does not inset the text identically in every column (measured
+   ink-left/caps-top per column off the truth PNG): QF x36/y13, SF x42/y14,
+   GF x37/y14. The base rule above encodes QF; nudge the text container for
+   the SF and GF slots. Runes + score boxes are column-invariant. */
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] #slot-bracket-semifinal-1a .slot-name-archetype,
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] #slot-bracket-semifinal-1b .slot-name-archetype,
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] #slot-bracket-semifinal-2a .slot-name-archetype,
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] #slot-bracket-semifinal-2b .slot-name-archetype {
+    left: 40px;
+    top: 1px;
+}
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] #slot-bracket-final-1a .slot-name-archetype,
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] #slot-bracket-final-1b .slot-name-archetype {
+    left: 35px;
+    top: 1px;
+}
+
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .slot-name {
+    position: absolute;
+    top: 8px;      /* caps top lands ~y13 at 24px Beaufort, line-height 1 */
+    left: 0;
+    height: auto;
+    line-height: 1;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: start;
+    white-space: nowrap;
+}
+
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .slot-archetype {
+    position: absolute;
+    top: 35px;     /* caps top lands ~y38 at 16px, line-height 1 */
+    left: 0;
+    height: auto;
+    line-height: 1;
+    /* Measured off the truth PNG: "MASTER YI, WUJU BLADESMAN" ink is
+       220px wide / 11px cap — that's 16px Beaufort medium, not 19. The
+       PSD also tracks the line slightly tighter than the font's natural
+       advances (~-10/1000em), hence the negative letter-spacing. -0.12
+       splits the residual between the two PSD sample lines (MASTER YI
+       wants -0.16/char, KAI'SA -0.08/char) — both land within ~1px. */
+    font-size: 16px;
+    letter-spacing: -0.12px;
+    font-style: normal;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .slot-points {
+    position: absolute;
+    /* +2px: PSD digit baseline sits at slot-rel y44.5; a flex-centered
+       39px Beaufort line in a 56px box lands at 42.5. */
+    top: 2px;
+    left: 494px;   /* baked gold score box: slot-rel x494..555 */
+    width: 61px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 39px;
+    font-weight: 700;
+    z-index: 1;
+}
+
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .slot-rune {
+    display: block;
+    position: absolute;
+    top: 13px;
+    width: 35px;
+    height: 35px;
+    z-index: 1;
+}
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .slot-rune-1 { left: 400px; }
+body[data-game="riftbound"][data-vendor="uvs-unleashed"][data-player-count="1v1"] .slot-rune-2 { left: 446px; }

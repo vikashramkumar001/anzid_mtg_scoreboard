@@ -180,6 +180,29 @@ export function initGameSelection(socket) {
         refreshDirtyState();
     });
 
+    // --- Sideboard visibility (immediate toggle; NOT gated behind Apply) ---
+    // Flipping this shows/hides the sideboard on the decklist broadcast right
+    // away. The switch lives on each round's broadcast strip
+    // (.round-sideboard-toggle, rendered by matches.js) — there's one per round
+    // tab but only one is visible at a time. They all drive a single global
+    // state, so we keep every copy in sync and stash the current value on
+    // body.dataset.sideboardVisible (matches.js reads it to seed strips that
+    // render after the first sync). Server broadcasts the change to all clients
+    // (incl. us) to keep tabs in sync.
+    const syncSideboardToggles = (visible) => {
+        document.body.dataset.sideboardVisible = visible ? 'true' : 'false';
+        document.querySelectorAll('.round-sideboard-toggle').forEach(t => { t.checked = visible; });
+    };
+    // Delegated so it works for the per-round toggles rendered later.
+    document.addEventListener('change', (e) => {
+        if (!e.target.classList || !e.target.classList.contains('round-sideboard-toggle')) return;
+        const visible = e.target.checked;
+        syncSideboardToggles(visible);
+        socket.emit('update-sideboard-visible', { sideboardVisible: visible });
+    });
+    socket.on('server-current-sideboard-visible', ({sideboardVisible}) => syncSideboardToggles(!!sideboardVisible));
+    socket.on('sideboard-visible-updated', ({sideboardVisible}) => syncSideboardToggles(!!sideboardVisible));
+
     // --- Save OBS Preset ---
     // --- Toggle Commentator L3 ---
     const commL3Btn = document.querySelector('#toggle-commentator-l3');
@@ -233,4 +256,5 @@ export function initGameSelection(socket) {
     socket.emit('get-game-selection');
     socket.emit('get-vendor-selection');
     socket.emit('get-player-count');
+    socket.emit('get-sideboard-visible');
 }

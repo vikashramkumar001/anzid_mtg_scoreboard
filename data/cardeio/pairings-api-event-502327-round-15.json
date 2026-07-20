@@ -27,6 +27,7 @@
         "user_event_status": {
           "id": 3024056,
           "user_identifier": "koko l",
+          "special_user_identifier": null,
           "matches_won": 13,
           "matches_lost": 1,
           "matches_drawn": 2,
@@ -55,9 +56,13 @@
             "deck_defining_card": {
               "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
               "name": "Draven, Glorious Executioner",
-              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260430%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260430T194200Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=7697f01077671bb537861171ce3733cad6ac1f415f305500c72912a20e51bf37f01d40737e09dbc32dcfd8336c6d24e79a524df3f306b74e87c6ad55509438284b29be5bee48dcf18754b94db5cd8dc844fc56286358cbe02764bbe0ce332cff23a27c213c5c0cf7fac0552eb2f98399be2c27196825c3fba2e8aa5b9858d8e30ed93a7eca9726011a2c2baf79afb6cc610cdb21a8e507d2765bd9515c2c686a379a290a594c07947aa29a50f183d0df162e2620f3743b0b2c8ed14a644ba788a671f4b35bf85329c07cffb4c866cf7cb77fa56a722c8ae98a1b41d70bcfdc003391e24441c511c0163c254ba2949025f50f9919196fcc4e14d6855c67cced76"
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055337Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=0c49403a806b74a1b2b6879648f8b8b299ec030c3de4d7b4e89d3d013b756a1ffc25a6643b235eee1f819f2eca7adc622eb80a05dac9ab1ce0b1ad2518f86541ee6f5c1250f0ade1b233b601dc2f380e2872e2125719323ae985381e8610f9efb25c41369148f47de8144db1b2a20011a6ef95817e85e19bd8f3512e0d2da2d17de32f8e7757a9031916fc8d01144b945e7c9c0cc7b5f78ec372a0595d1db5eb98ff374885fcfc9d0cb07db9583cd4f2d025c23cd4df50a2cb22ca692b73ac5a3f92698c625bbf01e992d8029491cdbda3c15fa8d943f88c4022b199d58580ec633983ad6d8f84c8f3fd720bec7f98bfcb50d8964319ddd2d0eb32ca880e3339"
             }
-          }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
         },
         "player": {
           "id": 126119,
@@ -78,6 +83,7 @@
         "user_event_status": {
           "id": 3047815,
           "user_identifier": "Vincent N",
+          "special_user_identifier": null,
           "matches_won": 12,
           "matches_lost": 2,
           "matches_drawn": 1,
@@ -95,7 +101,7 @@
             "pronouns": null,
             "country_code": null,
             "game_user": {
-              "display_name": "HaruKaze"
+              "display_name": "SNDR HaruKaze"
             }
           },
           "player_interactions": [],
@@ -106,9 +112,13 @@
             "deck_defining_card": {
               "id": "3bf6bd64-164e-4e47-9daa-871274568b6b",
               "name": "Irelia, Blade Dancer",
-              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/4f2c62f6-6859-4ee9-9e17-cbc52a19f692.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260430%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260430T194200Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=a79fc514f5cf014ab07d7e0823ac32e1bf5f675bac6a09d0bcf465be2da1998d81e787c7080df7b353ccccfe37c1be42f1c2f7e7f5a256abd52fd41c62f9d162eecb9276ba122927286849d35440ebaaa1f9857f88333f427313b7f0f27c2a876b7fb77c0f7c2d390c1543ed3711177b24fb49a75e2bc58fd3e74aaf639d2977faa6290d676f211f6f455a85d81cb1cdc81a81f17c25384693156ebc19b9e90e8b443b0f1699800c349594b9bd7a1b2265b523cdaca046f0fccd5f421f86d00f36ee1cbecb3efc8c9a86bd14c4c33f478fdebbf4f9a9af1176837f8cb9788170acbe3eb602d979e442ab14be847db24593ac05443f5cb1a74e463d7b369a3913"
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/4f2c62f6-6859-4ee9-9e17-cbc52a19f692.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055337Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=401eee1d5f2fb650bd09973bedceaf712c32d6440935df5a1828480f2840d37678b83a2028baba631183109289e156b39a91f0e2217277d760a985262b817ca2bae1cdf829ab77b85b7db021d813ccd770b3eaddb7de3d385ff49a1d2c74dd5c57b4c2542368b34c287ad1a990838f28bf8bb7b2eac6be2bcc2f1188bf3410dbeb8f7b5c22cccf0bc96851c29ee732d23f58ed8ecc5fcddc86f5f33c10083097f98fad296c08653c39fba9d0f3c9ac9474559da5276a79e1df8e9ab707ee2ce0cc94263f9a4aafa7f5d9f7985a48b967dc7abcaf6f02a5f29f48627baaaba7e625066cd913f771a41a7219c00fc1c201dfaa8bcec1c15c72d5327773a7d77dae"
             }
-          }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
         },
         "player": {
           "id": 155641,
@@ -124,8 +134,6 @@
     ],
     "assigned_judge": null,
     "reporting_player": null,
-    "last_modified_by_name": "Ward W",
-    "result_reported_at": "2026-04-27T00:56:39+00:00",
     "created_at": "2026-04-26T23:54:19+00:00",
     "updated_at": "2026-04-27T00:56:39+00:00"
   },
@@ -157,6 +165,7 @@
         "user_event_status": {
           "id": 3025118,
           "user_identifier": "Kyle B",
+          "special_user_identifier": null,
           "matches_won": 14,
           "matches_lost": 1,
           "matches_drawn": 1,
@@ -185,9 +194,13 @@
             "deck_defining_card": {
               "id": "83a98d73-dd87-438e-99b3-5617bca7d3d4",
               "name": "Annie, Dark Child",
-              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/254141aa-d667-49b9-bd1c-559f6b4ee246.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260430%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260430T194200Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=3d9c66277b34cf640e9582d314d2f0da3f528d5960cfaddb18d1cae5177dd4d6055a43c6dfbf602ab7305c17b0f9c8cc24771549226b98c67b90293728e6eae498e38b0d750ef65ffc549bb85f5d5bbc1b03ee0df9f6ec52910ad38829c9de685e1943ce34936b63667f17b4720e5c4cdb89c12d297ed3653d9aac7bd8058c307a264400487b74c222036b10e3cea9ab1635d3d34f556872dd3b6f242fb1dde9acf8ba94212679cfcd6aaf520643712483c7d945a8b1fd129b6a73a4c08f2cd7693336e60cc1e5d2499c56abe6c02459808704c594bd44f0d15b5a0b94daee22af96e055c57cad32596b70bdfacce6267600202ddf87fa67c3ae002703332176"
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/254141aa-d667-49b9-bd1c-559f6b4ee246.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055337Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=0442652344f13ce1869fc3a55216f74738dfb2eb8c0e65bb784d185c4aeade60fdc1dcdc904350d20bf98edec0aac3529b0a0b858429de6b5635890db8f241c3d7d050e59e7ae025aceef2a3f1ecb5b357014c92b9e9895fc4787c9aecdde31cb388292d4124f0a93b1974626eda9abbfd5cd898d1c39d8cadf9caddef7c689ee00d82b823ba982ff8c6e77b26cbf1d046d3d58fd860c517dfe41972fbfb1e7813a1f668a71a9ae69bb14959696bfa6c8138e3ca7dd40fd9966cf8a437b051dfa5e940a3b913c7bfb72617a71870df2b14fa2ea8c375185bd05b44c9352037d392e467d1e49d21cf9ed7597444d80bbd4f75cb022b0a39adb6c59b6400072bf8"
             }
-          }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
         },
         "player": {
           "id": 98709,
@@ -208,6 +221,7 @@
         "user_event_status": {
           "id": 3025476,
           "user_identifier": "Mateusz J",
+          "special_user_identifier": null,
           "matches_won": 12,
           "matches_lost": 2,
           "matches_drawn": 1,
@@ -229,16 +243,11 @@
             }
           },
           "player_interactions": [],
-          "deck_submission": {
-            "id": "b234f118-407e-40ad-b4d3-f61aa6dcc18c",
-            "deck_id": "bde2cab2-c6e6-45dc-9548-48677c7c787f",
-            "deck_name": "Ez updat",
-            "deck_defining_card": {
-              "id": "71ead16b-bf55-4488-8b51-bcd1288e4107",
-              "name": "Ezreal, Prodigal Explorer",
-              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/e4dfdf06-7a30-4846-b3e1-aaa8f65a45d9.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260430%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260430T194200Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=3c2139c4611eaae9fd678e7dce57093fa67c47c2cc1bcbcae4abf7f2378b001360cec97f4eabd3124dd41339dcec16e3f95a92e93a431dc2a34d0e61e2d905dba99bc30b6163999694139d8134e7cc0b87a43ecbf3b9362c6e804741fb003feeac22a68a20c69e912ba541bd092ef8d8ca7614fdc582438ba67669dfec8ec190751dd32d0afc5acf1eb995aaffefdaa32775e2487afe1d24784126cb8f76db3c4fe559df9702769b04cb0b744d2ea7c9ce39d19782659dc3c0c0595a2bc846b84f75a3072548b0b94e9480a6f70cbe6fd2d0d517663d34b76965914c0ce0bbca9f9651255d3c9b0dfdaa1efcfa2d0c2c87fbb4230069d638beae30f172eb75de"
-            }
-          }
+          "deck_submission": null,
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
         },
         "player": {
           "id": 135798,
@@ -254,8 +263,6 @@
     ],
     "assigned_judge": null,
     "reporting_player": null,
-    "last_modified_by_name": "Ward W",
-    "result_reported_at": "2026-04-27T01:45:38+00:00",
     "created_at": "2026-04-26T23:54:19+00:00",
     "updated_at": "2026-04-27T01:45:38+00:00"
   }

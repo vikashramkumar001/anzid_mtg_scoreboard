@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Schedule</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-schedule.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="schedule-stage">
+    <!-- Everything static is baked into this one bg: illustrated backdrop
+         (Master Yi, forest, bolts, leaves), corner foliage, the SATURDAY /
+         SUNDAY headline art, time-row divider ticks, the pink text-box
+         plates, the championship flanking dashes, and the right rail
+         (navy panel + swirl, RQ Sydney logo, SHARE YOUR STORY / #RQSYDNEY).
+         Derived from the PSD composite (smart-object FX made a re-composite
+         drift on the left art) with the nine dynamic text lines patched out
+         from a mask/clip-aware no-text re-render. -->
+    <img id="schedule-bg" src="/assets/images/riftbound/schedule/riftbound-schedule-bg-uvs-unleashed-1v1.png" alt="">
+
+    <!-- Dynamic schedule copy — hardcoded to the PSD's own sample strings so
+         the page first-paints exactly as the truth composite; JS overrides
+         from /data/scene-content/schedule.json when present. -->
+    <!-- Entrance: the nine lines cascade in reading order (unleashed-motion
+         kit), 90ms steps — sat times, sat box, sun times, kicker, sun boxes,
+         note. Baked headline art doesn't move; render only swaps textContent
+         (no node re-insertion), so live edits can't re-trigger the entrance. -->
+    <div id="sat-time-left" class="sched-time unl-fade-rise">10am aest</div>
+    <div id="sat-time-right" class="sched-time unl-fade-rise" style="--unl-d:.09s">5pm pt</div>
+    <div id="sat-box1" class="sched-box-label unl-fade-rise" style="--unl-d:.18s">8 rounds of swiss</div>
+
+    <div id="sun-time-left" class="sched-time unl-fade-rise" style="--unl-d:.27s">10am aest</div>
+    <div id="sun-time-right" class="sched-time unl-fade-rise" style="--unl-d:.36s">5pm pt</div>
+    <div id="sun-kicker" class="unl-fade-rise" style="--unl-d:.45s">championship</div>
+    <div id="sun-box1" class="sched-box-label unl-fade-rise" style="--unl-d:.54s">5 rounds of swiss</div>
+    <div id="sun-box2" class="sched-box-label unl-fade-rise" style="--unl-d:.63s">top 8</div>
+    <div id="sun-note" class="unl-fade-rise" style="--unl-d:.72s">single elimination</div>
+</div>
+<script type="module" src="/js/broadcast-schedule.js"></script>
+</body>
+</html>

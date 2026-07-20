@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Battlefield Meta</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <link href="/css/broadcast-battlefield-meta.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="bfm-stage">
+    <!-- Background: truth-derived composite (jungle + Lilia + baked footer/chrome).
+         The PSD re-composite loses its adjustment layers (Vignette/Value Clamp) and
+         comes out flat, so the bg is the designer's own flattened composite. Every
+         example-data region baked into it is covered: tile art + name by the DOM
+         art <img>s below, the "3%" values by the opaque gold boxes in the frame. -->
+    <img id="bfm-bg" src="/assets/images/riftbound/battlefield-meta/riftbound-battlefield-meta-bg-uvs-unleashed-1v1.png" alt="">
+    <!-- Dynamic battlefield art strips (one per tile), below the chrome frame -->
+    <div id="bfm-tiles"></div>
+    <!-- Static chrome: per-tile gold ornament borders + percent boxes + footer -->
+    <img id="bfm-frame" src="/assets/images/riftbound/battlefield-meta/riftbound-battlefield-meta-frame-uvs-unleashed-1v1.png" alt="">
+    <!-- Dynamic text: battlefield names + percent values, above the frame -->
+    <div id="bfm-labels"></div>
+</div>
+<script type="module" src="/js/broadcast-battlefield-meta.js"></script>
+</body>
+</html>

@@ -104,6 +104,14 @@ class RoomManager {
         // (irrelevant-to-us) traffic.
         if (path.includes('/event-info/')) return 'event-info';
 
+        // VS PiP split-screen (broadcast-vs-pip.html?match=N) — mirrors the
+        // match-N control data (names + battlefields), so it joins the same
+        // scoreboard-{N} room the /scoreboard page uses (default match 1).
+        if (path.includes('broadcast-vs-pip')) {
+            const n = params.get('match') || '1';
+            return `scoreboard-${n}`;
+        }
+
         // Timer - check for /timer/ in path
         if (path.includes('/timer/')) {
             const match = path.match(/\/timer\/(\d+)/);

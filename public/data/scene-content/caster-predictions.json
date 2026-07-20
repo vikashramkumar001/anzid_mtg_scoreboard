@@ -1,0 +1,48 @@
+{
+  "casters": [
+    {
+      "handle": "steph",
+      "legend": "Diana, Scorn of the Moon",
+      "photo": "/assets/images/riftbound/caster-predictions/riftbound-caster-predictions-caster-steph-uvs-unleashed-1v1.png",
+      "photoLeft": 80,
+      "photoTop": 75,
+      "cards": [
+        { "name": "Diana, Scorn of the Moon", "image": "/assets/images/riftbound/cards/UNL-197.png" },
+        { "name": "Diana, Lunari", "image": "/assets/images/riftbound/cards/UNL-079.png" }
+      ]
+    },
+    {
+      "handle": "logan",
+      "legend": "diana, scorn of the moon",
+      "photo": "/assets/images/riftbound/caster-predictions/riftbound-caster-predictions-caster-logan-uvs-unleashed-1v1.png",
+      "photoLeft": 464,
+      "photoTop": 79,
+      "cards": [
+        { "name": "Diana, Scorn of the Moon", "image": "/assets/images/riftbound/cards/UNL-197.png" },
+        { "name": "Diana, Lunari", "image": "/assets/images/riftbound/cards/UNL-079.png" }
+      ]
+    },
+    {
+      "handle": "profound rice",
+      "legend": "Annie, Dark Child",
+      "photo": "/assets/images/riftbound/caster-predictions/riftbound-caster-predictions-caster-naomi-uvs-unleashed-1v1.png",
+      "photoLeft": 855,
+      "photoTop": 78,
+      "cards": [
+        { "name": "Annie, Dark Child - Starter", "image": "/assets/images/riftbound/cards/OGS-017.png" },
+        { "name": "Annie, Stubborn", "image": "/assets/images/riftbound/cards/OGS-010.png" }
+      ]
+    },
+    {
+      "handle": "Pastrytime",
+      "legend": "LeBlanc, Deceiver",
+      "photo": "/assets/images/riftbound/caster-predictions/riftbound-caster-predictions-caster-julian-uvs-unleashed-1v1.png",
+      "photoLeft": 1059,
+      "photoTop": 60,
+      "cards": [
+        { "name": "LeBlanc, Deceiver", "image": "/assets/images/riftbound/cards/UNL-199.png" },
+        { "name": "LeBlanc, Fragmented", "image": "/assets/images/riftbound/cards/UNL-172.png" }
+      ]
+    }
+  ]
+}

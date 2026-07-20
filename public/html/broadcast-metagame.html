@@ -17,6 +17,10 @@
 <body>
 <img id="metagame-bg" src="" alt="">
 <video id="metagame-bg-video" autoplay loop muted playsinline></video>
+<!-- "Most Played Decks" corner-leaves overlay — the only remaining chrome image
+     (card frames / headline / footer are all CSS now). Sits above the bg, below
+     the cards. Hidden (src="") for vendors using the pie-chart layout below. -->
+<img id="metagame-leaves" src="" alt="">
 <div id="metagame-container">
     <div id="metagame-header">
         <!-- Title shows via CSS unless a layout sets --meta-title-display: none
@@ -33,6 +37,34 @@
             <svg id="pie-chart"></svg>
         </div>
         <div id="archetype-cards-panel">
+        </div>
+    </div>
+    <!-- "Most Played Decks" — CSS-recreated 8-card metagame (CSL default + uvs).
+         Headline + footer are static here; #mpd-cards is filled by
+         renderMostPlayedDecks() (top 8 archetypes), and the DAY text is updated live. -->
+    <div id="most-played-decks">
+        <!-- Dynamic central figure: the #1 most-played legend, in front of the
+             portal bg and behind the headline/cards. Src set by renderMostPlayedDecks().
+             Legends with animated art use the <video> (transparent VP9 webm); the rest
+             fall back to the static <img> PNG. Only one is visible at a time. -->
+        <img id="mpd-character" src="" alt="">
+        <video id="mpd-character-video" autoplay loop muted playsinline></video>
+        <!-- Pixel-perfect PSD card-frame chrome (behind the per-card data) -->
+        <div id="mpd-chrome"></div>
+        <div class="mpd-headline">
+            <div class="mpd-headline-top">MOST PLAYED</div>
+            <div class="mpd-headline-main">DECKS</div>
+        </div>
+        <div id="mpd-cards"></div>
+        <div class="mpd-footer">
+            <div class="mpd-footer-bar"></div>
+            <div class="mpd-footer-line left"></div>
+            <div class="mpd-footer-line right"></div>
+            <img class="mpd-footer-logo" src="" alt="">
+            <div class="mpd-footer-pill">METAGAME</div>
+            <div class="mpd-footer-day">DAY 1</div>
+            <div class="mpd-footer-share">SHARE YOUR STORY</div>
+            <div class="mpd-footer-hash"><span class="mpd-hash-rq">#RQ</span>Sydney</div>
         </div>
     </div>
 </div>

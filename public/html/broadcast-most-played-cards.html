@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Most Played Cards</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <link href="/css/broadcast-most-played-cards.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<!-- UNLEASHED "Most Played Cards" — one page, three variants (?variant=spells|gear|units,
+     also /broadcast/most-played-cards/<variant>). The bg PNG per variant is derived from
+     the PSD truth composite (adjustment layers + the champion-layer mask don't survive
+     ag-psd re-compositing) with every dynamic-text region patched out — so ALL chrome
+     (headline, table, pills, footer, champion) is baked; the DOM renders only data. -->
+<div id="mpc-stage">
+    <img id="mpc-bg" class="unl-fade" src="" alt="">
+
+    <!-- 3 featured cards: art + name + usage % (USAGE label + pills are baked chrome).
+         Entrance: art scales in L-to-R (120ms stagger), then each card's name rises
+         and its usage number pops inside the baked pill. -->
+    <div class="mpc-card" id="mpc-card-1">
+        <img class="mpc-card-art unl-scale-in" src="" alt="">
+        <div class="mpc-card-name unl-fade-rise" style="--unl-d:.18s"></div>
+        <div class="mpc-card-usage unl-pop" style="--unl-d:.26s"></div>
+    </div>
+    <div class="mpc-card" id="mpc-card-2">
+        <img class="mpc-card-art unl-scale-in" style="--unl-d:.12s" src="" alt="">
+        <div class="mpc-card-name unl-fade-rise" style="--unl-d:.30s"></div>
+        <div class="mpc-card-usage unl-pop" style="--unl-d:.38s"></div>
+    </div>
+    <div class="mpc-card" id="mpc-card-3">
+        <img class="mpc-card-art unl-scale-in" style="--unl-d:.24s" src="" alt="">
+        <div class="mpc-card-name unl-fade-rise" style="--unl-d:.42s"></div>
+        <div class="mpc-card-usage unl-pop" style="--unl-d:.50s"></div>
+    </div>
+
+    <!-- right table: 7 rows (row strips + gold % pills are baked chrome) -->
+    <div id="mpc-table"></div>
+</div>
+<script type="module" src="/js/broadcast-most-played-cards.js"></script>
+</body>
+</html>

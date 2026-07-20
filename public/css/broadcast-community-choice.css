@@ -1,0 +1,120 @@
+/* UNLEASHED "Community Choice" — 4 match rows over a truth-derived bg.
+   Row plates are the designer's own full-canvas PNGs (per-row positions baked
+   in); the DOM renders only dynamic data at exact PSD pixel coords.
+   Row pitch 138px (row 1 tops given below; JS adds i*138). */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#cc-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS elsewhere sets * { font-family: var(...) } which beats inheritance —
+   pin every descendant explicitly (Kai'Sa-gotcha sibling). */
+#cc-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#cc-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* ── Row plates (full-canvas PNGs, content pre-positioned per row) ─────────── */
+.cc-plate,
+.cc-selected-plate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Winner highlight: gold plate over the name area only (source art sits at
+   row 1 — JS shifts it down with translateY(i*138)). The row's domain panel
+   and runes stay visible beside it, as in the PSD's Selected group. */
+.cc-selected-plate { display: none; }
+.cc-row.sel-left  .cc-selected-plate.left  { display: block; }
+.cc-row.sel-right .cc-selected-plate.right { display: block; }
+.cc-row.sel-left  .cc-name.left,
+.cc-row.sel-left  .cc-sub.left  { color: #161f30; }
+.cc-row.sel-right .cc-name.right,
+.cc-row.sel-right .cc-sub.right { color: #161f30; }
+
+/* ── Player name + deck line ─────────────────────────────────────────────────
+   Pixel-measured off the truth PNG (row 1):
+   name ink x240-597 (w357), caps y237-260 → 32.5px Bold (PSD 9.709pt × 3.351;
+   canvas paintW 358 ✓). Deck line is uniform ALL-CAPS (every glyph top y271,
+   cap-h 15, comma to y289) ink x240-536 (w296) → 21.6px Regular + uppercase
+   (NOT small-caps — synthesized small-caps renders 240px wide, 56px short).
+   Left texts start at x239; right texts are right-aligned to x1681. */
+.cc-name {
+    position: absolute;
+    height: 41px;
+    line-height: 41px;
+    font-size: 32.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+}
+.cc-name.left  { left: 239px;  width: 490px; text-align: left; }
+.cc-name.right { left: 1191px; width: 490px; text-align: right; }
+
+.cc-sub {
+    position: absolute;
+    height: 30px;
+    line-height: 30px;
+    font-size: 21.6px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+}
+.cc-sub.left  { left: 239px;  width: 490px; text-align: left; }
+.cc-sub.right { left: 1191px; width: 490px; text-align: right; }
+
+/* ── Domain runes + gold frame ───────────────────────────────────────────────
+   PSD row 1: frame 127x63 at x754 (left) / x1039 (right), y230; rune circles
+   47x47 inset +8,+8 → x762/x825 (left) and x1047/x1110 (right), y238.
+   Frame draws ABOVE the runes (its ring slightly overlaps the circles). */
+.cc-domain-frame {
+    position: absolute;
+    width: 127px;
+    height: 63px;
+}
+.cc-domain-frame.left  { left: 754px; }
+.cc-domain-frame.right { left: 1039px; }
+
+.cc-rune {
+    position: absolute;
+    width: 47px;
+    height: 47px;
+}
+
+/* ── Entrance motion (unleashed-motion.css) ──────────────────────────────────
+   Each row side gets a full-canvas wrapper carrying the unl-slide class, so
+   plate + runes + selected overlay + name/deck slide in as ONE unit while the
+   children keep their exact stage-space pixel coordinates. The wrapper itself
+   has no transform of its own (the kit's keyframes end at transform:none). */
+.cc-side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}

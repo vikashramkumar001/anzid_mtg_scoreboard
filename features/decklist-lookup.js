@@ -1,8 +1,8 @@
 // Cached decklist lookup — joins player IDs to legends/champions for the
 // pairings table.
 //
-// Reads every `data/cardeio/cache/event-{eventId}-decklists.json` file
-// at boot and builds a per-event Map<userId, { legend }>. The pairings
+// Reads the active tournament's `data/cardeio/cache/event-{eventId}-decklists.json`
+// file at boot and builds a per-event Map<userId, { legend }>. The pairings
 // emit in sockets/handlers.js calls `getLegendForPlayer(eventId, userId)`
 // to attach the right legend per relationship.
 //
@@ -15,6 +15,7 @@
 import path from 'path';
 import { promises as fs } from 'fs';
 import { fileURLToPath } from 'url';
+import { getPlatformConfig } from './tournament-platforms.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,8 +26,10 @@ const CACHE_DIR = path.join(__dirname, '..', 'data', 'cardeio', 'cache');
 // legend choices.
 const decklistsByEvent = new Map();
 
-// Boot scan — load every event-{N}-decklists.json into memory. Missing
-// dir is fine (operator may not have any cached decklists yet).
+// Boot scan — load the ACTIVE tournament's event-{N}-decklists.json into
+// memory (filtered to getPlatformConfig().tournamentId so stale past-event
+// caches aren't parsed on every restart). Missing dir is fine (operator may
+// not have any cached decklists yet).
 export async function loadAllCachedDecklists() {
     decklistsByEvent.clear();
     let entries;
@@ -41,9 +44,20 @@ export async function loadAllCachedDecklists() {
         return;
     }
 
-    const decklistFiles = entries.filter(f => /^event-\d+-decklists\.json$/.test(f));
+    // Only load the ACTIVE tournament's decklists. Stale caches from past
+    // events would otherwise be parsed into memory on every boot and slow the
+    // restart (the standings / pairings loaders filter the same way — see the
+    // comment in server.js initialize()).
+    const tournamentId = getPlatformConfig().tournamentId;
+    if (!tournamentId) {
+        console.log('[DecklistLookup] No active tournamentId — skipping decklist cache load.');
+        return;
+    }
+    const idEsc = String(tournamentId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const fileRe = new RegExp(`^event-${idEsc}-decklists\\.json$`);
+    const decklistFiles = entries.filter(f => fileRe.test(f));
     if (decklistFiles.length === 0) {
-        console.log('[DecklistLookup] No cached decklist files found.');
+        console.log(`[DecklistLookup] No cached decklists for active event ${tournamentId}.`);
         return;
     }
 

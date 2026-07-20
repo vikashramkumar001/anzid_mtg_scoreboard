@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Legend Spotlight</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-legend-spotlight.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<!-- UNLEASHED "Legend Spotlight" (L3) — a LOWER-THIRD over live camera: the page
+     is fully transparent outside the navy panel (no bg export; OBS shows camera
+     behind). Legend picked via ?legend=<slug> (or trailing path segment), copy
+     comes from /data/scene-content/legend-spotlight.json. Chrome (panel + swirl,
+     gold hairline, hextech corners, 3 card name bars) is baked into frame.png;
+     the name plate + its gold rules are a SEPARATE baked layer because the PSD
+     stacks it ABOVE the character art. Everything else is DOM. -->
+<!-- Entrance: the whole stage (panel chrome + character + plate) rises as ONE
+     unit (classic L3), then the internals cascade — cards scale in, name plate
+     and bullets fade-rise. Delays are inline --unl-d; see unleashed-motion.css. -->
+<div id="ls-stage" class="unl-rise-lg">
+    <img id="ls-frame" src="/assets/images/riftbound/legend-spotlight/riftbound-legend-spotlight-frame-uvs-unleashed-1v1.png" alt="">
+
+    <!-- 3 signature cards: gold label bar text (bar itself is baked) + card art -->
+    <div class="ls-card unl-scale-in" id="ls-card-1" style="--unl-d:.35s">
+        <div class="ls-card-label"></div>
+        <img class="ls-card-art" src="" alt="">
+    </div>
+    <div class="ls-card unl-scale-in" id="ls-card-2" style="--unl-d:.43s">
+        <div class="ls-card-label"></div>
+        <img class="ls-card-art" src="" alt="">
+    </div>
+    <div class="ls-card unl-scale-in" id="ls-card-3" style="--unl-d:.51s">
+        <div class="ls-card-label"></div>
+        <img class="ls-card-art" src="" alt="">
+    </div>
+
+    <!-- 3 deck-strategy bullets -->
+    <div id="ls-bullets">
+        <div class="ls-bullet unl-fade-rise" id="ls-bullet-1" style="--unl-d:.50s"></div>
+        <div class="ls-bullet unl-fade-rise" id="ls-bullet-2" style="--unl-d:.59s"></div>
+        <div class="ls-bullet unl-fade-rise" id="ls-bullet-3" style="--unl-d:.68s"></div>
+    </div>
+
+    <!-- Central legend, breaking upward out of the panel. Animated legends play
+         the transparent VP9 webm <video>; the rest show the static PNG <img>.
+         Only one is visible at a time (JS sets src + face-anchored geometry). -->
+    <img id="ls-character" src="" alt="">
+    <video id="ls-character-video" autoplay loop muted playsinline></video>
+
+    <!-- Name plate chrome sits ABOVE the character (per PSD layer order) -->
+    <img id="ls-plate" src="/assets/images/riftbound/legend-spotlight/riftbound-legend-spotlight-plate-uvs-unleashed-1v1.png" alt="">
+    <div id="ls-name" class="unl-fade-rise" style="--unl-d:.45s">
+        <div id="ls-name-main"></div>
+        <div id="ls-name-sub"></div>
+    </div>
+</div>
+<script type="module" src="/js/broadcast-legend-spotlight.js"></script>
+</body>
+</html>

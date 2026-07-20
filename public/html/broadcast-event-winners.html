@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Event Winners</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-event-winners.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="ew-stage">
+    <!-- Layer stack replicates the PSD's compositing order:
+         bg (pillars, legend artwork, divider — everything below the photos)
+         < finalist photo < champion photo (photos carry their baked drop
+         shadow, clipped darkening gradient and the group-mask bottom fade)
+         < fg (forest silhouette + lightning bolts that overlap the photos)
+         < frame (leaves, card chrome, CHAMPION/FINALIST headings, footer)
+         < DOM cards < DOM name texts. -->
+    <img id="ew-bg" src="/assets/images/riftbound/event-winners/riftbound-event-winners-bg-uvs-unleashed-1v1.png" alt="">
+    <img id="ew-photo-finalist" class="ew-photo unl-slide-right" style="--unl-d:.08s" src="/assets/images/riftbound/event-winners/riftbound-event-winners-photo-finalist-uvs-unleashed-1v1.png" alt="">
+    <img id="ew-photo-champion" class="ew-photo unl-slide-left" src="/assets/images/riftbound/event-winners/riftbound-event-winners-photo-champion-uvs-unleashed-1v1.png" alt="">
+    <img id="ew-fg" src="/assets/images/riftbound/event-winners/riftbound-event-winners-fg-uvs-unleashed-1v1.png" alt="">
+    <img id="ew-frame" src="/assets/images/riftbound/event-winners/riftbound-event-winners-frame-uvs-unleashed-1v1.png" alt="">
+
+    <!-- Card slots (legend card on top, champion-unit card below, per side).
+         Hardcoded to the PSD's own example cards so the page paints correctly
+         before JS runs; JS re-resolves from DEFAULTS/JSON. -->
+    <img id="ew-card-champ-legend" class="ew-card unl-scale-in" style="--unl-d:.32s" src="/assets/images/riftbound/cards/UNL-232.png" alt="">
+    <img id="ew-card-champ-unit" class="ew-card unl-scale-in" style="--unl-d:.40s" src="/assets/images/riftbound/cards/UNL-150.png" alt="">
+    <img id="ew-card-final-legend" class="ew-card unl-scale-in" style="--unl-d:.38s" src="/assets/images/riftbound/cards/UNL-195.png" alt="">
+    <img id="ew-card-final-unit" class="ew-card unl-scale-in" style="--unl-d:.46s" src="/assets/images/riftbound/cards/UNL-051.png" alt="">
+
+    <!-- Dynamic name blocks (CHAMPION/FINALIST headings + dividers are baked
+         into the frame; handles + legend lines are DOM). PSD stores lowercase
+         with all-caps styling — CSS uppercases. -->
+    <!-- Names carry their own translateX(-50%) centering, so the entrance
+         animation lives on full-stage wrapper divs (see unleashed-motion.css
+         header warning), one per side for the stagger. -->
+    <div class="ew-name-block unl-fade-rise" style="--unl-d:.30s">
+        <div id="ew-champ-handle" class="ew-handle">alanzq1</div>
+        <div id="ew-champ-legend-name" class="ew-legend-name">ezreal, prodigal explorer</div>
+    </div>
+    <div class="ew-name-block unl-fade-rise" style="--unl-d:.38s">
+        <div id="ew-final-handle" class="ew-handle">sebiq</div>
+        <div id="ew-final-legend-name" class="ew-legend-name">miss fortune, bounty hunter</div>
+    </div>
+</div>
+<script type="module" src="/js/broadcast-event-winners.js"></script>
+</body>
+</html>

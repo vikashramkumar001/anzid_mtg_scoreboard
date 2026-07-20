@@ -5,7 +5,15 @@
       "name": "scoreboard",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 1378
+      "port": 1378,
+      "autoPort": true
+    },
+    {
+      "name": "insights-demo",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["insights-demo/serve.cjs"],
+      "port": 8910,
+      "autoPort": true
     }
   ]
 }

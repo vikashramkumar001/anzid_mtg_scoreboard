@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Banned Cards</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-banned-cards.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<!-- UNLEASHED "Banned Cards". The bg PNG is derived from the PSD truth composite
+     (adjustment layers don't survive ag-psd re-compositing) with the 7 card-slot
+     regions patched out — ALL chrome (headline, footer, pillars, leaves, Poppy) is
+     baked; the DOM renders only the banned-card art. 4 portrait slots + 3 landscape
+     (battlefield) slots at exact PSD coords; unfilled slots stay hidden. -->
+<div id="bnc-stage">
+    <img id="bnc-bg" src="/assets/images/riftbound/banned-cards/riftbound-banned-cards-bg-uvs-unleashed-1v1.png" alt="">
+
+    <!-- portrait slots: top-left, bottom-left, top-right, bottom-right.
+         Entrance: unl-scale-in on the slot wrappers (the inner img keeps its
+         own filter / .bnc-rotated transform untouched). Stagger order is the
+         four corners TL → TR → BL → BR, then the landscapes L-to-R. -->
+    <div class="bnc-slot unl-scale-in" style="--unl-d:0s"    id="bnc-slot-p1"><img src="" alt=""></div>
+    <div class="bnc-slot unl-scale-in" style="--unl-d:.22s"  id="bnc-slot-p2"><img src="" alt=""></div>
+    <div class="bnc-slot unl-scale-in" style="--unl-d:.11s"  id="bnc-slot-p3"><img src="" alt=""></div>
+    <div class="bnc-slot unl-scale-in" style="--unl-d:.33s"  id="bnc-slot-p4"><img src="" alt=""></div>
+
+    <!-- landscape (battlefield) slots: center, bottom-left, bottom-right
+         (entrance runs L-to-R by x: l2 @668px, l1 @819px, l3 @969px) -->
+    <div class="bnc-slot unl-scale-in" style="--unl-d:.55s"  id="bnc-slot-l1"><img src="" alt=""></div>
+    <div class="bnc-slot unl-scale-in" style="--unl-d:.44s"  id="bnc-slot-l2"><img src="" alt=""></div>
+    <div class="bnc-slot unl-scale-in" style="--unl-d:.66s"  id="bnc-slot-l3"><img src="" alt=""></div>
+</div>
+<script type="module" src="/js/broadcast-banned-cards.js"></script>
+</body>
+</html>

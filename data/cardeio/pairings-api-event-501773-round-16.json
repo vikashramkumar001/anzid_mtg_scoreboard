@@ -1,0 +1,140 @@
+[
+  {
+    "id": 4189323,
+    "table_number": 1,
+    "pod_number": null,
+    "order": 0,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 24330,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 0,
+    "player_match_relationships": [
+      {
+        "id": 8057853,
+        "match_id": 4189323,
+        "player_order": 1,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 2946693,
+          "user_identifier": "Pedro B",
+          "special_user_identifier": null,
+          "matches_won": 14,
+          "matches_lost": 0,
+          "matches_drawn": 2,
+          "total_match_points": 44,
+          "registration_status": "COMPLETE",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 24330,
+            "email": "pbaneres911@gmail.com",
+            "last_name": "Bañeres",
+            "last_first": "Bañeres, Pedro",
+            "first_last": "Pedro Bañeres",
+            "best_identifier": "Pedro B",
+            "initials": "PB",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "Squirtle"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "95e1bd5f-6c3c-453b-ad06-b09f1d8ac809",
+            "deck_id": "9442dec5-750a-4dac-b4eb-59f468d39e82",
+            "deck_name": "Shurima",
+            "deck_defining_card": {
+              "id": "68322e9d-9f74-42fa-9e23-08accdf440ac",
+              "name": "Azir, Emperor of the Sands",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/28299956-0f42-4221-93c6-428e14aef235.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055450Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=076211719b475f4c4c5536d13e03f261e09efdb7380d70545e6c1136fef78827b28dc88415fe7cf911b698ac2e5865ce2169ade83c30228fb307e188bd55696ff925ef1b4a2911c187d6561813add0396c8db53077c8666e440ef9d66c35ebe2415be89981d45667ae8a0f0eea9dbe23dda17eaff350da52c2f02241729eb64dbb2ac7bb1427495ce200299ff95210bf5ce0686d0a3e6cd4d501bb0d59467fea450f3081f1059353d15cd87fdaa5781a0c9012dd5a37cb7cc22087d9ad4e7120f2be9dcde9972b28cfad5061c89b3d544dd5df4e6441f78a8411d3c7f5e08606bbd67d13e312ffa9d843acf5d1a3c7adc89e67ff574a3c5c7323740a5ea7d4f5"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 24330,
+          "email": "pbaneres911@gmail.com",
+          "first_name": "Pedro",
+          "last_name": "Bañeres",
+          "best_identifier": "Pedro B",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 1
+      },
+      {
+        "id": 8057854,
+        "match_id": 4189323,
+        "player_order": 2,
+        "games_won": 0,
+        "user_event_status": {
+          "id": 2946868,
+          "user_identifier": "Sean B",
+          "special_user_identifier": null,
+          "matches_won": 13,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 40,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 70957,
+            "email": "sean.binks@live.de",
+            "last_name": "Binks",
+            "last_first": "Binks, Sean",
+            "first_last": "Sean Binks",
+            "best_identifier": "Sean B",
+            "initials": "SB",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "404 Schorn"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "be1802d4-3862-4253-b97a-bde379712569",
+            "deck_id": "3ade7626-faa9-406f-a60b-e28dee6c68a0",
+            "deck_name": "Yi",
+            "deck_defining_card": {
+              "id": "dd07cdb7-d9d9-4a85-9b79-4b05524dbe37",
+              "name": "Master Yi, Wuju Bladesman",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/b975c54c-20cc-45e9-a4ef-2d9f7ec10d42.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055450Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=ae5b97dd6ae1cb4b9d72b76f3f3790dfa9dd615944fe2c115329ccd424c547ef9c535f3377d5998ae4786d2ef3b604c9e69f0090c537c8174977ba8710ab92c8a30f9d80a84153d9f0d84b602e0be14b93496338e044991a372fa3363f84cbc8b194390648553d017bb0826655699cefbd4432c59cb55310777110ad80baae9d2ad87aa0644123fd47e65d406a9f42d5c058f690d41f4c69e858e3e6a5dc266530207efbd225e44ff094980795e00397bb6acab60c1e5dd4a90fe7c54008362211722c9be466cda537689160eba1e2eccc61bc6bad87383b1e3fb43367bfbe8c239ebf0ba595cc23e2d4a5b5b49c3d85272337d15033120ca1cb7c418e85b579"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 70957,
+          "email": "sean.binks@live.de",
+          "first_name": "Sean",
+          "last_name": "Binks",
+          "best_identifier": "Sean B",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 8
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-04-19T18:20:15+00:00",
+    "updated_at": "2026-04-19T19:25:54+00:00"
+  }
+]

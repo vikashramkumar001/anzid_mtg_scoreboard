@@ -1,0 +1,20 @@
+{
+    "events": [
+        {
+            "name": "Summoner Skirmish",
+            "logo": "/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-logo-summoner-skirmish-uvs-unleashed-1v1.png",
+            "logoRect": { "left": 82, "top": 28, "width": 178, "height": 139 },
+            "qr": "/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-qr-uvs-unleashed-1v1.png",
+            "qrLeft": 81,
+            "date": ""
+        },
+        {
+            "name": "Nexus Night",
+            "logo": "/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-logo-nexus-night-uvs-unleashed-1v1.png",
+            "logoRect": { "left": 27, "top": 110, "width": 287, "height": 31 },
+            "qr": "/assets/images/riftbound/upcoming-events/riftbound-upcoming-events-qr-uvs-unleashed-1v1.png",
+            "qrLeft": 80,
+            "date": ""
+        }
+    ]
+}

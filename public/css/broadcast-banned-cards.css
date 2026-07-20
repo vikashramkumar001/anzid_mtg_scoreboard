@@ -1,0 +1,68 @@
+/* UNLEASHED "Banned Cards" — fixed 1920x1080 stage, everything at PSD coords.
+   All chrome is baked into the bg PNG (truth-derived); the DOM only places the
+   7 banned-card images. No dynamic text on this scene. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: transparent;
+}
+
+#bnc-stage {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+#bnc-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* ── Card slots (PSD "Cards" group bounds) ─────────────────────────────────── */
+.bnc-slot {
+    position: absolute;
+    display: none;               /* JS shows a slot only when it has a card */
+}
+.bnc-slot.filled { display: block; }
+
+.bnc-slot img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Replicates the PSD's baked drop shadow (falls below/right only, ~14px) —
+       the baked shadows were patched out of the bg along with the sample cards. */
+    filter: drop-shadow(7px 9px 8px rgba(8, 4, 18, 0.55));
+}
+
+/* Portrait-oriented fallback art (card back) rotated to fill a landscape slot.
+   JS sets the swapped width/height inline; this handles the pivot. */
+.bnc-slot img.bnc-rotated {
+    left: 50%;
+    top: 50%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* portrait slots: TL, BL, TR, BR */
+#bnc-slot-p1 { left: 396px;  top: 170px; width: 202px; height: 283px; }
+#bnc-slot-p2 { left: 396px;  top: 541px; width: 203px; height: 285px; }
+#bnc-slot-p3 { left: 1323px; top: 170px; width: 202px; height: 283px; }
+#bnc-slot-p4 { left: 1323px; top: 541px; width: 203px; height: 285px; }
+
+/* landscape (battlefield) slots: center, bottom-left, bottom-right.
+   PSD layer bounds are 283x202, but a grid-search against the truth composite
+   fits the art best at 282x201 (the PSD bounds include a 1px edge). */
+#bnc-slot-l1 { left: 819px;  top: 352px; width: 282px; height: 201px; }
+#bnc-slot-l2 { left: 668px;  top: 592px; width: 282px; height: 201px; }
+#bnc-slot-l3 { left: 969px;  top: 592px; width: 282px; height: 201px; }

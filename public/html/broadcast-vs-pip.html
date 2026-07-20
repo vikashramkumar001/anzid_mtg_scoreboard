@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast VS PiP</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-vs-pip.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="vsp-stage">
+    <!-- Background: truth-derived composite with BOTH PiP video windows punched
+         to alpha 0 (left -1,33 962x1014 / right 959,33 962x1014) — the OBS camera
+         feeds show through there. Only the outer ~33px top/bottom bands paint.
+         (The PSD re-composite loses its adjustment layers and comes out flat,
+         so the bg uses the designer's own flattened composite instead; every
+         example-data region of the truth sits inside the punched windows.) -->
+    <img id="vsp-bg" src="/assets/images/riftbound/vs-pip/riftbound-vs-pip-bg-uvs-unleashed-1v1.png" alt="">
+    <!-- Main chrome: window borders, gold trims, center divider (PSD "VS Frame",
+         native bounds 0,22 1920x1035) -->
+    <img id="vsp-frame" src="/assets/images/riftbound/vs-pip/riftbound-vs-pip-frame-uvs-unleashed-1v1.png" alt="">
+
+    <!-- Battlefield strips: 3 card slots per player over the bottom of each
+         video window. Plates (under art) and borders/icons/tabs (over art) are
+         baked chrome; art + names + tab labels + active highlight are DOM. -->
+    <div id="vsp-battlefields">
+        <img id="vsp-bf-under" src="/assets/images/riftbound/vs-pip/riftbound-vs-pip-bf-under-uvs-unleashed-1v1.png" alt="">
+        <div id="vsp-slots"></div>
+        <img id="vsp-bf-over" src="/assets/images/riftbound/vs-pip/riftbound-vs-pip-bf-over-uvs-unleashed-1v1.png" alt="">
+        <div id="vsp-tabs"></div>
+    </div>
+
+    <!-- Nameplates: plate + hextech ornament + gold underline are baked chrome;
+         gamertag (and optional deck label above the plate) are DOM. -->
+    <div id="vsp-nameplates">
+        <img id="vsp-nameplates-img" src="/assets/images/riftbound/vs-pip/riftbound-vs-pip-nameplates-uvs-unleashed-1v1.png" alt="">
+        <div id="vsp-deck-label-left" class="vsp-deck-label left unl-slide-left" style="--unl-d:.12s"></div>
+        <div id="vsp-gamertag-left" class="vsp-gamertag left unl-slide-left">GAMERTAG</div>
+        <div id="vsp-deck-label-right" class="vsp-deck-label right unl-slide-right" style="--unl-d:.12s"></div>
+        <div id="vsp-gamertag-right" class="vsp-gamertag right unl-slide-right">GAMERTAG</div>
+    </div>
+
+    <!-- Corner foliage — top-most overlay -->
+    <img id="vsp-leaves" src="/assets/images/riftbound/vs-pip/riftbound-vs-pip-leaves-uvs-unleashed-1v1.png" alt="">
+</div>
+<script type="module" src="/js/broadcast-vs-pip.js"></script>
+</body>
+</html>

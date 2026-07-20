@@ -36,6 +36,21 @@ export function initMatches(socket) {
     // `control-broadcast-trackers` payload arrives.
     let currentBroadcastRoundId = null;
     let allStandingsData = {};
+    // Full per-round standings (ALL players, not just the broadcast cut in the
+    // textarea) used by the standings search. Lazy-loaded from the server the
+    // first time a round is searched; keyed by roundId. fullStandingsRequested
+    // dedupes the in-flight request so typing doesn't spam the socket.
+    const fullStandingsByRound = {};
+    const fullStandingsRequested = new Set();
+    // Round the server actually served per requested round. Differs when the
+    // requested round has no file yet (Carde files standings a round behind),
+    // so we can tell the operator which round they're really searching.
+    const fullStandingsRoundUsed = {};
+    // Per-round watchdog timers: if the server never answers get-full-standings
+    // (e.g. it's running an older build without the handler), we replace the
+    // "Searching…" spinner with an actionable error instead of hanging forever.
+    const fullStandingsTimers = {};
+    const FULL_STANDINGS_TIMEOUT_MS = 8000;
     let baseLifePoints = '20';
     let baseTimer = '50';
     let currentArchetypeList = [];
@@ -1522,6 +1537,16 @@ export function initMatches(socket) {
                         data-round-id="${roundId}"
                         style="width: 80px;"
                         placeholder="Round" />
+                    <!-- Show Sideboard lives on the broadcast strip (global state,
+                         one switch per round tab, all kept in sync by
+                         game-selection.js). Initial checked is read from the
+                         body dataset so a strip rendered after the first sync
+                         still starts correct. -->
+                    <div class="form-check form-switch d-inline-flex align-items-center mb-0 ms-2" style="gap:6px;">
+                        <input class="form-check-input m-0 round-sideboard-toggle" type="checkbox" role="switch"
+                            id="sideboard-visible-${roundId}" ${document.body.dataset.sideboardVisible === 'true' ? 'checked' : ''}>
+                        <label class="form-check-label small" for="sideboard-visible-${roundId}" style="white-space:nowrap;">Show Sideboard</label>
+                    </div>
                 `;
                 content.appendChild(roundActions);
 
@@ -2474,26 +2499,28 @@ export function initMatches(socket) {
     // Repaint the per-round searchable standings table from whatever's
     // currently in the textarea. Called on (1) initial socket load,
     // (2) Fetch Standings response, (3) any live textarea edit.
+    // Repaint the per-round standings table. Empty search box → the broadcast
+    // cut parsed from the textarea; a search query → matches from the FULL
+    // round standings (all players). Both routed through applyStandingsFilter.
     function renderStandingsTable(roundId) {
+        applyStandingsFilter(roundId);
+    }
+
+    // The broadcast-cut rows parsed straight from the textarea (no filtering).
+    function renderStandingsRowsFromTextarea(roundId) {
         const tbody = document.getElementById(`standings-tbody-${roundId}`);
         if (!tbody) return;
         const raw = allStandingsData[roundId];
         const rows = parseStandingsTextToRows(typeof raw === 'string' ? raw : '');
-        if (rows.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="4" class="text-muted text-center">No standings loaded.</td></tr>';
-            return;
-        }
-        tbody.innerHTML = rows.map(r => `
-            <tr>
-                <td>${escapeHtml(r.rank)}</td>
-                <td>${escapeHtml(r.name)}</td>
-                <td>${escapeHtml(r.archetype)}</td>
-                <td>${escapeHtml(r.record)}</td>
-            </tr>
-        `).join('');
-        // Re-apply any active filter — operator might have typed a
-        // search query before the new data landed.
-        applyStandingsFilter(roundId);
+        tbody.innerHTML = rows.length === 0
+            ? '<tr><td colspan="4" class="text-muted text-center">No standings loaded.</td></tr>'
+            : rows.map(r => `
+                <tr>
+                    <td>${escapeHtml(r.rank)}</td>
+                    <td>${escapeHtml(r.name)}</td>
+                    <td>${escapeHtml(r.archetype)}</td>
+                    <td>${escapeHtml(r.record)}</td>
+                </tr>`).join('');
     }
 
     // Cheap HTML escape so a player name containing < or > doesn't
@@ -2517,15 +2544,55 @@ export function initMatches(socket) {
         input.addEventListener('input', () => applyStandingsFilter(roundId));
     }
 
+    // Standings search. Empty query → show the broadcast cut from the textarea.
+    // Non-empty query → search EVERY player in the round's standings (the full
+    // server-provided list), so mid-field players that aren't in the broadcast
+    // cut are still findable. The full list is lazy-loaded per round on the
+    // first search; the `full-standings-data` listener caches it and re-runs
+    // this filter. Searches across handle + real name + best-identifier.
     function applyStandingsFilter(roundId) {
         const input = document.querySelector(`.standings-search[data-round-id="${roundId}"]`);
         const tbody = document.getElementById(`standings-tbody-${roundId}`);
         if (!input || !tbody) return;
         const q = input.value.trim().toLowerCase();
-        tbody.querySelectorAll('tr').forEach(row => {
-            if (!q) { row.style.display = ''; return; }
-            row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
-        });
+        if (!q) { renderStandingsRowsFromTextarea(roundId); return; }
+
+        const full = fullStandingsByRound[roundId];
+        if (!full) {
+            if (!fullStandingsRequested.has(roundId)) {
+                fullStandingsRequested.add(roundId);
+                socket.emit('get-full-standings', { roundNumber: roundId });
+                // Watchdog: if no reply arrives the search is broken (usually a
+                // server that hasn't been restarted for this feature). Surface
+                // that rather than spinning, and clear the in-flight flag so the
+                // next keystroke retries.
+                clearTimeout(fullStandingsTimers[roundId]);
+                fullStandingsTimers[roundId] = setTimeout(() => {
+                    if (fullStandingsByRound[roundId]) return; // answered in time
+                    fullStandingsRequested.delete(roundId);
+                    const tb = document.getElementById(`standings-tbody-${roundId}`);
+                    if (tb) tb.innerHTML = '<tr><td colspan="4" class="text-danger text-center">Full search unavailable — restart the server, then try again.</td></tr>';
+                }, FULL_STANDINGS_TIMEOUT_MS);
+            }
+            tbody.innerHTML = '<tr><td colspan="4" class="text-muted text-center">Searching all players…</td></tr>';
+            return;
+        }
+        const matches = full.filter(p => p.search.includes(q));
+        // When the requested round has no file yet, the server served the latest
+        // available round — tell the operator which round these standings are from.
+        const used = fullStandingsRoundUsed[roundId];
+        const noteRow = (used && String(used) !== String(roundId))
+            ? `<tr><td colspan="4" class="text-info text-center small">Round ${escapeHtml(roundId)} not posted yet — showing latest standings (round ${escapeHtml(used)})</td></tr>`
+            : '';
+        tbody.innerHTML = matches.length === 0
+            ? noteRow + '<tr><td colspan="4" class="text-muted text-center">No player matches.</td></tr>'
+            : noteRow + matches.map(p => `
+                <tr>
+                    <td>${escapeHtml(p.rank == null ? '' : p.rank)}</td>
+                    <td>${escapeHtml(p.name)}</td>
+                    <td>${escapeHtml(p.legend)}</td>
+                    <td>${escapeHtml(p.record)}</td>
+                </tr>`).join('');
     }
 
     function updateStandingsData(roundId, value) {
@@ -2560,6 +2627,7 @@ export function initMatches(socket) {
         { value: 'OGS+OGN', label: 'OGS + OGN' },
         { value: 'SFD',     label: 'SFD'       },
         { value: 'UNL',     label: 'UNL'       },
+        { value: 'VEN',     label: 'VEN'       },
         { value: 'OTHER',   label: 'Other'     }
     ];
 
@@ -3553,6 +3621,17 @@ export function initMatches(socket) {
         allStandingsData = standingsData;
         // populate all standings text boxes per round
         populateStandingsData();
+    })
+
+    // Full per-round standings (every player) for the standings search.
+    // Cached client-side; once it lands we re-run the active filter so the
+    // "Searching all players…" placeholder is replaced with real matches.
+    socket.on('full-standings-data', ({ roundNumber, roundUsed, players }) => {
+        clearTimeout(fullStandingsTimers[roundNumber]);
+        fullStandingsByRound[roundNumber] = Array.isArray(players) ? players : [];
+        fullStandingsRoundUsed[roundNumber] = roundUsed != null ? String(roundUsed) : String(roundNumber);
+        fullStandingsRequested.delete(roundNumber);
+        applyStandingsFilter(roundNumber);
     })
 
     // ── Pairings socket listeners ───────────────────────────────────────

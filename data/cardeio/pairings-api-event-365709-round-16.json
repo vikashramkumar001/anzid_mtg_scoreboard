@@ -1,6 +1,6 @@
 [
   {
-    "id": 4328734,
+    "id": 3249817,
     "table_number": 1,
     "pod_number": null,
     "order": 0,
@@ -12,7 +12,7 @@
     "deck_check_completed": false,
     "deck_check_started": false,
     "time_extension_seconds": 0,
-    "winning_player_id": 98709,
+    "winning_player_id": 158620,
     "match_is_intentional_draw": false,
     "match_is_unintentional_draw": false,
     "games_drawn": 0,
@@ -20,64 +20,14 @@
     "games_won_by_loser": 1,
     "player_match_relationships": [
       {
-        "id": 8324250,
-        "match_id": 4328734,
+        "id": 6256278,
+        "match_id": 3249817,
         "player_order": 1,
-        "games_won": 1,
-        "user_event_status": {
-          "id": 3024056,
-          "user_identifier": "koko l",
-          "matches_won": 13,
-          "matches_lost": 1,
-          "matches_drawn": 2,
-          "total_match_points": 41,
-          "registration_status": "ELIMINATED",
-          "queue_check_in_status": null,
-          "user": {
-            "id": 126119,
-            "email": "andrewjlopez7@gmail.com",
-            "last_name": "lopez",
-            "last_first": "lopez, koko",
-            "first_last": "koko lopez",
-            "best_identifier": "koko l",
-            "initials": "KL",
-            "pronouns": null,
-            "country_code": null,
-            "game_user": {
-              "display_name": "CTCG Koko Lopez"
-            }
-          },
-          "player_interactions": [],
-          "deck_submission": {
-            "id": "38701172-9354-403f-af54-6cd9e3fcd60c",
-            "deck_id": "0c6ea492-24cb-452a-bccb-feecee8ad873",
-            "deck_name": "Draven post 2.0",
-            "deck_defining_card": {
-              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
-              "name": "Draven, Glorious Executioner",
-              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260430%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260430T194201Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=6b587e0627a13d236566ab1d79a74950ab579713aeb2e256d419673954fca9fb17ef94c7169618959fab853786cf9e40c6dfdc047935357a75f7bf6418b4bdbc0ce824603392f7cd2df6873058fe962b67eea843944a071687e0a3c14fccbbd52a2fe6e46dc7ee7cbd99d4a554f6ae69d2543f58a3538f3dcf4ea5ab2e35c1f3f4281f3e9031885345b6730fc0353b5b23ee4a9c7c4fa86a93b3a9dcf5437f558e55063cb7f185948fca78c3318ec83a6a2e81a163876de5b0ccbc9f64357f694cd866c1d091ffc293d85ad876a4af3fd140e3b7f892241b32a2fe8ca7d8409e07488fdb1d09372e97f8f983a3053147d2729bd1f0a1dad0fb2df6c1f7657d69"
-            }
-          }
-        },
-        "player": {
-          "id": 126119,
-          "email": "andrewjlopez7@gmail.com",
-          "first_name": "koko",
-          "last_name": "lopez",
-          "best_identifier": "koko l",
-          "user": null
-        },
-        "is_starting_player": false,
-        "pod_seat_number": 1
-      },
-      {
-        "id": 8324251,
-        "match_id": 4328734,
-        "player_order": 2,
         "games_won": 2,
         "user_event_status": {
-          "id": 3025118,
-          "user_identifier": "Kyle B",
+          "id": 1988128,
+          "user_identifier": "Sam S",
+          "special_user_identifier": null,
           "matches_won": 14,
           "matches_lost": 1,
           "matches_drawn": 1,
@@ -85,37 +35,97 @@
           "registration_status": "COMPLETE",
           "queue_check_in_status": null,
           "user": {
-            "id": 98709,
-            "email": "belaiche.kyle@gmail.com",
-            "last_name": "Belaiche",
-            "last_first": "Belaiche, Kyle",
-            "first_last": "Kyle Belaiche",
-            "best_identifier": "Kyle B",
-            "initials": "KB",
+            "id": 158620,
+            "email": "samdsherman@gmail.com",
+            "last_name": "Sherman",
+            "last_first": "Sherman, Sam",
+            "first_last": "Sam Sherman",
+            "best_identifier": "Sam S",
+            "initials": "SS",
             "pronouns": null,
             "country_code": null,
             "game_user": {
-              "display_name": "Prismaticismism"
+              "display_name": "ASC samdsherman"
             }
           },
           "player_interactions": [],
           "deck_submission": {
-            "id": "6e6385ac-1050-42a3-8700-8623a60f3822",
-            "deck_id": "05566f54-e0b2-45b2-92ea-3ff4a6c08c17",
-            "deck_name": "Annie Overfan",
+            "id": "cd73f941-8010-4c96-9c29-7c604a2a9460",
+            "deck_id": "55a62a27-04b3-4e4b-9558-bd878ad3d726",
+            "deck_name": "Imported Deck 2026-02-26",
             "deck_defining_card": {
-              "id": "83a98d73-dd87-438e-99b3-5617bca7d3d4",
-              "name": "Annie, Dark Child",
-              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/254141aa-d667-49b9-bd1c-559f6b4ee246.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260430%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260430T194201Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=43df7fdeb7da34a9b14f85ad18ff9e9eb0f876a5435d0b2c2cdea05830343380fa7cb08fd4736e3a2cbf7f8a6caee7d0d6398e910512abf67c9308c3cb8ba8cd3a9c45dc381f74a1bb9c121095395a84caba7828cfd9f93a808d308b6644544de90b103fefd2dfd067d5864ab334eaa9353b6c8553ddcd97e573556aa2ec9e7410ff755e564fd49bcb0c6bef39790db82ba2ebbba0c0d1a5094c3638bba2665e9a2eb605db2dd3a56f8f58d9d8f4603bfbd31135944bf4c1062707103456e670b3aef5723fa346ba52d7fa0455593bc627404afabaa31fb727d0bae281053939467c801962867ef39b1b3cf5bbf8ac9433f43356cf2231a7b32d88d334062f50"
+              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
+              "name": "Draven, Glorious Executioner",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055548Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=66842e90c87cb0d4b705c7621e3d8dbebc86e78494fb6d601d8af370ff45cbf127533969237d0f359e079faf497f8fa8c6d06a2af74fa9c1e89334e4656f6374923e204bd66e32e3e2c8287ff1dada6d37c4cec97f3a0b2fe20ef30668e758dd47aa91a421343bbf370c51248afd355b563ccfcb5041757572cf86f4aeae02ff2a11abe29010b399a40f2d549cb68043517ce326e9fc613ec2f5d40baf02c4273574beb847f3b35783d36f106b45f62dcd7a821527929425d862abfe644af7447b89d52a257a28941673729d012faff5490206fe2b5c91287aa0cc1ab0c72566858ba15f7176879fea3b15d6aeef3d9b6aecddbb15e8b98a62f0755b6596fff9"
             }
-          }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
         },
         "player": {
-          "id": 98709,
-          "email": "belaiche.kyle@gmail.com",
-          "first_name": "Kyle",
-          "last_name": "Belaiche",
-          "best_identifier": "Kyle B",
+          "id": 158620,
+          "email": "samdsherman@gmail.com",
+          "first_name": "Sam",
+          "last_name": "Sherman",
+          "best_identifier": "Sam S",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 1
+      },
+      {
+        "id": 6256279,
+        "match_id": 3249817,
+        "player_order": 2,
+        "games_won": 1,
+        "user_event_status": {
+          "id": 1988414,
+          "user_identifier": "Steven D",
+          "special_user_identifier": null,
+          "matches_won": 13,
+          "matches_lost": 2,
+          "matches_drawn": 1,
+          "total_match_points": 40,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 94937,
+            "email": "sthdinh@gmail.com",
+            "last_name": "Dinh",
+            "last_first": "Dinh, Steven",
+            "first_last": "Steven Dinh",
+            "best_identifier": "Steven D",
+            "initials": "SD",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "TTA"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "cce6d236-dc2f-4859-a3d7-7e11091a7b23",
+            "deck_id": "9412c20e-30ce-4471-95cc-be786bdf7d8d",
+            "deck_name": "Riftbound Regional Qualifier - Las Vegas Player Deck Submission",
+            "deck_defining_card": {
+              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
+              "name": "Draven, Glorious Executioner",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055548Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=66842e90c87cb0d4b705c7621e3d8dbebc86e78494fb6d601d8af370ff45cbf127533969237d0f359e079faf497f8fa8c6d06a2af74fa9c1e89334e4656f6374923e204bd66e32e3e2c8287ff1dada6d37c4cec97f3a0b2fe20ef30668e758dd47aa91a421343bbf370c51248afd355b563ccfcb5041757572cf86f4aeae02ff2a11abe29010b399a40f2d549cb68043517ce326e9fc613ec2f5d40baf02c4273574beb847f3b35783d36f106b45f62dcd7a821527929425d862abfe644af7447b89d52a257a28941673729d012faff5490206fe2b5c91287aa0cc1ab0c72566858ba15f7176879fea3b15d6aeef3d9b6aecddbb15e8b98a62f0755b6596fff9"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 94937,
+          "email": "sthdinh@gmail.com",
+          "first_name": "Steven",
+          "last_name": "Dinh",
+          "best_identifier": "Steven D",
           "user": null
         },
         "is_starting_player": false,
@@ -124,9 +134,7 @@
     ],
     "assigned_judge": null,
     "reporting_player": null,
-    "last_modified_by_name": "Ward W",
-    "result_reported_at": "2026-04-27T03:00:29+00:00",
-    "created_at": "2026-04-27T01:47:48+00:00",
-    "updated_at": "2026-04-27T03:00:29+00:00"
+    "created_at": "2026-03-02T05:54:10+00:00",
+    "updated_at": "2026-03-02T09:18:50+00:00"
   }
 ]

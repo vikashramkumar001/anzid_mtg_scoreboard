@@ -1,0 +1,15 @@
+{
+    "saturday": {
+        "timeLeft": "10am aest",
+        "timeRight": "5pm pt",
+        "box1": "8 rounds of swiss"
+    },
+    "sunday": {
+        "timeLeft": "10am aest",
+        "timeRight": "5pm pt",
+        "kicker": "championship",
+        "box1": "5 rounds of swiss",
+        "box2": "top 8",
+        "note": "single elimination"
+    }
+}

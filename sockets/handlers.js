@@ -30,7 +30,8 @@ import {
     emitScoreboardState,
     updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection,
     emitCurrentVendorSelection, updateVendorSelection,
-    emitCurrentPlayerCount, updatePlayerCount
+    emitCurrentPlayerCount, updatePlayerCount,
+    emitCurrentSideboardVisible, updateSideboardVisible
 } from '../features/control.js';
 
 import { savePreset, restorePreset } from '../features/obs-websocket.js';
@@ -140,7 +141,9 @@ import {
 import {
     getRecordGoingIntoRound,
     hasStandingsApiData,
-    loadStandingsApiData
+    loadStandingsApiData,
+    getStandingsRowsForRound,
+    getStandingsRoundNumbers
 } from '../features/standings-api.js';
 
 import {
@@ -705,6 +708,15 @@ export default function registerSocketHandlers(io) {
             emitCurrentPlayerCount(io);
         })
 
+        // Global sideboard visibility (decklist broadcast show/hide)
+        socket.on('update-sideboard-visible', ({sideboardVisible}) => {
+            updateSideboardVisible(sideboardVisible, io);
+        })
+
+        socket.on('get-sideboard-visible', () => {
+            emitCurrentSideboardVisible(io);
+        })
+
         // OBS Presets
         socket.on('save-obs-preset', async () => {
             const result = await savePreset();
@@ -1014,6 +1026,44 @@ export default function registerSocketHandlers(io) {
             } catch (error) {
                 socket.emit('tournament-standings-fetched', { error: error.message });
             }
+        });
+
+        // Full per-round standings (EVERY player) for the master-control
+        // standings search — so mid-field players that aren't in the broadcast
+        // cut/textarea are still findable by handle or real name. Reads the
+        // already-loaded standings-api cache; joins each player's legend from
+        // the cached decklists.
+        socket.on('get-full-standings', ({ roundNumber }) => {
+            const eventId = getPlatformConfig()?.tournamentId || null;
+            // Carde files standings a round behind (anti-spoiler: in round N the
+            // file is round N-1, see tournament-platforms.js). So the current
+            // round's tab often has no exact file yet. Fall back to the most
+            // recent cached round at or before the requested one (else the
+            // latest overall) so live searches always hit real data.
+            const requested = Number(roundNumber);
+            let roundUsed = requested;
+            let rows = getStandingsRowsForRound(roundNumber);
+            if (!rows || rows.length === 0) {
+                const cached = getStandingsRoundNumbers()
+                    .map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+                const atOrBefore = cached.filter(n => n <= requested);
+                const pick = atOrBefore.length ? atOrBefore[atOrBefore.length - 1]
+                    : (cached.length ? cached[cached.length - 1] : null);
+                if (pick != null) { roundUsed = pick; rows = getStandingsRowsForRound(String(pick)); }
+            }
+            const players = (rows || []).map(r => ({
+                rank: Number.isFinite(r.rank) ? r.rank : null,
+                name: r.displayName || r.bestIdentifier || r.realName || 'Unknown',
+                legend: eventId ? (getLegendForPlayer(eventId, r.playerId) || '') : '',
+                record: r.record || '',
+                // searchable across handle/Riot game name + real name + best identifier
+                search: [r.displayName, r.realName, r.bestIdentifier].filter(Boolean).join(' ').toLowerCase()
+            })).sort((a, b) => (a.rank ?? Number.POSITIVE_INFINITY) - (b.rank ?? Number.POSITIVE_INFINITY));
+            socket.emit('full-standings-data', {
+                roundNumber: String(roundNumber),
+                roundUsed: String(roundUsed),
+                players
+            });
         });
 
         // ── Pairings (Carde-only for now) ──────────────────────────────

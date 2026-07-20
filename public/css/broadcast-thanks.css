@@ -1,0 +1,106 @@
+/* broadcast-thanks.css — UNLEASHED "Thanks for Watching" end-of-show scene
+ * (riftbound, uvs-unleashed, 1v1). NEW page — supersedes /event-info/ending
+ * for uvs; event-info is untouched.
+ *
+ * Fixed 1920x1080 stage. Everything static is baked into the bg PNG (derived
+ * from the PSD composite; the sample event logos + dates were inpainted out
+ * to flat panel navy). The only DOM is the two upcoming-event tile contents.
+ *
+ * PSD geometry (RFB_ThanksForWatching_UNL.psd):
+ *   event panels (Rectangle 15):  667,648 and 986,648 — 268x433 (run to 1080)
+ *   event logo slots:             719,681 and 1038,681 — 165x174
+ *   date text:  "may 29 - 31" ink 724,876 156x22 (cap 22 → font ≈ 22/0.72 ≈ 30)
+ *               "jun. 12 - 14"    1048,876 146x26 (26 = cap 22 + J descender)
+ *   date color sampled from truth composite: #f8f0e7 (warm off-white)
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#thanks-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS has a global `* { font-family: var(...) }` that beats inheritance —
+   force Beaufort on everything inside the stage. */
+#thanks-stage,
+#thanks-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#thanks-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* ── Upcoming-event tiles ────────────────────────────────────────────────────
+ * Each tile box spans its full navy panel (268 wide) so the logo and date can
+ * simply center within it. Panel 1 left 667, panel 2 left 986, both top 648. */
+.thanks-event {
+    position: absolute;
+    top: 648px;
+    width: 268px;
+    height: 432px;
+}
+#thanks-event-1 { left: 667px; }
+#thanks-event-2 { left: 986px; }
+
+/* Logo slot: 165x174 at (719,681) → 52px in from the panel edge, 33px down.
+   Centered horizontally (panel 268 − logo 165 = 103 → ~52 rounds to the PSD's
+   own 52/51 split); pin exactly per PSD instead of auto-centering. */
+.thanks-event-logo {
+    position: absolute;
+    top: 33px;      /* 681 − 648 */
+    left: 52px;     /* 719 − 667 (tile2: 1038 − 986 = 52 as well) */
+    width: 165px;
+    height: 174px;
+    object-fit: contain;
+}
+
+/* Date line. Truth ink (canvas-measured from _truth/thanks.png):
+ *   tile 1 "MAY 29 - 31":  725,876 154x22   tile 2 "JUN. 12 - 14": 1049,876 144x26
+ * Weight verified against truth: Bold 700 (ink width 155 vs truth 154 at 30px;
+ * Heavy 900 would be 162 — too wide). Truth cap ≈ 21 vs Beaufort 20 at 30px
+ * (~1px shorter glyphs, unavoidable; tops are pinned, residual sits at the
+ * baseline serifs).
+ * Vertical: string ink top must land on y=876. Measured live: with
+ * top=872+lineheight metrics, ink top = baseline − actualAscent(20.43) → 878;
+ * shift 2px up → top 222 (= 870 − 648).
+ * Horizontal: the PSD centers the INK (center 801.5/1120.5 = panel center);
+ * CSS centers the ADVANCE box whose side bearings are asymmetric (trailing
+ * "1"/"4" tabular cells) → ink lands ~2px left. left:2px compensates (matches
+ * the truth; harmless ≤2px for other date strings). */
+.thanks-event-date {
+    position: absolute;
+    top: 222px;     /* 870 − 648 → ink cap-top on 876 */
+    left: 2px;      /* ink-centering vs advance-centering compensation */
+    width: 268px;
+    line-height: 30px;
+    text-align: center;
+    font-family: 'Beaufort for LoL', serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #f8f0e7;
+    white-space: nowrap;
+}
+
+/* The PSD's tile-2 sample layer ("jun. 12 - 14") was set with tighter tracking
+ * than tile 1 (truth ink 144 wide vs the 156 natural Beaufort spacing gives;
+ * tile 1 matches natural spacing exactly). Replicate ≈ −1.1px/gap so the
+ * overlay fuses; visually negligible for other strings in this slot. */
+#thanks-event-2 .thanks-event-date {
+    letter-spacing: -1.1px;
+}

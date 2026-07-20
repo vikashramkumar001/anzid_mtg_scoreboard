@@ -1,0 +1,123 @@
+/* UNLEASHED "Most Played Cards" (spells / gear / units variants).
+   All chrome is baked into the per-variant bg PNG (truth-derived);
+   the DOM only renders dynamic data at exact PSD pixel coords. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #000;
+}
+
+#mpc-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* Shared CSS elsewhere sets * { font-family: var(...) } which beats inheritance —
+   pin every descendant explicitly (Kai'Sa-gotcha sibling). */
+#mpc-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#mpc-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+/* ── Featured cards ──────────────────────────────────────────────────────────
+   PSD: art 225x313 at x324/611/897 y415; name caps-h 16 at y767 centered on the
+   card (center x = card x + 112.5); usage % caps-h 16 at y800 centered x +148
+   (inside the baked navy value pill). */
+.mpc-card {
+    position: absolute;
+    top: 415px;
+    width: 225px;
+    height: 313px;
+}
+#mpc-card-1 { left: 324px; }
+#mpc-card-2 { left: 611px; }
+#mpc-card-3 { left: 897px; }
+
+.mpc-card-art {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 313px;
+    object-fit: cover;
+}
+
+.mpc-card-name {
+    position: absolute;
+    top: 345.5px;            /* 760.5 - 415 → caps outline top ≈ y767.5 */
+    left: -31px;             /* center = card x + 111.5 (truth ink center) */
+    width: 285px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.mpc-card-usage {
+    position: absolute;
+    top: 378.5px;            /* 793.5 - 415 → caps outline top ≈ y800.5 */
+    left: 97px;              /* center = card x + 147 (value-pill center) */
+    width: 100px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+/* ── Right table ─────────────────────────────────────────────────────────────
+   PSD: 7 row strips, 92px pitch from y177 (frame 1169..1876). Name caps-h 22
+   centered ~x1428; % caps-h 22 centered in the gold pill (1682..1770, c=1726). */
+#mpc-table {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.mpc-row-name {
+    position: absolute;
+    left: 1245px;
+    width: 366px;            /* center x = 1428 */
+    height: 38px;
+    line-height: 38px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;      /* no tracking — truth ink widths match ls:0 */
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.mpc-row-usage {
+    position: absolute;
+    left: 1680.5px;
+    width: 88px;             /* the baked gold pill; text center = 1724.5 */
+    height: 38px;
+    line-height: 38px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #131b2c;
+    white-space: nowrap;
+}

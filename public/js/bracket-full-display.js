@@ -1,3 +1,5 @@
+import { RIFTBOUND_RUNES_FILLED } from './riftbound/constants.js';
+
 const socket = io();
 window.roomManager = new RoomManager(socket);
 
@@ -78,6 +80,108 @@ function applyBodyAttrs() {
 function isFlyquest2v2() {
     return String(currentVendor).toLowerCase() === 'flyquest'
         && String(currentPlayerCount).toLowerCase() === '2v2';
+}
+
+// ── Riftbound UVS UNLEASHED (RQ Sydney) ────────────────────────────────
+// Full-page-frame reskin: all chrome (plates, gold score boxes, rune
+// rings, connector lines, labels, footer) is baked into #bracket-frame;
+// the per-slot .slot-frame imgs and the SVG connector lines are unused.
+// Slot positions/typography come from vendor-config CSS vars + the
+// body-attr-gated block in bracket-full-display.css. Kept in lock-step
+// with the CSS gate: game + vendor + playerCount must all match.
+function isUvsUnleashed() {
+    return String(currentGame).toLowerCase() === 'riftbound'
+        && String(currentVendor).toLowerCase() === 'uvs-unleashed'
+        && String(currentPlayerCount).toLowerCase() === '1v1';
+}
+
+// Rune/domain codes for the UNLEASHED slots' two 35x35 domain icons.
+// bracketData may carry `${slotId}-rune-1` / `${slotId}-rune-2` as either
+// the scoreboard's single-letter color codes (r/g/b/o/p/y — see
+// player-rune-color-* in master-control matches) or full domain / color
+// names. Unknown/absent values leave the img src-less (CSS hides it, the
+// baked gold ring just stays empty).
+const RUNE_NAME_TO_CODE = {
+    fury: 'r', calm: 'g', mind: 'b', body: 'o', chaos: 'p', order: 'y',
+    red: 'r', green: 'g', blue: 'b', orange: 'o', purple: 'p', yellow: 'y',
+};
+function runeIconSrc(value) {
+    const v = String(value || '').trim().toLowerCase();
+    if (!v) return '';
+    const code = RIFTBOUND_RUNES_FILLED[v] ? v : RUNE_NAME_TO_CODE[v];
+    return code ? (RIFTBOUND_RUNES_FILLED[code] || '') : '';
+}
+
+// ── UNLEASHED entrance choreography (uvs-unleashed 1v1 only) ───────────
+// Shared motion kit: /css/unleashed-motion.css + /js/unleashed-motion.js.
+// The baked bg/frame chrome stays static (the OBS stinger covers the cut);
+// motion belongs to the DATA layer. Per-slot base delays in seconds:
+// QF match boxes top-to-bottom 80ms apart, then the SF column, then GF
+// (~200ms column gaps). Both rows of a match box enter together as a unit.
+// Within a slot: name leads (slide from left), legend line trails 60ms,
+// runes scale in inside their baked gold rings, and the score digit pops
+// once the names have visually landed (+450ms). Slowest element (GF score)
+// starts at 0.62+0.45=1.07s and ends ≈1.5s — inside the 1.6s budget.
+const UNL_SLOT_DELAYS = {
+    'bracket-quarterfinal-1': 0,
+    'bracket-quarterfinal-8': 0,
+    'bracket-quarterfinal-4': 0.08,
+    'bracket-quarterfinal-5': 0.08,
+    'bracket-quarterfinal-2': 0.16,
+    'bracket-quarterfinal-7': 0.16,
+    'bracket-quarterfinal-3': 0.24,
+    'bracket-quarterfinal-6': 0.24,
+    'bracket-semifinal-1a': 0.42,
+    'bracket-semifinal-1b': 0.42,
+    'bracket-semifinal-2a': 0.50,
+    'bracket-semifinal-2b': 0.50,
+    'bracket-final-1a': 0.62,
+    'bracket-final-1b': 0.62,
+};
+const UNL_MOTION_CLASSES = ['unl-slide-left', 'unl-scale-in', 'unl-pop'];
+
+// Adds (uvs) or strips (any other vendor) the entrance classes on a slot's
+// data elements. Safe to call on every render: classList.add is a no-op on
+// an element that already has the class, so live-data re-renders don't
+// restart the CSS animations. All five targets are position:absolute under
+// the uvs CSS gate with no transform of their own — the unl-* keyframes
+// ending at transform:none can't clobber anything.
+function applyUnlMotion(el, slotId) {
+    const parts = [
+        [el.querySelector('.slot-name'),      'unl-slide-left', 0],
+        [el.querySelector('.slot-archetype'), 'unl-slide-left', 0.06],
+        [el.querySelector('.slot-rune-1'),    'unl-scale-in',   0.10],
+        [el.querySelector('.slot-rune-2'),    'unl-scale-in',   0.16],
+        [el.querySelector('.slot-points'),    'unl-pop',        0.45],
+    ];
+    if (!isUvsUnleashed()) {
+        parts.forEach(([node]) => {
+            if (!node) return;
+            node.classList.remove(...UNL_MOTION_CLASSES);
+            node.style.removeProperty('--unl-d');
+        });
+        return;
+    }
+    const base = UNL_SLOT_DELAYS[slotId] ?? 0;
+    parts.forEach(([node, cls, offset]) => {
+        if (!node) return;
+        node.classList.add(cls);
+        node.style.setProperty('--unl-d', (base + offset).toFixed(2) + 's');
+    });
+}
+
+// Re-render suppression: once the entrance has played, #bracket-slots gets
+// .unl-still so bracket edits from master control paint at rest instead of
+// re-popping. unlReplay() strips the class itself; scheduleUnlStill re-arms
+// it after the ~1.5s entrance has fully landed.
+let unlStillTimer = null;
+let unlEntranceArmed = false;
+function scheduleUnlStill() {
+    clearTimeout(unlStillTimer);
+    unlStillTimer = setTimeout(() => {
+        const container = document.getElementById('bracket-slots');
+        if (container) container.classList.add('unl-still');
+    }, 2200);
 }
 
 socket.emit('get-match-global-data');
@@ -207,6 +311,19 @@ function updateTheme(game, vendor, playerCount) {
         }
     }
 
+    // Full-page chrome overlay (riftbound uvs-unleashed): one 1920x1080 PNG
+    // carries every plate / gold score box / rune ring / connector line /
+    // label / footer. Mutually exclusive with the per-slot .slot-frame imgs
+    // below — exactly one of the two mechanisms is active per vendor.
+    const frameOverlay = document.getElementById('bracket-frame');
+    if (frameOverlay && vc) {
+        if (isUvsUnleashed()) {
+            frameOverlay.src = vc.getAssetPath(`/assets/images/${game}/bracket/${game}-bracket-frame.png`, vendor, playerCount);
+        } else {
+            frameOverlay.removeAttribute('src');
+        }
+    }
+
     if (vc) {
         // Per-slot frame PNG. Painted onto every .slot-frame element so the
         // frame reveals in lockstep with the portraits/name via the slot's
@@ -219,7 +336,15 @@ function updateTheme(game, vendor, playerCount) {
         // For FQ 2v2, vc.getAssetPath() resolves to
         // mtg-bracket-frame-flyquest-2v2.png (a 307×190 transparent PNG with
         // the two portrait boxes + 307×45 name bar).
+        //
+        // UVS UNLEASHED uses the full-page #bracket-frame instead — clear the
+        // per-slot srcs so the (same-named) 1920x1080 frame file isn't
+        // stretched into each 555x56 slot.
         document.querySelectorAll('.slot-frame').forEach((frame) => {
+            if (isUvsUnleashed()) {
+                frame.removeAttribute('src');
+                return;
+            }
             frame.src = vc.getAssetPath(`/assets/images/${game}/bracket/${game}-bracket-frame.png`, vendor, playerCount);
         });
     }
@@ -350,6 +475,15 @@ function createSlotElements() {
         portrait2.className = 'slot-portrait slot-portrait-2';
         portrait2.alt = '';
 
+        // Domain rune icons — dormant (display:none) outside riftbound
+        // uvs-unleashed, same pattern as the FQ 2v2 portraits above.
+        const rune1 = document.createElement('img');
+        rune1.className = 'slot-rune slot-rune-1';
+        rune1.alt = '';
+        const rune2 = document.createElement('img');
+        rune2.className = 'slot-rune slot-rune-2';
+        rune2.alt = '';
+
         const rank = document.createElement('div');
         rank.className = 'slot-rank';
 
@@ -371,6 +505,8 @@ function createSlotElements() {
         el.appendChild(frame);
         el.appendChild(portrait1);
         el.appendChild(portrait2);
+        el.appendChild(rune1);
+        el.appendChild(rune2);
         el.appendChild(rank);
         el.appendChild(nameArchetype);
         el.appendChild(points);
@@ -384,6 +520,11 @@ function createSlotElements() {
 function renderSlot(slotId, data) {
     const el = document.getElementById(`slot-${slotId}`);
     if (!el) return;
+
+    // UNLEASHED entrance classes (uvs adds, every other vendor strips) —
+    // runs before the FQ 2v2 early-return so a vendor flip away from uvs
+    // always cleans the motion classes off the slot children.
+    applyUnlMotion(el, slotId);
 
     // ── FQ 2v2 path ─────────────────────────────────────────────────────
     // Composite slot: two portraits stacked on a 307×45 name bar. Reads
@@ -416,10 +557,25 @@ function renderSlot(slotId, data) {
     if (archetype_key in data) {
         archetypeEl.innerText = data[archetype_key];
         archetypeEl.style.display = data[archetype_key] ? 'block' : 'none';
-        nameEl.style.lineHeight = data[archetype_key] ? '39px' : '31px';
+        // UVS UNLEASHED positions name/archetype absolutely with its own
+        // line-height (CSS gate) — an inline 39px here would win the
+        // specificity fight and push the name off its PSD baseline.
+        nameEl.style.lineHeight = isUvsUnleashed() ? '' : (data[archetype_key] ? '39px' : '31px');
     }
     if (points_key in data) {
         pointsEl.innerText = data[points_key];
+    }
+
+    // Domain rune icons (riftbound uvs-unleashed): two 35x35 icons per
+    // player, rendered inside the frame PNG's baked gold rings. Data keys
+    // are optional — absent/unknown values hide the img (empty ring).
+    const rune1El = el.querySelector('.slot-rune-1');
+    const rune2El = el.querySelector('.slot-rune-2');
+    if (rune1El && rune2El) {
+        const src1 = runeIconSrc(data[`${slotId}-rune-1`]);
+        const src2 = runeIconSrc(data[`${slotId}-rune-2`]);
+        if (src1) rune1El.src = src1; else rune1El.removeAttribute('src');
+        if (src2) rune2El.src = src2; else rune2El.removeAttribute('src');
     }
 
     // Default: full opacity
@@ -441,10 +597,21 @@ function renderSlot(slotId, data) {
         pointsEl.style.color = colorFaded;
     }
 
-    // Swap frame image: win variant when points = 2
+    // Vendor-specific score color (e.g. uvs-unleashed renders navy digits
+    // on the frame's baked gold box). Applied AFTER the win/loss fade so
+    // the score always keeps its box-contrast color. Vendors that don't
+    // set --bracket-score-color are unaffected.
+    const scoreColor = root.style.getPropertyValue('--bracket-score-color').trim();
+    if (scoreColor) {
+        pointsEl.style.color = scoreColor;
+    }
+
+    // Swap frame image: win variant when points = 2. (Skipped for
+    // uvs-unleashed — its chrome lives in the full-page #bracket-frame and
+    // has no per-slot win variant; updateTheme cleared these srcs.)
     const frameEl = el.querySelector('.slot-frame');
     const vc = window.VENDOR_CONFIG;
-    if (frameEl && vc) {
+    if (frameEl && vc && !isUvsUnleashed()) {
         const frameBase = data[points_key] === '2'
             ? `/assets/images/${currentGame}/bracket/${currentGame}-bracket-frame-win.png`
             : `/assets/images/${currentGame}/bracket/${currentGame}-bracket-frame.png`;
@@ -547,6 +714,22 @@ function renderAllSlots() {
         renderSlot(slot.id, bracketData);
     });
 
+    // UNLEASHED: arm the .unl-still guard once per uvs activation so the
+    // first render animates and subsequent live-data renders paint at rest.
+    // Flipping to another vendor resets the guard (and the flag) so a
+    // flip back to uvs replays the entrance fresh.
+    if (isUvsUnleashed()) {
+        if (!unlEntranceArmed) {
+            unlEntranceArmed = true;
+            scheduleUnlStill();
+        }
+    } else if (unlEntranceArmed) {
+        unlEntranceArmed = false;
+        clearTimeout(unlStillTimer);
+        const container = document.getElementById('bracket-slots');
+        if (container) container.classList.remove('unl-still');
+    }
+
     // 2v2 name bar: 307×45 with 8px horizontal padding → 291px usable.
     // Names like "Persephone Valentine & Gavin Verhey" blow past the
     // default 24px size set by --fq2v2-bracket-name-font-size, so we
@@ -569,24 +752,37 @@ function renderAllSlots() {
         return;
     }
 
-    // Unify font sizes: use the smallest size across all slots
+    // Unify font sizes: use the smallest size across all slots.
+    // UVS UNLEASHED caps at its PSD sizes (24px names, 16px legend line —
+    // both measured off the flattened PSD truth) instead of the mtg
+    // defaults — without this the autosizer's inline font-size would blow
+    // past the CSS gate's sizes and overflow the baked plate. nameFit 270:
+    // the PSD's own "FIRSTNAME LASTNAME" placeholder is 265.8px at 24px,
+    // so a 265 budget would shrink PSD-width names to 23 for no reason.
+    const uvs = isUvsUnleashed();
+    const nameMax  = uvs ? 24  : 28;
+    const nameMin  = uvs ? 14  : 16;
+    const nameFit  = uvs ? 270 : 280;
+    const archMax  = uvs ? 16  : 16;
+    const archMin  = 10;
+    const archFit  = uvs ? 236 : 265;
     document.fonts.ready.then(() => {
         const nameEls = document.querySelectorAll('.slot-name');
         const archetypeEls = document.querySelectorAll('.slot-archetype');
 
-        let minNameSize = 28;
-        let minArchetypeSize = 16;
+        let minNameSize = nameMax;
+        let minArchetypeSize = archMax;
 
         nameEls.forEach(el => {
             if (el.innerText) {
-                const size = calculateFontSize(el, 28, 16, 280);
+                const size = calculateFontSize(el, nameMax, nameMin, nameFit);
                 if (size < minNameSize) minNameSize = size;
             }
         });
 
         archetypeEls.forEach(el => {
             if (el.innerText) {
-                const size = calculateFontSize(el, 16, 10, 265);
+                const size = calculateFontSize(el, archMax, archMin, archFit);
                 if (size < minArchetypeSize) minArchetypeSize = size;
             }
         });
@@ -606,6 +802,13 @@ function renderAllSlots() {
 function drawBracketLines() {
     const svg = document.getElementById('bracket-lines');
     svg.innerHTML = '';
+
+    // UVS UNLEASHED bakes its connector lines into the full-page frame PNG
+    // (and CSS hides #bracket-lines) — leave the SVG empty so a later
+    // vendor switch starts from a clean slate.
+    if (isUvsUnleashed()) {
+        return;
+    }
 
     // FQ 2v2 has its own connector geometry (bottom-up, 4 QF → 2 SF merge).
     // Delegate and return so the 1v1 line-drawing below is skipped.
@@ -973,6 +1176,17 @@ socket.on('bracket-data', (data) => {
 // needing to reload the display page.
 socket.on('obs-animate-bracket', () => {
     console.log('[FullBracket] OBS transition to bracket — replaying animation');
+    // UNLEASHED: the entrance lives in the unl-* CSS animations (the legacy
+    // clip-path reveal is neutralized under the uvs gate), so replay those
+    // instead. unlReplay() strips .unl-still itself; re-arm it so bracket
+    // edits after the scene cut stay at rest.
+    if (isUvsUnleashed()) {
+        if (window.unlReplay) {
+            window.unlReplay();
+            scheduleUnlStill();
+        }
+        return;
+    }
     replayReveal();
 });
 

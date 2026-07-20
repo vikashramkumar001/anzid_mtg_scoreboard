@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920">
+    <title>Broadcast Caster Predictions</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/room-manager.js"></script>
+    <script src="/js/vendor-config.js"></script>
+
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/broadcast-caster-predictions.css" rel="stylesheet">
+    <link href="/css/unleashed-motion.css" rel="stylesheet">
+    <script src="/js/unleashed-motion.js"></script>
+</head>
+<body>
+<div id="cp-stage">
+    <!-- Background: hidden "BG" base + Graphics pop wisps + the four 0.75-alpha
+         column panels, re-composited from the PSD (the panels need the base
+         under them for full opacity — the PSD's own composite is transparent
+         where the designer hid the base layer). -->
+    <img id="cp-bg" src="/assets/images/riftbound/caster-predictions/riftbound-caster-predictions-bg-uvs-unleashed-1v1.png" alt="">
+    <!-- Dynamic caster photos: one overflow-hidden container per column (the
+         PSD clips the photos to the panels); each photo PNG has its layer mask
+         AND its photo-clipped bottom Gradient baked in. -->
+    <div id="cp-columns"></div>
+    <!-- Static chrome above the photos: gold dividers, name-block ornaments
+         (rules + diamond), and the full footer (CASTER PREDICTIONS plate,
+         Regional Qualifier logo, share-your-story/#RQSydney, hextech + leaves). -->
+    <img id="cp-frame" src="/assets/images/riftbound/caster-predictions/riftbound-caster-predictions-frame-uvs-unleashed-1v1.png" alt="">
+    <!-- Dynamic data: two overlapping predicted-card thumbs + handle/legend text
+         per column, all above the frame. -->
+    <div id="cp-cards"></div>
+    <div id="cp-names"></div>
+    <!-- Foliage overlays (top-level Leaves & Branches): vines over the dividers
+         and screen corners — they sit ON TOP of the card thumbs. -->
+    <img id="cp-foliage" src="/assets/images/riftbound/caster-predictions/riftbound-caster-predictions-foliage-uvs-unleashed-1v1.png" alt="">
+</div>
+<script type="module" src="/js/broadcast-caster-predictions.js"></script>
+</body>
+</html>

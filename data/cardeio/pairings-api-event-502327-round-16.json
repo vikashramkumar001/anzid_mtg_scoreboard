@@ -1,0 +1,140 @@
+[
+  {
+    "id": 4328734,
+    "table_number": 1,
+    "pod_number": null,
+    "order": 0,
+    "status": "COMPLETE",
+    "is_ghost_match": false,
+    "is_feature_match": false,
+    "match_is_bye": false,
+    "match_is_loss": false,
+    "deck_check_completed": false,
+    "deck_check_started": false,
+    "time_extension_seconds": 0,
+    "winning_player_id": 98709,
+    "match_is_intentional_draw": false,
+    "match_is_unintentional_draw": false,
+    "games_drawn": 0,
+    "games_won_by_winner": 2,
+    "games_won_by_loser": 1,
+    "player_match_relationships": [
+      {
+        "id": 8324250,
+        "match_id": 4328734,
+        "player_order": 1,
+        "games_won": 1,
+        "user_event_status": {
+          "id": 3024056,
+          "user_identifier": "koko l",
+          "special_user_identifier": null,
+          "matches_won": 13,
+          "matches_lost": 1,
+          "matches_drawn": 2,
+          "total_match_points": 41,
+          "registration_status": "ELIMINATED",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 126119,
+            "email": "andrewjlopez7@gmail.com",
+            "last_name": "lopez",
+            "last_first": "lopez, koko",
+            "first_last": "koko lopez",
+            "best_identifier": "koko l",
+            "initials": "KL",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "CTCG Koko Lopez"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "38701172-9354-403f-af54-6cd9e3fcd60c",
+            "deck_id": "0c6ea492-24cb-452a-bccb-feecee8ad873",
+            "deck_name": "Draven post 2.0",
+            "deck_defining_card": {
+              "id": "d197c994-9c42-4ecf-9f4d-f6c0aed9f422",
+              "name": "Draven, Glorious Executioner",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/c0d12ee4-0dd1-4297-b99b-971fe295b5d1.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055337Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=0c49403a806b74a1b2b6879648f8b8b299ec030c3de4d7b4e89d3d013b756a1ffc25a6643b235eee1f819f2eca7adc622eb80a05dac9ab1ce0b1ad2518f86541ee6f5c1250f0ade1b233b601dc2f380e2872e2125719323ae985381e8610f9efb25c41369148f47de8144db1b2a20011a6ef95817e85e19bd8f3512e0d2da2d17de32f8e7757a9031916fc8d01144b945e7c9c0cc7b5f78ec372a0595d1db5eb98ff374885fcfc9d0cb07db9583cd4f2d025c23cd4df50a2cb22ca692b73ac5a3f92698c625bbf01e992d8029491cdbda3c15fa8d943f88c4022b199d58580ec633983ad6d8f84c8f3fd720bec7f98bfcb50d8964319ddd2d0eb32ca880e3339"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 126119,
+          "email": "andrewjlopez7@gmail.com",
+          "first_name": "koko",
+          "last_name": "lopez",
+          "best_identifier": "koko l",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 1
+      },
+      {
+        "id": 8324251,
+        "match_id": 4328734,
+        "player_order": 2,
+        "games_won": 2,
+        "user_event_status": {
+          "id": 3025118,
+          "user_identifier": "Kyle B",
+          "special_user_identifier": null,
+          "matches_won": 14,
+          "matches_lost": 1,
+          "matches_drawn": 1,
+          "total_match_points": 43,
+          "registration_status": "COMPLETE",
+          "queue_check_in_status": null,
+          "user": {
+            "id": 98709,
+            "email": "belaiche.kyle@gmail.com",
+            "last_name": "Belaiche",
+            "last_first": "Belaiche, Kyle",
+            "first_last": "Kyle Belaiche",
+            "best_identifier": "Kyle B",
+            "initials": "KB",
+            "pronouns": null,
+            "country_code": null,
+            "game_user": {
+              "display_name": "Prismaticismism"
+            }
+          },
+          "player_interactions": [],
+          "deck_submission": {
+            "id": "6e6385ac-1050-42a3-8700-8623a60f3822",
+            "deck_id": "05566f54-e0b2-45b2-92ea-3ff4a6c08c17",
+            "deck_name": "Annie Overfan",
+            "deck_defining_card": {
+              "id": "83a98d73-dd87-438e-99b3-5617bca7d3d4",
+              "name": "Annie, Dark Child",
+              "image_url": "https://storage.googleapis.com/spicerack_media/cards/riftbound/254141aa-d667-49b9-bd1c-559f6b4ee246.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=storages-service-account%40counterbalance-381319.iam.gserviceaccount.com%2F20260629%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260629T055337Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=0442652344f13ce1869fc3a55216f74738dfb2eb8c0e65bb784d185c4aeade60fdc1dcdc904350d20bf98edec0aac3529b0a0b858429de6b5635890db8f241c3d7d050e59e7ae025aceef2a3f1ecb5b357014c92b9e9895fc4787c9aecdde31cb388292d4124f0a93b1974626eda9abbfd5cd898d1c39d8cadf9caddef7c689ee00d82b823ba982ff8c6e77b26cbf1d046d3d58fd860c517dfe41972fbfb1e7813a1f668a71a9ae69bb14959696bfa6c8138e3ca7dd40fd9966cf8a437b051dfa5e940a3b913c7bfb72617a71870df2b14fa2ea8c375185bd05b44c9352037d392e467d1e49d21cf9ed7597444d80bbd4f75cb022b0a39adb6c59b6400072bf8"
+            }
+          },
+          "fixed_seat": null,
+          "has_byes_for_round_numbers": [
+            1
+          ]
+        },
+        "player": {
+          "id": 98709,
+          "email": "belaiche.kyle@gmail.com",
+          "first_name": "Kyle",
+          "last_name": "Belaiche",
+          "best_identifier": "Kyle B",
+          "user": null
+        },
+        "is_starting_player": false,
+        "pod_seat_number": 8
+      }
+    ],
+    "assigned_judge": null,
+    "reporting_player": null,
+    "created_at": "2026-04-27T01:47:48+00:00",
+    "updated_at": "2026-04-27T03:00:29+00:00"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "cards": [
+    { "name": "Called Shot",        "id": "SFD-122" },
+    { "name": "Draven, Vanquisher", "id": "SFD-020" },
+    { "name": "Fight or Flight",    "id": "OGN-168" },
+    { "name": "Scrapheap",          "id": "OGN-182" },
+    { "name": "The Dreaming Tree",  "id": "OGN-292", "landscape": true },
+    { "name": "Obelisk of Power",   "id": "OGN-284", "landscape": true },
+    { "name": "Reaver's Row",       "id": "OGN-285", "landscape": true }
+  ]
+}

@@ -1,0 +1,99 @@
+/* broadcast-event-winners.css — UNLEASHED "Event Winners" (Sydney Top 2)
+   1920x1080 OBS browser source. Absolute positions come straight from the
+   PSD (RFB_Event_Winners_UNL.psb) layer bounds; see the exporter notes in
+   the scene JS. Layer stack (z-index): bg 1 < finalist photo 2 < champion
+   photo 3 < fg 4 < frame 5 < cards 6 < name text 7. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: transparent;
+}
+
+#ew-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+/* Shared-CSS `* { font-family: var(...) }` beats inheritance — force Beaufort
+   on everything inside the stage. */
+#ew-stage, #ew-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#ew-stage img {
+    position: absolute;
+    display: block;
+}
+
+#ew-bg    { left: 0; top: 0; width: 1920px; height: 1080px; z-index: 1; }
+#ew-fg    { left: 0; top: 0; width: 1920px; height: 1080px; z-index: 4; }
+#ew-frame { left: 0; top: 0; width: 1920px; height: 1080px; z-index: 5; }
+
+/* Player photos. Placeholder exports already carry the PSD look (drop
+   shadow, clipped darkening gradient, group-mask bottom fade), and their
+   crops include the shadow margin — hence the offsets vs the raw photo
+   bounds (champion photo 289,49; finalist 922,75). */
+#ew-photo-finalist { left: 832px; top: 0; width: 681px; height: 1080px; z-index: 2; }
+#ew-photo-champion { left: 214px; top: 0; width: 862px; height: 1080px; z-index: 3; }
+
+/* Per-event uploads (JS adds .ew-custom-photo when JSON overrides the src):
+   approximate the baked treatment — PSD drop shadow (dist 19 @ 117°, size 79)
+   + the Player Photos group-mask fade (full to ~40% alpha from y716→bottom). */
+.ew-photo.ew-custom-photo {
+    filter: drop-shadow(9px 17px 42px rgba(0, 0, 0, 0.59));
+    -webkit-mask-image: linear-gradient(to bottom, #000 66.3%, rgba(0, 0, 0, 0.4) 100%);
+    mask-image: linear-gradient(to bottom, #000 66.3%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+/* Card slots — legend card above, champion-unit card below (PSD "Card copy"
+   bounds). PSD drop shadow: dist 9 @ 131°, size 11, 36% → CSS approximation. */
+.ew-card {
+    z-index: 6;
+    filter: drop-shadow(6px 7px 4px rgba(0, 0, 0, 0.36));
+}
+#ew-card-champ-legend { left: 172px;  top: 170px; width: 202px; height: 283px; }
+#ew-card-champ-unit   { left: 172px;  top: 541px; width: 203px; height: 285px; }
+#ew-card-final-legend { left: 1541px; top: 170px; width: 202px; height: 283px; }
+#ew-card-final-unit   { left: 1541px; top: 541px; width: 203px; height: 285px; }
+
+/* Full-stage wrappers that carry the entrance animation for the name blocks
+   (the names themselves own a translateX(-50%) the motion keyframes would
+   clobber). Same size as the stage, so the children's left/top are unmoved. */
+.ew-name-block {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 7;
+    pointer-events: none;
+}
+
+/* Name blocks. Headings + dividers are baked into the frame; these are the
+   dynamic lines. PSD text: BeaufortPro-Bold handles (30px champion / 24.8px
+   finalist), BeaufortPro legend lines (18px / 14.9px), white, all-caps
+   styling over lowercase strings, center-anchored (x 780 / 1194). */
+.ew-handle, .ew-legend-name {
+    position: absolute;
+    z-index: 7;
+    color: #ffffff;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
+    transform: translateX(-50%);
+}
+.ew-handle      { font-weight: 700; }
+.ew-legend-name { font-weight: 400; }
+
+#ew-champ-handle      { left: 780px;  top: 804px; font-size: 30px; }
+#ew-champ-legend-name { left: 781px;  top: 837px; font-size: 18px; }
+#ew-final-handle      { left: 1194px; top: 804px; font-size: 24.8px; }
+#ew-final-legend-name { left: 1195px; top: 831px; font-size: 14.9px; }

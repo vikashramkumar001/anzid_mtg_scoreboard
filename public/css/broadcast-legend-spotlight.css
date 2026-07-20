@@ -1,0 +1,156 @@
+/* UNLEASHED "Legend Spotlight" (L3) — lower-third over live camera.
+   Body stays TRANSPARENT (OBS camera shows through); chrome is the baked
+   frame/plate PNGs; the DOM renders only dynamic data at PSD pixel coords. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: transparent;
+}
+
+#ls-stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+}
+
+/* Shared CSS elsewhere sets * { font-family: var(...) } which beats inheritance —
+   pin every descendant explicitly (Kai'Sa-gotcha sibling). */
+#ls-stage * {
+    font-family: 'Beaufort for LoL', serif;
+}
+
+#ls-frame,
+#ls-plate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+}
+#ls-frame { z-index: 1; }
+#ls-plate { z-index: 4; }
+
+/* ── Signature cards ─────────────────────────────────────────────────────────
+   PSD: art 160x224 at x251/431/611 y823; gold label bars 164x32 at
+   x249/429/609 y783 (bars are baked — only the label text is DOM).
+   Label: BeaufortPro-Bold 12pt, navy #161f30, centered in the bar. */
+.ls-card {
+    position: absolute;
+    top: 823px;
+    width: 160px;
+    height: 224px;
+    z-index: 2;
+}
+#ls-card-1 { left: 251px; }
+#ls-card-2 { left: 431px; }
+#ls-card-3 { left: 611px; }
+
+.ls-card-art {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 224px;
+    object-fit: cover;
+}
+
+.ls-card-label {
+    position: absolute;
+    top: -40px;              /* bar y783 (card y823 - 40) */
+    left: -2px;              /* bar x = card x - 2 */
+    width: 164px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: -0.4px;   /* truth text is ~13% narrower than +0.6 tracking */
+    text-align: center;
+    text-transform: uppercase;
+    color: #161f30;
+    white-space: nowrap;
+}
+
+/* ── Strategy bullets ────────────────────────────────────────────────────────
+   PSD: BeaufortPro-Bold 21pt white caps, left x1147, caps tops 815/895/975,
+   25px line pitch, ~510px wrap width (2-line entries are the norm). */
+#ls-bullets {
+    position: absolute;      /* required — z-index is ignored on static elements,
+                                which painted the bullets UNDER the opaque frame PNG */
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.ls-bullet {
+    position: absolute;
+    left: 1147px;
+    width: 512px;
+    font-size: 21px;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: 0.1px;   /* truth line1 ink 484px = natural 481.3 + ~0.1/char */
+    text-transform: uppercase;
+    color: #ffffff;
+}
+#ls-bullet-1 { top: 809px; }   /* caps top = 815 (baseline 829.4 - inkAsc 14.3) */
+#ls-bullet-2 { top: 889px; }   /* caps top = 895 */
+#ls-bullet-3 { top: 969px; }   /* caps top = 975 */
+
+/* ── Central legend art (face-anchored by JS) ────────────────────────────────
+   Breaks upward out of the panel; geometry (left/top/width/height) is inline. */
+#ls-character,
+#ls-character-video {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    pointer-events: none;
+}
+
+/* ── Legend name plate text (plate + gold rules are baked in #ls-plate) ──────
+   PSD: two centered lines at plate center x960 — name caps top 997 (24pt,
+   white), subtitle caps top ≈ 1025 (gold, letter-spaced). */
+#ls-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+#ls-name-main {
+    position: absolute;
+    top: 990.3px;            /* caps top = 997 (baseline 1013.3 + inkAsc 16.34) */
+    left: 660px;
+    width: 600px;            /* centered on x960 */
+    height: 28px;
+    line-height: 28px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0;        /* truth "LEBLANC" ink = 106px; 1px tracking overshot by ~7px */
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+#ls-name-sub {
+    position: absolute;
+    top: 1022.4px;           /* caps top = 1025 (truth ink 1025-1041) */
+    left: 660px;
+    width: 600px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 23.5px;       /* truth cap ≈ 16.5px, ink width ≈ 103px */
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #eaeaeb;          /* truth subtitle is silver (234,234,235), not gold */
+    white-space: nowrap;
+}

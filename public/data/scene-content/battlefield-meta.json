@@ -1,0 +1,10 @@
+{
+    "battlefields": [
+        { "name": "Baron Pit",       "percent": "18%" },
+        { "name": "Star Spring",     "percent": "15%" },
+        { "name": "Frozen Fortress", "percent": "12%" },
+        { "name": "The Academy",     "percent": "9%" },
+        { "name": "Vaults of Helia", "percent": "7%" },
+        { "name": "Brush",           "percent": "5%" }
+    ]
+}
