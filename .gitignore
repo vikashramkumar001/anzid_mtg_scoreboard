@@ -1,3 +1,8 @@
+# card-vision (Python recognizer)
+card-vision/.venv/
+card-vision/.cache/
+card-vision/samples/
+
 # Logs
 logs
 *.log
@@ -99,3 +104,6 @@ public/assets/animations/riftbound/
 # Vibes card images
 public/assets/images/vibes/cards/ETH/
 public/assets/images/vibes/cards/LOL/
+
+# OBS preset-edit backups (local only)
+data/obs exports/*.bak

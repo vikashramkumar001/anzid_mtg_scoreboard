@@ -2444,16 +2444,18 @@ window.VENDOR_CONFIG = {
                 },
             },
             tes: {
-                '--rb-font': 'Akzidenz-Grotesk Next',
-                '--rb-font-weight': '900',
+                // SCOREBOARD: inherits the default (CSL) riftbound 1v1 layout
+                // verbatim (2026-07-22) — TES supplies only the branded frame
+                // PNG (riftbound-scoreboard-frame-tes-1v1.png). --rb-font /
+                // --rb-font-weight are intentionally NOT set here: they are
+                // consumed ONLY by scoreboard.css, so omitting them reverts the
+                // board to CSL's Beaufort. (Decklist keeps --rb-dl-font;
+                // standings keeps --standings-font below — both unaffected.)
 
                 // Standings page font — override the page-wide
                 // 'Beaufort for LoL' that broadcast-round-standings-*.js
-                // sets for game === 'riftbound'. Without this, TES
-                // standings would render in Beaufort even though TES's
-                // brand voice (carried through --rb-font for scoreboard /
-                // decklist / lower-third) is Akzidenz-Grotesk Next.
-                // Matched weight (900) to the rest of TES's chrome.
+                // sets for game === 'riftbound', so TES standings render in
+                // its Akzidenz-Grotesk Next brand voice at weight 900.
                 '--standings-font':        "'Akzidenz-Grotesk Next', sans-serif",
                 '--standings-font-weight': '900',
 
@@ -2478,90 +2480,17 @@ window.VENDOR_CONFIG = {
                 '--standings-total-rounds':           '13',
                 '--standings-top8-cut-wins':          '10',
 
-                // Position overrides — adjust to match TES frame
-                '--rb-name-top': '13.5px',
-                '--rb-name-side': '391px',
-                '--rb-name-width': '346px',
-                '--rb-name-height': '70px',
-                '--rb-name-max-font': '48',
-                '--rb-name-max-width': '320',
-                '--scoreboard-name-color': '#000000',
-                '--rb-name-shadow': 'none',
-                '--rb-text-align-left': 'left',
-                '--rb-text-align-right': 'right',
-                '--rb-detail-font-style': 'italic',
-                '--rb-detail-shadow': 'none',
-                // '--rb-detail-font-weight': 'normal',
-                '--rb-bg-brightness': 'brightness(0.5)',
-                '--rb-detail-overflow': 'visible',
-                '--rb-life-top': '15px',
-                '--rb-life-side': '736.5px',
-                '--rb-life-height': '68px',
-                '--rb-life-width': '64px',
-                '--rb-record-top': '37px',
-                '--rb-record-left-side': '341px',
-                '--rb-record-right-side': '341px',
-                '--rb-record-width': '69px',
-                '--rb-record-left-rotate': 'rotate(-90deg)',
-                '--rb-record-right-rotate': 'rotate(90deg)',
-                '--rb-record-font-size': '20px',
-                '--rb-record-max-font': '20',
-                '--rb-record-min-font': '15',
-                '--rb-record-max-width': '54',
-                '--rb-record-left-color': '#1ec9ff',
-                '--rb-record-right-color': '#1eff47',
-                '--rb-points-font-size': '56px',
-                '--rb-points-font': 'Akzidenz-Grotesk Next',
-                '--rb-points-max-font': '56',
-                '--rb-points-min-font': '36',
-                '--rb-points-max-width': '30',
-                '--rb-points-left-color': '#1ec9ff',
-                '--rb-points-right-color': '#1eff47',
-                '--rb-wins-top': '23px',
-                '--rb-wins-left-side': '815px',
-                '--rb-wins-right-side': '815px',
-                '--rb-wins-direction': 'column',
-                '--rb-wins-gap': '8.5px',
-                '--rb-wins-height': '50px',
-                '--rb-wins-right-align': 'flex-end',
-                '--rb-card-overlay-z': '3',
-                '--rb-card-overlay-top': '542px',
-                '--rb-card-overlay-width': '314px',
-                '--rb-card-overlay-left': '1584px',
-                '--rb-round-top': '829px',
-                '--rb-round-shadow': 'none',
-                '--rb-timer-top': '869px',
-                '--rb-timer-color': '#1ec9ff',
-                '--rb-timer-font-size': '72px',
-                '--rb-timer-max-width': '140',
-                '--rb-event-name-display': 'flex',
-                '--rb-event-name-top': '935px',
-                '--rb-event-name-height': '44px',
-                '--rb-event-name-color': '#000000',
-                '--rb-event-name-font-size': '22px',
-                '--rb-event-name-left': '0px',
-                '--rb-event-name-width': '354px',
-                '--rb-legend-bg-top': '14px',
-                '--rb-legend-bg-side': '19px',
-                '--rb-legend-bg-width': '321px',
-                '--rb-legend-bg-height': '83px',
-                '--rb-legend-bg-size': 'cover',
-                '--rb-legend-bg-pos': 'center 30%',
-                '--rb-legend-top': '21px',
-                '--rb-legend-side': '60px',
-                '--rb-champion-top': '46px',
-                '--rb-champion-side': '60px',
-                '--rb-bf-bg-top': '100px',
-                '--rb-bf-bg-side': '19px',
-                '--rb-bf-bg-width': '321px',
-                '--rb-bf-top': '93px',
-                '--rb-bf-side': '60px',
-                '--rb-bf-width': '321px',
-                '--rb-runes-display': 'none',
-                // '--rb-round-top': '950px',
-                // '--rb-round-left': '0px',
-                // '--rb-timer-top': '987px',
-                // '--rb-timer-left': '103px',
+                // Scoreboard geometry / colors / fonts: NONE. Stripped
+                // 2026-07-22 so TES inherits the default (CSL) riftbound 1v1
+                // board verbatim through the getOverrides default-as-fallback
+                // merge — positions, gold/slate palette and Beaufort type all
+                // come from default. Inherited display gates land correctly:
+                // life-plate = none, score-tracker / showdown / champion =
+                // flex, event-name / points hidden. The old horizontal-chrome
+                // overrides (name/life/record/points/wins/card-overlay/round/
+                // timer/event-name/legend/battlefield positions + cyan/green
+                // accents) are gone. TES branding lives only in the frame PNG.
+                '--rb-runes-display': 'none',   // (default is also none; kept explicit)
 
                 // === Decklist overrides ===
                 // Background video
