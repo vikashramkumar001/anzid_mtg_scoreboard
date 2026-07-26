@@ -617,50 +617,34 @@ function setupRiftboundAdminControls() {
     });
 }
 
-// Searchable battlefield override picker over RIFTBOUND_BATTLEFIELD_NAMES.
+// Battlefield override — a NATIVE <select>. The previous custom dropdown
+// rendered a div list below the input, which on iPad sat BELOW the on-screen
+// keyboard (this section is low on the page) and so was invisible. A native
+// <select> makes iOS pop its own always-visible picker wheel. Picks any of
+// RIFTBOUND_BATTLEFIELD_NAMES and sets it as the active battlefield.
 function setupBattlefieldPicker(side) {
-    const wrap = document.querySelector(`.ra-picker[data-side="${side}"]`);
-    if (!wrap) return;
-    const input = wrap.querySelector('.ra-picker-input');
-    const list = wrap.querySelector('.ra-picker-list');
-
-    function render(items) {
-        list.innerHTML = '';
-        items.slice(0, 60).forEach(name => {
-            const div = document.createElement('div');
-            div.className = 'ra-picker-item';
-            div.textContent = name;
-            // click (fires on iPad touch). The list is only hidden by the
-            // outside-click handler below, never by blur, so click is safe.
-            div.addEventListener('click', (ev) => {
-                ev.preventDefault();
-                const brushBtn = document.querySelector(`.ra-brush-btn[data-side="${side}"]`);
-                if (brushBtn?.classList.contains('active')) {
-                    brushBtn.setAttribute('aria-pressed', 'false');
-                    brushBtn.classList.remove('active');
-                }
-                setActiveBattlefield(side, name);
-                // Free-form override (not one of the 3 preset slots): clear the
-                // radio group so it honestly shows "no preset selected". This
-                // also means clicking any preset radio afterward fires `change`
-                // and re-applies it (otherwise the still-checked radio would be
-                // a no-op on re-click).
-                document.querySelectorAll(`.ra-bf-radio[data-side="${side}"]`).forEach(r => { r.checked = false; });
-                input.value = name;
-                list.style.display = 'none';
-            });
-            list.appendChild(div);
+    const select = document.querySelector(`.ra-picker-select[data-side="${side}"]`);
+    if (!select) return;
+    if (select.options.length <= 1) {
+        RIFTBOUND_BATTLEFIELD_NAMES.forEach(name => {
+            const opt = document.createElement('option');
+            opt.value = name; opt.textContent = name;
+            select.appendChild(opt);
         });
-        list.style.display = items.length ? 'block' : 'none';
     }
-
-    input.addEventListener('focus', () => render(RIFTBOUND_BATTLEFIELD_NAMES));
-    input.addEventListener('input', () => {
-        const v = input.value.trim().toLowerCase();
-        render(RIFTBOUND_BATTLEFIELD_NAMES.filter(n => n.toLowerCase().includes(v)));
-    });
-    document.addEventListener('click', (e) => {
-        if (!wrap.contains(e.target)) list.style.display = 'none';
+    select.addEventListener('change', () => {
+        const name = select.value;
+        if (!name) return;
+        const brushBtn = document.querySelector(`.ra-brush-btn[data-side="${side}"]`);
+        if (brushBtn?.classList.contains('active')) {
+            brushBtn.setAttribute('aria-pressed', 'false');
+            brushBtn.classList.remove('active');
+        }
+        setActiveBattlefield(side, name);
+        // Free-form override (not one of the 3 preset slots): clear the radio
+        // group so it honestly shows "no preset selected".
+        document.querySelectorAll(`.ra-bf-radio[data-side="${side}"]`).forEach(r => { r.checked = false; });
+        select.value = '';   // reset to the "Override…" placeholder
     });
 }
 

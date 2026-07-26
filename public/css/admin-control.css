@@ -586,6 +586,26 @@ body {
     margin-top: 8px;
 }
 
+/* Native <select> override — iOS pops its own always-visible picker wheel
+   (the old custom dropdown could hide behind the on-screen keyboard). */
+.ra-picker-select {
+    width: 100%;
+    margin-top: 8px;
+    background: #0f1218;
+    border: 1px solid #2a2f3a;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 12px;
+    color: #e8eaed;
+    outline: none;
+    -webkit-appearance: menulist;
+    appearance: menulist;
+}
+
+.ra-picker-select:focus {
+    border-color: #d7a63f;
+}
+
 .ra-picker-input {
     width: 100%;
     background: #0f1218;
