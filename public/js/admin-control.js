@@ -49,6 +49,21 @@ function resetLifeTotals() {
     armTimeout(divs[1]);
 }
 
+// Reset the whole match: wins + XP → 0, life → the game's base (riftbound 0,
+// else 20). Name / record / battlefields are left alone.
+function resetMatch() {
+    const lifeVal = currentGame === 'riftbound' ? '0' : baseLifePoints;
+    const resets = [
+        ['player-wins-left', '0'], ['player-wins-right', '0'],
+        ['player-xp-left', '0'], ['player-xp-right', '0'],
+        ['player-life-left', lifeVal], ['player-life-right', lifeVal],
+    ];
+    resets.forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) { el.textContent = val; armTimeout(el); }
+    });
+}
+
 // Add event listeners after DOM is fully loaded
 function setupLifeUpdateListeners() {
     // Unified stepper for the base-board counters (wins / xp / poison / life).
@@ -70,6 +85,8 @@ function setupLifeUpdateListeners() {
 
     // Reset Life
     document.querySelector('.reset-life-btn')?.addEventListener('click', resetLifeTotals);
+    // Reset Match — wins + XP + life
+    document.querySelector('.reset-match-btn')?.addEventListener('click', resetMatch);
 }
 
 setupLifeUpdateListeners();
@@ -463,6 +480,15 @@ function setActiveBattlefield(side, text) {
     const label = document.querySelector(`.ra-active-name[data-side="${side}"]`);
     if (label) label.textContent = text || '—';
     emitField(`player-battlefield-${side}`, text);
+    // Mirror into the matching showdown BF name (left→BF1, right→BF2), like
+    // master-control — so the showdown popup tracks the active battlefield,
+    // including "Brush" from the brush override. BF3 (Baron Pit) is independent.
+    const bfNum = side === 'left' ? '1' : '2';
+    const sdName = document.getElementById(`showdown-bf-${bfNum}-name`);
+    if (sdName && sdName.textContent !== text) {
+        sdName.textContent = text;
+        emitField(`showdown-bf-${bfNum}-name`, text);
+    }
 }
 
 function setupRiftboundAdminControls() {
