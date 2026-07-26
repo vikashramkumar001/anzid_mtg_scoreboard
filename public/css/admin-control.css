@@ -571,6 +571,10 @@ body {
 
 .ra-bf-slot {
     flex: 1;
+    width: 100%;
+    -webkit-appearance: menulist;
+    appearance: menulist;
+    cursor: pointer;
 }
 
 .ra-bf-slot:focus,

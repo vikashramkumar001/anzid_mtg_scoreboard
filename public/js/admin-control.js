@@ -175,7 +175,17 @@ function loadSavedState(data) {
         if (document.getElementById(key) != null) {
             let el = document.getElementById(key);
             if (el.tagName === "SELECT") {
-                el.selectedIndex = [...el.options].findIndex(option => option.text === value);
+                let idx = [...el.options].findIndex(option => option.text === value);
+                // A stored value not in the option list (e.g. a battlefield name
+                // that isn't in RIFTBOUND_BATTLEFIELD_NAMES) would otherwise show
+                // blank — add it so the select always reflects the saved value.
+                if (idx === -1 && value) {
+                    const opt = document.createElement('option');
+                    opt.value = value; opt.textContent = value;
+                    el.appendChild(opt);
+                    idx = el.options.length - 1;
+                }
+                el.selectedIndex = idx;
             } else {
                 document.getElementById(key).innerHTML = value;
             }
@@ -505,17 +515,28 @@ function setupRiftboundAdminControls() {
             const brushBtn = root.querySelector(`.ra-brush-btn[data-side="${side}"]`);
             if (brushBtn?.classList.contains('active')) return; // brush locked
             const slot = document.getElementById(`player-battlefield-${bf}-${side}`);
-            setActiveBattlefield(side, (slot?.innerText || '').trim());
+            setActiveBattlefield(side, (slot?.value || '').trim());
         });
     });
 
-    // ── Battlefield slot edits ────────────────────────────────────────
-    // Each .ra-bf-slot is .editable, so it already emits its own field
-    // (player-battlefield-{n}-{side}) via the base armTimeout listener.
-    // Here we ALSO mirror into the active field when the edited slot is the
-    // currently-selected radio (and brush is off) — matching master-control.
+    // ── Battlefield slots (native <select> per slot) ──────────────────
+    // Each slot is a native dropdown of RIFTBOUND_BATTLEFIELD_NAMES (iPad shows
+    // its own picker wheel). Populate the options, then on change emit the slot
+    // field (player-battlefield-{n}-{side}) AND mirror into the active field
+    // when this slot is the currently-selected radio (brush off) — like MC.
     root.querySelectorAll('.ra-bf-slot').forEach(slot => {
-        slot.addEventListener('input', () => {
+        if (slot.tagName === 'SELECT' && slot.options.length === 0) {
+            const blank = document.createElement('option');
+            blank.value = ''; blank.textContent = '— battlefield —';
+            slot.appendChild(blank);
+            RIFTBOUND_BATTLEFIELD_NAMES.forEach(name => {
+                const opt = document.createElement('option');
+                opt.value = name; opt.textContent = name;
+                slot.appendChild(opt);
+            });
+        }
+        slot.addEventListener('change', () => {
+            armTimeout(slot);   // emit player-battlefield-{n}-{side} = slot.value
             const m = slot.id.match(/^player-battlefield-(\d)-(left|right)$/);
             if (!m) return;
             const [, bf, side] = m;
@@ -523,7 +544,7 @@ function setupRiftboundAdminControls() {
             if (!checked || checked.dataset.bf !== bf) return;
             const brushBtn = root.querySelector(`.ra-brush-btn[data-side="${side}"]`);
             if (brushBtn?.classList.contains('active')) return;
-            setActiveBattlefield(side, slot.innerText.trim());
+            setActiveBattlefield(side, slot.value.trim());
         });
     });
 
@@ -542,7 +563,7 @@ function setupRiftboundAdminControls() {
                 const checked = root.querySelector(`input[name="bf-${side}-select"]:checked`);
                 const bf = checked?.dataset?.bf || '1';
                 const slot = document.getElementById(`player-battlefield-${bf}-${side}`);
-                setActiveBattlefield(side, (slot?.innerText || '').trim());
+                setActiveBattlefield(side, (slot?.value || '').trim());
             }
         });
     });
