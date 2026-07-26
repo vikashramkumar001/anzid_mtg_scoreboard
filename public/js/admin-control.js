@@ -4,9 +4,10 @@
 // SAME per-field `field-updated` path as the base board, so the server's
 // updateFieldFromControl persists it and fans the full match state to the
 // scoreboard — no heavy master-control-matches-updated emit.
-import { RIFTBOUND_BATTLEFIELD_NAMES } from '/js/riftbound/constants.js';
+import { RIFTBOUND_BATTLEFIELD_NAMES, RIFTBOUND_LEGENDS_LIST, RIFTBOUND_CHAMPIONS_LIST } from '/js/riftbound/constants.js';
 
 let baseLifePoints = '20';
+let currentGame = '';   // tracked from game-selection; drives reset value + legend/champion vs archetype
 
 function scale_element(element, reset = false) {
     element.style.maxWidth = "";
@@ -37,9 +38,11 @@ function onLifeTotalChange(element, modifier) {
 }
 
 function resetLifeTotals() {
+    // Riftbound "life" is the shared score (starts at 0), not an MTG life total.
+    const resetVal = currentGame === 'riftbound' ? '0' : baseLifePoints;
     const divs = ['player-life-left', 'player-life-right'].map(e => {
         const div = document.getElementById(e);
-        div.innerHTML = baseLifePoints;
+        div.innerHTML = resetVal;
         return div;
     });
     armTimeout(divs[0]);
@@ -177,6 +180,14 @@ function setupCustomDropdowns() {
         '[id$="player-name-left"], [id$="player-name-right"], [id$="player-name-left-2"], [id$="player-name-right-2"]'
     );
     playerNameFields.forEach(field => attachDropdown(field, () => currentPlayerRoster));
+
+    // Riftbound Legend + Champion fields — touch-friendly autocomplete
+    // (attachDropdown selects on `click`, which fires on iPad, unlike the
+    // battlefield override picker's old mousedown).
+    document.querySelectorAll('[id$="player-legend-left"], [id$="player-legend-right"]')
+        .forEach(field => attachDropdown(field, () => RIFTBOUND_LEGENDS_LIST));
+    document.querySelectorAll('[id$="player-champion-left"], [id$="player-champion-right"]')
+        .forEach(field => attachDropdown(field, () => RIFTBOUND_CHAMPIONS_LIST));
 }
 
 // Shared wiring between archetype + player-name dropdowns. Takes a getter so
@@ -425,8 +436,13 @@ socket.emit('get-game-selection');
 
 // Show/hide the whole riftbound section based on the active game.
 function updateRiftboundVisibility(game) {
+    currentGame = game || '';
+    const isRb = game === 'riftbound';
     const el = document.getElementById('riftbound-admin');
-    if (el) el.style.display = game === 'riftbound' ? '' : 'none';
+    if (el) el.style.display = isRb ? '' : 'none';
+    // Riftbound shows Legend + Champion; other games show Archetype.
+    document.querySelectorAll('.abv2-archetype-cell').forEach(c => { c.style.display = isRb ? 'none' : ''; });
+    document.querySelectorAll('.abv2-rb-cell').forEach(c => { c.style.display = isRb ? '' : 'none'; });
 }
 
 // Emit a single field through the same timestamped path sendData uses, for
@@ -588,9 +604,9 @@ function setupBattlefieldPicker(side) {
             const div = document.createElement('div');
             div.className = 'ra-picker-item';
             div.textContent = name;
-            // mousedown (not click) + preventDefault so the input's blur
-            // doesn't hide the list before the selection registers.
-            div.addEventListener('mousedown', (ev) => {
+            // click (fires on iPad touch). The list is only hidden by the
+            // outside-click handler below, never by blur, so click is safe.
+            div.addEventListener('click', (ev) => {
                 ev.preventDefault();
                 const brushBtn = document.querySelector(`.ra-brush-btn[data-side="${side}"]`);
                 if (brushBtn?.classList.contains('active')) {
