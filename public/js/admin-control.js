@@ -234,6 +234,31 @@ function attachDropdown(field, getItems) {
     dropdownList.className = 'dropdown-list';
     wrapper.appendChild(dropdownList);
 
+    // Clear (×) button — tap to empty the field in one go instead of
+    // backspacing, then reopen the full list to pick a new value. Only shown
+    // when the field has content; the MutationObserver keeps that in sync
+    // across typing, dropdown picks, and programmatic loadSavedState writes.
+    const clearBtn = document.createElement('button');
+    clearBtn.type = 'button';
+    clearBtn.className = 'dropdown-clear';
+    clearBtn.textContent = '×';
+    clearBtn.setAttribute('aria-label', 'Clear');
+    clearBtn.tabIndex = -1;
+    wrapper.appendChild(clearBtn);
+
+    const syncClear = () => { clearBtn.style.display = field.textContent.trim() ? '' : 'none'; };
+    new MutationObserver(syncClear).observe(field, { childList: true, characterData: true, subtree: true });
+    syncClear();
+
+    clearBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        field.textContent = '';
+        armTimeout(field);                                    // emit the cleared value
+        field.focus();
+        renderDropdownList(dropdownList, getItems(), field);  // reopen the full list
+    });
+
     field.addEventListener('input', function () {
         const value = this.textContent.trim().toLowerCase();
         const filtered = getItems()

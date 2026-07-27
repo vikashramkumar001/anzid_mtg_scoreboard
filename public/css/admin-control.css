@@ -251,6 +251,38 @@ body {
     box-sizing: border-box; /* Include padding and border in the element's total width */
 }
 
+/* Clear (×) button inside each autocomplete field (name / archetype / legend /
+   champion). Full-height tap target at the right edge; inherits the field's
+   text color so it reads on both the coloured name header and the dark cells. */
+.custom-dropdown .dropdown-clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: currentColor;
+    opacity: 0.5;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 3;
+}
+.custom-dropdown .dropdown-clear:hover,
+.custom-dropdown .dropdown-clear:active {
+    opacity: 1;
+}
+
+/* Reserve room so field text doesn't slide under the × */
+.custom-dropdown > [contenteditable="true"] {
+    padding-right: 28px;
+}
+
 .custom-dropdown .dropdown-list {
     position: absolute;
     width: 100%;
