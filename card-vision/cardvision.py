@@ -31,7 +31,11 @@ META_JSON = os.path.join(REPO, "data", "riftbound", "riftboundCardNames.json")
 CACHE_PATH = os.path.join(HERE, ".cache", "index.pkl")
 
 # ---- tunables ---------------------------------------------------------------
-ORB_FEATURES = 1000       # keypoints per image
+ORB_FEATURES = 4000       # keypoints per image. v2: was 1000 — texture-poor
+                          # faces (The Ruination's black mist) only reached
+                          # ~9 matches against 1000-feature refs but 12+ against
+                          # 4000, which is the difference between failing and a
+                          # 0.735 confirm. Rebuild the index after changing.
 RATIO = 0.75              # Lowe's ratio test threshold
 PREFILTER_K = 160         # how many pHash candidates to ORB-verify
 MIN_GOOD_FOR_HOMOGRAPHY = 8
@@ -219,6 +223,159 @@ def identify_best(image, index, candidate_codes=None, min_inliers=12, min_margin
     second = results[1]["inliers"] if len(results) > 1 else 0
     accepted = top["inliers"] >= min_inliers and (top["inliers"] - second) >= min_margin
     return (top if accepted else None), results
+
+
+# =============================================================================
+# photo pipeline: register-then-verify (validated on real photos 2026-07-28)
+#
+# For REAL photographs of physical cards (vs clean digital crops), plain ORB
+# ranking fails: every card shares the frame template, so template keypoints
+# dominate and the true card drowns in 20-40 coincidental inliers. The fix:
+#   1. dense ORB on the query (4000 features),
+#   2. for each candidate: homography via RANSAC, rejected unless the implied
+#      card quad in the photo is sane (convex, card-sized, sane aspect),
+#   3. warp the photo into reference card space and score appearance there:
+#      NCC of the art box + NCC of the title band (unique per card).
+# On a 12MP photo of a fanned stack, truth scored 0.49 vs 0.18 for the best
+# false positive (open search, all 1190 cards). Occluded-but-visible cards
+# also surface with elevated scores.
+# =============================================================================
+REF_W, REF_H = 744, 1039          # reference card frame for rectification
+PHOTO_ORB_FEATURES = 4000
+ACCEPT_SCORE = 0.30               # accept threshold for identify_photo
+MIN_REG_INLIERS = 8               # homography gate; correctness comes from the
+                                  # NCC score, so this only filters compute. 10
+                                  # proved knife-edge on live 4K frames (sensor
+                                  # noise flipped 9<->10 on static cards).
+MIN_AFFINE_INLIERS = 6            # fallback tier: 4-DOF affine locks with fewer
+                                  # points than an 8-DOF homography — rescues
+                                  # texture-poor faces (validated: The Ruination
+                                  # 0.735 via affine after homography failed;
+                                  # 12/12 random wrong cards still refused).
+
+
+def _region(im, y0, y1, x0, x1):
+    h, w = im.shape[:2]
+    return im[int(y0*h):int(y1*h), int(x0*w):int(x1*w)]
+
+
+def _ncc(a, b):
+    a = a.astype(np.float32); b = b.astype(np.float32)
+    a -= a.mean(); b -= b.mean()
+    return float((a*b).sum() / (np.sqrt((a*a).sum()) * np.sqrt((b*b).sum()) + 1e-9))
+
+
+def _quad_ok(Hinv, photo_w, photo_h, ref_w=REF_W, ref_h=REF_H):
+    corners = np.float32([[0,0],[ref_w,0],[ref_w,ref_h],[0,ref_h]]).reshape(-1,1,2)
+    q = cv2.perspectiveTransform(corners, Hinv).reshape(4, 2)
+    area = cv2.contourArea(q.astype(np.float32))
+    if not (0.002 * photo_w * photo_h < area < 0.9 * photo_w * photo_h):
+        return False
+    if not cv2.isContourConvex(q.astype(np.float32)):
+        return False
+    d = lambda i, j: np.linalg.norm(q[i] - q[j])
+    s = sorted([d(0,1), d(1,2), d(2,3), d(3,0)])
+    return s[3] / max(s[0], 1e-6) < 3.0
+
+
+def identify_photo(image, index, candidate_codes=None, prefilter=80, topk=5):
+    """
+    Identify physical card(s) in a real photograph (any orientation, may
+    contain clutter/occlusion). Returns candidates sorted by combined
+    appearance score; entries with score >= ACCEPT_SCORE are trustworthy.
+    Cards in the photo but heavily occluded may appear with mid scores.
+    """
+    photo = cv2.imread(image, cv2.IMREAD_COLOR) if isinstance(image, str) else image
+    # small region crops (e.g. a fan cut from a 4K table frame) benefit from
+    # 2x upscale + unsharp mask — validated on live OBS footage 2026-07-28
+    scale = 1.0
+    if min(photo.shape[:2]) < 800:
+        scale = 2.0
+        photo = cv2.resize(photo, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
+        photo = cv2.addWeighted(photo, 1.6, cv2.GaussianBlur(photo, (0, 0), 3), -0.6, 0)
+    gray = to_gray(photo)
+    ph, pw = gray.shape[:2]
+    orb_hi = cv2.ORB_create(nfeatures=PHOTO_ORB_FEATURES)
+    kp, q_des = orb_hi.detectAndCompute(gray, None)
+    if q_des is None or len(kp) < 50:
+        return []
+    q_pts = np.float32([k.pt for k in kp])
+
+    codes = index["codes"]
+    if candidate_codes is not None:
+        wanted = set(candidate_codes)
+        cand = [i for i, c in enumerate(codes) if c in wanted]
+    else:
+        ranked = []
+        for i in range(len(codes)):
+            inl, _ = orb_score(q_des, q_pts, index["des"][i], index["pts"][i])
+            ranked.append((inl, i))
+        ranked.sort(reverse=True)
+        cand = [i for _, i in ranked[:prefilter]]
+
+    out = []
+    for i in cand:
+        knn = _BF.knnMatch(q_des, index["des"][i], k=2)
+        good = [m for m, n in (p for p in knn if len(p) == 2)
+                if m.distance < RATIO * n.distance]
+        if len(good) < MIN_AFFINE_INLIERS:
+            continue
+        src = q_pts[[m.queryIdx for m in good]].reshape(-1, 1, 2)
+        dst = index["pts"][i][[m.trainIdx for m in good]].reshape(-1, 1, 2)
+        # tier 1: full homography (8-DOF, handles perspective)
+        M = None
+        H, mask = cv2.findHomography(src, dst, cv2.RANSAC, 5.0)
+        if H is not None and mask is not None and int(mask.sum()) >= MIN_REG_INLIERS:
+            M, inliers = H, int(mask.sum())
+        else:
+            # tier 2: partial affine (4-DOF) — locks with fewer points; fine for
+            # a flat card under a mostly-overhead camera
+            A, amask = cv2.estimateAffinePartial2D(
+                src, dst, method=cv2.RANSAC, ransacReprojThreshold=6.0)
+            if A is not None and amask is not None and int(amask.sum()) >= MIN_AFFINE_INLIERS:
+                M, inliers = np.vstack([A, [0.0, 0.0, 1.0]]), int(amask.sum())
+        if M is None:
+            continue
+        try:
+            Hinv = np.linalg.inv(M)
+        except np.linalg.LinAlgError:
+            continue
+        # H maps photo pixels into the reference image's OWN pixel space, so
+        # rectify into the ref's native dimensions (battlefields are landscape
+        # 1039x744 — forcing portrait squashed them 2x in aspect and broke NCC).
+        ref = cv2.imread(os.path.join(CARDS_DIR, codes[i] + ".png"))
+        if ref is None:
+            continue
+        rh, rw = ref.shape[:2]
+        if not _quad_ok(Hinv, pw, ph, rw, rh):
+            continue
+        warped = cv2.warpPerspective(photo, M, (rw, rh))
+        if rw > rh:
+            # landscape (battlefield) layout: no shared art/title geometry with
+            # portrait cards — score on the full face instead
+            art = _ncc(_region(warped, 0.06, 0.94, 0.06, 0.94),
+                       _region(ref,    0.06, 0.94, 0.06, 0.94))
+            title = art
+            score = art
+        else:
+            art = _ncc(_region(warped, 0.09, 0.53, 0.09, 0.91),
+                       _region(ref,    0.09, 0.53, 0.09, 0.91))
+            title = _ncc(_region(warped, 0.55, 0.63, 0.08, 0.92),
+                         _region(ref,    0.55, 0.63, 0.08, 0.92))
+            score = 0.6 * art + 0.4 * title
+        # card's outline back in the ORIGINAL input image's pixel space
+        # (undo the auto-enhance upscale) — this is the hover-hotspot geometry
+        corners = np.float32([[0, 0], [rw, 0], [rw, rh], [0, rh]]).reshape(-1, 1, 2)
+        quad = (cv2.perspectiveTransform(corners, Hinv).reshape(4, 2) / scale)
+        out.append({
+            "code": codes[i], "name": index["names"][i],
+            "score": score, "art_ncc": art, "title_ncc": title,
+            "inliers": inliers,
+            "accepted": score >= ACCEPT_SCORE,
+            "quad": [[int(x), int(y)] for x, y in quad],
+        })
+    out.sort(key=lambda r: r["score"], reverse=True)
+    return out[:topk]
 
 
 # =============================================================================

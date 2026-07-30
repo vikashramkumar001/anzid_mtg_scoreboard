@@ -2,6 +2,7 @@
 card-vision/.venv/
 card-vision/.cache/
 card-vision/samples/
+card-vision/state.json
 
 # Logs
 logs

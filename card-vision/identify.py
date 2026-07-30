@@ -17,6 +17,9 @@ def main():
     ap.add_argument("image")
     ap.add_argument("--detect", action="store_true",
                     help="treat input as a full frame and auto-crop card rectangles first")
+    ap.add_argument("--photo", action="store_true",
+                    help="input is a real photograph of physical card(s): use the "
+                         "register-then-verify pipeline (slower, much more robust)")
     ap.add_argument("--codes", default="",
                     help="comma-separated card codes to restrict the search to (a decklist)")
     ap.add_argument("--topk", type=int, default=5)
@@ -33,6 +36,16 @@ def main():
             flag = "  <-- best" if r is results[0] else ""
             print(f"  {r['code']:<10} {r['name']:<28} inliers={r['inliers']:<3} "
                   f"good={r['good']:<3} conf={r['confidence']:.2f}{flag}")
+
+    if args.photo:
+        res = cv.identify_photo(args.image, index, candidate_codes=candidates, topk=args.topk)
+        if not res:
+            print("  no match")
+        for r in res:
+            mark = "ACCEPTED" if r["accepted"] else "        "
+            print(f"  {mark} {r['code']:<10} {r['name']:<28} score={r['score']:.3f} "
+                  f"(art={r['art_ncc']:.2f} title={r['title_ncc']:.2f} inl={r['inliers']})")
+        return
 
     if args.detect:
         bgr = cv2.imread(args.image, cv2.IMREAD_COLOR)

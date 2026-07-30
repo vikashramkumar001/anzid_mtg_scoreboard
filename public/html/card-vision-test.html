@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card Vision — Overlay Test</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0d0f14; color: #e8e8ec; font-family: -apple-system, "Segoe UI", sans-serif; }
+  header { display: flex; align-items: center; gap: 14px; padding: 10px 16px; }
+  header h1 { font-size: 15px; margin: 0; font-weight: 600; letter-spacing: .4px; }
+  #status { font-size: 12px; color: #8b93a7; }
+  #status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+                 background: #d24a4a; margin-right: 5px; vertical-align: 1px; }
+  #status.live .dot { background: #46c46a; }
+
+  /* stage keeps 16:9; hotspots are % positioned so any size works */
+  #stage { position: relative; width: min(96vw, calc(88vh * 16 / 9)); aspect-ratio: 16/9;
+           margin: 0 auto 18px; background: #191d27 center/cover no-repeat;
+           border: 1px solid #2a3040; border-radius: 8px; overflow: hidden; }
+  .hotspot { position: absolute; border: 2px solid rgba(90, 220, 120, .85); border-radius: 6px;
+             cursor: pointer; transition: background .15s; }
+  .hotspot.pending { border-color: rgba(255, 190, 70, .85); border-style: dashed; }
+  .hotspot:hover { background: rgba(90, 220, 120, .18); }
+  .hotspot .tag { position: absolute; left: 0; bottom: calc(100% + 2px); white-space: nowrap;
+                  background: rgba(10, 12, 18, .92); color: #cfe8d6; font-size: 11px;
+                  padding: 2px 7px; border-radius: 4px; pointer-events: none; }
+
+  #panel { position: fixed; right: 18px; top: 60px; width: 300px; background: #151924;
+           border: 1px solid #2a3040; border-radius: 10px; padding: 14px;
+           box-shadow: 0 12px 40px rgba(0,0,0,.5); display: none; }
+  #panel img { width: 100%; border-radius: 8px; display: block; }
+  #panel h2 { font-size: 15px; margin: 10px 0 4px; }
+  #panel .meta { font-size: 12px; color: #9aa3b8; line-height: 1.6; }
+  #panel .conf { margin-top: 8px; font-size: 11px; color: #6d778e; }
+</style>
+</head>
+<body>
+<header>
+  <h1>CARD VISION — overlay test</h1>
+  <div id="status"><span class="dot"></span><span id="statusText">connecting…</span></div>
+</header>
+<div id="stage"></div>
+<div id="panel"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  // Source frame is 3840x2160; state bboxes are in that space.
+  const SRC_W = 3840, SRC_H = 2160;
+  const stage = document.getElementById('stage');
+  const panel = document.getElementById('panel');
+  const statusEl = document.getElementById('status');
+  const statusText = document.getElementById('statusText');
+  let hideTimer = null;
+
+  function render(state) {
+    statusEl.classList.add('live');
+    statusText.textContent = `cycle ${state.cycle} — ${state.cards.length} card(s) tracked`;
+    stage.style.backgroundImage = `url(/api/card-vision/frame?c=${state.cycle})`;
+    stage.querySelectorAll('.hotspot').forEach(el => el.remove());
+    for (const c of state.cards) {
+      const [x0, y0, x1, y1] = c.bbox;
+      const el = document.createElement('div');
+      el.className = 'hotspot' + (c.status !== 'confirmed' ? ' pending' : '');
+      el.style.left = (100 * x0 / SRC_W) + '%';
+      el.style.top = (100 * y0 / SRC_H) + '%';
+      el.style.width = (100 * (x1 - x0) / SRC_W) + '%';
+      el.style.height = (100 * (y1 - y0) / SRC_H) + '%';
+      el.innerHTML = `<span class="tag">${c.name} · ${c.score}</span>`;
+      el.addEventListener('mouseenter', () => showPanel(c));
+      el.addEventListener('mouseleave', scheduleHide);
+      stage.appendChild(el);
+    }
+  }
+
+  async function showPanel(card) {
+    clearTimeout(hideTimer);
+    let meta = null;
+    try {
+      const res = await fetch(`/api/card-vision/card/${card.code}`);
+      if (res.ok) meta = await res.json();
+    } catch {}
+    const img = meta?.imageUrl || card.imageUrl;
+    const bits = meta ? [
+      meta.type, (meta.domain || []).join(' / '),
+      meta.energy != null ? `Energy ${meta.energy}` : null,
+      meta.rarity, meta.set,
+    ].filter(Boolean).join(' · ') : 'no metadata for this print';
+    panel.innerHTML = `
+      <img src="${img}" alt="">
+      <h2>${meta?.name || card.name}</h2>
+      <div class="meta">${bits}</div>
+      <div class="conf">recognized: ${card.status} · score ${card.score} · seen ${card.sightings}x</div>`;
+    panel.style.display = 'block';
+  }
+  function scheduleHide() { hideTimer = setTimeout(() => panel.style.display = 'none', 300); }
+  panel.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+  panel.addEventListener('mouseleave', scheduleHide);
+
+  const socket = io();
+  socket.on('card-vision-state', render);
+  socket.on('disconnect', () => { statusEl.classList.remove('live'); statusText.textContent = 'disconnected'; });
+  // initial state before the first push arrives
+  fetch('/api/card-vision/state').then(r => r.json()).then(render).catch(() => {
+    statusText.textContent = 'waiting for live_loop…';
+  });
+</script>
+</body>
+</html>
