@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  LaunchAgent for the card-vision live recognition loop.
+
+  Before loading, replace REPLACE_ME_REPO_PATH with the absolute repo path
+  on this machine (the directory that contains server.js and card-vision/).
+  One-liner (run after copying this file to ~/Library/LaunchAgents):
+
+    REPO="$HOME/Desktop/coverage hub"   # adjust if the repo lives elsewhere
+    sed -i '' "s|REPLACE_ME_REPO_PATH|$REPO|g" ~/Library/LaunchAgents/com.anzid.cardvision.plist
+
+  Then load it:
+    launchctl bootstrap gui/$UID ~/Library/LaunchAgents/com.anzid.cardvision.plist
+  (or on older macOS: launchctl load ~/Library/LaunchAgents/com.anzid.cardvision.plist)
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.anzid.cardvision</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>REPLACE_ME_REPO_PATH/card-vision/.venv/bin/python3</string>
+        <string>live_loop.py</string>
+        <string>--sweep</string>
+        <string>--obs</string>
+        <string>ws://localhost:4455</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>REPLACE_ME_REPO_PATH/card-vision</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <key>StandardOutPath</key>
+    <string>REPLACE_ME_REPO_PATH/card-vision/logs/loop.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>REPLACE_ME_REPO_PATH/card-vision/logs/loop.log</string>
+</dict>
+</plist>

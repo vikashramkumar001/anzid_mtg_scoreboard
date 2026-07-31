@@ -123,6 +123,26 @@ recognizable by code but unnamed (task flagged).
       live_loop tracks code+position instances so playset copies count
       separately ("Temporal Breach x2"), with tight card bboxes (the actual
       hover-hotspot geometry). Sweep topk=5 (busy tiles dropped 3rd cards).
+- [x] parallel sweep (ProcessPoolExecutor over tiles; ~1.3x — OpenCV already
+      multithreads matching, so the residual speedup path is a reduced-index
+      prefilter, documented not built). PRIMARY recovery is now persistence:
+      tracks survive restarts via .cache/tracks.pkl and re-earn their spots by
+      shootout in seconds ("resumed N persisted track(s)" on startup).
+- [x] covered-card memory: a confirmed card that loses its spot to an
+      overlapping live track becomes status "covered" (gray dotted on the
+      overlay) instead of vanishing — hover still works for stacked cards.
+- [x] coordinate mapping: features/card-vision.js reads the OBS scene-item
+      transform (incl. one level of scene nesting, enabled-item preference)
+      and attaches normalized program-canvas "vbox" per card + in the PubSub
+      compact payload. Refreshes every 10s; OBS_WS_URL env overrides target.
+- [x] delay-sync: CARD_VISION_DELAY_MS env buffers viewer-facing PubSub
+      pushes to match stream delay (local socket overlay stays instant).
+- [x] deploy kit (deploy/): install.sh + launchd plist + DEPLOY.md for the
+      ingest box. Twitch extension scaffold lives in ../twitch-extension/.
+- OPS NOTE: an unattended loop accumulates rare junk confirmations over
+      thousands of cycles (observed overnight at cycle ~6000). Restart the
+      loop at match/stream boundaries (launchd kickstart) — persistence makes
+      restarts cheap — until a confirmed-track periodic re-audit is added.
 - [x] EBS layer (`features/card-vision.js`, wired in server.js): watches
       state.json, socket.io broadcast `card-vision-state`, endpoints
       /api/card-vision/{state,card/:code,frame}, variant-aware name lookup,

@@ -15,6 +15,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
+import OBSWebSocket from 'obs-websocket-js';
 import { getCardListData } from './riftbound/cards.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -103,14 +104,108 @@ async function pushTwitchPubsub(payload) {
     }
 }
 
-// Compact payload for PubSub's 5KB cap: codes + status flag + score + bbox.
+// ---------------------------------------------------------------------------
+// camera-space -> program-canvas coordinate mapping. The recognizer's bboxes
+// are in the 4K camera frame; viewers watch that source COMPOSITED into the
+// 1080p program scene. OBS knows the placement — read the scene-item
+// transform and refresh it periodically so overlay hotspots can be expressed
+// in normalized video coordinates (0..1 of the program canvas).
+// ---------------------------------------------------------------------------
+const CV_SOURCE = process.env.CARD_VISION_SOURCE || 'BMD - Match 1 Gameplay';
+const OBS_URL = process.env.OBS_WS_URL || 'ws://localhost:4455';
+const OBS_PASSWORD = process.env.OBS_WS_PASSWORD || 'RRWtUPVpGf6myRvx';
+let transform = null;   // {posX, posY, scaleX, scaleY, cropL, cropT, canvasW, canvasH}
+const cvObs = new OBSWebSocket();
+let cvObsReady = false;
+
+async function refreshTransform() {
+    try {
+        if (!cvObsReady) {
+            await cvObs.connect(OBS_URL, OBS_PASSWORD);
+            cvObsReady = true;
+            log(`transform: connected to OBS at ${OBS_URL}`);
+        }
+        const { baseWidth, baseHeight } = await cvObs.call('GetVideoSettings');
+        const { currentProgramSceneName } = await cvObs.call('GetCurrentProgramScene');
+        const getT = async (scene, id) =>
+            (await cvObs.call('GetSceneItemTransform',
+                { sceneName: scene, sceneItemId: id })).sceneItemTransform;
+        const pick = items => {
+            const matches = items.filter(i => i.sourceName === CV_SOURCE);
+            return matches.find(i => i.sceneItemEnabled) || matches[0] || null;
+        };
+        const { sceneItems } = await cvObs.call('GetSceneItemList',
+            { sceneName: currentProgramSceneName });
+        let combined = null;
+        const direct = pick(sceneItems);
+        if (direct) {
+            const t = await getT(currentProgramSceneName, direct.sceneItemId);
+            combined = {
+                posX: t.positionX, posY: t.positionY,
+                scaleX: t.scaleX, scaleY: t.scaleY,
+                cropL: t.cropLeft || 0, cropT: t.cropTop || 0,
+            };
+        } else {
+            // one level of nesting: production wraps the camera in a scene
+            // (e.g. "Camera - Match 1 Gameplay") that sits in the program
+            // scene — compose inner (source-in-wrapper) with outer
+            // (wrapper-in-program) transforms
+            for (const outerItem of sceneItems) {
+                let children;
+                try {
+                    ({ sceneItems: children } = await cvObs.call('GetSceneItemList',
+                        { sceneName: outerItem.sourceName }));
+                } catch { continue; }        // not a scene
+                const inner = pick(children);
+                if (!inner) continue;
+                const o = await getT(currentProgramSceneName, outerItem.sceneItemId);
+                const i = await getT(outerItem.sourceName, inner.sceneItemId);
+                combined = {
+                    // canvas(x) = posO + (posI + (x - cropIL)*scaleI - cropOL)*scaleO
+                    posX: o.positionX + (i.positionX - (o.cropLeft || 0)) * o.scaleX,
+                    posY: o.positionY + (i.positionY - (o.cropTop || 0)) * o.scaleY,
+                    scaleX: i.scaleX * o.scaleX,
+                    scaleY: i.scaleY * o.scaleY,
+                    cropL: i.cropLeft || 0, cropT: i.cropTop || 0,
+                };
+                break;
+            }
+        }
+        transform = combined ? { ...combined, canvasW: baseWidth, canvasH: baseHeight } : null;
+    } catch (err) {
+        cvObsReady = false;
+        transform = null;
+    }
+}
+
+function toVideoBox(bbox) {
+    // camera px -> normalized 0..1 of the program canvas; null when the
+    // source isn't in the current program scene (overlay should hide)
+    if (!transform || !bbox) return null;
+    const { posX, posY, scaleX, scaleY, cropL, cropT, canvasW, canvasH } = transform;
+    const map = (x, y) => [
+        (posX + (x - cropL) * scaleX) / canvasW,
+        (posY + (y - cropT) * scaleY) / canvasH,
+    ];
+    const [nx0, ny0] = map(bbox[0], bbox[1]);
+    const [nx1, ny1] = map(bbox[2], bbox[3]);
+    const clamp = v => Math.max(0, Math.min(1, Math.round(v * 1000) / 1000));
+    return [clamp(nx0), clamp(ny0), clamp(nx1), clamp(ny1)];
+}
+
+const STATUS_FLAG = { confirmed: 1, pending: 0, covered: 2 };
+
+// Compact payload for PubSub's 5KB cap: code, status flag, score, camera bbox,
+// then normalized video coords when the OBS transform is known.
 function compactState() {
     return {
         u: state.cycle,
-        cards: state.cards.map(c => [
-            c.code, c.status === 'confirmed' ? 1 : 0, c.score,
-            ...(c.bbox || []),
-        ]),
+        cards: state.cards.map(c => {
+            const row = [c.code, STATUS_FLAG[c.status] ?? 0, c.score, ...(c.bbox || [])];
+            const v = toVideoBox(c.bbox);
+            if (v) row.push(...v);
+            return row;
+        }),
     };
 }
 
@@ -134,8 +229,13 @@ function readState(io) {
     lastRaw = raw;
     state = parsed;
     const enriched = enrichedState();
-    io.emit('card-vision-state', enriched);
-    pushTwitchPubsub(compactState());
+    io.emit('card-vision-state', enriched);          // local overlay: no delay
+    // viewer-facing push is buffered by the measured stream delay so hotspots
+    // land when VIEWERS see the card, not seconds early
+    const delayMs = parseInt(process.env.CARD_VISION_DELAY_MS || '0', 10);
+    const payload = compactState();
+    if (delayMs > 0) setTimeout(() => pushTwitchPubsub(payload), delayMs);
+    else pushTwitchPubsub(payload);
 }
 
 function enrichedState() {
@@ -147,6 +247,7 @@ function enrichedState() {
                 ...c,
                 name: meta ? meta.name : c.name,
                 imageUrl: meta ? meta.imageUrl : `/assets/images/riftbound/cards/${c.code}.png`,
+                vbox: toVideoBox(c.bbox),   // normalized program-canvas coords (or null)
             };
         }),
     };
@@ -171,7 +272,10 @@ export function initCardVision(app, io) {
     });
 
     setInterval(() => readState(io), 1000);
+    refreshTransform();
+    setInterval(refreshTransform, 10_000);
     log(`watching ${STATE_PATH}`);
+    log(`mapping transform of '${CV_SOURCE}' via ${OBS_URL} (refresh 10s)`);
     log(process.env.TWITCH_EXT_CLIENT_ID
         ? 'Twitch PubSub transport ACTIVE'
         : 'Twitch PubSub transport dormant (set TWITCH_EXT_CLIENT_ID / TWITCH_EXT_SECRET / TWITCH_BROADCASTER_ID)');

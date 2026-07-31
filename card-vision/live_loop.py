@@ -21,8 +21,10 @@ import argparse
 import base64
 import json
 import os
+import pickle
 import time
 from collections import deque
+from concurrent.futures import ProcessPoolExecutor
 
 import cv2
 import numpy as np
@@ -31,6 +33,7 @@ import obsws_python as obsws
 import cardvision as cv
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+TRACKS_PATH = os.path.join(HERE, ".cache", "tracks.pkl")
 
 # voting parameters
 WINDOW = 5            # look-back window (cycles)
@@ -140,6 +143,14 @@ def quad_bbox(result, origin_x, origin_y):
             origin_x + max(xs), origin_y + max(ys))
 
 
+def box_iou(a, b):
+    ix = max(0, min(a[2], b[2]) - max(a[0], b[0]))
+    iy = max(0, min(a[3], b[3]) - max(a[1], b[1]))
+    inter = ix * iy
+    ua = (a[2]-a[0])*(a[3]-a[1]) + (b[2]-b[0])*(b[3]-b[1]) - inter
+    return inter / ua if ua > 0 else 0.0
+
+
 def add_sighting(sightings, code, score, bbox):
     """Collect per-cycle sightings, merging same-code hits at ~the same spot
     (overlapping regions seeing one card) while keeping separate copies of a
@@ -153,7 +164,32 @@ def add_sighting(sightings, code, score, bbox):
     sightings.append([code, score, bbox])
 
 
-def full_sweep(frame, roi, index, pool, tile=720, overlap=400):
+# ---------------------------------------------------------------------------
+# parallel sweep workers (spawn-safe: top-level functions, per-worker globals)
+# ---------------------------------------------------------------------------
+_SW = {}
+
+
+def _sweep_worker_init(frame_path, pool_codes):
+    cv2.setNumThreads(2)          # avoid oversubscription across processes
+    _SW["index"] = cv.load_index()
+    _SW["frame"] = np.load(frame_path)
+    _SW["pool"] = pool_codes
+
+
+def _sweep_tile(bx):
+    frame = _SW["frame"]
+    crop = frame[bx[1]:bx[3], bx[0]:bx[2]]
+    if crop.size == 0:
+        return []
+    out = []
+    for r in cv.identify_photo(crop, _SW["index"], candidate_codes=_SW["pool"], topk=5):
+        if r["score"] >= 0.20:
+            out.append((r["code"], r["score"], quad_bbox(r, bx[0], bx[1])))
+    return out
+
+
+def full_sweep(frame, roi, index, pool, tile=720, overlap=400, workers=None):
     """
     Exhaustive one-shot inventory: loose appearance mask -> regions, oversized
     ones exploded into overlapping tiles (stride = tile-overlap must stay under
@@ -190,6 +226,33 @@ def full_sweep(frame, roi, index, pool, tile=720, overlap=400):
             regions.append(bx)
 
     hits = []   # [code, score, bbox] per physical-card instance
+    MAX_TILES = 48   # sweep-time guard: difficult lighting can inflate the
+                     # proposal mask; identify cost is ~15s/tile so an
+                     # unbounded sweep can stall for an hour. Prefer the
+                     # largest regions and SAY what was dropped.
+    if len(regions) > MAX_TILES:
+        regions.sort(key=lambda b: -(b[2]-b[0])*(b[3]-b[1]))
+        print(f"  sweep: capping {len(regions)} tiles to {MAX_TILES} "
+              f"(largest kept — rerun sweep or nudge missed cards)")
+        regions = regions[:MAX_TILES]
+    workers = workers if workers is not None else max(1, min(8, (os.cpu_count() or 2) - 2))
+    if workers > 1 and len(regions) > 3:
+        # parallel path: tiles are independent; each worker loads the index
+        # once (initializer) and reads the frame from a shared .npy
+        fp = os.path.join(HERE, "samples", "_sweep_frame.npy")
+        os.makedirs(os.path.dirname(fp), exist_ok=True)
+        np.save(fp, frame)
+        try:
+            with ProcessPoolExecutor(max_workers=workers,
+                                     initializer=_sweep_worker_init,
+                                     initargs=(fp, list(pool))) as ex:
+                for res in ex.map(_sweep_tile, regions):
+                    for code, score, bb in res:
+                        add_sighting(hits, code, score, bb)
+            return hits
+        except Exception as e:      # pragma: no cover — fall back, never die
+            print(f"  parallel sweep failed ({e}); running serial")
+            hits = []
     for bx in regions:
         crop = frame[bx[1]:bx[3], bx[0]:bx[2]]
         if crop.size == 0:
@@ -217,6 +280,24 @@ def main():
 
     prev = {}      # region_key -> {"crop", "results": [(code,score,bbox)], "bbox"}
     tracks = {}    # instance key "CODE#c.n" -> {"code", "hits", "bbox", "first", "last", "crop"}
+    # resume persisted tracks: crops don't survive (frame-dependent), so every
+    # resumed track re-earns its spot via shootout on the first cycles — a
+    # restart recovers the table in seconds instead of a full sweep
+    if os.path.exists(TRACKS_PATH):
+        try:
+            with open(TRACKS_PATH, "rb") as f:
+                saved = pickle.load(f)
+            for k, t in saved.items():
+                tracks[k] = {"code": t["code"], "bbox": tuple(t["bbox"]),
+                             "first": t["first"], "last": 0,
+                             "confirmed": t.get("confirmed", False),
+                             "covered": t.get("covered", False), "crop": None,
+                             "hits": deque([(0, s) for s in t["hits"][-WINDOW:]],
+                                           maxlen=WINDOW)}
+            print(f"resumed {len(tracks)} persisted track(s) — re-verifying via shootout")
+        except Exception as e:
+            print(f"could not resume tracks ({e}); starting fresh")
+            tracks = {}
     prev_frame = None
     cycle = 0
     while args.cycles == 0 or cycle < args.cycles:
@@ -280,16 +361,10 @@ def main():
         # boxes is physically impossible (one spot = one card) — the weaker
         # claim is a cross-match (e.g. The Harrowing squatting on Temporal
         # Breach's dark beam art) and is dropped before it can become a track
-        def _iou(a, b):
-            ix = max(0, min(a[2], b[2]) - max(a[0], b[0]))
-            iy = max(0, min(a[3], b[3]) - max(a[1], b[1]))
-            inter = ix * iy
-            ua = (a[2]-a[0])*(a[3]-a[1]) + (b[2]-b[0])*(b[3]-b[1]) - inter
-            return inter / ua if ua > 0 else 0.0
         sightings.sort(key=lambda s: -s[1])
         exclusive = []
         for s in sightings:
-            if any(s[0] != k[0] and _iou(s[2], k[2]) > 0.5 for k in exclusive):
+            if any(s[0] != k[0] and box_iou(s[2], k[2]) > 0.5 for k in exclusive):
                 continue
             exclusive.append(s)
         sightings = exclusive
@@ -316,6 +391,7 @@ def main():
             t["hits"].append((cycle, score))
             t["bbox"] = bbox
             t["last"] = cycle
+            t["covered"] = False          # directly seen again
             t["crop"] = frame[bbox[1]:bbox[3], bbox[0]:bbox[2]].copy()
 
         # sticky-until-disturbed — but confirmation must be EARNED with real
@@ -325,24 +401,36 @@ def main():
         # lucky >=0.30 misregistration on a static table self-confirmed off
         # its own echo — observed as junk names confirming at 0.3-0.5.)
         for tkey, t in tracks.items():
-            if t["last"] == cycle or "crop" not in t:
+            if t["last"] == cycle:
                 continue
             b = t["bbox"]
             cur = frame[b[1]:b[3], b[0]:b[2]]
-            unchanged = cur.shape == t["crop"].shape and \
+            has_ref = t.get("crop") is not None       # resumed tracks have none
+            unchanged = has_ref and cur.shape == t["crop"].shape and \
                 float(np.abs(cur.astype(np.int16) - t["crop"].astype(np.int16)).mean()) < UNCHANGED_DIFF
-            if t.get("confirmed") and unchanged:
+            if t.get("confirmed") and unchanged and not t.get("covered"):
                 t["hits"].append((cycle, t["hits"][-1][1]))   # retention only
                 t["last"] = cycle
             else:
                 # SHOOTOUT: re-verify against the whole pool, not just this
                 # track's own code — a cross-match squatter can re-lock its own
                 # wrong code forever, but it can't keep beating the true card
-                res = cv.identify_photo(cur, index, candidate_codes=pool, topk=1)
+                res = cv.identify_photo(cur, index, candidate_codes=pool, topk=1) \
+                    if cur.size else []
                 if res and res[0]["code"] == t["code"] and res[0]["score"] > 0.20:
                     t["hits"].append((cycle, res[0]["score"]))
                     t["last"] = cycle
+                    t["covered"] = False
                     t["crop"] = cur.copy()
+                elif t.get("confirmed") and any(
+                        k2 != tkey and t2["last"] == cycle
+                        and box_iou(t2["bbox"], t["bbox"]) > 0.3
+                        for k2, t2 in tracks.items()):
+                    # a live track now owns this spot: the card is COVERED, not
+                    # gone (e.g. Pack of Wonders under Vanguard Captain) —
+                    # retain it so the overlay can still offer it on hover
+                    t["covered"] = True
+                    t["last"] = cycle
                 # else: lost the spot (or nothing there) — track decays
 
         for code in [c for c, t in tracks.items() if cycle - t["last"] >= DROP_AFTER]:
@@ -358,7 +446,8 @@ def main():
             if not t.get("confirmed") and len(recent) >= CONFIRM_SIGHTINGS \
                and med >= cv.ACCEPT_SCORE:
                 t["confirmed"] = True
-            status = "confirmed" if t.get("confirmed") else "pending"
+            status = "covered" if t.get("covered") else \
+                ("confirmed" if t.get("confirmed") else "pending")
             i = index["codes"].index(t["code"])
             cards.append({"code": t["code"], "instance": tkey,
                           "name": index["names"][i], "status": status,
@@ -371,6 +460,18 @@ def main():
         with open(tmp, "w") as f:
             json.dump(state, f, indent=1)
         os.replace(tmp, args.out)
+
+        # persist tracks (sans frame-dependent crops) so a restart resumes in
+        # seconds via shootout re-verification instead of a full sweep
+        os.makedirs(os.path.dirname(TRACKS_PATH), exist_ok=True)
+        with open(TRACKS_PATH + ".tmp", "wb") as f:
+            pickle.dump({k: {"code": t["code"], "bbox": list(t["bbox"]),
+                             "first": t["first"],
+                             "confirmed": t.get("confirmed", False),
+                             "covered": t.get("covered", False),
+                             "hits": [s for _, s in t["hits"]]}
+                         for k, t in tracks.items()}, f)
+        os.replace(TRACKS_PATH + ".tmp", TRACKS_PATH)
 
         dt = time.time() - t0
         # group copies for the console line: "Temporal Breach x2(c:0.86)"
