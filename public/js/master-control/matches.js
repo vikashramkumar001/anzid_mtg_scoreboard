@@ -985,18 +985,30 @@ export function initMatches(socket) {
         // Only update fields that are present in the parsed deck — don't blank out existing values
         // when the user is just editing individual card lines
 
-        // Legend
+        // Legend — dispatch input+change (like the manual dropdown select and the
+        // battlefield/rune fields below) so the field update propagates and the
+        // server re-resolves the legend image on the decklist. Without this, "Add
+        // Decklist" set the text but never fired an event, so the decklist display
+        // kept the old legend until the field was re-selected by hand.
         if (parsedDeck['legend']?.length) {
             let legendField = document.getElementById(`${roundId}-${matchId}-player-legend-${sideId}`);
             let legendName = parsedDeck['legend'][0].substring(2); // remove quantity prefix
-            if (legendField) legendField.innerText = legendName;
+            if (legendField) {
+                legendField.innerText = legendName;
+                legendField.dispatchEvent(new Event('input', { bubbles: true }));
+                legendField.dispatchEvent(new Event('change', { bubbles: true }));
+            }
         }
 
-        // Champion
+        // Champion — same fix as Legend above.
         if (parsedDeck['champion']?.length) {
             let championField = document.getElementById(`${roundId}-${matchId}-player-champion-${sideId}`);
             let championName = parsedDeck['champion'][0].substring(2); // remove quantity prefix
-            if (championField) championField.innerText = championName;
+            if (championField) {
+                championField.innerText = championName;
+                championField.dispatchEvent(new Event('input', { bubbles: true }));
+                championField.dispatchEvent(new Event('change', { bubbles: true }));
+            }
         }
 
         // Battlefield — only update if battlefields are in the pasted deck
