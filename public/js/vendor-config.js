@@ -13,6 +13,7 @@ window.VENDOR_CONFIG = {
         riftbound: [
             { value: 'default', label: 'Default (CSL)' },
             { value: 'uvs-unleashed', label: 'UVS - Unleashed' },
+            { value: 'anu', label: 'Anu' },
             { value: 'atomic-legacy', label: 'Atomic Legacy' },
             { value: 'dsg', label: 'DSG' },
             { value: 'tes', label: 'TES' },
@@ -590,6 +591,18 @@ window.VENDOR_CONFIG = {
                     '--slot-bracket-final-1b-top':        '487px',
                     '--slot-bracket-final-1b-left':       '1319px',
                 },
+            },
+            // ── riftbound + 'anu' vendor (personal) ───────────────────────
+            // The UVS Unleashed look, but every animation VIDEO comes from CSL
+            // default. Inherits uvs-unleashed's CSS overrides via `_extends`,
+            // and its static reskin assets via assetVendorAlias (anu →
+            // uvs-unleashed → default). Only the decklist wallpaper video is
+            // repointed to default here; the metagame + standings bg videos are
+            // gated on vendor==='uvs-unleashed' in their scene JS, so anu already
+            // falls back to default's shared/static motion for those.
+            'anu': {
+                _extends: 'uvs-unleashed',
+                '--rb-dl-bg-video': '/assets/animations/riftbound/decklist/frame/riftbound-scoreboard-frame-default-1v1.mp4',
             },
             // ── riftbound + default vendor ────────────────────────────────
             // 'default' = current active layout (CSL Bologna event).
@@ -2750,6 +2763,10 @@ window.VENDOR_CONFIG = {
     // `…-uvs-unleashed-1v1.*` files that were never created.
     assetVendorAlias: {
         'uvs-unleashed': 'default',
+        // 'anu' is a personal clone of uvs-unleashed — it reuses uvs-unleashed's
+        // reskin files (which themselves fall through to default). getAssetPath +
+        // resolveAssetVendor walk the whole chain: anu → uvs-unleashed → default.
+        'anu': 'uvs-unleashed',
     },
 
     // Assets an aliased vendor has RESKINNED with its own files. Matched as
@@ -2772,8 +2789,10 @@ window.VENDOR_CONFIG = {
     // path-less form always falls back to the alias; getAssetPath() does the
     // per-asset owns-list check (since it has the path).
     resolveAssetVendor(vendor) {
-        const v = vendor || 'default';
-        return this.assetVendorAlias[v] || v;
+        let v = vendor || 'default';
+        const seen = new Set();
+        while (this.assetVendorAlias[v] && !seen.has(v)) { seen.add(v); v = this.assetVendorAlias[v]; }
+        return v;
     },
 
     // Returns the asset path with vendor + player count suffix
@@ -2782,13 +2801,17 @@ window.VENDOR_CONFIG = {
     // The vendor is run through resolveAssetVendor() first, so asset-aliased
     // vendors (e.g. uvs-unleashed → default) point at files that exist.
     getAssetPath(basePath, vendor, playerCount) {
-        // Aliased vendors borrow default's files UNLESS they own this specific
-        // asset (reskinned) — see assetVendorOwns.
+        // Aliased vendors borrow their alias's files UNLESS they own this
+        // specific asset (reskinned) — see assetVendorOwns. Walk the whole
+        // alias chain (e.g. anu → uvs-unleashed → default), stopping at the
+        // first vendor in the chain that owns this asset.
         let v = vendor || 'default';
-        const alias = this.assetVendorAlias[v];
-        if (alias) {
+        const seen = new Set();
+        while (this.assetVendorAlias[v] && !seen.has(v)) {
             const owns = (this.assetVendorOwns[v] || []).some(frag => basePath.includes(frag));
-            if (!owns) v = alias;
+            if (owns) break;
+            seen.add(v);
+            v = this.assetVendorAlias[v];
         }
         const p = playerCount || '1v1';
         const suffix = '-' + v + '-' + p;
@@ -2853,7 +2876,7 @@ window.VENDOR_CONFIG = {
             if (!base) return {};
             const out = {};
             for (const k of Object.keys(base)) {
-                if (!pcKeys.includes(k)) out[k] = base[k];
+                if (!pcKeys.includes(k) && k !== '_extends') out[k] = base[k];
             }
             return out;
         }
@@ -2870,12 +2893,24 @@ window.VENDOR_CONFIG = {
         const vendorFlat = flatten(vendorBase);
         const vendorPC = (playerCount && vendorBase[playerCount]) || {};
 
-        // Merge default-tier first, then vendor-tier on top. Within each
-        // tier, per-count overrides flat (matching the existing within-
-        // vendor precedence). Vendor wins over default at every level.
+        // Optional single-vendor inheritance: `_extends: 'otherVendor'` pulls
+        // that vendor's overrides in between the default tier and this vendor's
+        // own (this vendor still wins). Lets a personal clone (e.g. 'anu')
+        // reuse another vendor's overrides and change only a few vars.
+        let parentFlat = {}, parentPC = {};
+        if (vendorBase._extends) {
+            const parentBase = gameOverrides[vendorBase._extends] || {};
+            parentFlat = flatten(parentBase);
+            parentPC = (playerCount && parentBase[playerCount]) || {};
+        }
+
+        // Merge default-tier first, then parent (_extends), then vendor-tier on
+        // top. Within each tier, per-count overrides flat. Later tiers win.
         return {
             ...defaultFlat,
             ...defaultPC,
+            ...parentFlat,
+            ...parentPC,
             ...vendorFlat,
             ...vendorPC,
         };
