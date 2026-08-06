@@ -49,7 +49,7 @@ export const FLYQUEST_2V2_ROSTER_SEED = {
 // === Defaults ===
 export let DEFAULT_INITIAL_TIME = 50 * 60 * 1000; // 50 minutes in ms
 export let DEFAULT_GAME_SELECTION = 'riftbound';  // mtg, riftbound
-export let DEFAULT_VENDOR_SELECTION = 'default';
+export let DEFAULT_VENDOR_SELECTION = 'anu';
 export let DEFAULT_PLAYER_COUNT = '1v1';
 
 export function getInitialTime() {
