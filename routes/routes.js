@@ -8,6 +8,7 @@ import { overlayStorage, archetypeStorage, portraitStorage, getOverlayPaths } fr
 import { getGameSelection } from '../config/constants.js';
 import { handleArchetypeUpload } from '../features/archetypes.js';
 import { handlePortraitUpload } from '../features/roster.js';
+import { fetchPiltoverDeckText } from '../features/riftbound/piltover.js';
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -316,6 +317,23 @@ router.get('/riftbound/display/main/deck/:deckID', (req, res) => {
 // riftbound - animation display
 router.get('/riftbound/animation-display/:orientation/:matchID/:side', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/riftbound/animation-display.html'));
+});
+
+// riftbound - Piltover Archive deck import. Master-control posts a pasted PA
+// deck link ({ link }); we resolve it server-side with our API key (in .env,
+// never sent to the browser) and return a decklist string parseDeckString can
+// consume directly. Server-side call also avoids the browser CORS wall.
+router.post('/api/piltover/deck', express.json(), async (req, res) => {
+  try {
+    const { link } = req.body || {};
+    const { deckId, text } = await fetchPiltoverDeckText(link);
+    res.json({ ok: true, deckId, text });
+  } catch (err) {
+    const status = err.status || err.response?.status || 500;
+    const paMsg = err.response?.data?.message || err.response?.data?.error;
+    console.error('[Piltover] deck import failed:', paMsg || err.message);
+    res.status(status).json({ ok: false, error: paMsg || err.message });
+  }
 });
 
 // END RIFTBOUND

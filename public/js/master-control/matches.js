@@ -83,6 +83,19 @@ export function initMatches(socket) {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <!-- Piltover Archive import (riftbound only) — paste a deck link,
+                 hit Load, and the server fetches the decklist into the textarea
+                 below for review before Submit. Shown/hidden per game in the
+                 .add-deck-btn click handler. -->
+            <div id="add-deck-pa-row" class="mb-2" style="display:none;">
+              <label class="form-label mb-1">Piltover Archive link</label>
+              <div class="input-group">
+                <input type="text" id="add-deck-pa-link" class="form-control"
+                       placeholder="https://piltoverarchive.com/decks/…">
+                <button type="button" class="btn btn-outline-primary" id="add-deck-pa-load">Load</button>
+              </div>
+              <div id="add-deck-pa-status" class="small mt-1" style="display:none;"></div>
+            </div>
             <textarea id="add-deck-textarea" class="form-control" rows="15"
                       placeholder="Paste your decklist here..."></textarea>
             <div id="add-deck-error" class="text-danger mt-2" style="display:none;"></div>
@@ -103,6 +116,18 @@ export function initMatches(socket) {
     const addDeckModal = new bootstrap.Modal(document.getElementById('add-deck-modal'));
     const addDeckTextarea = document.getElementById('add-deck-textarea');
     const addDeckError = document.getElementById('add-deck-error');
+    const addDeckPaRow = document.getElementById('add-deck-pa-row');
+    const addDeckPaLink = document.getElementById('add-deck-pa-link');
+    const addDeckPaLoad = document.getElementById('add-deck-pa-load');
+    const addDeckPaStatus = document.getElementById('add-deck-pa-status');
+
+    function setPaStatus(msg, kind) {
+        // kind: 'muted' | 'success' | 'danger'
+        if (!msg) { addDeckPaStatus.style.display = 'none'; return; }
+        addDeckPaStatus.textContent = msg;
+        addDeckPaStatus.className = `small mt-1 text-${kind || 'muted'}`;
+        addDeckPaStatus.style.display = 'block';
+    }
 
     // "Add" button click — open modal
     document.addEventListener('click', (e) => {
@@ -115,7 +140,48 @@ export function initMatches(socket) {
         };
         addDeckTextarea.value = '';
         addDeckError.style.display = 'none';
+        // Piltover Archive import is riftbound-only — show the row for riftbound,
+        // reset it either way so a stale link/status never carries over.
+        addDeckPaLink.value = '';
+        setPaStatus('');
+        addDeckPaRow.style.display = (currentGameSelection === 'riftbound') ? 'block' : 'none';
         addDeckModal.show();
+    });
+
+    // Piltover Archive "Load" — POST the link to our server-side proxy, which
+    // resolves it with the API key and returns a decklist string in the exact
+    // format parseDeckString understands. Fill the textarea; the operator then
+    // reviews and clicks Submit as normal.
+    async function loadPiltoverDeck() {
+        const link = addDeckPaLink.value.trim();
+        if (!link) { setPaStatus('Paste a Piltover Archive deck link first', 'danger'); return; }
+
+        addDeckPaLoad.disabled = true;
+        setPaStatus('Loading deck from Piltover Archive…', 'muted');
+        try {
+            const res = await fetch('/api/piltover/deck', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ link }),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || !data.ok) {
+                throw new Error(data.error || `Request failed (${res.status})`);
+            }
+            addDeckTextarea.value = data.text;
+            addDeckTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+            setPaStatus('Deck loaded — review below, then Submit.', 'success');
+        } catch (err) {
+            setPaStatus(err.message || 'Failed to load deck', 'danger');
+        } finally {
+            addDeckPaLoad.disabled = false;
+        }
+    }
+
+    addDeckPaLoad.addEventListener('click', loadPiltoverDeck);
+    // Enter in the link field triggers Load (not the modal's Submit).
+    addDeckPaLink.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); loadPiltoverDeck(); }
     });
 
     // Submit handler
