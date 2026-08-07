@@ -405,6 +405,90 @@ CommentatorC
                         <hr>
                         <div class="row mb-4">
                             <div class="col-12">
+                                <h5 class="card-title">API Auth Tokens <span id="auth-token-status" class="badge bg-secondary ms-2">No tokens set</span></h5>
+                            </div>
+                            <div class="col-10">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">web_session <small class="text-muted">(encrypted JWT)</small></label>
+                                            <input type="password" id="auth-web-session" class="form-control"
+                                                placeholder="Paste web_session token">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">web_sessionToken <small class="text-muted">(Spicerack API token)</small></label>
+                                            <input type="password" id="auth-web-session-token" class="form-control"
+                                                placeholder="Paste web_sessionToken">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">sessionid <small class="text-muted">(Django session)</small></label>
+                                            <input type="password" id="auth-session-id" class="form-control"
+                                                placeholder="Paste sessionid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center d-flex flex-center align-items-center justify-content-center">
+                                <button class="btn btn-primary update-button" id="auth-tokens-save">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-10">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">Carde.io Event ID</label>
+                                            <input type="text" id="cardeio-event-id" class="form-control"
+                                                placeholder="e.g. 365709">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">Game Slug</label>
+                                            <input type="text" id="cardeio-game-slug" class="form-control"
+                                                placeholder="e.g. riftbound" value="riftbound">
+                                        </div>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-end gap-2 flex-wrap">
+                                        <button class="btn btn-success mb-3" id="fetch-cardeio-decklists">
+                                            Fetch Decklists
+                                        </button>
+                                        <button class="btn btn-info mb-3" id="fetch-cardeio-registrations">
+                                            Fetch Registrations
+                                        </button>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-end">
+                                        <span id="cardeio-fetch-status" class="mb-3"></span>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-3">
+                                        <div class="mb-3">
+                                            <label class="form-label">Round ID</label>
+                                            <input type="text" id="cardeio-round-id" class="form-control"
+                                                placeholder="e.g. 519666">
+                                        </div>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-end">
+                                        <button class="btn btn-warning mb-3" id="fetch-cardeio-standings">
+                                            Fetch Standings
+                                        </button>
+                                    </div>
+                                    <div class="col-6 d-flex align-items-end">
+                                        <span id="cardeio-standings-status" class="mb-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mb-4">
+                            <div class="col-12">
                                 <h5 class="card-title">Tournament Platform</h5>
                             </div>
                             <div class="col-10">

@@ -8,6 +8,7 @@ import {initMetaBreakdown} from './meta-breakdown.js';
 import {initCardDB} from './indexeddb-init.js';
 import {initGameSelection} from './game-selection.js';
 import {initTournamentPlatform} from './tournament-platform.js';
+import {initAuthTokens} from './auth-tokens.js';
 import {initDraftList} from './draft-list.js';
 import {initGroups} from './groups.js';
 import {initPlayerView} from './player-view.js';
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initCardView(socket);
     initMetaBreakdown(socket);
     initTournamentPlatform(socket);
+    initAuthTokens(socket);
     initDraftList(socket);
     initGroups(socket);
     initPlayerView(socket);
