@@ -1082,7 +1082,14 @@ export function initMatches(socket) {
             const battlefields = parsedDeck['battlefield'].slice(0, 3);
             for (let i = 0; i < 3; i++) {
                 const bfEl = document.getElementById(`${roundId}-${matchId}-player-battlefield-${i + 1}-${sideId}`);
-                if (bfEl) bfEl.innerText = battlefields[i] ? battlefields[i].substring(2) : '';
+                if (bfEl) {
+                    bfEl.innerText = battlefields[i] ? battlefields[i].substring(2) : '';
+                    // Dispatch input (like the legend/champion/rune fields above) so
+                    // the slot value flows into allControlData and is emitted — without
+                    // this the battlefields never reach the server, so a mapped
+                    // admin-control / scoreboard never sees the imported battlefields.
+                    bfEl.dispatchEvent(new Event('input', { bubbles: true }));
+                }
             }
             const radio1 = document.querySelector(`input[name="${roundId}-${matchId}-bf-${sideId}-select"][value="1"]`);
             if (radio1) { radio1.checked = true; radio1.dispatchEvent(new Event('change', { bubbles: true })); }

@@ -6,6 +6,12 @@
 // scoreboard — no heavy master-control-matches-updated emit.
 import { RIFTBOUND_BATTLEFIELD_NAMES, RIFTBOUND_LEGENDS_LIST, RIFTBOUND_CHAMPIONS_LIST } from '/js/riftbound/constants.js';
 
+// Battlefield dropdowns (the 3 per-side slots + the override picker) list every
+// battlefield, so alphabetical order makes a name easy to find. The source
+// constant is grouped by set; sort a copy here rather than mutate it (the sort
+// is admin-control-only — master-control keeps its own ordering).
+const SORTED_BATTLEFIELD_NAMES = [...RIFTBOUND_BATTLEFIELD_NAMES].sort((a, b) => a.localeCompare(b));
+
 let baseLifePoints = '20';
 let currentGame = '';   // tracked from game-selection; drives reset value + legend/champion vs archetype
 
@@ -278,6 +284,50 @@ function attachDropdown(field, getItems) {
     });
 }
 
+// Clear (×) button for plain editable cells that aren't dropdown-backed
+// (pronouns + record). Mirrors the .dropdown-clear affordance the archetype /
+// name / legend / champion fields get from attachDropdown: tap to empty the
+// field and emit the cleared value. Wraps the field once (guarded) and keeps
+// the × visible only when the field has content.
+function attachFieldClear(field) {
+    if (!field || field.parentNode.classList.contains('abv2-val-wrap')) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'abv2-val-wrap';
+    field.parentNode.insertBefore(wrap, field);
+    wrap.appendChild(field);
+
+    const clearBtn = document.createElement('button');
+    clearBtn.type = 'button';
+    clearBtn.className = 'abv2-clear';
+    clearBtn.textContent = '×';
+    clearBtn.setAttribute('aria-label', 'Clear');
+    clearBtn.tabIndex = -1;
+    wrap.appendChild(clearBtn);
+
+    const syncClear = () => { clearBtn.style.display = field.textContent.trim() ? 'flex' : 'none'; };
+    new MutationObserver(syncClear).observe(field, { childList: true, characterData: true, subtree: true });
+    syncClear();
+
+    clearBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        field.textContent = '';
+        armTimeout(field);   // emit the cleared value through the standard path
+        field.focus();
+    });
+}
+
+// Wire the × onto both players' pronouns + record cells (static fields, so
+// once is enough; the guard makes repeat calls no-ops).
+function setupFieldClears() {
+    ['pronouns', 'record'].forEach(kind => {
+        ['left', 'right'].forEach(side => {
+            attachFieldClear(document.getElementById(`player-${kind}-${side}`));
+        });
+    });
+}
+
 function renderDropdownList(dropdownList, items, field) {
     dropdownList.innerHTML = '';
     items.forEach(item => {
@@ -313,6 +363,9 @@ console.log('from url - control id - delay', control_id, delay_value);
 
 // Send the match ID to the server when the client connects - will send back saved data if control already exists
 socket.emit('getSavedControlState', {control_id});
+
+// Wire the × clear buttons onto the (static) pronouns + record fields.
+setupFieldClears();
 
 let currentArchetypeList = []; // To store the current archetype list
 let currentPlayerRoster = [];  // To store the current player roster (for name autocomplete)
@@ -554,7 +607,7 @@ function setupRiftboundAdminControls() {
             const blank = document.createElement('option');
             blank.value = ''; blank.textContent = '— battlefield —';
             slot.appendChild(blank);
-            RIFTBOUND_BATTLEFIELD_NAMES.forEach(name => {
+            SORTED_BATTLEFIELD_NAMES.forEach(name => {
                 const opt = document.createElement('option');
                 opt.value = name; opt.textContent = name;
                 slot.appendChild(opt);
@@ -672,7 +725,7 @@ function setupBattlefieldPicker(side) {
     const select = document.querySelector(`.ra-picker-select[data-side="${side}"]`);
     if (!select) return;
     if (select.options.length <= 1) {
-        RIFTBOUND_BATTLEFIELD_NAMES.forEach(name => {
+        SORTED_BATTLEFIELD_NAMES.forEach(name => {
             const opt = document.createElement('option');
             opt.value = name; opt.textContent = name;
             select.appendChild(opt);
