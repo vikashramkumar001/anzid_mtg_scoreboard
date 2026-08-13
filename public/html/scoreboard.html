@@ -10,6 +10,8 @@
     <!-- Room Manager -->
     <script src="/js/room-manager.js"></script>
     <script src="/js/vendor-config.js"></script>
+    <!-- Local-only, gitignored: sets window.RESTREAM_CHAT_URL for the anu chat overlay -->
+    <script src="/js/restream-config.js"></script>
     <link href="/css/scoreboard.css" rel="stylesheet">
 
 </head>
@@ -139,6 +141,10 @@
             <video id="riftbound-frame-video" autoplay loop muted playsinline src="/assets/animations/riftbound/scoreboard/frame/riftbound-scoreboard-frame-default-1v1.mp4"></video>
         </div>
         <div class="riftbound-frame"></div>
+        <!-- Restream multichat — sits inside the bottom-left box baked into
+             anu's scoreboard frame; shown only for the anu vendor (gated in
+             scoreboard.css via body[data-vendor="anu"]). -->
+        <iframe id="rb-restream-chat" title="Restream multichat" allow="autoplay"></iframe>
         <!-- Player portrait icons: same roster machinery as the mtg block above.
              Hidden by default (--rb-icon-opacity: 0); positions need to come
              from a riftbound frame PSD once one exists (DSG 2v2 is PNG-only

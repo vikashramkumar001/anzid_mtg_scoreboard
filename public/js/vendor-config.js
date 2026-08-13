@@ -2782,6 +2782,12 @@ window.VENDOR_CONFIG = {
             'bracket/riftbound-bracket-bg',
             'bracket/riftbound-bracket-frame',
         ],
+        // 'anu' reskins just the scoreboard frame PNG with its own art
+        // (riftbound-scoreboard-frame-anu-1v1.png); everything else still
+        // chains anu → uvs-unleashed → default.
+        'anu': [
+            'scoreboard/frame/riftbound-scoreboard-frame',
+        ],
     },
 
     // Resolve a vendor to the vendor whose asset FILES should be used.

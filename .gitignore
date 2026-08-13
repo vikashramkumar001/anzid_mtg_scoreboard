@@ -108,3 +108,6 @@ public/assets/images/vibes/cards/LOL/
 
 # OBS preset-edit backups (local only)
 data/obs exports/*.bak
+
+# Restream multichat embed URL (contains a token — local only, per machine)
+public/js/restream-config.js

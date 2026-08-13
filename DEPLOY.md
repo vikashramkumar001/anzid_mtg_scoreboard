@@ -26,6 +26,19 @@ decklist **wallpaper video**, missing animated legend art, no metagame/standings
 |---|---|---|
 | `public/assets/animations/riftbound/` | ~3.7 GB | decklist wallpaper video, animated legends, metagame/standings motion |
 | `public/assets/images/vibes/cards/ETH/`, `.../LOL/` | — | Vibes card art |
+| `public/js/restream-config.js` | 1 line | anu Restream chat overlay (blank without it) |
+
+### Restream chat config (`public/js/restream-config.js`)
+
+Gitignored because it holds an embed token. The anu scoreboard's Restream chat
+stays blank until this one-line file exists on the machine serving the scoreboard.
+Create it on the ingest box (and Heroku, if used):
+
+```js
+window.RESTREAM_CHAT_URL = 'https://chat.restream.io/embed?token=YOUR_TOKEN';
+```
+
+Get the URL from https://chat.restream.io/settings/embed.
 
 ### Sync command (run from the dev Mac)
 

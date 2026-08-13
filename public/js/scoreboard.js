@@ -1306,6 +1306,18 @@ function updateTheme(game, vendor, playerCount) {
     const normalized = game?.toLowerCase();
     if (!normalized) return;
 
+    // Expose the vendor for CSS gating (e.g. the anu-only Restream chat overlay).
+    document.body.dataset.vendor = vendor || 'default';
+    // Lazy-load the Restream chat iframe the first time anu is active, so other
+    // vendors never open a hidden Restream connection. URL comes from the
+    // gitignored restream-config.js (window.RESTREAM_CHAT_URL).
+    if (vendor === 'anu') {
+        const chat = document.getElementById('rb-restream-chat');
+        if (chat && !chat.getAttribute('src') && window.RESTREAM_CHAT_URL) {
+            chat.src = window.RESTREAM_CHAT_URL;
+        }
+    }
+
     // --- Game switch (only when game actually changes) ---
     if (normalized !== selectedGame) {
         // Remove previous game class if it exists

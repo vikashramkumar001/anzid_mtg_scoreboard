@@ -3119,3 +3119,23 @@ body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-player-name-wrapp
     width: auto;
 }
 
+/* Restream multichat — anu vendor only. Fits inside the bottom-left box baked
+   into riftbound-scoreboard-frame-anu-1v1.png (box borders x 38..317,
+   y 681..1061; chat inset ~10px). Hidden unless the active vendor is anu;
+   scoreboard.js sets body[data-vendor] and lazy-loads the iframe src. */
+#rb-restream-chat {
+    position: absolute;
+    left: 48px;
+    top: 691px;
+    width: 259px;
+    height: 360px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    z-index: 10;
+    display: none;
+}
+body[data-vendor="anu"] #scoreboard-riftbound #rb-restream-chat {
+    display: block;
+}
+
