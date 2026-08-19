@@ -28,6 +28,14 @@ decklist **wallpaper video**, missing animated legend art, no metagame/standings
 | `public/assets/images/vibes/cards/ETH/`, `.../LOL/` | — | Vibes card art |
 | `public/js/restream-config.js` | 1 line | anu Restream chat overlay (blank without it) |
 
+### Topdeck.gg import (`.env`)
+
+The master-control FFA "Topdeck" row (load round → apply pod) needs
+`TOPDECK_API_KEY=<key>` in the server's `.env` (gitignored). Free key from
+https://topdeck.gg/developers. Without it the Load button reports the missing
+key. Topdeck requires a visible "powered by TopDeck.gg" credit on projects
+using the API.
+
 ### Restream chat config (`public/js/restream-config.js`)
 
 Gitignored because it holds an embed token. The anu scoreboard's Restream chat

@@ -4,6 +4,7 @@ import { promises as fsPromises } from 'fs';
 import { fileURLToPath } from 'url';
 import { RoomUtils } from '../utils/room-utils.js';
 import { RIFTBOUND_CHAMPIONS } from '../config/riftbound/constants.js';
+import { fetchTopdeckTable } from './topdeck.js';
 
 // Hoisted to the top so persistPlatformConfig() / PLATFORM_CONFIG_PATH
 // (defined further down) can reference it without TDZ violations.
@@ -1357,6 +1358,30 @@ async function fetchPlayerRecordFromStandings(tournamentId, roundNumber, playerN
 
 // Fetch match data by table number
 export async function fetchMatchByTable(tournamentId, roundNumber, tableNumber, platform = 'melee') {
+    // Topdeck.gg: one pod (up to 4 players for EDH/FFA) with commanders,
+    // WUBRG color identities (Scryfall) and standings records. The client's
+    // FFA branch consumes `players` (seat order); player1/player2 keep the
+    // 1v1 shape working for two-player tables.
+    if (platform === 'topdeck') {
+        const td = await fetchTopdeckTable(
+            tournamentId, roundNumber, tableNumber, platformConfig.topdeckApiKey);
+        const toPlayer = p => ({
+            name: p.name, archetype: p.commander, colors: p.colors,
+            record: p.record, pronouns: '',
+        });
+        const players = td.players.map(toPlayer);
+        return {
+            tableNumber: td.tableNumber,
+            player1: players[0] || { name: '', archetype: '', record: '', pronouns: '' },
+            player2: players[1] || { name: '', archetype: '', record: '', pronouns: '' },
+            players,
+            topdeck: {
+                tournamentName: td.tournamentName,
+                swissNum: td.swissNum,
+                roundLabel: td.roundLabel,
+            },
+        };
+    }
     // Carde.io: prefer Spicerack match API (has user_id), fall back to CSV pairings
     if (platform === 'cardeio') {
         const emptyPlayer = { name: '', pronouns: '', record: '', archetype: '', decklistId: null, legend: '', champion: '', runes: '', runeList: [], battlefields: [], mainDeck: [], sideboard: [] };

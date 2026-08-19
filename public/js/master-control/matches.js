@@ -323,7 +323,10 @@ export function initMatches(socket) {
 
     // Generate HTML for a single player section
     function renderPlayerSection(roundId, matchId, side, label) {
-        const colClass = currentPlayerCount === '2v2' ? 'col-md-3' : 'col-md-6';
+        // 2v2 AND ffa render four player sections → 4 columns. FFA keeps the
+        // individual life/poison/wins fields visible (every player independent);
+        // 2v2 hides them in favour of the shared team rows above.
+        const colClass = (currentPlayerCount === '2v2' || currentPlayerCount === 'ffa') ? 'col-md-3' : 'col-md-6';
         // In 2v2, only P1 (left) and P3 (right) show shared team life; teammates (left-2, right-2) hide it
         // In 2v2, all individual life fields are hidden — team life is in the shared row above
         const is2v2 = currentPlayerCount === '2v2';
@@ -623,7 +626,7 @@ export function initMatches(socket) {
         if (!matchCard) {
             // Create new card (use your existing card HTML structure)
             matchCard = document.createElement('div');
-            matchCard.classList.add(currentPlayerCount === '2v2' ? 'col-12' : 'col-6', 'mb-3', 'match-card-container');
+            matchCard.classList.add((currentPlayerCount === '2v2' || currentPlayerCount === 'ffa') ? 'col-12' : 'col-6', 'mb-3', 'match-card-container');
             matchCard.id = `match-card-${roundId}-${matchId}`;
             matchCard.innerHTML = `
             <div class="row mb-2">
@@ -782,10 +785,24 @@ export function initMatches(socket) {
                             </div>
                         </div>
                         ` : ''}
-                        ${renderPlayerSection(roundId, matchId, 'left', currentPlayerCount === '2v2' ? 'P1 (Team A)' : 'Left Player')}
+                        ${currentPlayerCount === 'ffa' ? `
+                        <div class="col-12 mb-2">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input ffa-life-toggle" type="checkbox"
+                                       id="${roundId}-${matchId}-ffa-life-visible-toggle"
+                                       data-round="${roundId}" data-match="${matchId}"
+                                       ${(matchData && matchData['ffa-life-visible']) === 'false' ? '' : 'checked'}>
+                                <label class="form-check-label" for="${roundId}-${matchId}-ffa-life-visible-toggle">
+                                    Show life totals on scoreboard (turn off when a table app tracks life)
+                                </label>
+                            </div>
+                        </div>` : ''}
+                        ${renderPlayerSection(roundId, matchId, 'left', currentPlayerCount === '2v2' ? 'P1 (Team A)' : (currentPlayerCount === 'ffa' ? 'Player 1' : 'Left Player'))}
                         ${currentPlayerCount === '2v2' ? renderPlayerSection(roundId, matchId, 'left-2', 'P2 (Team A)') : ''}
-                        ${renderPlayerSection(roundId, matchId, 'right', currentPlayerCount === '2v2' ? 'P3 (Team B)' : 'Right Player')}
+                        ${currentPlayerCount === 'ffa' ? renderPlayerSection(roundId, matchId, 'left-2', 'Player 2') : ''}
+                        ${renderPlayerSection(roundId, matchId, 'right', currentPlayerCount === '2v2' ? 'P3 (Team B)' : (currentPlayerCount === 'ffa' ? 'Player 3' : 'Right Player'))}
                         ${currentPlayerCount === '2v2' ? renderPlayerSection(roundId, matchId, 'right-2', 'P4 (Team B)') : ''}
+                        ${currentPlayerCount === 'ffa' ? renderPlayerSection(roundId, matchId, 'right-2', 'Player 4') : ''}
                     </div>
 
                     <!-- Battlefields (riftbound): Left BF | Right BF | Baron Pit -->
@@ -793,10 +810,10 @@ export function initMatches(socket) {
 
                     <!-- Deck information -->
                     <div class="row">
-                        ${renderDeckSection(roundId, matchId, 'left', currentPlayerCount === '2v2' ? 'P1' : 'Left Player')}
-                        ${currentPlayerCount === '2v2' ? renderDeckSection(roundId, matchId, 'left-2', 'P2') : ''}
-                        ${renderDeckSection(roundId, matchId, 'right', currentPlayerCount === '2v2' ? 'P3' : 'Right Player')}
-                        ${currentPlayerCount === '2v2' ? renderDeckSection(roundId, matchId, 'right-2', 'P4') : ''}
+                        ${renderDeckSection(roundId, matchId, 'left', currentPlayerCount === '2v2' ? 'P1' : (currentPlayerCount === 'ffa' ? 'Player 1' : 'Left Player'))}
+                        ${(currentPlayerCount === '2v2' || currentPlayerCount === 'ffa') ? renderDeckSection(roundId, matchId, 'left-2', currentPlayerCount === 'ffa' ? 'Player 2' : 'P2') : ''}
+                        ${renderDeckSection(roundId, matchId, 'right', currentPlayerCount === '2v2' ? 'P3' : (currentPlayerCount === 'ffa' ? 'Player 3' : 'Right Player'))}
+                        ${(currentPlayerCount === '2v2' || currentPlayerCount === 'ffa') ? renderDeckSection(roundId, matchId, 'right-2', currentPlayerCount === 'ffa' ? 'Player 4' : 'P4') : ''}
                     </div>
 
                     <!-- Showdown Might tracker (riftbound 1v1) -->
@@ -1174,7 +1191,7 @@ export function initMatches(socket) {
     }
 
     function setupCustomDropdowns() {
-        const archetypeFields = document.querySelectorAll('[id$="-player-archetype-left"], [id$="-player-archetype-right"], [id^="bracket-"][id$="-archetype"]');
+        const archetypeFields = document.querySelectorAll('[id$="-player-archetype-left"], [id$="-player-archetype-right"], [id$="-player-archetype-left-2"], [id$="-player-archetype-right-2"], [id^="bracket-"][id$="-archetype"]');
         archetypeFields.forEach(field => {
             if (field.parentNode.classList.contains('custom-dropdown')) {
                 return; // Skip if already set up
@@ -1792,7 +1809,9 @@ export function initMatches(socket) {
             // update life points for all players in round / match
             const teamLife = currentPlayerCount === '2v2' ? '30' : baseLifePoints;
             const sides = ['left', 'right'];
-            if (currentPlayerCount === '2v2') sides.push('left-2', 'right-2');
+            // 2v2: -2 slots exist but life is team-level; FFA: all four players
+            // carry their own life and reset to the event base (e.g. 40 for cmdr).
+            if (currentPlayerCount === '2v2' || currentPlayerCount === 'ffa') sides.push('left-2', 'right-2');
             sides.forEach(side => {
                 const el = document.querySelector(`[id="${round_id}-${match_id}-player-life-${side}"]`);
                 if (el) {
@@ -1916,6 +1935,18 @@ export function initMatches(socket) {
                 mainField.dispatchEvent(new Event('input', { bubbles: true }));
             }
         }
+    });
+
+    // FFA "show life totals" switch — rides the standard control-data path
+    // (updateControlData + master-control-matches-updated) so it persists and
+    // reaches the scoreboard like any field. 'false' hides the life blocks on
+    // the FFA plates (players tracking life with a table app instead).
+    document.addEventListener('change', (e) => {
+        if (!e.target.classList || !e.target.classList.contains('ffa-life-toggle')) return;
+        const { round, match } = e.target.dataset;
+        if (!round || !match) return;
+        updateControlData(round, match, 'ffa-life-visible', e.target.checked ? 'true' : 'false');
+        socket.emit('master-control-matches-updated', allControlData);
     });
 
     // Auto-sync the Showdown Might Tracker's BF 1 / BF 2 name fields to
@@ -4163,6 +4194,57 @@ export function initMatches(socket) {
                     if (!el) return;
                     el.textContent = value || '';
                     el.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+
+                // FFA pods (Topdeck): the server sends the whole table as
+                // `players` in seat order → route into left / left-2 / right /
+                // right-2 with commander (archetype), WUBRG colors (mana
+                // symbols) and standings record; wins reset to 0. Tournament
+                // name + "ROUND X OF Y" go through the GLOBAL event panel —
+                // its update-match-global-data overwrites the per-match values
+                // on the mtg scoreboard header, so it must be the writer.
+                const isFfa = document.body.dataset.playerCount === 'ffa';
+                if (isFfa && Array.isArray(result.matchData.players) && result.matchData.players.length) {
+                    const seats = ['left', 'left-2', 'right', 'right-2'];
+                    result.matchData.players.slice(0, 4).forEach((p, i) => {
+                        writeSideField(seats[i], 'player-name', p.name || '');
+                        writeSideField(seats[i], 'player-archetype', p.archetype || '');
+                        writeSideField(seats[i], 'player-mana-symbols', p.colors || '');
+                        writeSideField(seats[i], 'player-record', p.record || '');
+                        const wins = document.getElementById(`${roundId}-${matchId}-player-wins-${seats[i]}`);
+                        if (wins) { wins.textContent = '0'; wins.dispatchEvent(new Event('input', { bubbles: true })); }
+                    });
+
+                    const meta = result.matchData.topdeck;
+                    if (meta) {
+                        const rn = Number(meta.roundLabel);
+                        const roundText = (Number.isFinite(rn) && meta.swissNum)
+                            ? `ROUND ${rn} OF ${meta.swissNum}`
+                            : String(meta.roundLabel || '').toUpperCase();
+                        const evEl = document.getElementById(`${roundId}-${matchId}-event-round`);
+                        if (evEl) { evEl.textContent = roundText; evEl.dispatchEvent(new Event('input', { bubbles: true })); }
+                        updateControlData(roundId, matchId, 'event-name', meta.tournamentName || '');
+                        socket.emit('master-control-matches-updated', allControlData);
+
+                        const globalNameEl = document.querySelector('#global-event-name');
+                        if (globalNameEl && meta.tournamentName) {
+                            globalNameEl.innerText = meta.tournamentName;
+                            const gv = id => document.querySelector(`#${id}`)?.innerText || '';
+                            const totalRounds = meta.swissNum ? String(meta.swissNum) : gv('global-event-number-of-rounds');
+                            const roundsEl = document.querySelector('#global-event-number-of-rounds');
+                            if (roundsEl && meta.swissNum) roundsEl.innerText = totalRounds;
+                            socket.emit('update-event-information-requested', { eventInformationData: {
+                                'global-event-name': meta.tournamentName,
+                                'global-event-format': gv('global-event-format'),
+                                'global-event-miscellaneous-details': gv('global-event-miscellaneous-details'),
+                                'global-event-base-life-points': gv('global-event-base-life-points'),
+                                'global-event-base-timer': gv('global-event-base-timer'),
+                                'global-event-number-of-rounds': totalRounds,
+                            }});
+                        }
+                    }
+                    console.log('FFA pod populated for table', result.matchData.tableNumber);
+                    return;
                 }
 
                 // Team A → left (+ left-2 teammate on 2v2)
