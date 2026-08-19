@@ -2865,9 +2865,13 @@ window.VENDOR_CONFIG = {
             'scoreboard/frame/riftbound-scoreboard-frame',
         ],
         // merlion owns its FFA scoreboard frame (the Breach the Bay sponsor
-        // bar); other assets fall through to default.
+        // bar) + the BTB2 intermission slides; other assets fall through to
+        // default.
         'merlion': [
             'scoreboard/frame/mtg-scoreboard-frame',
+            'event-info/mtg-starting-soon',
+            'event-info/mtg-be-right-back',
+            'event-info/mtg-ending',
         ],
     },
 
