@@ -114,15 +114,105 @@ export function initGameSelection(socket) {
     // events whose dropdown value differs from lastCommitted; server broadcasts
     // *-updated back to all clients (including us) which refreshes lastCommitted
     // and clears the dirty state via the handlers below.
+    //
+    // Because the OBS preset key is game-vendor-playerCount, switching any of
+    // them silently abandons unsaved OBS positioning for the CURRENT setup —
+    // so a selection change first prompts: save the outgoing preset (Yes),
+    // switch without saving (No), or abort the switch (Cancel).
+    function buildObsSavePromptModal() {
+        let modalEl = document.getElementById('obs-save-prompt-modal');
+        if (modalEl) return modalEl;
+        modalEl = document.createElement('div');
+        modalEl.className = 'modal fade';
+        modalEl.id = 'obs-save-prompt-modal';
+        modalEl.tabIndex = -1;
+        modalEl.innerHTML = `
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Save OBS settings first?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="obs-save-prompt-text" class="mb-1"></p>
+                        <p class="text-muted small mb-0">"Save &amp; Switch" writes the current OBS scene
+                        positions to the outgoing preset so nothing is lost.</p>
+                        <p id="obs-save-prompt-error" class="text-danger small mt-2 mb-0" style="display:none;"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-outline-warning" id="obs-prompt-skip">Switch Without Saving</button>
+                        <button type="button" class="btn btn-primary" id="obs-prompt-save">Save &amp; Switch</button>
+                    </div>
+                </div>
+            </div>`;
+        document.body.appendChild(modalEl);
+        return modalEl;
+    }
+
     if (applyBtn) {
         applyBtn.addEventListener('click', () => {
             const game        = gameSelect.value.toLowerCase();
             const vendor      = vendorSelect.value.toLowerCase();
             const playerCount = playerCountSelect.value.toLowerCase();
 
-            if (game        !== lastCommitted.game)        socket.emit('update-game-selection',   { gameSelection: game });
-            if (vendor      !== lastCommitted.vendor)      socket.emit('update-vendor-selection', { vendorSelection: vendor });
-            if (playerCount !== lastCommitted.playerCount) socket.emit('update-player-count',     { playerCount });
+            const commit = () => {
+                if (game        !== lastCommitted.game)        socket.emit('update-game-selection',   { gameSelection: game });
+                if (vendor      !== lastCommitted.vendor)      socket.emit('update-vendor-selection', { vendorSelection: vendor });
+                if (playerCount !== lastCommitted.playerCount) socket.emit('update-player-count',     { playerCount });
+            };
+
+            const changed = game !== lastCommitted.game
+                || vendor !== lastCommitted.vendor
+                || playerCount !== lastCommitted.playerCount;
+            if (!changed) return;
+
+            const modalEl = buildObsSavePromptModal();
+            const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+            const from = `${lastCommitted.game} / ${lastCommitted.vendor} / ${lastCommitted.playerCount}`;
+            const to = `${game} / ${vendor} / ${playerCount}`;
+            modalEl.querySelector('#obs-save-prompt-text').innerHTML =
+                `Switching <b>${from}</b> &rarr; <b>${to}</b>.<br>Save OBS settings for <b>${from}</b> before switching?`;
+            const errEl = modalEl.querySelector('#obs-save-prompt-error');
+            errEl.style.display = 'none';
+
+            const saveBtn = modalEl.querySelector('#obs-prompt-save');
+            const skipBtn = modalEl.querySelector('#obs-prompt-skip');
+            saveBtn.disabled = false;
+            saveBtn.textContent = 'Save & Switch';
+
+            // fresh one-shot handlers per open (clone to drop stale listeners)
+            const freshSave = saveBtn.cloneNode(true); saveBtn.replaceWith(freshSave);
+            const freshSkip = skipBtn.cloneNode(true); skipBtn.replaceWith(freshSkip);
+
+            freshSkip.addEventListener('click', () => { modal.hide(); commit(); });
+            freshSave.addEventListener('click', () => {
+                freshSave.disabled = true;
+                freshSave.textContent = 'Saving…';
+                let done = false;
+                const onSaved = (result) => {
+                    if (done) return;
+                    done = true;
+                    socket.off('obs-preset-saved', onSaved);
+                    clearTimeout(timer);
+                    if (result && result.success) {
+                        modal.hide();
+                        commit();
+                    } else {
+                        // Keep the outgoing setup — nothing switched, retry or
+                        // choose "Switch Without Saving" deliberately.
+                        errEl.textContent = 'OBS save failed: ' + (result && result.error || 'unknown error');
+                        errEl.style.display = 'block';
+                        freshSave.disabled = false;
+                        freshSave.textContent = 'Save & Switch';
+                    }
+                };
+                const timer = setTimeout(() => onSaved({ success: false, error: 'timed out (is OBS running?)' }), 12000);
+                socket.on('obs-preset-saved', onSaved);
+                socket.emit('save-obs-preset');
+            });
+
+            modal.show();
         });
     }
 
