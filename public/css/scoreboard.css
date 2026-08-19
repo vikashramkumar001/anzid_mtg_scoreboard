@@ -3119,6 +3119,194 @@ body[data-player-count="2v2"] #scoreboard-riftbound .riftbound-player-name-wrapp
     width: auto;
 }
 
+/* ── 4-player FFA plates (MTG Commander-style) ───────────────────────────
+   Shown only for game=mtg + playerCount=ffa. Default look is a clean neutral
+   plate per corner; every position/color/size is a CSS var so a vendor skin
+   (e.g. merlion) can restyle without touching this block. The regular 1v1/2v2
+   scorebug header is hidden while FFA is active. */
+.mtg-ffa-layer {
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 1920px;
+    height: 1080px;
+    pointer-events: none;
+    z-index: 8;
+}
+/* Match the #scoreboard-mtg * specificity so --ffa-font can restyle the
+   plates per vendor; defaults to the MTG house font (Gotham Narrow). */
+#scoreboard-mtg .mtg-ffa-layer,
+#scoreboard-mtg .mtg-ffa-layer * {
+    font-family: var(--ffa-font, var(--mtg-font, 'Gotham Narrow', sans-serif));
+}
+body.mtg[data-player-count="ffa"] .mtg-ffa-layer { display: block; }
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .header { display: none; }
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .footer { display: none; }
+/* Anchor the frame art to the same origin as the absolutely-positioned
+   plates/timer. With the default `center`, previewing in a window that isn't
+   exactly 1920×1080 slides the baked bar/logo art relative to the overlay
+   (art re-centers, DOM doesn't) — top-left makes small windows CROP instead
+   of misalign. In OBS at 1920×1080 this is identical to before. */
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-frame { background-position: top left; }
+
+.ffa-plate {
+    position: absolute;
+    display: flex;
+    align-items: stretch;
+    width: var(--ffa-plate-width, 470px);
+    height: var(--ffa-plate-height, 96px);
+    background: var(--ffa-plate-bg, rgba(10, 14, 22, 0.88));
+    border: var(--ffa-plate-border, 1px solid rgba(215, 166, 63, 0.65));
+    border-radius: var(--ffa-plate-radius, 8px);
+    overflow: hidden;
+}
+/* Default seat positions — the four corners, CLOCKWISE turn order:
+   P1 top-left → P2 top-right → P3 bottom-right → P4 bottom-left. */
+.ffa-plate-1 { top: var(--ffa-p1-top, 40px);    left: var(--ffa-p1-left, 40px); }
+.ffa-plate-2 { top: var(--ffa-p2-top, 40px);    left: var(--ffa-p2-left, 1410px); }
+.ffa-plate-3 { top: var(--ffa-p3-top, 944px);   left: var(--ffa-p3-left, 1410px); }
+.ffa-plate-4 { top: var(--ffa-p4-top, 944px);   left: var(--ffa-p4-left, 40px); }
+
+.ffa-life {
+    flex: 0 0 var(--ffa-life-width, 110px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--ffa-life-font-size, 58px);
+    color: var(--ffa-life-color, #ffffff);
+    background: var(--ffa-life-bg, rgba(215, 166, 63, 0.16));
+    border-right: var(--ffa-life-divider, 1px solid rgba(215, 166, 63, 0.5));
+    /* inset-chip knobs (merlion): margin + radius + own border turn the
+       full-height cell into a floating chip. Defaults keep the flush cell. */
+    margin: var(--ffa-life-margin, 0);
+    border-radius: var(--ffa-life-radius, 0);
+    border: var(--ffa-life-border, none);
+    border-right: var(--ffa-life-divider, 1px solid rgba(215, 166, 63, 0.5));
+}
+.ffa-plate-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 16px;
+    min-width: 0;
+}
+.ffa-plate-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    min-width: 0;
+}
+.ffa-name {
+    font-size: var(--ffa-name-font-size, 32px);
+    color: var(--ffa-name-color, #ffffff);
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ffa-pronouns {
+    flex: 0 0 auto;   /* never squeezes the name into ellipsis */
+    font-size: var(--ffa-pronouns-font-size, 16px);
+    color: var(--ffa-pronouns-color, rgba(255, 255, 255, 0.55));
+    white-space: nowrap;
+}
+.ffa-deck {
+    font-size: var(--ffa-deck-font-size, 20px);
+    color: var(--ffa-deck-color, #d7a63f);
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Partner pairs render as two stacked lines (renderMtgFfaPanels swaps the
+   " / " for a <br> and adds this class). */
+.ffa-deck.ffa-deck-partners {
+    line-height: 1.1;
+    text-overflow: clip;
+}
+/* Mana pips sit on their own row BELOW the commander(s), aligned with the
+   text edge (renderManaSymbols hides the span — and so the row — when empty). */
+.ffa-mana { display: inline-flex; align-items: center; gap: 2px; }
+.ffa-mana .mana-symbols { width: var(--ffa-mana-size, 16px); height: var(--ffa-mana-size, 16px); }
+/* Right-edge seats read inward: life block on the right, text right-aligned,
+   rows fully mirrored (name at right, pronouns then pips running left). */
+.ffa-plate-mirrored { flex-direction: row-reverse; }
+.ffa-plate-mirrored .ffa-life {
+    border-right: var(--ffa-life-mirror-right, none);
+    border-left: var(--ffa-life-divider, 1px solid rgba(215, 166, 63, 0.5));
+}
+.ffa-plate-mirrored .ffa-plate-row { flex-direction: row-reverse; justify-content: flex-start; }
+/* Right-align the text INSIDE the spans too — matters for the shorter second
+   line of a stacked partner pair, which otherwise centers/left-aligns within
+   its span's width. */
+.ffa-plate-mirrored .ffa-plate-text { text-align: right; }
+
+/* Operator switch: hide the life blocks when a table app tracks life
+   (master-control "Show life totals" toggle → data key ffa-life-visible).
+   The plate also gives back the chip's footprint (cell + its margins, via
+   --ffa-life-footprint) so it shrinks to fit the text: left plates keep
+   their left anchor; mirrored plates shift right so their RIGHT edge stays. */
+.mtg-ffa-layer.ffa-hide-life .ffa-life { display: none; }
+.mtg-ffa-layer.ffa-hide-life .ffa-plate {
+    width: calc(var(--ffa-plate-width, 470px) - var(--ffa-life-footprint, 110px));
+}
+.mtg-ffa-layer.ffa-hide-life .ffa-plate-mirrored {
+    margin-left: var(--ffa-life-footprint, 110px);
+}
+
+/* FFA: event name + round + timer as a bottom-center pill, backed/bordered so
+   it separates cleanly from the video feed behind it. */
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-timer-wrapper {
+    top: var(--ffa-timer-top, auto);
+    bottom: var(--ffa-timer-bottom, 36px);
+    left: var(--ffa-timer-left, 50%);
+    transform: var(--ffa-timer-transform, translateX(-50%));
+    width: var(--ffa-timer-width, auto);
+    height: var(--ffa-timer-height, auto);
+    display: flex;
+    flex-direction: var(--ffa-timer-direction, row);
+    /* baseline, not center: the event/round/timer run at different font
+       sizes, and box-centering them leaves the text visibly un-level. */
+    align-items: var(--ffa-timer-align, baseline);
+    justify-content: var(--ffa-timer-justify, center);
+    gap: var(--ffa-timer-gap, 18px);
+    background: var(--ffa-timer-bg, rgba(10, 14, 22, 0.88));
+    border: var(--ffa-timer-border, 1px solid rgba(215, 166, 63, 0.65));
+    border-radius: var(--ffa-timer-radius, 8px);
+    padding: var(--ffa-timer-padding, 10px 26px);
+}
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-event-name {
+    display: var(--ffa-timer-event-display, block);
+    width: auto;
+    font-size: var(--ffa-timer-event-font-size, 24px);
+    white-space: nowrap;
+}
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-event-round {
+    width: auto;
+    font-size: var(--ffa-timer-round-font-size, 20px);
+    color: var(--ffa-timer-round-color, var(--ffa-deck-color, #d7a63f));
+    white-space: nowrap;
+}
+/* Opt-in thin vertical dividers around the round field (event | round | timer).
+   Inline pseudos inside the round div so flex baseline alignment is untouched. */
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-event-round::before,
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-event-round::after {
+    content: '';
+    display: var(--ffa-timer-divider-display, none);
+    width: 2px;
+    height: 0.8em;
+    background: var(--ffa-timer-divider-color, rgba(255, 255, 255, 0.35));
+    vertical-align: -0.04em;
+}
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-event-round::before { margin-right: var(--ffa-timer-gap, 18px); }
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-event-round::after  { margin-left:  var(--ffa-timer-gap, 18px); }
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .timer-container { margin-top: 0; }
+body.mtg[data-player-count="ffa"] #scoreboard-mtg .mtg-timer {
+    font-size: var(--ffa-timer-font-size, 38px);
+}
+
 /* Restream multichat — anu vendor only. Fits inside the bottom-left box baked
    into riftbound-scoreboard-frame-anu-1v1.png (box borders x 38..317,
    y 681..1061; chat inset ~10px). Hidden unless the active vendor is anu;

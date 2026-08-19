@@ -9,6 +9,9 @@ window.VENDOR_CONFIG = {
             { value: 'f2f', label: 'F2F' },
             { value: 'ldxp', label: 'LDXP' },
             { value: 'flyquest', label: 'FlyQuest' },
+            // Merlion Games — 4p FFA (Commander) client. Skin: "Option D" on the
+            // Breach the Bay 2 in-game overlay (sponsors in the bottom bar).
+            { value: 'merlion', label: 'Merlion' },
         ],
         riftbound: [
             { value: 'default', label: 'Default (CSL)' },
@@ -36,6 +39,76 @@ window.VENDOR_CONFIG = {
     // game -> vendor -> CSS custom property overrides (only non-default combos)
     overrides: {
         mtg: {
+            // ── merlion — 4p FFA "Option D" on the Breach the Bay 2 overlay ──
+            // Zones measured from the client PSD (in game overlay.psd, Group 2):
+            // seat plates top corners y30 + lower corners y841 (above the
+            // sponsor bar), timer in the top-center 844..1076 box, sponsors in
+            // the bottom bar (baked into mtg-scoreboard-frame-merlion-ffa.png;
+            // logos layered in OBS). Life = inset blue chip; BTB2 orange trim.
+            // The master-control FFA life toggle (ffa-life-visible) hides the
+            // chips for the tablet-tracker setup ("Option E") with no restyle.
+            merlion: {
+                ffa: {
+                    // plates
+                    '--ffa-plate-width':  '434px',
+                    '--ffa-plate-height': '100px',
+                    '--ffa-plate-bg':     'rgba(10, 14, 22, 0.92)',
+                    '--ffa-plate-border': '3px solid #e9712c',
+                    '--ffa-plate-radius': '10px',
+                    // Seats run CLOCKWISE around the table: P1 top-left,
+                    // P2 top-right, P3 bottom-right, P4 bottom-left.
+                    '--ffa-p1-top': '30px',  '--ffa-p1-left': '26px',
+                    '--ffa-p2-top': '30px',  '--ffa-p2-left': '1456px',
+                    '--ffa-p3-top': '841px', '--ffa-p3-left': '1456px',
+                    '--ffa-p4-top': '841px', '--ffa-p4-left': '30px',
+                    // right-edge seats: 2 (top-right) + 3 (bottom-right)
+                    '--ffa-mirrored-seats': '2,3',
+                    // life = inset chip
+                    '--ffa-life-width':        '94px',
+                    '--ffa-life-margin':       '10px',
+                    '--ffa-life-radius':       '8px',
+                    '--ffa-life-bg':           '#2b3fa0',
+                    '--ffa-life-border':       '2px solid #ffffff',
+                    '--ffa-life-divider':      '2px solid #ffffff',
+                    '--ffa-life-mirror-right': '2px solid #ffffff',
+                    '--ffa-life-font-size':    '44px',
+                    // chip cell 94 + 10px margin each side — the width a plate
+                    // gives back when the life toggle hides the chips
+                    '--ffa-life-footprint':    '114px',
+                    // text — sized so even the tallest stack (name + two
+                    // partner-commander lines + pips) keeps clear margins
+                    // inside the 100px plate.
+                    '--ffa-name-font-size':     '22px',
+                    '--ffa-pronouns-font-size': '13px',
+                    '--ffa-deck-font-size':     '17px',
+                    '--ffa-mana-size':          '14px',
+                    '--ffa-deck-color':     '#deb260',
+                    // event + round + timer → bottom-left, inside the sponsor
+                    // bar's empty stretch left of the BTB2 logo (bar y975-1080,
+                    // free until ~x876). The bar itself is the backing (baked in
+                    // the frame PNG) — no box, no border, just the text row.
+                    '--ffa-timer-left':          '40px',
+                    '--ffa-timer-transform':     'none',
+                    '--ffa-timer-bottom':        '30px',
+                    '--ffa-timer-direction':     'row',
+                    // span the bar's whole free stretch (40 → 820; logo starts
+                    // ~863) and distribute event | round | timer across it so
+                    // the negative space balances instead of pooling before
+                    // the logo.
+                    '--ffa-timer-width':         '780px',
+                    '--ffa-timer-justify':       'space-between',
+                    '--ffa-timer-gap':           '22px',
+                    '--ffa-timer-padding':       '0',
+                    '--ffa-timer-border':        'none',
+                    '--ffa-timer-bg':            'transparent',
+                    '--ffa-timer-event-display': 'block',
+                    '--ffa-timer-event-font-size': '28px',
+                    '--ffa-timer-round-font-size': '28px',
+                    '--ffa-timer-round-color':   '#e9712c',
+                    '--ffa-timer-divider-display': 'inline-block',
+                    '--ffa-timer-font-size':     '38px',
+                },
+            },
             f2f: {
                 // Scoreboard
                 '--mtg-font': "'Gotham Narrow', sans-serif",
@@ -2767,6 +2840,9 @@ window.VENDOR_CONFIG = {
         // reskin files (which themselves fall through to default). getAssetPath +
         // resolveAssetVendor walk the whole chain: anu → uvs-unleashed → default.
         'anu': 'uvs-unleashed',
+        // merlion (mtg) ships no asset files yet — borrow default's until the
+        // skin lands (then move reskinned paths into assetVendorOwns.merlion).
+        'merlion': 'default',
     },
 
     // Assets an aliased vendor has RESKINNED with its own files. Matched as
@@ -2787,6 +2863,11 @@ window.VENDOR_CONFIG = {
         // chains anu → uvs-unleashed → default.
         'anu': [
             'scoreboard/frame/riftbound-scoreboard-frame',
+        ],
+        // merlion owns its FFA scoreboard frame (the Breach the Bay sponsor
+        // bar); other assets fall through to default.
+        'merlion': [
+            'scoreboard/frame/mtg-scoreboard-frame',
         ],
     },
 

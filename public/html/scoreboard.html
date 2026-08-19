@@ -30,6 +30,46 @@
     <img id="mtg-p2-icon" class="mtg-player-icon" src="" alt="">
     <img id="mtg-p3-icon" class="mtg-player-icon" src="" alt="">
     <img id="mtg-p4-icon" class="mtg-player-icon" src="" alt="">
+    <!-- 4-player FFA plates (Commander-style). Hidden except in FFA player
+         count (body.mtg[data-player-count="ffa"] gate in scoreboard.css).
+         Seats map to the 2v2 field slots: P1=left, P2=left-2, P3=right,
+         P4=right-2 — each with its OWN life (player-life-{side}) unlike 2v2
+         team life. Bound by renderMtgFfaPanels() in scoreboard.js; all
+         positions/colors are CSS-var-driven for vendor skins (e.g. merlion). -->
+    <div id="mtg-ffa" class="mtg-ffa-layer">
+        <div class="ffa-plate ffa-plate-1">
+            <div id="ffa-p1-life" class="ffa-life">-</div>
+            <div class="ffa-plate-text">
+                <div class="ffa-plate-row"><span id="ffa-p1-name" class="ffa-name">-</span><span id="ffa-p1-pronouns" class="ffa-pronouns"></span></div>
+                <div class="ffa-plate-row"><span id="ffa-p1-deck" class="ffa-deck"></span></div>
+                <div class="ffa-plate-row ffa-mana-row"><span id="ffa-p1-mana" class="ffa-mana"></span></div>
+            </div>
+        </div>
+        <div class="ffa-plate ffa-plate-2">
+            <div id="ffa-p2-life" class="ffa-life">-</div>
+            <div class="ffa-plate-text">
+                <div class="ffa-plate-row"><span id="ffa-p2-name" class="ffa-name">-</span><span id="ffa-p2-pronouns" class="ffa-pronouns"></span></div>
+                <div class="ffa-plate-row"><span id="ffa-p2-deck" class="ffa-deck"></span></div>
+                <div class="ffa-plate-row ffa-mana-row"><span id="ffa-p2-mana" class="ffa-mana"></span></div>
+            </div>
+        </div>
+        <div class="ffa-plate ffa-plate-3 ffa-plate-mirrored">
+            <div id="ffa-p3-life" class="ffa-life">-</div>
+            <div class="ffa-plate-text">
+                <div class="ffa-plate-row"><span id="ffa-p3-name" class="ffa-name">-</span><span id="ffa-p3-pronouns" class="ffa-pronouns"></span></div>
+                <div class="ffa-plate-row"><span id="ffa-p3-deck" class="ffa-deck"></span></div>
+                <div class="ffa-plate-row ffa-mana-row"><span id="ffa-p3-mana" class="ffa-mana"></span></div>
+            </div>
+        </div>
+        <div class="ffa-plate ffa-plate-4 ffa-plate-mirrored">
+            <div id="ffa-p4-life" class="ffa-life">-</div>
+            <div class="ffa-plate-text">
+                <div class="ffa-plate-row"><span id="ffa-p4-name" class="ffa-name">-</span><span id="ffa-p4-pronouns" class="ffa-pronouns"></span></div>
+                <div class="ffa-plate-row"><span id="ffa-p4-deck" class="ffa-deck"></span></div>
+                <div class="ffa-plate-row ffa-mana-row"><span id="ffa-p4-mana" class="ffa-mana"></span></div>
+            </div>
+        </div>
+    </div>
     <div class="mtg-timer-wrapper">
         <div class="mtg-event-name" id="mtg-event-name"></div>
         <div class="mtg-event-round" id="mtg-event-round"></div>

@@ -556,11 +556,95 @@ function updateElementText(id, value) {
     }
 }
 
+// ── 4-player FFA plates (MTG) ─────────────────────────────────────────────
+// Seats map onto the 2v2 field slots, but every player carries their OWN
+// life/deck/mana: P1=left, P2=left-2, P3=right, P4=right-2. The -2 keys have
+// no matching element IDs in the regular scorebug, so (like the riftbound
+// battlefields row) a dedicated renderer reads them straight from
+// lastMatchData. DOM lives in scoreboard.html (#mtg-ffa); visibility is
+// CSS-gated on body.mtg[data-player-count="ffa"].
+const FFA_SEATS = [['1', 'left'], ['2', 'left-2'], ['3', 'right'], ['4', 'right-2']];
+
+// Fit a GROUP of plate text spans to one shared size: each element's fitted
+// size is computed (CSS-var default as the max, stepping down to fit its
+// row), then the smallest wins for the whole group — so names/commanders
+// stay a uniform size across all four plates (same convention as the
+// riftbound autoScalePaired names).
+function fitFfaGroup(ids, minPx) {
+    const sizes = [];
+    const els = [];
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el || !el.textContent) return;
+        el.style.fontSize = '';
+        const row = el.parentElement;
+        if (!row || !row.clientWidth) return;   // hidden (non-ffa) — skip
+        let siblings = 0;
+        [...row.children].forEach(c => { if (c !== el) siblings += c.offsetWidth + 10; });
+        const maxPx = parseFloat(getComputedStyle(el).fontSize) || 32;
+        sizes.push(autoScaleText(el, maxPx, minPx, Math.max(60, row.clientWidth - siblings)));
+        els.push(el);
+    });
+    if (!els.length) return;
+    const shared = Math.min(...sizes);
+    els.forEach(el => { el.style.fontSize = shared + 'px'; });
+}
+
+function renderMtgFfaPanels() {
+    if (!lastMatchData || currentPlayerCount !== 'ffa') return;
+    // Life blocks hide when the operator flips the master-control switch off
+    // (players tracking life with an app on the table instead).
+    const layer = document.getElementById('mtg-ffa');
+    if (layer) layer.classList.toggle('ffa-hide-life', lastMatchData['ffa-life-visible'] === 'false');
+    // Which seats read right-to-left (life chip on the right edge) is layout-
+    // dependent. Clockwise corner layouts put seats 2 (top-right) and 3
+    // (bottom-right) on the right edge — vendor-config's --ffa-mirrored-seats
+    // can override so the JS stays vendor-agnostic.
+    const mirrored = (getComputedStyle(document.documentElement)
+        .getPropertyValue('--ffa-mirrored-seats').trim() || '2,3').split(',');
+    ['1', '2', '3', '4'].forEach(n => {
+        const plate = document.querySelector(`.ffa-plate-${n}`);
+        if (plate) plate.classList.toggle('ffa-plate-mirrored', mirrored.includes(n));
+    });
+    FFA_SEATS.forEach(([n, side]) => {
+        const set = (id, val) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = val;
+        };
+        set(`ffa-p${n}-name`, lastMatchData[`player-name-${side}`] || '');
+        set(`ffa-p${n}-pronouns`, lastMatchData[`player-pronouns-${side}`] || '');
+        // Partner commanders ("A / B") stack on two lines instead of
+        // autoscaling one long line into unreadability. Double-faced cards
+        // ("Front // Back") are ONE commander — display the front face only
+        // (" // " never matches the " / " partner separator).
+        const deckEl = document.getElementById(`ffa-p${n}-deck`);
+        if (deckEl) {
+            const deck = lastMatchData[`player-archetype-${side}`] || '';
+            const faces = deck.split(' / ').map(c => c.split(' // ')[0].trim()).filter(Boolean);
+            if (faces.length > 1) {
+                const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                deckEl.innerHTML = faces.map(esc).join('<br>');
+                deckEl.classList.add('ffa-deck-partners');
+            } else {
+                deckEl.textContent = faces[0] || '';
+                deckEl.classList.remove('ffa-deck-partners');
+            }
+        }
+        set(`ffa-p${n}-life`, lastMatchData[`player-life-${side}`] ?? '');
+        renderManaSymbols(lastMatchData[`player-mana-symbols-${side}`] || '', `ffa-p${n}-mana`);
+    });
+    // Uniform type across all four plates: everyone gets the group's smallest
+    // fitted size (no per-plate font variance).
+    fitFfaGroup(['ffa-p1-name', 'ffa-p2-name', 'ffa-p3-name', 'ffa-p4-name'], 16);
+    fitFfaGroup(['ffa-p1-deck', 'ffa-p2-deck', 'ffa-p3-deck', 'ffa-p4-deck'], 12);
+}
+
 function updateState(data) {
     // Cache for the icon layer — roster may arrive before OR after state, so
     // both pipes (the socket below + this one) end by calling applyAllIcons()
     // and reading from whichever cache is populated.
     lastMatchData = data;
+    renderMtgFfaPanels();
 
     // Snapshot the four 2v2 battlefield names into the row cache before the
     // per-key loop. Slots `-left-2` / `-right-2` have no matching DOM IDs in
@@ -1704,12 +1788,14 @@ socket.on('server-current-player-count', ({playerCount}) => {
     document.body.dataset.playerCount = playerCount;  // gates 2v2 DOM via CSS
     updateTheme(currentGame, currentVendor, currentPlayerCount);
     applyAllIcons();
+    renderMtgFfaPanels();  // (re)bind the 4 FFA plates when count flips to ffa
 });
 socket.on('player-count-updated', ({playerCount}) => {
     currentPlayerCount = playerCount;
     document.body.dataset.playerCount = playerCount;  // gates 2v2 DOM via CSS
     updateTheme(currentGame, currentVendor, currentPlayerCount);
     applyAllIcons();
+    renderMtgFfaPanels();  // (re)bind the 4 FFA plates when count flips to ffa
 });
 
 socket.on('starwars-leaders-and-bases', ({ leaders, bases }) => {
