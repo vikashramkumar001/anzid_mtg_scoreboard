@@ -2,7 +2,7 @@
   "game": "riftbound",
   "vendor": "default",
   "playerCount": "1v1",
-  "savedAt": "2026-07-23T06:13:43.544Z",
+  "savedAt": "2026-08-19T04:32:21.361Z",
   "scenes": {
     "Sponsor - Moxfield*": {
       "sources": [
@@ -976,19 +976,19 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 1199,
             "positionX": 0,
             "positionY": -72,
             "rotation": 0,
             "scaleX": 0.5555555820465088,
             "scaleY": 0.55560702085495,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 2158,
+            "sourceWidth": 3456,
+            "width": 1920.0001220703125
           }
         },
         {
-          "sourceName": "NDI\u2122 Source",
+          "sourceName": "NDI™ Source",
           "sceneItemId": 5,
           "enabled": false,
           "locked": false,
@@ -1098,7 +1098,7 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 105,
-            "positionX": -7.152557373046875e-06,
+            "positionX": -0.000007152557373046875,
             "positionY": 975,
             "rotation": 0,
             "scaleX": 1,
@@ -5926,8 +5926,8 @@
             "positionX": 0,
             "positionY": 0,
             "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
+            "scaleX": 1.205625057220459,
+            "scaleY": 1.2053571939468384,
             "sourceHeight": 0,
             "sourceWidth": 0,
             "width": 0
@@ -5992,11 +5992,40 @@
           }
         },
         {
+          "sourceName": "macOS Screen Capture - Discord",
+          "sceneItemId": 13,
+          "enabled": true,
+          "locked": false,
+          "index": 5,
+          "blendMode": "OBS_BLEND_NORMAL",
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 2335,
+            "positionX": -907,
+            "positionY": -598,
+            "rotation": 0,
+            "scaleX": 1.0818865299224854,
+            "scaleY": 1.0820204019546509,
+            "sourceHeight": 2158,
+            "sourceWidth": 3456,
+            "width": 3738.999755859375
+          }
+        },
+        {
           "sourceName": "Color Source - Frame Gameplay",
           "sceneItemId": 2,
           "enabled": true,
           "locked": false,
-          "index": 5,
+          "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
           "transform": {
             "alignment": 5,
@@ -6025,7 +6054,7 @@
           "sceneItemId": 6,
           "enabled": true,
           "locked": false,
-          "index": 6,
+          "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
           "transform": {
             "alignment": 5,
@@ -6054,7 +6083,7 @@
           "sceneItemId": 11,
           "enabled": true,
           "locked": false,
-          "index": 7,
+          "index": 8,
           "blendMode": "OBS_BLEND_NORMAL",
           "transform": {
             "alignment": 5,
@@ -6076,6 +6105,35 @@
             "sourceHeight": 1080,
             "sourceWidth": 1920,
             "width": 1920
+          }
+        },
+        {
+          "sourceName": "NDI™ Source 2",
+          "sceneItemId": 12,
+          "enabled": true,
+          "locked": false,
+          "index": 9,
+          "blendMode": "OBS_BLEND_NORMAL",
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
           }
         }
       ],
@@ -6478,7 +6536,7 @@
         {
           "sourceName": "Media - Match 1 Camera Ingest",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -6507,27 +6565,27 @@
         {
           "sourceName": "Video - Match 1 Player Blue",
           "sceneItemId": 7,
-          "enabled": false,
+          "enabled": true,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 0,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
+            "boundsWidth": 1,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
             "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
+            "positionX": 1920,
+            "positionY": 1080,
+            "rotation": 180,
+            "scaleX": 0.46875,
+            "scaleY": 0.5,
             "sourceHeight": 0,
             "sourceWidth": 0,
             "width": 0
@@ -6599,7 +6657,7 @@
         {
           "sourceName": "Media - Match 1 Camera Ingest",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -6628,27 +6686,27 @@
         {
           "sourceName": "Video - Match 1 Player Red",
           "sceneItemId": 11,
-          "enabled": false,
+          "enabled": true,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 0,
+            "boundsHeight": 1,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
+            "boundsWidth": 1,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
             "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
+            "positionX": 1904,
+            "positionY": 1080,
+            "rotation": 180,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "sourceHeight": 0,
             "sourceWidth": 0,
             "width": 0
@@ -7658,15 +7716,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 0,
+            "height": 1349,
             "positionX": -339.5,
             "positionY": -250,
             "rotation": 0,
             "scaleX": 0.6251287460327148,
             "scaleY": 0.6251158714294434,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
+            "sourceHeight": 2158,
+            "sourceWidth": 3456,
+            "width": 2160.44482421875
           }
         },
         {
@@ -10892,7 +10950,7 @@
             "cropToBounds": false,
             "cropTop": 0,
             "height": 2160,
-            "positionX": -7.152557373046875e-06,
+            "positionX": -0.000007152557373046875,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 1,
@@ -13661,7 +13719,7 @@
       "sources": [
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel 2",
-          "sceneItemId": 32,
+          "sceneItemId": 37,
           "enabled": false,
           "locked": false,
           "index": 0,
@@ -13690,7 +13748,7 @@
         },
         {
           "sourceName": "Commentator - Ingest 1UP",
-          "sceneItemId": 33,
+          "sceneItemId": 38,
           "enabled": false,
           "locked": false,
           "index": 1,
@@ -13719,7 +13777,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Player Blue",
-          "sceneItemId": 34,
+          "sceneItemId": 39,
           "enabled": true,
           "locked": false,
           "index": 2,
@@ -13748,7 +13806,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Player Red",
-          "sceneItemId": 35,
+          "sceneItemId": 40,
           "enabled": true,
           "locked": false,
           "index": 3,
@@ -13777,7 +13835,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Hand Blue",
-          "sceneItemId": 36,
+          "sceneItemId": 41,
           "enabled": true,
           "locked": false,
           "index": 4,
@@ -13806,7 +13864,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Header",
-          "sceneItemId": 37,
+          "sceneItemId": 42,
           "enabled": true,
           "locked": false,
           "index": 5,
@@ -13835,7 +13893,7 @@
         },
         {
           "sourceName": "Audio - Ingest",
-          "sceneItemId": 38,
+          "sceneItemId": 43,
           "enabled": true,
           "locked": true,
           "index": 6,
@@ -13864,7 +13922,7 @@
         },
         {
           "sourceName": "Media - Match 2 Camera Ingest",
-          "sceneItemId": 39,
+          "sceneItemId": 44,
           "enabled": false,
           "locked": true,
           "index": 7,
@@ -13898,7 +13956,7 @@
       "sources": [
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel 2",
-          "sceneItemId": 41,
+          "sceneItemId": 35,
           "enabled": false,
           "locked": false,
           "index": 0,
@@ -13927,7 +13985,7 @@
         },
         {
           "sourceName": "Commentator - Ingest 1UP",
-          "sceneItemId": 42,
+          "sceneItemId": 36,
           "enabled": false,
           "locked": false,
           "index": 1,
@@ -13956,7 +14014,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Player Blue",
-          "sceneItemId": 43,
+          "sceneItemId": 37,
           "enabled": true,
           "locked": false,
           "index": 2,
@@ -13985,7 +14043,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Player Red",
-          "sceneItemId": 44,
+          "sceneItemId": 38,
           "enabled": true,
           "locked": false,
           "index": 3,
@@ -14014,7 +14072,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Hand Red",
-          "sceneItemId": 45,
+          "sceneItemId": 39,
           "enabled": true,
           "locked": false,
           "index": 4,
@@ -14043,7 +14101,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Header",
-          "sceneItemId": 46,
+          "sceneItemId": 40,
           "enabled": true,
           "locked": false,
           "index": 5,
@@ -14072,7 +14130,7 @@
         },
         {
           "sourceName": "Audio - Ingest",
-          "sceneItemId": 47,
+          "sceneItemId": 41,
           "enabled": true,
           "locked": true,
           "index": 6,
@@ -14101,7 +14159,7 @@
         },
         {
           "sourceName": "Media - Match 2 Camera Ingest",
-          "sceneItemId": 48,
+          "sceneItemId": 42,
           "enabled": false,
           "locked": true,
           "index": 7,
@@ -14134,7 +14192,7 @@
     "Match 2 - Live Backup NDI": {
       "sources": [
         {
-          "sourceName": "NDI\u2122 Source",
+          "sourceName": "NDI™ Source",
           "sceneItemId": 10,
           "enabled": true,
           "locked": false,
@@ -14256,7 +14314,7 @@
       "sources": [
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel 2",
-          "sceneItemId": 64,
+          "sceneItemId": 53,
           "enabled": false,
           "locked": false,
           "index": 0,
@@ -14264,9 +14322,9 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 0.5,
+            "boundsHeight": 0,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0.5,
+            "boundsWidth": 0,
             "cropBottom": 0,
             "cropLeft": 0,
             "cropRight": 0,
@@ -14285,7 +14343,7 @@
         },
         {
           "sourceName": "Commentator - Ingest 1UP",
-          "sceneItemId": 68,
+          "sceneItemId": 54,
           "enabled": false,
           "locked": false,
           "index": 1,
@@ -14293,9 +14351,9 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 0.5,
+            "boundsHeight": 0,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0.5,
+            "boundsWidth": 0,
             "cropBottom": 15,
             "cropLeft": 0,
             "cropRight": 0,
@@ -14314,7 +14372,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Player Blue",
-          "sceneItemId": 44,
+          "sceneItemId": 55,
           "enabled": true,
           "locked": false,
           "index": 2,
@@ -14322,9 +14380,9 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 0.5,
+            "boundsHeight": 0,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0.5,
+            "boundsWidth": 0,
             "cropBottom": 50,
             "cropLeft": 509,
             "cropRight": 509,
@@ -14343,7 +14401,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Player Red",
-          "sceneItemId": 46,
+          "sceneItemId": 56,
           "enabled": true,
           "locked": false,
           "index": 3,
@@ -14351,9 +14409,9 @@
           "transform": {
             "alignment": 5,
             "boundsAlignment": 0,
-            "boundsHeight": 0.5,
+            "boundsHeight": 0,
             "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0.5,
+            "boundsWidth": 0,
             "cropBottom": 50,
             "cropLeft": 509,
             "cropRight": 509,
@@ -14372,7 +14430,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Gameplay",
-          "sceneItemId": 48,
+          "sceneItemId": 57,
           "enabled": true,
           "locked": false,
           "index": 4,
@@ -14401,7 +14459,7 @@
         },
         {
           "sourceName": "Camera - Match 2 Header",
-          "sceneItemId": 49,
+          "sceneItemId": 58,
           "enabled": true,
           "locked": false,
           "index": 5,
@@ -14430,7 +14488,7 @@
         },
         {
           "sourceName": "Audio - Ingest",
-          "sceneItemId": 50,
+          "sceneItemId": 59,
           "enabled": true,
           "locked": true,
           "index": 6,
@@ -14459,7 +14517,7 @@
         },
         {
           "sourceName": "Media - Match 2 Camera Ingest",
-          "sceneItemId": 51,
+          "sceneItemId": 60,
           "enabled": false,
           "locked": true,
           "index": 7,
@@ -20341,7 +20399,7 @@
         "show_cursor": false,
         "type": 1,
         "undo_sname": "macOS Screen Capture - Discord",
-        "window": 73
+        "window": 1157
       },
       "audio": {
         "volumeMul": 1,
@@ -22526,7 +22584,7 @@
         }
       ]
     },
-    "NDI\u2122 Source": {
+    "NDI™ Source": {
       "inputKind": "ndi_source",
       "settings": {
         "ndi_fix_alpha_blending": false,
@@ -23969,8 +24027,8 @@
     "Video - Match 1 Player Red": {
       "inputKind": "macos-avcapture",
       "settings": {
-        "device": "0x21200003564fef9",
-        "device_name": "OBSBOT Tiny 2 Lite StreamCamera"
+        "device": "0x241000046d085e",
+        "device_name": "Logitech BRIO"
       },
       "audio": {
         "volumeMul": 1,
@@ -23992,8 +24050,15 @@
     "Video - Match 1 Player Blue": {
       "inputKind": "macos-avcapture",
       "settings": {
-        "device": "0x21400003564fef9",
-        "device_name": "OBSBOT Tiny 2 Lite StreamCamera"
+        "device": "0x1244000046d086b",
+        "device_name": "Logi 4K Stream Edition",
+        "frame_rate": {
+          "denominator": 1000000,
+          "numerator": 30000030
+        },
+        "preset": "AVCaptureSessionPresetHigh",
+        "supported_format": "NDA5NngyMTYwIDUuMDAwLTUuMDAwNy41MDAtNy41MDAxMC4wMDAtMTAuMDAwMTUuMDAwLTE1LjAwMDIwLjAwMC0yMC4wMDAyNC4wMDAtMjQuMDAwMzAuMDAwLTMwLjAwMCAyIDg3NTcwNDQzOA==",
+        "use_preset": false
       },
       "audio": {
         "volumeMul": 1,
@@ -24176,8 +24241,14 @@
     "Video - Match 1 Gameplay": {
       "inputKind": "macos-avcapture",
       "settings": {
-        "device": "0x21100003564fef9",
-        "device_name": "OBSBOT Tiny 2 Lite StreamCamera"
+        "device": "0x1120000046d085e",
+        "device_name": "Logitech BRIO",
+        "frame_rate": {
+          "denominator": 1000000,
+          "numerator": 30000030
+        },
+        "supported_format": "MTYwMHg4OTYgNS4wMDAtNS4wMDA3LjUwMC03LjUwMDEwLjAwMC0xMC4wMDAxNS4wMDAtMTUuMDAwMjAuMDAwLTIwLjAwMDI0LjAwMC0yNC4wMDAzMC4wMDAtMzAuMDAwIDIgODc1NzA0NDM4",
+        "use_preset": false
       },
       "audio": {
         "volumeMul": 1,
@@ -24281,6 +24352,28 @@
           }
         }
       ]
+    },
+    "NDI™ Source 2": {
+      "inputKind": "ndi_source",
+      "settings": {
+        "ndi_fix_alpha_blending": false
+      },
+      "audio": {
+        "volumeMul": 1,
+        "muted": false,
+        "syncOffset": 0,
+        "balance": 0.5,
+        "monitorType": "OBS_MONITORING_TYPE_NONE",
+        "tracks": {
+          "1": true,
+          "2": true,
+          "3": true,
+          "4": true,
+          "5": true,
+          "6": true
+        }
+      },
+      "filters": []
     }
   },
   "transition": {
@@ -24290,12 +24383,6 @@
         "transitionName": "Cut",
         "transitionKind": "cut_transition",
         "transitionDuration": null,
-        "transitionSettings": {}
-      },
-      {
-        "transitionName": "Fade",
-        "transitionKind": "fade_transition",
-        "transitionDuration": 1000,
         "transitionSettings": {}
       }
     ]
