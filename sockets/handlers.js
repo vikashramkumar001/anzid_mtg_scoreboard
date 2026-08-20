@@ -26,6 +26,7 @@ import {
     updateBroadcastTracker,
     getBroadcastTracker,
     getBattlefieldVisibility,
+    getCommL3Remote, setCommL3Remote,
     setBattlefieldVisibilitySlot,
     emitScoreboardState,
     updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection,
@@ -730,6 +731,16 @@ export default function registerSocketHandlers(io) {
         // Commentator L3 toggle
         socket.on('toggle-commentator-l3', () => {
             io.emit('toggle-commentator-l3');
+        })
+
+        // Commentator L3 remote mode (server-held so late-joining pages sync;
+        // in-person = bottom row, remote = one L3 centered per cam segment)
+        socket.on('get-comm-l3-remote', () => {
+            socket.emit('server-comm-l3-remote', { remote: getCommL3Remote() });
+        })
+        socket.on('update-comm-l3-remote', ({ remote }) => {
+            setCommL3Remote(!!remote);
+            io.emit('comm-l3-remote-updated', { remote: getCommL3Remote() });
         })
 
         // Card viewer

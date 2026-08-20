@@ -106,6 +106,12 @@ export function updateBroadcastTracker(round_id) {
 }
 
 // Returns a shallow copy so callers can't mutate the live state by reference.
+// Commentator L3 remote-mode flag (ephemeral, like battlefield visibility).
+// in-person (false) = classic bottom row; remote (true) = per-segment layout.
+let commL3Remote = false;
+export function getCommL3Remote() { return commL3Remote; }
+export function setCommL3Remote(v) { commL3Remote = !!v; }
+
 export function getBattlefieldVisibility() {
     return { ...battlefieldVisibility };
 }

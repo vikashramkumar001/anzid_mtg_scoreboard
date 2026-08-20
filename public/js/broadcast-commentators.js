@@ -179,6 +179,45 @@ async function sizeAndScale() {
     container.style.left = '';
 }
 
+// ── Remote-caster mode ──────────────────────────────────────────────────────
+// Server-held flag (master-control "Remote L3" toggle). When on, the screen
+// divides into equal cam segments and each card is absolutely positioned
+// bottom-centered in its segment: 1 full / 2 halves / 3 thirds / 4 = 2x2.
+let remoteMode = false;
+
+function remoteSegments(n) {
+    if (n <= 1) return [[0, 0, 1920, 1080]];
+    if (n === 2) return [[0, 0, 960, 1080], [960, 0, 1920, 1080]];
+    if (n === 3) return [[0, 0, 640, 1080], [640, 0, 1280, 1080], [1280, 0, 1920, 1080]];
+    return [[0, 0, 960, 540], [960, 0, 1920, 540], [0, 540, 960, 1080], [960, 540, 1920, 1080]];
+}
+
+function applyRemoteLayout() {
+    document.body.classList.toggle('comm-remote', remoteMode);
+    if (!remoteMode) {
+        document.querySelectorAll('.commentator-l3').forEach(card => {
+            card.style.left = ''; card.style.top = '';
+        });
+        return;
+    }
+    const rootStyle = getComputedStyle(document.documentElement);
+    // 2x2 quadrants are tighter — shrink the plates so they don't crowd
+    const scale = commentators.length >= 4 ? 0.82 : 1;
+    document.documentElement.style.setProperty('--comm-lt-scale', scale);
+    const w = (parseFloat(rootStyle.getPropertyValue('--comm-lt-width')) || 400) * scale;
+    const h = (parseFloat(rootStyle.getPropertyValue('--comm-lt-height')) || 80) * scale;
+    const segs = remoteSegments(commentators.length);
+    document.querySelectorAll('.commentator-l3').forEach((card, i) => {
+        const [x0, , x1, y1] = segs[Math.min(i, segs.length - 1)];
+        card.style.left = Math.round((x0 + x1) / 2 - w / 2) + 'px';
+        card.style.top = Math.round(y1 - 40 - h) + 'px';
+    });
+}
+
+socket.on('server-comm-l3-remote', ({ remote }) => { remoteMode = !!remote; renderCommentators(); });
+socket.on('comm-l3-remote-updated', ({ remote }) => { remoteMode = !!remote; renderCommentators(); });
+socket.emit('get-comm-l3-remote');
+
 // ── Render ──────────────────────────────────────────────────────────────────
 function renderCommentators() {
     const container = document.getElementById('commentator-l3-container');
@@ -208,7 +247,7 @@ function renderCommentators() {
     // once fonts are ready. Await sizeAndScale so card dims are finalized
     // before autoScaleText measures. Measure card.offsetWidth directly so
     // we get the post-scale rendered width (CSS calc already applied).
-    sizeAndScale().then(() => document.fonts.ready).then(() => {
+    sizeAndScale().then(() => { applyRemoteLayout(); return document.fonts.ready; }).then(() => {
         document.querySelectorAll('.commentator-l3').forEach(card => {
             const nameEl = card.querySelector('.commentator-l3-name');
             if (!nameEl) return;

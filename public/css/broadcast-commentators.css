@@ -56,6 +56,25 @@ html, body {
     transform: translateY(calc(var(--comm-lt-slide-up, -200px) * var(--comm-lt-scale, 1)));
 }
 
+/* ── Remote-caster mode ──────────────────────────────────────────────────
+   The screen divides into equal cam segments (1 full / 2 halves / 3 thirds /
+   4 = 2x2) and each L3 sits bottom-centered in its segment (inline left/top
+   from broadcast-commentators.js). Hidden state rests 260px below its spot;
+   .active slides it up into place — same show/hide mechanics as the row. */
+body.comm-remote #commentator-l3-container {
+    inset: 0;
+    bottom: auto;
+    height: 1080px;
+    display: block;
+}
+body.comm-remote .commentator-l3 {
+    position: absolute;
+    transform: translateY(calc(260px * var(--comm-lt-scale, 1)));
+}
+body.comm-remote .commentator-l3.active {
+    transform: translateY(0);
+}
+
 /* Name — base styles */
 .commentator-l3-name {
     font-family: var(--comm-lt-font, sans-serif);

@@ -302,6 +302,24 @@ export function initGameSelection(socket) {
         });
     }
 
+    // Remote L3 mode toggle — server-held flag; the L3 page relays out to a
+    // per-cam-segment layout when on (1 full / 2 halves / 3 thirds / 4 = 2x2).
+    const commL3RemoteBtn = document.querySelector('#toggle-comm-l3-remote');
+    if (commL3RemoteBtn) {
+        let remoteOn = false;
+        const paint = () => {
+            commL3RemoteBtn.textContent = remoteOn ? 'Remote L3: On' : 'Remote L3: Off';
+            commL3RemoteBtn.classList.toggle('btn-info', remoteOn);
+            commL3RemoteBtn.classList.toggle('btn-outline-info', !remoteOn);
+        };
+        commL3RemoteBtn.addEventListener('click', () => {
+            socket.emit('update-comm-l3-remote', { remote: !remoteOn });
+        });
+        socket.on('server-comm-l3-remote', ({ remote }) => { remoteOn = !!remote; paint(); });
+        socket.on('comm-l3-remote-updated', ({ remote }) => { remoteOn = !!remote; paint(); });
+        socket.emit('get-comm-l3-remote');
+    }
+
     const savePresetBtn = document.querySelector('#save-obs-preset');
     if (savePresetBtn) {
         savePresetBtn.addEventListener('click', () => {
