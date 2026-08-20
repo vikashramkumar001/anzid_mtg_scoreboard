@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card Vision — Broadcast Overlay</title>
+<style>
+  /* OBS browser source, full canvas (1920x1080), transparent background.
+     Boxes are positioned with the normalized program-canvas vbox coords the
+     server computes from the OBS scene-item transform. */
+  html, body { margin: 0; width: 100%; height: 100%; background: transparent; overflow: hidden; }
+  #stage { position: absolute; inset: 0; }
+  .card { position: absolute; opacity: 0; transition: opacity .6s ease; pointer-events: none; }
+  .card.show { opacity: 1; }
+  .card .ring { position: absolute; inset: 0; border: 2px solid rgba(240, 214, 138, .9);
+                border-radius: 8px; box-shadow: 0 0 14px rgba(240, 214, 138, .35),
+                inset 0 0 10px rgba(240, 214, 138, .12); }
+  .card .name { position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%);
+                white-space: nowrap; font-family: "Beaufort for LOL", Georgia, serif;
+                font-size: 20px; font-weight: 700; letter-spacing: .4px; color: #f4e9cd;
+                background: linear-gradient(180deg, rgba(16,18,26,.95), rgba(16,18,26,.82));
+                border: 1px solid rgba(240,214,138,.55); border-radius: 6px; padding: 3px 12px;
+                text-shadow: 0 1px 2px rgba(0,0,0,.8); }
+  .card.flip .name { bottom: auto; top: calc(100% + 6px); }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  // Broadcast rules: confirmed cards only, vbox required (no vbox = the
+  // gameplay source isn't in the program scene, e.g. on a break slide — the
+  // overlay simply shows nothing). Labels persist while the card is tracked.
+  const stage = document.getElementById('stage');
+  const shown = new Map();   // instance -> element
+
+  function render(state) {
+    const want = new Map();
+    for (const c of state.cards || []) {
+      if (c.status !== 'confirmed' || !c.vbox) continue;
+      want.set(c.instance || c.code, c);
+    }
+    for (const [key, el] of shown) {
+      if (!want.has(key)) { el.classList.remove('show'); setTimeout(() => el.remove(), 700); shown.delete(key); }
+    }
+    for (const [key, c] of want) {
+      const [x0, y0, x1, y1] = c.vbox;
+      let el = shown.get(key);
+      if (!el) {
+        el = document.createElement('div');
+        el.className = 'card';
+        el.innerHTML = '<div class="ring"></div><div class="name"></div>';
+        stage.appendChild(el);
+        shown.set(key, el);
+        requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('show')));
+      }
+      el.style.left = (x0 * 100) + '%';
+      el.style.top = (y0 * 100) + '%';
+      el.style.width = ((x1 - x0) * 100) + '%';
+      el.style.height = ((y1 - y0) * 100) + '%';
+      el.classList.toggle('flip', y0 < 0.08);   // label below box near the top edge
+      el.querySelector('.name').textContent = c.name;
+    }
+  }
+
+  const socket = io();
+  socket.on('card-vision-state', render);
+  socket.on('disconnect', () => render({ cards: [] }));
+  fetch('/api/card-vision/state').then(r => r.json()).then(render).catch(() => {});
+</script>
+</body>
+</html>
