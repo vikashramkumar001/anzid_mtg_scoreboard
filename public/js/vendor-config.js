@@ -122,12 +122,6 @@ window.VENDOR_CONFIG = {
                     // break scene
                     '--ei-countdown-src-starting-soon':  '"Text - Timer Long"',
                     '--ei-countdown-src-be-right-back':  '"Text - Timer Short"',
-                    // BRB break sequence: slide alone for --ei-brb-intro secs,
-                    // then these ads in order (from --ei-brb-ads-base, default
-                    // /assets/animations/mtg/ads/merlion-ffa/ — gitignored,
-                    // rsync to the show box), then slide + clock.
-                    '--ei-brb-intro': '10',
-                    '--ei-brb-ads': '"doot-summer.mp4,gold-sabertooth.mp4,wzkd-breach.mp4,mana-dork.mp4,f6-narrated.mp4"',
                 },
             },
             f2f: {

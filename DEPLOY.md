@@ -25,7 +25,6 @@ decklist **wallpaper video**, missing animated legend art, no metagame/standings
 | Path | ~Size | Breaks if missing |
 |---|---|---|
 | `public/assets/animations/riftbound/` | ~3.7 GB | decklist wallpaper video, animated legends, metagame/standings motion |
-| `public/assets/animations/mtg/` | ~130 MB | merlion BRB break-ad videos (ads/merlion-ffa/) |
 | `public/assets/images/vibes/cards/ETH/`, `.../LOL/` | — | Vibes card art |
 | `public/js/restream-config.js` | 1 line | anu Restream chat overlay (blank without it) |
 
