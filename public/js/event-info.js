@@ -291,6 +291,7 @@ function rerender() {
     updateBackground();
     updateTheme();
     renderOverlay();
+    runBrbSequence();
     updateBtbCountdown();
 }
 
@@ -305,7 +306,10 @@ let btbCountdownKey = '';
 function updateBtbCountdown() {
     const wanted = (scene === 'starting-soon' || scene === 'be-right-back')
         && getComputedStyle(document.documentElement)
-            .getPropertyValue('--ei-countdown-display').trim() === 'block';
+            .getPropertyValue('--ei-countdown-display').trim() === 'block'
+        // during the BRB break sequence the clock stays hidden until the ads
+        // have played (phase 3) — see runBrbSequence()
+        && !(brbSequencePhase > 0 && brbSequencePhase < 3);
     const cs = getComputedStyle(document.documentElement);
     const q = new URLSearchParams(location.search);
     const cx = parseFloat(cs.getPropertyValue('--ei-countdown-center-x')) || 960;
@@ -339,6 +343,75 @@ function updateBtbCountdown() {
     btbCountdown = window.initBtbCountdown && window.initBtbCountdown({
         container: mount, size, src, ws, pw, label: '',
     });
+}
+
+// ── BRB break sequence (merlion) ──────────────────────────────────────────
+// On /event-info/be-right-back, when the vendor supplies an ad playlist
+// (--ei-brb-ads), the scene runs: slide alone (no clock) for --ei-brb-intro
+// seconds → the ads full-screen in order → slide + live clock. OBS's
+// "refresh browser when scene becomes active" restarts the sequence on every
+// cut to the scene. Phases: 0 = off, 1 = intro, 2 = ads, 3 = clock.
+let brbSequencePhase = 0;
+let brbSequenceKey = '';
+let brbTimer = null;
+function runBrbSequence() {
+    const cs = getComputedStyle(document.documentElement);
+    const q = new URLSearchParams(location.search);
+    const adsRaw = (cs.getPropertyValue('--ei-brb-ads') || '').trim().replace(/^["']|["']$/g, '');
+    const wanted = scene === 'be-right-back' && !!adsRaw && q.get('noads') !== '1';
+    const key = [wanted, adsRaw].join('|');
+    if (key === brbSequenceKey) return;   // vendor churn — don't restart mid-run
+    brbSequenceKey = key;
+
+    clearTimeout(brbTimer);
+    document.getElementById('brb-ad-layer')?.remove();
+    if (!wanted) { brbSequencePhase = 0; updateBtbCountdown(); return; }
+
+    const introSec = parseFloat(q.get('brbintro')) ||
+        parseFloat(cs.getPropertyValue('--ei-brb-intro')) || 10;
+    const base = (cs.getPropertyValue('--ei-brb-ads-base') || '').trim().replace(/^["']|["']$/g, '')
+        || '/assets/animations/mtg/ads/merlion-ffa/';
+    const playlist = adsRaw.split(',').map(s => s.trim()).filter(Boolean);
+
+    // phase 1 — slide only
+    brbSequencePhase = 1;
+    updateBtbCountdown();
+
+    const finish = () => {
+        document.getElementById('brb-ad-layer')?.remove();
+        brbSequencePhase = 3;
+        updateBtbCountdown();   // clock appears
+    };
+
+    brbTimer = setTimeout(() => {
+        // phase 2 — ads
+        brbSequencePhase = 2;
+        const layer = document.createElement('div');
+        layer.id = 'brb-ad-layer';
+        layer.style.cssText = 'position:absolute;left:0;top:0;width:1920px;height:1080px;background:#000;z-index:40;';
+        const vid = document.createElement('video');
+        vid.style.cssText = 'width:100%;height:100%;object-fit:contain;background:#000;';
+        vid.playsInline = true;
+        layer.appendChild(vid);
+        document.body.appendChild(layer);
+
+        let i = -1;
+        let guard = null;
+        const next = () => {
+            clearTimeout(guard);
+            i += 1;
+            if (i >= playlist.length) { finish(); return; }
+            vid.src = base + encodeURIComponent(playlist[i]);
+            vid.currentTime = 0;
+            const p = vid.play();
+            if (p && p.catch) p.catch(() => { vid.muted = true; vid.play().catch(() => next()); });
+            // stall guard: never wedge the break — cap any single ad at 90s
+            guard = setTimeout(next, 90000);
+        };
+        vid.addEventListener('ended', next);
+        vid.addEventListener('error', next);
+        next();
+    }, introSec * 1000);
 }
 
 // Re-trigger the schedule data layer's entrance animation. CSS animations
