@@ -122,6 +122,17 @@ window.VENDOR_CONFIG = {
                     // break scene
                     '--ei-countdown-src-starting-soon':  '"Text - Timer Long"',
                     '--ei-countdown-src-be-right-back':  '"Text - Timer Short"',
+                    // commentator L3 (BTB plate + Anton, matching the countdown)
+                    '--comm-lt-bg-image': "url('/assets/images/mtg/lower-third/mtg-lower-third-commentator.png')",
+                    '--comm-lt-font': "'Anton BTB', sans-serif",
+                    '--comm-lt-font-weight': '400',
+                    '--comm-lt-name-font-size': '52px',
+                    '--comm-lt-name-line-height': '50px',
+                    '--comm-lt-name-color': '#FFF6E8',
+                    '--comm-lt-social-font': "'Anton BTB', sans-serif",
+                    '--comm-lt-social-font-weight': '400',
+                    '--comm-lt-social-font-size': '24px',
+                    '--comm-lt-social-color': '#EFA83C',
                 },
             },
             f2f: {
@@ -2880,13 +2891,14 @@ window.VENDOR_CONFIG = {
             'scoreboard/frame/riftbound-scoreboard-frame',
         ],
         // merlion owns its FFA scoreboard frame (the Breach the Bay sponsor
-        // bar) + the BTB2 intermission slides; other assets fall through to
-        // default.
+        // bar) + the BTB2 intermission slides + the commentator L3 plate;
+        // other assets fall through to default.
         'merlion': [
             'scoreboard/frame/mtg-scoreboard-frame',
             'event-info/mtg-starting-soon',
             'event-info/mtg-be-right-back',
             'event-info/mtg-ending',
+            'lower-third/mtg-lower-third-commentator',
         ],
     },
 
