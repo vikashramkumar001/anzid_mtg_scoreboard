@@ -206,11 +206,17 @@ function applyRemoteLayout() {
     document.documentElement.style.setProperty('--comm-lt-scale', scale);
     const w = (parseFloat(rootStyle.getPropertyValue('--comm-lt-width')) || 400) * scale;
     const h = (parseFloat(rootStyle.getPropertyValue('--comm-lt-height')) || 80) * scale;
+    // Match the in-person row's FINAL resting height: container bottom
+    // (--comm-lt-bottom) + the slide-up travel — so toggling remote on/off
+    // keeps the cards at the same altitude (per segment) and the entrance
+    // travels the same distance.
+    const bottomOff = parseFloat(rootStyle.getPropertyValue('--comm-lt-bottom')) || 40;
+    const slideUp = Math.abs(parseFloat(rootStyle.getPropertyValue('--comm-lt-slide-up')) || 200) * scale;
     const segs = remoteSegments(commentators.length);
     document.querySelectorAll('.commentator-l3').forEach((card, i) => {
         const [x0, , x1, y1] = segs[Math.min(i, segs.length - 1)];
         card.style.left = Math.round((x0 + x1) / 2 - w / 2) + 'px';
-        card.style.top = Math.round(y1 - 40 - h) + 'px';
+        card.style.top = Math.round(y1 - bottomOff - slideUp - h) + 'px';
     });
 }
 

@@ -69,7 +69,9 @@ body.comm-remote #commentator-l3-container {
 }
 body.comm-remote .commentator-l3 {
     position: absolute;
-    transform: translateY(calc(260px * var(--comm-lt-scale, 1)));
+    /* hidden state rests exactly one slide-up travel BELOW the final spot —
+       identical distance (and so identical speed) to the in-person row */
+    transform: translateY(calc(-1 * var(--comm-lt-slide-up, -200px) * var(--comm-lt-scale, 1)));
 }
 body.comm-remote .commentator-l3.active {
     transform: translateY(0);
