@@ -291,6 +291,54 @@ function rerender() {
     updateBackground();
     updateTheme();
     renderOverlay();
+    updateBtbCountdown();
+}
+
+// ── BTB countdown (starting-soon / be-right-back) ─────────────────────────
+// Sticker-styled clock mirroring the operator's Ashmanix OBS countdown
+// plugin (public/js/btb-countdown.js). Opt-in per vendor: shown only when
+// the vendor's overrides set --ei-countdown-display: block (merlion ffa).
+// Position/size via --ei-countdown-* vars; ?src= ?pw= ?ws= ?size= URL params
+// override for per-machine OBS differences.
+let btbCountdown = null;
+let btbCountdownKey = '';
+function updateBtbCountdown() {
+    const wanted = (scene === 'starting-soon' || scene === 'be-right-back')
+        && getComputedStyle(document.documentElement)
+            .getPropertyValue('--ei-countdown-display').trim() === 'block';
+    const cs = getComputedStyle(document.documentElement);
+    const q = new URLSearchParams(location.search);
+    const cx = parseFloat(cs.getPropertyValue('--ei-countdown-center-x')) || 960;
+    const cy = parseFloat(cs.getPropertyValue('--ei-countdown-center-y')) || 965;
+    const size = parseFloat(q.get('size')) || parseFloat(cs.getPropertyValue('--ei-countdown-size')) || 160;
+    // The plugin writes to a DIFFERENT text source per break scene — resolve
+    // the per-scene var first, then the generic one, then the URL override.
+    const unq = v => (v || '').trim().replace(/^["']|["']$/g, '');
+    const src = q.get('src')
+        || unq(cs.getPropertyValue(`--ei-countdown-src-${scene}`))
+        || unq(cs.getPropertyValue('--ei-countdown-src'))
+        || 'Countdown Timer';
+    const ws = q.get('ws') || 'ws://127.0.0.1:4455';
+    const pw = q.get('pw') != null ? q.get('pw') : 'RRWtUPVpGf6myRvx';
+    const key = [wanted, scene, cx, cy, size, src, ws].join('|');
+    if (key === btbCountdownKey) return;
+    btbCountdownKey = key;
+
+    if (btbCountdown) { btbCountdown.destroy(); btbCountdown = null; }
+    const el = document.getElementById('btb-countdown-mount');
+    if (el) el.remove();
+    if (!wanted) return;
+
+    const mount = document.createElement('div');
+    mount.id = 'btb-countdown-mount';
+    // center-anchored; full render is ~3.18×size wide, ~1.18×size tall
+    mount.style.left = cx + 'px';
+    mount.style.top = cy + 'px';
+    mount.style.transform = 'translate(-50%, -50%)';
+    document.body.appendChild(mount);
+    btbCountdown = window.initBtbCountdown && window.initBtbCountdown({
+        container: mount, size, src, ws, pw, label: '',
+    });
 }
 
 // Re-trigger the schedule data layer's entrance animation. CSS animations

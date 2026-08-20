@@ -107,6 +107,21 @@ window.VENDOR_CONFIG = {
                     '--ffa-timer-round-color':   '#e9712c',
                     '--ffa-timer-divider-display': 'inline-block',
                     '--ffa-timer-font-size':     '38px',
+                    // BTB sticker countdown on /event-info/{starting-soon,
+                    // be-right-back} — mirrors the Ashmanix OBS plugin's text
+                    // source (see public/js/btb-countdown.js). Centered in the
+                    // open band under the baked headline.
+                    // zero-clock smart object in startbrbend.psd: bbox
+                    // (844,935)-(1074,1020) → center (959,978), 230/589 of the
+                    // 185px reference render → effective size 72.
+                    '--ei-countdown-display':  'block',
+                    '--ei-countdown-center-x': '959',
+                    '--ei-countdown-center-y': '978',
+                    '--ei-countdown-size':     '72',
+                    // the Ashmanix plugin writes a different text source per
+                    // break scene
+                    '--ei-countdown-src-starting-soon':  '"Text - Timer Long"',
+                    '--ei-countdown-src-be-right-back':  '"Text - Timer Short"',
                 },
             },
             f2f: {

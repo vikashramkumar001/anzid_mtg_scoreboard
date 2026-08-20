@@ -1,0 +1,40 @@
+/* BTB sticker-treatment countdown (ported from btb-countdown-mirror.html —
+   that file is the source of truth for the type treatment; keep in sync).
+   Anton extracted from the kit's embedded base64 so app + stream graphics
+   render byte-identical type. */
+@font-face {
+    font-family: 'Anton BTB';
+    src: url('/fonts/Anton-btb.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.btb-countdown {
+    position: absolute;
+    text-align: center;
+    /* rough-edge filter is attached by JS (needs the injected SVG defs) */
+    pointer-events: none;
+}
+.btb-countdown .stk {
+    position: relative;
+    text-align: center;
+    line-height: 1.09;
+    font-family: 'Anton BTB', Anton, sans-serif;
+    letter-spacing: .012em;
+    white-space: nowrap;
+}
+.btb-countdown .stk .l {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    -webkit-text-stroke-color: currentColor;
+    paint-order: stroke fill;
+    color: transparent;
+}
+.btb-countdown .s1 { color: #E1512E !important; }
+.btb-countdown .s2 { color: #141210 !important; }
+.btb-countdown .s3 { color: #EFA83C !important; }
+.btb-countdown .top { position: relative; color: #FFF6E8; }
+.btb-countdown .d { display: inline-block; text-align: center; }
+.btb-countdown-defs { position: absolute; width: 0; height: 0; }
