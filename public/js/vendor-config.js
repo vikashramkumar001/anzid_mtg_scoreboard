@@ -116,7 +116,7 @@ window.VENDOR_CONFIG = {
                     // 185px reference render → effective size 72.
                     '--ei-countdown-display':  'block',
                     '--ei-countdown-center-x': '959',
-                    '--ei-countdown-center-y': '978',
+                    '--ei-countdown-center-y': '942',
                     '--ei-countdown-size':     '72',
                     // the Ashmanix plugin writes a different text source per
                     // break scene
