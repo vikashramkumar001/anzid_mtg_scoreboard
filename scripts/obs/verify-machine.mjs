@@ -130,7 +130,10 @@ if (!fs.existsSync(OBS_DIR)) {
     const sceneCount = (c.sources || []).filter(s => s.id === 'scene').length;
     ok(`collection "${collectionFile}" — ${sceneCount} scenes, ${(c.sources || []).length} sources`);
 
-    const KEYS = ['local_file','file','path','image_path','video_path','image_file','sound_path','mask_image'];
+    // 'value' catches VLC playlist entries and slideshow files, which nest
+    // paths as {value: "/abs/path"} inside a playlist/files array. Omitting it
+    // silently skipped 14 real files (break music + sponsor slideshows).
+    const KEYS = ['local_file','file','path','image_path','video_path','image_file','sound_path','mask_image','value'];
     const seen = new Map();
     const walk = (o, ref) => {
       if (!o || typeof o !== 'object') return;
