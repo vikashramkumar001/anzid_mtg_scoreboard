@@ -22394,7 +22394,7 @@
       "settings": {
         "clear_on_media_end": false,
         "linear_alpha": true,
-        "local_file": "/Users/anuraagdas/Desktop/media assets/Card Games/Riftbound/cards art animation/Legends PSD & Animation/animated legends/Irelia/Irelia MOV.mov",
+        "local_file": "/Users/anuraagdas/Desktop/media assets/Card Games/Riftbound/cards art animation/Legends PSD & Animation/animated legends/Set 2/Irelia, Blade Dancer.mov",
         "looping": true,
         "restart_on_activate": true,
         "speed_percent": 100
@@ -22725,7 +22725,7 @@
       "inputKind": "ffmpeg_source",
       "settings": {
         "clear_on_media_end": false,
-        "local_file": "/Users/anuraagdas/Desktop/media assets/Card Games/Riftbound/cards art animation/Legends PSD & Animation/animated legends/Fiora/Fiora mov.mov",
+        "local_file": "/Users/anuraagdas/Desktop/media assets/Card Games/Riftbound/cards art animation/Legends PSD & Animation/animated legends/Set 2/Fiora, Grand Duelist.mov",
         "looping": true,
         "restart_on_activate": true,
         "undo_uuid": "4c70f269-6a5c-4d43-b9db-6f276b8349ce"
