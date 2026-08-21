@@ -181,6 +181,45 @@ Only the folders actually referenced need to come across — not all 233 GB. The
 biggest single items are the camera-ingest `.mkv` (2.8 GB), the flyquest sponsor
 ads (932 MB), `elf rgb2.mov` (832 MB) and the 10s countdown comp (383 MB).
 
+**Two single points of failure worth checking by hand:**
+
+- **The stinger.** All 11 `Stinger - *` transitions point at one file:
+  `~/Desktop/media assets/Brand/g4k motion/Breach The Bay/BTB_update_02.aep_AME/PG1_1.webm`
+  (4.2 MB, VP9 1920x1080 30 fps, transition point 1000 ms). Miss it and every
+  scene change in the show breaks. The same folder holds an older `PG1.webm` —
+  `PG1_1` is the current one.
+- **The NDI backup source** is named after a *machine*: `MACBOOK-PRO (OBS
+  Backup)`. NDI resolves by computer name, so it stays disconnected until that
+  machine is on the network under that name.
+
+### 3e-bis. If the usernames don't match
+
+**Confirmed case:** the second Mac's short username is `anzidmtg_TD001`, while
+every path baked into the collection starts `/Users/anuraagdas/`. Three ways out,
+best first:
+
+1. **Symlink the old home path** (one command, fixes all 54 at once, and keeps
+   preset restore correct too):
+
+   ```bash
+   sudo ln -s /Users/$(whoami) /Users/anuraagdas
+   ```
+
+   Every `/Users/anuraagdas/...` path then resolves to the real home. Nothing in
+   OBS or the presets needs editing. Re-run after a macOS major upgrade, which
+   can clear it.
+
+2. **Rewrite the paths** in the exported collection *before* importing, with a
+   find-and-replace of `/Users/anuraagdas/` → `/Users/<newuser>/`. ⚠️ You must
+   also rewrite `local_file` in every `data/obs exports/*.json`, or the first
+   **Apply Broadcast Settings** pushes the old paths straight back — the same
+   failure mode as the Fiora/Irelia break (see the preset notes).
+
+3. **Relink each source by hand** in OBS. 54 sources. Avoid.
+
+`verify-machine.mjs` reports this explicitly as *"N path(s) reference a
+DIFFERENT user's home"*.
+
 ### 3f. Restore positions from a preset
 
 Scene-item positions live in the repo, per game/vendor/player-count, in
@@ -191,7 +230,27 @@ Restore **only repositions items that already exist** — it never creates or
 deletes sources. So the scene collection (3c) must be imported first, otherwise
 restore silently does nothing.
 
-## 4. Verify the new Mac
+## 4. Machine names
+
+Two Macs plus the ingest box on one LAN gets confusing fast, and NDI resolves
+sources *by computer name*. Suggested scheme, matching the existing
+`AnziD-Ingest-2`:
+
+| Machine | Name | Role |
+|---|---|---|
+| M4 Max, serial CPG9M62GJC, user `anuraagdas` | `AnziD-Dev-1` | original dev + show Mac; the reference for everything in this file |
+| the second one, user `anzidmtg_TD001` | `AnziD-Dev-2` | second rig |
+| `192.168.4.20` | `AnziD-Ingest-2` | LAN server the ingest OBS points at |
+
+The numbers are identity, not rank — if the second machine becomes primary,
+nothing needs renaming.
+
+Set it in **System Settings → General → About → Name**; confirm with
+`scutil --get LocalHostName`. Dev-1 currently reports `MacBook Pro (2)` /
+`MacBook-Pro-37` — the `(2)` means something else already claimed "MacBook Pro"
+on the network, which is the collision worth heading off now that there are two.
+
+## 5. Verify the new Mac
 
 ```bash
 node server.js        # then open http://localhost:1378
