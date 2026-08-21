@@ -191,8 +191,13 @@ if (!fs.existsSync(OBS_DIR)) {
     // Username check. Absolute paths bake in the authoring Mac's short name.
     // A /Users/<other>/... path is FINE if a symlink makes it resolve here —
     // so only complain about the ones that genuinely don't resolve.
+    // Exclude anything already reported above as known-stale — otherwise a
+    // legacy reference gets counted twice: once as a benign warning and again
+    // as a hard failure here.
+    const legacyPaths = new Set(legacy.map(([p]) => p));
     const foreign = [...seen].map(([p]) => p)
-      .filter(p => p.startsWith('/Users/') && !p.startsWith(HOME + '/'));
+      .filter(p => p.startsWith('/Users/') && !p.startsWith(HOME + '/'))
+      .filter(p => !legacyPaths.has(p));
     const unresolved = foreign.filter(p => !fs.existsSync(p));
     if (unresolved.length) {
       bad(`${unresolved.length} path(s) reference another user's home and do NOT resolve — this machine is "${path.basename(HOME)}"`);
