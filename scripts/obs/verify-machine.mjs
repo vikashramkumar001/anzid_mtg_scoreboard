@@ -188,12 +188,21 @@ if (!fs.existsSync(OBS_DIR)) {
       ? ok(`${stingers.length} stinger transitions → ${path.basename(stingers[0]?.settings?.path || '?')}`)
       : bad(`${badSting.length} stinger(s) point at a missing file: ${badSting.map(t => t.name).join(', ')}`);
 
-    // username check — absolute paths bake in the dev Mac's short name
-    const foreign = [...seen].map(([p]) => p).filter(p => p.startsWith('/Users/') && !p.startsWith(HOME + '/'));
-    if (foreign.length) {
-      bad(`${foreign.length} path(s) reference a DIFFERENT user's home — this machine is "${path.basename(HOME)}"`);
-      console.log(`     e.g. ${foreign[0]}`);
-    } else ok(`all paths resolve under this machine's home (${path.basename(HOME)})`);
+    // Username check. Absolute paths bake in the authoring Mac's short name.
+    // A /Users/<other>/... path is FINE if a symlink makes it resolve here —
+    // so only complain about the ones that genuinely don't resolve.
+    const foreign = [...seen].map(([p]) => p)
+      .filter(p => p.startsWith('/Users/') && !p.startsWith(HOME + '/'));
+    const unresolved = foreign.filter(p => !fs.existsSync(p));
+    if (unresolved.length) {
+      bad(`${unresolved.length} path(s) reference another user's home and do NOT resolve — this machine is "${path.basename(HOME)}"`);
+      console.log(`     e.g. ${unresolved[0]}`);
+      console.log(`     Fix with a symlink:  sudo ln -s "$HOME" /Users/<thatuser>`);
+    } else if (foreign.length) {
+      ok(`${foreign.length} path(s) use another user's home but resolve here via symlink`);
+    } else {
+      ok(`all paths resolve under this machine's home (${path.basename(HOME)})`);
+    }
   }
 }
 
