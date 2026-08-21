@@ -2,7 +2,7 @@
   "game": "mtg",
   "vendor": "merlion",
   "playerCount": "ffa",
-  "savedAt": "2026-08-19T14:16:47.253Z",
+  "savedAt": "2026-08-20T05:59:02.278Z",
   "scenes": {
     "Sponsor - Moxfield*": {
       "sources": [
@@ -9455,7 +9455,7 @@
         {
           "sourceName": "Media - Interstitial Card Titan",
           "sceneItemId": 2,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -9484,7 +9484,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -9513,133 +9513,12 @@
       ],
       "transitionOverride": null
     },
-    "Break - Sponsor": {
-      "sources": [
-        {
-          "sourceName": "Media - Sponsor 4",
-          "sceneItemId": 7,
-          "enabled": false,
-          "locked": false,
-          "index": 0,
-          "blendMode": "OBS_BLEND_NORMAL",
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 1,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 1,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 0.5,
-            "scaleY": 0.5,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Media - Sponsor 3",
-          "sceneItemId": 8,
-          "enabled": false,
-          "locked": false,
-          "index": 1,
-          "blendMode": "OBS_BLEND_NORMAL",
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 1,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 1,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Media - Sponsor 2",
-          "sceneItemId": 9,
-          "enabled": false,
-          "locked": false,
-          "index": 2,
-          "blendMode": "OBS_BLEND_NORMAL",
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 1,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 1,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 180,
-            "rotation": 0,
-            "scaleX": 0.3333333432674408,
-            "scaleY": 0.3333333432674408,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Media - Sponsor 1",
-          "sceneItemId": 6,
-          "enabled": false,
-          "locked": false,
-          "index": 3,
-          "blendMode": "OBS_BLEND_NORMAL",
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0.5,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0.5,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        }
-      ],
-      "transitionOverride": null
-    },
     "Break - Intro": {
       "sources": [
         {
           "sourceName": "Media - Intro",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -9683,13 +9562,13 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 1.5042855739593506,
+            "height": 1.0028570890426636,
             "positionX": 709,
             "positionY": 729,
             "rotation": 0,
             "scaleX": 0.5009980201721191,
             "scaleY": 0.5014285445213318,
-            "sourceHeight": 3,
+            "sourceHeight": 2,
             "sourceWidth": 0,
             "width": 0
           }
@@ -9702,7 +9581,7 @@
         {
           "sourceName": "Commentator - Ingest 1UP",
           "sceneItemId": 14,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -9818,6 +9697,127 @@
       ],
       "transitionOverride": null
     },
+    "Break - Sponsor": {
+      "sources": [
+        {
+          "sourceName": "Media - Sponsor 4",
+          "sceneItemId": 7,
+          "enabled": false,
+          "locked": false,
+          "index": 0,
+          "blendMode": "OBS_BLEND_NORMAL",
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Media - Sponsor 3",
+          "sceneItemId": 8,
+          "enabled": false,
+          "locked": false,
+          "index": 1,
+          "blendMode": "OBS_BLEND_NORMAL",
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Media - Sponsor 2",
+          "sceneItemId": 9,
+          "enabled": false,
+          "locked": false,
+          "index": 2,
+          "blendMode": "OBS_BLEND_NORMAL",
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 1,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 1,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 0,
+            "positionX": 0,
+            "positionY": 180,
+            "rotation": 0,
+            "scaleX": 0.3333333432674408,
+            "scaleY": 0.3333333432674408,
+            "sourceHeight": 0,
+            "sourceWidth": 0,
+            "width": 0
+          }
+        },
+        {
+          "sourceName": "Media - Sponsor 1",
+          "sceneItemId": 6,
+          "enabled": true,
+          "locked": false,
+          "index": 3,
+          "blendMode": "OBS_BLEND_NORMAL",
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0.5,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0.5,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 1080,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 1920
+          }
+        }
+      ],
+      "transitionOverride": null
+    },
     "Break - Be Right Back": {
       "sources": [
         {
@@ -9879,40 +9879,11 @@
           }
         },
         {
-          "sourceName": "Media - BRB Character",
-          "sceneItemId": 12,
+          "sourceName": "Text - Timer Short",
+          "sceneItemId": 10,
           "enabled": false,
           "locked": false,
           "index": 2,
-          "blendMode": "OBS_BLEND_NORMAL",
-          "transform": {
-            "alignment": 5,
-            "boundsAlignment": 0,
-            "boundsHeight": 0,
-            "boundsType": "OBS_BOUNDS_NONE",
-            "boundsWidth": 0,
-            "cropBottom": 0,
-            "cropLeft": 0,
-            "cropRight": 0,
-            "cropToBounds": false,
-            "cropTop": 0,
-            "height": 0,
-            "positionX": 0,
-            "positionY": 0,
-            "rotation": 0,
-            "scaleX": 1,
-            "scaleY": 1,
-            "sourceHeight": 0,
-            "sourceWidth": 0,
-            "width": 0
-          }
-        },
-        {
-          "sourceName": "Text - Timer Short",
-          "sceneItemId": 10,
-          "enabled": true,
-          "locked": false,
-          "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
           "transform": {
             "alignment": 5,
@@ -9925,15 +9896,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 261.1383361816406,
+            "height": 257.5773620605469,
             "positionX": 1222.5,
             "positionY": 716,
             "rotation": 0,
             "scaleX": 1.1865202188491821,
             "scaleY": 1.1869924068450928,
-            "sourceHeight": 220,
-            "sourceWidth": 617,
-            "width": 732.0829467773438
+            "sourceHeight": 217,
+            "sourceWidth": 0,
+            "width": 0
           }
         },
         {
@@ -9941,7 +9912,7 @@
           "sceneItemId": 3,
           "enabled": true,
           "locked": true,
-          "index": 4,
+          "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
           "transform": {
             "alignment": 5,
@@ -10060,7 +10031,7 @@
         {
           "sourceName": "Text - Timer Long",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10082,8 +10053,8 @@
             "scaleX": 1.1865202188491821,
             "scaleY": 1.1869925260543823,
             "sourceHeight": 175,
-            "sourceWidth": 694,
-            "width": 823.4450073242188
+            "sourceWidth": 447,
+            "width": 530.37451171875
           }
         },
         {
@@ -10119,7 +10090,37 @@
       "transitionOverride": null
     },
     "--- Break ---": {
-      "sources": [],
+      "sources": [
+        {
+          "sourceName": "Countdown Timer",
+          "sceneItemId": 4,
+          "enabled": false,
+          "locked": false,
+          "index": 0,
+          "blendMode": "OBS_BLEND_NORMAL",
+          "transform": {
+            "alignment": 5,
+            "boundsAlignment": 0,
+            "boundsHeight": 0,
+            "boundsType": "OBS_BOUNDS_NONE",
+            "boundsWidth": 0,
+            "cropBottom": 0,
+            "cropLeft": 0,
+            "cropRight": 0,
+            "cropToBounds": false,
+            "cropTop": 0,
+            "height": 244,
+            "positionX": 0,
+            "positionY": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "sourceHeight": 244,
+            "sourceWidth": 639,
+            "width": 639
+          }
+        }
+      ],
       "transitionOverride": null
     },
     "Commentators - Pack Opening": {
@@ -10489,7 +10490,7 @@
         {
           "sourceName": "Sponsor 3 - CTA*",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10610,7 +10611,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10639,7 +10640,7 @@
         {
           "sourceName": "Camera - Match 2 Hand Blue",
           "sceneItemId": 5,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10668,7 +10669,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10712,21 +10713,21 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 2852.087890625,
+            "height": 1426.0439453125,
             "positionX": 1.0000276565551758,
             "positionY": 482,
             "rotation": 0,
             "scaleX": 0.7870000004768372,
             "scaleY": 0.7870000004768372,
-            "sourceHeight": 3624,
-            "sourceWidth": 3840,
-            "width": 3022.080078125
+            "sourceHeight": 1812,
+            "sourceWidth": 1920,
+            "width": 1511.0400390625
           }
         },
         {
           "sourceName": "Image - BG Player Blue",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10755,7 +10756,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10784,7 +10785,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 2",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10813,7 +10814,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10876,7 +10877,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10905,7 +10906,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -10949,21 +10950,21 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 2160,
+            "height": 1080,
             "positionX": -0.000007152557373046875,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 1920
           }
         },
         {
           "sourceName": "Audio - Prematch BGM Match 2",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11026,7 +11027,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11055,7 +11056,7 @@
         {
           "sourceName": "Camera - Match 2 Hand Red",
           "sceneItemId": 5,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11084,7 +11085,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11128,21 +11129,21 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 2852.087890625,
+            "height": 1426.0439453125,
             "positionX": 407.9999694824219,
             "positionY": 482,
             "rotation": 0,
             "scaleX": 0.7870000004768372,
             "scaleY": 0.7870000004768372,
-            "sourceHeight": 3624,
-            "sourceWidth": 3840,
-            "width": 3022.080078125
+            "sourceHeight": 1812,
+            "sourceWidth": 1920,
+            "width": 1511.0400390625
           }
         },
         {
           "sourceName": "Image - BG Player Red",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11171,7 +11172,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11200,7 +11201,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 2",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11229,7 +11230,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11292,7 +11293,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11321,7 +11322,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11350,7 +11351,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 2",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11413,7 +11414,7 @@
         {
           "sourceName": "Camera - Match 2 Macro",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11442,7 +11443,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11471,7 +11472,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 2",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11534,7 +11535,7 @@
         {
           "sourceName": "Browser - Match 2 Decklist Blue",
           "sceneItemId": 8,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11563,7 +11564,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 2",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11592,7 +11593,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11626,7 +11627,7 @@
         {
           "sourceName": "Browser - Match 2 Decklist Red",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11655,7 +11656,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 2",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11684,7 +11685,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11776,7 +11777,7 @@
         {
           "sourceName": "Media - Riftbound Swirl Blue",
           "sceneItemId": 57,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11805,7 +11806,7 @@
         {
           "sourceName": "Group - Camera Match 2 Player Red",
           "sceneItemId": 20,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11820,21 +11821,21 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 2160,
+            "height": 1080,
             "positionX": -822,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 1920
           }
         },
         {
           "sourceName": "Group - Camera Match 2 Player Blue",
           "sceneItemId": 23,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11849,21 +11850,21 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 2160,
+            "height": 1080,
             "positionX": 1920,
             "positionY": 0,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 3840,
-            "width": 3840
+            "sourceHeight": 1080,
+            "sourceWidth": 1920,
+            "width": 1920
           }
         },
         {
           "sourceName": "Browser - H2H Versus",
           "sceneItemId": 62,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11892,7 +11893,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 2",
           "sceneItemId": 42,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11921,7 +11922,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 5,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -11988,7 +11989,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -12017,7 +12018,7 @@
         {
           "sourceName": "Browser - Match 2 Player Blue Win L3",
           "sceneItemId": 19,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -12046,7 +12047,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -12075,7 +12076,7 @@
         {
           "sourceName": "Audio - Winner",
           "sceneItemId": 20,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -12138,7 +12139,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -12167,7 +12168,7 @@
         {
           "sourceName": "Browser - Match 2 Player Red Win L3",
           "sceneItemId": 23,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -12196,7 +12197,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -12225,7 +12226,7 @@
         {
           "sourceName": "Audio - Winner",
           "sceneItemId": 24,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -13778,7 +13779,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 39,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -13807,7 +13808,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 40,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -13836,7 +13837,7 @@
         {
           "sourceName": "Camera - Match 2 Hand Blue",
           "sceneItemId": 41,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -13865,7 +13866,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 42,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -13894,7 +13895,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 43,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14015,7 +14016,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 37,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14044,7 +14045,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 38,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14073,7 +14074,7 @@
         {
           "sourceName": "Camera - Match 2 Hand Red",
           "sceneItemId": 39,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14102,7 +14103,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 40,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14131,7 +14132,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 41,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14194,7 +14195,7 @@
         {
           "sourceName": "NDI™ Source",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14223,7 +14224,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14373,7 +14374,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 55,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14402,7 +14403,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 56,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14431,7 +14432,7 @@
         {
           "sourceName": "Camera - Match 2 Gameplay",
           "sceneItemId": 57,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14460,7 +14461,7 @@
         {
           "sourceName": "Camera - Match 2 Header",
           "sceneItemId": 58,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14489,7 +14490,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 59,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -14567,15 +14568,15 @@
             "cropRight": 0,
             "cropToBounds": false,
             "cropTop": 0,
-            "height": 2160,
+            "height": 1080,
             "positionX": -76.00001525878906,
             "positionY": -24.999969482421875,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
-            "sourceHeight": 2160,
-            "sourceWidth": 4448,
-            "width": 4448
+            "sourceHeight": 1080,
+            "sourceWidth": 2224,
+            "width": 2224
           }
         },
         {
@@ -15113,7 +15114,7 @@
         {
           "sourceName": "Camera - Match 2 Player Blue",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15142,7 +15143,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 2,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15205,7 +15206,7 @@
         {
           "sourceName": "Camera - Match 2 Player Red",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15234,7 +15235,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 2,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15297,7 +15298,7 @@
         {
           "sourceName": "Camera - Match 2 Macro",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15326,7 +15327,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 2,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15485,7 +15486,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15514,7 +15515,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Blue",
           "sceneItemId": 5,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15543,7 +15544,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15601,7 +15602,7 @@
         {
           "sourceName": "Image - BG Player Blue",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15630,7 +15631,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15659,7 +15660,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 1",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15688,7 +15689,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15751,7 +15752,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15809,7 +15810,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 1",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15838,7 +15839,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15901,7 +15902,7 @@
         {
           "sourceName": "Slideshow - Sponsors In-Match Carousel",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15930,7 +15931,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Red",
           "sceneItemId": 5,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -15959,7 +15960,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16017,7 +16018,7 @@
         {
           "sourceName": "Image - BG Player Red",
           "sceneItemId": 7,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16046,7 +16047,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 9,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16075,7 +16076,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 1",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16104,7 +16105,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 10,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16167,7 +16168,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16225,7 +16226,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 1",
           "sceneItemId": 18,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16254,7 +16255,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16317,7 +16318,7 @@
         {
           "sourceName": "Camera - Match 1 Macro",
           "sceneItemId": 6,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16346,7 +16347,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 1",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16375,7 +16376,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16467,7 +16468,7 @@
         {
           "sourceName": "Browser - Match 1 Decklist Blue",
           "sceneItemId": 18,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16496,7 +16497,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 1",
           "sceneItemId": 15,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16525,7 +16526,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 16,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16588,7 +16589,7 @@
         {
           "sourceName": "Browser - Match 1 Decklist Red",
           "sceneItemId": 22,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16617,7 +16618,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 1",
           "sceneItemId": 12,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16646,7 +16647,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16738,7 +16739,7 @@
         {
           "sourceName": "Media - Riftbound Swirl Blue",
           "sceneItemId": 78,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16767,7 +16768,7 @@
         {
           "sourceName": "Group - Camera Match 1 Player Red",
           "sceneItemId": 41,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16796,7 +16797,7 @@
         {
           "sourceName": "Group - Camera Match 1 Player Blue",
           "sceneItemId": 40,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16825,7 +16826,7 @@
         {
           "sourceName": "Browser - H2H Versus",
           "sceneItemId": 79,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16854,7 +16855,7 @@
         {
           "sourceName": "Audio - Prematch BGM Match 1",
           "sceneItemId": 43,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16883,7 +16884,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 14,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16950,7 +16951,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 13,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -16979,7 +16980,7 @@
         {
           "sourceName": "Browser - Match 1 Player Blue Win L3",
           "sceneItemId": 24,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -17008,7 +17009,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 15,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -17037,7 +17038,7 @@
         {
           "sourceName": "Audio - Winner",
           "sceneItemId": 23,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -17100,7 +17101,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 15,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -17129,7 +17130,7 @@
         {
           "sourceName": "Browser - Match 1 Player Red Win L3",
           "sceneItemId": 33,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -17158,7 +17159,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 19,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -17187,7 +17188,7 @@
         {
           "sourceName": "Audio - Winner",
           "sceneItemId": 32,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -18082,7 +18083,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Blue",
           "sceneItemId": 2,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -18382,7 +18383,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Red",
           "sceneItemId": 2,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -18740,7 +18741,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 34,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -18769,7 +18770,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 35,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -18798,7 +18799,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Blue",
           "sceneItemId": 36,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -18827,7 +18828,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 37,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -18856,7 +18857,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 38,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -18977,7 +18978,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 43,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19006,7 +19007,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 44,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19035,7 +19036,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Red",
           "sceneItemId": 45,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19064,7 +19065,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 46,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19093,7 +19094,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 47,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19480,7 +19481,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Red",
           "sceneItemId": 21,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19509,7 +19510,7 @@
         {
           "sourceName": "Camera - Match 1 Hand Blue",
           "sceneItemId": 20,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19538,7 +19539,7 @@
         {
           "sourceName": "Camera - Match 1 Gameplay",
           "sceneItemId": 22,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19567,7 +19568,7 @@
         {
           "sourceName": "Browser - Match 1 Pregame Frame",
           "sceneItemId": 40,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19596,7 +19597,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 24,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19625,7 +19626,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 25,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 8,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19750,7 +19751,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 34,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 2,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19779,7 +19780,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 33,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 3,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19808,7 +19809,7 @@
         {
           "sourceName": "Camera - Match 1 Gameplay",
           "sceneItemId": 35,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 4,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19837,7 +19838,7 @@
         {
           "sourceName": "Browser - Match 1 Pregame Frame",
           "sceneItemId": 50,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 5,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19866,7 +19867,7 @@
         {
           "sourceName": "Camera - Match 1 Header",
           "sceneItemId": 37,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 6,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -19895,7 +19896,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 39,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 7,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -20016,7 +20017,7 @@
         {
           "sourceName": "Camera - Match 1 Player Blue",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -20045,7 +20046,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -20108,7 +20109,7 @@
         {
           "sourceName": "Camera - Match 1 Player Red",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": true,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -20137,7 +20138,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 4,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -20200,7 +20201,7 @@
         {
           "sourceName": "Camera - Match 1 Macro",
           "sceneItemId": 1,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 0,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -20229,7 +20230,7 @@
         {
           "sourceName": "Audio - Ingest",
           "sceneItemId": 3,
-          "enabled": true,
+          "enabled": false,
           "locked": false,
           "index": 1,
           "blendMode": "OBS_BLEND_NORMAL",
@@ -20655,56 +20656,26 @@
           {
             "hidden": false,
             "selected": false,
-            "uuid": "961dcc89-3d84-433c-8363-738286505e53",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/04_Arcade Summoner's Rift - Late Game.wav"
+            "uuid": "98d2aec1-6c3b-4aa9-a70e-e6425ed27bdc",
+            "value": "/Users/anuraagdas/Desktop/media assets/Music/Synthezx_Euphoria.mp3"
           },
           {
             "hidden": false,
             "selected": false,
-            "uuid": "94ada151-e7e5-4436-9ac5-62573ea8ebca",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/8ball NEW MASTER.wav"
+            "uuid": "b59a3643-7cc4-402b-8af7-698e27fc4220",
+            "value": "/Users/anuraagdas/Desktop/media assets/Music/Synthezx_Infinity.mp3"
           },
           {
             "hidden": false,
             "selected": false,
-            "uuid": "ec6be4ff-dfc6-43f9-93a5-cf89bff8b5b4",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/Arcade 2017 - Login Music.mp3"
+            "uuid": "9d75a524-b11b-4c5e-92ea-68bd0bd2ad2c",
+            "value": "/Users/anuraagdas/Desktop/media assets/Music/Synthezx_Radio wave.mp3"
           },
           {
             "hidden": false,
             "selected": false,
-            "uuid": "db740d14-056b-4692-abd3-1da735d13cc1",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/ARCADE 2019 ULTRACOMBO.wav"
-          },
-          {
-            "hidden": false,
-            "selected": false,
-            "uuid": "a5f9cae3-7802-424d-9589-40c55707e50e",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/Bit Rush.mp3"
-          },
-          {
-            "hidden": false,
-            "selected": false,
-            "uuid": "b1e7dda6-1eb1-471b-b2dc-06282ae34625",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/Bit_Rush_Arcade_Ahri.mp3"
-          },
-          {
-            "hidden": false,
-            "selected": false,
-            "uuid": "6ef29b16-ae63-4326-b604-e2f9b792d1e5",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/Copy of 1. Rewind (master) - XTINA GG.wav"
-          },
-          {
-            "hidden": false,
-            "selected": false,
-            "uuid": "34a8f378-2202-4234-9df6-1cdc38827b77",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/Eyes On The Screen MASTER Slowed end.wav"
-          },
-          {
-            "hidden": false,
-            "selected": false,
-            "uuid": "18fe0f96-6d46-4606-b4bc-184d61356d12",
-            "value": "/Users/anuraagdas/Desktop/media assets/Music/flyquest music/Grella_Stardew Valley Final Mix_Master2_(2444).wav"
+            "uuid": "a2911609-0cc7-458e-8e06-113522a91afc",
+            "value": "/Users/anuraagdas/Desktop/media assets/Music/Synthezx_Technocity.mp3"
           }
         ]
       },
@@ -20992,7 +20963,7 @@
         "undo_uuid": "03c4ced1-8dbf-4e8e-bfa5-b0f513f5a390"
       },
       "audio": {
-        "volumeMul": 0.8543000221252441,
+        "volumeMul": 0,
         "muted": true,
         "syncOffset": 0,
         "balance": 0.5,
@@ -21388,10 +21359,10 @@
       "inputKind": "ffmpeg_source",
       "settings": {
         "clear_on_media_end": false,
-        "local_file": "/Users/anuraagdas/Desktop/media assets/Sponsors/flyquest/Sponsor Ad Videos/FGC_0075_MAINSTAGE-ANNOUNCEMENT_V6.mp4"
+        "local_file": "/Users/anuraagdas/Desktop/mtg mobile coverage/coverage overlay/info slides/20260822 breach the bay 2/logos and ads/ads/btb2-ad-reel.mp4"
       },
       "audio": {
-        "volumeMul": 0.3098083436489105,
+        "volumeMul": 0.26925086975097656,
         "muted": false,
         "syncOffset": 0,
         "balance": 0.5,
@@ -22084,30 +22055,6 @@
       "audio": null,
       "filters": []
     },
-    "Media - BRB Character": {
-      "inputKind": "ffmpeg_source",
-      "settings": {
-        "local_file": "/Users/anuraagdas/Desktop/mtg mobile coverage/coverage overlay/assets/riftbound creative assets/6-Animations/Background Animations/BeRightBack.mp4",
-        "looping": true,
-        "undo_uuid": "c118ce40-c2de-48e8-a024-cc0c576cfa2e"
-      },
-      "audio": {
-        "volumeMul": 1,
-        "muted": true,
-        "syncOffset": 0,
-        "balance": 0.5,
-        "monitorType": "OBS_MONITORING_TYPE_NONE",
-        "tracks": {
-          "1": true,
-          "2": true,
-          "3": true,
-          "4": true,
-          "5": true,
-          "6": true
-        }
-      },
-      "filters": []
-    },
     "Text - Timer Short": {
       "inputKind": "text_ft2_source_v2",
       "settings": {
@@ -22119,7 +22066,7 @@
           "size": 288,
           "style": "Bold"
         },
-        "text": "00:29:59",
+        "text": "",
         "undo_uuid": "100ce730-16e3-4f7a-a9be-4c6b3867c805"
       },
       "audio": null,
@@ -22151,7 +22098,7 @@
           "size": 172,
           "style": "Heavy"
         },
-        "text": "00:30:00",
+        "text": "29:56",
         "undo_uuid": "100ce730-16e3-4f7a-a9be-4c6b3867c805"
       },
       "audio": null,
@@ -22231,7 +22178,7 @@
     "Image - Sponsor 1": {
       "inputKind": "image_source",
       "settings": {
-        "file": "/Users/anuraagdas/Desktop/media assets/Sponsors/flyquest/duel land ultra pro ad.png"
+        "file": "/Users/anuraagdas/Desktop/mtg mobile coverage/coverage overlay/info slides/20260822 breach the bay 2/sponsors/sponsor.png"
       },
       "audio": null,
       "filters": []
@@ -22615,7 +22562,7 @@
       },
       "audio": {
         "volumeMul": 0,
-        "muted": true,
+        "muted": false,
         "syncOffset": 0,
         "balance": 0.5,
         "monitorType": "OBS_MONITORING_TYPE_MONITOR_AND_OUTPUT",
@@ -24374,21 +24321,23 @@
         }
       },
       "filters": []
+    },
+    "Countdown Timer": {
+      "inputKind": "text_ft2_source_v2",
+      "settings": {
+        "text": "12:34"
+      },
+      "audio": null,
+      "filters": []
     }
   },
   "transition": {
-    "active": "Cut",
+    "active": "Stinger - AnzidMTG",
     "transitions": [
       {
         "transitionName": "Cut",
         "transitionKind": "cut_transition",
         "transitionDuration": null,
-        "transitionSettings": {}
-      },
-      {
-        "transitionName": "Fade",
-        "transitionKind": "fade_transition",
-        "transitionDuration": 1000,
         "transitionSettings": {}
       }
     ]
