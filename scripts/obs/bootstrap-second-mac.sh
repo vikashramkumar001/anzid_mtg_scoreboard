@@ -14,6 +14,10 @@
 #   ./scripts/obs/bootstrap-second-mac.sh /Volumes/MyDrive/dev2   # from a drive
 #   ./scripts/obs/bootstrap-second-mac.sh <src> --dry-run
 #
+# Env:
+#   ASSUME_YES=1  move the repo into place without prompting
+#   FORCE=1       run even if the repo is in the wrong place (assets land wrong)
+#
 set -uo pipefail
 
 SRC="${1:-}"
@@ -72,26 +76,51 @@ elif [[ "${FORCE:-}" == "1" ]]; then
   warn "gitignored assets will land in $EXPECTED, not in this repo"
 else
   echo
-  die "repo is in the wrong place.
+  warn "This repo is not where the scene collection expects it."
+  echo "       this repo:  $REPO"
+  echo "       expected:   $EXPECTED"
+  echo
+  echo "   Left as-is, two things break:"
+  echo "     1. The gitignored assets (.env, restream-config.js, ~3.7 GB of"
+  echo "        animations) would land in the expected path, not in this repo."
+  echo "     2. Two OBS sources point inside the repo by absolute path and"
+  echo "        would stay broken."
+  echo
 
-       this repo:  $REPO
-       expected:   $EXPECTED
+  if [[ -e "$EXPECTED" ]]; then
+    die "Something already exists at $EXPECTED — move or remove it, then re-run."
+  fi
 
-       Two things break otherwise:
-         1. The gitignored assets (.env, restream-config.js, ~3.7 GB of
-            animations) would rsync into '$EXPECTED'
-            instead of into this repo.
-         2. Two OBS sources point inside the repo by absolute path and
-            would stay broken.
-
-       Move it first, then re-run from the new location:
-
+  MOVE=""
+  if [[ -n "$DRY" ]]; then
+    ok "would offer to move the repo to $EXPECTED"
+  elif [[ "${ASSUME_YES:-}" == "1" ]]; then
+    ok "ASSUME_YES=1 — moving without asking"
+    MOVE=1
+  elif [[ -t 0 ]]; then
+    read -r -p "   Move the repo there now? [y/N] " ans
+    [[ "$ans" =~ ^[Yy]$ ]] && MOVE=1
+  else
+    die "Not an interactive terminal, so I can't ask. Move it yourself:
          mkdir -p ~/Desktop/dev/\"coverage hub\"
          mv \"$REPO\" ~/Desktop/dev/\"coverage hub\"/
-         cd ~/Desktop/dev/\"coverage hub\"/anzid_mtg_scoreboard
-         ./scripts/obs/bootstrap-second-mac.sh $SRC
+       then re-run from there. Or set FORCE=1 to proceed anyway."
+  fi
 
+  if [[ -n "$MOVE" ]]; then
+    mkdir -p "$(dirname "$EXPECTED")" || die "could not create $(dirname "$EXPECTED")"
+    mv "$REPO" "$EXPECTED" || die "move failed"
+    ok "moved to $EXPECTED"
+    echo
+    echo "   Re-running from the new location..."
+    echo
+    cd "$EXPECTED" || die "could not enter $EXPECTED"
+    exec "$EXPECTED/scripts/obs/bootstrap-second-mac.sh" "$@"
+  elif [[ -z "$DRY" ]]; then
+    die "Nothing moved, nothing copied. Re-run once the repo is at:
+         $EXPECTED
        Or set FORCE=1 to proceed anyway and fix the assets by hand."
+  fi
 fi
 echo
 
