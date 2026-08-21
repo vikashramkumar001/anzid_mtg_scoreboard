@@ -59,6 +59,40 @@ ok "node $(node -v)"
 
 FILE_COUNT=$(wc -l < "$STAGE/media-files.txt" | tr -d ' ')
 ok "$FILE_COUNT entries to copy"
+
+# The staged list is relative to the SOURCE home, so the repo's gitignored
+# assets are addressed as "Desktop/dev/coverage hub/anzid_mtg_scoreboard/...".
+# If this repo lives somewhere else, those files rsync into a phantom
+# directory and the real repo never gets them — so check BEFORE copying.
+EXPECTED="$HOME/Desktop/dev/coverage hub/anzid_mtg_scoreboard"
+if [[ "$REPO" == "$EXPECTED" ]]; then
+  ok "repo is where the collection expects it"
+elif [[ "${FORCE:-}" == "1" ]]; then
+  warn "repo is at $REPO, not $EXPECTED — continuing because FORCE=1"
+  warn "gitignored assets will land in $EXPECTED, not in this repo"
+else
+  echo
+  die "repo is in the wrong place.
+
+       this repo:  $REPO
+       expected:   $EXPECTED
+
+       Two things break otherwise:
+         1. The gitignored assets (.env, restream-config.js, ~3.7 GB of
+            animations) would rsync into '$EXPECTED'
+            instead of into this repo.
+         2. Two OBS sources point inside the repo by absolute path and
+            would stay broken.
+
+       Move it first, then re-run from the new location:
+
+         mkdir -p ~/Desktop/dev/\"coverage hub\"
+         mv \"$REPO\" ~/Desktop/dev/\"coverage hub\"/
+         cd ~/Desktop/dev/\"coverage hub\"/anzid_mtg_scoreboard
+         ./scripts/obs/bootstrap-second-mac.sh $SRC
+
+       Or set FORCE=1 to proceed anyway and fix the assets by hand."
+fi
 echo
 
 # ── 1. media + gitignored assets ───────────────────────────────────────────
@@ -112,21 +146,8 @@ else
 fi
 echo
 
-# ── 4. repo location check ─────────────────────────────────────────────────
-bold "4. Repo location"
-EXPECTED="$HOME/Desktop/dev/coverage hub/anzid_mtg_scoreboard"
-if [[ "$REPO" == "$EXPECTED" ]]; then
-  ok "repo is where the collection expects it"
-else
-  warn "repo is at:       $REPO"
-  warn "collection wants: $EXPECTED"
-  warn "Two OBS sources point inside the repo by absolute path and will stay"
-  warn "broken until the repo lives at the expected path."
-fi
-echo
-
 # ── 5. verify ──────────────────────────────────────────────────────────────
-bold "5. Verifying"
+bold "4. Verifying"
 if [[ -n "$DRY" ]]; then
   ok "would run: node scripts/obs/verify-machine.mjs"
 else
