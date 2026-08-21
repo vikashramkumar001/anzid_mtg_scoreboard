@@ -36,6 +36,23 @@ https://topdeck.gg/developers. Without it the Load button reports the missing
 key. Topdeck requires a visible "powered by TopDeck.gg" credit on projects
 using the API.
 
+### Card vision (`CARD_VISION_ENABLED`)
+
+The experimental card recognizer starts with the server and holds an OBS
+WebSocket open, polling every 1 s (local state) and 10 s (scene transform),
+whether or not anyone is using it. Unless you are actively developing it:
+
+```
+CARD_VISION_ENABLED=false
+```
+
+⚠️ It reads `OBS_WS_URL`, which the main OBS integration does **not**
+(`features/obs-websocket.js` hardcodes `ws://localhost:4455`). If `OBS_WS_URL`
+points at another machine — e.g. `ws://192.168.4.20:4455` — then every box
+running the server quietly polls the **ingest box's** OBS. Leave `OBS_WS_URL`
+unset so each machine defaults to its own OBS, and `.env` stays portable
+across Dev-1, Dev-2 and the ingest box.
+
 ### Restream chat config (`public/js/restream-config.js`)
 
 Gitignored because it holds an embed token. The anu scoreboard's Restream chat

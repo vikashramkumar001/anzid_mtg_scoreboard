@@ -255,6 +255,17 @@ function enrichedState() {
 
 // ---------------------------------------------------------------------------
 export function initCardVision(app, io) {
+    // Opt-out switch. Card vision is an experimental recognizer: it holds an
+    // OBS WebSocket open and polls (1 s local state, 10 s scene transform)
+    // for as long as the server runs. When it isn't being used that is pure
+    // overhead — and if OBS_WS_URL points at another machine, it is overhead
+    // on THAT machine. Set CARD_VISION_ENABLED=false in .env to skip it.
+    const flag = (process.env.CARD_VISION_ENABLED || '').trim().toLowerCase();
+    if (flag === 'false' || flag === '0' || flag === 'off' || flag === 'no') {
+        log('disabled via CARD_VISION_ENABLED — no OBS connection, no polling');
+        return;
+    }
+
     app.get('/api/card-vision/state', (req, res) => {
         res.json(enrichedState());
     });
