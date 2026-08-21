@@ -113,4 +113,5 @@ public/assets/images/vibes/cards/LOL/
 data/obs exports/*.bak
 
 # Restream multichat embed URL (contains a token — local only, per machine)
-public/js/restream-config.js
+public/js/restream-config.js.env.bak-*
+.env.backup
