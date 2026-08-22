@@ -141,6 +141,29 @@ export async function fetchTopdeckTable(tid, roundNumber, tableNumber, apiKey) {
         return { p, standing, cmds: cmds.length ? cmds : commanderNames(standing) };
     });
 
+    // The public tournament object only carries decklists once the event has
+    // ENDED or the organizer ticked "Show Decks" — so mid-event, every seat
+    // above comes back empty. /attendees is the staff route (judge role or
+    // higher on the event) and is not gated that way. Try it only when we
+    // actually came up empty, and treat a 403 as "not staff here" → no-op.
+    if (seats.some(s => !s.cmds.length)) {
+        const attendees = await tdFetch(`/v2/tournaments/${encodeURIComponent(cleanTid)}/attendees`, apiKey)
+            .catch(() => []);
+        const byUid = new Map((Array.isArray(attendees) ? attendees : [])
+            .filter(a => a && a.uid).map(a => [a.uid, a]));
+        let filled = 0;
+        for (const s of seats) {
+            if (s.cmds.length) continue;
+            const a = byUid.get(s.p.id);
+            if (!a) continue;
+            const fromObj  = a.deckObj?.Commanders ? Object.keys(a.deckObj.Commanders).map(unescapeTopdeck) : [];
+            const fromList = a.decklist ? commanderFromDecklist(a.decklist).split(' / ').filter(Boolean) : [];
+            s.cmds = fromObj.length ? fromObj : fromList;
+            if (s.cmds.length) filled++;
+        }
+        if (filled) console.log(`[Topdeck] decklists hidden on the public object; filled ${filled}/${seats.length} seats from /attendees (staff route)`);
+    }
+
     await resolveColorIdentities(seats.flatMap(s => s.cmds));
 
     const players = seats.map(({ p, standing, cmds }) => {
