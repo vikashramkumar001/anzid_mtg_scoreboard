@@ -31,10 +31,22 @@ async function tdFetch(path, apiKey, opts = {}) {
     return res.json();
 }
 
+// Topdeck sends decklists (and some deck-object keys) with backslash escape
+// sequences left in the payload rather than decoded — literal "\n" for
+// newlines, and "\'" for apostrophes. Left alone, "Yuriko, the Tiger\'s
+// Shadow" reaches the overlay verbatim AND fails Scryfall's exact-name
+// lookup, so the card's colour pips silently go missing too.
+// One pass so a trailing backslash can't be double-consumed.
+const ESCAPES = { n: '\n', r: '\r', t: '\t' };
+export function unescapeTopdeck(str) {
+    if (typeof str !== 'string') return '';
+    return str.replace(/\\(.)/g, (_, c) => ESCAPES[c] ?? c);
+}
+
 // "~~Commanders~~\n1 Kinnan, Bonder Prodigy\n…" → "Kinnan, Bonder Prodigy"
 export function commanderFromDecklist(decklist) {
     if (!decklist || typeof decklist !== 'string') return '';
-    const text = decklist.replace(/\\n/g, '\n');   // literal \n → newline
+    const text = unescapeTopdeck(decklist);   // literal \n, \' etc.
     const m = text.match(/~~\s*Commanders?\s*~~\s*([\s\S]*?)(?:~~|$)/i);
     if (!m) return '';
     return m[1]
@@ -45,7 +57,7 @@ export function commanderFromDecklist(decklist) {
 }
 
 function commanderNames(standing) {
-    if (standing?.deckObj?.Commanders) return Object.keys(standing.deckObj.Commanders);
+    if (standing?.deckObj?.Commanders) return Object.keys(standing.deckObj.Commanders).map(unescapeTopdeck);
     const joined = commanderFromDecklist(standing?.decklist || '');
     return joined ? joined.split(' / ') : [];
 }
@@ -137,7 +149,7 @@ export async function fetchTopdeckTable(tid, roundNumber, tableNumber, apiKey) {
         const record = (wins === null || losses === null) ? ''
             : (draws > 0 ? `${wins}-${losses}-${draws}` : `${wins}-${losses}`);
         return {
-            name: (p.name || '').trim(),
+            name: unescapeTopdeck(p.name || '').trim(),
             commander: cmds.join(' / '),
             colors: colorsFor(cmds),
             record,
