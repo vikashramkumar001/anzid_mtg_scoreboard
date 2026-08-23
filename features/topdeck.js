@@ -97,6 +97,34 @@ function colorsFor(cmdNames) {
     return WUBRG.filter(c => set.has(c)).join('');
 }
 
+// Topdeck numbers Swiss rounds (1, 2, 3…) but names bracket rounds as strings
+// ("Top 64", "Top 16", "Top 4"). Master-control sends its own round-card
+// number (the round input is hidden outside flyquest 2v2), so once the cut
+// starts an exact match fails: card 6 asks for round "6" and Topdeck has
+// "Top 16". Resolution order:
+//   1. exact match on the round field (numeric Swiss, or a literal "Top 16")
+//   2. loose text: "top16", "T16", "top 16" → the "Top 16" round
+//   3. positional: rounds[] is chronological and round cards are sequential,
+//      so card N is the Nth round — card 6 → rounds[5] → "Top 16"
+export function resolveRound(rounds, roundNumber) {
+    const want = String(roundNumber ?? '').trim();
+    if (!want) return null;
+    const exact = rounds.find(r => String(r.round) === want);
+    if (exact) return exact;
+    const m = want.match(/^t(?:op)?\s*(\d+)$/i);
+    if (m) {
+        const loose = rounds.find(r => typeof r.round === 'string' && r.round.replace(/\s+/g, '').toLowerCase() === `top${m[1]}`);
+        if (loose) return loose;
+    }
+    const n = Number(want);
+    if (Number.isInteger(n) && n >= 1 && n <= rounds.length) {
+        const byIndex = rounds[n - 1];
+        console.log(`[Topdeck] round "${want}" not found by name; using round #${n} in order → "${byIndex.round}"`);
+        return byIndex;
+    }
+    return null;
+}
+
 export async function fetchTopdeckTable(tid, roundNumber, tableNumber, apiKey) {
     if (!apiKey) throw new Error('Topdeck API key not configured (TOPDECK_API_KEY in .env, or set it in the platform panel)');
     const cleanTid = String(tid || '').trim();
@@ -119,8 +147,7 @@ export async function fetchTopdeckTable(tid, roundNumber, tableNumber, apiKey) {
         .map(s => [s.id, s]));
 
     const rounds = Array.isArray(t.rounds) ? t.rounds : [];
-    const round = rounds.find(r => String(r.round) === String(roundNumber))
-        || null;
+    const round = resolveRound(rounds, roundNumber);
     if (!round) {
         const avail = rounds.map(r => r.round).join(', ') || 'none';
         throw new Error(`Round ${roundNumber} not found. Available: ${avail}`);
