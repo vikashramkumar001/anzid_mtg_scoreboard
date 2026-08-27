@@ -24,6 +24,7 @@ import { getGameSelection } from '../config/constants.js';
 import { connectTwitchChat } from './chat/twitch-irc.js';
 import { resolveCardName } from './chat/resolve.js';
 import { createPendingStore } from './chat/pending.js';
+import { createTwitchSender } from './chat/twitch-send.js';
 
 const CARD_SLOT = '3';
 const DEFAULTS = {
@@ -31,6 +32,7 @@ const DEFAULTS = {
     dwellMs: 8000,          // how long a chat card stays up
     promptWindowMs: 5000,   // wait for a disambiguation reply
     maxPerStream: 200,      // hard ceiling for one session
+    announceCooldown: true, // reply once per cooldown window, not per request
 };
 
 const log = (m) => console.log(`[chat-bridge] ${m}`);
@@ -55,8 +57,17 @@ export function initChatBridge(app, io, opts = {}) {
     if (!channel) { log('TWITCH_CHANNEL not set — not starting'); return { enabled: false }; }
 
     const cfg = { ...DEFAULTS, ...opts };
-    const say = opts.say || (async () => {});   // no-op until Helix creds exist
+    // Sending is optional: with no Twitch app credentials the bridge still
+    // reads chat and shows cards, it just can't post disambiguation prompts
+    // (ambiguous names then fall through to the timeout auto-pick).
+    const sender = opts.say ? null : createTwitchSender();
+    const say = opts.say || (sender ? sender.say : async () => {});
+    if (sender) {
+        if (sender.configured) sender.warmup().then(r => log(r.ok ? 'chat sending ready' : `chat sending unavailable: ${r.reason}`));
+        else log('chat sending not configured — prompts disabled, timeout auto-pick still works');
+    }
     let lastShownAt = 0, shownThisStream = 0, live = true;
+    let lastCooldownNoticeAt = 0;
 
     const clearSlot = () => emitCardView(io, {
         'game-id': getGameSelection(), 'card-selected': '', 'card-id': CARD_SLOT,
@@ -100,7 +111,17 @@ export function initChatBridge(app, io, opts = {}) {
         if (shownThisStream >= cfg.maxPerStream) return;
 
         const since = Date.now() - lastShownAt;
-        if (since < cfg.cooldownMs) return;                     // silent: never argue with chat
+        if (since < cfg.cooldownMs) {
+            // Tell chat once per cooldown window, not once per request — 30
+            // people typing during an 18s cooldown must not become 30 bot
+            // messages. Everyone after the first is dropped silently.
+            if (cfg.announceCooldown && lastCooldownNoticeAt <= lastShownAt) {
+                lastCooldownNoticeAt = Date.now();
+                const wait = Math.ceil((cfg.cooldownMs - since) / 1000);
+                say(`@${msg.displayName} card viewer is cooling down — ${wait}s`).catch(() => {});
+            }
+            return;
+        }
 
         const game = getGameSelection();
         const hit = resolveCardName(game, query);

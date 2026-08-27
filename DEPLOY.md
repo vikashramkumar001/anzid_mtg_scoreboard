@@ -53,6 +53,63 @@ running the server quietly polls the **ingest box's** OBS. Leave `OBS_WS_URL`
 unset so each machine defaults to its own OBS, and `.env` stays portable
 across Dev-1, Dev-2 and the ingest box.
 
+### Chat-driven card viewer (`CHAT_BRIDGE_ENABLED`)
+
+Viewers type `!card <name>`, `!c <name>` or `[[name]]` in Twitch chat and the
+card appears on **slot 3** (`/display/card/view/3`) — a separate OBS browser
+source that is deliberately NOT wired into the main scoreboard, so chat can
+never paint over the live overlay. Hiding that source is an instant kill.
+
+Off unless you set:
+
+```
+CHAT_BRIDGE_ENABLED=true
+TWITCH_CHANNEL=anzidmtg
+```
+
+**Reading chat needs no credentials** — it connects anonymously. Everything
+works at that point except posting disambiguation prompts; ambiguous names
+fall through to the 5-second auto-pick instead.
+
+#### Optional: let the bot post in chat
+
+Needed only for "did you mean 1) … 2) …" prompts and the cooldown notice.
+
+1. Create a second Twitch account for the bot (keeps prompts visually distinct
+   from you, and earns the Chat Bot badge).
+2. Register an app at <https://dev.twitch.tv/console/apps>. Client type
+   **Confidential**, OAuth redirect `http://localhost:3000`. Note the
+   **Client ID** and **Client Secret**.
+3. Grant the BOT account once — easiest with the Twitch CLI:
+   ```bash
+   twitch token -u -s 'user:write:chat user:bot'
+   ```
+   Log in **as the bot**. You can discard the printed token; only the grant
+   matters, and Twitch remembers it server-side.
+4. In your channel, `/mod <botname>`. That removes the need for a separate
+   `channel:bot` grant from the broadcaster and lifts the send limit from 20 to
+   100 messages / 30s.
+5. Add to `.env`:
+   ```
+   TWITCH_CLIENT_ID=...
+   TWITCH_CLIENT_SECRET=...
+   TWITCH_BOT_LOGIN=<botname>
+   ```
+
+The server then mints an **app access token** itself (~58 days, no refresh
+token to rotate or lose) and re-mints a day before expiry. Nothing to maintain
+mid-show. Boot logs `chat sending ready` when the credentials work.
+
+#### Operating it
+
+| | |
+|---|---|
+| Status | `GET /api/chat-bridge/status` |
+| Kill switch | `POST /api/chat-bridge/live/off` (and `/on`) — no restart |
+| Cooldown | 18s global between cards; one chat notice per window, not per request |
+| Dwell | card clears after 8s |
+| Blocked | content-warning cards, first-time chatters, unknown names (silent) |
+
 ### Restream chat config (`public/js/restream-config.js`)
 
 Gitignored because it holds an embed token. The anu scoreboard's Restream chat
