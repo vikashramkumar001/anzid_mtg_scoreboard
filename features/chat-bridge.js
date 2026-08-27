@@ -22,6 +22,7 @@
 import { emitCardView } from './cards.js';
 import { getGameSelection } from '../config/constants.js';
 import { connectTwitchChat } from './chat/twitch-irc.js';
+import { connectYouTubeChat } from './chat/youtube-live.js';
 import { resolveCardName } from './chat/resolve.js';
 import { createPendingStore } from './chat/pending.js';
 import { createTwitchSender } from './chat/twitch-send.js';
@@ -156,11 +157,32 @@ export function initChatBridge(app, io, opts = {}) {
             name: 'twitch',
             conn: connectTwitchChat({ channel, onMessage: handle, onStatus: (m) => log(`twitch: ${m}`) }),
         });
+        // YouTube is optional and read-only: an API key is all it needs, but
+        // sending would cost ~50 quota units a message AND drag in OAuth, so
+        // YouTube viewers get the card on screen rather than a chat reply.
+        const ytKey = (process.env.YOUTUBE_API_KEY || '').trim();
+        const ytVideo = (process.env.YOUTUBE_VIDEO_ID || '').trim();
+        const ytChannel = (process.env.YOUTUBE_CHANNEL_ID || '').trim();
+        if (ytKey && (ytVideo || ytChannel)) {
+            sources.push({
+                name: 'youtube',
+                conn: connectYouTubeChat({
+                    apiKey: ytKey, videoId: ytVideo || undefined, channelId: ytChannel || undefined,
+                    onMessage: handle, onStatus: (m) => log(`youtube: ${m}`),
+                }),
+            });
+        } else if (ytKey) {
+            log('youtube: YOUTUBE_API_KEY set but no YOUTUBE_VIDEO_ID / YOUTUBE_CHANNEL_ID — skipping');
+        }
     }
 
     app.get('/api/chat-bridge/status', (_req, res) => res.json({
         enabled: true, live, channel,
-        sources: sources.map(s => ({ name: s.name, connected: s.conn.isConnected() })),
+        sources: sources.map(s => ({
+            name: s.name,
+            connected: s.conn.isConnected(),
+            ...(s.conn.quotaUsed ? { quotaUsed: s.conn.quotaUsed() } : {}),
+        })),
         connected: sources.some(s => s.conn.isConnected()),
         shownThisStream, cooldownMs: cfg.cooldownMs,
         cooldownRemainingMs: Math.max(0, cfg.cooldownMs - (Date.now() - lastShownAt)),
