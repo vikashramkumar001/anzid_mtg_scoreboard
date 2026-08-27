@@ -130,6 +130,7 @@ async function fetchAndSaveCardFaceImages() {
                         manaCost: faceManaCost,
                         colors: faceColors,
                         cmc: faceCmc,
+                        contentWarning: card.content_warning === true,
                         priority: priority
                     });
                 }
@@ -151,6 +152,7 @@ async function fetchAndSaveCardFaceImages() {
                         manaCost: combinedManaCost,
                         colors: combinedColors,
                         cmc: card.cmc || 0,
+                        contentWarning: card.content_warning === true,
                         priority: priority
                     });
                 }
@@ -172,6 +174,7 @@ async function fetchAndSaveCardFaceImages() {
                     manaCost: manaCost,
                     colors: colors,
                     cmc: cmc,
+                    contentWarning: card.content_warning === true,
                     priority: priority
                 });
             }
@@ -186,11 +189,15 @@ async function fetchAndSaveCardFaceImages() {
             printings.sort((a, b) => b.priority - a.priority);
             const best = printings[0];
 
+            // contentWarning is OR'd across every printing, not taken from the
+            // chosen art: Scryfall flags it per-print, and a card whose art is
+            // problematic in ANY printing should never be auto-shown on air.
             nameToData[cardName] = {
                 imageUrl: best.imageUrl,
                 manaCost: best.manaCost,
                 colors: best.colors,
-                cmc: best.cmc
+                cmc: best.cmc,
+                ...(printings.some(p => p.contentWarning) ? { contentWarning: true } : {})
             };
         }
 

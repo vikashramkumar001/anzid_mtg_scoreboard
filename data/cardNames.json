@@ -37314,7 +37314,8 @@
     "colors": [
       "W"
     ],
-    "cmc": 4
+    "cmc": 4,
+    "contentWarning": true
   },
   "Cleansing": {
     "imageUrl": "https://cards.scryfall.io/png/front/f/c/fc1973a3-1410-4c6d-9b09-bd9d18646a1e.png?1562954748",
@@ -44612,7 +44613,8 @@
     "colors": [
       "W"
     ],
-    "cmc": 2
+    "cmc": 2,
+    "contentWarning": true
   },
   "Crusader of Odric": {
     "imageUrl": "https://cards.scryfall.io/png/front/2/9/295096bb-1857-4224-bc7b-307b38cfd338.png?1562551747",
@@ -105645,7 +105647,8 @@
     "colors": [
       "B"
     ],
-    "cmc": 1
+    "cmc": 1,
+    "contentWarning": true
   },
   "Imprisoned in the Moon": {
     "imageUrl": "https://cards.scryfall.io/png/front/7/9/7990ebba-e9f2-4ba4-a352-e26ec81d4bed.png?1576384154",
@@ -109179,7 +109182,8 @@
     "colors": [
       "U"
     ],
-    "cmc": 4
+    "cmc": 4,
+    "contentWarning": true
   },
   "Invoke the Ancients": {
     "imageUrl": "https://cards.scryfall.io/png/front/5/5/5564dc16-22f1-428a-8c49-ecc7de13d4a6.png?1647656905",
@@ -111995,7 +111999,8 @@
     "colors": [
       "W"
     ],
-    "cmc": 3
+    "cmc": 3,
+    "contentWarning": true
   },
   "Jill, Shiva's Dominant": {
     "imageUrl": "https://cards.scryfall.io/png/front/1/f/1f163763-4802-4a96-a5bc-f3c381db7b5c.png?1748707805",
@@ -160475,7 +160480,8 @@
     "colors": [
       "G"
     ],
-    "cmc": 3
+    "cmc": 3,
+    "contentWarning": true
   },
   "Praetor's Counsel": {
     "imageUrl": "https://cards.scryfall.io/png/front/b/6/b67c8bea-d4c9-4759-8a37-10546b234472.png?1562614102",
@@ -207321,7 +207327,8 @@
     "colors": [
       "B"
     ],
-    "cmc": 1
+    "cmc": 1,
+    "contentWarning": true
   },
   "Stone-Tongue Basilisk": {
     "imageUrl": "https://cards.scryfall.io/png/front/9/3/938d5157-154c-4300-82d4-0e23d934d436.png?1562922364",
