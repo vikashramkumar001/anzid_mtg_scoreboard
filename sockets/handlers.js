@@ -75,6 +75,7 @@ import {
     deleteArchetype,
     updateArchetypeImage
 } from "../features/archetypes.js";
+import { noteOperatorCard } from '../features/card-slot-owner.js';
 import {
     getSortedRoster,
     saveRoster,
@@ -749,6 +750,7 @@ export default function registerSocketHandlers(io) {
         });
 
         socket.on('view-selected-card', ({cardSelected}) => {
+            noteOperatorCard(cardSelected);
             console.log('[VIEW] view-selected-card from', socket.id, cardSelected);
             emitCardView(io, cardSelected);
         });
@@ -761,6 +763,7 @@ export default function registerSocketHandlers(io) {
         });
 
         socket.on('vibes-card-view-view-card', ({cardSelected}) => {
+            noteOperatorCard(cardSelected);
             emitVibesCardView(io, cardSelected);
         });
 
@@ -779,6 +782,7 @@ export default function registerSocketHandlers(io) {
         });
 
         socket.on('riftbound-card-view-view-card', ({cardSelected}) => {
+            noteOperatorCard(cardSelected);
             emitRiftboundCardView(io, cardSelected);
         });
 

@@ -26,6 +26,7 @@ import { connectYouTubeChat } from './chat/youtube-live.js';
 import { resolveCardName } from './chat/resolve.js';
 import { createPendingStore } from './chat/pending.js';
 import { createTwitchSender } from './chat/twitch-send.js';
+import { claimSlot, releaseSlot, slotOwner } from './card-slot-owner.js';
 
 const CARD_SLOT = '3';
 const DEFAULTS = {
@@ -75,6 +76,12 @@ export function initChatBridge(app, io, opts = {}) {
     });
 
     let dwellTimer = null;
+    // "Chat yields": the operator owns the viewer. On the anu scoreboard the
+    // left overlay is hidden, so the operator's card-id 2 and our card-id 3
+    // land on the SAME right-hand viewer — without this guard a viewer could
+    // stomp a card the operator just put up.
+    function operatorHasSlot() { return slotOwner(CARD_SLOT) === 'operator'; }
+
     function show(card, who) {
         // Only ever pass a canonical key that came out of our own card map —
         // raw chat text must never reach emitCardView. variant-url is left
@@ -82,12 +89,17 @@ export function initChatBridge(app, io, opts = {}) {
         emitCardView(io, {
             'game-id': getGameSelection(), 'card-selected': card.name, 'card-id': CARD_SLOT,
         });
+        claimSlot(CARD_SLOT, 'chat');
         lastShownAt = Date.now();
         shownThisStream++;
         log(`showing "${card.name}" (${who})`);
         io.emit('chat-card-shown', { name: card.name, requestedBy: who, at: lastShownAt });
         clearTimeout(dwellTimer);
-        dwellTimer = setTimeout(clearSlot, cfg.dwellMs);
+        dwellTimer = setTimeout(() => {
+            // Only clear if the card up there is still OURS — the operator may
+            // have taken the slot back in the meantime.
+            if (releaseSlot(CARD_SLOT, 'chat')) clearSlot();
+        }, cfg.dwellMs);
         dwellTimer.unref?.();
     }
 
@@ -95,6 +107,7 @@ export function initChatBridge(app, io, opts = {}) {
         windowMs: cfg.promptWindowMs,
         onResolve: (card, meta) => {
             if (!card) return;
+            if (operatorHasSlot()) return;   // operator took the slot while we waited
             if (card.contentWarning) { log(`blocked (content warning): ${card.name}`); return; }
             show(card, meta.displayName);
         },
@@ -113,6 +126,8 @@ export function initChatBridge(app, io, opts = {}) {
         if (!query) return;
         if (msg.firstMsg) return;                               // drop brand-new accounts silently
         if (shownThisStream >= cfg.maxPerStream) return;
+
+        if (operatorHasSlot()) return;      // operator's card is up — chat yields, silently
 
         const since = Date.now() - lastShownAt;
         if (since < cfg.cooldownMs) {
@@ -186,6 +201,7 @@ export function initChatBridge(app, io, opts = {}) {
         connected: sources.some(s => s.conn.isConnected()),
         shownThisStream, cooldownMs: cfg.cooldownMs,
         cooldownRemainingMs: Math.max(0, cfg.cooldownMs - (Date.now() - lastShownAt)),
+        slotOwner: slotOwner(CARD_SLOT),
         pendingPrompts: pending.size(),
     }));
 
