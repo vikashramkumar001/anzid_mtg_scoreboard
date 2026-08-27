@@ -28,6 +28,7 @@ import {loadCardListData as riftboundLoadCardListData} from './features/riftboun
 import {loadCardListData as starwarsLoadCardListData} from './features/starwars/cards.js'
 import { initOBSWebSocket } from './features/obs-websocket.js';
 import { initCardVision } from './features/card-vision.js';
+import { initChatBridge } from './features/chat-bridge.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -106,6 +107,7 @@ async function initialize() {
   // Card-vision EBS: bridge live_loop.py's state.json to overlay clients
   // (socket.io now; Twitch PubSub once the extension is registered)
   initCardVision(app, io);
+  initChatBridge(app, io);
 
   server.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running at http://0.0.0.0:${PORT}`);
