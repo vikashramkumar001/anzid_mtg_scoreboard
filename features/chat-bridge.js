@@ -103,7 +103,10 @@ export function initChatBridge(app, io, opts = {}) {
         if (!live) return;
         // A bare number resolves this user's own open prompt, and is never
         // treated as a card name.
-        if (pending.tryPick(msg.userId, msg.text)) return;
+        // Key by platform+id: a Twitch id and a YouTube id could otherwise
+        // collide and let one viewer resolve another's prompt.
+        const key = `${msg.platform}:${msg.userId}`;
+        if (pending.tryPick(key, msg.text)) return;
 
         const query = parseCommand(msg.text);
         if (!query) return;
@@ -133,7 +136,7 @@ export function initChatBridge(app, io, opts = {}) {
                 .map(n => resolveCardName(game, n))
                 .filter(c => c && !c.contentWarning);
             if (opts.length > 1) {
-                const listed = pending.open(msg.userId, msg.displayName, opts);
+                const listed = pending.open(key, msg.displayName, opts);
                 const menu = listed.map((c, i) => `${i + 1}) ${c.name}`).join('  ');
                 say(`@${msg.displayName} did you mean: ${menu}`).catch(() => {});
                 return;
@@ -142,15 +145,23 @@ export function initChatBridge(app, io, opts = {}) {
         show(hit, msg.displayName);
     }
 
-    // opts.connect === false lets tests drive handle() directly without a
-    // live socket. Production never passes it.
-    const conn = opts.connect === false
-        ? { stop() {}, isConnected: () => false }
-        : connectTwitchChat({ channel, onMessage: handle, onStatus: (m) => log(m) });
+    // One bridge, many chat sources. Each adapter only has to call handle()
+    // with { platform, userId, displayName, text, firstMsg }; resolution,
+    // cooldown, disambiguation and the denylist are transport-agnostic.
+    // opts.connect === false lets tests drive handle() directly. Production
+    // never passes it.
+    const sources = [];
+    if (opts.connect !== false) {
+        sources.push({
+            name: 'twitch',
+            conn: connectTwitchChat({ channel, onMessage: handle, onStatus: (m) => log(`twitch: ${m}`) }),
+        });
+    }
 
     app.get('/api/chat-bridge/status', (_req, res) => res.json({
         enabled: true, live, channel,
-        connected: conn.isConnected(),
+        sources: sources.map(s => ({ name: s.name, connected: s.conn.isConnected() })),
+        connected: sources.some(s => s.conn.isConnected()),
         shownThisStream, cooldownMs: cfg.cooldownMs,
         cooldownRemainingMs: Math.max(0, cfg.cooldownMs - (Date.now() - lastShownAt)),
         pendingPrompts: pending.size(),
@@ -167,7 +178,9 @@ export function initChatBridge(app, io, opts = {}) {
     log(`live on #${channel} — cooldown ${cfg.cooldownMs}ms, dwell ${cfg.dwellMs}ms, slot ${CARD_SLOT}`);
     return {
         enabled: true,
-        stop() { conn.stop(); pending.shutdown(); clearTimeout(dwellTimer); },
+        stop() { for (const s of sources) s.conn.stop(); pending.shutdown(); clearTimeout(dwellTimer); },
+        addSource(name, conn) { sources.push({ name, conn }); },
+        handle,
         _test: { handle, parseCommand, status: () => ({ shownThisStream, lastShownAt }) },
     };
 }
