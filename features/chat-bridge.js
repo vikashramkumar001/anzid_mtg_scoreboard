@@ -37,6 +37,7 @@ const DEFAULTS = {
     promptWindowMs: 5000,   // wait for a disambiguation reply
     maxPerStream: 200,      // hard ceiling for one session
     announceCooldown: true, // reply once per cooldown window, not per request
+    maxHoldMs: 30000,       // drop a queued request older than this
 };
 
 const log = (m) => console.log(`[chat-bridge] ${m}`);
@@ -81,6 +82,21 @@ export function initChatBridge(app, io, opts = {}) {
     let lastShownAt = 0, shownThisStream = 0, live = true;
     let lastCooldownNoticeAt = 0;
 
+    // ── Cross-platform fairness ──────────────────────────────────────────────
+    // The cooldown is global, so whoever lands first takes the slot and locks
+    // everyone else out for a full window. Twitch arrives instantly while
+    // YouTube arrives on a poll, so on a busy Twitch chat YouTube would lose
+    // essentially every race — not on latency, on volume — and the loss is
+    // invisible there because we cannot post to YouTube.
+    //
+    // So a request that arrives during a cooldown is PARKED instead of dropped,
+    // one slot per platform (most recent wins), and when the window expires the
+    // platform that was NOT served last goes first. Twitch still gets every
+    // slot nobody else is waiting for.
+    const waiting = new Map();      // platform -> { card, who, at }
+    let lastServedPlatform = null;
+    let drainTimer = null;
+
     const clearSlot = () => {
         try {
             emitCardView(io, { 'game-id': getGameSelection(), 'card-selected': '', 'card-id': CARD_SLOT });
@@ -94,7 +110,7 @@ export function initChatBridge(app, io, opts = {}) {
     // stomp a card the operator just put up.
     function operatorHasSlot() { return slotOwner(CARD_SLOT) === 'operator'; }
 
-    function show(card, who) {
+    function show(card, who, platform = null) {
         // Only ever pass a canonical key that came out of our own card map —
         // raw chat text must never reach emitCardView. variant-url is left
         // unset on purpose: features/cards.js feeds it straight to img.src.
@@ -108,7 +124,9 @@ export function initChatBridge(app, io, opts = {}) {
         }
         claimSlot(CARD_SLOT, 'chat');
         lastShownAt = Date.now();
+        if (platform) lastServedPlatform = platform;
         shownThisStream++;
+        scheduleDrain();                 // anyone parked gets the next window
         log(`showing "${card.name}" (${who})`);
         io.emit('chat-card-shown', { name: card.name, requestedBy: who, at: lastShownAt });
         clearTimeout(dwellTimer);
@@ -118,6 +136,31 @@ export function initChatBridge(app, io, opts = {}) {
             if (releaseSlot(CARD_SLOT, 'chat')) clearSlot();
         }, cfg.dwellMs);
         dwellTimer.unref?.();
+    }
+
+    function scheduleDrain() {
+        if (drainTimer || !waiting.size) return;
+        const wait = Math.max(0, cfg.cooldownMs - (Date.now() - lastShownAt));
+        drainTimer = setTimeout(() => { drainTimer = null; drain(); }, wait + 25);
+        drainTimer.unref?.();
+    }
+
+    function drain() {
+        if (!live || !waiting.size) return;
+        if (Date.now() - lastShownAt < cfg.cooldownMs) { scheduleDrain(); return; }
+        // The operator owns the viewer — parked chat requests are stale by the
+        // time they would land, and chat yields to the operator either way.
+        if (operatorHasSlot()) { waiting.clear(); return; }
+        for (const [p, e] of [...waiting]) {
+            if (Date.now() - e.at > cfg.maxHoldMs) waiting.delete(p);
+        }
+        if (!waiting.size) return;
+        const platforms = [...waiting.keys()];
+        const pick = platforms.find(p => p !== lastServedPlatform) ?? platforms[0];
+        const entry = waiting.get(pick);
+        waiting.delete(pick);
+        log(`serving parked ${pick} request "${entry.card.name}"`);
+        show(entry.card, entry.who, pick);
     }
 
     const pending = createPendingStore({
@@ -135,7 +178,9 @@ export function initChatBridge(app, io, opts = {}) {
                 return;
             }
             if (card.contentWarning) { log(`blocked (content warning): ${card.name}`); return; }
-            show(card, meta.displayName);
+            // The pending store keys by "<platform>:<userId>", which is the only
+            // place the platform survives a parked prompt.
+            show(card, meta.displayName, String(meta.userId || '').split(':')[0] || null);
         },
     });
 
@@ -170,23 +215,32 @@ export function initChatBridge(app, io, opts = {}) {
 
         if (operatorHasSlot()) return;      // operator's card is up — chat yields, silently
 
-        const since = Date.now() - lastShownAt;
-        if (since < cfg.cooldownMs) {
-            // Tell chat once per cooldown window, not once per request — 30
-            // people typing during an 18s cooldown must not become 30 bot
-            // messages. Everyone after the first is dropped silently.
-            if (cfg.announceCooldown && lastCooldownNoticeAt <= lastShownAt) {
-                lastCooldownNoticeAt = Date.now();
-                const wait = Math.ceil((cfg.cooldownMs - since) / 1000);
-                say(`@${msg.displayName} card viewer is cooling down — ${wait}s`).catch(() => {});
-            }
-            return;
-        }
-
+        // Resolve BEFORE the cooldown check so a request that has to wait can be
+        // parked as a real card rather than as raw text to re-parse later.
         const game = getGameSelection();
         const hit = resolveCardName(game, query);
         if (!hit) return;                                       // unknown name -> no-op, no reply
         if (hit.contentWarning) { log(`blocked (content warning): ${hit.name}`); return; }
+
+        const since = Date.now() - lastShownAt;
+        if (since < cfg.cooldownMs) {
+            // Park it for the next window instead of dropping it. One slot per
+            // platform: the most recent request from a platform replaces that
+            // platform's parked one, so a busy chat cannot build a backlog.
+            // Ambiguous names park as the top-ranked printing — a prompt whose
+            // answer could not be shown for another 18s is worse than no prompt.
+            waiting.set(msg.platform, { card: hit, who: msg.displayName, at: Date.now() });
+            scheduleDrain();
+            // Tell chat once per cooldown window, not once per request — 30
+            // people typing during an 18s cooldown must not become 30 bot
+            // messages. Everyone after the first is parked silently.
+            if (cfg.announceCooldown && canPromptOn(msg.platform) && lastCooldownNoticeAt <= lastShownAt) {
+                lastCooldownNoticeAt = Date.now();
+                const wait = Math.ceil((cfg.cooldownMs - since) / 1000);
+                say(`@${msg.displayName} card viewer is busy — yours is queued (${wait}s)`).catch(() => {});
+            }
+            return;
+        }
 
         if (hit.ambiguous && Array.isArray(hit.alternatives) && hit.alternatives.length > 1) {
             const opts = hit.alternatives
@@ -200,9 +254,9 @@ export function initChatBridge(app, io, opts = {}) {
             }
             // No way to ask: show the top-ranked printing straight away rather
             // than stalling for a reply that was never invited.
-            if (opts.length > 1) { show(opts[0], msg.displayName); return; }
+            if (opts.length > 1) { show(opts[0], msg.displayName, msg.platform); return; }
         }
-        show(hit, msg.displayName);
+        show(hit, msg.displayName, msg.platform);
     }
 
     // One bridge, many chat sources. Each adapter only has to call handle()
@@ -227,6 +281,7 @@ export function initChatBridge(app, io, opts = {}) {
                 name: 'youtube',
                 conn: connectYouTubeChat({
                     apiKey: ytKey, videoId: ytVideo || undefined, channelId: ytChannel || undefined,
+                    pollMs: Number(process.env.YOUTUBE_POLL_MS) || undefined,
                     onMessage: handle, onStatus: (m) => log(`youtube: ${m}`),
                 }),
             });
@@ -247,20 +302,22 @@ export function initChatBridge(app, io, opts = {}) {
         cooldownRemainingMs: Math.max(0, cfg.cooldownMs - (Date.now() - lastShownAt)),
         slotOwner: slotOwner(CARD_SLOT),
         pendingPrompts: pending.size(),
+        queued: [...waiting.entries()].map(([p, e]) => ({ platform: p, card: e.card.name, waitingMs: Date.now() - e.at })),
+        lastServedPlatform,
     }));
 
     // Kill switch — flip without restarting the server mid-show.
     app.post('/api/chat-bridge/live/:state', (req, res) => {
         live = req.params.state === 'on';
         log(`kill switch: ${live ? 'LIVE' : 'PAUSED'}`);
-        if (!live) { pending.shutdown(); clearSlot(); }
+        if (!live) { pending.shutdown(); waiting.clear(); clearTimeout(drainTimer); drainTimer = null; clearSlot(); }
         res.json({ live });
     });
 
     log(`live on #${channel} — cooldown ${cfg.cooldownMs}ms, dwell ${cfg.dwellMs}ms, slot ${CARD_SLOT}`);
     return {
         enabled: true,
-        stop() { for (const s of sources) s.conn.stop(); pending.shutdown(); clearTimeout(dwellTimer); },
+        stop() { for (const s of sources) s.conn.stop(); pending.shutdown(); clearTimeout(dwellTimer); clearTimeout(drainTimer); waiting.clear(); },
         addSource(name, conn) { sources.push({ name, conn }); },
         handle,
         _test: { handle, parseCommand, status: () => ({ shownThisStream, lastShownAt }) },

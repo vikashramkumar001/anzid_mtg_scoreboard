@@ -5,21 +5,34 @@
 // ~50 quota units per message, so this adapter is read-only by design — the
 // card appearing on stream IS the feedback for YouTube viewers.)
 //
-// QUOTA IS THE REAL CONSTRAINT. Default is 10,000 units/day, resetting at
-// midnight Pacific, and liveChatMessages.list costs ~1 unit per call:
+// QUOTA IS THE REAL CONSTRAINT. Default is 10,000 units/day per PROJECT (not
+// per key), resetting on Pacific time. Google does not document the unit cost
+// of liveChatMessages.list specifically; the table below assumes the general
+// "a list operation usually costs 1 unit" rule. VERIFY IT on a real stream by
+// watching quotaUsed on /api/chat-bridge/status for an hour before trusting a
+// fast interval — if the true cost is 5 units, every row below is 5x and
+// polling cannot cover a long show at any interval.
 //
-//   interval   6h stream    12h stream   % of daily quota (12h)
-//   1s         21,600       43,200       432%   <- what the API asks for
-//   5s          4,320        8,640        86%
-//   6s          3,600        7,200        72%   <- our floor
+//   interval   calls in 6h   units   % of 10,000
+//   1s            21,600     21,600     216%   <- what the API asks for
+//   2s            10,800     10,800     108%
+//   3s             7,200      7,200      72%   <- our default, fits a 6h show
+//   4s             5,400      5,400      54%
+//   6s             3,600      3,600      36%   <- headroom for two shows a day
 //
 // The API's own pollingIntervalMillis drops to ~1s on a busy chat, which would
-// burn the entire day's quota in under three hours and kill the feature
+// burn the whole day's quota in under three hours and kill the feature
 // mid-show. So we honour that hint only when it is SLOWER than our floor.
-// 6s of latency on a !card request is imperceptible on a broadcast.
+//
+// A lower-latency option exists: liveChatMessages.streamList is a gRPC
+// server-streaming endpoint that pushes messages instead of polling. It needs
+// @grpc/grpc-js plus proto handling, and Google documents neither the
+// connection lifetime, the dedup rules across reconnects, nor any reconnection
+// rate limit — so it is deliberately not used here. See DEPLOY.md.
 
 const API = 'https://www.googleapis.com/youtube/v3';
-const POLL_FLOOR_MS = 6000;
+const DEFAULT_POLL_MS = 3000;    // fits a 6h show at 72% of the default quota
+const MIN_POLL_MS = 1000;       // the API itself never asks for faster
 const DAILY_BUDGET = 9000;      // leave headroom under the 10k default
 
 const log = (m) => console.log(`[youtube-live] ${m}`);
@@ -45,7 +58,10 @@ async function api(path, params, key) {
  *
  * Returns { stop, isConnected, quotaUsed }.
  */
-export function connectYouTubeChat({ apiKey, videoId, channelId, onMessage, onStatus = () => {} }) {
+export function connectYouTubeChat({ apiKey, videoId, channelId, pollMs, onMessage, onStatus = () => {} }) {
+    // Operator-tunable via YOUTUBE_POLL_MS. Clamped so a typo cannot set 50ms
+    // and torch the day's quota in ten minutes.
+    const floorMs = Math.max(MIN_POLL_MS, Number(pollMs) || DEFAULT_POLL_MS);
     let stopped = false, liveChatId = null, pageToken = null;
     let connected = false, timer = null;
     let used = 0, day = new Date().toDateString();
@@ -82,7 +98,7 @@ export function connectYouTubeChat({ apiKey, videoId, channelId, onMessage, onSt
 
     async function poll() {
         if (stopped) return;
-        let waitMs = POLL_FLOOR_MS;
+        let waitMs = floorMs;
         try {
             if (!liveChatId) await resolveChat();
 
@@ -124,7 +140,7 @@ export function connectYouTubeChat({ apiKey, videoId, channelId, onMessage, onSt
                 if (seen.size > 5000) for (const k of [...seen].slice(0, 2500)) seen.delete(k);
 
                 // Honour the API's hint only when it asks us to go SLOWER.
-                waitMs = Math.max(POLL_FLOOR_MS, Number(j.pollingIntervalMillis) || 0);
+                waitMs = Math.max(floorMs, Number(j.pollingIntervalMillis) || 0);
             }
         } catch (e) {
             connected = false;
