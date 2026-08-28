@@ -55,10 +55,15 @@ across Dev-1, Dev-2 and the ingest box.
 
 ### Chat-driven card viewer (`CHAT_BRIDGE_ENABLED`)
 
-Viewers type `!card <name>`, `!c <name>` or `[[name]]` in Twitch chat and the
-card appears on **slot 3** (`/display/card/view/3`) — a separate OBS browser
-source that is deliberately NOT wired into the main scoreboard, so chat can
-never paint over the live overlay. Hiding that source is an instant kill.
+Viewers type `!card <name>`, `!c <name>` or `[[name]]` in chat and the card
+appears on **slot 3** (`/display/card/view/3`), which has its own OBS browser
+source — hiding it is an instant kill.
+
+Note that slot 3 ALSO renders on the main scoreboard's right-hand viewer:
+`scoreboard.js` routes by `card-id === '1' ? left : right`, so anything that is
+not 1 lands on the right. It is not a 1/2 whitelist. Chat cannot paint over the
+operator, but that is because of the operator-yield guard (which keys on the
+SIDE, not the card id), not because the slot is unrouted.
 
 Off unless you set:
 
@@ -100,6 +105,55 @@ The server then mints an **app access token** itself (~58 days, no refresh
 token to rotate or lose) and re-mints a day before expiry. Nothing to maintain
 mid-show. Boot logs `chat sending ready` when the credentials work.
 
+#### Optional: read YouTube live chat too
+
+YouTube is **read-only** — posting costs ~50 quota units a message and needs
+OAuth, so YouTube viewers never get a "did you mean" menu. An ambiguous name
+shows the top-ranked printing immediately rather than stalling on a prompt they
+cannot see.
+
+1. Create a project at <https://console.cloud.google.com/>.
+2. **APIs & Services → Library → YouTube Data API v3 → Enable.**
+3. **APIs & Services → Credentials → Create credentials → API key.**
+   Restrict it to the YouTube Data API (Application restrictions can stay None
+   — it is used server-side, not from a browser).
+4. Add to `.env`:
+   ```
+   YOUTUBE_API_KEY=...
+   YOUTUBE_CHANNEL_ID=UC...      # auto-finds whatever is live — set this one
+   # YOUTUBE_VIDEO_ID=...        # or pin one broadcast (needs editing per stream)
+   # YOUTUBE_POLL_MS=3000        # default 3000, clamped to >= 1000
+   ```
+   Your channel ID is in YouTube Studio → Settings → Channel → Advanced.
+
+Prefer `YOUTUBE_CHANNEL_ID`: it is read once at boot, so pinning a video id
+means editing `.env` and restarting the server before every stream, which drops
+every overlay and iPad. Channel discovery uses `search.list`, which has its own
+100-calls/day bucket separate from the 10,000 units.
+
+**Quota.** 10,000 units/day per PROJECT (not per key), resetting Pacific time.
+Google does not document the per-call cost of `liveChatMessages.list`; the
+figures below assume the general "a list operation costs 1 unit" rule.
+
+| Poll interval | Calls in 6h | Units | Of 10,000 |
+|---|---|---|---|
+| 1s | 21,600 | 21,600 | 216% — over |
+| 2s | 10,800 | 10,800 | 108% — over |
+| **3s** | **7,200** | **7,200** | **72% — default** |
+| 6s | 3,600 | 3,600 | 36% — room for two shows |
+
+**Verify this before trusting it.** Watch `quotaUsed` on the status endpoint
+for the first hour of a real stream: ~1,200 after an hour at 3s means 1 unit per
+call and the table holds; ~6,000 means 5 units, and polling cannot cover a
+6-hour show at any interval. The adapter stops itself at 9,000 and pauses.
+
+A push-based alternative exists — `liveChatMessages.streamList`, a gRPC
+server-streaming endpoint with much lower latency and no polling cost. It needs
+`@grpc/grpc-js` plus proto handling, and Google documents neither the
+connection lifetime, the dedup rules across reconnects, nor any reconnection
+rate limit. Not used here for that reason; revisit if the quota check comes back
+above 1 unit per call.
+
 #### Operating it
 
 | | |
@@ -107,6 +161,7 @@ mid-show. Boot logs `chat sending ready` when the credentials work.
 | Status | `GET /api/chat-bridge/status` |
 | Kill switch | `POST /api/chat-bridge/live/off` (and `/on`) — no restart |
 | Cooldown | 18s global between cards; one chat notice per window, not per request |
+| Fairness | a request arriving during a cooldown is PARKED (one per platform, newest wins) and the platform not served last goes first — so YouTube cannot be permanently crowded out by a busier Twitch chat. Parked entries expire after 30s |
 | Dwell | card clears after 8s |
 | Blocked | content-warning cards, first-time chatters, unknown names (silent) |
 
