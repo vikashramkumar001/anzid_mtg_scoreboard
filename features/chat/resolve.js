@@ -58,7 +58,7 @@ function editDistance(a, b, cap) {
 // slack — one edit on a 4-letter word is a different word — while longer
 // names tolerate a couple of slips.
 function typoBudget(len) {
-    if (len <= 4) return 0;
+    if (len <= 3) return 0;
     if (len <= 7) return 1;
     if (len <= 12) return 2;
     return 3;
@@ -194,7 +194,7 @@ export function resolveCardName(game, query) {
     // match to begin at a word boundary keeps "blade dancer" ->
     // "Irelia, Blade Dancer" while refusing mid-word coincidences.
     if (q.length >= 4) {
-        let best = null, bestScore = 0;
+        let best = null, bestScore = 0, bestAt = -1;
         for (const n of names) {
             const nn = normalize(n);
             const at = nn.indexOf(q);
@@ -206,12 +206,19 @@ export function resolveCardName(game, query) {
             const { starts, ends } = wordBounds(n);
             if (!starts.has(at) || !ends.has(at + q.length)) continue;
             const score = q.length / nn.length;
-            if (score > bestScore) { bestScore = score; best = n; }
+            if (score > bestScore) { bestScore = score; best = n; bestAt = at; }
         }
         if (best && bestScore >= 0.45) {
-            // Land on the ranked variant when the hit is really a base name.
+            // Only redirect to the ranked variant when the match actually falls
+            // inside the BASE name. A hit in the subtitle — "storm of shuriken",
+            // "fervent" — names exactly one card, and redirecting it to the base
+            // list's first entry put the WRONG Kennen on air.
             const head = normalize(best.split(',')[0]);
-            if (base.has(head) && normalize(best) !== q) return decorate(base.get(head)[0], { fuzzy: true });
+            const inHead = bestAt + q.length <= head.length;
+            if (inHead && base.has(head) && normalize(best) !== q) {
+                const list = base.get(head);
+                return decorate(list[0], { fuzzy: true, ambiguous: list.length > 1, alternatives: list });
+            }
             return decorate(best, { fuzzy: true });
         }
     }
@@ -221,16 +228,31 @@ export function resolveCardName(game, query) {
     // lands on the Legend. Length pre-filter keeps this cheap over MTG's ~32k.
     const cap = typoBudget(q.length);
     if (cap > 0) {
-        let bestName = null, bestDist = cap + 1;
-        const consider = (candidateKey, canonical) => {
+        let bestDist = cap + 1;
+        let winners = new Map();          // canonical name -> its base list (or null)
+        const consider = (candidateKey, canonical, list) => {
             if (Math.abs(candidateKey.length - q.length) > cap) return;
             const d = editDistance(q, candidateKey, cap);
-            if (d < bestDist) { bestDist = d; bestName = canonical; }
+            if (d > cap) return;
+            if (d < bestDist) { bestDist = d; winners = new Map(); }
+            if (d === bestDist && !winners.has(canonical)) winners.set(canonical, list);
         };
-        for (const [k, canonical] of base) consider(k, canonical[0]);
-        for (const [k, canonical] of exact) consider(k, canonical);
-        if (bestName && bestDist <= cap) {
-            return decorate(bestName, { fuzzy: true, typo: true, distance: bestDist });
+        // Keep the whole base list, not just its first card: "irleia" is the
+        // same intent as "irelia", so it must offer the same three Irelias
+        // rather than silently forcing the Legend.
+        for (const [k, list] of base) consider(k, list[0], list);
+        for (const [k, canonical] of exact) consider(k, canonical, null);
+        // A tie between DIFFERENT cards at the same distance is a coin flip, and
+        // a coin flip puts the wrong card on air. Refuse instead. This is what
+        // makes a 1-edit budget safe on four-letter names: "bard"/"bird" is the
+        // only colliding short pair in Riftbound, and it now resolves to neither.
+        if (winners.size === 1) {
+            const [bestName, bestList] = [...winners][0];
+            const multi = !!(bestList && bestList.length > 1);
+            return decorate(bestName, {
+                fuzzy: true, typo: true, distance: bestDist,
+                ...(multi ? { ambiguous: true, alternatives: bestList } : {}),
+            });
         }
     }
 
