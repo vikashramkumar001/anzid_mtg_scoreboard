@@ -54,6 +54,15 @@ function editDistance(a, b, cap) {
     return prev[bl];
 }
 
+// Function words that carry no request on their own. Only ever applied when
+// the WHOLE query is made of them.
+const STOPWORDS = new Set([
+    'a', 'an', 'and', 'are', 'as', 'at', 'be', 'but', 'by', 'for', 'from', 'if',
+    'in', 'into', 'is', 'it', 'its', 'me', 'my', 'of', 'on', 'or', 'our', 'so',
+    'that', 'the', 'their', 'them', 'then', 'these', 'they', 'this', 'those',
+    'to', 'up', 'was', 'were', 'when', 'with', 'you', 'your',
+]);
+
 // How wrong a name may be before we refuse it. Short names get almost no
 // slack — one edit on a 4-letter word is a different word — while longer
 // names tolerate a couple of slips.
@@ -179,47 +188,89 @@ export function resolveCardName(game, query) {
         }
     }
 
-    // 4. unique prefix
-    const prefix = names.filter(n => normalize(n).startsWith(q));
-    if (prefix.length === 1) return decorate(prefix[0]);
-    if (prefix.length > 1) {
-        const shortest = prefix.reduce((a, b) => (a.length <= b.length ? a : b));
-        return decorate(shortest, { ambiguous: true, alternatives: prefix.slice(0, 5) });
-    }
+    // A query made only of function words is not a request. Without this,
+    // "!card the" prompted with five "The ..." cards and auto-picked one, and
+    // "of the" put Eye of the Herald on air — free airtime for anyone bored
+    // enough to type it every cooldown. Placed AFTER the exact/base passes, so
+    // a card genuinely named one of these still resolves when typed in full.
+    if (raw.split(/[^A-Za-z0-9']+/).filter(Boolean).every(w => STOPWORDS.has(w.toLowerCase()))) return null;
 
-    // 5. partial name — must be a contiguous run that starts at a WORD in the
-    // card's name. A plain subsequence test is far too loose: "<script>"
-    // normalizes to "script", which really is inside "Con|script|ion", and a
-    // troll typing markup would have put a random card on air. Requiring the
-    // match to begin at a word boundary keeps "blade dancer" ->
-    // "Irelia, Blade Dancer" while refusing mid-word coincidences.
+    // Every card in which the query appears as a WHOLE word — the span must
+    // begin and end on word boundaries at BOTH ends. A plain substring test is
+    // far too loose: "<script>" normalizes to "script", which really does sit
+    // inside "Con|script|ion", so a troll typing markup put a random card on
+    // air. This is gathered BEFORE any decision because it is the strongest
+    // evidence there is short of an exact hit — the viewer typed a real word of
+    // a real card name, with zero edits — and the passes below defer to it.
+    const wordHits = [];
     if (q.length >= 4) {
-        let best = null, bestScore = 0, bestAt = -1;
         for (const n of names) {
             const nn = normalize(n);
             const at = nn.indexOf(q);
             if (at < 0) continue;
-            // Must span WHOLE words at both ends. Start-only alignment still
-            // let "script" match "The True Scriptures" — a real prefix of a
-            // real word — and put a random card on air for a troll typing
-            // markup. Whole-word spans keep "blade dancer" working.
             const { starts, ends } = wordBounds(n);
             if (!starts.has(at) || !ends.has(at + q.length)) continue;
-            const score = q.length / nn.length;
-            if (score > bestScore) { bestScore = score; best = n; bestAt = at; }
+            wordHits.push({ name: n, at, score: q.length / nn.length });
         }
-        if (best && bestScore >= 0.45) {
-            // Only redirect to the ranked variant when the match actually falls
-            // inside the BASE name. A hit in the subtitle — "storm of shuriken",
-            // "fervent" — names exactly one card, and redirecting it to the base
-            // list's first entry put the WRONG Kennen on air.
-            const head = normalize(best.split(',')[0]);
-            const inHead = bestAt + q.length <= head.length;
-            if (inHead && base.has(head) && normalize(best) !== q) {
+    }
+    const wordHitNames = new Set(wordHits.map(h => h.name));
+    // One card shows; several offer chat a numbered choice.
+    const fromWordHits = () => {
+        const uniq = [...new Set(wordHits.slice().sort((a, b) => b.score - a.score).map(h => h.name))];
+        if (uniq.length === 1) return decorate(uniq[0], { fuzzy: true });
+        const top = uniq.slice(0, 5);
+        return decorate(top[0], { fuzzy: true, ambiguous: true, alternatives: top });
+    };
+
+    // 4. prefix. A prefix that stops in the MIDDLE of a word is weak evidence:
+    // "mage" prefixes "Mageseeker Warden", but "Mageseeker" is simply a
+    // different word, and meanwhile "Apprentice Mage" contains the actual word.
+    // Prefer prefixes that end on a word boundary; when none do, yield to the
+    // whole-word hits rather than showing a card that merely starts the same.
+    const prefix = names.filter(n => normalize(n).startsWith(q));
+    if (prefix.length) {
+        const aligned = prefix.filter(n => wordBounds(n).ends.has(q.length));
+        const pick = aligned.length ? aligned : (wordHits.length ? null : prefix);
+        if (pick) {
+            if (pick.length === 1) return decorate(pick[0]);
+            // When every candidate is the same champion ("kenn"), defer to the
+            // ranked base list so the Legend leads, exactly as "kennen" does —
+            // otherwise the shortest NAME led, which is arbitrary.
+            const heads = new Set(pick.map(n => normalize(n.split(',')[0])));
+            if (heads.size === 1) {
+                const head = [...heads][0];
+                if (base.has(head)) {
+                    const list = base.get(head);
+                    return decorate(list[0], { ambiguous: list.length > 1, alternatives: list });
+                }
+            }
+            // Rank shortest-first (the tightest match leads) and take the head
+            // from that same list, so the returned name is always option 1 —
+            // otherwise the prompt led with one card and `name` held another.
+            const ranked = pick.slice().sort((a, b) => normalize(a).length - normalize(b).length).slice(0, 5);
+            return decorate(ranked[0], { ambiguous: true, alternatives: ranked });
+        }
+    }
+
+    // 5. a whole-word hit that covers enough of the name to stand on its own.
+    if (wordHits.length) {
+        // Several real cards contain the word — "Insight" is in both Decree of
+        // Insight and Seal of Insight. Picking the one that happens to score
+        // highest is a silent guess between equals; ask instead.
+        if (wordHitNames.size > 1) return fromWordHits();
+        const best = wordHits.reduce((a, b) => (b.score > a.score ? b : a));
+        if (best.score >= 0.45) {
+            // Only redirect to the ranked variant when the match falls inside
+            // the BASE name. A hit in the subtitle — "storm of shuriken",
+            // "fervent" — names exactly one card, and redirecting it to the
+            // base list's first entry put the WRONG Kennen on air.
+            const head = normalize(best.name.split(',')[0]);
+            const inHead = best.at + q.length <= head.length;
+            if (inHead && base.has(head) && normalize(best.name) !== q) {
                 const list = base.get(head);
                 return decorate(list[0], { fuzzy: true, ambiguous: list.length > 1, alternatives: list });
             }
-            return decorate(best, { fuzzy: true });
+            return decorate(best.name, { fuzzy: true });
         }
     }
 
@@ -232,6 +283,10 @@ export function resolveCardName(game, query) {
         let winners = new Map();          // canonical name -> its base list (or null)
         const consider = (candidateKey, canonical, list) => {
             if (Math.abs(candidateKey.length - q.length) > cap) return;
+            // On a short query one edit reaches an unrelated word — "null"
+            // became "Cull". Typos almost never change the FIRST letter, so
+            // require it to agree; "jnix" -> Jinx and "temo" -> Teemo survive.
+            if (q.length <= 5 && candidateKey[0] !== q[0]) return;
             const d = editDistance(q, candidateKey, cap);
             if (d > cap) return;
             if (d < bestDist) { bestDist = d; winners = new Map(); }
@@ -248,6 +303,11 @@ export function resolveCardName(game, query) {
         // only colliding short pair in Riftbound, and it now resolves to neither.
         if (winners.size === 1) {
             const [bestName, bestList] = [...winners][0];
+            // Zero edits beats one. When the query is a whole word of some real
+            // card and the typo winner is NOT that card, the winner is a guess
+            // dressed as a match: "smith" -> Smite over Apprentice Smith,
+            // "cone" -> Yone over Blast Cone, "dust" -> Gust over Turn to Dust.
+            if (wordHits.length && !wordHitNames.has(bestName)) return fromWordHits();
             const multi = !!(bestList && bestList.length > 1);
             return decorate(bestName, {
                 fuzzy: true, typo: true, distance: bestDist,
@@ -255,6 +315,10 @@ export function resolveCardName(game, query) {
             });
         }
     }
+
+    // 7. no exact, prefix or typo reading — a weak whole-word hit is still a
+    // real word of a real card, and beats showing nothing.
+    if (wordHits.length) return fromWordHits();
 
     return null;
 }
