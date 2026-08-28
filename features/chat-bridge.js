@@ -66,6 +66,14 @@ export function initChatBridge(app, io, opts = {}) {
     // (ambiguous names then fall through to the timeout auto-pick).
     const sender = opts.say ? null : createTwitchSender();
     const say = opts.say || (sender ? sender.say : async () => {});
+    // Can we actually put a numbered menu in front of THIS viewer? Only on a
+    // platform we can post to. YouTube is read-only by design (sending costs
+    // ~50 quota units a message and needs OAuth), so a YouTube viewer must
+    // never be made to wait on a prompt they cannot see — and their menu must
+    // not be dumped into Twitch chat, where it is noise addressed to someone
+    // who is not there.
+    const canSend = !!opts.say || !!(sender && sender.configured);
+    const canPromptOn = (platform) => platform === 'twitch' && canSend;
     if (sender) {
         if (sender.configured) sender.warmup().then(r => log(r.ok ? 'chat sending ready' : `chat sending unavailable: ${r.reason}`));
         else log('chat sending not configured — prompts disabled, timeout auto-pick still works');
@@ -184,12 +192,15 @@ export function initChatBridge(app, io, opts = {}) {
             const opts = hit.alternatives
                 .map(n => resolveCardName(game, n))
                 .filter(c => c && !c.contentWarning);
-            if (opts.length > 1) {
+            if (opts.length > 1 && canPromptOn(msg.platform)) {
                 const listed = pending.open(key, msg.displayName, opts);
                 const menu = listed.map((c, i) => `${i + 1}) ${c.name}`).join('  ');
                 say(`@${msg.displayName} did you mean: ${menu}`).catch(() => {});
                 return;
             }
+            // No way to ask: show the top-ranked printing straight away rather
+            // than stalling for a reply that was never invited.
+            if (opts.length > 1) { show(opts[0], msg.displayName); return; }
         }
         show(hit, msg.displayName);
     }
