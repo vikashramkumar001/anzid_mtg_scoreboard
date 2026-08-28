@@ -30,6 +30,20 @@ import { initOBSWebSocket } from './features/obs-websocket.js';
 import { initCardVision } from './features/card-vision.js';
 import { initChatBridge } from './features/chat-bridge.js';
 
+// ── Crash guard ─────────────────────────────────────────────────────────────
+// This process IS the broadcast. On Node >=15 an unhandled promise rejection
+// terminates by default, so one stray await anywhere — a chat command, a
+// tournament fetch, an OBS blip — would take every overlay off air mid-show.
+// Log loudly and keep serving; a wrong graphic beats a black one.
+process.on('unhandledRejection', (reason) => {
+  console.error('[FATAL-GUARD] unhandled rejection:', reason && (reason.stack || reason.message || reason));
+});
+process.on('uncaughtException', (err) => {
+  console.error('[FATAL-GUARD] uncaught exception:', err && (err.stack || err.message || err));
+});
+
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

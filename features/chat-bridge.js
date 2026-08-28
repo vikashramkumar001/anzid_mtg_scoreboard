@@ -71,9 +71,11 @@ export function initChatBridge(app, io, opts = {}) {
     let lastShownAt = 0, shownThisStream = 0, live = true;
     let lastCooldownNoticeAt = 0;
 
-    const clearSlot = () => emitCardView(io, {
-        'game-id': getGameSelection(), 'card-selected': '', 'card-id': CARD_SLOT,
-    });
+    const clearSlot = () => {
+        try {
+            emitCardView(io, { 'game-id': getGameSelection(), 'card-selected': '', 'card-id': CARD_SLOT });
+        } catch (e) { log(`clear failed: ${e && e.message}`); }
+    };
 
     let dwellTimer = null;
     // "Chat yields": the operator owns the viewer. On the anu scoreboard the
@@ -86,9 +88,14 @@ export function initChatBridge(app, io, opts = {}) {
         // Only ever pass a canonical key that came out of our own card map —
         // raw chat text must never reach emitCardView. variant-url is left
         // unset on purpose: features/cards.js feeds it straight to img.src.
-        emitCardView(io, {
-            'game-id': getGameSelection(), 'card-selected': card.name, 'card-id': CARD_SLOT,
-        });
+        try {
+            emitCardView(io, {
+                'game-id': getGameSelection(), 'card-selected': card.name, 'card-id': CARD_SLOT,
+            });
+        } catch (e) {
+            log(`emit failed (card not shown): ${e && e.message}`);
+            return;
+        }
         claimSlot(CARD_SLOT, 'chat');
         lastShownAt = Date.now();
         shownThisStream++;
@@ -114,7 +121,19 @@ export function initChatBridge(app, io, opts = {}) {
     });
 
     function handle(msg) {
+        // NEVER throw back into the transport. This runs inside the IRC socket's
+        // message loop; an exception here would abort the rest of that frame and
+        // can surface as an uncaughtException that kills the whole server —
+        // taking the scoreboard down with it. A chat command failing must cost
+        // one message, not the broadcast.
+        try { handleInner(msg); }
+        catch (e) { log(`handler error (ignored): ${e && e.message}`); }
+    }
+
+    function handleInner(msg) {
         if (!live) return;
+        if (!msg || typeof msg !== 'object') return;
+        if (typeof msg.text !== 'string' || !msg.userId) return;
         // A bare number resolves this user's own open prompt, and is never
         // treated as a card name.
         // Key by platform+id: a Twitch id and a YouTube id could otherwise
