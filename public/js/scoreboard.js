@@ -1390,6 +1390,9 @@ function updateTheme(game, vendor, playerCount) {
     const normalized = game?.toLowerCase();
     if (!normalized) return;
 
+    // Card back up before anything is viewed (1v1 crossfade path).
+    if (normalized === 'riftbound') initRiftbound1v1Slots();
+
     // Expose the vendor for CSS gating (e.g. the anu-only Restream chat overlay).
     document.body.dataset.vendor = vendor || 'default';
     // Lazy-load the Restream chat iframe the first time anu is active, so other
@@ -1896,8 +1899,14 @@ function showCardOverlay(prefix, overlay, img, url) {
         showRiftboundCardOverlay(overlay, url);
         return;
     }
-    // riftbound 1v1 + swu: unchanged — local assets, no preload needed. Set
-    // src and snap on via display:block.
+    if (prefix === 'riftbound') {
+        // 1v1: crossfade in place. The overlay itself is always on screen (it
+        // rests on a card back), so there is no reveal to run — only the slots
+        // change.
+        crossfadeRiftbound1v1(overlay, url);
+        return;
+    }
+    // swu: unchanged — local assets, no preload needed. Set src and snap on.
     img.src = url;
     overlay.style.display = 'block';
 }
@@ -1936,8 +1945,9 @@ function resetCardOverlay(prefix, overlay, img) {
             overlay.addEventListener('transitionend', cleanup);
             return;
         }
-        // 1v1 (legacy): reset to a card-back image rather than hiding.
-        img.src = '/assets/images/riftbound/cards/riftbound-card-back.jpg';
+        // 1v1: the viewer rests on a card back rather than hiding, so "clear"
+        // is just a crossfade back to it — same animation as any other swap.
+        crossfadeRiftbound1v1(overlay, RB_CARD_BACK);
         return;
     }
     if (prefix === 'mtg') {
@@ -2151,6 +2161,89 @@ function showMtgCardOverlay(overlay, url) {
 //                      hidden — otherwise the prior card's slot, still .active
 //                      with opacity 1, flashes through the overlay's fade-in.
 const riftboundOverlayState = new WeakMap();
+
+// ── riftbound 1v1 card crossfade ────────────────────────────────────────────
+// 1v1 never goes blank: the viewer rests on a card back, so EVERY change is an
+// image-to-image swap (back->card, card->card, card->back). One sequenced
+// crossfade therefore covers all three.
+//
+// Sequenced, not simultaneous. Fading the outgoing slot out while the incoming
+// fades in dips the composite below full opacity in the middle of the swap and
+// the OBS scene behind briefly shows through the card. Instead the incoming
+// slot is hoisted on top and fades 0->1 while the outgoing stays fully opaque
+// underneath; only once the incoming is solid (fadeMs later) is the outgoing
+// switched off, invisibly, behind it. Same pattern as the MTG pipeline.
+const riftbound1v1State = new WeakMap();
+const RB_CARD_BACK = '/assets/images/riftbound/cards/riftbound-card-back.jpg';
+
+// Marks the first slot active so the card back is visible before anything is
+// viewed. Idempotent — safe to call on every theme change.
+function initRiftbound1v1Slots() {
+    document.querySelectorAll('#scoreboard-riftbound .riftbound-card-overlay').forEach(overlay => {
+        if (riftbound1v1State.has(overlay)) return;
+        const slots = overlay.querySelectorAll('.riftbound-card-slot');
+        if (slots.length !== 2) return;
+        slots[0].classList.add('active');
+        slots[1].classList.remove('active');
+        riftbound1v1State.set(overlay, { activeIdx: 0, pendingFadeTimer: null });
+    });
+}
+
+function crossfadeRiftbound1v1(overlay, url) {
+    const slots = overlay.querySelectorAll('.riftbound-card-slot');
+    if (slots.length !== 2) {                    // markup drift — snap, don't break
+        const img = overlay.querySelector('.riftbound-card-slot');
+        if (img) img.src = url;
+        return;
+    }
+    initRiftbound1v1Slots();
+    const state = riftbound1v1State.get(overlay);
+    if (!state) return;
+
+    // Read the duration from CSS so the hand-off timer stays in lockstep with
+    // the transition even when a vendor overrides it.
+    const fadeMs = parseFloat(
+        getComputedStyle(overlay).getPropertyValue('--rb-card-slot-fade-duration')
+    ) || 400;
+
+    // A swap arriving mid-crossfade: settle the previous one immediately so the
+    // slot we are about to repurpose is not still mid-transition.
+    if (state.pendingFadeTimer) {
+        clearTimeout(state.pendingFadeTimer);
+        state.pendingFadeTimer = null;
+        slots.forEach((sl, i) => sl.classList.toggle('active', i === state.activeIdx));
+    }
+
+    const activeSlot = slots[state.activeIdx];
+    // Re-showing what is already up (chat asking twice, operator re-pressing
+    // View) must not flash the card out and back in.
+    if (activeSlot.getAttribute('src') === url) return;
+
+    const nextIdx = 1 - state.activeIdx;
+    const nextSlot = slots[nextIdx];
+    const prevSlot = activeSlot;
+    nextSlot.src = url;
+    nextSlot.style.zIndex = '2';                 // incoming fades in ON TOP
+    prevSlot.style.zIndex = '1';
+
+    // Force a style flush so the browser commits the incoming slot at opacity 0
+    // WITH its new src before .active moves it to 1 — otherwise the two changes
+    // coalesce into one recalc and the element snaps instead of transitioning.
+    // Deliberately NOT requestAnimationFrame: an OBS browser source on an
+    // inactive scene does not run rAF, so the callback would never fire and the
+    // card would sit invisible until that scene came back on air.
+    void nextSlot.offsetWidth;
+    nextSlot.classList.add('active');
+    state.activeIdx = nextIdx;
+    if (prevSlot.classList.contains('active')) {
+        const timer = setTimeout(() => {
+            if (state.pendingFadeTimer !== timer) return;
+            state.pendingFadeTimer = null;
+            prevSlot.classList.remove('active');
+        }, fadeMs);
+        state.pendingFadeTimer = timer;
+    }
+}
 
 // Riftbound 2v2 reveal path — mirrors showMtgCardOverlay's three-case
 // crossfade pattern, minus the off-DOM Scryfall preload (local assets):

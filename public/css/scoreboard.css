@@ -2077,12 +2077,36 @@ body[data-player-count="2v2"] #scoreboard-mtg .scorebug-name-title {
     right: var(--rb-card-overlay-right, 53px);
 }
 
-/* Default (1v1): hide the second crossfade slot. Only the first slot — which
-   carries the legacy id `riftbound-card-overlay-img-{side}` — is used by the
-   1v1 snap path. Hiding via display:none keeps the empty-src second img from
-   rendering as a 0×0 leftover or (in some browsers) a broken-image icon. */
-#scoreboard-riftbound .riftbound-card-overlay .riftbound-card-slot:nth-child(2) {
-    display: none;
+/* ---- 1v1: sequenced two-slot crossfade ----
+   Both slots stack absolutely so only opacity and z-index differ between them.
+   The overlay needs an explicit aspect-ratio because absolutely-positioned
+   children no longer give it height; 733/1024 is the card back's own ratio and
+   is within 0.3% of the card PNGs (647/901), so the box does not resize when
+   the image changes and nothing below it moves.
+
+   Visibility is driven ONLY by .active — scoreboard.js marks the first slot
+   active on init so the card back is up before anything is viewed. Do NOT add
+   a :first-child opacity rule as a shortcut: after one crossfade the active
+   slot is the second one, and the two rules would fight. */
+body:not([data-player-count="2v2"]) #scoreboard-riftbound .riftbound-card-overlay {
+    aspect-ratio: 733 / 1024;
+}
+
+body:not([data-player-count="2v2"]) #scoreboard-riftbound .riftbound-card-overlay .riftbound-card-slot {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity var(--rb-card-slot-fade-duration, 400ms) ease-in-out;
+    pointer-events: none;
+}
+
+body:not([data-player-count="2v2"]) #scoreboard-riftbound .riftbound-card-overlay .riftbound-card-slot.active {
+    opacity: 1;
 }
 
 /* ---- 2v2: animated card overlay (mirrors MTG flyquest pipeline) ----
