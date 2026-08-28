@@ -10,10 +10,12 @@
 // is the knob that actually stops a raid: per-user limits are useless when 200
 // throwaway accounts each send a single request.
 //
-// Cards go to slot 3 (/display/card/view/3). That slot is deliberately NOT
-// mapped onto the main scoreboard overlay (public/js/scoreboard.js only wires
-// 1 -> left and 2 -> right), so chat can never paint over the live scoreboard.
-// It gets its own OBS browser source the operator can hide instantly.
+// Cards go to slot 3 (/display/card/view/3), which has its own OBS browser
+// source the operator can hide instantly. Note that slot 3 ALSO lands on the
+// main scoreboard's right-hand viewer: scoreboard.js:1868 routes by
+// `card-id === '1' ? left : right`, so anything that is not 1 renders right —
+// it is not a 1/2 whitelist. That is why the operator-yield guard below keys
+// on the SIDE rather than the card id.
 //
 // Reading uses anonymous IRC (features/chat/twitch-irc.js). Sending prompts is
 // injected as `say` so this module stays testable and works read-only when no
@@ -115,6 +117,15 @@ export function initChatBridge(app, io, opts = {}) {
         onResolve: (card, meta) => {
             if (!card) return;
             if (operatorHasSlot()) return;   // operator took the slot while we waited
+            // An UNANSWERED prompt must not fire into a screen that has moved on.
+            // Without this, a viewer who opened a prompt and then asked for
+            // something else got the abandoned pick slapped over the card they
+            // actually wanted five seconds later. An explicit numeric reply is
+            // still honoured — that is a current request, not a stale one.
+            if (meta.reason === 'timeout' && lastShownAt > (meta.requestedAt || 0)) {
+                log(`dropping stale auto-pick "${card.name}" — screen moved on`);
+                return;
+            }
             if (card.contentWarning) { log(`blocked (content warning): ${card.name}`); return; }
             show(card, meta.displayName);
         },
@@ -143,6 +154,9 @@ export function initChatBridge(app, io, opts = {}) {
 
         const query = parseCommand(msg.text);
         if (!query) return;
+        // A new command from this viewer supersedes any prompt they left open,
+        // whatever happens to the new request below.
+        pending.clear(key);
         if (msg.firstMsg) return;                               // drop brand-new accounts silently
         if (shownThisStream >= cfg.maxPerStream) return;
 

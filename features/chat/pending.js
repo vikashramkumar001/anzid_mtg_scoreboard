@@ -28,12 +28,13 @@ export function createPendingStore({ windowMs = DEFAULT_WINDOW_MS, onResolve } =
     function open(userId, displayName, options) {
         clear(userId);                       // a new request supersedes the old
         const list = options.slice(0, 5);    // never offer more than fits one chat line
+        const requestedAt = Date.now();
         const timer = setTimeout(() => {
             byUser.delete(userId);
-            onResolve?.(list[0], { reason: 'timeout', userId, displayName });
+            onResolve?.(list[0], { reason: 'timeout', userId, displayName, requestedAt });
         }, windowMs);
         timer.unref?.();
-        byUser.set(userId, { options: list, timer, displayName, requestedAt: Date.now() });
+        byUser.set(userId, { options: list, timer, displayName, requestedAt });
         return list;
     }
 
@@ -51,7 +52,7 @@ export function createPendingStore({ windowMs = DEFAULT_WINDOW_MS, onResolve } =
         if (idx < 0 || idx >= p.options.length) return false;
         clearTimeout(p.timer);
         byUser.delete(userId);
-        onResolve?.(p.options[idx], { reason: 'picked', userId, displayName: p.displayName });
+        onResolve?.(p.options[idx], { reason: 'picked', userId, displayName: p.displayName, requestedAt: p.requestedAt });
         return true;
     }
 
