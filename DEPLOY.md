@@ -160,9 +160,9 @@ above 1 unit per call.
 |---|---|
 | Status | `GET /api/chat-bridge/status` |
 | Kill switch | `POST /api/chat-bridge/live/off` (and `/on`) — no restart |
-| Cooldown | 18s global between cards; one chat notice per window, not per request |
+| Cooldown | 10s global between cards; one chat notice per window, not per request |
 | Fairness | a request arriving during a cooldown is PARKED (one per platform, newest wins) and the platform not served last goes first — so YouTube cannot be permanently crowded out by a busier Twitch chat. Parked entries expire after 30s |
-| Dwell | card clears after 8s |
+| Dwell | card clears after 10s — equal to the cooldown on purpose, so the next card goes up the moment the last comes down, with no dead gap on the card back |
 | Blocked | content-warning cards, first-time chatters, unknown names (silent) |
 
 ### Restream chat config (`public/js/restream-config.js`)

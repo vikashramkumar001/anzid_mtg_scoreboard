@@ -32,8 +32,12 @@ import { claimSlot, releaseSlot, slotOwner } from './card-slot-owner.js';
 
 const CARD_SLOT = '3';
 const DEFAULTS = {
-    cooldownMs: 18000,      // global gap between on-air cards
-    dwellMs: 8000,          // how long a chat card stays up
+    // Deliberately equal: the card comes down exactly when the next one is
+    // allowed up, so the viewer is never sitting on the card back waiting out a
+    // cooldown nobody can see. At 18s/8s there was a 10s dead gap after every
+    // card. Keep these in step if you change either.
+    cooldownMs: 10000,      // global gap between on-air cards
+    dwellMs: 10000,         // how long a chat card stays up
     promptWindowMs: 5000,   // wait for a disambiguation reply
     maxPerStream: 200,      // hard ceiling for one session
     announceCooldown: true, // reply once per cooldown window, not per request
@@ -131,6 +135,12 @@ export function initChatBridge(app, io, opts = {}) {
         io.emit('chat-card-shown', { name: card.name, requestedBy: who, at: lastShownAt });
         clearTimeout(dwellTimer);
         dwellTimer = setTimeout(() => {
+            // Dwell and cooldown are equal, so this fires at the same instant a
+            // parked request becomes eligible. Hand straight over rather than
+            // clearing first — otherwise the viewer blinks back to the card back
+            // for the few ms between the two timers, and with a 400ms crossfade
+            // that reads as a visible stutter between cards.
+            if (waiting.size && Date.now() - lastShownAt >= cfg.cooldownMs && drain()) return;
             // Only clear if the card up there is still OURS — the operator may
             // have taken the slot back in the meantime.
             if (releaseSlot(CARD_SLOT, 'chat')) clearSlot();
@@ -145,22 +155,24 @@ export function initChatBridge(app, io, opts = {}) {
         drainTimer.unref?.();
     }
 
+    // Returns true when it actually put a card on air.
     function drain() {
-        if (!live || !waiting.size) return;
-        if (Date.now() - lastShownAt < cfg.cooldownMs) { scheduleDrain(); return; }
+        if (!live || !waiting.size) return false;
+        if (Date.now() - lastShownAt < cfg.cooldownMs) { scheduleDrain(); return false; }
         // The operator owns the viewer — parked chat requests are stale by the
         // time they would land, and chat yields to the operator either way.
-        if (operatorHasSlot()) { waiting.clear(); return; }
+        if (operatorHasSlot()) { waiting.clear(); return false; }
         for (const [p, e] of [...waiting]) {
             if (Date.now() - e.at > cfg.maxHoldMs) waiting.delete(p);
         }
-        if (!waiting.size) return;
+        if (!waiting.size) return false;
         const platforms = [...waiting.keys()];
         const pick = platforms.find(p => p !== lastServedPlatform) ?? platforms[0];
         const entry = waiting.get(pick);
         waiting.delete(pick);
         log(`serving parked ${pick} request "${entry.card.name}"`);
         show(entry.card, entry.who, pick);
+        return true;
     }
 
     const pending = createPendingStore({
