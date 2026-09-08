@@ -985,13 +985,27 @@ async function loadSavedDeck(side) {
         if (!names.length) throw new Error('Could not read a deck out of that link');
 
         for (const field of names) {
+            // The active battlefield has a dedicated setter that also updates
+            // the "Active:" label and mirrors the name into the showdown panel.
+            // emitField alone would set the value and leave both stale.
+            if (field === `player-battlefield-${side}`) {
+                setActiveBattlefield(side, fields[field]);
+                continue;
+            }
             emitField(field, fields[field]);
-            // Mirror into the cells this page actually renders (legend,
-            // champion, the three battlefields) so the operator sees it land.
-            // Runes and the deck lists have no widget here — emitting is
-            // enough, the scoreboard and decklist read them off the server.
+
+            // Mirror into the widgets this page actually renders so the
+            // operator sees it land. These are NOT all the same kind of
+            // element: legend and champion are contenteditable divs, but the
+            // three battlefield slots are <select> — assigning innerText to a
+            // select destroys its options instead of choosing one.
             const el = document.getElementById(field);
-            if (el) el.innerText = fields[field];
+            if (!el) continue;                    // runes + deck lists have no widget here
+            if (el.tagName === 'SELECT' || el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.value = fields[field];
+            } else {
+                el.innerText = fields[field];
+            }
         }
         socket.emit('note-deck-library-used', { id: entry.id });
         setDeckStatus(side, `Loaded ${entry.label}`, 'is-ok');
