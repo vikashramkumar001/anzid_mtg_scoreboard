@@ -11,6 +11,7 @@ import {initTournamentPlatform} from './tournament-platform.js';
 import {initDraftList} from './draft-list.js';
 import {initGroups} from './groups.js';
 import {initPlayerView} from './player-view.js';
+import {initDeckLibrary} from './deck-library.js';
 
 const socket = io();
 
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initArchetypes(socket);
     initRoster(socket);
     initGameSelection(socket);
+    initDeckLibrary(socket);
     initMatches(socket);
     initBrackets(socket);
     initCardView(socket);

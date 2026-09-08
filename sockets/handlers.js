@@ -161,6 +161,12 @@ import {
 import { promises as fsPromises } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import {
+    getDeckLibrary,
+    saveDeckEntry,
+    deleteDeckEntry,
+    noteDeckUsed,
+} from '../features/riftbound/deck-library.js';
 
 const __handlersFilename = fileURLToPath(import.meta.url);
 const __handlersDirname = path.dirname(__handlersFilename);
@@ -777,6 +783,36 @@ export default function registerSocketHandlers(io) {
         // RIFTBOUND
 
         // riftbound - Card viewer
+        // ── Piltover deck library ───────────────────────────────────────
+        // A pre-built set of deck links per legend so the operator can pull a
+        // deck onto a board from the iPad instead of pasting a link at the
+        // laptop. Broadcast globally on every change so an edit made on
+        // master-control shows up on a running admin-control immediately.
+        const emitDeckLibrary = () => io.emit('deck-library-updated', getDeckLibrary());
+
+        socket.on('get-deck-library', () => {
+            socket.emit('deck-library-updated', getDeckLibrary());
+        });
+
+        socket.on('save-deck-library-entry', (entry, ack) => {
+            const res = saveDeckEntry(entry || {});
+            if (res.ok) emitDeckLibrary();
+            if (typeof ack === 'function') ack(res);
+        });
+
+        socket.on('delete-deck-library-entry', ({ id } = {}, ack) => {
+            const res = deleteDeckEntry(id);
+            if (res.ok) emitDeckLibrary();
+            if (typeof ack === 'function') ack(res);
+        });
+
+        // Bumps lastUsedAt so the dropdown floats the decks actually being used
+        // to the top. Fire-and-forget; a failure here must never block a load.
+        socket.on('note-deck-library-used', ({ id } = {}) => {
+            noteDeckUsed(id);
+            emitDeckLibrary();
+        });
+
         socket.on('riftbound-get-card-list-data', () => {
             emitRiftboundCardList(io);
         });

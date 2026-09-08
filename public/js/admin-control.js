@@ -5,6 +5,7 @@
 // updateFieldFromControl persists it and fans the full match state to the
 // scoreboard — no heavy master-control-matches-updated emit.
 import { RIFTBOUND_BATTLEFIELD_NAMES, RIFTBOUND_LEGENDS_LIST, RIFTBOUND_CHAMPIONS_LIST } from '/js/riftbound/constants.js';
+import { parseDeckString, riftboundDeckFields } from '/js/shared/deck-parse.js';
 
 // Battlefield dropdowns (the 3 per-side slots + the override picker) list every
 // battlefield, so alphabetical order makes a name easy to find. The source
@@ -895,3 +896,122 @@ function setupNumberInputs() {
     document.querySelectorAll('#riftbound-admin .ra-might-val').forEach(el => attachNumberInput(el, { min: 0 }));
 }
 setupNumberInputs();
+// ── Saved Piltover deck picker ──────────────────────────────────────────────
+// The operator runs the show from an iPad, but "Add Decklist" only exists on
+// master-control — so pulling a deck onto a board used to mean walking back to
+// the laptop. Deck links are saved per legend ahead of time (master-control →
+// Deck Library) and picked from here instead.
+//
+// Links are resolved fresh on every load, never cached: players edit their
+// decks on Piltover right up to the event and a stored copy would quietly put
+// a stale list on air.
+
+let deckLibrary = { decks: [] };
+const DECK_SIDES = ['left', 'right'];
+const normLegend = (v) => String(v || '').trim().toLowerCase();
+
+socket.on('deck-library-updated', (lib) => {
+    deckLibrary = lib && Array.isArray(lib.decks) ? lib : { decks: [] };
+    DECK_SIDES.forEach(refreshDeckPicker);
+});
+
+function setDeckStatus(side, msg, kind) {
+    const el = document.getElementById(`deck-library-status-${side}`);
+    if (!el) return;
+    el.textContent = msg || '';
+    el.className = `decklib-status${kind ? ' ' + kind : ''}`;
+}
+
+function currentLegend(side) {
+    return (document.getElementById(`player-legend-${side}`)?.innerText || '').trim();
+}
+
+function refreshDeckPicker(side) {
+    const sel = document.getElementById(`deck-library-${side}`);
+    if (!sel) return;
+
+    const legend = currentLegend(side);
+    const forLegend = deckLibrary.decks.filter((d) => normLegend(d.legend) === normLegend(legend));
+    // Fall back to the whole library when this side has no legend yet, or when
+    // nothing is saved for it — an empty dropdown just looks broken, and the
+    // operator can still pick a deck (which sets the legend itself).
+    const scoped = forLegend.length > 0;
+    const showing = (scoped ? forLegend : deckLibrary.decks)
+        .slice()
+        .sort((a, b) => (b.lastUsedAt || 0) - (a.lastUsedAt || 0));
+
+    const keep = sel.value;
+    sel.innerHTML = '';
+    const ph = document.createElement('option');
+    ph.value = '';
+    ph.textContent = !deckLibrary.decks.length
+        ? 'No saved decks'
+        : scoped
+            ? `${showing.length} saved for this legend…`
+            : 'All saved decks…';
+    sel.appendChild(ph);
+
+    for (const d of showing) {
+        const o = document.createElement('option');
+        o.value = d.id;
+        // Off-legend entries carry their legend so the operator can tell what
+        // they are picking.
+        o.textContent = scoped ? d.label : `${d.label} — ${d.legend}`;
+        sel.appendChild(o);
+    }
+    // Keep the operator's selection across a refresh if it still exists.
+    if ([...sel.options].some((o) => o.value === keep)) sel.value = keep;
+}
+
+async function loadSavedDeck(side) {
+    const sel = document.getElementById(`deck-library-${side}`);
+    const btn = document.getElementById(`deck-library-load-${side}`);
+    const entry = deckLibrary.decks.find((d) => d.id === sel?.value);
+    if (!entry) { setDeckStatus(side, 'Pick a saved deck first', 'is-error'); return; }
+
+    if (btn) btn.disabled = true;
+    setDeckStatus(side, 'Loading from Piltover Archive…');
+    try {
+        const res = await fetch('/api/piltover/deck', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ link: entry.link }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) throw new Error(data.error || `Request failed (${res.status})`);
+
+        const fields = riftboundDeckFields(parseDeckString(data.text), side);
+        const names = Object.keys(fields);
+        if (!names.length) throw new Error('Could not read a deck out of that link');
+
+        for (const field of names) {
+            emitField(field, fields[field]);
+            // Mirror into the cells this page actually renders (legend,
+            // champion, the three battlefields) so the operator sees it land.
+            // Runes and the deck lists have no widget here — emitting is
+            // enough, the scoreboard and decklist read them off the server.
+            const el = document.getElementById(field);
+            if (el) el.innerText = fields[field];
+        }
+        socket.emit('note-deck-library-used', { id: entry.id });
+        setDeckStatus(side, `Loaded ${entry.label}`, 'is-ok');
+    } catch (err) {
+        setDeckStatus(side, err.message || 'Failed to load deck', 'is-error');
+    } finally {
+        if (btn) btn.disabled = false;
+    }
+}
+
+DECK_SIDES.forEach((side) => {
+    document.getElementById(`deck-library-load-${side}`)?.addEventListener('click', () => loadSavedDeck(side));
+    // The legend cell is written both by the operator and programmatically when
+    // match state arrives, so watch the node rather than listening for input —
+    // a server-applied legend has to re-scope the dropdown too.
+    const legendEl = document.getElementById(`player-legend-${side}`);
+    if (legendEl) {
+        new MutationObserver(() => refreshDeckPicker(side))
+            .observe(legendEl, { childList: true, characterData: true, subtree: true });
+    }
+});
+
+socket.emit('get-deck-library');

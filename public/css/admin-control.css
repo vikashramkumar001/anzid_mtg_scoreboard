@@ -980,3 +980,47 @@ body {
     background: #0f1218;
     box-shadow: none;
 }
+
+/* ── Saved deck picker (riftbound) ───────────────────────────────────────────
+   Lets the operator pull a pre-saved Piltover deck onto this board from the
+   iPad instead of walking back to master-control to paste a link. Sits in an
+   .abv2-rb-cell so it hides itself for non-riftbound games along with the
+   legend/champion cells. */
+.decklib-row {
+    display: flex;
+    gap: 6px;
+    align-items: stretch;
+}
+
+.decklib-select {
+    flex: 1 1 auto;
+    min-width: 0;              /* let it shrink inside the flex cell */
+    font-size: 15px;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+.decklib-load {
+    flex: 0 0 auto;
+    /* Deliberately generous for touch — this is driven from an iPad mid-show. */
+    min-height: 40px;
+    padding: 6px 14px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.decklib-load[disabled] {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.decklib-status {
+    margin-top: 4px;
+    font-size: 12px;
+    min-height: 14px;          /* reserve the line so the cell never jumps */
+    opacity: 0.85;
+}
+
+.decklib-status.is-error { color: #ff8a8a; }
+.decklib-status.is-ok    { color: #7ddf90; }
