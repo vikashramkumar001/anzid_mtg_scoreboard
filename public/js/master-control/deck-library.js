@@ -1,4 +1,4 @@
-// Deck Library editor (master-control).
+// Deck Library tab (master-control).
 //
 // Builds the set of Piltover deck links the operator picks from on the iPad.
 // Populated before a stream on the laptop; admin-control reads the same store
@@ -9,56 +9,41 @@
 
 import { RIFTBOUND_LEGENDS_LIST } from '/js/riftbound/constants.js';
 
+const escapeHtml = (v) => String(v ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
 export function initDeckLibrary(socket) {
+    const host = document.getElementById('deck-library-body');
+    if (!host) return;
+
     let library = { decks: [] };
     let editingId = null;
 
-    const modalHTML = `
-    <div class="modal fade" id="deck-library-modal" tabindex="-1">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Deck Library</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    host.innerHTML = `
+        <div class="row g-2 align-items-end mb-2">
+          <div class="col-md-4">
+            <label class="form-label mb-1 small">Legend</label>
+            <input list="deck-library-legends" id="dl-legend" class="form-control form-control-sm"
+                   placeholder="Kennen, Heart of the Tempest">
+            <datalist id="deck-library-legends"></datalist>
           </div>
-          <div class="modal-body">
-            <p class="text-muted small">
-              Saved Piltover Archive links, grouped by legend. On admin-control these appear
-              under <strong>Saved Deck</strong> for whichever legend that side is playing.
-              Links are resolved fresh on every load, so edits made on Piltover are picked up.
-            </p>
-            <div class="row g-2 align-items-end mb-2">
-              <div class="col-md-4">
-                <label class="form-label mb-1 small">Legend</label>
-                <input list="deck-library-legends" id="dl-legend" class="form-control form-control-sm" placeholder="Kennen, Heart of the Tempest">
-                <datalist id="deck-library-legends"></datalist>
-              </div>
-              <div class="col-md-3">
-                <label class="form-label mb-1 small">Label</label>
-                <input id="dl-label" class="form-control form-control-sm" placeholder="e.g. Chaos/Order build">
-              </div>
-              <div class="col-md-5">
-                <label class="form-label mb-1 small">Piltover Archive link</label>
-                <input id="dl-link" class="form-control form-control-sm" placeholder="https://piltoverarchive.com/decks/…">
-              </div>
-            </div>
-            <div class="d-flex gap-2 align-items-center mb-1">
-              <button id="dl-save" class="btn btn-sm btn-primary">Add deck</button>
-              <button id="dl-cancel" class="btn btn-sm btn-outline-secondary" style="display:none;">Cancel edit</button>
-              <span id="dl-status" class="small"></span>
-            </div>
-            <hr>
-            <div id="dl-list"></div>
+          <div class="col-md-3">
+            <label class="form-label mb-1 small">Label</label>
+            <input id="dl-label" class="form-control form-control-sm" placeholder="e.g. Chaos/Order build">
+          </div>
+          <div class="col-md-5">
+            <label class="form-label mb-1 small">Piltover Archive link</label>
+            <input id="dl-link" class="form-control form-control-sm" placeholder="https://piltoverarchive.com/decks/…">
           </div>
         </div>
-      </div>
-    </div>`;
+        <div class="d-flex gap-2 align-items-center mb-3">
+          <button id="dl-save" class="btn btn-sm btn-primary">Add deck</button>
+          <button id="dl-cancel" class="btn btn-sm btn-outline-secondary" style="display:none;">Cancel edit</button>
+          <span id="dl-status" class="small"></span>
+        </div>
+        <hr>
+        <div id="dl-list"></div>`;
 
-    const wrap = document.createElement('div');
-    wrap.innerHTML = modalHTML;
-    document.body.appendChild(wrap.firstElementChild);
-
-    const modal = new bootstrap.Modal(document.getElementById('deck-library-modal'));
     const $ = (id) => document.getElementById(id);
     const legendInput = $('dl-legend'), labelInput = $('dl-label'), linkInput = $('dl-link');
     const saveBtn = $('dl-save'), cancelBtn = $('dl-cancel'), statusEl = $('dl-status'), listEl = $('dl-list');
@@ -66,7 +51,7 @@ export function initDeckLibrary(socket) {
     // Legend suggestions come from the same constant the board dropdowns use,
     // so a saved deck's legend always matches what admin-control compares against.
     $('deck-library-legends').innerHTML = (RIFTBOUND_LEGENDS_LIST || [])
-        .map((l) => `<option value="${(l.name || l).toString().replace(/"/g, '&quot;')}"></option>`)
+        .map((l) => `<option value="${escapeHtml(l.name || l)}"></option>`)
         .join('');
 
     function setStatus(msg, kind) {
@@ -99,19 +84,17 @@ export function initDeckLibrary(socket) {
                   <li class="list-group-item d-flex justify-content-between align-items-center px-2 py-1">
                     <div class="text-truncate me-2">
                       <div class="small">${escapeHtml(d.label)}</div>
-                      <a class="text-muted" style="font-size:11px" href="${escapeHtml(d.link)}" target="_blank" rel="noopener">${escapeHtml(d.link)}</a>
+                      <a class="text-muted" style="font-size:11px" href="${escapeHtml(d.link)}"
+                         target="_blank" rel="noopener">${escapeHtml(d.link)}</a>
                     </div>
                     <div class="flex-shrink-0">
-                      <button class="btn btn-sm btn-outline-secondary dl-edit" data-id="${d.id}">Edit</button>
-                      <button class="btn btn-sm btn-outline-danger dl-del" data-id="${d.id}">Delete</button>
+                      <button class="btn btn-sm btn-outline-secondary dl-edit" data-id="${escapeHtml(d.id)}">Edit</button>
+                      <button class="btn btn-sm btn-outline-danger dl-del" data-id="${escapeHtml(d.id)}">Delete</button>
                     </div>
                   </li>`).join('')}
               </ul>
             </div>`).join('');
     }
-
-    const escapeHtml = (v) => String(v ?? '')
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
     socket.on('deck-library-updated', (lib) => {
         library = lib && Array.isArray(lib.decks) ? lib : { decks: [] };
@@ -119,14 +102,13 @@ export function initDeckLibrary(socket) {
     });
 
     saveBtn.addEventListener('click', () => {
-        const entry = {
+        setStatus('Saving…');
+        socket.emit('save-deck-library-entry', {
             id: editingId || undefined,
             legend: legendInput.value.trim(),
             label: labelInput.value.trim(),
             link: linkInput.value.trim(),
-        };
-        setStatus('Saving…');
-        socket.emit('save-deck-library-entry', entry, (res) => {
+        }, (res) => {
             if (!res?.ok) { setStatus(res?.error || 'Save failed', 'danger'); return; }
             setStatus(editingId ? 'Updated' : 'Added', 'success');
             resetForm();
@@ -145,6 +127,7 @@ export function initDeckLibrary(socket) {
             saveBtn.textContent = 'Save changes';
             cancelBtn.style.display = '';
             setStatus(`Editing "${d.label}"`, 'muted');
+            legendInput.scrollIntoView({ block: 'nearest' });
             return;
         }
         const del = e.target.closest('.dl-del');
@@ -158,11 +141,11 @@ export function initDeckLibrary(socket) {
         }
     });
 
-    document.getElementById('open-deck-library')?.addEventListener('click', () => {
-        resetForm(); setStatus('');
-        socket.emit('get-deck-library');
-        modal.show();
-    });
+    // Re-pull on tab show as well as at boot: cheap, and it means the list is
+    // right even if a broadcast was missed while the socket was reconnecting.
+    document.getElementById('deck-library-tab')
+        ?.addEventListener('shown.bs.tab', () => socket.emit('get-deck-library'));
 
+    render();
     socket.emit('get-deck-library');
 }

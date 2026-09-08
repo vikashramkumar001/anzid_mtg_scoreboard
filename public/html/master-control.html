@@ -48,7 +48,6 @@
                 <!-- Show Sideboard toggle moved to each round's broadcast strip
                      (matches.js round-broadcast-container) so it sits beside the
                      Broadcast / Fetch Standings buttons. -->
-                <button id="open-deck-library" class="btn btn-outline-success btn-sm">Deck Library</button>
                 <button id="save-obs-preset" class="btn btn-outline-info btn-sm">Save OBS Preset</button>
                 <button id="load-obs-preset" class="btn btn-outline-warning btn-sm">Load OBS Preset</button>
                 <button id="dark-mode-toggle" class="btn btn-outline-secondary btn-sm" onclick="toggleDarkMode()">Dark Mode</button>
@@ -126,6 +125,13 @@
                     data-bs-target="#draft-list-control" type="button" role="tab" aria-controls="draft-list"
                     aria-selected="false">
                     Draft List
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="deck-library-tab" data-bs-toggle="tab"
+                    data-bs-target="#deck-library-control" type="button" role="tab" aria-controls="deck-library"
+                    aria-selected="false">
+                    Deck Library
                 </button>
             </li>
         </ul>
@@ -1909,6 +1915,21 @@ CommentatorC
             </div>
 
             <!-- Draft List Tab Content -->
+            <div class="tab-pane fade" id="deck-library-control" role="tabpanel" aria-labelledby="deck-library-tab">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <h2>Deck Library</h2>
+                        <p class="text-muted">
+                            Saved Piltover Archive links, grouped by legend. On admin-control these appear under
+                            <strong>Saved Deck</strong> for whichever legend that side is playing, so a deck can be
+                            pulled onto a board from the iPad. Links are resolved fresh on every load, so edits made
+                            on Piltover are always picked up.
+                        </p>
+                        <div id="deck-library-body"></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="tab-pane fade" id="draft-list-control" role="tabpanel" aria-labelledby="draft-list-tab">
                 <div class="row mt-3">
                     <div class="col-12">
