@@ -1,0 +1,28 @@
+{
+	"$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+	"id": "anzid-coverage-hub",
+	"name": "anzid-coverage-hub",
+	"type": "connection",
+	"shortname": "coverage-hub",
+	"description": "Control the AnziD coverage hub scoreboard server (Riftbound / MTG / Vibes / Star Wars broadcast overlays)",
+	"version": "1.0.0",
+	"license": "MIT",
+	"repository": "git+https://github.com/vikashramkumar001/anzid_mtg_scoreboard.git",
+	"bugs": "https://github.com/vikashramkumar001/anzid_mtg_scoreboard/issues",
+	"maintainers": [
+		{
+			"name": "AnziD",
+			"email": "anzidmtg@gmail.com"
+		}
+	],
+	"legacyIds": [],
+	"runtime": {
+		"type": "node22",
+		"api": "nodejs-ipc",
+		"apiVersion": "1.14.1",
+		"entrypoint": "../src/index.js"
+	},
+	"manufacturer": "AnziD",
+	"products": ["Coverage Hub Scoreboard"],
+	"keywords": ["Broadcast", "Overlay", "Riftbound", "MTG"]
+}
