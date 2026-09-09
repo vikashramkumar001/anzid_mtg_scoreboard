@@ -251,9 +251,36 @@ function readState(io) {
     else pushTwitchPubsub(payload);
 }
 
+// The recognizer rewrites state.json roughly every second while it runs, so a
+// file older than this means it is NOT running and the contents describe a
+// table from some previous session. Reporting those as present is worse than
+// reporting nothing: on a show machine, simply starting the server raised a
+// champion prompt from 7.5 hours earlier, for a card that may no longer be on
+// the table at all.
+const STALE_MS = 60000;
+
+function stateAgeMs() {
+    // Use the FILE's mtime, not the "updated" string inside it. The recognizer
+    // writes strftime("%Y-%m-%dT%H:%M:%S") with no timezone, so Date.parse
+    // reads it as local time — correct only while both processes share a
+    // timezone, and silently off by hours when they do not.
+    try {
+        return Date.now() - fs.statSync(STATE_PATH).mtimeMs;
+    } catch {
+        return Infinity;   // no file at all is as stale as it gets
+    }
+}
+
 function enrichedState() {
+    const stale = !state?.cards?.length ? false : stateAgeMs() > STALE_MS;
+    if (stale) {
+        // Keep the timestamp so a consumer can say WHY it is empty, but assert
+        // nothing about what is on the table.
+        return { ...state, cards: [], stale: true, ageMs: stateAgeMs() };
+    }
     return {
         ...state,
+        stale: false,
         cards: state.cards.map(c => {
             const meta = lookupCard(c.code);
             return {
