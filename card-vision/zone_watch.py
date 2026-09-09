@@ -70,11 +70,24 @@ def parse_args():
     ap.add_argument("--codes-url", default="http://localhost:1378/api/card-vision/decklist-codes",
                     help="app endpoint returning the live decklist's card codes; "
                          "empty/unreachable falls back to an open search")
+    ap.add_argument("--codes", default=None,
+                    help="explicit pool: a JSON file with an array of codes, or a "
+                         "comma list. Overrides --codes-url.")
     ap.add_argument("--no-codes", action="store_true", help="never constrain; always open search")
     ap.add_argument("--interval", type=float, default=1.0)
     ap.add_argument("--cycles", type=int, default=0, help="0 = run forever")
     ap.add_argument("--out", default=os.path.join(HERE, "state.json"))
     return ap.parse_args()
+
+
+def load_codes(spec):
+    """Explicit pool from a file or a comma list — same contract as live_loop."""
+    if not spec:
+        return None
+    if os.path.exists(spec):
+        with open(spec) as f:
+            return list(json.load(f))
+    return [c.strip() for c in spec.split(",") if c.strip()]
 
 
 def fetch_codes(url, timeout=4):
@@ -108,7 +121,10 @@ def main():
     client = obsws.ReqClient(host=host, port=int(port), password=args.password, timeout=20)
     print(f"connected to OBS at {host}:{port}; source '{source}'; {len(zones)} zones")
 
-    pool, pool_at = (None, 0.0)
+    fixed_pool = load_codes(args.codes)
+    if fixed_pool:
+        print(f"  pool: {len(fixed_pool)} codes (--codes)")
+    pool, pool_at = (fixed_pool, 0.0)
     tracks = {}          # zone name -> dict
     cycle = 0
 
@@ -116,7 +132,7 @@ def main():
         cycle += 1
         t0 = time.time()
 
-        if not args.no_codes and time.time() - pool_at > CODES_REFRESH_S:
+        if not args.no_codes and not fixed_pool and time.time() - pool_at > CODES_REFRESH_S:
             new_pool = fetch_codes(args.codes_url)
             if (new_pool or []) != (pool or []):
                 print(f"  pool: {len(new_pool)} codes from decklist" if new_pool
