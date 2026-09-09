@@ -44,6 +44,14 @@ function codeIndex() {
     return byCode;
 }
 
+// In-process subscribers to each new recognizer state. io.emit only reaches
+// browsers; the champion watcher runs server-side and needs the same feed.
+const stateSubscribers = new Set();
+export function onCardVisionState(fn) {
+    stateSubscribers.add(fn);
+    return () => stateSubscribers.delete(fn);
+}
+
 export function lookupCard(code) {
     const idx = codeIndex();
     if (!idx) return null;
@@ -230,6 +238,10 @@ function readState(io) {
     state = parsed;
     const enriched = enrichedState();
     io.emit('card-vision-state', enriched);          // local overlay: no delay
+    for (const fn of stateSubscribers) {
+        // A throwing subscriber must not stop the broadcast or the Twitch push.
+        try { fn(enriched); } catch (e) { log(`state subscriber failed: ${e && e.message}`); }
+    }
     // viewer-facing push is buffered by the measured stream delay so hotspots
     // land when VIEWERS see the card, not seconds early
     const delayMs = parseInt(process.env.CARD_VISION_DELAY_MS || '0', 10);

@@ -1024,3 +1024,55 @@ body {
 
 .decklib-status.is-error { color: #ff8a8a; }
 .decklib-status.is-ok    { color: #7ddf90; }
+
+/* ── Champion-spotted prompt ─────────────────────────────────────────────────
+   Raised when the card recognizer confirms a player's chosen champion is on
+   the table. Deliberately a PROMPT, not an auto-trigger — the operator fires
+   the graphic. Visibility is owned by the detection, not by the riftbound
+   cell toggle, so it is intentionally not an .abv2-rb-cell. */
+.champ-alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 0 8px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #1d3b25;
+    border: 1px solid #3fae63;
+    animation: champ-alert-in 220ms ease-out;
+}
+
+@keyframes champ-alert-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* An operator glancing at a board mid-round should not have to read carefully. */
+.champ-alert-eyebrow {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: #7ddf90;
+    margin-bottom: 2px;
+}
+
+.champ-alert-text {
+    font-size: 15px;
+    line-height: 1.2;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.champ-alert-ack {
+    flex: 0 0 auto;
+    min-height: 40px;          /* touch target — this is driven from an iPad */
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .champ-alert { animation: none; }
+}

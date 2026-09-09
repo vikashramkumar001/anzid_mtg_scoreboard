@@ -29,6 +29,7 @@ import {loadCardListData as starwarsLoadCardListData} from './features/starwars/
 import { initOBSWebSocket } from './features/obs-websocket.js';
 import { initCardVision } from './features/card-vision.js';
 import { initChatBridge } from './features/chat-bridge.js';
+import { initChampionWatch } from './features/riftbound/champion-watch.js';
 
 // ── Crash guard ─────────────────────────────────────────────────────────────
 // This process IS the broadcast. On Node >=15 an unhandled promise rejection
@@ -121,6 +122,7 @@ async function initialize() {
   // Card-vision EBS: bridge live_loop.py's state.json to overlay clients
   // (socket.io now; Twitch PubSub once the extension is registered)
   initCardVision(app, io);
+  initChampionWatch(io);
   initChatBridge(app, io);
 
   server.listen(PORT, '0.0.0.0', () => {

@@ -1029,3 +1029,42 @@ DECK_SIDES.forEach((side) => {
 });
 
 socket.emit('get-deck-library');
+
+// ── Champion-spotted prompt ─────────────────────────────────────────────────
+// The card recognizer (card-vision/live_loop.py) confirms a card only after
+// three independent sightings, and a champion stays on the table once played,
+// so by the time this fires it is well established. Still only a PROMPT: the
+// operator decides whether to run the graphic. A late or wrong auto-trigger on
+// air is much worse than pressing a button two seconds later.
+
+socket.on('champion-watch-updated', ({ detections } = {}) => {
+    const all = Object.values(detections || {});
+    for (const side of ['left', 'right']) {
+        const el = document.getElementById(`champion-alert-${side}`);
+        if (!el) continue;
+        // Only this board's match — a detection carries the round/match it was
+        // seen on, and this page is bound to one of them.
+        const hit = all.find((d) =>
+            d.side === side && !d.acknowledged &&
+            String(d.round_id) === String(round_id) && d.match_id === match_id);
+        if (hit) {
+            document.getElementById(`champion-alert-name-${side}`).textContent = hit.name;
+            el.dataset.key = hit.key;
+            el.style.display = '';
+        } else {
+            el.style.display = 'none';
+            delete el.dataset.key;
+        }
+    }
+});
+
+for (const side of ['left', 'right']) {
+    document.getElementById(`champion-alert-ack-${side}`)?.addEventListener('click', () => {
+        const el = document.getElementById(`champion-alert-${side}`);
+        const key = el?.dataset.key;
+        if (key) socket.emit('acknowledge-champion', { key });
+        if (el) el.style.display = 'none';   // hide immediately; the broadcast confirms
+    });
+}
+
+socket.emit('get-champion-watch');
