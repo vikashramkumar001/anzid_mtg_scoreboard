@@ -77,6 +77,9 @@ def parse_args():
     ap.add_argument("--no-codes", action="store_true", help="never constrain; always open search")
     ap.add_argument("--interval", type=float, default=1.0)
     ap.add_argument("--cycles", type=int, default=0, help="0 = run forever")
+    ap.add_argument("--verbose", action="store_true",
+                    help="print every cycle. Default prints only IN/OUT transitions — "
+                         "a line a second saying the same thing is not a log, it is noise.")
     ap.add_argument("--out", default=os.path.join(HERE, "state.json"))
     return ap.parse_args()
 
@@ -149,7 +152,16 @@ def main():
         print(f"  pool: {len(fixed_pool)} codes (--codes)")
     pool, pool_at = (fixed_pool, 0.0)
     tracks = {}          # zone name -> dict
+    announced = {}       # zone name -> the code we last reported as IN
+    announced_name = {}  # zone name -> its display name, for the OUT line
     cycle = 0
+
+    def stamp():
+        return time.strftime("%H:%M:%S")
+
+    def human(secs):
+        secs = int(secs)
+        return f"{secs//60}m{secs % 60:02d}s" if secs >= 60 else f"{secs}s"
 
     while True:
         cycle += 1
@@ -234,11 +246,34 @@ def main():
             json.dump(state, f, indent=1)
         os.replace(tmp, args.out)   # atomic — the Node watcher polls this file
 
+        # ── transitions ────────────────────────────────────────────────────
+        # What you actually want to see: the moment a champion lands in the
+        # zone and the moment it leaves. Only CONFIRMED cards count as IN, so a
+        # single flickery read never announces anything.
+        now_conf = {c["zone"]: c for c in seen if c["status"] == "confirmed"}
+        for zname in [z["name"] for z in zones]:
+            was = announced.get(zname)
+            now = now_conf.get(zname)
+            now_code = now["code"] if now else None
+            if now_code == was:
+                continue
+            if was and now_code != was:
+                held = time.time() - (tracks[zname].get("announced_at") or time.time())
+                print(f"[{stamp()}] OUT  {zname:<12} {announced_name.get(zname, was):<28} "
+                      f"({was})  held {human(held)}")
+            if now_code:
+                print(f"[{stamp()}] IN   {zname:<12} {now['name']:<28} "
+                      f"({now_code})  score {now['score']}")
+                tracks[zname]["announced_at"] = time.time()
+                announced_name[zname] = now["name"]
+            announced[zname] = now_code
+
         dt = time.time() - t0
-        summary = "  ".join(
-            f"{c['zone']}={c['name']}({'c' if c['status'] == 'confirmed' else 'p'}:{c['score']})"
-            for c in seen) or "(all slots empty)"
-        print(f"[cycle {cycle:3d}] {dt:5.2f}s  {summary}")
+        if args.verbose:
+            summary = "  ".join(
+                f"{c['zone']}={c['name']}({'c' if c['status'] == 'confirmed' else 'p'}:{c['score']})"
+                for c in seen) or "(all slots empty)"
+            print(f"[cycle {cycle:3d}] {dt:5.2f}s  {summary}")
 
         if args.cycles and cycle >= args.cycles:
             break
