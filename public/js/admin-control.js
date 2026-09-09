@@ -970,17 +970,25 @@ async function loadSavedDeck(side) {
     if (!entry) { setDeckStatus(side, 'Pick a saved deck first', 'is-error'); return; }
 
     if (btn) btn.disabled = true;
-    setDeckStatus(side, 'Loading from Piltover Archive…');
+    setDeckStatus(side, entry.text ? 'Applying saved decklist…' : 'Loading from Piltover Archive…');
     try {
-        const res = await fetch('/api/piltover/deck', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ link: entry.link }),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok || !data.ok) throw new Error(data.error || `Request failed (${res.status})`);
+        // A text entry is an archived list that cannot change (an imported
+        // tournament result), so it is applied as-is — instantly, and with no
+        // dependence on Piltover or the venue's internet. A link entry is
+        // always re-fetched, because the player may still be editing it.
+        let deckText = entry.text;
+        if (!deckText) {
+            const res = await fetch('/api/piltover/deck', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ link: entry.link }),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || !data.ok) throw new Error(data.error || `Request failed (${res.status})`);
+            deckText = data.text;
+        }
 
-        const fields = riftboundDeckFields(parseDeckString(data.text), side);
+        const fields = riftboundDeckFields(parseDeckString(deckText), side);
         const names = Object.keys(fields);
         if (!names.length) throw new Error('Could not read a deck out of that link');
 

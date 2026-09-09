@@ -84,8 +84,12 @@ export function initDeckLibrary(socket) {
                   <li class="list-group-item d-flex justify-content-between align-items-center px-2 py-1">
                     <div class="text-truncate me-2">
                       <div class="small">${escapeHtml(d.label)}</div>
-                      <a class="text-muted" style="font-size:11px" href="${escapeHtml(d.link)}"
-                         target="_blank" rel="noopener">${escapeHtml(d.link)}</a>
+                      ${d.link
+                        ? `<a class="text-muted" style="font-size:11px" href="${escapeHtml(d.link)}"
+                              target="_blank" rel="noopener">${escapeHtml(d.link)}</a>`
+                        : `<span class="text-muted" style="font-size:11px">stored decklist${
+                              d.note ? ' — ' + escapeHtml(d.note) : ''} · ${
+                              String(d.text || '').split('\n').filter(Boolean).length} lines</span>`}
                     </div>
                     <div class="flex-shrink-0">
                       <button class="btn btn-sm btn-outline-secondary dl-edit" data-id="${escapeHtml(d.id)}">Edit</button>

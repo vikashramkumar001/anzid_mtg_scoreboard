@@ -5,10 +5,15 @@
 // walking back to the laptop to paste a link. Saving the links ahead of time
 // turns that into picking the legend's deck from a dropdown on the iPad.
 //
-// Links only — deliberately NOT the resolved decklist. Players edit their decks
-// on Piltover right up to the event, and a cached copy would quietly serve a
-// stale list. Every load re-fetches, so what goes on air is whatever the deck
-// says right now.
+// An entry is EITHER a Piltover link or stored decklist text.
+//
+// Links are never cached as text: players edit their decks on Piltover right up
+// to the event, so a stored copy would quietly serve a stale list. Those are
+// re-fetched on every load.
+//
+// Text entries exist for decks that have no link and never change — archived
+// tournament results imported from Carde. Re-fetching is meaningless for those,
+// and storing the text means they load instantly and work with no internet.
 
 import fs from 'fs';
 import path from 'path';
@@ -62,9 +67,13 @@ export function decksForLegend(legend) {
 }
 
 // Add or update. Returns { ok, error?, entry? }.
-export function saveDeckEntry({ id, legend, label, link }) {
+export function saveDeckEntry({ id, legend, label, link, text, note }) {
     const cleanLink = String(link || '').trim();
-    if (!extractDeckId(cleanLink)) {
+    const cleanText = String(text || '').trim();
+    if (!cleanLink && !cleanText) {
+        return { ok: false, error: 'Give either a Piltover Archive link or a decklist' };
+    }
+    if (cleanLink && !extractDeckId(cleanLink)) {
         return { ok: false, error: 'That does not look like a Piltover Archive deck link' };
     }
     const cleanLegend = String(legend || '').trim();
@@ -74,7 +83,11 @@ export function saveDeckEntry({ id, legend, label, link }) {
         id: id || `d${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`,
         legend: cleanLegend,
         label: String(label || '').trim() || cleanLegend,
-        link: cleanLink,
+        // A link entry is resolved fresh on every load; a text entry is applied
+        // as-is. Exactly one of these is set.
+        link: cleanLink || '',
+        text: cleanLink ? '' : cleanText,
+        note: String(note || '').trim(),
         addedAt: Date.now(),
         lastUsedAt: 0,
     };
@@ -107,4 +120,28 @@ export function noteDeckUsed(id) {
     if (!d) return;
     d.lastUsedAt = Date.now();
     persist();
+}
+
+// REST surface for bulk work. The socket handlers cover the UI; this exists so
+// a whole event's decks can be loaded in one call from a script or curl,
+// without pulling a socket client into the app's dependencies.
+export function initDeckLibraryRoutes(app, io) {
+    app.post('/api/deck-library/import', (req, res) => {
+        const entries = Array.isArray(req.body?.decks) ? req.body.decks : null;
+        if (!entries) return res.status(400).json({ ok: false, error: 'expected { decks: [...] }' });
+        if (req.body.replace) library.decks = [];
+
+        const added = [], failed = [];
+        for (const e of entries) {
+            const r = saveDeckEntry(e || {});
+            if (r.ok) added.push(r.entry.id);
+            else failed.push({ label: e?.label || e?.legend || '(unnamed)', error: r.error });
+        }
+        // One broadcast for the batch, not one per deck — 43 of them would
+        // otherwise redraw every open editor 43 times.
+        io?.emit('deck-library-updated', getDeckLibrary());
+        res.json({ ok: failed.length === 0, added: added.length, failed, total: library.decks.length });
+    });
+
+    app.get('/api/deck-library', (_req, res) => res.json(getDeckLibrary()));
 }
