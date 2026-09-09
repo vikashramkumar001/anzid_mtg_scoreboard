@@ -33,6 +33,7 @@ import base64
 import json
 import os
 import pickle
+import re
 import time
 import urllib.request
 
@@ -90,6 +91,27 @@ def load_codes(spec):
     return [c.strip() for c in spec.split(",") if c.strip()]
 
 
+def expand_variants(pool, index_codes):
+    """Pull every printing of each pool code into the pool.
+
+    A decklist names the base card (SFD-057, Irelia Fervent) but the table can
+    hold an alt-art, showcase or promo whose index entry is a VARIANT code
+    (SFD-057a) with a different image. Constraining to the base alone means the
+    recognizer never compares against the printing actually on the mat, and the
+    card silently never appears — which is exactly what happened to a champion
+    slot holding an alt-art Irelia while LeBlanc in the other slot worked fine.
+    """
+    if not pool:
+        return pool
+    want = set(pool)
+    out = set(pool)
+    for c in index_codes:
+        m = re.match(r"^([A-Za-z]{2,4}-\d+)[A-Za-z_]?$", str(c))
+        if m and m.group(1) in want:
+            out.add(c)
+    return sorted(out)
+
+
 def fetch_codes(url, timeout=4):
     """Decklist codes from the app. Returns None when unavailable, which the
     caller must treat as 'search everything' rather than 'search nothing'."""
@@ -123,6 +145,7 @@ def main():
 
     fixed_pool = load_codes(args.codes)
     if fixed_pool:
+        fixed_pool = expand_variants(fixed_pool, index["codes"])
         print(f"  pool: {len(fixed_pool)} codes (--codes)")
     pool, pool_at = (fixed_pool, 0.0)
     tracks = {}          # zone name -> dict
@@ -134,6 +157,7 @@ def main():
 
         if not args.no_codes and not fixed_pool and time.time() - pool_at > CODES_REFRESH_S:
             new_pool = fetch_codes(args.codes_url)
+            new_pool = expand_variants(new_pool, index["codes"])
             if (new_pool or []) != (pool or []):
                 print(f"  pool: {len(new_pool)} codes from decklist" if new_pool
                       else "  pool: no decklist available — open search over all cards")
