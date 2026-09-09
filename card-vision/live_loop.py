@@ -103,6 +103,12 @@ def load_codes(spec):
     return [c.strip() for c in spec.split(",") if c.strip()]
 
 
+def connect_obs(args):
+    host = args.obs.split("//")[1].split(":")[0]
+    port = int(args.obs.rsplit(":", 1)[1])
+    return obsws.ReqClient(host=host, port=port, password=args.password, timeout=15)
+
+
 def grab(client, source):
     r = client.get_source_screenshot(source, "png", None, None, -1)
     b64 = r.image_data.split(",", 1)[1]
@@ -312,6 +318,7 @@ def main():
     host = args.obs.split("//")[1].split(":")[0]
     port = int(args.obs.rsplit(":", 1)[1])
     client = obsws.ReqClient(host=host, port=port, password=args.password, timeout=15)
+    obs_fails = 0
     print(f"connected to OBS at {host}:{port}; source '{args.source}'; "
           f"pool={str(len(pool)) + ' (' + src_label + ')' if codes else 'ALL ' + str(len(pool)) + ' cards (no decklist available)'}")
 
@@ -340,7 +347,26 @@ def main():
     while args.cycles == 0 or cycle < args.cycles:
         cycle += 1
         t0 = time.time()
-        frame = grab(client, args.source)
+        try:
+            frame = grab(client, args.source)
+            obs_fails = 0
+        except Exception as e:
+            # A dropped OBS websocket never heals itself; rebuild the client.
+            # Previously this raised straight out of the loop and killed the
+            # process on any OBS restart.
+            obs_fails += 1
+            if obs_fails == 1:
+                print(f"grab failed: {e} — reconnecting", flush=True)
+            try:
+                client = connect_obs(args)
+                if obs_fails > 1:
+                    print("reconnected to OBS", flush=True)
+            except Exception as ce:
+                wait = min(30.0, args.interval * min(obs_fails, 10))
+                if obs_fails in (1, 5, 20) or obs_fails % 60 == 0:
+                    print(f"OBS unreachable ({ce}) — retry {obs_fails}, waiting {wait:.0f}s", flush=True)
+                time.sleep(wait)
+            continue
         brightness = 0.0 if frame is None else float(frame.mean())
         if brightness < 30.0:
             # black frame = signal loss; dark frame = room lights off. Neither

@@ -127,6 +127,11 @@ def fetch_codes(url, timeout=4):
         return None
 
 
+def connect(args):
+    host, port = args.obs.replace("ws://", "").split(":")
+    return obsws.ReqClient(host=host, port=int(port), password=args.password, timeout=20)
+
+
 def grab(client, source):
     """One 4K frame as JPEG. PNG is 20x slower for no recognition benefit."""
     r = client.get_source_screenshot(source, "jpg", 3840, 2160, -1)
@@ -142,9 +147,9 @@ def main():
     source = args.source or cfg.get("source", "BMD - Match 1 Gameplay")
 
     index = pickle.load(open(os.path.join(HERE, ".cache/index.pkl"), "rb"))
-    host, port = args.obs.replace("ws://", "").split(":")
-    client = obsws.ReqClient(host=host, port=int(port), password=args.password, timeout=20)
-    print(f"connected to OBS at {host}:{port}; source '{source}'; {len(zones)} zones")
+    client = connect(args)
+    print(f"connected to OBS at {args.obs}; source '{source}'; {len(zones)} zones")
+    fail_streak = 0
 
     fixed_pool = load_codes(args.codes)
     if fixed_pool:
@@ -177,8 +182,28 @@ def main():
 
         try:
             frame = grab(client, source)
+            if fail_streak:
+                print(f"[{time.strftime('%H:%M:%S')}] OBS recovered after {fail_streak} failed grab(s)")
+                fail_streak = 0
         except Exception as e:
-            print(f"[cycle {cycle:3d}] grab failed: {e}")
+            # A dropped OBS websocket NEVER heals on its own — the client has to
+            # be rebuilt. Without this the loop spins forever on "socket is
+            # already closed", one line a second, looking busy while seeing
+            # nothing. Observed for 2500 consecutive cycles after OBS restarted.
+            fail_streak += 1
+            if fail_streak == 1:
+                print(f"[{time.strftime('%H:%M:%S')}] grab failed: {e} — reconnecting")
+            try:
+                client = connect(args)
+                if fail_streak > 1:
+                    print(f"[{time.strftime('%H:%M:%S')}] reconnected to OBS")
+            except Exception as ce:
+                # Back off so a long OBS outage does not fill the log.
+                wait = min(30.0, args.interval * min(fail_streak, 10))
+                if fail_streak in (1, 5, 20) or fail_streak % 60 == 0:
+                    print(f"[{time.strftime('%H:%M:%S')}] OBS unreachable ({ce}) — retry {fail_streak}, waiting {wait:.0f}s")
+                time.sleep(wait)
+                continue
             time.sleep(args.interval)
             continue
 
