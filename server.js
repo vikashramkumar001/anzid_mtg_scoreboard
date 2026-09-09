@@ -31,6 +31,7 @@ import { initCardVision } from './features/card-vision.js';
 import { initChatBridge } from './features/chat-bridge.js';
 import { initChampionWatch } from './features/riftbound/champion-watch.js';
 import { initDeckLibraryRoutes } from './features/riftbound/deck-library.js';
+import { initZoneWatchControl } from './features/riftbound/zone-watch-manager.js';
 
 // ── Crash guard ─────────────────────────────────────────────────────────────
 // This process IS the broadcast. On Node >=15 an unhandled promise rejection
@@ -42,6 +43,17 @@ process.on('unhandledRejection', (reason) => {
 });
 process.on('uncaughtException', (err) => {
   console.error('[FATAL-GUARD] uncaught exception:', err && (err.stack || err.message || err));
+  // Staying alive is right for a bad request mid-show — the overlays keep
+  // rendering and one broken thing costs one request. It is WRONG for a
+  // failure that means we never started: a process that cannot bind the port
+  // serves nothing, yet looks alive to launchd, to pgrep and to whoever just
+  // ran the start command. Worse, the port's real owner is some older server
+  // running older code, so every subsequent restart silently changes nothing.
+  // Exit loudly instead.
+  if (err && (err.code === 'EADDRINUSE' || err.syscall === 'listen')) {
+    console.error('[FATAL-GUARD] cannot listen — exiting rather than lingering as a process that serves nothing');
+    process.exit(1);
+  }
 });
 
 
@@ -125,6 +137,7 @@ async function initialize() {
   initCardVision(app, io);
   initChampionWatch(io);
   initDeckLibraryRoutes(app, io);
+  initZoneWatchControl(io);
   initChatBridge(app, io);
 
   server.listen(PORT, '0.0.0.0', () => {

@@ -12,6 +12,7 @@ import {initDraftList} from './draft-list.js';
 import {initGroups} from './groups.js';
 import {initPlayerView} from './player-view.js';
 import {initDeckLibrary} from './deck-library.js';
+import {initZoneWatch} from './zone-watch.js';
 
 const socket = io();
 
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initRoster(socket);
     initGameSelection(socket);
     initDeckLibrary(socket);
+    initZoneWatch(socket);
     initMatches(socket);
     initBrackets(socket);
     initCardView(socket);
