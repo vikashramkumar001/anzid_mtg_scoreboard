@@ -17,6 +17,7 @@ import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import OBSWebSocket from 'obs-websocket-js';
 import { getCardListData } from './riftbound/cards.js';
+import { getControlData, getControlsTracker } from './control.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_PATH = path.join(__dirname, '../card-vision/state.json');
@@ -272,6 +273,63 @@ export function initCardVision(app, io) {
     // for as long as the server runs. When it isn't being used that is pure
     // overhead — and if OBS_WS_URL points at another machine, it is overhead
     // on THAT machine. Set CARD_VISION_ENABLED=false in .env to skip it.
+    // The card codes for whatever is on the live board — the recognizer uses
+    // this to shrink its search pool. Constraining to a decklist is worth ~100x
+    // (4.01s open search over 1190 vs 0.035s against a known pool), so this is
+    // the difference between animation-grade latency and unusable.
+    //
+    // Returns an EMPTY list rather than an error when no decklist is loaded, so
+    // the caller falls back to a full sweep instead of failing.
+    app.get('/api/card-vision/decklist-codes', (req, res) => {
+        const controlId = String(req.query.control || process.env.CARD_VISION_CONTROL_ID || '1');
+        const mapping = getControlsTracker()?.[controlId];
+        const match = mapping && getControlData()?.[mapping.round_id]?.[mapping.match_id];
+        if (!match) {
+            return res.json({ codes: [], count: 0, source: null, reason: 'no match data for that control' });
+        }
+
+        const data = getCardListData() || {};
+        // Names come off the board with a quantity prefix ("3 Bellows Breath")
+        // in the deck lists, and bare in the single-card fields.
+        const stripQty = (line) => String(line || '').replace(/^\s*\d+\s+/, '').trim();
+        const names = new Set();
+        for (const side of ['left', 'right']) {
+            for (const field of [`player-legend-${side}`, `player-champion-${side}`,
+                                 `player-battlefield-1-${side}`, `player-battlefield-2-${side}`,
+                                 `player-battlefield-3-${side}`]) {
+                const v = String(match[field] || '').trim();
+                if (v) names.add(v);
+            }
+            for (const field of [`player-main-deck-${side}`, `player-side-deck-${side}`]) {
+                // Deck fields arrive newline-separated from the importer but
+                // comma-separated from older board state. Card names contain
+                // commas ("Rengar, Trophy Hunter"), so only split on a comma
+                // that is followed by a quantity — otherwise every legend and
+                // champion gets torn in half.
+                for (const line of String(match[field] || '').split(/\n|,(?=\s*\d+\s)/)) {
+                    const n = stripQty(line);
+                    if (n) names.add(n);
+                }
+            }
+        }
+
+        const codes = new Set();
+        const unmatched = [];
+        for (const n of names) {
+            const code = data[n]?.publicCode;
+            if (code) codes.add(code);
+            else unmatched.push(n);
+        }
+        res.json({
+            codes: [...codes],
+            count: codes.size,
+            source: `${mapping.round_id}/${mapping.match_id}`,
+            // Surfaced so a rename or a typo in a pasted list is visible rather
+            // than silently shrinking the pool.
+            unmatchedNames: unmatched.slice(0, 20),
+        });
+    });
+
     const flag = (process.env.CARD_VISION_ENABLED || '').trim().toLowerCase();
     if (flag === 'false' || flag === '0' || flag === 'off' || flag === 'no') {
         log('disabled via CARD_VISION_ENABLED — no OBS connection, no polling');

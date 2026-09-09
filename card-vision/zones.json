@@ -1,0 +1,10 @@
+{
+  "_comment": "Fixed card slots printed on the playmat, in SOURCE pixels of the OBS source (3840x2160). Measured 2026-09-08 against the .26 overhead cam and validated by identification. Re-measure only if the camera or mat is moved. 'side' maps the physical seat to the scoreboard side.",
+  "source": "BMD - Match 1 Gameplay",
+  "zones": [
+    { "name": "P1 CHAMPION", "side": "left",  "slot": "champion", "roi": [1256, 356, 1600, 630] },
+    { "name": "P1 LEGEND",   "side": "left",  "slot": "legend",   "roi": [1256, 640, 1600, 880] },
+    { "name": "P2 LEGEND",   "side": "right", "slot": "legend",   "roi": [2344, 1640, 2690, 1872] },
+    { "name": "P2 CHAMPION", "side": "right", "slot": "champion", "roi": [2344, 1886, 2690, 2158] }
+  ]
+}

@@ -23,6 +23,7 @@ import json
 import os
 import pickle
 import time
+import urllib.request
 from collections import deque
 from concurrent.futures import ProcessPoolExecutor
 
@@ -60,7 +61,37 @@ def parse_args():
                     help="exhaustive full-table sweep on the first cycle — "
                          "recovers cards already on the table (slow once, then "
                          "normal incremental cycles)")
+    ap.add_argument("--codes-url",
+                    default="http://localhost:1378/api/card-vision/decklist-codes",
+                    help="app endpoint serving the live match's decklist codes. "
+                         "Used when --codes is not given; if it is unreachable or "
+                         "returns nothing, falls back to a full sweep over all cards.")
+    ap.add_argument("--no-codes-url", action="store_true",
+                    help="never auto-fetch a decklist; always search all cards")
     return ap.parse_args()
+
+
+def fetch_codes_url(url, timeout=4):
+    """Decklist codes for whatever is on the live board.
+
+    Constraining the pool is worth roughly 100x (4.01s open search over 1190
+    cards vs 0.035s against a known pool), so this is the difference between a
+    usable cadence and an unusable one.
+
+    Returns None on ANY failure — no server, no match loaded, empty decklist.
+    The caller must read that as "search everything", never "search nothing":
+    silently narrowing to an empty pool would look like a working loop that can
+    never recognise a card.
+    """
+    try:
+        with urllib.request.urlopen(url, timeout=timeout) as r:
+            data = json.loads(r.read().decode())
+        codes = data.get("codes") or []
+        if not codes:
+            return None
+        return list(codes), data.get("source")
+    except Exception:
+        return None
 
 
 def load_codes(spec):
@@ -270,13 +301,19 @@ def main():
     args = parse_args()
     roi = tuple(int(v) for v in args.roi.split(","))
     codes = load_codes(args.codes)
+    src_label = "decklist file" if codes else None
+    if not codes and not args.no_codes_url:
+        got = fetch_codes_url(args.codes_url)
+        if got:
+            codes, match_src = got
+            src_label = f"decklist for {match_src}" if match_src else "decklist"
     index = cv.load_index()
     pool = codes if codes else index["codes"]
     host = args.obs.split("//")[1].split(":")[0]
     port = int(args.obs.rsplit(":", 1)[1])
     client = obsws.ReqClient(host=host, port=port, password=args.password, timeout=15)
     print(f"connected to OBS at {host}:{port}; source '{args.source}'; "
-          f"pool={'decklist:' + str(len(pool)) if codes else 'ALL ' + str(len(pool))}")
+          f"pool={str(len(pool)) + ' (' + src_label + ')' if codes else 'ALL ' + str(len(pool)) + ' cards (no decklist available)'}")
 
     prev = {}      # region_key -> {"crop", "results": [(code,score,bbox)], "bbox"}
     tracks = {}    # instance key "CODE#c.n" -> {"code", "hits", "bbox", "first", "last", "crop"}
