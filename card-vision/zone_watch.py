@@ -157,8 +157,16 @@ def main():
         seen = []
         for z in zones:
             x0, y0, x1, y1 = z["roi"]
-            res = cv.identify_photo(frame[y0:y1, x0:x1], index,
-                                    candidate_codes=pool, topk=1)
+            hits = cv.identify_photo(frame[y0:y1, x0:x1], index,
+                                     candidate_codes=pool, topk=1)
+            # identify_photo returns its top-k WHETHER OR NOT they pass the
+            # accept threshold (score >= ACCEPT_SCORE). Honour that flag: a
+            # constrained pool always has a "best" candidate, so an unfiltered
+            # res[0] happily reports the least-bad card in the decklist. Seen
+            # for real — a zone holding Irelia matched "Mel, Soul's Reflection"
+            # at 0.087 because the board's decklist did not contain the card
+            # actually on the table.
+            res = [h for h in (hits or []) if h.get("accepted")]
             t = tracks.setdefault(z["name"], {"code": None, "name": None, "score": 0.0,
                                               "sightings": 0, "misses": 0,
                                               "first": None, "confirmed": False})
