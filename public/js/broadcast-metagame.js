@@ -1346,7 +1346,9 @@ socket.on('receive-meta-breakdown-data', () => {
 let _debugOverlayActive = false;
 window.debugFocus = function () {
     if (_debugOverlayActive) {
-        document.getElementById('debug-focus-overlay')?.remove();
+        const ov = document.getElementById('debug-focus-overlay');
+        if (ov?._onKey) document.removeEventListener('keydown', ov._onKey);
+        ov?.remove();
         _debugOverlayActive = false;
         console.log('[Debug] Focus overlay removed');
         return;
@@ -1453,20 +1455,12 @@ window.debugFocus = function () {
         card.appendChild(label);
         updateLabel();
 
-        // Click to log
-        card.addEventListener('click', () => {
-            const f = PORTRAIT_FOCUS[d.name] || { top: focus.top, left: focus.left };
-            const scaleStr = currentScale !== 1.0 ? `, scale: ${currentScale}` : '';
-            console.log(`'${d.name}': { top: ${f.top}, left: ${f.left}${scaleStr} },`);
-        });
-
-        // Right-click to reposition focus point
-        card.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-            const rect = card.getBoundingClientRect();
-            const newLeft = Math.round(((e.clientX - rect.left) / rect.width) * 100);
-            const newTop = Math.round(((e.clientY - rect.top) / rect.height) * 100);
-            PORTRAIT_FOCUS[d.name] = { top: newTop, left: newLeft, scale: currentScale };
+        // Move the focus point to (top%, left%) and redraw the crosshair.
+        const setFocus = (newTop, newLeft) => {
+            newTop = Math.max(0, Math.min(100, Math.round(newTop)));
+            newLeft = Math.max(0, Math.min(100, Math.round(newLeft)));
+            // keep heroScale (and anything else on the entry) — only the focus point moves
+            PORTRAIT_FOCUS[d.name] = { ...(PORTRAIT_FOCUS[d.name] || {}), top: newTop, left: newLeft, scale: currentScale };
             crossV.style.left = `${newLeft}%`;
             crossH.style.top = `${newTop}%`;
             dot.style.left = `${newLeft}%`;
@@ -1474,15 +1468,34 @@ window.debugFocus = function () {
             updateLabel();
             const scaleStr = currentScale !== 1.0 ? `, scale: ${currentScale}` : '';
             console.log(`'${d.name}': { top: ${newTop}, left: ${newLeft}${scaleStr} },`);
-        });
+        };
 
-        // Scroll wheel to adjust scale
+        // Click OR right-click puts the focus point where you clicked, and
+        // selects the card so the arrow keys can nudge it. (It used to be
+        // right-click only, with left-click just logging — nobody guesses that.)
+        const placeAt = (e) => {
+            e.preventDefault();
+            const rect = card.getBoundingClientRect();
+            setFocus(((e.clientY - rect.top) / rect.height) * 100, ((e.clientX - rect.left) / rect.width) * 100);
+            if (overlay._selected) overlay._selected.style.outline = '';
+            overlay._selected = card;
+            overlay._selectedName = d.name;
+            overlay._selectedSetFocus = setFocus;
+            card.style.outline = '3px solid #ffd54a';
+        };
+        card.addEventListener('click', placeAt);
+        card.addEventListener('contextmenu', placeAt);
+
+        // Option/Alt + scroll wheel adjusts scale. A bare wheel must keep
+        // scrolling the grid — without the modifier, scrolling past a tile
+        // silently re-scaled it (Lucian ended up at 0.5 that way).
         card.addEventListener('wheel', (e) => {
+            if (!e.altKey) return;
             e.preventDefault();
             currentScale = Math.round((currentScale + (e.deltaY < 0 ? 0.1 : -0.1)) * 10) / 10;
             currentScale = Math.max(0.5, Math.min(3.0, currentScale));
             const f = PORTRAIT_FOCUS[d.name] || { top: focus.top, left: focus.left };
-            PORTRAIT_FOCUS[d.name] = { top: f.top, left: f.left, scale: currentScale };
+            PORTRAIT_FOCUS[d.name] = { ...f, top: f.top, left: f.left, scale: currentScale };
             updateLabel();
             console.log(`'${d.name}': scale ${currentScale}`);
         });
@@ -1490,6 +1503,19 @@ window.debugFocus = function () {
         grid.appendChild(card);
     });
     overlay.appendChild(grid);
+
+    // Arrow keys nudge the selected card's focus point by 1% (Shift = 5%).
+    const onKey = (e) => {
+        if (!overlay._selectedSetFocus) return;
+        const step = e.shiftKey ? 5 : 1;
+        const delta = { ArrowUp: [-step, 0], ArrowDown: [step, 0], ArrowLeft: [0, -step], ArrowRight: [0, step] }[e.key];
+        if (!delta) return;
+        e.preventDefault();
+        const f = PORTRAIT_FOCUS[overlay._selectedName] || { top: 20, left: 50 };
+        overlay._selectedSetFocus(f.top + delta[0], f.left + delta[1]);
+    };
+    document.addEventListener('keydown', onKey);
+    overlay._onKey = onKey;
 
     // Close button
     const closeBtn = document.createElement('button');
@@ -1499,6 +1525,7 @@ window.debugFocus = function () {
         background: '#e6194b', color: '#fff', border: 'none', borderRadius: '6px',
     });
     closeBtn.addEventListener('click', () => {
+        document.removeEventListener('keydown', onKey);
         overlay.remove();
         _debugOverlayActive = false;
         // Re-render pie with updated focus values

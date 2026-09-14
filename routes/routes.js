@@ -229,28 +229,58 @@ router.post('/save-portrait-focus', express.json(), (req, res) => {
     return res.status(400).json({ error: 'Missing focusMap' });
   }
 
-  const filePath = path.join(__dirname, '../public/js/broadcast-metagame.js');
+  // The map lives in riftbound/constants.js as RIFTBOUND_PORTRAIT_FOCUS (it
+  // moved out of broadcast-metagame.js). Patch it SURGICALLY: rewrite only the
+  // lines for names in the payload, merging with what's on disk so keys the
+  // overlay doesn't send (heroScale, anything added later) survive, and leave
+  // the block's comments and ordering alone. Names not yet in the file are
+  // appended before the closing brace.
+  const filePath = path.join(__dirname, '../public/js/riftbound/constants.js');
   let content = fs.readFileSync(filePath, 'utf-8');
+  const blockRe = /(export const RIFTBOUND_PORTRAIT_FOCUS = \{)([\s\S]*?)(\n\};)/;
+  const m = content.match(blockRe);
+  if (!m) return res.status(500).json({ error: 'Could not find RIFTBOUND_PORTRAIT_FOCUS in constants.js' });
 
-  // Build new PORTRAIT_FOCUS block
-  const lines = ['const PORTRAIT_FOCUS = {'];
+  let body = m[2];
+  const esc = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const keyFor = (name) => (name.includes("'") ? `"${name}"` : `'${name}'`);
+  const parseEntry = (objText) => {
+    const out = {};
+    for (const kv of objText.matchAll(/(\w+)\s*:\s*([-\d.]+)/g)) out[kv[1]] = Number(kv[2]);
+    return out;
+  };
+  const fmt = (name, vals) => {
+    const parts = [`top: ${vals.top}`, `left: ${vals.left}`];
+    if (vals.scale != null && vals.scale !== 1.0) parts.push(`scale: ${vals.scale}`);
+    if (vals.heroScale != null && vals.heroScale !== 1.0) parts.push(`heroScale: ${vals.heroScale}`);
+    for (const [k, v] of Object.entries(vals)) {
+      if (!['top', 'left', 'scale', 'heroScale'].includes(k) && Number.isFinite(v)) parts.push(`${k}: ${v}`);
+    }
+    return `    ${(keyFor(name) + ':').padEnd(43)}{ ${parts.join(', ')} },`;
+  };
+
+  let updated = 0, added = 0;
   for (const [name, vals] of Object.entries(focusMap)) {
-    const key = name.includes("'") ? `"${name}"` : `'${name}'`;
-    const scaleStr = vals.scale && vals.scale !== 1.0 ? `, scale: ${vals.scale}` : '';
-    lines.push(`    ${(key + ':').padEnd(43)}{ top: ${vals.top}, left: ${vals.left}${scaleStr} },`);
+    if (!vals || !Number.isFinite(vals.top) || !Number.isFinite(vals.left)) continue;
+    // match either quoting style, with or without an escaped apostrophe
+    const nameAlt = `(?:'${esc(name.replace(/'/g, "\\'"))}'|"${esc(name)}")`;
+    const lineRe = new RegExp(`^([ \\t]*)${nameAlt}[ \\t]*:[ \\t]*\\{([^}]*)\\}[ \\t]*,?[ \\t]*(//[^\\n]*)?$`, 'm');
+    const lm = body.match(lineRe);
+    if (lm) {
+      const merged = { ...parseEntry(lm[2]), ...vals };
+      const comment = lm[3] ? `   ${lm[3]}` : '';
+      body = body.replace(lineRe, fmt(name, merged) + comment);
+      updated++;
+    } else {
+      body = body.replace(/\s*$/, '') + '\n' + fmt(name, vals);
+      added++;
+    }
   }
-  lines.push('};');
-
-  // Replace the existing PORTRAIT_FOCUS block
-  const regex = /const PORTRAIT_FOCUS = \{[\s\S]*?\n\};/;
-  if (!regex.test(content)) {
-    return res.status(500).json({ error: 'Could not find PORTRAIT_FOCUS in file' });
-  }
-  content = content.replace(regex, lines.join('\n'));
+  content = content.replace(blockRe, `$1${body}$3`);
   fs.writeFileSync(filePath, content, 'utf-8');
 
-  console.log(`[Focus] Saved ${Object.keys(focusMap).length} portrait focus values`);
-  res.json({ ok: true, count: Object.keys(focusMap).length });
+  console.log(`[Focus] Portrait focus saved: ${updated} updated, ${added} added (constants.js)`);
+  res.json({ ok: true, count: updated + added, updated, added });
 });
 
 // Save one animated-legend central-figure position from heroDebug(). Surgically

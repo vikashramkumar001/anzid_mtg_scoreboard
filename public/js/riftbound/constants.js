@@ -365,7 +365,7 @@ export const RIFTBOUND_LEGEND_ANIMATIONS = {
 export const RIFTBOUND_PORTRAIT_FOCUS = {
     'Annie, Dark Child':                       { top: 18, left: 51, heroScale: 1.2 },
     'Master Yi, Wuju Bladesman':               { top: 17, left: 40, heroScale: 1.6 },
-    'Lux, Lady of Luminosity':                 { top: 9,  left: 59, heroScale: 2.0 },
+    'Lux, Lady of Luminosity':                 { top: 9, left: 59, heroScale: 2 },
     'Garen, Might of Demacia':                 { top: 36, left: 37, heroScale: 1.6 },
     "Kai'Sa, Daughter of the Void":            { top: 21, left: 71, heroScale: 1.7 },
     'Volibear, Relentless Storm':              { top: 12, left: 50, heroScale: 1.7 },
@@ -380,7 +380,7 @@ export const RIFTBOUND_PORTRAIT_FOCUS = {
     'Miss Fortune, Bounty Hunter':             { top: 24, left: 60, heroScale: 1.45 },
     'Sett, The Boss':                          { top: 14, left: 50, heroScale: 1.5 },
     'Rumble, Mechanized Menace':               { top: 39, left: 51, heroScale: 1.6 },
-    'Lucian, Purifier':                        { top: 13, left: 43, heroScale: 2.0 },
+    'Lucian, Purifier':                        { top: 13, left: 43, heroScale: 2 },
     'Draven, Glorious Executioner':            { top: 20, left: 55, heroScale: 1.3 },
     "Rek'Sai, Void Burrower":                  { top: 16, left: 51, heroScale: 1.4 },
     'Ornn, Fire Below the Mountain':           { top: 26, left: 55, heroScale: 1.15 },
@@ -391,7 +391,7 @@ export const RIFTBOUND_PORTRAIT_FOCUS = {
     'Renata Glasc, Chem-Baroness':             { top: 20, left: 50, heroScale: 1.5 },
     'Sivir, Battle Mistress':                  { top: 19, left: 53, heroScale: 1.45 },
     'Fiora, Grand Duelist':                    { top: 28, left: 53, heroScale: 1.9 },
-    'Jhin, Virtuoso':                          { top: 13, left: 51, heroScale: 2.0 },
+    'Jhin, Virtuoso':                          { top: 13, left: 51, heroScale: 2 },
     'Rengar, Pridestalker':                    { top: 31, left: 36, heroScale: 1.2 },
     'Pyke, Bloodharbor Ripper':                { top: 33, left: 58, heroScale: 1.6 },
     'Vi, Piltover Enforcer':                   { top: 12, left: 47, heroScale: 1.6 },
@@ -399,21 +399,24 @@ export const RIFTBOUND_PORTRAIT_FOCUS = {
     'Master Yi, Wuju Master':                  { top: 18, left: 59, heroScale: 1.5 },
     'Vex, Gloomist':                           { top: 49, left: 56, heroScale: 1.7 },
     'Ivern, Green Father':                     { top: 22, left: 50, heroScale: 1.2 },
-    'Diana, Scorn of the Moon':                { top: 11, left: 70, heroScale: 2.0 },
+    'Diana, Scorn of the Moon':                { top: 11, left: 70, heroScale: 2 },
     'LeBlanc, Deceiver':                       { top: 16, left: 46, heroScale: 1.8 },
     "Kha'Zix, Voidreaver":                     { top: 37, left: 42, heroScale: 1.15 },
     'Poppy, Keeper of the Hammer':             { top: 46, left: 59, heroScale: 1.6 },
-    // Vendetta — starting estimates from the 1200 crops; fine-tune with
-    // heroDebug() on the metagame page (saves via POST /save-hero-position)
-    'Akali, Rogue Assassin':                   { top: 18, left: 46, heroScale: 1.4 },
-    'Renekton, Butcher of the Sands':          { top: 20, left: 48, heroScale: 1.15 },
-    'Zed, Master of Shadows':                  { top: 16, left: 50, heroScale: 1.4 },
-    'Nasus, Curator of the Sands':             { top: 12, left: 50, heroScale: 1.6 },
-    'Shen, Eye of Twilight':                   { top: 14, left: 50, heroScale: 1.7 },
-    'Jayce, Defender of Tomorrow':             { top: 16, left: 44, heroScale: 1.5 },
-    "Mel, Soul's Reflection":                  { top: 12, left: 52, heroScale: 1.8 },
-    'Ambessa, Matriarch of War':               { top: 12, left: 50, heroScale: 1.6 },
-    'Kennen, Heart of the Tempest':            { top: 22, left: 50, heroScale: 1.3 },
+    // Vendetta — starting estimates from the 1200 crops, NOT yet tuned.
+    // Tune with debugFocus() on the metagame page (saves via POST
+    // /save-portrait-focus, which patches this map). heroDebug() /
+    // /save-hero-position is the OTHER tool — it edits RIFTBOUND_LEGEND_ART_ANIM
+    // for animated (webm) legends, and VEN has none yet.
+    'Akali, Rogue Assassin':                   { top: 26, left: 53, heroScale: 1.4 },
+    'Renekton, Butcher of the Sands':          { top: 31, left: 86, heroScale: 1.15 },
+    'Zed, Master of Shadows':                  { top: 26, left: 54, heroScale: 1.4 },
+    'Nasus, Curator of the Sands':             { top: 34, left: 39, heroScale: 1.6 },
+    'Shen, Eye of Twilight':                   { top: 14, left: 46, heroScale: 1.7 },
+    'Jayce, Defender of Tomorrow':             { top: 30, left: 41, heroScale: 1.5 },
+    "Mel, Soul's Reflection":                  { top: 14, left: 67, heroScale: 1.8 },
+    'Ambessa, Matriarch of War':               { top: 33, left: 49, heroScale: 1.6 },
+    'Kennen, Heart of the Tempest':            { top: 24, left: 73, heroScale: 1.3 },
     'Other':                                   { top: 40, left: 48 },
 };
 
