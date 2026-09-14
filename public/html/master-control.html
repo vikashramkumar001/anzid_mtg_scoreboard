@@ -48,7 +48,7 @@
                 <!-- Show Sideboard toggle moved to each round's broadcast strip
                      (matches.js round-broadcast-container) so it sits beside the
                      Broadcast / Fetch Standings buttons. -->
-                <button id="zone-watch-toggle" class="btn btn-outline-secondary btn-sm" title="Card recognizer">Card Vision: off</button>
+                <!-- Card Vision + Scoreboard Decklists live on the Controls tab. -->
                 <button id="save-obs-preset" class="btn btn-outline-info btn-sm">Save OBS Preset</button>
                 <button id="load-obs-preset" class="btn btn-outline-warning btn-sm">Load OBS Preset</button>
                 <button id="dark-mode-toggle" class="btn btn-outline-secondary btn-sm" onclick="toggleDarkMode()">Dark Mode</button>
@@ -63,6 +63,13 @@
                 <button class="nav-link active" id="config-tab" data-bs-toggle="tab" data-bs-target="#config-control"
                     type="button" role="tab" aria-controls="config" aria-selected="true">
                     Config
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="controls-tab" data-bs-toggle="tab"
+                    data-bs-target="#controls-control" type="button" role="tab" aria-controls="controls"
+                    aria-selected="false">
+                    Controls
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -1927,6 +1934,46 @@ CommentatorC
                             on Piltover are always picked up.
                         </p>
                         <div id="deck-library-body"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls Tab Content — the switches you press mid-show, in one
+                 place (the header strip is setup, not live controls). The
+                 buttons keep their IDs: zone-watch.js and scoreboard-decklists.js
+                 bind by id. Show L3 is a CLONE of the one in Config → Commentators
+                 (both emit toggle-commentator-l3; game-selection.js binds the class). -->
+            <div class="tab-pane fade" id="controls-control" role="tabpanel" aria-labelledby="controls-tab">
+                <div class="container-fluid py-3">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-uppercase text-muted small mb-3">Scoreboard</h6>
+                                    <button id="scoreboard-decklists-toggle" class="btn btn-outline-secondary w-100 py-3"
+                                        title="Slide both players' decklists onto the riftbound scoreboard">Scoreboard Decklists: off</button>
+                                    <div class="form-text mt-2">Slides both players' lists over the side panels; press again to slide them out. Also on the Stream Deck.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-uppercase text-muted small mb-3">Commentators</h6>
+                                    <button class="btn btn-primary w-100 py-3 toggle-commentator-l3">Show L3</button>
+                                    <div class="form-text mt-2">Same as Show L3 in Config → Commentators.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-uppercase text-muted small mb-3">Card Vision</h6>
+                                    <button id="zone-watch-toggle" class="btn btn-outline-secondary w-100 py-3" title="Card recognizer">Card Vision: off</button>
+                                    <div class="form-text mt-2">Fixed-zone card recognizer on this machine's OBS. Off by default on a fresh start.</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import {promises as fs} from 'fs';
-import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection, getVendorSelection, setVendorSelection, getPlayerCount, setPlayerCount, getSideboardVisible, setSideboardVisible} from '../config/constants.js';
+import {controlDataPath, DEFAULT_GAME_SELECTION, setGameSelection, getGameSelection, getVendorSelection, setVendorSelection, getPlayerCount, setPlayerCount, getSideboardVisible, setSideboardVisible, getScoreboardDecklistsVisible, setScoreboardDecklistsVisible} from '../config/constants.js';
 import {getSortedArchetypes} from './archetypes.js';
 import {emitBroadcastStandings} from "./standings.js";
 import { RoomUtils } from '../utils/room-utils.js';
@@ -367,6 +367,16 @@ export function emitUpdatedSideboardVisible(io) {
 export function updateSideboardVisible(sideboardVisible, io) {
     setSideboardVisible(sideboardVisible);
     emitUpdatedSideboardVisible(io);
+}
+
+// Scoreboard decklists toggle. Unmapped event → global, so every scoreboard
+// page (broadcast and live modes) and every master-control tab hears it.
+export function emitUpdatedScoreboardDecklistsVisible(io) {
+    RoomUtils.emitWithRoomMapping(io, 'scoreboard-decklists-visible-updated', {scoreboardDecklistsVisible: getScoreboardDecklistsVisible()});
+}
+export function updateScoreboardDecklistsVisible(visible, io) {
+    setScoreboardDecklistsVisible(visible);
+    emitUpdatedScoreboardDecklistsVisible(io);
 }
 
 

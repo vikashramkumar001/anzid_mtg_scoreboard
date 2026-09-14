@@ -35,6 +35,15 @@ export function buildPresets() {
 		feedbacks: [{ feedbackId: 'comm_l3_remote', options: {}, style: { bgcolor: combineRgb(200, 130, 0), color: BLACK } }],
 	}
 
+	presets['scoreboard_decklists'] = {
+		type: 'button',
+		category: 'Decklists',
+		name: 'Scoreboard decklists (slide in / out)',
+		style: base('DECK\\nLISTS'),
+		steps: [{ down: [{ actionId: 'scoreboard_decklists', options: { mode: 'toggle' } }], up: [] }],
+		feedbacks: [{ feedbackId: 'scoreboard_decklists', options: {}, style: { bgcolor: combineRgb(40, 160, 70), color: combineRgb(255, 255, 255) } }],
+	}
+
 	for (const action of [
 		{ id: 'start', label: 'START' },
 		{ id: 'pause', label: 'PAUSE' },

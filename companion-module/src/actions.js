@@ -29,6 +29,31 @@ export function buildActions(self) {
 			},
 		},
 
+		// ── Scoreboard decklists ────────────────────────────────────────────
+		// Slides both players' vertical decklists over the riftbound
+		// scoreboard's side panels (and back out). Same flag master control's
+		// "Scoreboard Decklists" button drives.
+		scoreboard_decklists: {
+			name: 'Scoreboard decklists: slide in / out',
+			options: [
+				{
+					type: 'dropdown',
+					id: 'mode',
+					label: 'Mode',
+					default: 'toggle',
+					choices: [
+						{ id: 'toggle', label: 'Toggle' },
+						{ id: 'on', label: 'Show (slide in)' },
+						{ id: 'off', label: 'Hide (slide out)' },
+					],
+				},
+			],
+			callback: ({ options }) => {
+				const visible = options.mode === 'toggle' ? !self.state.scoreboardDecklists : options.mode === 'on'
+				self.send('update-scoreboard-decklists-visible', { scoreboardDecklistsVisible: visible })
+			},
+		},
+
 		// ── Timers ──────────────────────────────────────────────────────────
 		// round_id and match_id address one match's clock, so these are text
 		// fields with variable support rather than a fixed dropdown — the same

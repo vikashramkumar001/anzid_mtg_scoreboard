@@ -10,11 +10,13 @@ export function initZoneWatch(socket) {
     const btn = document.getElementById('zone-watch-toggle');
     if (!btn) return;
     let status = { running: false, installed: false };
+    // Only the colour variant changes; size/layout classes come from the markup.
+    const variant = (v) => { btn.classList.remove('btn-outline-secondary', 'btn-success', 'btn-warning'); btn.classList.add(v); };
 
     function render() {
         if (!status.installed) {
             btn.textContent = 'Card Vision: n/a';
-            btn.className = 'btn btn-outline-secondary btn-sm';
+            variant('btn-outline-secondary');
             btn.disabled = true;
             btn.title = status.lastError || 'recognizer not installed on this machine';
             return;
@@ -22,14 +24,14 @@ export function initZoneWatch(socket) {
         btn.disabled = false;
         if (!status.running) {
             btn.textContent = 'Card Vision: off';
-            btn.className = 'btn btn-outline-secondary btn-sm';
+            variant('btn-outline-secondary');
             btn.title = status.lastError ? `last error: ${status.lastError}` : 'click to start the card recognizer';
             return;
         }
         // Running. Warn loudly when it is in the expensive mode.
         const mins = Math.floor((status.uptimeMs || 0) / 60000);
         btn.textContent = status.openSearch ? 'Card Vision: OPEN SEARCH' : `Card Vision: on (${mins}m)`;
-        btn.className = status.openSearch ? 'btn btn-warning btn-sm' : 'btn btn-success btn-sm';
+        variant(status.openSearch ? 'btn-warning' : 'btn-success');
         btn.title = status.openSearch
             ? 'No decklist loaded — searching all 1190 cards, ~6.7 cores. Load a decklist or turn this off.'
             : `pool: ${status.pool || 'starting…'}`;

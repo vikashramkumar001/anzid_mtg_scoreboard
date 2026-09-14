@@ -129,6 +129,7 @@ class CoverageHubInstance extends InstanceBase {
 			this.socket.emit('get-vendor-selection')
 			this.socket.emit('get-player-count')
 			this.socket.emit('get-comm-l3-remote')
+			this.socket.emit('get-scoreboard-decklists-visible')
 			this.socket.emit('get-all-timer-states')
 		})
 
@@ -154,6 +155,10 @@ class CoverageHubInstance extends InstanceBase {
 		this.socket.on('player-count-updated', setCount)
 		this.socket.on('server-comm-l3-remote', setRemote)
 		this.socket.on('comm-l3-remote-updated', setRemote)
+		const setDecklists = ({ scoreboardDecklistsVisible } = {}) =>
+			this.apply({ scoreboardDecklists: !!scoreboardDecklistsVisible }, ['scoreboard_decklists'])
+		this.socket.on('server-current-scoreboard-decklists-visible', setDecklists)
+		this.socket.on('scoreboard-decklists-visible-updated', setDecklists)
 
 		this.socket.on('current-all-timer-states', ({ timerState } = {}) => {
 			this.apply({ timerState: timerState || {} }, ['timer_running'])

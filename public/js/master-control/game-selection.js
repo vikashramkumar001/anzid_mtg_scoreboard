@@ -295,12 +295,12 @@ export function initGameSelection(socket) {
 
     // --- Save OBS Preset ---
     // --- Toggle Commentator L3 ---
-    const commL3Btn = document.querySelector('#toggle-commentator-l3');
-    if (commL3Btn) {
+    // The Config → Commentators button plus any clone (Controls tab) — same emit.
+    document.querySelectorAll('#toggle-commentator-l3, .toggle-commentator-l3').forEach((commL3Btn) => {
         commL3Btn.addEventListener('click', () => {
             socket.emit('toggle-commentator-l3');
         });
-    }
+    });
 
     // Remote L3 mode toggle — server-held flag; the L3 page relays out to a
     // per-cam-segment layout when on (1 full / 2 halves / 3 thirds / 4 = 2x2).

@@ -39,6 +39,13 @@ export function buildFeedbacks(self) {
 			options: [],
 			callback: () => self.state.commL3Remote === true,
 		},
+		scoreboard_decklists: {
+			type: 'boolean',
+			name: 'Scoreboard decklists are showing',
+			defaultStyle: { bgcolor: GREEN, color: WHITE },
+			options: [],
+			callback: () => self.state.scoreboardDecklists === true,
+		},
 		timer_running: {
 			type: 'boolean',
 			name: 'Timer is running',

@@ -13,6 +13,7 @@
     <!-- Local-only, gitignored: sets window.RESTREAM_CHAT_URL for the anu chat overlay -->
     <script src="/js/restream-config.js"></script>
     <link href="/css/scoreboard.css" rel="stylesheet">
+    <link href="/css/riftbound/vertical-decklist.css" rel="stylesheet">
 
 </head>
 <body>
@@ -376,6 +377,14 @@
                 <div class="riftbound-bf-label"></div>
             </div>
         </div>
+
+        <!-- Slide-in decklists (master control "Scoreboard Decklists" button).
+             Each side is a clip box covering that side's panel; the list
+             inside starts fully outside the box (off-canvas) and slides to 0
+             when #scoreboard-riftbound has .rb-vdl-visible.
+             Filled by renderVerticalDecklist() in scoreboard.js. -->
+        <div class="rb-vdl rb-vdl-left" id="rb-vdl-left"><div class="rb-vdl-body"></div></div>
+        <div class="rb-vdl rb-vdl-right" id="rb-vdl-right"><div class="rb-vdl-body"></div></div>
     </div>
 </div>
 

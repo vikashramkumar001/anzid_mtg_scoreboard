@@ -77,8 +77,11 @@ export class RoomUtils {
             'deck-display-update': ['deck-display'],
             'vibes-deck-data-from-server': ['vibes-deck-display'],
             'riftbound-deck-data-from-server': ['riftbound-deck-display'],
-            'transformed-main-deck-data': ['broadcast-main-deck'],
-            'transformed-side-deck-data': ['broadcast-side-deck', 'broadcast-main-deck'],
+            // broadcast-scoreboard: the riftbound scoreboard's slide-in decklists
+            // refresh on every Broadcast press (live-mode scoreboard-N rooms are
+            // deliberately absent — they fetch their own round via get-scoreboard-decklists)
+            'transformed-main-deck-data': ['broadcast-main-deck', 'broadcast-scoreboard'],
+            'transformed-side-deck-data': ['broadcast-side-deck', 'broadcast-main-deck', 'broadcast-scoreboard'],
             'transformed-draft-list-data': ['broadcast-draft-list'],
 
             // Standings events

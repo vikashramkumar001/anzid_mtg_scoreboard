@@ -6,6 +6,7 @@ import {
     RIFTBOUND_LEGENDS,
     RIFTBOUND_LEGENDS_DEFAULT,
 } from './riftbound/constants.js';
+import { renderVerticalDecklist } from './riftbound/vertical-decklist.js';
 
 // Auto-scale text to fit within a max width (consistent with other broadcast views)
 function autoScaleText(element, maxFontSize, minFontSize, maxWidth) {
@@ -1166,6 +1167,7 @@ if (isBroadcastMode) {
         // Re-request timer and scoreboard state now that we know round_id
         socket.emit('get-all-timer-states');
         socket.emit('get-scoreboard-state');
+        requestScoreboardDecklists();
     });
 
     // Listen for broadcast-round-data
@@ -1185,6 +1187,10 @@ if (isBroadcastMode) {
             round_id = data['round_id'];
             match_id = data['match_id'];
             updateState(data['data']);
+            // Only re-transform the decklists when a deck-related field changed;
+            // this event fires on every life-total edit.
+            const fp = rbDeckFingerprint(data['data']);
+            if (fp !== rbLastDeckFingerprint) { rbLastDeckFingerprint = fp; requestScoreboardDecklists(); }
         } catch (e) {
             console.error('Error in saved-state handler:', e);
         }
@@ -1805,6 +1811,104 @@ socket.on('starwars-leaders-and-bases', ({ leaders, bases }) => {
     leaders.forEach(l => { SWU_LEADERS[l.name] = l.image; });
     bases.forEach(b => { SWU_BASES[b.name] = b.image; });
 });
+
+// ── Riftbound scoreboard decklists (slide-in vertical lists) ──────────────
+// Master control's "Scoreboard Decklists" button slides both players' lists
+// in from the panel edges over the game area; pressing again slides them out.
+// Deck data arrives on the same transformed-*-deck-data events the decklist
+// pages use: replayed on load (broadcast mode), pushed on every Broadcast
+// press (room map), and fetched on demand for THIS page's round/match
+// (get-scoreboard-decklists) — which also covers a cold transform cache.
+const rbDecklists = { left: { main: null, side: null }, right: { main: null, side: null } };
+let rbDecklistsVisible = false;
+let rbSideboardVisible = false;
+let rbLastDeckFingerprint = '';
+
+function rbDeckFingerprint(md) {
+    if (!md) return '';
+    const keys = ['player-main-deck', 'player-side-deck', 'player-legend', 'player-champion',
+        'player-rune-color-1', 'player-rune-qty-1', 'player-rune-color-2', 'player-rune-qty-2',
+        'player-battlefield-1', 'player-battlefield-2', 'player-battlefield-3'];
+    return keys.flatMap(k => [md[`${k}-left`], md[`${k}-right`]]).map(v => JSON.stringify(v ?? '')).join('|');
+}
+
+function requestScoreboardDecklists() {
+    if (round_id && match_id) socket.emit('get-scoreboard-decklists', { round_id, match_id });
+}
+
+function rbVar(name, fallback) {
+    const root = document.getElementById('scoreboard-riftbound');
+    const v = root ? parseFloat(getComputedStyle(root).getPropertyValue(name)) : NaN;
+    return Number.isFinite(v) ? v : fallback;
+}
+
+function renderScoreboardDecklists() {
+    if (currentGame !== 'riftbound') return;
+    const panelW = rbVar('--rb-vdl-w', 358);
+    const height = rbVar('--rb-vdl-h', 1080);
+    const width = panelW - 12;   // 6px breathing room each side inside the panel
+    for (const side of ['left', 'right']) {
+        const body = document.querySelector(`#rb-vdl-${side} .rb-vdl-body`);
+        if (!body) continue;
+        const d = rbDecklists[side];
+        if (!d.main) { body.innerHTML = ''; continue; }
+        renderVerticalDecklist(body, {
+            main: d.main,
+            side: d.side || [],
+            showSideboard: rbSideboardVisible,
+            height, width, pad: 12,
+        });
+    }
+}
+
+function applyScoreboardDecklists() {
+    const root = document.getElementById('scoreboard-riftbound');
+    if (!root) return;
+    if (rbDecklistsVisible && currentGame === 'riftbound') {
+        renderScoreboardDecklists();
+        // Re-cock: let the fresh content lay out at its off-canvas position
+        // before the class flips, so the slide starts from the edge. Forced
+        // reflow rather than rAF — inactive OBS sources don't tick rAF.
+        void root.offsetWidth;
+        root.classList.add('rb-vdl-visible');
+    } else {
+        // Content stays put while it slides back out.
+        root.classList.remove('rb-vdl-visible');
+    }
+}
+
+socket.on('transformed-main-deck-data', (d) => {
+    if (!d || d.gameType !== 'riftbound' || d.matchID !== match_id || !rbDecklists[d.sideID]) return;
+    rbDecklists[d.sideID].main = d.deckData;
+    if (rbDecklistsVisible) renderScoreboardDecklists();
+});
+socket.on('transformed-side-deck-data', (d) => {
+    if (!d || d.gameType !== 'riftbound' || d.matchID !== match_id || !rbDecklists[d.sideID]) return;
+    rbDecklists[d.sideID].side = d.deckData;
+    if (rbDecklistsVisible) renderScoreboardDecklists();
+});
+socket.on('server-current-scoreboard-decklists-visible', ({ scoreboardDecklistsVisible } = {}) => {
+    rbDecklistsVisible = !!scoreboardDecklistsVisible;
+    if (rbDecklistsVisible) requestScoreboardDecklists();
+    applyScoreboardDecklists();
+});
+socket.on('scoreboard-decklists-visible-updated', ({ scoreboardDecklistsVisible } = {}) => {
+    rbDecklistsVisible = !!scoreboardDecklistsVisible;
+    if (rbDecklistsVisible) requestScoreboardDecklists();
+    applyScoreboardDecklists();
+});
+// The lists include the sideboard when master control's Show Sideboard is on.
+socket.on('server-current-sideboard-visible', ({ sideboardVisible } = {}) => {
+    rbSideboardVisible = !!sideboardVisible;
+    if (rbDecklistsVisible) renderScoreboardDecklists();
+});
+socket.on('sideboard-visible-updated', ({ sideboardVisible } = {}) => {
+    rbSideboardVisible = !!sideboardVisible;
+    if (rbDecklistsVisible) renderScoreboardDecklists();
+});
+socket.emit('get-sideboard-visible');
+socket.emit('get-scoreboard-decklists-visible');
+
 
 // end game selection logic
 

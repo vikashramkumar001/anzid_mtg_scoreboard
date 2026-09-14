@@ -94,3 +94,10 @@ export function getSideboardVisible() {
 export function setSideboardVisible(visible) {
   DEFAULT_SIDEBOARD_VISIBLE = !!visible;
 }
+
+// Scoreboard decklists: both players' vertical lists slid onto the riftbound
+// scoreboard. In-memory, off after a restart (like Card Vision) — a stream
+// never starts with decklists covering the game.
+export let DEFAULT_SCOREBOARD_DECKLISTS_VISIBLE = false;
+export function getScoreboardDecklistsVisible() { return DEFAULT_SCOREBOARD_DECKLISTS_VISIBLE; }
+export function setScoreboardDecklistsVisible(visible) { DEFAULT_SCOREBOARD_DECKLISTS_VISIBLE = !!visible; }

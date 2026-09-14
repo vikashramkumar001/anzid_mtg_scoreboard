@@ -1,11 +1,14 @@
 import {
     emitMTGCardList,
     emitCardView,
-    transformDraftList
+    transformDraftList,
+    transformMainDeckPure,
+    transformSideDeckPure
 } from '../features/cards.js';
 
 import { getAllCachedTransforms } from '../features/transformCache.js';
-import { transformAndEmitAllDecks } from '../features/transformAllDecks.js';
+import { getGameSelection, getScoreboardDecklistsVisible } from '../config/constants.js';
+import { transformAndEmitAllDecks, buildMainDeckPayload, deckLines} from '../features/transformAllDecks.js';
 
 import {
     emitVibesCardList,
@@ -32,7 +35,8 @@ import {
     updateScoreboardSate, emitCurrentGameSelection, updateGameSelection, emitUpdatedGameSelection,
     emitCurrentVendorSelection, updateVendorSelection,
     emitCurrentPlayerCount, updatePlayerCount,
-    emitCurrentSideboardVisible, updateSideboardVisible
+    emitCurrentSideboardVisible, updateSideboardVisible,
+    updateScoreboardDecklistsVisible
 } from '../features/control.js';
 
 import { savePreset, restorePreset } from '../features/obs-websocket.js';
@@ -725,6 +729,17 @@ export default function registerSocketHandlers(io) {
             emitCurrentSideboardVisible(io);
         })
 
+        // Scoreboard decklists (both players' vertical lists slid onto the
+        // riftbound scoreboard). 'current' goes to the asker only; updates go
+        // to everyone.
+        socket.on('update-scoreboard-decklists-visible', ({scoreboardDecklistsVisible} = {}) => {
+            updateScoreboardDecklistsVisible(scoreboardDecklistsVisible, io);
+        })
+
+        socket.on('get-scoreboard-decklists-visible', () => {
+            socket.emit('server-current-scoreboard-decklists-visible', { scoreboardDecklistsVisible: getScoreboardDecklistsVisible() });
+        })
+
         // OBS Presets
         socket.on('save-obs-preset', async () => {
             const result = await savePreset();
@@ -904,6 +919,29 @@ export default function registerSocketHandlers(io) {
                     if (main) socket.emit('transformed-main-deck-data', main);
                     if (side) socket.emit('transformed-side-deck-data', side);
                 });
+            }
+        });
+
+        // Scoreboard decklists: transform BOTH sides of one match straight from
+        // control data and reply to the asker only. Independent of the transform
+        // cache (empty after a restart until the next Broadcast press) and of the
+        // broadcast round, so live-mode /scoreboard/N pages get their own round.
+        // Same event names as the Broadcast path → one client listener pair.
+        socket.on('get-scoreboard-decklists', ({ round_id, match_id } = {}) => {
+            const matchData = getControlData()?.[round_id]?.[match_id];
+            if (!matchData) return;
+            const gameType = getGameSelection();
+            for (const sideID of ['left', 'right']) {
+                try {
+                    const main = transformMainDeckPure(buildMainDeckPayload(matchData, sideID, gameType, match_id));
+                    socket.emit('transformed-main-deck-data', main);
+                    const sideRaw = deckLines(matchData[`player-side-deck-${sideID}`]);
+                    if (sideRaw.length > 0) {
+                        socket.emit('transformed-side-deck-data', transformSideDeckPure({ deckData: sideRaw, gameType, sideID, matchID: match_id }));
+                    }
+                } catch (e) {
+                    console.error(`[Scoreboard decklists] transform failed for ${round_id}/${match_id}/${sideID}:`, e.message);
+                }
             }
         });
 
