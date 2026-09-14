@@ -46,6 +46,20 @@ export function buildFeedbacks(self) {
 			options: [],
 			callback: () => self.state.scoreboardDecklists === true,
 		},
+		sideboard: {
+			type: 'boolean',
+			name: 'Sideboard is showing',
+			defaultStyle: { bgcolor: GREEN, color: WHITE },
+			options: [],
+			callback: () => self.state.sideboard === true,
+		},
+		card_vision_running: {
+			type: 'boolean',
+			name: 'Card vision is running',
+			defaultStyle: { bgcolor: GREEN, color: WHITE },
+			options: [],
+			callback: () => self.state.cardVision?.running === true,
+		},
 		timer_running: {
 			type: 'boolean',
 			name: 'Timer is running',

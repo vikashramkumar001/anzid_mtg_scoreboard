@@ -44,6 +44,24 @@ export function buildPresets() {
 		feedbacks: [{ feedbackId: 'scoreboard_decklists', options: {}, style: { bgcolor: combineRgb(40, 160, 70), color: combineRgb(255, 255, 255) } }],
 	}
 
+	presets['sideboard'] = {
+		type: 'button',
+		category: 'Decklists',
+		name: 'Show / hide sideboard',
+		style: base('SIDE\\nBOARD'),
+		steps: [{ down: [{ actionId: 'sideboard', options: { mode: 'toggle' } }], up: [] }],
+		feedbacks: [{ feedbackId: 'sideboard', options: {}, style: { bgcolor: combineRgb(40, 160, 70), color: WHITE } }],
+	}
+
+	presets['card_vision'] = {
+		type: 'button',
+		category: 'Card vision',
+		name: 'Card vision start / stop',
+		style: base('CARD\\nVISION'),
+		steps: [{ down: [{ actionId: 'card_vision', options: { mode: 'toggle' } }], up: [] }],
+		feedbacks: [{ feedbackId: 'card_vision_running', options: {}, style: { bgcolor: combineRgb(40, 160, 70), color: WHITE } }],
+	}
+
 	for (const action of [
 		{ id: 'start', label: 'START' },
 		{ id: 'pause', label: 'PAUSE' },

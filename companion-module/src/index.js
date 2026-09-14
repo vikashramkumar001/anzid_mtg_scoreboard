@@ -31,6 +31,8 @@ class CoverageHubInstance extends InstanceBase {
 			vendor: '',
 			playerCount: '',
 			commL3Remote: false,
+			sideboard: false,
+			cardVision: null,
 			timerState: {},
 			chatBridge: null,
 		}
@@ -130,6 +132,8 @@ class CoverageHubInstance extends InstanceBase {
 			this.socket.emit('get-player-count')
 			this.socket.emit('get-comm-l3-remote')
 			this.socket.emit('get-scoreboard-decklists-visible')
+			this.socket.emit('get-sideboard-visible')
+			this.socket.emit('get-zone-watch')
 			this.socket.emit('get-all-timer-states')
 		})
 
@@ -159,6 +163,11 @@ class CoverageHubInstance extends InstanceBase {
 			this.apply({ scoreboardDecklists: !!scoreboardDecklistsVisible }, ['scoreboard_decklists'])
 		this.socket.on('server-current-scoreboard-decklists-visible', setDecklists)
 		this.socket.on('scoreboard-decklists-visible-updated', setDecklists)
+		const setSideboard = ({ sideboardVisible } = {}) => this.apply({ sideboard: !!sideboardVisible }, ['sideboard'])
+		this.socket.on('server-current-sideboard-visible', setSideboard)
+		this.socket.on('sideboard-visible-updated', setSideboard)
+		// zone-watch-updated is a global emit (not room-scoped) carrying { running, ... }
+		this.socket.on('zone-watch-updated', (status) => this.apply({ cardVision: status || null }, ['card_vision_running']))
 
 		this.socket.on('current-all-timer-states', ({ timerState } = {}) => {
 			this.apply({ timerState: timerState || {} }, ['timer_running'])

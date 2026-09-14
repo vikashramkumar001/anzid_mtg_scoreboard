@@ -54,6 +54,53 @@ export function buildActions(self) {
 			},
 		},
 
+		// ── Show sideboard ──────────────────────────────────────────────────
+		// Global flag: the decklist scenes, the vertical lists and the scoreboard
+		// panels all include/exclude the sideboard together.
+		sideboard: {
+			name: 'Sideboard: show / hide',
+			options: [
+				{
+					type: 'dropdown',
+					id: 'mode',
+					label: 'Mode',
+					default: 'toggle',
+					choices: [
+						{ id: 'toggle', label: 'Toggle' },
+						{ id: 'on', label: 'Show' },
+						{ id: 'off', label: 'Hide' },
+					],
+				},
+			],
+			callback: ({ options }) => {
+				const visible = options.mode === 'toggle' ? !self.state.sideboard : options.mode === 'on'
+				self.send('update-sideboard-visible', { sideboardVisible: visible })
+			},
+		},
+
+		// ── Card vision (zone_watch recognizer on the server's machine) ─────
+		card_vision: {
+			name: 'Card vision: start / stop',
+			options: [
+				{
+					type: 'dropdown',
+					id: 'mode',
+					label: 'Mode',
+					default: 'toggle',
+					choices: [
+						{ id: 'toggle', label: 'Toggle' },
+						{ id: 'on', label: 'Start' },
+						{ id: 'off', label: 'Stop' },
+					],
+				},
+			],
+			callback: ({ options }) => {
+				const running = self.state.cardVision?.running === true
+				const start = options.mode === 'toggle' ? !running : options.mode === 'on'
+				self.send(start ? 'start-zone-watch' : 'stop-zone-watch', {})
+			},
+		},
+
 		// ── Timers ──────────────────────────────────────────────────────────
 		// round_id and match_id address one match's clock, so these are text
 		// fields with variable support rather than a fixed dropdown — the same
