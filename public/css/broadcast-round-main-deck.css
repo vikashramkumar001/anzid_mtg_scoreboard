@@ -630,6 +630,22 @@ body.vertical #deck-display-vibes #vibes-deck-display-container {
     left: 0;
 }
 
+/* Riftbound: the horizontal offsets (top 159 / left 275) are what pushed the
+   old vertical column off the bottom of the canvas — the column lays itself
+   out inside the full 1920x1080 box instead. The legend/champion art slots,
+   player name and legend subtitle are horizontal furniture: the vertical
+   list carries the legend and champion as rows of their own. */
+body.vertical #deck-display-riftbound #riftbound-deck-display-container {
+    top: 0;
+    left: 0;
+}
+body.vertical #deck-display-riftbound #riftbound-dl-legend-card,
+body.vertical #deck-display-riftbound #riftbound-dl-champion-card,
+body.vertical #deck-display-riftbound #riftbound-deck-display-details,
+body.vertical #deck-display-riftbound #riftbound-deck-display-legend-name {
+    display: none !important;
+}
+
 body.vertical #deck-display-mtg #main-deck-container,
 body.vertical #deck-display-vibes #vibes-main-deck-container {
     left: 0;
@@ -846,173 +862,9 @@ body.vertical #deck-display-vibes .vertical-deck-container {
     z-index: 1;
 }
 
-/* RIFTBOUND VERTICAL SINGLE COLUMN LAYOUT */
-#deck-display-riftbound .riftbound-vertical-single-column-container {
-    width: 1920px;
-    height: 930px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    overflow: hidden;
-}
-
-#deck-display-riftbound .riftbound-single-column-cards-container {
-    width: 100%;
-    max-width: 394px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-    padding: 0;
-}
-
-#deck-display-riftbound .riftbound-vertical-card {
-    width: 100%;
-    max-width: 394px;
-    height: 50px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    flex-shrink: 0;
-}
-
-#deck-display-riftbound .riftbound-card-number {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 45px;
-    height: 100%;
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: normal;
-    z-index: 2;
-    border-radius: 0 0 8px 0;
-}
-
-#deck-display-riftbound .riftbound-card-name {
-    position: absolute;
-    top: 0;
-    left: 40px;
-    right: 0;
-    height: 100%;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    font-size: 20px;
-    font-weight: normal;
-    z-index: 2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-#deck-display-riftbound .riftbound-card-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: auto 300px;
-    background-repeat: no-repeat;
-    background-position: 0px -100px;
-    z-index: 1;
-}
-
-#deck-display-riftbound .riftbound-card-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
-    z-index: 1;
-}
-
-/* RIFTBOUND BATTLEFIELD CARDS IN VERTICAL VIEW */
-#deck-display-riftbound .riftbound-battlefield-card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-}
-
-#deck-display-riftbound .riftbound-battlefield-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 45px;
-    height: 100%;
-    background-image: url('/assets/images/riftbound/icons/Battlefield.png');
-    background-size: 60% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 3;
-}
-
-#deck-display-riftbound .riftbound-battlefield-name {
-    position: absolute;
-    left: 36px;
-    color: white;
-    font-size: 18px;
-    font-weight: normal;
-    z-index: 2;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-
-/* RIFTBOUND CARDS WITHOUT COUNTS */
-#deck-display-riftbound .riftbound-card-name-no-count {
-    position: absolute;
-    top: 0;
-    left: 40px;
-    right: 0;
-    height: 100%;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    font-size: 20px;
-    font-weight: normal;
-    z-index: 2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-#deck-display-riftbound .riftbound-card-background-no-count {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: auto 300px;
-    background-repeat: no-repeat;
-    background-position: 0px -60px;
-    z-index: 1;
-}
-
-#deck-display-riftbound .riftbound-card-background-no-count::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
-    z-index: 1;
-}
+/* Riftbound vertical decklist rules live in /css/riftbound/vertical-decklist.css
+   (shared with the scoreboard). Page-specific resets are in the "VERTICAL MODE"
+   block above. */
 
 /* RIFTBOUND RUNES BACKGROUND */
 #deck-display-riftbound .riftbound-runes-background {

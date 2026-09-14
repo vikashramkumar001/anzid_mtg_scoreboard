@@ -2,6 +2,40 @@ import { transformMainDeckPure, transformSideDeckPure, emitTransformedMainDeck, 
 import { cacheTransform, invalidateCache } from './transformCache.js';
 import { getGameSelection } from '../config/constants.js';
 
+// A deck field is normally an array of "N Card Name" lines, but older control
+// data (and hand-typed entries) can hold the raw textarea string instead —
+// newline-separated, occasionally comma-separated. The transforms iterate the
+// deck, so a string here threw `deckArray.forEach is not a function` and took
+// down every deck in the round with it. Same split card-vision uses.
+export function deckLines(raw) {
+    if (Array.isArray(raw)) return raw;
+    if (raw == null) return [];
+    return String(raw).split(/\n|,(?=\s*\d+\s)/).map(s => s.trim()).filter(Boolean);
+}
+
+// The main-deck transform input for one side of one match. Shared with the
+// scoreboard's on-demand request so both paths produce identical deckData.
+export function buildMainDeckPayload(matchData, sideID, gameType, matchID) {
+    const payload = { deckData: deckLines(matchData[`player-main-deck-${sideID}`]), gameType, sideID, matchID };
+    if (gameType === 'riftbound') {
+        payload.riftboundMeta = {
+            legend: matchData[`player-legend-${sideID}`] || '',
+            champion: matchData[`player-champion-${sideID}`] || '',
+            battlefields: [
+                matchData[`player-battlefield-1-${sideID}`] || '',
+                matchData[`player-battlefield-2-${sideID}`] || '',
+                matchData[`player-battlefield-3-${sideID}`] || ''
+            ],
+            runeColor1: matchData[`player-rune-color-1-${sideID}`] || '',
+            runeQty1: matchData[`player-rune-qty-1-${sideID}`] || '',
+            runeColor2: matchData[`player-rune-color-2-${sideID}`] || '',
+            runeQty2: matchData[`player-rune-qty-2-${sideID}`] || '',
+            runesString: matchData[`player-runes-${sideID}`] || ''
+        };
+    }
+    return payload;
+}
+
 // Server-side transform: transforms all decks for a round and emits + caches results
 export function transformAndEmitAllDecks(roundId, controlData, io) {
     const gameType = getGameSelection();
@@ -16,32 +50,15 @@ export function transformAndEmitAllDecks(roundId, controlData, io) {
 
         for (const sideID of sideIds) {
             // Main deck
-            const mainDeckRaw = matchData[`player-main-deck-${sideID}`] || [];
-            if (mainDeckRaw.length > 0 || gameType === 'riftbound') {
-                const payload = { deckData: mainDeckRaw, gameType, sideID, matchID };
-                if (gameType === 'riftbound') {
-                    payload.riftboundMeta = {
-                        legend: matchData[`player-legend-${sideID}`] || '',
-                        champion: matchData[`player-champion-${sideID}`] || '',
-                        battlefields: [
-                            matchData[`player-battlefield-1-${sideID}`] || '',
-                            matchData[`player-battlefield-2-${sideID}`] || '',
-                            matchData[`player-battlefield-3-${sideID}`] || ''
-                        ],
-                        runeColor1: matchData[`player-rune-color-1-${sideID}`] || '',
-                        runeQty1: matchData[`player-rune-qty-1-${sideID}`] || '',
-                        runeColor2: matchData[`player-rune-color-2-${sideID}`] || '',
-                        runeQty2: matchData[`player-rune-qty-2-${sideID}`] || '',
-                        runesString: matchData[`player-runes-${sideID}`] || ''
-                    };
-                }
+            const payload = buildMainDeckPayload(matchData, sideID, gameType, matchID);
+            if (payload.deckData.length > 0 || gameType === 'riftbound') {
                 const mainResult = transformMainDeckPure(payload);
                 emitTransformedMainDeck(mainResult.deckData, mainResult.gameType, mainResult.sideID, mainResult.matchID, io);
                 cacheTransform(roundId, matchID, sideID, mainResult, null);
             }
 
             // Side deck
-            const sideDeckRaw = matchData[`player-side-deck-${sideID}`] || [];
+            const sideDeckRaw = deckLines(matchData[`player-side-deck-${sideID}`]);
             if (sideDeckRaw.length > 0) {
                 const sidePayload = { deckData: sideDeckRaw, gameType, sideID, matchID };
                 const sideResult = transformSideDeckPure(sidePayload);

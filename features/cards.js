@@ -2,6 +2,7 @@ import {getCardListData as mtgGetCardListData} from "./mtg/cards.js";
 import {getCardListData as vibesGetCardListData} from "./vibes/cards.js";
 import {getCardListData as riftboundGetCardListData} from "./riftbound/cards.js";
 import { emitStarWarsCardView, transformDeckData as starwarsTransformDeckData } from "./starwars/cards.js";
+import { getLegendPortraitUrl } from './best-of-legend.js';
 import { RoomUtils } from '../utils/room-utils.js';
 
 // Re-export MTG-specific functions for backward compatibility
@@ -202,31 +203,55 @@ function getURLFromCardName(cardName, cardsList, gameType) {
     }
 }
 
-function resolveRiftboundLegendUrl(legendTitle, cleanedCardsMap, gameType) {
+// Riftbound card DB entry for a name, resolved the same way getURLFromCardName
+// resolves the image ("//" split, accent/paren/quote normalisation) so the
+// cost/domain fields line up with the art they sit next to.
+function lookupRiftboundEntry(cardName, cleanedCardsMap, gameType) {
+    if (!cardName) return null;
+    let cleaned = cardName.includes('//') ? cardName.split('//')[0].trim() : cardName.trim();
+    cleaned = normalizeName(cleaned, gameType);
+    return cleanedCardsMap[cleaned] || null;
+}
+
+// Legend DB entry. Same fallback chain the URL resolver has always used, and
+// each step only counts when the entry actually carries an image — so
+// resolveRiftboundLegendUrl below is byte-for-byte what it returned before.
+function resolveRiftboundLegendEntry(legendTitle, cleanedCardsMap, gameType) {
+    const withImage = (name) => {
+        const e = lookupRiftboundEntry(name, cleanedCardsMap, gameType);
+        return e && e.imageUrl ? e : null;
+    };
     // Try exact match first (e.g. "Glorious Executioner" typed directly)
-    let url = getURLFromCardName(legendTitle, cleanedCardsMap, gameType);
-    if (url) return url;
+    let entry = withImage(legendTitle);
+    if (entry) return entry;
 
     // Full-name starter card: some starter legends are keyed by the FULL legend
     // name + " - Starter" (e.g. "Annie, Dark Child" → "Annie, Dark Child - Starter"),
     // not just the title suffix — try that before stripping the character name.
-    url = getURLFromCardName(legendTitle + ' - Starter', cleanedCardsMap, gameType);
-    if (url) return url;
+    entry = withImage(legendTitle + ' - Starter');
+    if (entry) return entry;
 
     // Strip character name: "Draven, Glorious Executioner" → "Glorious Executioner"
     const commaIdx = legendTitle.indexOf(',');
     if (commaIdx !== -1) {
         const suffix = legendTitle.substring(commaIdx + 1).trim();
-        url = getURLFromCardName(suffix, cleanedCardsMap, gameType);
-        if (url) return url;
+        entry = withImage(suffix);
+        if (entry) return entry;
 
         // Starter deck legends: "Dark Child" → "Dark Child - Starter"
-        url = getURLFromCardName(suffix + ' - Starter', cleanedCardsMap, gameType);
-        if (url) return url;
+        entry = withImage(suffix + ' - Starter');
+        if (entry) return entry;
     }
 
-    return '';
+    return null;
 }
+
+function resolveRiftboundLegendUrl(legendTitle, cleanedCardsMap, gameType) {
+    return resolveRiftboundLegendEntry(legendTitle, cleanedCardsMap, gameType)?.imageUrl || '';
+}
+
+// letter → "<Colour> Rune" card name in the DB (for rune-row art)
+const RIFTBOUND_RUNE_CARD_NAMES = { r: 'Fury Rune', g: 'Calm Rune', b: 'Mind Rune', o: 'Body Rune', p: 'Chaos Rune', y: 'Order Rune' };
 
 function getManaCostFromCardName(cardName, cardsList, gameType) {
     if (gameType !== 'mtg') return '';
@@ -263,8 +288,24 @@ export function transformMainDeckPure(data) {
 
     if (gameType === 'riftbound') {
         const meta = data.riftboundMeta || {};
-        const legendImageUrl = meta.legend ? resolveRiftboundLegendUrl(meta.legend, cleanedCardsMap, gameType) : '';
+        const legendEntry = meta.legend ? resolveRiftboundLegendEntry(meta.legend, cleanedCardsMap, gameType) : null;
+        const legendImageUrl = legendEntry?.imageUrl || '';
+        const championEntry = meta.champion ? lookupRiftboundEntry(meta.champion, cleanedCardsMap, gameType) : null;
         const championImageUrl = meta.champion ? getURLFromCardName(meta.champion, cleanedCardsMap, gameType) || '' : '';
+        // Names + cost/domain for renderers that list the legend and champion
+        // as rows (the vertical decklist) instead of showing the card art slots.
+        const legendName = (meta.legend || '').trim();
+        const legendDomain = legendEntry?.domain || [];
+        // 251x124 face-band portrait (same asset Best-of-Legend uses) — a
+        // row-height strip of the full card lands on the frame, not the face.
+        const legendPortraitUrl = legendName ? getLegendPortraitUrl(legendName) : '';
+        const champion = meta.champion ? {
+            name: meta.champion.trim(),
+            url: championImageUrl,
+            energy: championEntry?.energy,
+            power: championEntry?.power,
+            domain: championEntry?.domain || [],
+        } : null;
         const battlefields = (meta.battlefields || [])
             .filter(name => name && name.trim())
             .map(name => ({ name: name.trim() }));
@@ -284,13 +325,20 @@ export function transformMainDeckPure(data) {
             const count = parseInt(parts[1], 10);
             const name = parts[2];
             const url = getURLFromCardName(name, cleanedCardsMap, gameType);
-            const type = cleanedCardsMap[name]?.type || 'Other';
+            const entry = cleanedCardsMap[name] || lookupRiftboundEntry(name, cleanedCardsMap, gameType);
+            const type = entry?.type || 'Other';
             if (type === 'Legend' || type === 'Battlefield') {
                 // Skip — sourced from master control fields
             } else if (type === 'Rune') {
                 runeCountFallback.push({ name, count });
             } else {
-                other.push({ 'card-name': name, 'card-count': count, 'card-url': url, type, energy: cleanedCardsMap[name]?.energy });
+                other.push({
+                    'card-name': name, 'card-count': count, 'card-url': url, type,
+                    energy: entry?.energy,
+                    // cost pips: `power` copies of the card's domain rune
+                    power: entry?.power,
+                    domain: entry?.domain || [],
+                });
             }
         });
         // Order: Units, Spells, Gears — then by energy ascending.
@@ -305,7 +353,18 @@ export function transformMainDeckPure(data) {
                 }
             }
         }
-        const categorizedDeck = { legendImageUrl, championImageUrl, battlefields, runes, runesString: meta.runesString || '', other };
+        // Rune rows carry the rune card's name + art so a list view can draw
+        // them like any other card.
+        for (const rune of runes) {
+            const runeCardName = RIFTBOUND_RUNE_CARD_NAMES[rune.letter];
+            if (!runeCardName) continue;
+            rune.name = runeCardName;
+            rune.url = cleanedCardsMap[runeCardName]?.imageUrl || '';
+        }
+        const categorizedDeck = {
+            legendImageUrl, championImageUrl, battlefields, runes, runesString: meta.runesString || '', other,
+            legendName, legendDomain, legendPortraitUrl, champion,
+        };
         return { deckData: categorizedDeck, gameType, sideID, matchID };
     } else {
         const flatDeck = [];
@@ -356,8 +415,11 @@ export function transformSideDeckPure(data) {
         const manaCost = getManaCostFromCardName(name, cleanedCardsMap, gameType);
         const entry = { 'card-name': name, 'card-count': count, 'card-url': url, 'mana-cost': manaCost };
         if (gameType === 'riftbound') {
-            entry.type = cleanedCardsMap[name]?.type || 'Other';
-            entry.energy = cleanedCardsMap[name]?.energy;
+            const dbEntry = cleanedCardsMap[name] || lookupRiftboundEntry(name, cleanedCardsMap, gameType);
+            entry.type = dbEntry?.type || 'Other';
+            entry.energy = dbEntry?.energy;
+            entry.power = dbEntry?.power;
+            entry.domain = dbEntry?.domain || [];
         }
         flatDeck.push(entry);
     });

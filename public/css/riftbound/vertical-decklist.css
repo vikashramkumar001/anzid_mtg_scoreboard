@@ -1,0 +1,207 @@
+/* Riftbound vertical decklist (shared by the vertical main-deck page and the
+   scoreboard slide-in lists). Rendered by /js/riftbound/vertical-decklist.js
+   into any host element, which gets .rbv-container. The renderer sets
+   --rbv-h / --rbv-pad on the container and --rbv-w / --rbv-row-h / --rbv-gap /
+   --rbv-font / --rbv-pip on the column, because row size depends on how many
+   rows there are and how tall the host is. */
+.rbv-container {
+    /* the main-deck page inherited these from its page root; the scoreboard doesn't */
+    font-family: var(--rb-dl-font, var(--rb-font, 'Beaufort for LoL')), sans-serif;
+    font-weight: 900;
+    color: #fff;
+    width: 100%;
+    height: var(--rbv-h, 1080px);
+    box-sizing: border-box;
+    padding: var(--rbv-pad, 24px) 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.rbv-container .rbv-column {
+    width: var(--rbv-w, 460px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--rbv-gap, 3px);
+}
+
+.rbv-container .rbv-sideboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rbv-gap, 3px);
+}
+/* Global "Show Sideboard" toggle (from master-control). The renderer already
+   leaves these rows out when hidden; this catches an attribute flip that
+   lands before the re-render does. */
+body[data-sideboard="hidden"] .rbv-sideboard {
+    display: none !important;
+}
+
+/* Row: [slot | name | cost] over an art strip */
+.rbv-container .rbv-row {
+    position: relative;
+    height: var(--rbv-row-h, 40px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+    color: #fff;
+    font-size: var(--rbv-font, 18px);
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+/* Art box on the right 78% of the row ("option G" + shifted right, 2026-09-14):
+   the scan is scaled 18% wider than the box and centred in it, so the card's double frame line (inner one
+   ~4.7% in from each edge) falls outside on both sides. A long fade keeps the
+   name readable on the left and lets the art show through to the right edge.
+   Vertical position (--rbv-art-y, per-card RBV_ART_Y overrides) is unchanged:
+   that is what puts the head in the strip. */
+.rbv-container .rbv-art {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* 78% of the row, anchored right: the image stays centred in the box, so a
+       centred subject lands ~61% across the row, in the clear part of the fade,
+       instead of mid-row under the heaviest part of it. The box's left edge is
+       under solid black, so there's no visible seam. */
+    width: 78%;
+    /* Pinned: scoreboard.css has a bare `div { z-index: 10 }` that would put the
+       art above the name/count (which sit at z-index 1). */
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-size: 118% auto;
+    background-position: 50% var(--rbv-art-y, 24%);   /* portrait card scans: heads sit ~20-30% down */
+}
+.rbv-container .rbv-band .rbv-art {
+    background-size: 100% auto;                        /* 251x124 face bands have no frame */
+    background-position: 50% var(--rbv-art-y, 36%);   /* the eye line */
+}
+.rbv-container .rbv-battlefield .rbv-art {
+    background-position: 50% var(--rbv-art-y, 40%);   /* landscape scans, same overscan */
+}
+.rbv-container .rbv-art::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #000 0%, rgba(0, 0, 0, 0.85) 15%, rgba(0, 0, 0, 0.35) 45%, transparent 90%);
+}
+/* 1.5px black stroke on the name and count so they hold up over the art.
+   Layered text-shadow, not -webkit-text-stroke: identical in OBS's browser source. */
+.rbv-container .rbv-name,
+.rbv-container .rbv-slot {
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000,
+                 0 1.5px 0 #000, 0 -1.5px 0 #000, 1.5px 0 0 #000, -1.5px 0 0 #000;
+}
+
+.rbv-container .rbv-slot {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 46px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    border-radius: 0 0 8px 0;
+    font-size: calc(var(--rbv-font, 18px) * 0.95);
+}
+.rbv-container .rbv-slot-icon img {
+    width: 62%;
+    height: 62%;
+    object-fit: contain;
+}
+
+.rbv-container .rbv-name {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px 0 12px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.rbv-container .rbv-name > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rbv-container .rbv-name-icon {
+    width: var(--rbv-pip, 18px);
+    height: var(--rbv-pip, 18px);
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Cost, right-aligned, drawn the way the card draws it:
+   energy = number in a white circle with a gold ring;
+   power  = white domain glyph on a plate in the domain colour, gold ring. */
+.rbv-container .rbv-cost {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 0 10px 0 6px;
+}
+.rbv-container .rbv-energy {
+    width: var(--rbv-pip, 18px);
+    height: var(--rbv-pip, 18px);
+    margin-right: 2px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 1.5px #E3B45B, 0 1px 3px rgba(0, 0, 0, 0.7);
+    color: #14213d;
+    font-size: calc(var(--rbv-pip, 18px) * 0.72);
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+}
+.rbv-container .rbv-pip {
+    position: relative;
+    width: var(--rbv-pip, 18px);
+    height: var(--rbv-pip, 18px);
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
+}
+/* single domain: plate in the domain colour (--rbv-dc) + white glyph (--rbv-glyph as a mask) */
+.rbv-container .rbv-pip-solid {
+    display: inline-block;
+    border-radius: 28%;
+    background: var(--rbv-dc, #555);
+    box-shadow: 0 0 0 1.5px #E3B45B;
+}
+.rbv-container .rbv-pip-solid::after {
+    content: '';
+    position: absolute;
+    inset: 12%;
+    background: #fff;
+    -webkit-mask: var(--rbv-glyph) center / contain no-repeat;
+    mask: var(--rbv-glyph) center / contain no-repeat;
+}
+
+
+/* "SIDEBOARD" heading row */
+.rbv-container .rbv-divider {
+    height: var(--rbv-divider-h, 26px);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background: rgba(0, 0, 0, 0.88);       /* own plate: readable over any scene, not just dark ones */
+    font-size: max(12px, calc(var(--rbv-font, 18px) * 0.85));   /* floor: stays legible at the 25px row tier */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    flex-shrink: 0;
+}

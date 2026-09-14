@@ -1,9 +1,11 @@
 import {
     RIFTBOUND_RUNES_FILLED as RIFTBOUND_RUNES,
+    RIFTBOUND_RUNE_NAMES,
     RIFTBOUND_BATTLEFIELD_NAMES,
     RIFTBOUND_BATTLEFIELDS_BASE,
     RIFTBOUND_LEGENDS_CARD_FRAMES,
 } from './riftbound/constants.js';
+import { renderVerticalDecklist } from './riftbound/vertical-decklist.js';
 
 const socket = io();
 // Initialize Room Manager
@@ -1320,110 +1322,25 @@ function renderVibesVerticalDeck() {
     mainDeckContainer.appendChild(cardsContainer);
 }
 
+// ── Riftbound vertical decklist ───────────────────────────────────────────
+// Rendering lives in riftbound/vertical-decklist.js (shared with the
+// scoreboard's slide-in lists). This page hands it the full 1080 canvas.
 function renderRiftboundVerticalDeck(deckObj) {
     const riftboundSection = document.getElementById('deck-display-riftbound');
     if (!riftboundSection) return;
-    
-    const deckDisplayDetails = riftboundSection.querySelector('#riftbound-deck-display-details');
-    if (deckDisplayDetails) deckDisplayDetails.style.display = 'none';
-    
     const mainDeckContainer = riftboundSection.querySelector('#riftbound-main-deck-container');
     if (!mainDeckContainer) return;
-    
-    mainDeckContainer.className = 'riftbound-vertical-single-column-container';
-    
-    // Clear previous deck displays
-    mainDeckContainer.innerHTML = '';
-    
-    // Define sections in the required order: battlefields, other cards, then runes
-    const sections = [
-        { key: 'battlefields', title: 'Battlefields' },
-        { key: 'other', title: 'Main Deck' }
-    ];
-    
-    // Create single cards container
-    const cardsContainer = document.createElement('div');
-    cardsContainer.className = 'riftbound-single-column-cards-container';
-    
-    // Count total cards first to determine card height (excluding runes which are handled separately)
-    let totalCards = 0;
-    sections.forEach(section => {
-        const cards = deckObj[section.key];
-        if (cards && cards.length > 0) {
-            totalCards += cards.length; // Count all cards in each section
-        }
+    const matchData = roundData[match_id] || {};
+    renderVerticalDecklist(mainDeckContainer, {
+        main: deckObj,
+        side: deckData.sideDeck,
+        showSideboard: sideboardVisible,
+        legendName: matchData[`player-legend-${side_id}`] || '',
+        championName: matchData[`player-champion-${side_id}`] || '',
+        height: 1080,
+        width: 460,
+        pad: 24,
     });
-    
-    // Add runes count from resolved rune data
-    const runesData = deckObj.runes || [];
-    if (runesData.length > 0) {
-        totalCards += runesData.length;
-    }
-    
-    // Use dynamic card height based on total card count
-    const cardHeight = totalCards > 21 ? 41 : 50;
-    const fontScaleFactor = totalCards > 21 ? 1 : 1;
-    
-    // Process each section in order and add cards to the single container
-    sections.forEach(section => {
-        const cards = deckObj[section.key];
-        if (!cards || cards.length === 0) return; // Skip empty sections
-        
-        // Render cards for this section
-        cards.forEach((card, index) => {
-            const cardElement = document.createElement('div');
-            cardElement.className = 'riftbound-vertical-card';
-            cardElement.style.height = `${cardHeight}px`;
-            
-            // Use different styling based on section type
-            if (section.key === 'battlefields') {
-                const bfName = (card.name || card['card-name'] || '').trim();
-                let bfUrl = RIFTBOUND_BATTLEFIELDS[bfName];
-                if (!bfUrl) {
-                    const lower = bfName.toLowerCase();
-                    for (const key in RIFTBOUND_BATTLEFIELDS) {
-                        if (key.toLowerCase() === lower) { bfUrl = RIFTBOUND_BATTLEFIELDS[key]; break; }
-                    }
-                }
-                const bfImageUrl = bfUrl || RIFTBOUND_BATTLEFIELDS_DEFAULT;
-                cardElement.innerHTML = `
-                    <div class="riftbound-battlefield-card">
-                        <div class="riftbound-battlefield-icon"></div>
-                        <div class="riftbound-battlefield-name">${bfName}</div>
-                        <div class="riftbound-battlefield-background" style="--bg-image: url('${bfImageUrl}');"></div>
-                    </div>
-                `;
-            } else {
-                // Main deck shows card counts
-                cardElement.innerHTML = `
-                    <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${card['card-count']}</div>
-                    <div class="riftbound-card-name" style="font-size: ${20 * fontScaleFactor}px;">${card['card-name']}</div>
-                    <div class="riftbound-card-background" style="background-image: url('${card['card-url']}');background-position: 20px -100px;background-size: 120% auto;"></div>
-                `;
-            }
-            cardsContainer.appendChild(cardElement);
-        });
-    });
-    
-    // Handle runes section — use resolved rune data from master control fields
-    if (runesData.length > 0) {
-        for (const rune of runesData) {
-            if (!rune.letter) continue;
-            const runeUrl = RIFTBOUND_RUNES[rune.letter];
-            if (runeUrl) {
-                const cardElement = document.createElement('div');
-                cardElement.className = 'riftbound-vertical-card';
-                cardElement.style.height = `${cardHeight}px`;
-                cardElement.innerHTML = `
-                    <div class="riftbound-card-number" style="font-size: ${20 * fontScaleFactor}px;">${rune.count}</div>
-                    <img src="${runeUrl}" class="riftbound-rune-icon-vertical" alt="Rune ${rune.letter}" style="width: 40px; height: 40px; object-fit: contain;">
-                `;
-                cardsContainer.appendChild(cardElement);
-            }
-        }
-    }
-    
-    mainDeckContainer.appendChild(cardsContainer);
 }
 
 
@@ -1694,6 +1611,12 @@ socket.on('player-count-updated', ({playerCount}) => {
 let sideboardVisible = false;
 function applySideboardVisibility() {
     document.body.dataset.sideboard = sideboardVisible ? 'shown' : 'hidden';
+    // The vertical riftbound list sizes its rows to the row count, and the
+    // sideboard rows are part of that count — so a toggle is a re-layout,
+    // not just a show/hide. (Horizontal is pure CSS via the body attribute.)
+    if (orientation === 'vertical' && selectedGame === 'riftbound' && deckData?.mainDeck) {
+        renderDecks();
+    }
 }
 applySideboardVisibility();
 socket.on('server-current-sideboard-visible', ({sideboardVisible: v}) => {
