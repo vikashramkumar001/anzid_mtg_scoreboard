@@ -4,16 +4,33 @@
     {
       "name": "scoreboard",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 1378,
       "autoPort": true
     },
     {
       "name": "insights-demo",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["insights-demo/serve.cjs"],
+      "runtimeArgs": [
+        "insights-demo/serve.cjs"
+      ],
       "port": 8910,
       "autoPort": true
+    },
+    {
+      "name": "scoreboard-test",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "PORT=1379",
+        "CHAT_BRIDGE_ENABLED=false",
+        "CARD_VISION_ENABLED=false",
+        "node",
+        "server.js"
+      ],
+      "port": 1379
     }
   ]
 }
