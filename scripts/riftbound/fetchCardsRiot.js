@@ -206,6 +206,16 @@ async function main() {
         }
         if (primaryCard.rarity?.value?.label) entry.rarity = primaryCard.rarity.value.label;
         if (primaryCard.energy?.value?.label) entry.energy = primaryCard.energy.value.label;
+        // Power (the coloured rune pips next to energy). Riot omits the field
+        // entirely on 0-power cards — confirmed against Piltover Archive, which
+        // reports power:0 for every one of them — so missing means 0, not unknown.
+        {
+            const t = mapCardType(primaryCard.cardType);
+            if (t === 'Unit' || t === 'Spell' || t === 'Gear') {
+                const p = parseInt(primaryCard.power?.value?.id ?? primaryCard.power?.value?.label ?? '0', 10);
+                entry.power = Number.isNaN(p) ? 0 : p;
+            }
+        }
         if (primaryCard.might?.value?.label) entry.might = primaryCard.might.value.label;
         if (primaryCard.tags?.tags?.length) {
             entry.tags = primaryCard.tags.tags.map(t => t.label || t);
