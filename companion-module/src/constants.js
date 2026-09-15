@@ -48,3 +48,9 @@ export const MATCH_FEATURES = [
 	{ id: 'count_up', label: 'Count up', short: 'COUNT\\nUP' },
 	{ id: 'show_wins', label: 'Show wins', short: 'WINS' },
 ]
+
+// Scoreboard slots = Control 1-4 (each mapped to a round/match on the Matches tab)
+export const SLOT_CHOICES = [
+	{ id: 'all', label: 'All mapped slots' },
+	{ id: '1', label: 'Control 1' }, { id: '2', label: 'Control 2' }, { id: '3', label: 'Control 3' }, { id: '4', label: 'Control 4' },
+]

@@ -25,11 +25,13 @@ is polled every 5s and shows `unreachable` when the bridge is disabled.
 
 | Action | Notes |
 |---|---|
-| Commentator L3: toggle | Shows/hides the lower thirds |
+| Commentator L3: show / hide | Server-held; auto-hides after 5s, and the button lights while it is up |
 | Commentator L3: remote mode | In-person row vs one L3 per cam segment |
 | Scoreboard decklists | Slides both players' lists over the riftbound scoreboard panels; press again to slide out |
 | Sideboard: show / hide | One flag for every decklist surface (scenes, vertical lists, scoreboard panels) |
 | Card vision: start / stop | The zone_watch recognizer on the server's machine |
+| Scoreboard slot: show timer / count up / show wins | Per Control 1-4 slot (the round/match each scoreboard page is mapped to), or all mapped slots |
+| Scoreboard slot: turn counter +1 / -1 | Turns show on the scoreboard once a count-down clock hits 0:00 |
 | Timer | start / pause / reset / ±1 min, addressed by round + match |
 | Set game / vendor / player count | Same selectors as master control |
 | Card viewer: show / clear | Slot 1 = left, 2 and 3 both render right |
@@ -38,8 +40,9 @@ is polled every 5s and shows `unreachable` when the bridge is disabled.
 
 ### Feedbacks
 
-Game / vendor / player count selected, commentator L3 in remote mode, scoreboard
-decklists showing, sideboard showing, card vision running, timer running for a
+Game / vendor / player count selected, commentator L3 on screen, commentator L3
+in remote mode, scoreboard decklists showing, sideboard showing, card vision
+running, a slot's show-timer / count-up / show-wins flag, timer running for a
 given round+match, and chat bridge live.
 
 ### Gotchas

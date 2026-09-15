@@ -15,6 +15,7 @@ import {initDeckLibrary} from './deck-library.js';
 import {initZoneWatch} from './zone-watch.js';
 import {initScoreboardDecklists} from './scoreboard-decklists.js';
 import {initMatchControls} from './match-controls.js';
+import {initSideboardToggle} from './sideboard-toggle.js';
 
 const socket = io();
 
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initZoneWatch(socket);
     initScoreboardDecklists(socket);
     initMatchControls(socket);
+    initSideboardToggle(socket);
     initMatches(socket);
     initBrackets(socket);
     initCardView(socket);

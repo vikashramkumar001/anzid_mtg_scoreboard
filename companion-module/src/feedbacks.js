@@ -1,5 +1,5 @@
 import { combineRgb } from '@companion-module/base'
-import { GAMES, VENDORS, PLAYER_COUNTS, MATCHES, MATCH_FEATURES } from './constants.js'
+import { GAMES, VENDORS, PLAYER_COUNTS, MATCHES, MATCH_FEATURES, SLOT_CHOICES } from './constants.js'
 
 const WHITE = combineRgb(255, 255, 255)
 const BLACK = combineRgb(0, 0, 0)
@@ -62,19 +62,23 @@ export function buildFeedbacks(self) {
 		},
 		match_feature: {
 			type: 'boolean',
-			name: 'Match: show timer / count up / show wins is on',
+			name: 'Scoreboard slot: show timer / count up / show wins is on',
 			defaultStyle: { bgcolor: GREEN, color: WHITE },
 			options: [
 				{ type: 'dropdown', id: 'feature', label: 'Feature', default: 'show_timer', choices: MATCH_FEATURES },
-				{ type: 'dropdown', id: 'match', label: 'Match', default: 'all', choices: [{ id: 'all', label: 'All four' }, ...MATCHES] },
-				{ type: 'textinput', id: 'round', label: 'Round ("live" or 1-16)', default: 'live', useVariables: true },
+				{ type: 'dropdown', id: 'slot', label: 'Scoreboard slot', default: 'all', choices: SLOT_CHOICES },
 			],
-			callback: async ({ options }) => {
-				const round = await self.resolveRound(options.round)
-				if (!round) return false
-				const targets = options.match === 'all' ? MATCHES.map((m) => m.id) : [options.match]
-				return targets.every((m) => self.matchFeatureOn(options.feature, round, m))
+			callback: ({ options }) => {
+				const targets = self.slotTargets(options.slot)
+				return targets.length > 0 && targets.every(({ round_id, match_id }) => self.matchFeatureOn(options.feature, round_id, match_id))
 			},
+		},
+		comm_l3_visible: {
+			type: 'boolean',
+			name: 'Commentator L3 is on screen',
+			defaultStyle: { bgcolor: GREEN, color: WHITE },
+			options: [],
+			callback: () => self.state.commL3Visible === true,
 		},
 		timer_running: {
 			type: 'boolean',

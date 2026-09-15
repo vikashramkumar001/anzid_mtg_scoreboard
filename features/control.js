@@ -110,6 +110,32 @@ export function updateBroadcastTracker(round_id) {
 // in-person (false) = classic bottom row; remote (true) = per-segment layout.
 let commL3Remote = false;
 export function getCommL3Remote() { return commL3Remote; }
+
+// Commentator L3 visibility — server-held so master control, Companion and
+// every L3 page agree, and so a Stream Deck button can light up. The 5s
+// auto-hide that used to live in the L3 page runs HERE now: the page just
+// follows comm-l3-visible-updated, so one press shows on every L3 source and
+// they all hide together. In-memory; hidden after restart.
+const COMM_L3_AUTO_HIDE_MS = 5000;
+let commL3Visible = false;
+let commL3HideTimer = null;
+export function getCommL3Visible() { return commL3Visible; }
+export function emitCommL3Visible(io) {
+    io.emit('comm-l3-visible-updated', { visible: commL3Visible });
+}
+export function setCommL3Visible(visible, io) {
+    if (commL3HideTimer) { clearTimeout(commL3HideTimer); commL3HideTimer = null; }
+    commL3Visible = !!visible;
+    if (commL3Visible) {
+        commL3HideTimer = setTimeout(() => {
+            commL3HideTimer = null;
+            commL3Visible = false;
+            emitCommL3Visible(io);
+        }, COMM_L3_AUTO_HIDE_MS);
+    }
+    emitCommL3Visible(io);
+}
+export function toggleCommL3(io) { setCommL3Visible(!commL3Visible, io); }
 export function setCommL3Remote(v) { commL3Remote = !!v; }
 
 export function getBattlefieldVisibility() {

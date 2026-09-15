@@ -296,25 +296,37 @@ export function initGameSelection(socket) {
     // --- Save OBS Preset ---
     // --- Toggle Commentator L3 ---
     // The Config → Commentators button plus any clone (Controls tab) — same emit.
-    document.querySelectorAll('#toggle-commentator-l3, .toggle-commentator-l3').forEach((commL3Btn) => {
-        commL3Btn.addEventListener('click', () => {
-            socket.emit('toggle-commentator-l3');
+    // Visibility is server-held (auto-hides after 5s server-side), so every
+    // button paints the same state and the Stream Deck can light up.
+    const commL3Btns = document.querySelectorAll('#toggle-commentator-l3, .toggle-commentator-l3');
+    if (commL3Btns.length) {
+        let l3On = false;
+        const paintL3 = () => commL3Btns.forEach((b) => {
+            b.textContent = l3On ? 'Hide L3' : 'Show L3';
+            b.classList.toggle('btn-success', l3On);
+            b.classList.toggle('btn-primary', !l3On);
         });
-    });
+        commL3Btns.forEach((b) => b.addEventListener('click', () => socket.emit('toggle-commentator-l3')));
+        socket.on('server-comm-l3-visible', ({ visible } = {}) => { l3On = !!visible; paintL3(); });
+        socket.on('comm-l3-visible-updated', ({ visible } = {}) => { l3On = !!visible; paintL3(); });
+        socket.emit('get-comm-l3-visible');
+        paintL3();
+    }
 
     // Remote L3 mode toggle — server-held flag; the L3 page relays out to a
     // per-cam-segment layout when on (1 full / 2 halves / 3 thirds / 4 = 2x2).
-    const commL3RemoteBtn = document.querySelector('#toggle-comm-l3-remote');
-    if (commL3RemoteBtn) {
+    // Same id-or-class binding so the Controls-tab clone paints too.
+    const commL3RemoteBtns = document.querySelectorAll('#toggle-comm-l3-remote, .toggle-comm-l3-remote');
+    if (commL3RemoteBtns.length) {
         let remoteOn = false;
-        const paint = () => {
-            commL3RemoteBtn.textContent = remoteOn ? 'Remote L3: On' : 'Remote L3: Off';
-            commL3RemoteBtn.classList.toggle('btn-info', remoteOn);
-            commL3RemoteBtn.classList.toggle('btn-outline-info', !remoteOn);
-        };
-        commL3RemoteBtn.addEventListener('click', () => {
-            socket.emit('update-comm-l3-remote', { remote: !remoteOn });
+        const paint = () => commL3RemoteBtns.forEach((b) => {
+            b.textContent = remoteOn ? 'Remote L3: On' : 'Remote L3: Off';
+            b.classList.toggle('btn-info', remoteOn);
+            b.classList.toggle('btn-outline-info', !remoteOn);
         });
+        commL3RemoteBtns.forEach((b) => b.addEventListener('click', () => {
+            socket.emit('update-comm-l3-remote', { remote: !remoteOn });
+        }));
         socket.on('server-comm-l3-remote', ({ remote }) => { remoteOn = !!remote; paint(); });
         socket.on('comm-l3-remote-updated', ({ remote }) => { remoteOn = !!remote; paint(); });
         socket.emit('get-comm-l3-remote');

@@ -36,6 +36,8 @@ class CoverageHubInstance extends InstanceBase {
 			timerState: {},
 			scoreboardState: {},
 			liveRound: '',
+			slots: {},              // controlsTracker: { '1': {round_id, match_id}, ... }
+			commL3Visible: false,
 			chatBridge: null,
 		}
 		this.updateStatus(InstanceStatus.Connecting)
@@ -138,6 +140,8 @@ class CoverageHubInstance extends InstanceBase {
 			this.socket.emit('get-zone-watch')
 			this.socket.emit('get-all-timer-states')
 			this.socket.emit('get-scoreboard-state')
+			this.socket.emit('get-control-broadcast-trackers')
+			this.socket.emit('get-comm-l3-visible')
 			this.socket.emit('get-broadcast-scoreboard-data')   // answers with the live round id
 		})
 
@@ -180,8 +184,14 @@ class CoverageHubInstance extends InstanceBase {
 			this.apply({ scoreboardState: scoreboardState || {} }, ['match_feature'])
 		})
 		this.socket.on('broadcast-scoreboard-round-id', ({ round_id } = {}) => {
-			if (round_id) this.apply({ liveRound: String(round_id) }, ['match_feature', 'timer_running'])
+			if (round_id) this.apply({ liveRound: String(round_id) }, ['timer_running'])
 		})
+		this.socket.on('control-broadcast-trackers', ({ controlsTracker } = {}) => {
+			this.apply({ slots: controlsTracker || {} }, ['match_feature'])
+		})
+		const setL3 = ({ visible } = {}) => this.apply({ commL3Visible: !!visible }, ['comm_l3_visible'])
+		this.socket.on('server-comm-l3-visible', setL3)
+		this.socket.on('comm-l3-visible-updated', setL3)
 	}
 
 	teardownSocket() {
@@ -197,6 +207,12 @@ class CoverageHubInstance extends InstanceBase {
 	async resolveRound(text) {
 		const v = (await this.parseVariablesInString(String(text ?? 'live'))).trim().toLowerCase()
 		return v === 'live' || v === '' ? this.state.liveRound : v
+	}
+
+	// 'all' → every mapped slot; '1'..'4' → that slot if mapped
+	slotTargets(slot) {
+		const ids = slot === 'all' ? ['1', '2', '3', '4'] : [String(slot)]
+		return ids.map((n) => this.state.slots?.[n]).filter((t) => t && t.round_id && t.match_id)
 	}
 
 	matchFeatureOn(feature, round, match) {

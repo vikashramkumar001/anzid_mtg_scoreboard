@@ -1961,7 +1961,8 @@ CommentatorC
                                 <div class="card-body">
                                     <h6 class="card-title text-uppercase text-muted small mb-3">Commentators</h6>
                                     <button class="btn btn-primary w-100 py-3 toggle-commentator-l3">Show L3</button>
-                                    <div class="form-text mt-2">Same as Show L3 in Config → Commentators.</div>
+                                    <button class="btn btn-outline-info w-100 py-2 mt-2 toggle-comm-l3-remote" title="Remote casters: one L3 centered per cam segment">Remote L3: Off</button>
+                                    <div class="form-text mt-2">Same buttons as Config → Commentators. L3 auto-hides after 5s.</div>
                                 </div>
                             </div>
                         </div>
@@ -1976,6 +1977,18 @@ CommentatorC
                         </div>
                     </div>
 
+                    <div class="row g-3 mt-1">
+                        <div class="col-12 col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-uppercase text-muted small mb-3">Decklists</h6>
+                                    <button id="controls-sideboard-toggle" class="btn btn-outline-secondary w-100 py-3">Show Sideboard: off</button>
+                                    <div class="form-text mt-2">One global flag: decklist scenes, vertical lists and scoreboard panels all follow it. Same as the switch on each round tab.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Match: the per-match scoreboard flags from the Matches tab (Show Timer,
                          Count Up, Show Wins), for the LIVE round. Top pill = all four matches;
                          M1–M4 override per match. Built by match-controls.js. -->
@@ -1983,12 +1996,9 @@ CommentatorC
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-baseline justify-content-between mb-3">
-                                        <h6 class="card-title text-uppercase text-muted small mb-0">Match &mdash; timer &amp; scoreboard</h6>
-                                        <span class="small text-muted">live round: <strong id="mc-live-round">&mdash;</strong></span>
-                                    </div>
+                                    <h6 class="card-title text-uppercase text-muted small mb-3">Scoreboard slots &mdash; timer, wins, turns</h6>
                                     <div class="row g-3" id="match-controls"></div>
-                                    <div class="form-text mt-2">Top pill sets all four matches; M1&ndash;M4 override it per match. Follows the last round you pressed Broadcast on. Switching Count Up / Down resets that match's clock (server behaviour).</div>
+                                    <div class="form-text mt-2">C1&ndash;C4 are the four scoreboard slots (Control 1&ndash;4), each acting on the round/match it is mapped to on the Matches tab &mdash; not the broadcast round. Top pill sets all mapped slots; the slot pills override it. Switching Count Up / Down resets that clock (server behaviour).</div>
                                 </div>
                             </div>
                         </div>

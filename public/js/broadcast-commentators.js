@@ -270,9 +270,8 @@ function showL3s() {
     document.querySelectorAll('.commentator-l3').forEach(el => {
         el.classList.add('active');
     });
-    // Start auto-hide timer
-    if (autoHideTimer) clearTimeout(autoHideTimer);
-    autoHideTimer = setTimeout(hideL3s, AUTO_HIDE_MS);
+    // Auto-hide is server-side now (the server emits visible:false after 5s).
+    if (autoHideTimer) { clearTimeout(autoHideTimer); autoHideTimer = null; }
 }
 
 function hideL3s() {
@@ -286,11 +285,13 @@ function hideL3s() {
     }
 }
 
-socket.on('toggle-commentator-l3', () => {
-    console.log('[CommL3] Toggle received, currently visible:', isVisible, 'commentators:', commentators.length);
-    if (isVisible) {
-        hideL3s();
-    } else {
-        showL3s();
-    }
-});
+// Visibility is server-held (features/control.js) and auto-hides there, so
+// every L3 source shows and hides together and master control / the Stream
+// Deck can paint the state. The page just follows.
+const followCommL3 = ({ visible } = {}) => {
+    console.log('[CommL3] visible ←', !!visible, 'commentators:', commentators.length);
+    if (visible) showL3s(); else hideL3s();
+};
+socket.on('comm-l3-visible-updated', followCommL3);
+socket.on('server-comm-l3-visible', followCommL3);
+socket.emit('get-comm-l3-visible');

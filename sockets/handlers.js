@@ -36,8 +36,7 @@ import {
     emitCurrentVendorSelection, updateVendorSelection,
     emitCurrentPlayerCount, updatePlayerCount,
     emitCurrentSideboardVisible, updateSideboardVisible,
-    updateScoreboardDecklistsVisible
-} from '../features/control.js';
+    updateScoreboardDecklistsVisible, toggleCommL3, setCommL3Visible, getCommL3Visible} from '../features/control.js';
 
 import { savePreset, restorePreset } from '../features/obs-websocket.js';
 
@@ -750,9 +749,17 @@ export default function registerSocketHandlers(io) {
             await restorePreset(game, vendor, playerCount);
         })
 
-        // Commentator L3 toggle
+        // Commentator L3 — server-held visibility (auto-hides after 5s server-side).
+        // 'toggle-commentator-l3' is what master control and Companion have always
+        // sent; the L3 pages now follow comm-l3-visible-updated instead of a pulse.
         socket.on('toggle-commentator-l3', () => {
-            io.emit('toggle-commentator-l3');
+            toggleCommL3(io);
+        })
+        socket.on('update-comm-l3-visible', ({ visible } = {}) => {
+            setCommL3Visible(!!visible, io);
+        })
+        socket.on('get-comm-l3-visible', () => {
+            socket.emit('server-comm-l3-visible', { visible: getCommL3Visible() });
         })
 
         // Commentator L3 remote mode (server-held so late-joining pages sync;

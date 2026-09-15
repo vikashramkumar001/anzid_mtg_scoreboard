@@ -1,12 +1,20 @@
-import { GAMES, VENDORS, PLAYER_COUNTS, TIMER_ACTIONS, MATCHES, CARD_SLOTS, MATCH_FEATURES } from './constants.js'
+import { GAMES, VENDORS, PLAYER_COUNTS, TIMER_ACTIONS, MATCHES, CARD_SLOTS, MATCH_FEATURES, SLOT_CHOICES } from './constants.js'
 
 export function buildActions(self) {
 	return {
 		// ── Commentator lower thirds ────────────────────────────────────────
 		comm_l3_toggle: {
-			name: 'Commentator L3: toggle on/off',
-			options: [],
-			callback: () => self.send('toggle-commentator-l3'),
+			name: 'Commentator L3: show / hide',
+			options: [
+				{
+					type: 'dropdown', id: 'mode', label: 'Mode', default: 'toggle',
+					choices: [{ id: 'toggle', label: 'Toggle' }, { id: 'on', label: 'Show (auto-hides after 5s)' }, { id: 'off', label: 'Hide' }],
+				},
+			],
+			callback: ({ options }) => {
+				if (options.mode === 'toggle') return self.send('toggle-commentator-l3')
+				self.send('update-comm-l3-visible', { visible: options.mode === 'on' })
+			},
 		},
 		comm_l3_remote: {
 			name: 'Commentator L3: remote mode',
@@ -104,24 +112,37 @@ export function buildActions(self) {
 		// ── Per-match scoreboard flags (Show Timer / Count Up / Show Wins) ──
 		// Same state the Matches tab checkboxes and the Controls tab pills
 		// drive. Round "live" = the last round Broadcast was pressed on.
+		// "Slot" = Control 1-4 = the round/match each scoreboard page is mapped
+		// to on the Matches tab (what the clock/wins/turns render on), not the
+		// broadcast round.
 		match_feature: {
-			name: 'Match: show timer / count up / show wins',
+			name: 'Scoreboard slot: show timer / count up / show wins',
 			options: [
 				{ type: 'dropdown', id: 'feature', label: 'Feature', default: 'show_timer', choices: MATCH_FEATURES },
-				{ type: 'dropdown', id: 'match', label: 'Match', default: 'all', choices: [{ id: 'all', label: 'All four' }, ...MATCHES] },
+				{ type: 'dropdown', id: 'slot', label: 'Scoreboard slot', default: 'all', choices: SLOT_CHOICES },
 				{
 					type: 'dropdown', id: 'mode', label: 'Mode', default: 'toggle',
 					choices: [{ id: 'toggle', label: 'Toggle' }, { id: 'on', label: 'On' }, { id: 'off', label: 'Off' }],
 				},
-				{ type: 'textinput', id: 'round', label: 'Round ("live" or 1-16)', default: 'live', useVariables: true },
 			],
-			callback: async ({ options }) => {
-				const round = await self.resolveRound(options.round)
-				if (!round) { self.log('warn', 'match feature skipped — no live round yet'); return }
-				const targets = options.match === 'all' ? MATCHES.map((m) => m.id) : [options.match]
-				const allOn = targets.every((m) => self.matchFeatureOn(options.feature, round, m))
+			callback: ({ options }) => {
+				const targets = self.slotTargets(options.slot)
+				if (!targets.length) { self.log('warn', 'slot feature skipped — slot not mapped yet'); return }
+				const allOn = targets.every(({ round_id, match_id }) => self.matchFeatureOn(options.feature, round_id, match_id))
 				const on = options.mode === 'toggle' ? !allOn : options.mode === 'on'
-				for (const m of targets) self.sendMatchFeature(options.feature, round, m, on)
+				for (const { round_id, match_id } of targets) self.sendMatchFeature(options.feature, round_id, match_id, on)
+			},
+		},
+		turn_counter: {
+			name: 'Scoreboard slot: turn counter +1 / -1',
+			options: [
+				{ type: 'dropdown', id: 'slot', label: 'Scoreboard slot', default: '1', choices: SLOT_CHOICES.filter((s) => s.id !== 'all') },
+				{ type: 'dropdown', id: 'dir', label: 'Direction', default: 'plus', choices: [{ id: 'plus', label: '+1' }, { id: 'minus', label: '-1' }] },
+			],
+			callback: ({ options }) => {
+				const [t] = self.slotTargets(options.slot)
+				if (!t) return
+				self.send('update-timer-state', { round_id: t.round_id, match_id: t.match_id, action: options.dir === 'plus' ? 'turn-plus' : 'turn-minus' })
 			},
 		},
 

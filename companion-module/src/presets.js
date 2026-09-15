@@ -22,8 +22,8 @@ export function buildPresets() {
 		category: 'Commentators',
 		name: 'Toggle commentator L3',
 		style: base('CASTER\\nL3'),
-		steps: [{ down: [{ actionId: 'comm_l3_toggle', options: {} }], up: [] }],
-		feedbacks: [],
+		steps: [{ down: [{ actionId: 'comm_l3_toggle', options: { mode: 'toggle' } }], up: [] }],
+		feedbacks: [{ feedbackId: 'comm_l3_visible', options: {}, style: { bgcolor: combineRgb(40, 160, 70), color: WHITE } }],
 	}
 
 	presets['comm_l3_remote'] = {
@@ -64,14 +64,26 @@ export function buildPresets() {
 
 	// Per-match flags, live round: one "all" button + M1-M4 per feature.
 	for (const f of MATCH_FEATURES) {
-		for (const target of [{ id: 'all', text: 'ALL' }, { id: 'match1', text: 'M1' }, { id: 'match2', text: 'M2' }, { id: 'match3', text: 'M3' }, { id: 'match4', text: 'M4' }]) {
-			presets[`match_${f.id}_${target.id}`] = {
+		for (const target of [{ id: 'all', text: 'ALL' }, { id: '1', text: 'C1' }, { id: '2', text: 'C2' }, { id: '3', text: 'C3' }, { id: '4', text: 'C4' }]) {
+			presets[`slot_${f.id}_${target.id}`] = {
 				type: 'button',
-				category: 'Match',
-				name: `${f.label}: ${target.id === 'all' ? 'all matches' : target.id}`,
+				category: 'Scoreboard slots',
+				name: `${f.label}: ${target.id === 'all' ? 'all slots' : 'control ' + target.id}`,
 				style: base(`${f.short}\\n${target.text}`),
-				steps: [{ down: [{ actionId: 'match_feature', options: { feature: f.id, match: target.id, mode: 'toggle', round: 'live' } }], up: [] }],
-				feedbacks: [{ feedbackId: 'match_feature', options: { feature: f.id, match: target.id, round: 'live' }, style: { bgcolor: combineRgb(40, 160, 70), color: WHITE } }],
+				steps: [{ down: [{ actionId: 'match_feature', options: { feature: f.id, slot: target.id, mode: 'toggle' } }], up: [] }],
+				feedbacks: [{ feedbackId: 'match_feature', options: { feature: f.id, slot: target.id }, style: { bgcolor: combineRgb(40, 160, 70), color: WHITE } }],
+			}
+		}
+	}
+	for (const n of ['1', '2', '3', '4']) {
+		for (const d of [{ id: 'plus', text: '+' }, { id: 'minus', text: '−' }]) {
+			presets[`turn_${n}_${d.id}`] = {
+				type: 'button',
+				category: 'Scoreboard slots',
+				name: `Turn ${d.text}1, control ${n}`,
+				style: base(`TURN ${d.text}\\nC${n}`),
+				steps: [{ down: [{ actionId: 'turn_counter', options: { slot: n, dir: d.id } }], up: [] }],
+				feedbacks: [],
 			}
 		}
 	}
