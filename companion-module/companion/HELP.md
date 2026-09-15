@@ -32,6 +32,8 @@ is polled every 5s and shows `unreachable` when the bridge is disabled.
 | Card vision: start / stop | The zone_watch recognizer on the server's machine |
 | Scoreboard slot: show timer / count up / show wins | Per Control 1-4 slot (the round/match each scoreboard page is mapped to), or all mapped slots |
 | Scoreboard slot: turn counter +1 / -1 | Turns show on the scoreboard once a count-down clock hits 0:00 |
+| Scoreboard slot: reset life | Life back to the event base (2v2: 30) for the slot's mapped match |
+| Scoreboard slot: reset match | Reset life + wins, XP/poison and the clock (turns too). No confirm on the deck — use Companion's hold/step features if you want one |
 | Timer | start / pause / reset / ±1 min, addressed by round + match |
 | Set game / vendor / player count | Same selectors as master control |
 | Card viewer: show / clear | Slot 1 = left, 2 and 3 both render right |

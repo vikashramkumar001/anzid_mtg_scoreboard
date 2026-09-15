@@ -37,6 +37,7 @@ class CoverageHubInstance extends InstanceBase {
 			scoreboardState: {},
 			liveRound: '',
 			slots: {},              // controlsTracker: { '1': {round_id, match_id}, ... }
+			baseLife: '20',
 			commL3Visible: false,
 			chatBridge: null,
 		}
@@ -142,6 +143,7 @@ class CoverageHubInstance extends InstanceBase {
 			this.socket.emit('get-scoreboard-state')
 			this.socket.emit('get-control-broadcast-trackers')
 			this.socket.emit('get-comm-l3-visible')
+			this.socket.emit('get-match-global-data')   // base life for the reset actions
 			this.socket.emit('get-broadcast-scoreboard-data')   // answers with the live round id
 		})
 
@@ -189,6 +191,9 @@ class CoverageHubInstance extends InstanceBase {
 		this.socket.on('control-broadcast-trackers', ({ controlsTracker } = {}) => {
 			this.apply({ slots: controlsTracker || {} }, ['match_feature'])
 		})
+		this.socket.on('update-match-global-data', ({ globalData } = {}) => {
+			if (globalData && globalData['global-event-base-life-points']) this.apply({ baseLife: String(globalData['global-event-base-life-points']) })
+		})
 		const setL3 = ({ visible } = {}) => this.apply({ commL3Visible: !!visible }, ['comm_l3_visible'])
 		this.socket.on('server-comm-l3-visible', setL3)
 		this.socket.on('comm-l3-visible-updated', setL3)
@@ -213,6 +218,29 @@ class CoverageHubInstance extends InstanceBase {
 	slotTargets(slot) {
 		const ids = slot === 'all' ? ['1', '2', '3', '4'] : [String(slot)]
 		return ids.map((n) => this.state.slots?.[n]).filter((t) => t && t.round_id && t.match_id)
+	}
+
+	// Resets go through the granular field-updated path (persists, echoes to
+	// master control, refreshes the scoreboard slot) — same fields the
+	// Matches-tab Reset Life button writes.
+	sendField(t, field, value) {
+		return this.send('field-updated', { round_id: t.round_id, match_id: t.match_id, field, value, timestamp: Date.now() })
+	}
+	sidesForCount() {
+		const pc = this.state.playerCount
+		return pc === '2v2' || pc === 'ffa' ? ['left', 'right', 'left-2', 'right-2'] : ['left', 'right']
+	}
+	resetLife(t) {
+		const life = this.state.playerCount === '2v2' ? '30' : this.state.baseLife || '20'
+		for (const side of this.sidesForCount()) this.sendField(t, `player-life-${side}`, life)
+		if (this.state.game === 'starwars') for (const side of this.sidesForCount()) this.sendField(t, `player-base-hp-${side}`, '30')
+	}
+	resetMatch(t) {
+		this.resetLife(t)
+		for (const side of this.sidesForCount()) this.sendField(t, `player-wins-${side}`, '0')
+		if (this.state.game === 'riftbound') for (const side of ['left', 'right']) this.sendField(t, `player-xp-${side}`, '0')
+		if (this.state.game === 'mtg') for (const side of ['left', 'right']) this.sendField(t, `player-poison-${side}`, '0')
+		this.send('update-timer-state', { round_id: t.round_id, match_id: t.match_id, action: 'reset' })
 	}
 
 	matchFeatureOn(feature, round, match) {

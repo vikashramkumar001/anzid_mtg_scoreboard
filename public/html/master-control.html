@@ -1943,6 +1943,10 @@ CommentatorC
                  buttons keep their IDs: zone-watch.js and scoreboard-decklists.js
                  bind by id. Show L3 is a CLONE of the one in Config → Commentators
                  (both emit toggle-commentator-l3; game-selection.js binds the class). -->
+            <!-- Controls Tab Content — the switches you press mid-show, grouped by the
+                 broadcast surface they affect (scheme B). Buttons keep their IDs /
+                 classes: zone-watch.js, scoreboard-decklists.js, sideboard-toggle.js,
+                 game-selection.js (L3 + Remote L3 clones) and match-controls.js bind them. -->
             <div class="tab-pane fade" id="controls-control" role="tabpanel" aria-labelledby="controls-tab">
                 <div class="container-fluid py-3">
                     <div class="row g-3">
@@ -1952,7 +1956,16 @@ CommentatorC
                                     <h6 class="card-title text-uppercase text-muted small mb-3">Scoreboard</h6>
                                     <button id="scoreboard-decklists-toggle" class="btn btn-outline-secondary w-100 py-3"
                                         title="Slide both players' decklists onto the riftbound scoreboard">Scoreboard Decklists: off</button>
-                                    <div class="form-text mt-2">Slides both players' lists over the side panels; press again to slide them out. Also on the Stream Deck.</div>
+                                    <div class="form-text mt-2">Slides both players' lists over the side panels; press again to slide them out.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title text-uppercase text-muted small mb-3">Decklists</h6>
+                                    <button id="controls-sideboard-toggle" class="btn btn-outline-secondary w-100 py-3">Show Sideboard: off</button>
+                                    <div class="form-text mt-2">One global flag: decklist scenes, vertical lists and scoreboard panels all follow it.</div>
                                 </div>
                             </div>
                         </div>
@@ -1962,14 +1975,17 @@ CommentatorC
                                     <h6 class="card-title text-uppercase text-muted small mb-3">Commentators</h6>
                                     <button class="btn btn-primary w-100 py-3 toggle-commentator-l3">Show L3</button>
                                     <button class="btn btn-outline-info w-100 py-2 mt-2 toggle-comm-l3-remote" title="Remote casters: one L3 centered per cam segment">Remote L3: Off</button>
-                                    <div class="form-text mt-2">Same buttons as Config → Commentators. L3 auto-hides after 5s.</div>
+                                    <div class="form-text mt-2">Same buttons as Config &rarr; Commentators. L3 auto-hides after 5s.</div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="row g-3 mt-1">
                         <div class="col-12 col-md-4">
                             <div class="card h-100">
                                 <div class="card-body">
-                                    <h6 class="card-title text-uppercase text-muted small mb-3">Card Vision</h6>
+                                    <h6 class="card-title text-uppercase text-muted small mb-3">Card viewer &amp; recognition</h6>
                                     <button id="zone-watch-toggle" class="btn btn-outline-secondary w-100 py-3" title="Card recognizer">Card Vision: off</button>
                                     <div class="form-text mt-2">Fixed-zone card recognizer on this machine's OBS. Off by default on a fresh start.</div>
                                 </div>
@@ -1978,25 +1994,10 @@ CommentatorC
                     </div>
 
                     <div class="row g-3 mt-1">
-                        <div class="col-12 col-md-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="card-title text-uppercase text-muted small mb-3">Decklists</h6>
-                                    <button id="controls-sideboard-toggle" class="btn btn-outline-secondary w-100 py-3">Show Sideboard: off</button>
-                                    <div class="form-text mt-2">One global flag: decklist scenes, vertical lists and scoreboard panels all follow it. Same as the switch on each round tab.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Match: the per-match scoreboard flags from the Matches tab (Show Timer,
-                         Count Up, Show Wins), for the LIVE round. Top pill = all four matches;
-                         M1–M4 override per match. Built by match-controls.js. -->
-                    <div class="row g-3 mt-1">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h6 class="card-title text-uppercase text-muted small mb-3">Scoreboard slots &mdash; timer, wins, turns</h6>
+                                    <h6 class="card-title text-uppercase text-muted small mb-3">Scoreboard slots &mdash; timer, wins, turns, resets</h6>
                                     <div class="row g-3" id="match-controls"></div>
                                     <div class="form-text mt-2">C1&ndash;C4 are the four scoreboard slots (Control 1&ndash;4), each acting on the round/match it is mapped to on the Matches tab &mdash; not the broadcast round. Top pill sets all mapped slots; the slot pills override it. Switching Count Up / Down resets that clock (server behaviour).</div>
                                 </div>

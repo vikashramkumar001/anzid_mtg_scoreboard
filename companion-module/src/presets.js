@@ -76,6 +76,16 @@ export function buildPresets() {
 		}
 	}
 	for (const n of ['1', '2', '3', '4']) {
+		presets[`reset_life_${n}`] = {
+			type: 'button', category: 'Scoreboard slots', name: `Reset life, control ${n}`,
+			style: { ...base(`RESET\\nLIFE C${n}`), bgcolor: combineRgb(110, 70, 0) },
+			steps: [{ down: [{ actionId: 'reset_life', options: { slot: n } }], up: [] }], feedbacks: [],
+		}
+		presets[`reset_match_${n}`] = {
+			type: 'button', category: 'Scoreboard slots', name: `Reset match, control ${n}`,
+			style: { ...base(`RESET\\nMATCH C${n}`), bgcolor: combineRgb(120, 20, 20) },
+			steps: [{ down: [{ actionId: 'reset_match', options: { slot: n } }], up: [] }], feedbacks: [],
+		}
 		for (const d of [{ id: 'plus', text: '+' }, { id: 'minus', text: '−' }]) {
 			presets[`turn_${n}_${d.id}`] = {
 				type: 'button',

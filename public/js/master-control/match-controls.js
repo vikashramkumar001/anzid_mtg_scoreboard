@@ -33,7 +33,7 @@ const FEATURES = [
 export function initMatchControls(socket) {
     const host = document.getElementById('match-controls');
     if (!host) return;
-    const state = { timerState: {}, scoreboardState: {}, slots: {} };   // slots[n] = {round_id, match_id}
+    const state = { timerState: {}, scoreboardState: {}, slots: {}, game: '' };   // slots[n] = {round_id, match_id}
 
     host.innerHTML = FEATURES.map(f => `
         <div class="col-12 col-md-4">
@@ -55,7 +55,58 @@ export function initMatchControls(socket) {
                 </div>`).join('')}
                 <span class="form-text m-0">Shown on the scoreboard only once a count-down clock hits 0:00.</span>
             </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="mc-resets" data-kind="life">
+                <button type="button" class="btn btn-outline-warning w-100 py-2 mc-reset" data-slot="all">Reset Life: all slots</button>
+                <div class="btn-group w-100 mt-2" role="group" aria-label="Reset life per control slot">
+                    ${SLOTS.map(n => `<button type="button" class="btn btn-outline-warning mc-reset" data-slot="${n}">C${n}</button>`).join('')}
+                </div>
+                <div class="form-text mt-1">Life back to the event base (2v2: 30). Press twice — the first press arms it.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="mc-resets" data-kind="match">
+                <button type="button" class="btn btn-outline-danger w-100 py-2 mc-reset" data-slot="all">Reset Match: all slots</button>
+                <div class="btn-group w-100 mt-2" role="group" aria-label="Reset match per control slot">
+                    ${SLOTS.map(n => `<button type="button" class="btn btn-outline-danger mc-reset" data-slot="${n}">C${n}</button>`).join('')}
+                </div>
+                <div class="form-text mt-1">Life, wins, XP / poison and the clock (turns too). Press twice.</div>
+            </div>
         </div>`;
+
+    // ── Resets: the same fields the Matches-tab Reset Life button writes, sent
+    // through the granular field-updated path the iPads use (persists, echoes
+    // to master control, refreshes the scoreboard slot). Reset Match adds
+    // wins, XP (riftbound) / poison (mtg) and a timer reset (which also zeroes
+    // turns). Two presses: the first arms the button for 3s.
+    const baseLife = () => (document.querySelector('#global-event-base-life-points')?.innerText || '20').trim();
+    const sidesFor = () => {
+        const pc = document.body.dataset.playerCount;
+        return (pc === '2v2' || pc === 'ffa') ? ['left', 'right', 'left-2', 'right-2'] : ['left', 'right'];
+    };
+    const sendField = (rm, field, value) => socket.emit('field-updated', { round_id: rm.round_id, match_id: rm.match_id, field, value, timestamp: Date.now() });
+    function resetLife(rm) {
+        const pc = document.body.dataset.playerCount;
+        const life = pc === '2v2' ? '30' : baseLife();
+        for (const side of sidesFor()) sendField(rm, `player-life-${side}`, life);
+        if (state.game === 'starwars') for (const side of sidesFor()) sendField(rm, `player-base-hp-${side}`, '30');
+    }
+    function resetMatch(rm) {
+        resetLife(rm);
+        for (const side of sidesFor()) sendField(rm, `player-wins-${side}`, '0');
+        if (state.game === 'riftbound') for (const side of ['left', 'right']) sendField(rm, `player-xp-${side}`, '0');
+        if (state.game === 'mtg') for (const side of ['left', 'right']) sendField(rm, `player-poison-${side}`, '0');
+        socket.emit('update-timer-state', { round_id: rm.round_id, match_id: rm.match_id, action: 'reset' });
+    }
+    const armTimers = new WeakMap();
+    function disarm(btn) {
+        clearTimeout(armTimers.get(btn));
+        btn.classList.remove('btn-danger', 'btn-warning', 'mc-armed');
+        btn.classList.add(btn.closest('.mc-resets').dataset.kind === 'life' ? 'btn-outline-warning' : 'btn-outline-danger');
+        btn.textContent = btn.dataset.label;
+    }
+    host.querySelectorAll('.mc-reset').forEach(btn => { btn.dataset.label = btn.textContent; });
 
     const variant = (btn, cls) => { btn.classList.remove('btn-outline-secondary', 'btn-success', 'btn-warning'); btn.classList.add(cls); };
     const slotRM = (n) => state.slots[n] && state.slots[n].round_id && state.slots[n].match_id ? state.slots[n] : null;
@@ -82,6 +133,9 @@ export function initMatchControls(socket) {
             else if (onCount === 0)    { all.textContent = `${f.label}: all off`; variant(all, 'btn-outline-secondary'); }
             else                       { all.textContent = `${f.label}: mixed (${onCount}/${live})`; variant(all, 'btn-warning'); }
         }
+        host.querySelectorAll('.mc-reset').forEach(btn => {
+            btn.disabled = btn.dataset.slot === 'all' ? !SLOTS.some(slotRM) : !slotRM(btn.dataset.slot);
+        });
         host.querySelectorAll('.mc-turns [data-slot]').forEach(group => {
             const rm = slotRM(group.dataset.slot);
             const t = rm ? state.timerState[rm.round_id]?.[rm.match_id] : null;
@@ -94,6 +148,20 @@ export function initMatchControls(socket) {
     host.addEventListener('click', (e) => {
         const btn = e.target.closest('button');
         if (!btn || btn.disabled) return;
+        if (btn.classList.contains('mc-reset')) {
+            const kind = btn.closest('.mc-resets').dataset.kind;
+            if (!btn.classList.contains('mc-armed')) {
+                btn.classList.add('mc-armed', kind === 'life' ? 'btn-warning' : 'btn-danger');
+                btn.classList.remove('btn-outline-warning', 'btn-outline-danger');
+                btn.textContent = `Confirm ${kind === 'life' ? 'reset life' : 'RESET MATCH'}${btn.dataset.slot === 'all' ? ' (all)' : ' C' + btn.dataset.slot}`;
+                armTimers.set(btn, setTimeout(() => disarm(btn), 3000));
+                return;
+            }
+            disarm(btn);
+            const targets = btn.dataset.slot === 'all' ? SLOTS.map(slotRM).filter(Boolean) : [slotRM(btn.dataset.slot)].filter(Boolean);
+            for (const rm of targets) (kind === 'life' ? resetLife : resetMatch)(rm);
+            return;
+        }
         if (btn.classList.contains('mc-turn')) {
             const rm = slotRM(btn.closest('[data-slot]').dataset.slot);
             if (rm) socket.emit('update-timer-state', { round_id: rm.round_id, match_id: rm.match_id, action: btn.dataset.dir === 'plus' ? 'turn-plus' : 'turn-minus' });
@@ -114,9 +182,12 @@ export function initMatchControls(socket) {
     socket.on('current-all-timer-states', ({ timerState } = {}) => { state.timerState = timerState || {}; paint(); });
     socket.on('scoreboard-state-data', ({ scoreboardState } = {}) => { state.scoreboardState = scoreboardState || {}; paint(); });
     socket.on('control-broadcast-trackers', ({ controlsTracker } = {}) => { state.slots = controlsTracker || {}; paint(); });
+    socket.on('server-current-game-selection', ({ gameSelection } = {}) => { state.game = gameSelection || ''; });
+    socket.on('game-selection-updated', ({ gameSelection } = {}) => { state.game = gameSelection || ''; });
 
     socket.emit('get-all-timer-states');
     socket.emit('get-scoreboard-state');
     socket.emit('get-control-broadcast-trackers');
+    socket.emit('get-game-selection');
     paint();
 }

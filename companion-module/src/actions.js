@@ -133,6 +133,16 @@ export function buildActions(self) {
 				for (const { round_id, match_id } of targets) self.sendMatchFeature(options.feature, round_id, match_id, on)
 			},
 		},
+		reset_life: {
+			name: 'Scoreboard slot: reset life',
+			options: [{ type: 'dropdown', id: 'slot', label: 'Scoreboard slot', default: '1', choices: SLOT_CHOICES }],
+			callback: ({ options }) => { for (const t of self.slotTargets(options.slot)) self.resetLife(t) },
+		},
+		reset_match: {
+			name: 'Scoreboard slot: reset match (life, wins, XP/poison, clock)',
+			options: [{ type: 'dropdown', id: 'slot', label: 'Scoreboard slot', default: '1', choices: SLOT_CHOICES }],
+			callback: ({ options }) => { for (const t of self.slotTargets(options.slot)) self.resetMatch(t) },
+		},
 		turn_counter: {
 			name: 'Scoreboard slot: turn counter +1 / -1',
 			options: [
