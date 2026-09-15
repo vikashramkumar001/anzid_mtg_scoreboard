@@ -41,3 +41,10 @@ export const CARD_SLOTS = [
 	{ id: '2', label: 'Slot 2 (right viewer)' },
 	{ id: '3', label: 'Slot 3 (right viewer — shared with chat)' },
 ]
+
+// Per-match scoreboard flags (Controls tab pills / Matches tab checkboxes)
+export const MATCH_FEATURES = [
+	{ id: 'show_timer', label: 'Show timer', short: 'TIMER' },
+	{ id: 'count_up', label: 'Count up', short: 'COUNT\\nUP' },
+	{ id: 'show_wins', label: 'Show wins', short: 'WINS' },
+]

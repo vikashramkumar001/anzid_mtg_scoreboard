@@ -1,4 +1,4 @@
-import { GAMES, VENDORS, PLAYER_COUNTS, TIMER_ACTIONS, MATCHES, CARD_SLOTS } from './constants.js'
+import { GAMES, VENDORS, PLAYER_COUNTS, TIMER_ACTIONS, MATCHES, CARD_SLOTS, MATCH_FEATURES } from './constants.js'
 
 export function buildActions(self) {
 	return {
@@ -98,6 +98,30 @@ export function buildActions(self) {
 				const running = self.state.cardVision?.running === true
 				const start = options.mode === 'toggle' ? !running : options.mode === 'on'
 				self.send(start ? 'start-zone-watch' : 'stop-zone-watch', {})
+			},
+		},
+
+		// ── Per-match scoreboard flags (Show Timer / Count Up / Show Wins) ──
+		// Same state the Matches tab checkboxes and the Controls tab pills
+		// drive. Round "live" = the last round Broadcast was pressed on.
+		match_feature: {
+			name: 'Match: show timer / count up / show wins',
+			options: [
+				{ type: 'dropdown', id: 'feature', label: 'Feature', default: 'show_timer', choices: MATCH_FEATURES },
+				{ type: 'dropdown', id: 'match', label: 'Match', default: 'all', choices: [{ id: 'all', label: 'All four' }, ...MATCHES] },
+				{
+					type: 'dropdown', id: 'mode', label: 'Mode', default: 'toggle',
+					choices: [{ id: 'toggle', label: 'Toggle' }, { id: 'on', label: 'On' }, { id: 'off', label: 'Off' }],
+				},
+				{ type: 'textinput', id: 'round', label: 'Round ("live" or 1-16)', default: 'live', useVariables: true },
+			],
+			callback: async ({ options }) => {
+				const round = await self.resolveRound(options.round)
+				if (!round) { self.log('warn', 'match feature skipped — no live round yet'); return }
+				const targets = options.match === 'all' ? MATCHES.map((m) => m.id) : [options.match]
+				const allOn = targets.every((m) => self.matchFeatureOn(options.feature, round, m))
+				const on = options.mode === 'toggle' ? !allOn : options.mode === 'on'
+				for (const m of targets) self.sendMatchFeature(options.feature, round, m, on)
 			},
 		},
 

@@ -1975,6 +1975,24 @@ CommentatorC
                             </div>
                         </div>
                     </div>
+
+                    <!-- Match: the per-match scoreboard flags from the Matches tab (Show Timer,
+                         Count Up, Show Wins), for the LIVE round. Top pill = all four matches;
+                         M1–M4 override per match. Built by match-controls.js. -->
+                    <div class="row g-3 mt-1">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-baseline justify-content-between mb-3">
+                                        <h6 class="card-title text-uppercase text-muted small mb-0">Match &mdash; timer &amp; scoreboard</h6>
+                                        <span class="small text-muted">live round: <strong id="mc-live-round">&mdash;</strong></span>
+                                    </div>
+                                    <div class="row g-3" id="match-controls"></div>
+                                    <div class="form-text mt-2">Top pill sets all four matches; M1&ndash;M4 override it per match. Follows the last round you pressed Broadcast on. Switching Count Up / Down resets that match's clock (server behaviour).</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

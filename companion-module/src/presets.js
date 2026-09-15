@@ -1,5 +1,5 @@
 import { combineRgb } from '@companion-module/base'
-import { GAMES, PLAYER_COUNTS } from './constants.js'
+import { GAMES, PLAYER_COUNTS, MATCH_FEATURES } from './constants.js'
 
 const WHITE = combineRgb(255, 255, 255)
 const BLACK = combineRgb(0, 0, 0)
@@ -60,6 +60,20 @@ export function buildPresets() {
 		style: base('CARD\\nVISION'),
 		steps: [{ down: [{ actionId: 'card_vision', options: { mode: 'toggle' } }], up: [] }],
 		feedbacks: [{ feedbackId: 'card_vision_running', options: {}, style: { bgcolor: combineRgb(40, 160, 70), color: WHITE } }],
+	}
+
+	// Per-match flags, live round: one "all" button + M1-M4 per feature.
+	for (const f of MATCH_FEATURES) {
+		for (const target of [{ id: 'all', text: 'ALL' }, { id: 'match1', text: 'M1' }, { id: 'match2', text: 'M2' }, { id: 'match3', text: 'M3' }, { id: 'match4', text: 'M4' }]) {
+			presets[`match_${f.id}_${target.id}`] = {
+				type: 'button',
+				category: 'Match',
+				name: `${f.label}: ${target.id === 'all' ? 'all matches' : target.id}`,
+				style: base(`${f.short}\\n${target.text}`),
+				steps: [{ down: [{ actionId: 'match_feature', options: { feature: f.id, match: target.id, mode: 'toggle', round: 'live' } }], up: [] }],
+				feedbacks: [{ feedbackId: 'match_feature', options: { feature: f.id, match: target.id, round: 'live' }, style: { bgcolor: combineRgb(40, 160, 70), color: WHITE } }],
+			}
+		}
 	}
 
 	for (const action of [

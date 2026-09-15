@@ -899,6 +899,8 @@ export default function registerSocketHandlers(io) {
                 updateBroadcastTracker(round_id);
                 RoomUtils.emitWithRoomMapping(io, 'broadcast-round-data', controlData[round_id]);
                 RoomUtils.emitToRoom(io, 'broadcast-scoreboard', 'broadcast-scoreboard-round-id', { round_id });
+                // The Controls tab's per-match pills and the Companion module follow the live round.
+                RoomUtils.emitToRoom(io, 'master-control', 'broadcast-scoreboard-round-id', { round_id });
                 // Server-side transforms — transform all decks and push results
                 transformAndEmitAllDecks(round_id, controlData, io);
             }

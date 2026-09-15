@@ -34,6 +34,8 @@ class CoverageHubInstance extends InstanceBase {
 			sideboard: false,
 			cardVision: null,
 			timerState: {},
+			scoreboardState: {},
+			liveRound: '',
 			chatBridge: null,
 		}
 		this.updateStatus(InstanceStatus.Connecting)
@@ -135,6 +137,8 @@ class CoverageHubInstance extends InstanceBase {
 			this.socket.emit('get-sideboard-visible')
 			this.socket.emit('get-zone-watch')
 			this.socket.emit('get-all-timer-states')
+			this.socket.emit('get-scoreboard-state')
+			this.socket.emit('get-broadcast-scoreboard-data')   // answers with the live round id
 		})
 
 		this.socket.on('disconnect', (reason) => {
@@ -170,7 +174,13 @@ class CoverageHubInstance extends InstanceBase {
 		this.socket.on('zone-watch-updated', (status) => this.apply({ cardVision: status || null }, ['card_vision_running']))
 
 		this.socket.on('current-all-timer-states', ({ timerState } = {}) => {
-			this.apply({ timerState: timerState || {} }, ['timer_running'])
+			this.apply({ timerState: timerState || {} }, ['timer_running', 'match_feature'])
+		})
+		this.socket.on('scoreboard-state-data', ({ scoreboardState } = {}) => {
+			this.apply({ scoreboardState: scoreboardState || {} }, ['match_feature'])
+		})
+		this.socket.on('broadcast-scoreboard-round-id', ({ round_id } = {}) => {
+			if (round_id) this.apply({ liveRound: String(round_id) }, ['match_feature', 'timer_running'])
 		})
 	}
 
@@ -183,6 +193,27 @@ class CoverageHubInstance extends InstanceBase {
 
 	// Merge state, refresh the named feedbacks, and republish variables. One
 	// place so no caller can update state and forget to redraw the buttons.
+	// "live" → the last round Broadcast was pressed on; anything else is a round number.
+	async resolveRound(text) {
+		const v = (await this.parseVariablesInString(String(text ?? 'live'))).trim().toLowerCase()
+		return v === 'live' || v === '' ? this.state.liveRound : v
+	}
+
+	matchFeatureOn(feature, round, match) {
+		const t = this.state.timerState?.[round]?.[match]
+		const s = this.state.scoreboardState?.[round]?.[match]
+		if (feature === 'show_timer') return t ? t.show !== false : true   // server default: shown
+		if (feature === 'count_up') return !!t?.countUp
+		if (feature === 'show_wins') return s ? s.showWins !== false : true
+		return false
+	}
+
+	sendMatchFeature(feature, round, match, on) {
+		if (feature === 'show_wins') return this.send('update-scoreboard-state', { round_id: round, match_id: match, action: 'showWins', value: on })
+		const action = feature === 'count_up' ? (on ? 'count-up' : 'count-down') : (on ? 'show' : 'no-show')
+		return this.send('update-timer-state', { round_id: round, match_id: match, action })
+	}
+
 	apply(patch, feedbackIds = []) {
 		Object.assign(this.state, patch)
 		pushVariables(this)
