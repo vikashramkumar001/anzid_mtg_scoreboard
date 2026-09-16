@@ -1,0 +1,30 @@
+{
+  "_comment": "Text decks to load into the deck library (data/deckLibrary.json). Files are relative to this folder. Entries already in the library (same legend + label) are skipped, so this is safe to re-run. Apply with scripts/riftbound/add-deck-to-library.mjs --manifest (server running) or scripts/riftbound/deck-library-file.mjs --manifest (server stopped); scripts/deploy/update-ingest.sh picks the right one.",
+  "decks": [
+    {
+      "file": "lucca-2026-vex-aduig33.txt",
+      "legend": "Vex, Gloomist",
+      "label": "aduig33 — Lucca Showdown 2026, 6th"
+    },
+    {
+      "file": "singapore-2026-jayce-justmilkey.txt",
+      "legend": "Jayce, Defender of Tomorrow",
+      "label": "justmilkey — RQ Singapore 2026, 36th"
+    },
+    {
+      "file": "singapore-2026-leblanc-blank.txt",
+      "legend": "LeBlanc, Deceiver",
+      "label": "Blank — RQ Singapore 2026, 18th"
+    },
+    {
+      "file": "koko-lopez-kennen-post-ban.txt",
+      "legend": "Kennen, Heart of the Tempest",
+      "label": "Koko_Lopez — Koko's Kennen Post Ban"
+    },
+    {
+      "file": "token-kennen.txt",
+      "legend": "Kennen, Heart of the Tempest",
+      "label": "Token Kennen (Piltover Archive, 2026-09-16)"
+    }
+  ]
+}

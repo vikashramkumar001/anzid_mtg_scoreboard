@@ -1,0 +1,42 @@
+Legend:
+1 Kennen, Heart of the Tempest
+
+Champion:
+1 Kennen, Keeper of Balance
+
+MainDeck:
+3 Lightning Rush
+2 Cull the Weak
+3 Traveling Merchant
+1 Hidden Blade
+3 Tideturner
+2 Rally the Troops
+3 Faithful Manufactor
+1 Boots of Swiftness
+2 Star-Crossed
+3 Up from the Deep
+2 Dragon Form
+2 Escaped Grayback
+2 Illaoi, Prophet of the Great Kraken
+2 Soulgorger
+3 Baron Nashor
+2 Switcheroo
+1 Fizz, Trickster
+2 Lunar Boon
+
+Battlefields:
+1 Zaun Warrens
+1 Trifarian War Camp
+1 The Papertree
+
+Runes:
+8 Chaos Rune
+4 Order Rune
+
+Sideboard:
+1 Hard Bargain
+2 Salvage
+2 Ravenbloom Prefect
+1 B.F. Sword
+2 Imperial Decree
+2 Gust
