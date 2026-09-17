@@ -4,6 +4,7 @@ import { promises as fsPromises } from 'fs';
 import { fileURLToPath } from 'url';
 import { RoomUtils } from '../utils/room-utils.js';
 import { RIFTBOUND_CHAMPIONS } from '../config/riftbound/constants.js';
+import { getCardListData as getRiftboundCardList } from './riftbound/cards.js';
 import { fetchTopdeckTable } from './topdeck.js';
 
 // Hoisted to the top so persistPlatformConfig() / PLATFORM_CONFIG_PATH
@@ -141,10 +142,28 @@ const CARDEIO_DIR = path.join(__dirname_tp, '../data/cardeio');
 
 const RUNE_NAME_TO_LETTER = { calm: 'g', chaos: 'p', fury: 'r', mind: 'b', order: 'y', body: 'o' };
 
+// Carde.io capitalises a few card names differently from the card DB
+// ("Ivern, Friend to all", "Diana, No Longer human"). champion-watch.js and
+// card-vision.js find a card by its exact DB key, so every card name imported
+// from Carde comes through here: a name that matches a DB key in everything but
+// case is returned in the DB's spelling, anything else is returned untouched.
+// The card list is replaced (never mutated) on reload, so identity is enough
+// to know when the index is stale.
+let cardeioNameIndex = { cards: null, byLower: new Map() };
+
+function cardeioCardName(name) {
+    const cards = getRiftboundCardList() || {};
+    if (!name || cards[name]) return name;
+    if (cardeioNameIndex.cards !== cards) {
+        cardeioNameIndex = { cards, byLower: new Map(Object.keys(cards).map(n => [n.toLowerCase(), n])) };
+    }
+    return cardeioNameIndex.byLower.get(String(name).trim().toLowerCase()) || name;
+}
+
 function cardeioGetDeckCards(deckDetail, sectionType) {
     if (!deckDetail?.sections) return [];
     const section = deckDetail.sections.find(s => s.section_type === sectionType);
-    return section ? section.cards.map(c => `${c.quantity} ${c.name}`) : [];
+    return section ? section.cards.map(c => `${c.quantity} ${cardeioCardName(c.name)}`) : [];
 }
 
 const RUNE_ORDER = ['r', 'g', 'b', 'o', 'p', 'y'];
@@ -182,11 +201,16 @@ function cardeioGetChampion(deckDetail, legend) {
     const section = deckDetail.sections.find(s => s.section_type === 'main');
     if (!section) return '';
     const firstName = legend ? legend.split(',')[0].trim().toLowerCase() : '';
-    const found = section.cards.filter(c =>
-        RIFTBOUND_CHAMPIONS.has(c.name) &&
-        (!firstName || c.name.toLowerCase().startsWith(firstName))
+    // A Set, because the same card on two rows is still one champion.
+    const found = [...new Set(section.cards.map(c => cardeioCardName(c.name)))].filter(name =>
+        RIFTBOUND_CHAMPIONS.has(name) &&
+        (!firstName || name.toLowerCase().startsWith(firstName))
     );
-    return found.length === 1 ? found[0].name : '';
+    // Two DIFFERENT champion units of the legend's character (Master Yi, Tempered
+    // + Master Yi, Unstoppable) and this section has nothing marking the chosen
+    // one. Stay blank for the operator to fill in: a blank is better on air than
+    // a confidently wrong champion.
+    return found.length === 1 ? found[0] : '';
 }
 
 function cardeioFormatRecord(record) {
@@ -204,7 +228,7 @@ function cardeioMapPlayer(entry, side, enteringRecord = '') {
         record:     enteringRecord,
         archetype:  '',
         decklistId: null,
-        legend:     entry[`P${side} Deck`] || '',
+        legend:     cardeioCardName(entry[`P${side} Deck`] || ''),
         champion:   cardeioGetChampion(deckDetail, entry[`P${side} Deck`]),
         runes:    cardeioGetRuneLetters(deckDetail),
         runeList: (() => {
@@ -306,15 +330,15 @@ function cardeioMapPlayerFromExport(playerName, record, decklistEntry, fullName 
 
     // Legend from auxiliary_sections
     const legendSection = aux.find(s => s.type_code === 'legend');
-    const legend = legendSection?.cards?.[0]?.name || '';
+    const legend = cardeioCardName(legendSection?.cards?.[0]?.name || '');
 
     // Champion from auxiliary_sections
     const championSection = aux.find(s => s.type_code === 'champion');
-    const champion = championSection?.cards?.[0]?.name || '';
+    const champion = cardeioCardName(championSection?.cards?.[0]?.name || '');
 
     // Battlefields from auxiliary_sections
     const bfSection = aux.find(s => s.type_code === 'battlefield');
-    const battlefields = (bfSection?.cards || []).map(c => c.name);
+    const battlefields = (bfSection?.cards || []).map(c => cardeioCardName(c.name));
 
     // Runes from sections.rune_pool
     const runePoolSection = sections.find(s => s.section_key === 'rune_pool');
@@ -326,11 +350,11 @@ function cardeioMapPlayerFromExport(playerName, record, decklistEntry, fullName 
 
     // Main deck from sections.main
     const mainSection = sections.find(s => s.section_key === 'main');
-    const mainDeck = mainSection ? mainSection.cards.map(c => `${c.quantity} ${c.name}`) : [];
+    const mainDeck = mainSection ? mainSection.cards.map(c => `${c.quantity} ${cardeioCardName(c.name)}`) : [];
 
     // Sideboard from sections.sideboard
     const sideSection = sections.find(s => s.section_key === 'sideboard');
-    const sideboard = sideSection ? sideSection.cards.map(c => `${c.quantity} ${c.name}`) : [];
+    const sideboard = sideSection ? sideSection.cards.map(c => `${c.quantity} ${cardeioCardName(c.name)}`) : [];
 
     return {
         name: displayName,
