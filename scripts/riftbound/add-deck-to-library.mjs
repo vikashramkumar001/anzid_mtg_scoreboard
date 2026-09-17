@@ -10,12 +10,14 @@
 //        [--host http://host:1378]
 //
 // --manifest loads every deck in { decks: [{file, legend, label}] } (files
-// relative to the manifest). Decks already in the library (same legend +
-// label) are skipped, so re-running is safe. A single --file add is always
+// relative to the manifest). A deck already in the library — same legend and
+// the same cards, whatever its label says now — is skipped, so re-running is
+// safe even after entries have been relabelled. A single --file add is always
 // sent as-is (no duplicate check), matching the master-control form.
 import { io } from 'socket.io-client';
 import { readFileSync, existsSync } from 'fs';
 import { dirname, resolve } from 'path';
+import { fingerprint } from './lib/deck-fingerprint.mjs';
 
 const args = process.argv.slice(2);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
@@ -46,11 +48,11 @@ if (MANIFEST) {
   const res = await fetch(`${HOST}/api/deck-library`);
   if (!res.ok) { console.error(`GET ${HOST}/api/deck-library -> HTTP ${res.status}`); process.exit(1); }
   const { decks = [] } = await res.json();
-  const key = (legend, label) => JSON.stringify([String(legend || '').trim(), String(label || '').trim()]);
-  const have = new Set(decks.map(d => key(d.legend, d.label)));
+  const have = new Map(decks.filter(d => d.text).map(d => [fingerprint(d.legend, d.text), d]));
   const keep = [];
   for (const w of wanted) {
-    if (have.has(key(w.legend, w.label))) console.log(`already present — skipped: ${w.legend} — ${w.label}`);
+    const hit = have.get(fingerprint(w.legend, w.text));
+    if (hit) console.log(`already present — skipped: ${w.legend} — ${w.label}${hit.label !== w.label ? `  (in the library as "${hit.label}")` : ''}`);
     else keep.push(w);
   }
   wanted = keep;

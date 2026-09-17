@@ -11,11 +11,13 @@
 //        [--path data/deckLibrary.json] [--dry-run]
 //
 // --manifest loads every deck listed in a manifest ({ decks: [{file, legend,
-// label}] }, files relative to the manifest). A deck whose legend + label is
-// already in the library is skipped, so re-running is safe. Prune runs first,
+// label}] }, files relative to the manifest). A deck already in the library —
+// same legend and the same cards, whatever its label says now — is skipped, so
+// re-running is safe even after entries have been relabelled. Prune runs first,
 // so a manifest deck is never pruned by the same invocation.
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, resolve } from 'path';
+import { fingerprint } from './lib/deck-fingerprint.mjs';
 
 const args = process.argv.slice(2);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
@@ -47,8 +49,9 @@ function addDeck({ text, legend, label }) {
   const cleanText = String(text || '').trim();
   if (!cleanLegend) throw new Error('a deck needs a legend');
   if (!cleanText) throw new Error(`empty decklist for ${cleanLegend} — ${cleanLabel}`);
-  const dup = lib.decks.find(d => d.legend === cleanLegend && (d.label || '') === cleanLabel);
-  if (dup) { console.log(`add: already present (${dup.id}) — skipped: ${cleanLegend} — ${cleanLabel}`); return 'skipped'; }
+  const fp = fingerprint(cleanLegend, cleanText);
+  const dup = lib.decks.find(d => d.text && fingerprint(d.legend, d.text) === fp);
+  if (dup) { console.log(`add: already present (${dup.id}) — skipped: ${cleanLegend} — ${cleanLabel}${dup.label !== cleanLabel ? `  (in the library as "${dup.label}")` : ''}`); return 'skipped'; }
   lib.decks.push({
     id: `d${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`,
     legend: cleanLegend, label: cleanLabel, link: '', text: cleanText, note: '', addedAt: Date.now(), lastUsedAt: 0,

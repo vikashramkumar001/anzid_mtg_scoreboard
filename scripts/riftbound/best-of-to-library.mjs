@@ -4,6 +4,7 @@
 //
 //   node scripts/riftbound/best-of-to-library.mjs --event 889532 --name "RQ Singapore 2026" \
 //        [--skip-legends "Ahri, Nine-Tailed Fox;Annie, Dark Child;..."] \
+//        [--no-prize-legends "Ahri, Nine-Tailed Fox;Annie, Dark Child;..."] \
 //        [--host http://127.0.0.1:1378] [--dry-run] [--out best-of-889532.json]
 //
 // --skip-legends (semicolon-separated, names contain commas) leaves out legends
@@ -11,6 +12,9 @@
 // the playriftbound.com Top Decks articles: Ahri, Annie, Kai'Sa, Lux, Miss
 // Fortune, Sett, Teemo, Viktor, Volibear as of RQ Singapore 2026. Their best
 // pilots are still printed, marked "skipped", so nothing is hidden.
+// --no-prize-legends takes the same list but KEEPS those legends: their top
+// finisher is loaded like any other, and the entry's note says Riot awards no
+// Best-Of for that legend, so the library has a list for every legend played.
 //
 // Sources (all from data/cardeio, nothing is fetched):
 //   cache/event-<id>-decklists.json       who played which legend, and the list
@@ -37,7 +41,7 @@
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { parseDeckString } from '../../public/js/shared/deck-parse.js';
+import { fingerprint } from './lib/deck-fingerprint.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const args = process.argv.slice(2);
@@ -47,6 +51,7 @@ const NAME = opt('--name');
 const HOST = opt('--host', '').replace(/\/+$/, '');
 const OUT = opt('--out');
 const SKIP = new Set(opt('--skip-legends', '').split(';').map(s => s.trim().toLowerCase()).filter(Boolean));
+const NOPRIZE = new Set(opt('--no-prize-legends', '').split(';').map(s => s.trim().toLowerCase()).filter(Boolean));
 const DRY = args.includes('--dry-run');
 if (!EVENT || !NAME) { console.error('usage: --event <carde event id> --name "RQ Singapore 2026" [--host http://host:1378] [--dry-run] [--out file.json]'); process.exit(2); }
 
@@ -127,13 +132,6 @@ function domainsOf(dl) {
 }
 const ordinal = (n) => { const s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
 
-// Content fingerprint: legend + every section as a sorted multiset. Used to
-// match candidates against library entries regardless of card order/labels.
-function fingerprint(legend, text) {
-  const p = parseDeckString(text);
-  const norm = (lines) => (lines || []).map(l => l.trim().toLowerCase().replace(/\s+/g, ' ')).filter(Boolean).sort().join('|');
-  return [String(legend).trim().toLowerCase(), norm(p.champion), norm(p.maindeck), norm(p.battlefield), norm(p.runepool), norm(p.sideboard)].join('#');
-}
 
 // ---- pick the best per legend ------------------------------------------------
 const perLegend = new Map();   // legend -> { pilots, candidates: [] }
@@ -166,7 +164,7 @@ for (const [legend, { pilots, candidates }] of perLegend) {
     legend,
     label: `${best.riot} — ${NAME}, ${ordinal(best.st.rank)} · ${record} · ${domainsOf(best.dl)}`,
     text,
-    note: `Best of legend, ${NAME} (Carde.io event ${EVENT}, final standings round ${finalRound}); ${pilots} ranked pilots on this legend`
+    note: `${NOPRIZE.has(legend.toLowerCase()) ? 'Top finisher on legend (Riot awards no Best-Of for this legend)' : 'Best of legend'}, ${NAME} (Carde.io event ${EVENT}, final standings round ${finalRound}); ${pilots} ranked pilots on this legend`
       + (emptyRanks.length ? `; placings follow the published numbering (${emptyRanks.length} vacated row${emptyRanks.length > 1 ? 's' : ''} closed)` : ''),
     rank: best.st.rank, riot: best.riot, pilots,
     fingerprint: fingerprint(legend, text),
@@ -193,12 +191,21 @@ const { decks: existing = [] } = await libRes.json();
 // pilot, the same 40 cards, two placings), so a content match only adopts an
 // entry written for THIS event or one with no event in its note (hand-added).
 const eventOf = (note) => (String(note || '').match(/Carde\.io event (\d+)/) || [])[1];
+// When several entries hold the same list, the one this tool already owns
+// (note names this event) wins, then the oldest; the rest are reported as
+// duplicates and never relabelled, so a re-run cannot flip between them.
 const existingByFp = new Map();
+const duplicates = [];
+const better = (a, b) => (Number(!!eventOf(b.note)) - Number(!!eventOf(a.note))) || ((a.addedAt || 0) - (b.addedAt || 0));
 for (const d of existing) {
   if (!d.text) continue;   // link entries are re-fetched live; nothing to compare
   const ev = eventOf(d.note);
   if (ev && ev !== String(EVENT)) continue;
-  existingByFp.set(fingerprint(d.legend, d.text), d);
+  const fp = fingerprint(d.legend, d.text);
+  const prev = existingByFp.get(fp);
+  if (!prev) { existingByFp.set(fp, d); continue; }
+  const [keep, dup] = better(prev, d) <= 0 ? [prev, d] : [d, prev];
+  existingByFp.set(fp, keep); duplicates.push({ dup, keep });
 }
 
 const toSend = [];
@@ -217,6 +224,7 @@ for (const p of picks) {
     console.log(`  add     ${p.legend}: ${p.label}`);
   }
 }
+for (const { dup, keep } of duplicates) console.log(`  duplicate  ${dup.legend}: "${dup.label}" (${dup.id}) has the same cards as "${keep.label}" — not touched; delete it if unwanted`);
 const untouched = existing.filter(d => !matchedIds.has(d.id));
 console.log(`${HOST}: ${adds} to add, ${updates} to relabel, ${unchanged} already current; ${untouched.length} existing entries not part of this event's best-of (left alone):`);
 for (const d of untouched) console.log(`    ${d.legend}  —  ${d.label || d.link}`);

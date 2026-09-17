@@ -1,5 +1,5 @@
 {
-  "_comment": "Text decks to load into the deck library (data/deckLibrary.json). Files are relative to this folder. Entries already in the library (same legend + label) are skipped, so this is safe to re-run. Apply with scripts/riftbound/add-deck-to-library.mjs --manifest (server running) or scripts/riftbound/deck-library-file.mjs --manifest (server stopped); scripts/deploy/update-ingest.sh picks the right one.",
+  "_comment": "Text decks to load into the deck library (data/deckLibrary.json). Files are relative to this folder. A deck already in the library (same legend and the same cards, whatever its label) is skipped, so this is safe to re-run. Apply with scripts/riftbound/add-deck-to-library.mjs --manifest (server running) or scripts/riftbound/deck-library-file.mjs --manifest (server stopped); scripts/deploy/update-ingest.sh picks the right one.",
   "decks": [
     {
       "file": "lucca-2026-vex-aduig33.txt",
@@ -9,12 +9,12 @@
     {
       "file": "singapore-2026-jayce-justmilkey.txt",
       "legend": "Jayce, Defender of Tomorrow",
-      "label": "justmilkey — RQ Singapore 2026, 36th"
+      "label": "justmilkey — RQ Singapore 2026, 35th · 10-2-1 · Body/Mind"
     },
     {
       "file": "singapore-2026-leblanc-blank.txt",
       "legend": "LeBlanc, Deceiver",
-      "label": "Blank — RQ Singapore 2026, 18th"
+      "label": "Blank — RQ Singapore 2026, 17th · 10-2-1 · Mind/Order"
     },
     {
       "file": "koko-lopez-kennen-post-ban.txt",
