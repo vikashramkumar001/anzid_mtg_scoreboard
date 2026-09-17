@@ -1,0 +1,38 @@
+Legend:
+1 Rek'Sai, Void Burrower
+
+Champion:
+1 Rek'Sai, Breacher
+
+MainDeck:
+3 Blood Rush
+3 Carrion Dredger
+3 Cleave
+3 Cull the Weak
+3 Faithful Manufactor
+3 Falling Star
+3 Honest Broker
+3 Imperial Decree
+3 Inferna
+3 Noxian Emissary
+3 Noxus Hopeful
+2 Escaped Grayback
+2 Void Rush
+1 Hidden Blade
+1 Salvage
+
+Battlefields:
+1 Forbidding Waste
+1 Mystic Vortex
+1 The Candlelit Sanctum
+
+Runes:
+6 Fury Rune
+6 Order Rune
+
+Sideboard:
+3 Decree of Unity
+2 Ferrous Forerunner
+2 Kennen, Keeper of Balance
+2 Salvage
+1 Decree of Rage

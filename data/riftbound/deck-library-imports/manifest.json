@@ -25,6 +25,11 @@
       "file": "token-kennen.txt",
       "legend": "Kennen, Heart of the Tempest",
       "label": "Token Kennen (Piltover Archive, 2026-09-16)"
+    },
+    {
+      "file": "decree-reksai.txt",
+      "legend": "Rek'Sai, Void Burrower",
+      "label": "Decree Rek'sai"
     }
   ]
 }
