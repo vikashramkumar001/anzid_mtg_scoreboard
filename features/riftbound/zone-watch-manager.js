@@ -127,8 +127,11 @@ export function initZoneWatchControl(io) {
     });
     // Never orphan the recognizer: if the server goes down the child must go
     // with it, or a second start later leaves two writing the same state file.
-    for (const sig of ['exit', 'SIGINT', 'SIGTERM']) {
-        process.on(sig, () => { if (child) child.kill('SIGTERM'); });
-    }
+    process.on('exit', () => { if (child) child.kill('SIGTERM'); });
+    // A SIGINT/SIGTERM listener REPLACES Node's default exit-on-signal, so these
+    // must exit themselves — otherwise Ctrl-C and `kill` silently do nothing and
+    // only `kill -9` stops the server. process.exit() fires 'exit' above.
+    process.on('SIGINT', () => process.exit(130));
+    process.on('SIGTERM', () => process.exit(143));
     log(`control ready (recognizer ${fs.existsSync(VENV_PY) ? 'installed' : 'NOT installed'}; starts OFF)`);
 }
