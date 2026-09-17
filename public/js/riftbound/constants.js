@@ -137,7 +137,7 @@ export const RIFTBOUND_BATTLEFIELDS_LIST = RIFTBOUND_BATTLEFIELD_NAMES.map(name 
 
 export const RIFTBOUND_CHAMPIONS_LIST = [
     // Origins
-    "Kai'sa, Survivor", "Kai'sa, Evolutionary",
+    "Kai'Sa, Survivor", "Kai'Sa, Evolutionary",
     "Volibear, Furious", "Volibear, Imposing",
     "Jinx, Demolitionist", "Jinx, Rebel",
     "Darius, Trifarian", "Darius, Executioner",
@@ -158,7 +158,7 @@ export const RIFTBOUND_CHAMPIONS_LIST = [
     "Rumble, Hotheaded", "Rumble, Scrapper",
     "Lucian, Gunslinger", "Lucian, Merciless",
     "Draven, Vanquisher", "Draven, Audacious", "Draven, Showboat",
-    "Rek'sai, Breacher", "Rek'sai, Swarm Queen",
+    "Rek'Sai, Breacher", "Rek'Sai, Swarm Queen",
     "Ornn, Blacksmith", "Ornn, Forge God",
     "Jax, Unrelenting", "Jax, Unmatched",
     "Irelia, Graceful", "Irelia, Fervent",
@@ -183,12 +183,12 @@ export const RIFTBOUND_CHAMPIONS_LIST = [
     // Vendetta
     "Akali, Deadly Weapon", "Akali, Silent",
     "Ambessa, Respected and Feared", "Ambessa, The Wolf",
-    "Jayce, Brilliant Inventor", "Jayce, Hammer in Hand",
+    "Jayce, Brilliant Inventor", "Jayce, Hammer in Hand", "Jayce, Man of Progress",
     "Kennen, Keeper of Balance", "Kennen, Storm of Shuriken",
     "Mel, Defiant Soul", "Mel, Newly Awakened",
     "Nasus, Ascended", "Nasus, Guardian of Knowledge",
     "Renekton, Brute", "Renekton, Rage Fueled",
-    "Shen, Leader of the Kinkou Order", "Shen, Scourge of Shadows",
+    "Shen, Leader of the Kinkou Order", "Shen, Scourge of Shadows", "Shen, Kinkou",
     "Zed, From the Shadows", "Zed, Without a Sound",
 ].map(name => ({name}));
 
