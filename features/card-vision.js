@@ -16,7 +16,7 @@ import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import OBSWebSocket from 'obs-websocket-js';
-import { getCardListData } from './riftbound/cards.js';
+import { getCardListData, findRiftboundCard } from './riftbound/cards.js';
 import { getControlData, getControlsTracker } from './control.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -315,7 +315,6 @@ export function initCardVision(app, io) {
             return res.json({ codes: [], count: 0, source: null, reason: 'no match data for that control' });
         }
 
-        const data = getCardListData() || {};
         // Names come off the board with a quantity prefix ("3 Bellows Breath")
         // in the deck lists, and bare in the single-card fields.
         const stripQty = (line) => String(line || '').replace(/^\s*\d+\s+/, '').trim();
@@ -343,7 +342,7 @@ export function initCardVision(app, io) {
         const codes = new Set();
         const unmatched = [];
         for (const n of names) {
-            const code = data[n]?.publicCode;
+            const code = findRiftboundCard(n)?.card?.publicCode;
             if (code) codes.add(code);
             else unmatched.push(n);
         }

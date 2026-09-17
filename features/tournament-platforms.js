@@ -4,7 +4,7 @@ import { promises as fsPromises } from 'fs';
 import { fileURLToPath } from 'url';
 import { RoomUtils } from '../utils/room-utils.js';
 import { RIFTBOUND_CHAMPIONS } from '../config/riftbound/constants.js';
-import { getCardListData as getRiftboundCardList } from './riftbound/cards.js';
+import { findRiftboundCard } from './riftbound/cards.js';
 import { fetchTopdeckTable } from './topdeck.js';
 
 // Hoisted to the top so persistPlatformConfig() / PLATFORM_CONFIG_PATH
@@ -142,22 +142,17 @@ const CARDEIO_DIR = path.join(__dirname_tp, '../data/cardeio');
 
 const RUNE_NAME_TO_LETTER = { calm: 'g', chaos: 'p', fury: 'r', mind: 'b', order: 'y', body: 'o' };
 
-// Carde.io capitalises a few card names differently from the card DB
-// ("Ivern, Friend to all", "Diana, No Longer human"). champion-watch.js and
-// card-vision.js find a card by its exact DB key, so every card name imported
-// from Carde comes through here: a name that matches a DB key in everything but
-// case is returned in the DB's spelling, anything else is returned untouched.
-// The card list is replaced (never mutated) on reload, so identity is enough
-// to know when the index is stale.
-let cardeioNameIndex = { cards: null, byLower: new Map() };
-
+// Carde.io spells a few card names differently from the card DB ("Ivern,
+// Friend to all", "Trapping Ground"). champion-watch.js and card-vision.js
+// find a card by its DB name, so every card name imported from Carde comes
+// through here and leaves in the DB's spelling; a name the DB does not know at
+// all is returned untouched (and shows up in check-cardeio-names.mjs).
 function cardeioCardName(name) {
-    const cards = getRiftboundCardList() || {};
-    if (!name || cards[name]) return name;
-    if (cardeioNameIndex.cards !== cards) {
-        cardeioNameIndex = { cards, byLower: new Map(Object.keys(cards).map(n => [n.toLowerCase(), n])) };
-    }
-    return cardeioNameIndex.byLower.get(String(name).trim().toLowerCase()) || name;
+    const hit = findRiftboundCard(name);
+    if (!hit || hit.name === name) return name;
+    // The four starter legends are keyed "… - Starter" in the DB, but the plain
+    // name is what portraits, standings and the autocomplete use — keep it.
+    return hit.name.endsWith(' - Starter') ? name : hit.name;
 }
 
 function cardeioGetDeckCards(deckDetail, sectionType) {

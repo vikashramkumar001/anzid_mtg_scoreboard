@@ -17,7 +17,7 @@
 
 import { onCardVisionState } from '../card-vision.js';
 import { getControlData, getControlsTracker } from '../control.js';
-import { getCardListData } from './cards.js';
+import { findRiftboundCard } from './cards.js';
 
 const SIDES = ['left', 'right'];
 
@@ -30,10 +30,8 @@ const baseCode = (code) => {
 };
 
 function championCodeFor(name) {
-    if (!name) return null;
-    const data = getCardListData();
-    const entry = data?.[String(name).trim()];
-    return entry?.publicCode ? baseCode(entry.publicCode) : null;
+    const code = findRiftboundCard(name)?.card?.publicCode;
+    return code ? baseCode(code) : null;
 }
 
 let detections = {};        // "round:match:side" -> { code, name, side, at, acknowledged }

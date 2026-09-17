@@ -1,5 +1,5 @@
 import {promises as fs} from 'fs';
-import {cardListDataPath} from '../../config/riftbound/constants.js';
+import {cardListDataPath, RIFTBOUND_CARD_NAME_ALIASES} from '../../config/riftbound/constants.js';
 import { RoomUtils } from '../../utils/room-utils.js';
 
 let cardListData = {};
@@ -24,6 +24,48 @@ export async function loadCardListData() {
 // Get the current card list
 export function getCardListData() {
     return cardListData;
+}
+
+// ── Tolerant name lookup ────────────────────────────────────────────────────
+// Every server feature that needs a card BY NAME goes through here instead of
+// indexing cardListData directly, so one place knows that a name can arrive
+// with the wrong capitalisation (an operator typing, Carde.io's "Ivern, Friend
+// to all"), with curly apostrophes, under another platform's spelling
+// (RIFTBOUND_CARD_NAME_ALIASES), or — for the four starter legends — without
+// the " - Starter" the DB keys them by. Returns { name, card } where `name` is
+// the DB key, or null. Never fuzzy: a near miss is a miss.
+const foldName = (s) => String(s || '')
+    .trim()
+    .replace(/[\u2018\u2019\u02BC]/g, "'")            // curly / modifier apostrophes
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // accents
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
+
+// Rebuilt when the card list is replaced (loadCardListData reassigns, never mutates).
+let nameIndex = { source: null, byFolded: new Map() };
+const aliasByFolded = new Map(Object.entries(RIFTBOUND_CARD_NAME_ALIASES).map(([from, to]) => [foldName(from), to]));
+
+export function findRiftboundCard(name) {
+    const raw = String(name || '').trim();
+    if (!raw) return null;
+    if (cardListData[raw]) return { name: raw, card: cardListData[raw] };
+
+    if (nameIndex.source !== cardListData) {
+        const byFolded = new Map();
+        for (const key of Object.keys(cardListData)) {
+            const folded = foldName(key);
+            if (!byFolded.has(folded)) byFolded.set(folded, key);
+        }
+        nameIndex = { source: cardListData, byFolded };
+    }
+
+    const folded = foldName(raw);
+    const alias = aliasByFolded.get(folded);
+    for (const candidate of [folded, alias && foldName(alias), `${folded} - starter`]) {
+        const key = candidate && nameIndex.byFolded.get(candidate);
+        if (key) return { name: key, card: cardListData[key] };
+    }
+    return null;
 }
 
 // Emit full card list to clients

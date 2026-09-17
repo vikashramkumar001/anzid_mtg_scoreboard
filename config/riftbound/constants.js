@@ -10,6 +10,17 @@ const rootDir = path.resolve(__dirname, '../../');
 // === File Paths ===
 export const cardListDataPath    = path.join(rootDir, 'data', 'riftbound', 'riftboundCardNames.json');
 
+// === Card-name aliases ===
+// Names another platform uses for a card the card DB spells differently.
+// findRiftboundCard() (features/riftbound/cards.js) consults this, so a
+// Carde.io import, card vision and champion-watch all land on the DB's card.
+// Add a line only for a real, checked rename — never a guess; a wrong card on
+// air is worse than no card. scripts/riftbound/check-cardeio-names.mjs lists
+// the names in the cached decklists that still resolve to nothing.
+export const RIFTBOUND_CARD_NAME_ALIASES = {
+    'Trapping Ground': 'Trapping Grounds',   // Carde.io — Unleashed battlefield UNL-217
+};
+
 // === Champion Units (chosen champion cards, not legend cards) ===
 // Used to identify champion units in decklists (e.g., "Kai'Sa, Survivor" is linked to legend "Kai'Sa, Daughter of the Void")
 export const RIFTBOUND_CHAMPIONS = new Set([
