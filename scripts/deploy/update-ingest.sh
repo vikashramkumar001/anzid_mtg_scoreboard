@@ -6,7 +6,7 @@
 #   4. start the server if nothing is listening on the port
 #
 #   bash scripts/deploy/update-ingest.sh [--repo DIR] [--branch NAME] [--port N]
-#        [--prune "Vex,Reksai,Lillia,Ornn,Azir,Jayce"] [--no-start] [--dry-run]
+#        [--prune "Vex,Reksai,Lillia,Ornn,Azir,Jayce"] [--no-start] [--stop-after] [--dry-run]
 #
 # Bootstrap from a clone that does not have this script yet:
 #   git fetch origin 20260330---dsg+fly \
@@ -20,6 +20,11 @@
 # puts the box's copy of every stashed data/ file back, whatever the merge
 # did; code files take upstream on conflict. If the stash cannot be re-applied
 # it is LEFT IN PLACE and the script stops, so nothing is ever dropped silently.
+#
+# --stop-after leaves the box with NO server running when the update is done:
+# nothing is started, and a server that was already listening is stopped once
+# the library work has gone through it. Use it to update the box between shows
+# with a single password prompt. Never use it while the box is serving a show.
 #
 # --prune is a one-off: it deletes every library deck whose legend is not in
 # the list BEFORE the manifest is loaded. Do not pass it on routine updates or
@@ -35,6 +40,7 @@ BRANCH="20260330---dsg+fly"
 PORT="1378"
 PRUNE=""
 START=1
+STOP_AFTER=0
 DRY=0
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -43,8 +49,9 @@ while [ $# -gt 0 ]; do
     --port) PORT="$2"; shift 2 ;;
     --prune) PRUNE="$2"; shift 2 ;;
     --no-start) START=0; shift ;;
+    --stop-after) STOP_AFTER=1; START=0; shift ;;
     --dry-run) DRY=1; shift ;;
-    -h|--help) sed -n '2,34p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,39p' "$0"; exit 0 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
   esac
 done
@@ -258,7 +265,29 @@ fi
 
 # ---- 4. server ----------------------------------------------------------------
 say "server"
-if listening; then
+if [ "$STOP_AFTER" = 1 ]; then
+  if listening; then
+    PIDS="$(lsof -nP -iTCP:"$PORT" -sTCP:LISTEN -t | tr '\n' ' ')"
+    if [ "$DRY" = 1 ]; then
+      echo "  (dry) would stop the server on :$PORT (pid $PIDS)"
+    else
+      echo "  --stop-after: stopping the server on :$PORT (pid $PIDS)"
+      # The library is written to disk on every change, so a plain TERM loses nothing.
+      kill $PIDS 2>/dev/null || true
+      for i in 1 2 3 4 5 6 7 8 9 10; do
+        if ! listening; then break; fi
+        sleep 1
+      done
+      if listening; then
+        echo "  the server did not stop within 10s — still listening on :$PORT (pid $(lsof -nP -iTCP:"$PORT" -sTCP:LISTEN -t | tr '\n' ' '))" >&2
+        exit 1
+      fi
+      echo "  server stopped; :$PORT is free"
+    fi
+  else
+    echo "  --stop-after: no server on :$PORT — left stopped. Start it with: npm start"
+  fi
+elif listening; then
   echo "  a server is already listening on :$PORT — NOT restarted. Code changes need a restart when you are off air."
 elif [ "$START" = 1 ]; then
   if [ "$DRY" = 1 ]; then

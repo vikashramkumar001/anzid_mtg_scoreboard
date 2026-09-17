@@ -16,6 +16,27 @@ Two production targets:
 
 Normally kept in sync via fast-forward (dsg → master → deploy-heroku).
 
+## One-command update of the ingest box
+
+`scripts/deploy/update-ingest.sh` does the whole runbook on the box: fetch + fast-forward
+(keeping the box's own `data/` files), `npm install` only when the package files changed,
+load the deck-library import list, then start the server if nothing is listening on 1378.
+Run it from the dev Mac; it asks for the box's password once:
+
+```bash
+ssh -t anuraagdas@<box-ip> 'cd "$HOME/Desktop/coverage hub" && git fetch -q origin 20260330---dsg+fly && git show origin/20260330---dsg+fly:scripts/deploy/update-ingest.sh > /tmp/update-ingest.sh && bash /tmp/update-ingest.sh'
+```
+
+| Add | Effect |
+|---|---|
+| `--stop-after` | leave NO server running at the end: nothing is started, and a server that was already up is stopped after the library work. For updating between shows. Never during a show. |
+| `--no-start` | do not start a server, but leave a running one alone |
+| `--dry-run` | change nothing, report what would happen |
+| `--prune "Vex,Reksai,..."` | one-off: delete library decks for every other legend first (a backup is taken) |
+
+A running server is never restarted by the script, so code changes only take effect after a
+stop + start (`--stop-after`, then run it again without the flag).
+
 ## ⚠️ Gitignored assets DO NOT transfer via git
 
 Large binaries are gitignored (`.gitignore`) and must be copied to the ingest box
