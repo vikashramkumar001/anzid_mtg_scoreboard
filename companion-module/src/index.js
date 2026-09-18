@@ -266,19 +266,35 @@ class CoverageHubInstance extends InstanceBase {
 
 	// Emits are fire-and-forget by design: a dropped button press must never
 	// take Companion's action queue down mid-show.
-	send(event, payload) {
+	send(event, payload, ack) {
 		if (!this.socket?.connected) {
 			this.log('warn', `not connected — dropped "${event}"`)
 			return false
 		}
 		try {
 			if (payload === undefined) this.socket.emit(event)
+			else if (typeof ack === 'function') this.socket.emit(event, payload, ack)
 			else this.socket.emit(event, payload)
 			return true
 		} catch (e) {
 			this.log('error', `emit "${event}" failed: ${e?.message}`)
 			return false
 		}
+	}
+
+	// Card viewer. Master control sends 'view-selected-card' and the server
+	// dispatches on game-id, so an MTG or Vibes show resolves against the right
+	// card list. Sending the riftbound-only event instead made every non-
+	// riftbound lookup miss and blank the viewer.
+	viewCard(slot, card) {
+		return this.send('view-selected-card', {
+			cardSelected: {
+				'card-selected': card,
+				'card-id': slot,
+				'game-id': this.state.game || 'riftbound',
+				'variant-url': '',
+			},
+		})
 	}
 
 	// ── Chat bridge (REST) ──────────────────────────────────────────────────

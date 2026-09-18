@@ -105,7 +105,12 @@ export function buildActions(self) {
 			callback: ({ options }) => {
 				const running = self.state.cardVision?.running === true
 				const start = options.mode === 'toggle' ? !running : options.mode === 'on'
-				self.send(start ? 'start-zone-watch' : 'stop-zone-watch', {})
+				// A refusal (recognizer not installed, spawn failed) comes back
+				// only through the ack and never as a broadcast, so without this
+				// the button looks like it worked and nothing happens.
+				self.send(start ? 'start-zone-watch' : 'stop-zone-watch', {}, (res) => {
+					if (res && res.ok === false) self.log('error', `card vision: ${res.error || 'refused'}`)
+				})
 			},
 		},
 
@@ -216,18 +221,13 @@ export function buildActions(self) {
 			callback: async ({ options }) => {
 				const card = (await self.parseVariablesInString(options.card)).trim()
 				if (!card) return
-				self.send('riftbound-card-view-view-card', {
-					cardSelected: { 'game-id': 'riftbound', 'card-selected': card, 'card-id': options.slot },
-				})
+				self.viewCard(options.slot, card)
 			},
 		},
 		card_clear: {
 			name: 'Card viewer: clear slot',
 			options: [{ type: 'dropdown', id: 'slot', label: 'Slot', default: '1', choices: CARD_SLOTS }],
-			callback: ({ options }) =>
-				self.send('riftbound-card-view-view-card', {
-					cardSelected: { 'game-id': 'riftbound', 'card-selected': '', 'card-id': options.slot },
-				}),
+			callback: ({ options }) => self.viewCard(options.slot, ''),
 		},
 
 		// ── OBS layout preset ───────────────────────────────────────────────

@@ -15,6 +15,10 @@ export const VENDORS = [
 	{ id: 'flyquest', label: 'FlyQuest' },
 	{ id: 'merlion', label: 'Merlion' },
 	{ id: 'uvs-unleashed', label: 'UVS Unleashed' },
+	{ id: 'atomic-legacy', label: 'Atomic Legacy (riftbound)' },
+	{ id: 'f2f', label: 'F2F (mtg)' },
+	{ id: 'f2f-legacy', label: 'F2F Legacy (mtg)' },
+	{ id: 'ldxp', label: 'LDXP (mtg)' },
 ]
 
 export const PLAYER_COUNTS = [

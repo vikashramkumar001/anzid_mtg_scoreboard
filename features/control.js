@@ -254,6 +254,11 @@ export function updateControlMapping(controlId, round_id, match_id, io) {
         match_id,
         archetypeList: getSortedArchetypes()
     });
+    // Anything that addresses a slot rather than a round/match — the Companion
+    // module's slot buttons, master control's own pills — needs the new
+    // mapping. Without this the trackers only ever go out on request, so a
+    // remap mid-show left those clients acting on the previous match.
+    emitControlTrackers(io);
 }
 
 // Emit control & broadcast trackers
