@@ -3,6 +3,7 @@
 #   1. fetch + fast-forward the deploy branch, keeping the box's own data files
 #   2. npm install when the package files changed (or node_modules is missing)
 #   3. load the committed deck-library manifest (optionally pruning first)
+#   3b. refresh Bitfocus Companion's copy of the Stream Deck module, if present
 #   4. start the server if nothing is listening on the port
 #
 #   bash scripts/deploy/update-ingest.sh [--repo DIR] [--branch NAME] [--port N]
@@ -260,6 +261,27 @@ else
   echo "  no server on :$PORT — editing data/deckLibrary.json directly"
   if [ -f "$MANIFEST" ] || [ -n "$PRUNE" ]; then
     node scripts/riftbound/deck-library-file.mjs ${PRUNE:+--keep "$PRUNE"} ${MANIFEST:+--manifest "$MANIFEST"} $DRYFLAG
+  fi
+fi
+
+# ---- 3b. Companion (Stream Deck) module ---------------------------------------
+# Companion loads developer modules from a folder of module directories and
+# hangs on a symlink, so the box keeps a real COPY of companion-module/ under
+# ~/companion-dev-modules/anzid-coverage-hub (set up 2026-09-17). Companion
+# watches that folder and restarts the module by itself when files change.
+COMPANION_DEV="$HOME/companion-dev-modules/anzid-coverage-hub"
+if [ -d "$COMPANION_DEV" ] && [ -d companion-module ]; then
+  say "companion module"
+  if [ "$DRY" = 1 ]; then
+    echo "  (dry) would rsync companion-module/ -> $COMPANION_DEV (npm install there if package files changed)"
+  else
+    PKG_BEFORE="$(cat "$COMPANION_DEV/package.json" "$COMPANION_DEV/package-lock.json" 2>/dev/null | shasum | cut -c1-40)"
+    rsync -a --delete --exclude node_modules companion-module/ "$COMPANION_DEV/"
+    PKG_AFTER="$(cat "$COMPANION_DEV/package.json" "$COMPANION_DEV/package-lock.json" 2>/dev/null | shasum | cut -c1-40)"
+    if [ ! -d "$COMPANION_DEV/node_modules" ] || [ "$PKG_BEFORE" != "$PKG_AFTER" ]; then
+      (cd "$COMPANION_DEV" && npm install --no-audit --no-fund 2>&1 | tail -1)
+    fi
+    echo "  synced to $COMPANION_DEV (Companion reloads it on its own)"
   fi
 fi
 

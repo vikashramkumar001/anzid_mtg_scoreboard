@@ -37,6 +37,23 @@ ssh -t anuraagdas@<box-ip> 'cd "$HOME/Desktop/coverage hub" && git fetch -q orig
 A running server is never restarted by the script, so code changes only take effect after a
 stop + start (`--stop-after`, then run it again without the flag).
 
+## Stream Deck: Bitfocus Companion on the ingest box
+
+Companion 5.0.5 is installed on the ingest box (`/Applications/Companion.app`, web UI at
+`http://127.0.0.1:8000` on the box only). It loads our module as a **developer module** from
+`~/companion-dev-modules/anzid-coverage-hub`, a real copy of `companion-module/` — Companion
+hangs on a symlink there, so it must be a copy. `update-ingest.sh` refreshes that copy on every
+update (and runs `npm install` in it when the module's package files change); Companion watches
+the folder and restarts the module by itself.
+
+The connection "coverage-hub" points at `127.0.0.1:1378`, so it is green only while the server
+on the box is running. The launcher settings that make this work live in
+`~/Library/Application Support/companion/config.json`: `enable_developer: true`,
+`dev_modules_path: /Users/anuraagdas/companion-dev-modules`.
+
+From the dev Mac, reach the Companion UI with an SSH tunnel:
+`ssh -N -L 18000:127.0.0.1:8000 anuraagdas@<box-ip>` then open `http://127.0.0.1:18000`.
+
 ## ⚠️ Gitignored assets DO NOT transfer via git
 
 Large binaries are gitignored (`.gitignore`) and must be copied to the ingest box
