@@ -1,3 +1,924 @@
 {
-  "decks": []
+  "decks": [
+    {
+      "id": "dmu4a0eyt92avi",
+      "legend": "Vex, Gloomist",
+      "label": "aduig33 — Lucca Showdown 2026, 6th",
+      "link": "",
+      "text": "Legend:\n1 Vex, Gloomist\n\nChampion:\n1 Vex, Apathetic\n\nMainDeck:\n3 Discipline\n3 Mutated Mouser\n3 Back Off\n3 Steel Paws\n3 Tornado Warrior\n2 Defy\n2 Sona, Harmonious\n2 Switcheroo\n2 Scuttle Crab\n2 Vilemaw\n2 Astral Heron\n2 Kharox\n1 Blitzcrank, Impassive\n1 Gust\n1 Rebuke\n1 Tideturner\n1 Janna, Savior\n1 Boots of Swiftness\n1 Hard Bargain\n1 Star-Crossed\n1 Existential Dread\n1 Evelynn, Entrancing\n\nBattlefields:\n1 Fortified Position\n1 Amateur Recital\n1 Startipped Peak\n\nRunes:\n6 Calm Rune\n6 Chaos Rune\n\nSideboard:\n2 Tomb-Raider Barbara\n1 Baron Nashor\n1 Kha'Zix, Mutating Horror\n1 Abandon\n1 Blitzcrank, Impassive\n1 Switcheroo\n1 Decree of Focus\n1 Star-Crossed\n1 Angler Beast",
+      "note": "",
+      "addedAt": 1789573760453,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu4fe7cn6hl20",
+      "legend": "Jayce, Defender of Tomorrow",
+      "label": "justmilkey — RQ Singapore 2026, 35th · 10-2-1 · Body/Mind",
+      "link": "",
+      "text": "Legend:\n1 Jayce, Defender of Tomorrow\n\nChampion:\n1 Jayce, Brilliant Inventor\n\nMainDeck:\n3 Bellows Breath\n3 Catalyst of Aeons\n3 Clairvoyance\n3 Dazzling Aurora\n3 Dredge Up\n3 Elder Dragon\n3 Mobilize\n3 Platewyrm Egg\n3 Promising Future\n2 Flurry of Blades\n2 Garbage Grabber\n2 Sabotage\n2 Sprite Burst\n1 Deadly Flourish\n1 Downstage Dramatics\n1 Gutter Palace\n1 Rocket Barrage\n\nBattlefields:\n1 Dragon Roost\n1 Forgotten Monument\n1 Sigil of the Storm\n\nRunes:\n7 Body Rune\n5 Mind Rune\n\nSideboard:\n2 Disposal Order\n2 Repulse\n1 Deadly Flourish\n1 Decree of Strength\n1 Sabotage\n1 Sprite Burst\n1 Turn to Dust\n1 Unyielding Spirit",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 56 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789582801847,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu4fe7cp2ctsa",
+      "legend": "LeBlanc, Deceiver",
+      "label": "Blank — RQ Singapore 2026, 17th · 10-2-1 · Mind/Order",
+      "link": "",
+      "text": "Legend:\n1 LeBlanc, Deceiver\n\nChampion:\n1 LeBlanc, Fragmented\n\nMainDeck:\n3 Cull the Weak\n3 Deathgrip\n3 Glasc Mixologist\n3 Hidden Blade\n3 Karthus, Eternal\n3 Mirror Image\n3 Ruined Rex\n3 Soaring Scout\n3 Watchful Sentry\n2 Honest Broker\n2 Thousand-Tailed Watcher\n1 B.F. Sword\n1 Black Rose Dignitary\n1 Chakram Dancer\n1 Kennen, Keeper of Balance\n1 Ki Barrier\n1 Sacrifice\n1 Stupefy\n1 Vi, Peacekeeper\n\nBattlefields:\n1 Dusk Rose Lab\n1 Star Spring\n1 Windswept Hillock\n\nRunes:\n8 Order Rune\n4 Mind Rune\n\nSideboard:\n3 Decree of Unity\n2 Decree of Insight\n2 Salvage\n1 Black Rose Dignitary\n1 LeBlanc, Everywhere at Once\n1 Time Warp",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 79 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789582801849,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu4fe7cq5szga",
+      "legend": "Kennen, Heart of the Tempest",
+      "label": "Koko_Lopez — Koko's Kennen Post Ban",
+      "link": "",
+      "text": "Legend:\n1 Kennen, Heart of the Tempest\n\nChampion:\n1 Kennen, Storm of Shuriken\n\nMainDeck:\n3 Traveling Merchant\n3 Rhasa the Sunderer\n3 Seal of Discord\n1 Treasure Hunter\n3 Lightning Rush\n2 Switcheroo\n1 Last Rites\n1 The Harrowing\n1 Tideturner\n2 Flash\n1 Baron Nashor\n3 Shadow Order Disciple\n2 Fizz, Trickster\n1 Gust\n2 Tornado Warrior\n3 Tail-Cloaked Matriarch\n3 Ezreal, Prodigy\n2 Star-Crossed\n1 Shadows of the Past\n1 Rebuke\n\nBattlefields:\n1 Zaun Warrens\n1 Minefield\n1 Shadow Temple\n\nRunes:\n9 Chaos Rune\n3 Order Rune\n\nSideboard:\n3 Ravenbloom Prefect\n2 Decree of Unity\n1 Salvage\n1 Hard Bargain\n1 Angler Beast\n1 Switcheroo\n1 Gust",
+      "note": "",
+      "addedAt": 1789582801850,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu4fe7csf1p8a",
+      "legend": "Kennen, Heart of the Tempest",
+      "label": "Token Kennen (Piltover Archive, 2026-09-16)",
+      "link": "",
+      "text": "Legend:\n1 Kennen, Heart of the Tempest\n\nChampion:\n1 Kennen, Keeper of Balance\n\nMainDeck:\n3 Lightning Rush\n2 Cull the Weak\n3 Traveling Merchant\n1 Hidden Blade\n3 Tideturner\n2 Rally the Troops\n3 Faithful Manufactor\n1 Boots of Swiftness\n2 Star-Crossed\n3 Up from the Deep\n2 Dragon Form\n2 Escaped Grayback\n2 Illaoi, Prophet of the Great Kraken\n2 Soulgorger\n3 Baron Nashor\n2 Switcheroo\n1 Fizz, Trickster\n2 Lunar Boon\n\nBattlefields:\n1 Zaun Warrens\n1 Trifarian War Camp\n1 The Papertree\n\nRunes:\n8 Chaos Rune\n4 Order Rune\n\nSideboard:\n1 Hard Bargain\n2 Salvage\n2 Ravenbloom Prefect\n1 B.F. Sword\n2 Imperial Decree\n2 Gust",
+      "note": "",
+      "addedAt": 1789582801852,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxineo8cd",
+      "legend": "Akali, Rogue Assassin",
+      "label": "Gorica — RQ Singapore 2026, 1st · 14-1-1 · Calm/Fury",
+      "link": "",
+      "text": "Legend:\n1 Akali, Rogue Assassin\n\nChampion:\n1 Akali, Deadly Weapon\n\nMainDeck:\n3 Astral Heron\n3 Defy\n3 Discipline\n3 Kai'Sa, Survivor\n3 Mournful Witness\n3 Shuriken Flip\n3 Stellacorn Herder\n3 Zhonya's Hourglass\n2 Back Off\n2 Blitzcrank, Impassive\n2 Falling Star\n2 Long Sword\n2 Mischievous Marai\n1 Block\n1 Darius, Trifarian\n1 Not So Fast\n1 Noxus Hopeful\n1 Sterak's Gage\n\nBattlefields:\n1 Forgotten Monument\n1 Sigil of the Storm\n1 Void Gate\n\nRunes:\n6 Calm Rune\n6 Fury Rune\n\nSideboard:\n2 Disarming Rake\n2 Ferrous Forerunner\n1 Against the Odds\n1 Akali, Silent\n1 Decree of Focus\n1 En Garde\n1 Not So Fast\n1 Thermo Beam",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 70 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984559,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxio8q6c3",
+      "legend": "Kennen, Heart of the Tempest",
+      "label": "DSG AwesumRosum — RQ Singapore 2026, 2nd · 14-1-1 · Chaos/Order",
+      "link": "",
+      "text": "Legend:\n1 Kennen, Heart of the Tempest\n\nChampion:\n1 Kennen, Storm of Shuriken\n\nMainDeck:\n3 Lightning Rush\n3 Nocturne, Horrifying\n3 Rhasa the Sunderer\n3 Ride the Wind\n3 Seal of Discord\n3 Stacked Deck\n3 Traveling Merchant\n3 Treasure Hunter\n2 Gust\n2 Last Rites\n2 Shadow Order Disciple\n2 Switcheroo\n1 Fizz, Trickster\n1 Flash\n1 Hard Bargain\n1 Salvage\n1 Star-Crossed\n1 Tideturner\n1 Up from the Deep\n\nBattlefields:\n1 Minefield\n1 Sandswept Tomb\n1 Zaun Warrens\n\nRunes:\n9 Chaos Rune\n3 Order Rune\n\nSideboard:\n2 Decree of Unity\n1 Abandon\n1 Divine Judgment\n1 Fizz, Trickster\n1 Ravenbloom Prefect\n1 Rebuke\n1 Salvage\n1 Star-Crossed\n1 Tail-Cloaked Matriarch",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 218 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984560,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxipkqzw2",
+      "legend": "Master Yi, Wuju Bladesman",
+      "label": "Ekpilot — RQ Singapore 2026, 3rd · 12-2-1 · Body/Calm",
+      "link": "",
+      "text": "Legend:\n1 Master Yi, Wuju Bladesman\n\nChampion:\n1 Master Yi, Tempered\n\nMainDeck:\n3 Charm\n3 Defy\n3 Discipline\n3 First Mate\n3 Lonely Poro\n3 Pit Rookie\n3 Punch First\n3 Rengar, Trophy Hunter\n3 Scuttle Crab\n2 En Garde\n2 Rampage\n2 Ruin Runner\n2 Zhonya's Hourglass\n1 Alpha Strike\n1 Not So Fast\n1 Onslaught\n1 Sabotage\n\nBattlefields:\n1 Emperor's Dais\n1 Grove of the God-Willow\n1 Star Spring\n\nRunes:\n7 Body Rune\n5 Calm Rune\n\nSideboard:\n3 Disarming Rake\n2 Decree of Focus\n2 Fiora, Peerless\n1 Not So Fast\n1 Ruin Runner\n1 Sabotage",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 124 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984561,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxipadlfo",
+      "legend": "Fiora, Grand Duelist",
+      "label": "Fr0zen — RQ Singapore 2026, 8th · 11-3-0 · Body/Order",
+      "link": "",
+      "text": "Legend:\n1 Fiora, Grand Duelist\n\nChampion:\n1 Fiora, Worthy\n\nMainDeck:\n3 Dazzling Aurora\n3 Elder Dragon\n3 Mobilize\n3 Rampage\n3 Rengar, Trophy Hunter\n3 Rift Herald\n3 Sacrifice\n3 Shepherd's Heirloom\n2 Challenge\n2 Divining Shells\n2 Flurry of Blades\n2 Harnessed Dragon\n2 Poppy, Paragon\n2 Repulse\n2 Riposte\n1 Sett, Brawler\n\nBattlefields:\n1 Amateur Recital\n1 Risen Altar\n1 Sunken Temple\n\nRunes:\n8 Body Rune\n4 Order Rune\n\nSideboard:\n3 Kayle, Justified\n2 Punch First\n2 Salvage\n1 Akshan, Mischievous\n1 Fiora, Victorious\n1 Forge of the Future",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 54 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984561,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiprew16",
+      "legend": "Azir, Emperor of the Sands",
+      "label": "MICE Squirtle — RQ Singapore 2026, 10th · 11-2-0 · Calm/Order",
+      "link": "",
+      "text": "Legend:\n1 Azir, Emperor of the Sands\n\nChampion:\n1 Azir, Sovereign\n\nMainDeck:\n3 Arise!\n3 B.F. Sword\n3 Back Off\n3 Brutalizer\n3 Defy\n3 Discipline\n3 Doran's Shield\n3 Eye of the Herald\n3 Guards!\n3 Hidden Blade\n3 Soul Sword\n2 Deathgrip\n2 En Garde\n1 Hand Hammer\n1 Vi, Peacekeeper\n\nBattlefields:\n1 Hall of Legends\n1 Seat of Power\n1 Trifarian War Camp\n\nRunes:\n7 Calm Rune\n5 Order Rune\n\nSideboard:\n3 Decree of Unity\n2 Decree of Focus\n2 Salvage\n1 Ashe, Focused\n1 Ornn, Blacksmith\n1 Tomb-Raider Barbara",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 92 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984561,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiqta5kc",
+      "legend": "Rengar, Pridestalker",
+      "label": "DSG Prismaticism — RQ Singapore 2026, 11th · 11-2-0 · Body/Fury",
+      "link": "",
+      "text": "Legend:\n1 Rengar, Pridestalker\n\nChampion:\n1 Rengar, Trophy Hunter\n\nMainDeck:\n3 Grim Apothecary\n3 Inferna\n3 Irresistible Faefolk\n3 Kai'Sa, Survivor\n3 Kinkou Initiate\n3 Noxus Hopeful\n3 Pit Rookie\n3 Punch First\n3 Thrill of the Hunt\n2 First Mate\n2 Nidalee, Cat Form\n2 Rampage\n2 Sabotage\n1 Darius, Trifarian\n1 Ferrous Forerunner\n1 Pakaa Cub\n1 Pyke, Dockside Butcher\n\nBattlefields:\n1 Emperor's Dais\n1 Seat of Power\n1 Star Spring\n\nRunes:\n8 Body Rune\n4 Fury Rune\n\nSideboard:\n2 Decree of Strength\n2 Ferrous Forerunner\n1 Brittle Steel\n1 Brynhir Thundersong\n1 Noxian Demolitionist\n1 Pyke, Dockside Butcher\n1 Rampage\n1 Sabotage",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 117 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984562,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiqs3z4e",
+      "legend": "Kha'Zix, Voidreaver",
+      "label": "MtyAlley Kuroji — RQ Singapore 2026, 12th · 11-2-0 · Body/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Kha'Zix, Voidreaver\n\nChampion:\n1 Kha'Zix, Mutating Horror\n\nMainDeck:\n3 Illaoi, Prophet of the Great Kraken\n3 Irresistible Faefolk\n3 Mister Root\n3 Rengar, Trophy Hunter\n3 Stacked Deck\n3 Up from the Deep\n3 Void Assault\n2 Baron Nashor\n2 Dragonsoul Sage\n2 Fizz, Trickster\n2 Punch First\n2 Rampage\n2 Star-Crossed\n2 Zed, Without a Sound\n1 Here to Help\n1 Overt Operation\n1 Ride the Wind\n1 Switcheroo\n\nBattlefields:\n1 Forbidding Waste\n1 Sandswept Tomb\n1 Star Spring\n\nRunes:\n7 Chaos Rune\n5 Body Rune\n\nSideboard:\n3 Sabotage\n2 Gust\n2 Ruin Runner\n2 Unyielding Spirit\n1 Star-Crossed",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 54 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984562,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxirrx956",
+      "legend": "Ezreal, Prodigal Explorer",
+      "label": "fafafgvcwrqrebcg — RQ Singapore 2026, 13th · 11-2-0 · Chaos/Mind",
+      "link": "",
+      "text": "Legend:\n1 Ezreal, Prodigal Explorer\n\nChampion:\n1 Ezreal, Prodigy\n\nMainDeck:\n3 Bellows Breath\n3 Bewitching Spirit\n3 Deadly Flourish\n3 Fizz, Trickster\n3 Pack of Wonders\n3 Stacked Deck\n3 Stupefy\n2 The List\n2 Thousand-Tailed Watcher\n2 Treasure Trove\n2 Vex, Apathetic\n2 Wages of Pain\n1 Gust\n1 Hard Bargain\n1 Pickpocket\n1 Rebuke\n1 Singularity\n1 Sprite Fountain\n1 Star-Crossed\n1 Turn to Dust\n\nBattlefields:\n1 Frozen Fortress\n1 Sigil of the Storm\n1 Void Gate\n\nRunes:\n6 Chaos Rune\n6 Mind Rune\n\nSideboard:\n1 Abandon\n1 Acceptable Losses\n1 Angler Beast\n1 Kha'Zix, Mutating Horror\n1 Mindsplitter\n1 Pickpocket\n1 Sprite Fountain\n1 Star-Crossed\n1 Turn to Dust\n1 Vex, Apathetic",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 45 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984563,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiryo4cl",
+      "legend": "Rek'Sai, Void Burrower",
+      "label": "GLT TSAR — RQ Singapore 2026, 14th · 10-2-1 · Fury/Order",
+      "link": "",
+      "text": "Legend:\n1 Rek'Sai, Void Burrower\n\nChampion:\n1 Rek'Sai, Breacher\n\nMainDeck:\n3 Carrion Dredger\n3 Cleave\n3 Cull the Weak\n3 Falling Star\n3 Hidden Blade\n3 Inferna\n3 Kai'Sa, Survivor\n3 Mischievous Marai\n3 Noxus Hopeful\n3 Undertitan\n2 Ferrous Forerunner\n2 Vi, Peacekeeper\n1 Ashe, Focused\n1 Disciple of Shen\n1 Forge of the Future\n1 Kennen, Keeper of Balance\n1 Long Sword\n\nBattlefields:\n1 Forbidding Waste\n1 The Candlelit Sanctum\n1 Zaun Warrens\n\nRunes:\n7 Fury Rune\n5 Order Rune\n\nSideboard:\n2 Ashe, Focused\n2 Decree of Unity\n2 Forge of the Future\n2 Salvage\n1 Brittle Steel\n1 Vi, Peacekeeper",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 69 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984563,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxis8c12k",
+      "legend": "Diana, Scorn of the Moon",
+      "label": "JarbsX — RQ Singapore 2026, 20th · 10-2-1 · Chaos/Mind",
+      "link": "",
+      "text": "Legend:\n1 Diana, Scorn of the Moon\n\nChampion:\n1 Diana, Lunari\n\nMainDeck:\n3 Hwei, Brooding Painter\n3 Moonfall\n3 Ravenbloom Student\n3 Ride the Wind\n3 Stacked Deck\n3 Stupefy\n3 Tideturner\n2 Abandon\n2 Acceptable Losses\n2 Fizz, Trickster\n2 Gust\n2 Patched Porobot\n2 Star-Crossed\n2 Vex, Apathetic\n1 Eclipse\n1 Flash\n1 Ocean Drake\n1 Smoke Screen\n\nBattlefields:\n1 Abandoned Hall\n1 Rockfall Path\n1 Targon's Peak\n\nRunes:\n7 Chaos Rune\n5 Mind Rune\n\nSideboard:\n2 Pickpocket\n2 Up from the Deep\n1 Baron Nashor\n1 Decree of Insight\n1 Mel, Newly Awakened\n1 Singularity\n1 Star-Crossed\n1 Switcheroo",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 69 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984564,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxitmmq8z",
+      "legend": "Mel, Soul's Reflection",
+      "label": "CTG Alanzq — RQ Singapore 2026, 25th · 10-2-1 · Chaos/Mind",
+      "link": "",
+      "text": "Legend:\n1 Mel, Soul's Reflection\n\nChampion:\n1 Mel, Defiant Soul\n\nMainDeck:\n3 Applied Researchers\n3 Dredge Up\n3 Ravenbloom Student\n3 Rebuttal\n3 Shock Blast\n3 Stacked Deck\n3 Stupefy\n3 Time Warp\n3 Traveling Merchant\n3 Up from the Deep\n2 Singularity\n2 Thousand-Tailed Watcher\n1 Bellows Breath\n1 Lecturing Yordle\n1 Smoke Screen\n1 Star-Crossed\n1 Switcheroo\n\nBattlefields:\n1 Ravenbloom Conservatory\n1 Rockfall Path\n1 Threshold of the Gray\n\nRunes:\n7 Mind Rune\n5 Chaos Rune\n\nSideboard:\n2 Decree of Insight\n2 Pickpocket\n1 Abandon\n1 Acceptable Losses\n1 Kha'Zix, Mutating Horror\n1 Mel, Newly Awakened\n1 Star-Crossed\n1 Turn to Dust",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 21 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984565,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxitt07v1",
+      "legend": "Draven, Glorious Executioner",
+      "label": "GLT V0LKATA2 — RQ Singapore 2026, 27th · 10-2-1 · Chaos/Fury",
+      "link": "",
+      "text": "Legend:\n1 Draven, Glorious Executioner\n\nChampion:\n1 Draven, Showboat\n\nMainDeck:\n3 Evelynn, Entrancing\n3 Kai'Sa, Survivor\n3 Noxus Hopeful\n3 Overzealous Fan\n3 Rebuke\n3 Spinning Axe\n3 Stacked Deck\n3 Tideturner\n3 Vex, Apathetic\n2 Edge of Night\n2 Falling Star\n2 Pyke, Returned\n1 Blood Rush\n1 Cleave\n1 Kha'Zix, Mutating Horror\n1 Pyke, Dockside Butcher\n1 Rek'Sai, Breacher\n1 Rengar, Pouncing\n\nBattlefields:\n1 Forge of the Fluft\n1 Sigil of the Storm\n1 Star Spring\n\nRunes:\n6 Chaos Rune\n6 Fury Rune\n\nSideboard:\n3 Ravenbloom Prefect\n2 Brittle Steel\n2 Ferrous Forerunner\n1 Abandon\n1 Brynhir Thundersong\n1 Falling Star",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 48 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984565,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxitnv6s1",
+      "legend": "Vex, Gloomist",
+      "label": "Auria — RQ Singapore 2026, 33rd · 10-2-1 · Calm/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Vex, Gloomist\n\nChampion:\n1 Vex, Apathetic\n\nMainDeck:\n3 Defy\n3 Discipline\n3 Mutated Mouser\n3 Steel Paws\n3 Switcheroo\n3 Tornado Warrior\n2 Astral Heron\n2 Boots of Swiftness\n2 Kharox\n2 Rebuke\n2 Scuttle Crab\n2 Tideturner\n2 Zhonya's Hourglass\n1 Abandon\n1 Back Off\n1 Block\n1 Charm\n1 Irelia, Fervent\n1 Pyke, Returned\n1 Ride the Wind\n\nBattlefields:\n1 Bandle Tree\n1 Fortified Position\n1 Startipped Peak\n\nRunes:\n7 Chaos Rune\n5 Calm Rune\n\nSideboard:\n3 Tomb-Raider Barbara\n2 Decree of Focus\n2 Gust\n1 Kha'Zix, Mutating Horror\n1 Not So Fast\n1 Star-Crossed",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 55 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984565,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiuqjfgq",
+      "legend": "Irelia, Blade Dancer",
+      "label": "Big Willy Dfoe — RQ Singapore 2026, 38th · 10-3-0 · Calm/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Irelia, Blade Dancer\n\nChampion:\n1 Irelia, Fervent\n\nMainDeck:\n3 Boots of Swiftness\n3 Defiant Dance\n3 Defy\n3 Discipline\n3 Scuttle Crab\n3 Stellacorn Herder\n3 Tideturner\n2 Akali, Silent\n2 Charm\n2 En Garde\n2 Flash\n2 Guardian Angel\n2 Ride the Wind\n2 Stacked Deck\n1 Edge of Night\n1 Lonely Poro\n1 Pyke, Returned\n1 Rebuke\n\nBattlefields:\n1 Abandoned Hall\n1 Sunken Temple\n1 Targon's Peak\n\nRunes:\n6 Calm Rune\n6 Chaos Rune\n\nSideboard:\n2 Adaptatron\n1 Crumbling Sands\n1 Draven, Audacious\n1 Gust\n1 Hard Bargain\n1 Pyke, Returned\n1 Star-Crossed\n1 Twilight Shroud\n1 Vex, Apathetic",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 143 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984566,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxivk2wfl",
+      "legend": "Ornn, Fire Below the Mountain",
+      "label": "MICE TheManLand — RQ Singapore 2026, 40th · 10-3-0 · Calm/Mind",
+      "link": "",
+      "text": "Legend:\n1 Ornn, Fire Below the Mountain\n\nChampion:\n1 Ornn, Blacksmith\n\nMainDeck:\n3 Brutalizer\n3 Clockwork Keeper\n3 Defy\n3 Patched Porobot\n3 Pit Crew\n3 Poro Snax\n3 Scuttle Crab\n3 Seal of Focus\n3 Sprite Fountain\n3 Sterak's Gage\n2 Aspiring Engineer\n2 Charm\n2 Guardian Angel\n1 Cloth Armor\n1 Mask of Foresight\n1 Retreat\n\nBattlefields:\n1 Ornn's Forge\n1 Seat of Power\n1 Veiled Temple\n\nRunes:\n8 Calm Rune\n4 Mind Rune\n\nSideboard:\n3 Decree of Insight\n3 Disarming Rake\n2 Decree of Focus\n1 Charm\n1 Not So Fast",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 48 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984567,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxivkptvb",
+      "legend": "Lucian, Purifier",
+      "label": "Motionless — RQ Singapore 2026, 41st · 10-3-0 · Body/Fury",
+      "link": "",
+      "text": "Legend:\n1 Lucian, Purifier\n\nChampion:\n1 Lucian, Merciless\n\nMainDeck:\n3 Doran's Blade\n3 First Mate\n3 Irresistible Faefolk\n3 Kai'Sa, Survivor\n3 Kinkou Initiate\n3 Long Sword\n3 Noxus Hopeful\n3 Pit Rookie\n3 Punch First\n2 Blighted Battleaxe\n2 Falling Star\n2 Ferrous Forerunner\n2 Poppy, Paragon\n2 Relentless Pursuit\n2 Sabotage\n\nBattlefields:\n1 Forbidding Waste\n1 Forge of the Fluft\n1 Windswept Hillock\n\nRunes:\n6 Body Rune\n6 Fury Rune\n\nSideboard:\n3 Rampage\n2 Ruin Runner\n1 Brynhir Thundersong\n1 Decree of Strength\n1 Ferrous Forerunner\n1 Pendulum Blade\n1 Sabotage",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 25 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984567,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiwy5e5t",
+      "legend": "Lillia, Bashful Bloom",
+      "label": "Lalasong — RQ Singapore 2026, 69th · 10-3-0 · Calm/Mind",
+      "link": "",
+      "text": "Legend:\n1 Lillia, Bashful Bloom\n\nChampion:\n1 Lillia, Fae Fawn\n\nMainDeck:\n3 Defy\n3 Discipline\n3 En Garde\n3 Lonely Poro\n3 Mask of Foresight\n3 Ravenbloom Student\n3 Smoke and Mirrors\n3 Sprite Burst\n3 Sprite Fountain\n2 Brutalizer\n2 Stupefy\n1 Akali, Silent\n1 Back Off\n1 Charm\n1 Disarming Rake\n1 Heart of Dark Ice\n1 Smoke Screen\n1 Thousand-Tailed Watcher\n1 Unchecked Power\n\nBattlefields:\n1 Black Flame Altar\n1 Dusk Rose Lab\n1 Seat of Power\n\nRunes:\n7 Calm Rune\n5 Mind Rune\n\nSideboard:\n2 Decree of Insight\n2 Disarming Rake\n1 Akali, Silent\n1 Charm\n1 Decree of Focus\n1 Lilting Lullaby\n1 Twilight Shroud\n1 Unchecked Power",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 50 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984568,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiwn0a2o",
+      "legend": "Master Yi, Wuju Master",
+      "label": "Psyc0w — RQ Singapore 2026, 109th · 9-4-0 · Body/Calm",
+      "link": "",
+      "text": "Legend:\n1 Master Yi, Wuju Master\n\nChampion:\n1 Master Yi, Tempered\n\nMainDeck:\n3 Back Off\n3 Defy\n3 Discipline\n3 Gemhand Hunter\n3 Master Yi, Unstoppable\n3 Punch First\n3 Wuju Apprentice\n3 Zhonya's Hourglass\n2 Alpha Strike\n2 Concentrate\n2 Grim Resolve\n2 Herald of Spring\n2 Master Yi, Tempered\n2 Scuttle Crab\n1 Arachnoid Horror\n1 Emperor's Divide\n1 Poppy, Paragon\n\nBattlefields:\n1 Gardens of Becoming\n1 Reckoner's Arena\n1 Targon's Peak\n\nRunes:\n7 Body Rune\n5 Calm Rune\n\nSideboard:\n2 Decree of Focus\n2 Decree of Strength\n2 Disarming Rake\n2 Not So Fast\n2 Rampage",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 30 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984568,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiwdxyzl",
+      "legend": "Jhin, Virtuoso",
+      "label": "Jibbs — RQ Singapore 2026, 116th · 9-4-0 · Fury/Mind",
+      "link": "",
+      "text": "Legend:\n1 Jhin, Virtuoso\n\nChampion:\n1 Jhin, Meticulous Killer\n\nMainDeck:\n3 Consult the Past\n3 Curtain Call\n3 Deadly Flourish\n3 Forecaster\n3 Noxus Hopeful\n3 Plundering Poro\n3 Sprite Burst\n3 Stupefy\n2 Downstage Dramatics\n2 Ferrous Forerunner\n2 Rocket Barrage\n2 Singularity\n2 Thousand-Tailed Watcher\n2 Time Warp\n1 Falling Star\n1 Orb of Regret\n1 Unchecked Power\n\nBattlefields:\n1 Frozen Fortress\n1 Rockfall Path\n1 Sigil of the Storm\n\nRunes:\n8 Mind Rune\n4 Fury Rune\n\nSideboard:\n2 Decree of Insight\n2 Pickpocket\n1 Bellows Breath\n1 Brittle Steel\n1 Ferrous Forerunner\n1 Frigid Touch\n1 Square Up\n1 Temporal Breach",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 19 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984568,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxixn282f",
+      "legend": "Nasus, Curator of the Sands",
+      "label": "keloy — RQ Singapore 2026, 131st · 9-4-0 · Calm/Mind",
+      "link": "",
+      "text": "Legend:\n1 Nasus, Curator of the Sands\n\nChampion:\n1 Nasus, Ascended\n\nMainDeck:\n3 Astral Heron\n3 Bellows Breath\n3 Defy\n3 Discipline\n3 Ravenbloom Student\n3 Scuttle Crab\n3 Thousand-Tailed Watcher\n2 Find Your Center\n2 Lecturing Yordle\n2 Premonition\n2 Retreat\n2 Stupefy\n2 Temporal Breach\n2 Zhonya's Hourglass\n1 Back Off\n1 Smoke Screen\n1 Time Warp\n1 Tomb-Raider Barbara\n\nBattlefields:\n1 Rockfall Path\n1 Sigil of the Storm\n1 Vilemaw's Lair\n\nRunes:\n7 Mind Rune\n5 Calm Rune\n\nSideboard:\n2 Decree of Focus\n2 Decree of Insight\n2 Not So Fast\n1 Lecturing Yordle\n1 Pickpocket\n1 Singularity\n1 Tomb-Raider Barbara",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 66 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984569,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxixl1znf",
+      "legend": "Sivir, Battle Mistress",
+      "label": "Misterpandawan — RQ Singapore 2026, 144th · 9-4-0 · Body/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Sivir, Battle Mistress\n\nChampion:\n1 Sivir, Mercenary\n\nMainDeck:\n3 Catalyst of Aeons\n3 Dazzling Aurora\n3 Elder Dragon\n3 Flurry of Blades\n3 Gust\n3 Lunar Boon\n3 Platewyrm Egg\n3 Scryer's Bloom\n3 Stacked Deck\n3 Up from the Deep\n2 Rampage\n2 The Harrowing\n1 Baron Nashor\n1 Boots of Swiftness\n1 Hard Bargain\n1 Punch First\n1 Ride the Wind\n\nBattlefields:\n1 Forgotten Monument\n1 Sigil of the Storm\n1 Threshold of the Gray\n\nRunes:\n6 Body Rune\n6 Chaos Rune\n\nSideboard:\n2 Baron Nashor\n2 Hard Bargain\n2 Punch First\n2 Sabotage\n1 Rampage\n1 Ride the Wind",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 14 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984569,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxixxpu82",
+      "legend": "Poppy, Keeper of the Hammer",
+      "label": "SD LynisAllegra — RQ Singapore 2026, 207th · 8-5-0 · Body/Order",
+      "link": "",
+      "text": "Legend:\n1 Poppy, Keeper of the Hammer\n\nChampion:\n1 Poppy, Paragon\n\nMainDeck:\n3 Blood Money\n3 Catalyst of Aeons\n3 Confront\n3 Dazzling Aurora\n3 Elder Dragon\n3 Forge of the Future\n3 Harnessed Dragon\n3 Mobilize\n3 Sacrifice\n2 Cull the Weak\n2 Divine Judgment\n2 Flurry of Blades\n2 Rift Herald\n2 Sabotage\n1 Salvage\n1 Vanguard Armory\n\nBattlefields:\n1 Forgotten Monument\n1 Sigil of the Storm\n1 Threshold of the Gray\n\nRunes:\n6 Body Rune\n6 Order Rune\n\nSideboard:\n3 Rengar, Trophy Hunter\n2 Rampage\n2 Salvage\n2 The Ruination\n1 Sabotage",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 23 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984569,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxixnxnoo",
+      "legend": "Pyke, Bloodharbor Ripper",
+      "label": "GANSHU008 — RQ Singapore 2026, 261st · 7-6-0 · Chaos/Fury",
+      "link": "",
+      "text": "Legend:\n1 Pyke, Bloodharbor Ripper\n\nChampion:\n1 Pyke, Dockside Butcher\n\nMainDeck:\n3 Bewitching Spirit\n3 Blood Rush\n3 Falling Star\n3 Noxus Hopeful\n3 Pack of Wonders\n3 Stacked Deck\n3 Traveling Merchant\n3 Treasure Hunter\n3 Treasure Trove\n2 Ezreal, Prodigy\n2 Fizz, Trickster\n2 The List\n1 Downwell\n1 Hard Bargain\n1 Kha'Zix, Mutating Horror\n1 Piercing Light\n1 Star-Crossed\n1 Tail-Cloaked Matriarch\n\nBattlefields:\n1 Forbidding Waste\n1 Frozen Fortress\n1 Ripper's Bay\n\nRunes:\n7 Fury Rune\n5 Chaos Rune\n\nSideboard:\n2 Switcheroo\n2 Thermo Beam\n1 Angler Beast\n1 Baron Nashor\n1 Brittle Steel\n1 Downwell\n1 Star-Crossed\n1 Vex, Apathetic",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 24 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984569,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiy3o02t",
+      "legend": "Zed, Master of Shadows",
+      "label": "ACAD Frodan — RQ Singapore 2026, 305th · 5-1-2 · Chaos/Fury",
+      "link": "",
+      "text": "Legend:\n1 Zed, Master of Shadows\n\nChampion:\n1 Zed, Without a Sound\n\nMainDeck:\n3 Kai'Sa, Survivor\n3 Noxus Hopeful\n3 Ride the Wind\n3 Stacked Deck\n3 Traveling Merchant\n2 Baron Nashor\n2 Cleave\n2 Ferrous Forerunner\n2 Gust Monk\n2 Perfect Execution\n2 Shadow Order Disciple\n2 Switcheroo\n2 The Harrowing\n2 Tideturner\n2 Up from the Deep\n1 Blood Rush\n1 Death Mark\n1 Flash\n1 Vi, Destructive\n\nBattlefields:\n1 Forbidding Waste\n1 Minefield\n1 Zaun Warrens\n\nRunes:\n8 Chaos Rune\n4 Fury Rune\n\nSideboard:\n2 Pyke, Returned\n2 Ravenbloom Prefect\n1 Brittle Steel\n1 Falling Star\n1 Ferrous Forerunner\n1 Rebuke\n1 Star-Crossed\n1 Up from the Deep",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 27 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984570,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiyp400e",
+      "legend": "Renata Glasc, Chem-Baroness",
+      "label": "PURP — RQ Singapore 2026, 311th · 5-2-1 · Mind/Order",
+      "link": "",
+      "text": "Legend:\n1 Renata Glasc, Chem-Baroness\n\nChampion:\n1 Renata Glasc, Mastermind\n\nMainDeck:\n3 Hidden Blade\n3 Patched Porobot\n3 Pit Crew\n3 Plundering Poro\n3 Shepherd's Heirloom\n3 Sprite Fountain\n2 Deathgrip\n2 Enthralling Protector\n2 Hostile Takeover\n2 Kennen, Keeper of Balance\n2 Sprite Burst\n2 Stupefy\n2 Thousand-Tailed Watcher\n2 Time Warp\n1 Bard, Mercurial\n1 Cloth Armor\n1 Ki Barrier\n1 Singularity\n1 Vi, Peacekeeper\n\nBattlefields:\n1 Forge of the Fluft\n1 Seat of Power\n1 Treasure Hoard\n\nRunes:\n8 Mind Rune\n4 Order Rune\n\nSideboard:\n2 Bellows Breath\n2 Decree of Insight\n2 Pickpocket\n2 Salvage\n1 Cull the Weak\n1 Forge of the Future",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 21 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984570,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxizyxqlc",
+      "legend": "Vi, Piltover Enforcer",
+      "label": "Haru — RQ Singapore 2026, 343rd · 5-2-1 · Fury/Order",
+      "link": "",
+      "text": "Legend:\n1 Vi, Piltover Enforcer\n\nChampion:\n1 Vi, Peacekeeper\n\nMainDeck:\n3 Carrion Dredger\n3 Hextech Gauntlets\n3 Kai'Sa, Survivor\n3 Kennen, Keeper of Balance\n3 Unsung Hero\n2 B.F. Sword\n2 Deathgrip\n2 Fiora, Victorious\n2 Hidden Blade\n2 Honest Broker\n2 Jhin, Murderous Artist\n2 Rengar, Unseen\n2 Seal of Rage\n2 Tactical Retreat\n1 Ashe, Focused\n1 Brynhir Thundersong\n1 Long Sword\n1 Pyke, Dockside Butcher\n1 Rengar, Pouncing\n1 Shen, Kinkou\n\nBattlefields:\n1 Amateur Recital\n1 Sunken Temple\n1 Vilemaw's Lair\n\nRunes:\n6 Fury Rune\n6 Order Rune\n\nSideboard:\n2 Decree of Unity\n2 Falling Star\n2 Salvage\n1 Ashe, Focused\n1 Brittle Steel\n1 Brynhir Thundersong\n1 Vengeance",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 36 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984571,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxiz426xr",
+      "legend": "Ivern, Green Father",
+      "label": "Ashenfaced — RQ Singapore 2026, 364th · 5-3-0 · Calm/Order",
+      "link": "",
+      "text": "Legend:\n1 Ivern, Green Father\n\nChampion:\n1 Ivern, Nurturer\n\nMainDeck:\n3 Astral Heron\n3 Defy\n3 Discipline\n3 Mutated Mouser\n3 Stalwart Poro\n3 Trusty Ramhound\n2 Back Off\n2 Emperor's Divide\n2 Hidden Blade\n2 Solari Sunhawk\n2 Vi, Peacekeeper\n2 Vilemaw\n1 Call to Glory\n1 Charm\n1 Frisky Hunter\n1 Ivern, Nurturer\n1 Kennen, Keeper of Balance\n1 Ki Barrier\n1 Not So Fast\n1 Salvage\n1 Zhonya's Hourglass\n\nBattlefields:\n1 Forbidding Waste\n1 Vaults of Helia\n1 Vilemaw's Lair\n\nRunes:\n7 Calm Rune\n5 Order Rune\n\nSideboard:\n2 Ashe, Focused\n2 Decree of Focus\n2 Decree of Unity\n2 Salvage\n1 Not So Fast\n1 Vengeance",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 28 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984571,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxj0kllrb",
+      "legend": "Jax, Grandmaster at Arms",
+      "label": "Kudos — RQ Singapore 2026, 380th · 5-3-0 · Body/Calm",
+      "link": "",
+      "text": "Legend:\n1 Jax, Grandmaster at Arms\n\nChampion:\n1 Jax, Unmatched\n\nMainDeck:\n3 Brutalizer\n3 Counter Strike\n3 Defy\n3 Discipline\n3 First Mate\n3 Guardian Angel\n3 Lonely Poro\n2 Challenge\n2 Doran's Blade\n2 Lucian, Merciless\n2 Punch First\n2 Rengar, Trophy Hunter\n2 Sabotage\n2 Scuttle Crab\n2 Stellacorn Herder\n1 Back Off\n1 Rampage\n\nBattlefields:\n1 Ornn's Forge\n1 Sandswept Tomb\n1 Targon's Peak\n\nRunes:\n7 Body Rune\n5 Calm Rune\n\nSideboard:\n2 Akshan, Mischievous\n2 Fiora, Peerless\n2 Ruin Runner\n1 Decree of Focus\n1 Disposal Order\n1 Not So Fast\n1 Repulse",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 13 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984572,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxj0kerbn",
+      "legend": "Ambessa, Matriarch of War",
+      "label": "CBL DAGS — RQ Singapore 2026, 383rd · 5-3-0 · Body/Order",
+      "link": "",
+      "text": "Legend:\n1 Ambessa, Matriarch of War\n\nChampion:\n1 Ambessa, The Wolf\n\nMainDeck:\n3 Irresistible Faefolk\n3 Kayle, Justified\n3 Kennen, Keeper of Balance\n3 Legion Marauder\n3 Punch First\n3 Rampage\n3 Solari Sunhawk\n2 Guttural Roar\n2 Hidden Blade\n2 Nidalee, Cat Form\n2 Pit Rookie\n2 Sabotage\n2 Tactical Retreat\n2 Vi, Peacekeeper\n1 Forge of the Future\n1 Onslaught\n1 Public Execution\n1 Repulse\n\nBattlefields:\n1 Forbidding Waste\n1 Risen Altar\n1 Sunken Temple\n\nRunes:\n7 Body Rune\n5 Order Rune\n\nSideboard:\n2 Decree of Strength\n2 Decree of Unity\n2 Ruin Runner\n2 Salvage\n1 Forge of the Future\n1 Public Execution",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 26 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984572,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxj1sdmrw",
+      "legend": "Renekton, Butcher of the Sands",
+      "label": "MaskofMomentum — RQ Singapore 2026, 384th · 5-3-0 · Body/Fury",
+      "link": "",
+      "text": "Legend:\n1 Renekton, Butcher of the Sands\n\nChampion:\n1 Renekton, Rage Fueled\n\nMainDeck:\n3 First Mate\n3 Inferna\n3 Irresistible Faefolk\n3 Kai'Sa, Survivor\n3 Kinkou Initiate\n3 Nidalee, Cat Form\n3 Noxus Hopeful\n3 Pit Rookie\n3 Punch First\n3 Rampage\n3 Rengar, Trophy Hunter\n2 Sabotage\n1 Cleave\n1 Darius, Trifarian\n1 Ferrous Forerunner\n1 Grim Apothecary\n\nBattlefields:\n1 Protective Sands\n1 Seat of Power\n1 Star Spring\n\nRunes:\n8 Body Rune\n4 Fury Rune\n\nSideboard:\n2 Decree of Rage\n2 Decree of Strength\n2 Ferrous Forerunner\n1 Brittle Steel\n1 Brynhir Thundersong\n1 Sabotage\n1 Thermo Beam",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 21 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984573,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxj1p8bmi",
+      "legend": "Rumble, Mechanized Menace",
+      "label": "PiwisRAwesome — RQ Singapore 2026, 395th · 5-3-0 · Fury/Mind",
+      "link": "",
+      "text": "Legend:\n1 Rumble, Mechanized Menace\n\nChampion:\n1 Rumble, Hotheaded\n\nMainDeck:\n3 Ferrous Forerunner\n3 Forecaster\n3 Gem Jammer\n3 Stupefy\n2 Bubble Bot\n2 Cleave\n2 Falling Star\n2 Kai'Sa, Survivor\n2 Long Sword\n2 Patched Porobot\n2 Rage Amplifier\n2 Rumble, Scrapper\n2 Temporal Breach\n2 Thousand-Tailed Watcher\n1 Bellows Breath\n1 Breakneck Mech\n1 Brynhir Thundersong\n1 Cloth Armor\n1 Consult the Past\n1 Rumble, Hotheaded\n1 Singularity\n\nBattlefields:\n1 Grove of the God-Willow\n1 Ornn's Forge\n1 Rockfall Path\n\nRunes:\n7 Fury Rune\n5 Mind Rune\n\nSideboard:\n2 Brittle Steel\n1 Against the Odds\n1 Brynhir Thundersong\n1 Decree of Insight\n1 Falling Star\n1 Pickpocket\n1 Singularity\n1 Temporal Breach\n1 Time Warp",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 12 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984573,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxj2m2p7e",
+      "legend": "Shen, Eye of Twilight",
+      "label": "SGF Sevya — RQ Singapore 2026, 450th · 5-3-0 · Calm/Order",
+      "link": "",
+      "text": "Legend:\n1 Shen, Eye of Twilight\n\nChampion:\n1 Shen, Scourge of Shadows\n\nMainDeck:\n3 Defy\n3 Discipline\n3 Hidden Blade\n3 Lonely Poro\n3 Loyal Poro\n3 Unsung Hero\n2 B.F. Sword\n2 Charm\n2 Deathgrip\n2 Emperor's Divide\n2 En Garde\n2 Fiora, Victorious\n2 Kennen, Keeper of Balance\n2 Ki Barrier\n2 Tasty Faefolk\n2 Vi, Peacekeeper\n1 Back Off\n\nBattlefields:\n1 Fortified Position\n1 Kinkou Temple\n1 Trifarian War Camp\n\nRunes:\n6 Calm Rune\n6 Order Rune\n\nSideboard:\n2 Ashe, Focused\n2 Decree of Focus\n2 Decree of Unity\n2 Disarming Rake\n1 Imperial Decree\n1 Vilemaw",
+      "note": "Best of legend, RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 27 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789660984574,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxpz5kn7w",
+      "legend": "Ornn, Fire Below the Mountain",
+      "label": "MICE TheManLand — RQ Barcelona 2026, 1st · 14-1-1 · Calm/Mind",
+      "link": "",
+      "text": "Legend:\n1 Ornn, Fire Below the Mountain\n\nChampion:\n1 Ornn, Blacksmith\n\nMainDeck:\n3 Brutalizer\n3 Clockwork Keeper\n3 Defy\n3 Patched Porobot\n3 Pit Crew\n3 Poro Snax\n3 Scuttle Crab\n3 Seal of Focus\n3 Sprite Fountain\n3 Sterak's Gage\n2 Aspiring Engineer\n2 Charm\n1 Cloth Armor\n1 Guardian Angel\n1 Helm of Suppression\n1 Lecturing Yordle\n1 Mask of Foresight\n\nBattlefields:\n1 Ornn's Forge\n1 Seat of Power\n1 Veiled Temple\n\nRunes:\n8 Calm Rune\n4 Mind Rune\n\nSideboard:\n2 Decree of Focus\n2 Decree of Insight\n2 Disarming Rake\n2 Pickpocket\n1 Guardian Angel\n1 Not So Fast",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 42 ranked pilots on this legend",
+      "addedAt": 1789660984823,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq01bwqr",
+      "legend": "Kennen, Heart of the Tempest",
+      "label": "CTCG Koko Lopez — RQ Barcelona 2026, 2nd · 13-1-2 · Chaos/Order",
+      "link": "",
+      "text": "Legend:\n1 Kennen, Heart of the Tempest\n\nChampion:\n1 Kennen, Storm of Shuriken\n\nMainDeck:\n3 Lightning Rush\n3 Nocturne, Horrifying\n3 Rhasa the Sunderer\n3 Ride the Wind\n3 Seal of Discord\n3 Stacked Deck\n3 Traveling Merchant\n3 Treasure Hunter\n2 Fizz, Trickster\n2 Last Rites\n2 Switcheroo\n2 Up from the Deep\n1 Baron Nashor\n1 Flash\n1 Hard Bargain\n1 Shadow Order Disciple\n1 Star-Crossed\n1 The Harrowing\n1 Tideturner\n\nBattlefields:\n1 Minefield\n1 Sandswept Tomb\n1 Zaun Warrens\n\nRunes:\n9 Chaos Rune\n3 Order Rune\n\nSideboard:\n2 Decree of Unity\n2 Gust\n2 Ravenbloom Prefect\n1 Abandon\n1 Invert Timelines\n1 Salvage\n1 Star-Crossed",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 269 ranked pilots on this legend",
+      "addedAt": 1789660984824,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq16j5kb",
+      "legend": "Azir, Emperor of the Sands",
+      "label": "MICE Squirtle — RQ Barcelona 2026, 3rd · 12-2-1 · Calm/Order",
+      "link": "",
+      "text": "Legend:\n1 Azir, Emperor of the Sands\n\nChampion:\n1 Azir, Sovereign\n\nMainDeck:\n3 Arise!\n3 B.F. Sword\n3 Back Off\n3 Brutalizer\n3 Defy\n3 Discipline\n3 Doran's Shield\n3 Eye of the Herald\n3 Guards!\n3 Hidden Blade\n3 Soul Sword\n2 Deathgrip\n2 En Garde\n1 Hand Hammer\n1 Kennen, Keeper of Balance\n\nBattlefields:\n1 Hall of Legends\n1 Seat of Power\n1 Trifarian War Camp\n\nRunes:\n7 Calm Rune\n5 Order Rune\n\nSideboard:\n3 Decree of Unity\n2 Decree of Focus\n2 Salvage\n1 Ashe, Focused\n1 Tomb-Raider Barbara\n1 Vi, Peacekeeper",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 79 ranked pilots on this legend",
+      "addedAt": 1789660984825,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq28wcfv",
+      "legend": "Rengar, Pridestalker",
+      "label": "DSG Prismaticism — RQ Barcelona 2026, 6th · 11-2-1 · Body/Fury",
+      "link": "",
+      "text": "Legend:\n1 Rengar, Pridestalker\n\nChampion:\n1 Rengar, Trophy Hunter\n\nMainDeck:\n3 Grim Apothecary\n3 Inferna\n3 Irresistible Faefolk\n3 Kai'Sa, Survivor\n3 Kinkou Initiate\n3 Noxus Hopeful\n3 Pit Rookie\n3 Punch First\n3 Thrill of the Hunt\n2 First Mate\n2 Nidalee, Cat Form\n2 Rampage\n2 Sabotage\n1 Darius, Trifarian\n1 Ferrous Forerunner\n1 Pakaa Cub\n1 Pyke, Dockside Butcher\n\nBattlefields:\n1 Emperor's Dais\n1 Seat of Power\n1 Star Spring\n\nRunes:\n8 Body Rune\n4 Fury Rune\n\nSideboard:\n2 Decree of Strength\n2 Ferrous Forerunner\n1 Brittle Steel\n1 Brynhir Thundersong\n1 Noxian Demolitionist\n1 Pyke, Dockside Butcher\n1 Rampage\n1 Sabotage",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 96 ranked pilots on this legend",
+      "addedAt": 1789660984826,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq3w38km",
+      "legend": "Master Yi, Wuju Bladesman",
+      "label": "Shaßßat Shalom — RQ Barcelona 2026, 7th · 11-2-1 · Body/Calm",
+      "link": "",
+      "text": "Legend:\n1 Master Yi, Wuju Bladesman\n\nChampion:\n1 Master Yi, Tempered\n\nMainDeck:\n3 Charm\n3 Defy\n3 Discipline\n3 En Garde\n3 Lonely Poro\n3 Punch First\n3 Rengar, Trophy Hunter\n3 Scuttle Crab\n2 First Mate\n2 Irelia, Fervent\n2 Pit Rookie\n1 Alpha Strike\n1 Back Off\n1 Grim Resolve\n1 Not So Fast\n1 Rampage\n1 Ruin Runner\n1 Sabotage\n1 Steel Paws\n1 Zhonya's Hourglass\n\nBattlefields:\n1 Abandoned Hall\n1 Emperor's Dais\n1 Grove of the God-Willow\n\nRunes:\n7 Body Rune\n5 Calm Rune\n\nSideboard:\n2 Decree of Focus\n2 Tomb-Raider Barbara\n1 Alpha Strike\n1 Irelia, Fervent\n1 Not So Fast\n1 Rampage\n1 Ruin Runner\n1 Sabotage",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 199 ranked pilots on this legend",
+      "addedAt": 1789660984827,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq5cpr1l",
+      "legend": "Akali, Rogue Assassin",
+      "label": "ASC HaruKaze — RQ Barcelona 2026, 10th · 11-2-0 · Calm/Fury",
+      "link": "",
+      "text": "Legend:\n1 Akali, Rogue Assassin\n\nChampion:\n1 Akali, Deadly Weapon\n\nMainDeck:\n3 Astral Heron\n3 Defy\n3 Discipline\n3 Falling Star\n3 Irelia, Fervent\n3 Lonely Poro\n3 Long Sword\n3 Scuttle Crab\n3 Shuriken Flip\n3 Stellacorn Herder\n3 Zhonya's Hourglass\n2 Back Off\n2 En Garde\n2 Sky Splitter\n\nBattlefields:\n1 Back-Alley Bar\n1 Targon's Peak\n1 Void Gate\n\nRunes:\n7 Fury Rune\n5 Calm Rune\n\nSideboard:\n2 Charm\n2 Ferrous Forerunner\n2 Not So Fast\n1 Adaptatron\n1 Against the Odds\n1 Akali, Silent\n1 Tomb-Raider Barbara",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 64 ranked pilots on this legend",
+      "addedAt": 1789660984829,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq5h7t7j",
+      "legend": "Irelia, Blade Dancer",
+      "label": "asiptofu — RQ Barcelona 2026, 11th · 11-2-0 · Calm/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Irelia, Blade Dancer\n\nChampion:\n1 Irelia, Fervent\n\nMainDeck:\n3 Boots of Swiftness\n3 Defiant Dance\n3 Defy\n3 Discipline\n3 Lonely Poro\n3 Stacked Deck\n3 Stellacorn Herder\n3 Tideturner\n2 Akali, Silent\n2 Charm\n2 En Garde\n2 Guardian Angel\n2 Ride the Wind\n1 Flash\n1 Gust\n1 Gust Monk\n1 Not So Fast\n1 Rebuke\n\nBattlefields:\n1 Abandoned Hall\n1 Sunken Temple\n1 Targon's Peak\n\nRunes:\n6 Calm Rune\n6 Chaos Rune\n\nSideboard:\n2 Adaptatron\n2 Ravenbloom Prefect\n1 Heart of Dark Ice\n1 Not So Fast\n1 Rebuke\n1 Star-Crossed\n1 Twilight Shroud\n1 Vex, Apathetic",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 165 ranked pilots on this legend",
+      "addedAt": 1789660984829,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq6uvanl",
+      "legend": "Fiora, Grand Duelist",
+      "label": "Ricemaster — RQ Barcelona 2026, 12th · 11-2-0 · Body/Order",
+      "link": "",
+      "text": "Legend:\n1 Fiora, Grand Duelist\n\nChampion:\n1 Fiora, Worthy\n\nMainDeck:\n3 First Mate\n3 Kinkou Initiate\n3 Pit Rookie\n3 Punch First\n3 Sett, Brawler\n3 Spectral Matron\n3 Unsung Hero\n2 B.F. Sword\n2 Baited Hook\n2 Call to Glory\n2 Divining Shells\n2 Harnessed Dragon\n2 Hidden Blade\n2 Rampage\n2 Riposte\n1 Ambessa, The Wolf\n1 Deathgrip\n\nBattlefields:\n1 Monastery of Hirana\n1 Sunken Temple\n1 Trifarian War Camp\n\nRunes:\n7 Order Rune\n5 Body Rune\n\nSideboard:\n3 Salvage\n2 Ashe, Focused\n2 Decree of Unity\n1 Challenge\n1 Rampage\n1 Sabotage",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 45 ranked pilots on this legend",
+      "addedAt": 1789660984830,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq7zwrxc",
+      "legend": "Mel, Soul's Reflection",
+      "label": "CTG Alanzq — RQ Barcelona 2026, 19th · 10-2-1 · Chaos/Mind",
+      "link": "",
+      "text": "Legend:\n1 Mel, Soul's Reflection\n\nChampion:\n1 Mel, Defiant Soul\n\nMainDeck:\n3 Applied Researchers\n3 Dredge Up\n3 Ravenbloom Student\n3 Rebuttal\n3 Shock Blast\n3 Stacked Deck\n3 Stupefy\n3 Time Warp\n3 Traveling Merchant\n3 Up from the Deep\n2 Singularity\n2 Thousand-Tailed Watcher\n2 Vex, Apathetic\n1 Smoke Screen\n1 Star-Crossed\n1 Switcheroo\n\nBattlefields:\n1 Forbidding Waste\n1 Ravenbloom Conservatory\n1 Threshold of the Gray\n\nRunes:\n7 Mind Rune\n5 Chaos Rune\n\nSideboard:\n2 Pickpocket\n1 Abandon\n1 Acceptable Losses\n1 Decree of Insight\n1 Fizz, Trickster\n1 Mel, Newly Awakened\n1 Star-Crossed\n1 Turn to Dust\n1 Unchecked Power",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 28 ranked pilots on this legend",
+      "addedAt": 1789660984831,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq82wuuw",
+      "legend": "Ezreal, Prodigal Explorer",
+      "label": "PoW SpaghetiCode — RQ Barcelona 2026, 23rd · 10-2-1 · Chaos/Mind",
+      "link": "",
+      "text": "Legend:\n1 Ezreal, Prodigal Explorer\n\nChampion:\n1 Ezreal, Prodigy\n\nMainDeck:\n3 Bellows Breath\n3 Bewitching Spirit\n3 Deadly Flourish\n3 Fizz, Trickster\n3 Pack of Wonders\n3 Stacked Deck\n3 Stupefy\n2 Star-Crossed\n2 The List\n2 Thousand-Tailed Watcher\n2 Treasure Trove\n2 Vex, Apathetic\n2 Wages of Pain\n1 Gust\n1 Hard Bargain\n1 Pickpocket\n1 Singularity\n1 Sprite Fountain\n1 Turn to Dust\n\nBattlefields:\n1 Frozen Fortress\n1 Heisho, Shell of the World\n1 Sigil of the Storm\n\nRunes:\n6 Chaos Rune\n6 Mind Rune\n\nSideboard:\n2 Kha'Zix, Mutating Horror\n1 Acceptable Losses\n1 Angler Beast\n1 Gust\n1 Hard Bargain\n1 Mindsplitter\n1 Pickpocket\n1 Sprite Fountain\n1 Turn to Dust",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 59 ranked pilots on this legend",
+      "addedAt": 1789660984832,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq9z79sm",
+      "legend": "Lucian, Purifier",
+      "label": "BANRATE DEMON — RQ Barcelona 2026, 25th · 10-2-1 · Body/Fury",
+      "link": "",
+      "text": "Legend:\n1 Lucian, Purifier\n\nChampion:\n1 Lucian, Merciless\n\nMainDeck:\n3 Doran's Blade\n3 Ferrous Forerunner\n3 First Mate\n3 Irresistible Faefolk\n3 Kai'Sa, Survivor\n3 Kinkou Initiate\n3 Long Sword\n3 Noxus Hopeful\n3 Pit Rookie\n3 Punch First\n3 Sabotage\n2 Blighted Battleaxe\n2 Falling Star\n1 Lucian, Merciless\n1 Relentless Pursuit\n\nBattlefields:\n1 Forbidding Waste\n1 Forge of the Fluft\n1 Windswept Hillock\n\nRunes:\n6 Body Rune\n6 Fury Rune\n\nSideboard:\n3 Brittle Steel\n3 Rampage\n2 Legion Rearguard\n1 Falling Star\n1 Pendulum Blade",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 27 ranked pilots on this legend",
+      "addedAt": 1789660984833,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxq90eic6",
+      "legend": "Diana, Scorn of the Moon",
+      "label": "Dhawally — RQ Barcelona 2026, 27th · 10-2-1 · Chaos/Mind",
+      "link": "",
+      "text": "Legend:\n1 Diana, Scorn of the Moon\n\nChampion:\n1 Diana, Lunari\n\nMainDeck:\n3 Moonfall\n3 Ravenbloom Student\n3 Sprite Fountain\n3 Stacked Deck\n3 Stupefy\n3 Tideturner\n3 Vex, Apathetic\n2 Fizz, Trickster\n2 Hard Bargain\n2 Hwei, Brooding Painter\n2 Ride the Wind\n2 Smoke Screen\n2 Star-Crossed\n2 Traveling Merchant\n1 Flash\n1 Gust\n1 Kha'Zix, Mutating Horror\n1 Switcheroo\n\nBattlefields:\n1 Abandoned Hall\n1 Seat of Power\n1 Targon's Peak\n\nRunes:\n7 Chaos Rune\n5 Mind Rune\n\nSideboard:\n2 Pickpocket\n2 Turn to Dust\n1 Baron Nashor\n1 Gust\n1 Hwei, Brooding Painter\n1 Star-Crossed\n1 Switcheroo\n1 Vex, Cheerless",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 78 ranked pilots on this legend",
+      "addedAt": 1789660984833,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqa1b4x3",
+      "legend": "Kha'Zix, Voidreaver",
+      "label": "ASC JUN — RQ Barcelona 2026, 28th · 10-2-1 · Body/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Kha'Zix, Voidreaver\n\nChampion:\n1 Kha'Zix, Mutating Horror\n\nMainDeck:\n3 Fizz, Trickster\n3 Irresistible Faefolk\n3 Punch First\n3 Shadow Order Disciple\n3 Stacked Deck\n3 Up from the Deep\n3 Void Assault\n2 Rengar, Trophy Hunter\n2 Sabotage\n2 Star-Crossed\n2 Tail-Cloaked Matriarch\n2 Traveling Merchant\n2 Vex, Apathetic\n2 Zed, Without a Sound\n1 Acceptable Losses\n1 Hard Bargain\n1 Onslaught\n1 Rampage\n\nBattlefields:\n1 Forbidding Waste\n1 Sandswept Tomb\n1 Zaun Warrens\n\nRunes:\n6 Body Rune\n6 Chaos Rune\n\nSideboard:\n2 Angler Beast\n2 Decree of Strength\n1 Acceptable Losses\n1 Fiora, Peerless\n1 Hard Bargain\n1 Ravenbloom Prefect\n1 Sabotage\n1 Switcheroo",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 79 ranked pilots on this legend",
+      "addedAt": 1789660984834,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqb8vlbl",
+      "legend": "Draven, Glorious Executioner",
+      "label": "V0LKATA2 — RQ Barcelona 2026, 33rd · 10-2-1 · Chaos/Fury",
+      "link": "",
+      "text": "Legend:\n1 Draven, Glorious Executioner\n\nChampion:\n1 Draven, Showboat\n\nMainDeck:\n3 Kai'Sa, Survivor\n3 Noxus Hopeful\n3 Overzealous Fan\n3 Rebuke\n3 Spinning Axe\n3 Stacked Deck\n3 Tideturner\n3 Vex, Apathetic\n2 Edge of Night\n2 Evelynn, Entrancing\n2 Falling Star\n2 Pyke, Returned\n1 Blood Rush\n1 Cleave\n1 Ferrous Forerunner\n1 Pyke, Dockside Butcher\n1 Rek'Sai, Breacher\n1 Rengar, Pouncing\n1 Up from the Deep\n\nBattlefields:\n1 Amateur Recital\n1 Forge of the Fluft\n1 Zaun Warrens\n\nRunes:\n6 Chaos Rune\n6 Fury Rune\n\nSideboard:\n2 Brittle Steel\n2 Ravenbloom Prefect\n1 Abandon\n1 Brynhir Thundersong\n1 Evelynn, Entrancing\n1 Ferrous Forerunner\n1 Switcheroo\n1 Up from the Deep",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 89 ranked pilots on this legend",
+      "addedAt": 1789660984835,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqc0z6o2",
+      "legend": "Jayce, Defender of Tomorrow",
+      "label": "Cramo — RQ Barcelona 2026, 39th · 10-2-1 · Body/Mind",
+      "link": "",
+      "text": "Legend:\n1 Jayce, Defender of Tomorrow\n\nChampion:\n1 Jayce, Brilliant Inventor\n\nMainDeck:\n3 Catalyst of Aeons\n3 Clairvoyance\n3 Dazzling Aurora\n3 Dredge Up\n3 Elder Dragon\n3 Mobilize\n3 Platewyrm Egg\n2 Bellows Breath\n2 Flurry of Blades\n2 Garbage Grabber\n2 Gutter Palace\n2 Sabotage\n2 Sprite Burst\n1 Deadly Flourish\n1 Progress Day\n1 Promising Future\n1 Rocket Barrage\n1 Sprite Fountain\n1 Temporal Breach\n\nBattlefields:\n1 Forgotten Monument\n1 Sigil of the Storm\n1 The Papertree\n\nRunes:\n6 Body Rune\n6 Mind Rune\n\nSideboard:\n2 Disposal Order\n2 Promising Future\n1 Bellows Breath\n1 Deadly Flourish\n1 Decree of Strength\n1 Sabotage\n1 Singularity\n1 Turn to Dust",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 73 ranked pilots on this legend",
+      "addedAt": 1789660984836,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqd2z4l0",
+      "legend": "Rek'Sai, Void Burrower",
+      "label": "Kevplayer — RQ Barcelona 2026, 50th · 10-2-1 · Fury/Order",
+      "link": "",
+      "text": "Legend:\n1 Rek'Sai, Void Burrower\n\nChampion:\n1 Rek'Sai, Breacher\n\nMainDeck:\n3 Blood Rush\n3 Carrion Dredger\n3 Cull the Weak\n3 Faithful Manufactor\n3 Falling Star\n3 Honest Broker\n3 Noxian Emissary\n3 Noxus Hopeful\n3 Undertitan\n3 Void Rush\n2 Cleave\n2 Inferna\n2 Vanguard Captain\n1 Hidden Blade\n1 Rage Amplifier\n1 Vi, Peacekeeper\n\nBattlefields:\n1 Forbidding Waste\n1 The Candlelit Sanctum\n1 Trifarian War Camp\n\nRunes:\n6 Fury Rune\n6 Order Rune\n\nSideboard:\n3 Forge of the Future\n2 Brittle Steel\n2 Kennen, Keeper of Balance\n1 Against the Odds\n1 Decree of Unity\n1 Ferrous Forerunner",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 109 ranked pilots on this legend",
+      "addedAt": 1789660984837,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqelxfy9",
+      "legend": "LeBlanc, Deceiver",
+      "label": "Sam — RQ Barcelona 2026, 78th · 10-3-0 · Mind/Order",
+      "link": "",
+      "text": "Legend:\n1 LeBlanc, Deceiver\n\nChampion:\n1 LeBlanc, Fragmented\n\nMainDeck:\n3 Baited Hook\n3 Glasc Mixologist\n3 Harnessed Dragon\n3 Honest Broker\n3 Karthus, Eternal\n3 Ruined Rex\n3 Sacrifice\n3 Soaring Scout\n3 Vi, Peacekeeper\n2 Black Rose Dignitary\n2 Hidden Blade\n2 Mirror Image\n2 Rift Herald\n2 Thousand-Tailed Watcher\n2 Watchful Sentry\n\nBattlefields:\n1 Forbidding Waste\n1 Star Spring\n1 Windswept Hillock\n\nRunes:\n8 Order Rune\n4 Mind Rune\n\nSideboard:\n2 Decree of Unity\n2 Pickpocket\n1 Atakhan\n1 Decree of Insight\n1 Hidden Blade\n1 LeBlanc, Everywhere at Once\n1 Salvage\n1 Thousand-Tailed Watcher",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 70 ranked pilots on this legend",
+      "addedAt": 1789660984838,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqeh35ns",
+      "legend": "Sivir, Battle Mistress",
+      "label": "Swagyolo420yea — RQ Barcelona 2026, 79th · 10-3-0 · Body/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Sivir, Battle Mistress\n\nChampion:\n1 Sivir, Mercenary\n\nMainDeck:\n3 Catalyst of Aeons\n3 Dazzling Aurora\n3 Elder Dragon\n3 Flurry of Blades\n3 Gust\n3 Lunar Boon\n3 Platewyrm Egg\n3 Scryer's Bloom\n3 Stacked Deck\n3 Up from the Deep\n2 Rampage\n2 The Harrowing\n1 Baron Nashor\n1 Boots of Swiftness\n1 Hard Bargain\n1 Punch First\n1 Ride the Wind\n\nBattlefields:\n1 Forgotten Monument\n1 Sigil of the Storm\n1 Threshold of the Gray\n\nRunes:\n6 Body Rune\n6 Chaos Rune\n\nSideboard:\n2 Baron Nashor\n2 Hard Bargain\n2 Sabotage\n1 Last Rites\n1 Punch First\n1 Rampage\n1 Ride the Wind",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 18 ranked pilots on this legend",
+      "addedAt": 1789660984838,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqfw8ifr",
+      "legend": "Nasus, Curator of the Sands",
+      "label": "drinkmaker888 — RQ Barcelona 2026, 80th · 10-3-0 · Calm/Mind",
+      "link": "",
+      "text": "Legend:\n1 Nasus, Curator of the Sands\n\nChampion:\n1 Nasus, Ascended\n\nMainDeck:\n3 Bellows Breath\n3 Clockwork Keeper\n3 Defy\n3 Discipline\n3 En Garde\n3 Find Your Center\n3 Lonely Poro\n3 Ravenbloom Student\n3 Sprite Queen\n3 Stupefy\n3 Thousand-Tailed Watcher\n2 Charm\n2 Eclipse\n1 Not So Fast\n1 Tasty Faefolk\n\nBattlefields:\n1 Ravenbloom Conservatory\n1 Targon's Peak\n1 Vilemaw's Lair\n\nRunes:\n6 Calm Rune\n6 Mind Rune\n\nSideboard:\n3 Disarming Rake\n2 Helm of Suppression\n2 Pickpocket\n1 Not So Fast\n1 Singularity\n1 Vilemaw",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 104 ranked pilots on this legend",
+      "addedAt": 1789660984839,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqf7axto",
+      "legend": "Vex, Gloomist",
+      "label": "Boxingringxd — RQ Barcelona 2026, 150th · 9-4-0 · Calm/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Vex, Gloomist\n\nChampion:\n1 Vex, Apathetic\n\nMainDeck:\n3 Astral Heron\n3 Back Off\n3 Defy\n3 Discipline\n3 Evelynn, Entrancing\n3 Gust Monk\n3 Stacked Deck\n3 Tideturner\n2 Boots of Swiftness\n2 En Garde\n2 Gust\n2 Rebuke\n2 Star-Crossed\n2 Switcheroo\n2 Vex, Apathetic\n1 Tasty Faefolk\n\nBattlefields:\n1 Abandoned Hall\n1 Targon's Peak\n1 Threshold of the Gray\n\nRunes:\n7 Chaos Rune\n5 Calm Rune\n\nSideboard:\n3 Disarming Rake\n3 Sneaky Deckhand\n1 Angler Beast\n1 Decree of Focus\n1 Hard Bargain\n1 Not So Fast",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 29 ranked pilots on this legend",
+      "addedAt": 1789660984839,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqgt3nyt",
+      "legend": "Lillia, Bashful Bloom",
+      "label": "AA SwiTHoR — RQ Barcelona 2026, 152nd · 9-4-0 · Calm/Mind",
+      "link": "",
+      "text": "Legend:\n1 Lillia, Bashful Bloom\n\nChampion:\n1 Lillia, Fae Fawn\n\nMainDeck:\n3 Defy\n3 Discipline\n3 En Garde\n3 Lonely Poro\n3 Mask of Foresight\n3 Ravenbloom Student\n3 Sprite Burst\n3 Sprite Fountain\n3 Stupefy\n2 Charm\n2 Smoke and Mirrors\n2 Smoke Screen\n1 Brutalizer\n1 Heart of Dark Ice\n1 Janna, Savior\n1 Mournful Witness\n1 Thousand-Tailed Watcher\n1 Unchecked Power\n\nBattlefields:\n1 Dusk Rose Lab\n1 Seat of Power\n1 Targon's Peak\n\nRunes:\n6 Calm Rune\n6 Mind Rune\n\nSideboard:\n3 Disarming Rake\n2 Decree of Insight\n1 Decree of Focus\n1 Lilting Lullaby\n1 Pickpocket\n1 Smoke and Mirrors\n1 Unchecked Power",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 47 ranked pilots on this legend",
+      "addedAt": 1789660984840,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqgu0zsj",
+      "legend": "Zed, Master of Shadows",
+      "label": "Ghosterdriver — RQ Barcelona 2026, 164th · 9-4-0 · Chaos/Fury",
+      "link": "",
+      "text": "Legend:\n1 Zed, Master of Shadows\n\nChampion:\n1 Zed, Without a Sound\n\nMainDeck:\n3 Boots of Swiftness\n3 Death Mark\n3 Kharox\n3 Noxus Hopeful\n3 Tornado Warrior\n3 Traveling Merchant\n2 Edge of Night\n2 Perfect Execution\n2 Rek'Sai, Breacher\n2 Seal of Discord\n2 Switcheroo\n2 Tail-Cloaked Matriarch\n2 Tideturner\n1 Evelynn, Entrancing\n1 Gust Monk\n1 Inferna\n1 Last Rites\n1 Rengar, Pouncing\n1 Stacked Deck\n1 Up from the Deep\n\nBattlefields:\n1 Forge of the Fluft\n1 Minefield\n1 Zaun Warrens\n\nRunes:\n7 Chaos Rune\n5 Fury Rune\n\nSideboard:\n2 Vex, Apathetic\n1 Brittle Steel\n1 Brynhir Thundersong\n1 Falling Star\n1 Hard Bargain\n1 Invert Timelines\n1 Ravenbloom Prefect\n1 Rhasa the Sunderer\n1 Star-Crossed",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 25 ranked pilots on this legend",
+      "addedAt": 1789660984840,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqg7gfi0",
+      "legend": "Rumble, Mechanized Menace",
+      "label": "ZNT Agazapado — RQ Barcelona 2026, 178th · 9-4-0 · Fury/Mind",
+      "link": "",
+      "text": "Legend:\n1 Rumble, Mechanized Menace\n\nChampion:\n1 Rumble, Scrapper\n\nMainDeck:\n3 Bubble Bot\n3 Ferrous Forerunner\n3 Forecaster\n3 Gem Jammer\n3 Production Surge\n3 Rumble, Hotheaded\n3 Stupefy\n3 Thousand-Tailed Watcher\n2 Cleave\n2 Falling Star\n2 Noxus Hopeful\n2 Patched Porobot\n2 Temporal Breach\n1 Bellows Breath\n1 Brynhir Thundersong\n1 Cloth Armor\n1 Consult the Past\n1 Singularity\n\nBattlefields:\n1 Heisho, Shell of the World\n1 Seat of Power\n1 Zaun Warrens\n\nRunes:\n6 Fury Rune\n6 Mind Rune\n\nSideboard:\n2 Brittle Steel\n2 Brynhir Thundersong\n2 Decree of Insight\n1 Against the Odds\n1 Bellows Breath\n1 Temporal Breach\n1 Turn to Dust",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 41 ranked pilots on this legend",
+      "addedAt": 1789660984840,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqhfi4vj",
+      "legend": "Renekton, Butcher of the Sands",
+      "label": "MaskofMomentum — RQ Barcelona 2026, 251st · 8-5-0 · Body/Fury",
+      "link": "",
+      "text": "Legend:\n1 Renekton, Butcher of the Sands\n\nChampion:\n1 Renekton, Rage Fueled\n\nMainDeck:\n3 First Mate\n3 Inferna\n3 Irresistible Faefolk\n3 Kai'Sa, Survivor\n3 Kinkou Initiate\n3 Nidalee, Cat Form\n3 Noxus Hopeful\n3 Pit Rookie\n3 Punch First\n3 Rengar, Trophy Hunter\n2 Ferrous Forerunner\n2 Rampage\n2 Sabotage\n1 Cleave\n1 Darius, Trifarian\n1 Grim Apothecary\n\nBattlefields:\n1 Protective Sands\n1 Seat of Power\n1 Star Spring\n\nRunes:\n7 Body Rune\n5 Fury Rune\n\nSideboard:\n2 Brittle Steel\n2 Decree of Strength\n2 Disposal Order\n1 Decree of Rage\n1 Ferrous Forerunner\n1 Rampage\n1 Sabotage",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 16 ranked pilots on this legend",
+      "addedAt": 1789660984841,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqhh5wrn",
+      "legend": "Jhin, Virtuoso",
+      "label": "Jibbs — RQ Barcelona 2026, 255th · 8-4-0 · Fury/Mind",
+      "link": "",
+      "text": "Legend:\n1 Jhin, Virtuoso\n\nChampion:\n1 Jhin, Meticulous Killer\n\nMainDeck:\n3 Consult the Past\n3 Curtain Call\n3 Deadly Flourish\n3 Noxus Hopeful\n3 Plundering Poro\n3 Singularity\n3 Sprite Burst\n3 Stupefy\n2 Ferrous Forerunner\n2 Forecaster\n2 Progress Day\n2 Thousand-Tailed Watcher\n2 Time Warp\n1 Bellows Breath\n1 Orb of Regret\n1 Rocket Barrage\n1 Unchecked Power\n1 Watchful Sentry\n\nBattlefields:\n1 Frozen Fortress\n1 Rockfall Path\n1 Sigil of the Storm\n\nRunes:\n8 Mind Rune\n4 Fury Rune\n\nSideboard:\n2 Brittle Steel\n2 Decree of Insight\n2 Pickpocket\n1 Falling Comet\n1 Ferrous Forerunner\n1 Frigid Touch\n1 Temporal Breach",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 20 ranked pilots on this legend",
+      "addedAt": 1789660984841,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqhqz0co",
+      "legend": "Ivern, Green Father",
+      "label": "Aserty — RQ Barcelona 2026, 277th · 8-5-0 · Calm/Order",
+      "link": "",
+      "text": "Legend:\n1 Ivern, Green Father\n\nChampion:\n1 Ivern, Nurturer\n\nMainDeck:\n3 Defy\n3 Discipline\n3 Friendship\n3 Mutated Mouser\n3 Stalwart Poro\n3 Trusty Ramhound\n2 Affectionate Poro\n2 Astral Heron\n2 Emperor's Divide\n2 Fallen Feline\n2 Frisky Hunter\n2 Grand Strategem\n2 Solari Sunhawk\n1 Back Off\n1 Call to Glory\n1 Daisy!\n1 Ivern, Nurturer\n1 Kennen, Keeper of Balance\n1 Ki Barrier\n1 Not So Fast\n\nBattlefields:\n1 Forbidding Waste\n1 Rockfall Path\n1 Vilemaw's Lair\n\nRunes:\n6 Calm Rune\n6 Order Rune\n\nSideboard:\n3 Salvage\n2 Decree of Unity\n2 Flurry of Feathers\n2 Janna, Savior\n1 Daisy!",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 24 ranked pilots on this legend",
+      "addedAt": 1789660984841,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqhsiovc",
+      "legend": "Jax, Grandmaster at Arms",
+      "label": "I MARTINEZ 88 — RQ Barcelona 2026, 337th · 7-6-0 · Body/Calm",
+      "link": "",
+      "text": "Legend:\n1 Jax, Grandmaster at Arms\n\nChampion:\n1 Jax, Unmatched\n\nMainDeck:\n3 Brutalizer\n3 Counter Strike\n3 Defy\n3 Discipline\n3 Guardian Angel\n3 Irresistible Faefolk\n3 Lucian, Merciless\n3 Rampage\n3 Ruin Runner\n3 Scuttle Crab\n2 Back Off\n2 First Mate\n2 Punch First\n2 Rengar, Trophy Hunter\n1 Trinity Force\n\nBattlefields:\n1 Ornn's Forge\n1 Star Spring\n1 Sunken Temple\n\nRunes:\n7 Body Rune\n5 Calm Rune\n\nSideboard:\n3 Disarming Rake\n2 Decree of Focus\n2 Decree of Strength\n2 Not So Fast\n1 Onslaught",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 19 ranked pilots on this legend",
+      "addedAt": 1789660984841,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqirlr2f",
+      "legend": "Ambessa, Matriarch of War",
+      "label": "Kyouya — RQ Barcelona 2026, 345th · 7-6-0 · Body/Order",
+      "link": "",
+      "text": "Legend:\n1 Ambessa, Matriarch of War\n\nChampion:\n1 Ambessa, The Wolf\n\nMainDeck:\n3 Challenge\n3 Irresistible Faefolk\n3 Kinkou Initiate\n3 Legion Marauder\n3 Punch First\n2 First Mate\n2 Guttural Roar\n2 Kennen, Keeper of Balance\n2 Public Execution\n2 Rampage\n2 Rengar, Trophy Hunter\n2 Solari Sunhawk\n2 Vi, Peacekeeper\n1 Ambessa, The Wolf\n1 Forge of the Future\n1 Hidden Blade\n1 Ki Barrier\n1 Noxian Emissary\n1 Onslaught\n1 Repulse\n1 Sabotage\n\nBattlefields:\n1 Risen Altar\n1 Seat of Power\n1 Sunken Temple\n\nRunes:\n7 Body Rune\n5 Order Rune\n\nSideboard:\n2 Decree of Strength\n2 Kayle, Justified\n2 Ruin Runner\n2 Salvage\n1 Disposal Order\n1 Sabotage",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 34 ranked pilots on this legend",
+      "addedAt": 1789660984842,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqixjmer",
+      "legend": "Pyke, Bloodharbor Ripper",
+      "label": "JSTR Fase — RQ Barcelona 2026, 394th · 5-2-1 · Chaos/Fury",
+      "link": "",
+      "text": "Legend:\n1 Pyke, Bloodharbor Ripper\n\nChampion:\n1 Pyke, Dockside Butcher\n\nMainDeck:\n3 Bewitching Spirit\n3 Falling Star\n3 Fizz, Trickster\n3 Noxus Hopeful\n3 Pack of Wonders\n3 Stacked Deck\n3 Traveling Merchant\n3 Treasure Trove\n3 Void Seeker\n2 Cleave\n2 Star-Crossed\n2 The List\n1 Brittle Steel\n1 Ezreal, Prodigy\n1 Ferrous Forerunner\n1 Gust Monk\n1 Piercing Light\n1 Tail-Cloaked Matriarch\n\nBattlefields:\n1 Frozen Fortress\n1 Ripper's Bay\n1 Void Gate\n\nRunes:\n7 Fury Rune\n5 Chaos Rune\n\nSideboard:\n2 Ferrous Forerunner\n2 Gust\n1 Angler Beast\n1 Brittle Steel\n1 Decree of Discord\n1 Downwell\n1 Kha'Zix, Mutating Horror\n1 Ravenbloom Prefect",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 24 ranked pilots on this legend",
+      "addedAt": 1789660984842,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqi0y5o5",
+      "legend": "Renata Glasc, Chem-Baroness",
+      "label": "Jasonj115 — RQ Barcelona 2026, 420th · 5-2-1 · Mind/Order",
+      "link": "",
+      "text": "Legend:\n1 Renata Glasc, Chem-Baroness\n\nChampion:\n1 Renata Glasc, Mastermind\n\nMainDeck:\n3 Hidden Blade\n3 Honest Broker\n3 Jayce, Man of Progress\n3 Patched Porobot\n3 Stupefy\n3 Temporal Breach\n3 Time Warp\n3 Vanguard Armory\n2 Forge of the Future\n2 Hostile Takeover\n2 Plundering Poro\n2 Singularity\n2 Wages of Pain\n1 Cloth Armor\n1 Kennen, Keeper of Balance\n1 Mel, Newly Awakened\n1 Shen, Kinkou\n1 Thousand-Tailed Watcher\n\nBattlefields:\n1 Rockfall Path\n1 Treasure Hoard\n1 Trifarian War Camp\n\nRunes:\n7 Mind Rune\n5 Order Rune\n\nSideboard:\n2 Bellows Breath\n2 Cull the Weak\n2 Salvage\n1 Decree of Unity\n1 Imperial Decree\n1 Singularity\n1 Thousand-Tailed Watcher",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 15 ranked pilots on this legend",
+      "addedAt": 1789660984842,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqjsfr02",
+      "legend": "Master Yi, Wuju Master",
+      "label": "Shouks17 — RQ Barcelona 2026, 431st · 5-3-0 · Body/Calm",
+      "link": "",
+      "text": "Legend:\n1 Master Yi, Wuju Master\n\nChampion:\n1 Master Yi, Tempered\n\nMainDeck:\n3 Defy\n3 Discipline\n3 Gemhand Hunter\n3 Grim Resolve\n3 Master Yi, Unstoppable\n3 Voracious Gromp\n3 Wuju Apprentice\n3 Zhonya's Hourglass\n2 Back Off\n2 Concentrate\n2 Emperor's Divide\n2 Herald of Spring\n2 Punch First\n2 Scuttle Crab\n2 Skyward Strike\n1 Rampage\n\nBattlefields:\n1 Amateur Recital\n1 Gardens of Becoming\n1 Seat of Power\n\nRunes:\n6 Body Rune\n6 Calm Rune\n\nSideboard:\n2 Disarming Rake\n2 Disposal Order\n2 Sabotage\n1 Alpha Strike\n1 Concentrate\n1 Rampage\n1 Skyward Strike",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 25 ranked pilots on this legend",
+      "addedAt": 1789660984843,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqjndkd0",
+      "legend": "Shen, Eye of Twilight",
+      "label": "Qilby — RQ Barcelona 2026, 513th · 5-3-0 · Calm/Order",
+      "link": "",
+      "text": "Legend:\n1 Shen, Eye of Twilight\n\nChampion:\n1 Shen, Kinkou\n\nMainDeck:\n3 Defy\n3 Disciple of Shen\n3 Discipline\n3 Scuttle Crab\n3 Sona, Harmonious\n2 Akali, Silent\n2 Back Off\n2 Dragon Form\n2 Kennen, Keeper of Balance\n2 Ki Barrier\n2 Meditation\n2 Mutated Mouser\n2 Nami, Headstrong\n2 Shadow Dash\n2 Vi, Peacekeeper\n1 Charm\n1 Hidden Blade\n1 Shen, Kinkou\n1 Shen, Leader of the Kinkou Order\n\nBattlefields:\n1 Forbidding Waste\n1 Grove of the God-Willow\n1 Kinkou Temple\n\nRunes:\n6 Calm Rune\n6 Order Rune\n\nSideboard:\n2 Crumbling Sands\n2 Decree of Focus\n2 Decree of Unity\n2 Janna, Savior\n2 Salvage",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 14 ranked pilots on this legend",
+      "addedAt": 1789660984843,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqjr6qls",
+      "legend": "Vi, Piltover Enforcer",
+      "label": "CC ImboSlice — RQ Barcelona 2026, 546th · 5-3-0 · Fury/Order",
+      "link": "",
+      "text": "Legend:\n1 Vi, Piltover Enforcer\n\nChampion:\n1 Vi, Peacekeeper\n\nMainDeck:\n3 Carrion Dredger\n3 Deathgrip\n3 Hextech Gauntlets\n3 Honest Broker\n3 Jhin, Murderous Artist\n3 Kai'Sa, Survivor\n3 Kennen, Keeper of Balance\n3 Rengar, Unseen\n2 Blighted Battleaxe\n2 Ferrous Forerunner\n2 Hidden Blade\n2 Long Sword\n2 Tactical Retreat\n2 Unsung Hero\n1 Rek'Sai, Breacher\n1 Seal of Rage\n1 Shen, Kinkou\n\nBattlefields:\n1 Forge of the Fluft\n1 Sunken Temple\n1 Vilemaw's Lair\n\nRunes:\n7 Fury Rune\n5 Order Rune\n\nSideboard:\n2 Ashe, Focused\n2 Decree of Unity\n2 Forge of the Future\n2 Salvage\n1 Brittle Steel\n1 Facebreaker",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 40 ranked pilots on this legend",
+      "addedAt": 1789660984843,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5pxxqjrzkrj",
+      "legend": "Poppy, Keeper of the Hammer",
+      "label": "GiammyAsr — RQ Barcelona 2026, 655th · 5-3-0 · Body/Order",
+      "link": "",
+      "text": "Legend:\n1 Poppy, Keeper of the Hammer\n\nChampion:\n1 Poppy, Paragon\n\nMainDeck:\n3 Blood Money\n3 Catalyst of Aeons\n3 Confront\n3 Dazzling Aurora\n3 Elder Dragon\n3 Flurry of Blades\n3 Harnessed Dragon\n3 Mobilize\n3 Sacrifice\n2 Cull the Weak\n2 Disposal Order\n2 Forge of the Future\n2 Sabotage\n2 The Ruination\n1 Rift Herald\n1 Salvage\n\nBattlefields:\n1 Dragon Roost\n1 Forgotten Monument\n1 Sigil of the Storm\n\nRunes:\n6 Body Rune\n6 Order Rune\n\nSideboard:\n3 Rengar, Trophy Hunter\n2 Challenge\n2 Salvage\n2 Unyielding Spirit\n1 Sabotage",
+      "note": "Best of legend, RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 10 ranked pilots on this legend",
+      "addedAt": 1789660984843,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8c6fqed",
+      "legend": "Teemo, Swift Scout",
+      "label": "AshenOCE — RQ Singapore 2026, 59th · 10-3-0 · Chaos/Mind",
+      "link": "",
+      "text": "Legend:\n1 Teemo, Swift Scout\n\nChampion:\n1 Teemo, Strategist\n\nMainDeck:\n3 Consult the Past\n3 Nocturne, Horrifying\n3 Sprite Call\n3 Sprite Fountain\n3 Stacked Deck\n3 Switcheroo\n3 Teemo, Scout\n3 Temporal Breach\n3 Tideturner\n2 Guerilla Warfare\n2 Sneaky Deckhand\n2 Teemo, Strategist\n2 Vex, Apathetic\n2 Windsinger\n1 Singularity\n1 Thousand-Tailed Watcher\n\nBattlefields:\n1 Dusk Rose Lab\n1 Grove of the God-Willow\n1 Startipped Peak\n\nRunes:\n6 Chaos Rune\n6 Mind Rune\n\nSideboard:\n3 Acceptable Losses\n2 Decree of Insight\n1 Baron Nashor\n1 Downwell\n1 Evelynn, Entrancing\n1 Invert Timelines\n1 Star-Crossed",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 4 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852748,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8e45xi5",
+      "legend": "Annie, Dark Child",
+      "label": "Bolun Zhang — RQ Singapore 2026, 68th · 10-3-0 · Chaos/Fury",
+      "link": "",
+      "text": "Legend:\n1 Annie, Dark Child\n\nChampion:\n1 Annie, Stubborn\n\nMainDeck:\n3 Evelynn, Entrancing\n3 Ferrous Forerunner\n3 Flash\n3 Kai'Sa, Survivor\n3 Kha'Zix, Mutating Horror\n3 Pyke, Returned\n3 Rengar, Pouncing\n3 Traveling Merchant\n3 Vex, Apathetic\n2 Against the Odds\n2 Noxus Hopeful\n2 Rebuke\n2 Stacked Deck\n2 Switcheroo\n2 Tideturner\n\nBattlefields:\n1 Grove of the God-Willow\n1 Seat of Power\n1 Startipped Peak\n\nRunes:\n6 Chaos Rune\n6 Fury Rune\n\nSideboard:\n3 Mindsplitter\n2 Acceptable Losses\n1 Decree of Rage\n1 Long Sword\n1 Noxus Hopeful\n1 Stacked Deck\n1 Thermo Beam",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 2 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852750,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8f59gay",
+      "legend": "Lux, Lady of Luminosity",
+      "label": "Gojira Huiki — RQ Singapore 2026, 93rd · 9-3-1 · Mind/Order",
+      "link": "",
+      "text": "Legend:\n1 Lux, Lady of Luminosity\n\nChampion:\n1 Lux, Crownguard\n\nMainDeck:\n3 Dredge Up\n3 Ekko, Recurrent\n3 Forge of the Future\n3 Progress Day\n3 Sacrifice\n3 Seal of Insight\n3 Shadow's Call\n3 Soaring Scout\n3 Stupefy\n3 Time Warp\n2 Applied Researchers\n1 Ashe, Focused\n1 Deadly Flourish\n1 Lacerate\n1 Promising Future\n1 Retreat\n1 Sprite Burst\n1 The Ruination\n\nBattlefields:\n1 Forgotten Monument\n1 Frozen Fortress\n1 The Papertree\n\nRunes:\n7 Mind Rune\n5 Order Rune\n\nSideboard:\n2 Otterpus\n2 Shock Blast\n2 Wages of Pain\n1 Deadly Flourish\n1 Decree of Unity\n1 Mel, Newly Awakened\n1 Salvage",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 11 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852751,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8hm09re",
+      "legend": "Volibear, Relentless Storm",
+      "label": "Jason Jiang — RQ Singapore 2026, 202nd · 8-5-0 · Body/Fury",
+      "link": "",
+      "text": "Legend:\n1 Volibear, Relentless Storm\n\nChampion:\n1 Volibear, Furious\n\nMainDeck:\n3 Dazzling Aurora\n3 Elder Dragon\n3 Flurry of Blades\n3 Jayce, Hammer in Hand\n3 Kadregrin the Infernal\n3 Mobilize\n3 Rengar, Trophy Hunter\n3 Sky Splitter\n2 Gentle Gemdragon\n2 Platewyrm Egg\n2 Punch First\n2 Shakedown\n1 Catalyst of Aeons\n1 Confront\n1 Disposal Order\n1 Dragonsoul Sage\n1 Falling Star\n1 Kai'Sa, Survivor\n1 Sabotage\n\nBattlefields:\n1 Dragon Roost\n1 Sigil of the Storm\n1 The Papertree\n\nRunes:\n7 Body Rune\n5 Fury Rune\n\nSideboard:\n2 Akshan, Mischievous\n2 Blazing Scorcher\n2 Decree of Strength\n2 Repulse\n2 Unyielding Spirit",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 1 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852753,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8jl0vfk",
+      "legend": "Kai'Sa, Daughter of the Void",
+      "label": "BW Miu — RQ Singapore 2026, 220th · 8-5-0 · Fury/Mind",
+      "link": "",
+      "text": "Legend:\n1 Kai'Sa, Daughter of the Void\n\nChampion:\n1 Kai'Sa, Survivor\n\nMainDeck:\n3 Brynhir Thundersong\n3 Falling Star\n3 Forecaster\n3 Lecturing Yordle\n3 Noxus Hopeful\n3 Stupefy\n3 Temporal Breach\n3 Watchful Sentry\n2 Bellows Breath\n2 Cleave\n2 Hextech Ray\n2 Thousand-Tailed Watcher\n1 Eclipse\n1 Progress Day\n1 Ravenbloom Student\n1 Retreat\n1 Rocket Barrage\n1 Singularity\n1 Time Warp\n\nBattlefields:\n1 Frozen Fortress\n1 Rockfall Path\n1 Void Gate\n\nRunes:\n7 Fury Rune\n5 Mind Rune\n\nSideboard:\n2 Brittle Steel\n2 Decree of Insight\n2 Ferrous Forerunner\n1 Right of Conquest\n1 Time Warp\n1 Unchecked Power\n1 Void Seeker",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 10 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852755,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8lu5sdp",
+      "legend": "Viktor, Herald of the Arcane",
+      "label": "Bao Special — RQ Singapore 2026, 326th · 5-2-1 · Mind/Order",
+      "link": "",
+      "text": "Legend:\n1 Viktor, Herald of the Arcane\n\nChampion:\n1 Viktor, Leader\n\nMainDeck:\n3 Carrion Dredger\n3 Cull the Weak\n3 Hidden Blade\n3 Honest Broker\n3 Imperial Decree\n3 Sprite Fountain\n3 Stupefy\n3 Wages of Pain\n3 Xin Zhao, Vigilant\n2 Bellows Breath\n2 Dragon Form\n2 Eclipse\n2 Singularity\n2 Thousand-Tailed Watcher\n2 Vi, Peacekeeper\n\nBattlefields:\n1 Forbidding Waste\n1 Rockfall Path\n1 Treasure Hoard\n\nRunes:\n6 Mind Rune\n6 Order Rune\n\nSideboard:\n2 Ashe, Focused\n2 Decree of Insight\n2 Pickpocket\n2 Salvage\n1 Bellows Breath\n1 Decree of Unity",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 27 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852757,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8mzjmof",
+      "legend": "Miss Fortune, Bounty Hunter",
+      "label": "Moo — RQ Singapore 2026, 523rd · 5-3-0 · Body/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Miss Fortune, Bounty Hunter\n\nChampion:\n1 Miss Fortune, Captain\n\nMainDeck:\n3 Catalyst of Aeons\n3 Dazzling Aurora\n3 Disposal Order\n3 Flurry of Blades\n3 Gust\n3 Lunar Boon\n3 Mobilize\n3 Repulse\n3 Scryer's Bloom\n3 Stacked Deck\n2 Baron Nashor\n2 Elder Dragon\n2 Last Rites\n1 Heedless Resurrection\n1 Invert Timelines\n1 The Harrowing\n\nBattlefields:\n1 Altar of Blood\n1 Dragon Roost\n1 Vilemaw's Lair\n\nRunes:\n6 Body Rune\n6 Chaos Rune\n\nSideboard:\n3 Ride the Wind\n3 Sabotage\n2 Mindsplitter\n1 Angler Beast\n1 Miss Fortune, Buccaneer",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 4 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852758,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8ngietx",
+      "legend": "Sett, The Boss",
+      "label": "TCS Logicpark — RQ Singapore 2026, 725th · 4-3-0 · Body/Order",
+      "link": "",
+      "text": "Legend:\n1 Sett, The Boss\n\nChampion:\n1 Sett, Kingpin\n\nMainDeck:\n3 Challenge\n3 Irresistible Faefolk\n3 Kayle, Justified\n3 Kinkou Initiate\n3 Kinkou Monk\n3 Legion Marauder\n3 Pit Rookie\n3 Punch First\n3 Rampage\n3 Rengar, Trophy Hunter\n3 Sabotage\n3 Showstopper\n2 Salvage\n1 Vi, Peacekeeper\n\nBattlefields:\n1 Risen Altar\n1 Star Spring\n1 Valley of Idols\n\nRunes:\n7 Body Rune\n5 Order Rune\n\nSideboard:\n3 Decree of Unity\n2 Akshan, Mischievous\n2 Decree of Strength\n2 Lacerate\n1 Salvage",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 5 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852759,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8u8pye65y",
+      "legend": "Ahri, Nine-Tailed Fox",
+      "label": "Crucius — RQ Singapore 2026, 1797th · 1-1-0 · Calm/Mind",
+      "link": "",
+      "text": "Legend:\n1 Ahri, Nine-Tailed Fox\n\nChampion:\n1 Ahri, Inquisitive\n\nMainDeck:\n3 Defy\n3 Discipline\n3 Plundering Poro\n3 Ravenbloom Student\n3 Sprite Burst\n3 Sprite Call\n3 Sprite Fountain\n3 Stupefy\n3 Thousand-Tailed Watcher\n2 Back Off\n2 En Garde\n2 Scuttle Crab\n1 Charm\n1 Eclipse\n1 Meditation\n1 Retreat\n1 Sprite Mother\n1 Time Warp\n\nBattlefields:\n1 Ravenbloom Conservatory\n1 Rockfall Path\n1 Targon's Peak\n\nRunes:\n7 Mind Rune\n5 Calm Rune\n\nSideboard:\n2 Bellows Breath\n2 Singularity\n2 Turn to Dust\n1 Back Off\n1 Charm\n1 En Garde\n1 Thwonk!",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Singapore 2026 (Carde.io event 889532, final standings round 16); 1 ranked pilots on this legend; placings follow the published numbering (1 vacated row closed)",
+      "addedAt": 1789664852761,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8ubypvqtl",
+      "legend": "Lux, Lady of Luminosity",
+      "label": "jasoniltg — RQ Barcelona 2026, 31st · 10-2-1 · Mind/Order",
+      "link": "",
+      "text": "Legend:\n1 Lux, Lady of Luminosity\n\nChampion:\n1 Lux, Crownguard\n\nMainDeck:\n3 Clairvoyance\n3 Dredge Up\n3 Ekko, Recurrent\n3 Forge of the Future\n3 Sacrifice\n3 Seal of Insight\n3 Shadow's Call\n3 Soaring Scout\n3 Stupefy\n3 Time Warp\n2 Progress Day\n2 Retreat\n1 Downstage Dramatics\n1 Promising Future\n1 Sprite Burst\n1 Sumpworks Map\n1 Wages of Pain\n\nBattlefields:\n1 Forgotten Monument\n1 Sigil of the Storm\n1 The Papertree\n\nRunes:\n7 Mind Rune\n5 Order Rune\n\nSideboard:\n2 Mel, Newly Awakened\n2 Wages of Pain\n1 Ashe, Focused\n1 Falling Comet\n1 Progress Day\n1 Singularity\n1 The Ruination\n1 Zaun Punk",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 17 ranked pilots on this legend",
+      "addedAt": 1789664852878,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8ubzxxtvj",
+      "legend": "Viktor, Herald of the Arcane",
+      "label": "DarkHonger — RQ Barcelona 2026, 69th · 10-3-0 · Mind/Order",
+      "link": "",
+      "text": "Legend:\n1 Viktor, Herald of the Arcane\n\nChampion:\n1 Viktor, Leader\n\nMainDeck:\n3 Carrion Dredger\n3 Cull the Weak\n3 Hidden Blade\n3 Honest Broker\n3 Imperial Decree\n3 Sprite Fountain\n3 Stupefy\n3 Wages of Pain\n3 Xin Zhao, Vigilant\n2 Bellows Breath\n2 Dragon Form\n2 Pickpocket\n2 Singularity\n2 Vi, Peacekeeper\n1 Eclipse\n1 Salvage\n\nBattlefields:\n1 Forbidding Waste\n1 Rockfall Path\n1 Treasure Hoard\n\nRunes:\n6 Mind Rune\n6 Order Rune\n\nSideboard:\n2 Ashe, Focused\n2 Decree of Insight\n1 Bellows Breath\n1 Decree of Unity\n1 Forge of the Future\n1 Pickpocket\n1 Salvage\n1 Thousand-Tailed Watcher",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 12 ranked pilots on this legend",
+      "addedAt": 1789664852879,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8uc02usvx",
+      "legend": "Annie, Dark Child",
+      "label": "YBE artes — RQ Barcelona 2026, 148th · 9-4-0 · Chaos/Fury",
+      "link": "",
+      "text": "Legend:\n1 Annie, Dark Child\n\nChampion:\n1 Annie, Stubborn\n\nMainDeck:\n3 Ferrous Forerunner\n3 Flash\n3 Inferna\n3 Kai'Sa, Survivor\n3 Long Sword\n3 Noxus Hopeful\n3 Rengar, Pouncing\n3 Stacked Deck\n3 Traveling Merchant\n2 Cleave\n2 Grim Apothecary\n2 Star-Crossed\n2 Vex, Apathetic\n1 Gust Monk\n1 Hard Bargain\n1 Overzealous Fan\n1 Switcheroo\n\nBattlefields:\n1 Forbidding Waste\n1 Seat of Power\n1 Zaun Warrens\n\nRunes:\n7 Fury Rune\n5 Chaos Rune\n\nSideboard:\n2 Abandon\n1 Against the Odds\n1 Brittle Steel\n1 Factory Recall\n1 Falling Star\n1 Kha'Zix, Mutating Horror\n1 Rebuke\n1 Star-Crossed\n1 Thermo Beam",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 5 ranked pilots on this legend",
+      "addedAt": 1789664852880,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8uc1zmem5",
+      "legend": "Kai'Sa, Daughter of the Void",
+      "label": "Lazarita — RQ Barcelona 2026, 196th · 9-4-0 · Fury/Mind",
+      "link": "",
+      "text": "Legend:\n1 Kai'Sa, Daughter of the Void\n\nChampion:\n1 Kai'Sa, Survivor\n\nMainDeck:\n3 Falling Star\n3 Hextech Ray\n3 Lecturing Yordle\n3 Ravenbloom Student\n3 Stupefy\n3 Thousand-Tailed Watcher\n3 Watchful Sentry\n2 Brynhir Thundersong\n2 Noxus Hopeful\n2 Plundering Poro\n2 Temporal Breach\n2 Time Warp\n1 Bellows Breath\n1 Brittle Steel\n1 Eclipse\n1 Ferrous Forerunner\n1 Progress Day\n1 Retreat\n1 Singularity\n1 Sprite Burst\n\nBattlefields:\n1 Frozen Fortress\n1 Rockfall Path\n1 Void Gate\n\nRunes:\n7 Fury Rune\n5 Mind Rune\n\nSideboard:\n2 Decree of Insight\n2 Decree of Rage\n2 Ferrous Forerunner\n1 Bellows Breath\n1 Rocket Barrage\n1 Singularity\n1 Thermo Beam",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 18 ranked pilots on this legend",
+      "addedAt": 1789664852881,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8uc3r75yp",
+      "legend": "Sett, The Boss",
+      "label": "DeadlifterHS — RQ Barcelona 2026, 1454th · 3-3-0 · Body/Order",
+      "link": "",
+      "text": "Legend:\n1 Sett, The Boss\n\nChampion:\n1 Sett, Kingpin\n\nMainDeck:\n3 Call to Glory\n3 Cithria of Cloudfield\n3 Irresistible Faefolk\n3 Kayle, Justified\n3 Pit Rookie\n3 Showstopper\n2 Arena Bar\n2 Challenge\n2 First Mate\n2 Kinkou Monk\n2 Punch First\n2 Rengar, Trophy Hunter\n2 Sabotage\n2 Solari Sunhawk\n2 Vi, Peacekeeper\n1 Ambessa, The Wolf\n1 Rampage\n1 Repulse\n\nBattlefields:\n1 Monastery of Hirana\n1 Sunken Temple\n1 Valley of Idols\n\nRunes:\n7 Body Rune\n5 Order Rune\n\nSideboard:\n2 Decree of Strength\n2 Ki Barrier\n2 Ruin Runner\n2 Salvage\n1 Divine Judgment\n1 Repulse",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 1 ranked pilots on this legend",
+      "addedAt": 1789664852883,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8uc3mhkwi",
+      "legend": "Teemo, Swift Scout",
+      "label": "Clown — RQ Barcelona 2026, 1796th · 2-3-0 · Chaos/Mind",
+      "link": "",
+      "text": "Legend:\n1 Teemo, Swift Scout\n\nChampion:\n1 Teemo, Strategist\n\nMainDeck:\n3 Nocturne, Horrifying\n3 Sprite Call\n3 Sprite Fountain\n3 Switcheroo\n3 Teemo, Scout\n3 Tideturner\n3 Windsinger\n2 Existential Dread\n2 Kha'Zix, Mutating Horror\n2 Sneaky Deckhand\n2 Teemo, Strategist\n2 Temporal Breach\n1 Baron Nashor\n1 Edge of Night\n1 Evelynn, Entrancing\n1 Guerilla Warfare\n1 Pyke, Returned\n1 Ride the Wind\n1 Singularity\n1 Star-Crossed\n\nBattlefields:\n1 Bandle Tree\n1 Grove of the God-Willow\n1 Startipped Peak\n\nRunes:\n7 Mind Rune\n5 Chaos Rune\n\nSideboard:\n2 Decree of Insight\n2 Pickpocket\n2 Vex, Apathetic\n1 Angler Beast\n1 Downwell\n1 Thousand-Tailed Watcher\n1 Turn to Dust",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 1 ranked pilots on this legend",
+      "addedAt": 1789664852883,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5s8uc4hwmow",
+      "legend": "Miss Fortune, Bounty Hunter",
+      "label": "Yvagreed — RQ Barcelona 2026, 1842nd · 1-4-1 · Body/Chaos",
+      "link": "",
+      "text": "Legend:\n1 Miss Fortune, Bounty Hunter\n\nChampion:\n1 Miss Fortune, Buccaneer\n\nMainDeck:\n3 Baron Nashor\n3 Onslaught\n3 Overzealous Fan\n3 Ride the Wind\n3 Shadow Order Disciple\n3 The Harrowing\n3 Traveling Merchant\n3 Up from the Deep\n2 Catalyst of Aeons\n2 Illaoi, Prophet of the Great Kraken\n2 Imposing Challenger\n2 Lunar Boon\n2 Maddened Marauder\n2 Mobilize\n2 Switcheroo\n1 Last Rites\n\nBattlefields:\n1 Fortified Position\n1 Minefield\n1 Shadow Temple\n\nRunes:\n12 Chaos Rune\n\nSideboard:\n3 Soulgorger\n2 Bullet Time\n2 Rebuke\n1 Downwell\n1 Possession\n1 Vex, Apathetic",
+      "note": "Top finisher on legend (Riot awards no Best-Of for this legend), RQ Barcelona 2026 (Carde.io event 857452, final standings round 16); 1 ranked pilots on this legend",
+      "addedAt": 1789664852884,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu5zrtvhy8yxv",
+      "legend": "Rek'Sai, Void Burrower",
+      "label": "Decree Rek'sai",
+      "link": "",
+      "text": "Legend:\n1 Rek'Sai, Void Burrower\n\nChampion:\n1 Rek'Sai, Breacher\n\nMainDeck:\n3 Blood Rush\n3 Carrion Dredger\n3 Cleave\n3 Cull the Weak\n3 Faithful Manufactor\n3 Falling Star\n3 Honest Broker\n3 Imperial Decree\n3 Inferna\n3 Noxian Emissary\n3 Noxus Hopeful\n2 Escaped Grayback\n2 Void Rush\n1 Hidden Blade\n1 Salvage\n\nBattlefields:\n1 Forbidding Waste\n1 Mystic Vortex\n1 The Candlelit Sanctum\n\nRunes:\n6 Fury Rune\n6 Order Rune\n\nSideboard:\n3 Decree of Unity\n2 Ferrous Forerunner\n2 Kennen, Keeper of Balance\n2 Salvage\n1 Decree of Rage",
+      "note": "",
+      "addedAt": 1789677496061,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu7m620zb48m6",
+      "legend": "Kennen, Heart of the Tempest",
+      "label": "Miracle Kennen (Post Ban)",
+      "link": "",
+      "text": "Legend:\n1 Kennen, Heart of the Tempest\n\nChampion:\n1 Kennen, Storm of Shuriken\n\nMainDeck:\n3 Traveling Merchant\n3 Rhasa the Sunderer\n3 Seal of Discord\n3 Shadow Order Disciple\n1 Tail-Cloaked Matriarch\n3 Lightning Rush\n2 Fizz, Trickster\n1 Switcheroo\n3 Last Rites\n2 Star-Crossed\n1 Gust\n3 Ride the Wind\n1 Tideturner\n1 Salvage\n1 Treasure Hunter\n3 Nocturne, Horrifying\n3 Sacrifice\n1 Up from the Deep\n1 Dragon Form\n\nBattlefields:\n1 Zaun Warrens\n1 Minefield\n1 The Candlelit Sanctum\n\nRunes:\n9 Chaos Rune\n3 Order Rune\n\nSideboard:\n3 Ravenbloom Prefect\n1 Gust\n1 Salvage\n1 Hard Bargain\n1 Up from the Deep\n1 Tail-Cloaked Matriarch\n1 Rebuke\n1 Ezreal, Prodigy",
+      "note": "",
+      "addedAt": 1789775577539,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu7m6222fh8pa",
+      "legend": "Diana, Scorn of the Moon",
+      "label": "Diana (Piltover Archive, 2026-09-18)",
+      "link": "",
+      "text": "Legend:\n1 Diana, Scorn of the Moon\n\nChampion:\n1 Diana, Lunari\n\nMainDeck:\n3 Hwei, Brooding Painter\n3 Ravenbloom Student\n3 Traveling Merchant\n3 Vex, Apathetic\n2 Tideturner\n1 Fizz, Trickster\n1 Vex, Cheerless\n3 Dredge Up\n3 Moonfall\n3 Stupefy\n2 Flash\n2 Hard Bargain\n2 Ride the Wind\n2 Smoke Screen\n2 Star-Crossed\n1 Acceptable Losses\n1 Existential Dread\n1 Gust\n1 Rebuke\n\nBattlefields:\n1 Abandoned Hall\n1 Seat of Power\n1 Targon's Peak\n\nRunes:\n6 Chaos Rune\n6 Mind Rune\n\nSideboard:\n2 Decree of Insight\n2 Turn to Dust\n2 Up from the Deep\n1 Acceptable Losses\n1 Singularity\n1 Star-Crossed\n1 Switcheroo",
+      "note": "",
+      "addedAt": 1789775577578,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu7m6228syzpy",
+      "legend": "Irelia, Blade Dancer",
+      "label": "Irelia (guubum + koko)",
+      "link": "",
+      "text": "Legend:\n1 Irelia, Blade Dancer\n\nChampion:\n1 Irelia, Fervent\n\nMainDeck:\n3 Discipline\n3 Zhonya's Hourglass\n3 Tideturner\n3 Stellacorn Herder\n3 Defiant Dance\n3 Scuttle Crab\n3 Astral Heron\n3 Defy\n1 Lonely Poro\n2 Boots of Swiftness\n1 Edge of Night\n2 Switcheroo\n1 Adaptatron\n2 Rebuke\n2 Ride the Wind\n1 Not So Fast\n1 Star-Crossed\n2 Pyke, Returned\n\nBattlefields:\n1 Targon's Peak\n1 Sunken Temple\n1 Abandoned Hall\n\nRunes:\n6 Calm Rune\n6 Chaos Rune\n\nSideboard:\n2 Vex, Apathetic\n2 Ravenbloom Prefect\n1 Adaptatron\n2 Gust\n1 Hard Bargain\n1 Star-Crossed\n1 Not So Fast",
+      "note": "",
+      "addedAt": 1789775577584,
+      "lastUsedAt": 0
+    },
+    {
+      "id": "dmu7m622emwrms",
+      "legend": "Ezreal, Prodigal Explorer",
+      "label": "Ezreal (Post Ban)",
+      "link": "",
+      "text": "Legend:\n1 Ezreal, Prodigal Explorer\n\nChampion:\n1 Ezreal, Prodigy\n\nMainDeck:\n3 Stupefy\n2 Pack of Wonders\n3 Bellows Breath\n3 Deadly Flourish\n3 Bewitching Spirit\n3 Thousand-Tailed Watcher\n2 Wages of Pain\n2 Star-Crossed\n2 The List\n3 Gust\n2 Turn to Dust\n2 Fizz, Trickster\n2 Vex, Apathetic\n2 Seal of Insight\n2 Temporal Breach\n1 Lunar Boon\n2 Dredge Up\n\nBattlefields:\n1 Sigil of the Storm\n1 Frozen Fortress\n1 Void Gate\n\nRunes:\n6 Mind Rune\n6 Chaos Rune\n\nSideboard:\n2 Kha'Zix, Mutating Horror\n2 Mindsplitter\n2 Hard Bargain\n1 Turn to Dust\n1 Angler Beast\n1 Vex, Apathetic\n1 Singularity",
+      "note": "",
+      "addedAt": 1789775577590,
+      "lastUsedAt": 0
+    }
+  ]
 }

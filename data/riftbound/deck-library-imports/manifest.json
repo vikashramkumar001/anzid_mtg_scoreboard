@@ -30,6 +30,30 @@
       "file": "decree-reksai.txt",
       "legend": "Rek'Sai, Void Burrower",
       "label": "Decree Rek'sai"
+    },
+    {
+      "file": "miracle-kennen-post-ban.txt",
+      "legend": "Kennen, Heart of the Tempest",
+      "label": "Miracle Kennen (Post Ban)",
+      "_source": "https://piltoverarchive.com/decks/view/3323c3c8-b812-4801-b1ee-8640008f2eb6"
+    },
+    {
+      "file": "diana-scorn-of-the-moon.txt",
+      "legend": "Diana, Scorn of the Moon",
+      "label": "Diana (Piltover Archive, 2026-09-18)",
+      "_source": "https://piltoverarchive.com/decks/view/58f2d6f2-621b-46bd-8465-60bb665d7d02"
+    },
+    {
+      "file": "irelia-guubum-koko.txt",
+      "legend": "Irelia, Blade Dancer",
+      "label": "Irelia (guubum + koko)",
+      "_source": "https://piltoverarchive.com/decks/view/a51787fc-3a2f-4d32-b81b-3ae101af051e"
+    },
+    {
+      "file": "ezreal-post-ban.txt",
+      "legend": "Ezreal, Prodigal Explorer",
+      "label": "Ezreal (Post Ban)",
+      "_source": "https://piltoverarchive.com/decks/view/8452ee7d-0239-4847-845c-de74d28a2547"
     }
   ]
 }
