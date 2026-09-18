@@ -1861,15 +1861,56 @@ function renderScoreboardDecklists() {
     }
 }
 
+// The lists are built as soon as their content changes, EVEN WHILE HIDDEN.
+// The body sits off-canvas either way, so there is nothing to see, but it
+// moves the expensive part — rebuilding up to ~40 rows per side and laying
+// them out — off the critical path of the button press. Showing the lists is
+// then just a class flip, which is what keeps the slide smooth on a loaded
+// machine. `rbDeckDataVersion` bumps on every deck payload so we can tell
+// "content actually changed" from "asked again for the same thing".
+let rbRenderedKey = '';
+let rbDeckDataVersion = 0;
+
+// The server re-transforms and re-pushes whenever anything asks, so the same
+// deck can arrive several times. Rebuilding on an identical payload is pure
+// waste, and if it lands mid-slide it visibly stutters the animation.
+function rbSameDeck(a, b) {
+    if (a === b) return true;
+    if (!a || !b || a.length !== b.length) return false;
+    return JSON.stringify(a) === JSON.stringify(b);
+}
+
+function rbRenderKey() {
+    return [rbDeckDataVersion, rbSideboardVisible ? 1 : 0,
+        rbVar('--rb-vdl-w', 358), rbVar('--rb-vdl-h', 1080)].join('|');
+}
+
+// Rebuilds only when something that affects the output changed. Returns true
+// if the DOM was actually rebuilt, so the caller knows whether the layout
+// needs re-cocking before an animation.
+function ensureScoreboardDecklistsRendered() {
+    if (currentGame !== 'riftbound') return false;
+    // Panels not in the DOM yet (page still initialising) — try again later
+    // rather than recording this as rendered.
+    if (!document.querySelector('#rb-vdl-left .rb-vdl-body')) return false;
+    const key = rbRenderKey();
+    if (key === rbRenderedKey) return false;
+    renderScoreboardDecklists();
+    rbRenderedKey = key;
+    return true;
+}
+
 function applyScoreboardDecklists() {
     const root = document.getElementById('scoreboard-riftbound');
     if (!root) return;
     if (rbDecklistsVisible && currentGame === 'riftbound') {
-        renderScoreboardDecklists();
-        // Re-cock: let the fresh content lay out at its off-canvas position
-        // before the class flips, so the slide starts from the edge. Forced
-        // reflow rather than rAF — inactive OBS sources don't tick rAF.
-        void root.offsetWidth;
+        // Normally a no-op — the content was built when the deck data landed.
+        // Only a cold path (game just switched, data arrived late) still pays
+        // for the build here, and only that path needs the re-cock: let the
+        // fresh content lay out at its off-canvas position before the class
+        // flips, so the slide starts from the edge. Forced reflow rather than
+        // rAF — inactive OBS sources don't tick rAF.
+        if (ensureScoreboardDecklistsRendered()) void root.offsetWidth;
         root.classList.add('rb-vdl-visible');
     } else {
         // Content stays put while it slides back out.
@@ -1879,32 +1920,46 @@ function applyScoreboardDecklists() {
 
 socket.on('transformed-main-deck-data', (d) => {
     if (!d || d.gameType !== 'riftbound' || d.matchID !== match_id || !rbDecklists[d.sideID]) return;
+    if (rbSameDeck(d.deckData, rbDecklists[d.sideID].main)) return;
     rbDecklists[d.sideID].main = d.deckData;
-    if (rbDecklistsVisible) renderScoreboardDecklists();
+    rbDeckDataVersion++;
+    ensureScoreboardDecklistsRendered();
 });
 socket.on('transformed-side-deck-data', (d) => {
     if (!d || d.gameType !== 'riftbound' || d.matchID !== match_id || !rbDecklists[d.sideID]) return;
+    if (rbSameDeck(d.deckData, rbDecklists[d.sideID].side)) return;
     rbDecklists[d.sideID].side = d.deckData;
-    if (rbDecklistsVisible) renderScoreboardDecklists();
+    rbDeckDataVersion++;
+    ensureScoreboardDecklistsRendered();
 });
 socket.on('server-current-scoreboard-decklists-visible', ({ scoreboardDecklistsVisible } = {}) => {
     rbDecklistsVisible = !!scoreboardDecklistsVisible;
-    if (rbDecklistsVisible) requestScoreboardDecklists();
+    // Only ask when we have nothing to show yet (cold transform cache).
+    // Asking on every reveal landed a fresh payload mid-slide and rebuilt the
+    // DOM while it was animating.
+    if (rbDecklistsVisible && !(rbDecklists.left.main && rbDecklists.right.main)) requestScoreboardDecklists();
     applyScoreboardDecklists();
 });
 socket.on('scoreboard-decklists-visible-updated', ({ scoreboardDecklistsVisible } = {}) => {
     rbDecklistsVisible = !!scoreboardDecklistsVisible;
-    if (rbDecklistsVisible) requestScoreboardDecklists();
+    // Only ask when we have nothing to show yet (cold transform cache).
+    // Asking on every reveal landed a fresh payload mid-slide and rebuilt the
+    // DOM while it was animating.
+    if (rbDecklistsVisible && !(rbDecklists.left.main && rbDecklists.right.main)) requestScoreboardDecklists();
     applyScoreboardDecklists();
 });
 // The lists include the sideboard when master control's Show Sideboard is on.
 socket.on('server-current-sideboard-visible', ({ sideboardVisible } = {}) => {
     rbSideboardVisible = !!sideboardVisible;
-    if (rbDecklistsVisible) renderScoreboardDecklists();
+    // Rebuild even while hidden, so toggling Show Sideboard off-air does not
+    // make the next reveal pay for it.
+    ensureScoreboardDecklistsRendered();
 });
 socket.on('sideboard-visible-updated', ({ sideboardVisible } = {}) => {
     rbSideboardVisible = !!sideboardVisible;
-    if (rbDecklistsVisible) renderScoreboardDecklists();
+    // Rebuild even while hidden, so toggling Show Sideboard off-air does not
+    // make the next reveal pay for it.
+    ensureScoreboardDecklistsRendered();
 });
 socket.emit('get-sideboard-visible');
 socket.emit('get-scoreboard-decklists-visible');
